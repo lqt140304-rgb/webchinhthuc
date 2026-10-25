@@ -6,6 +6,8 @@ Mọi agent phải đọc [PROJECT_BRIEF.md](PROJECT_BRIEF.md) để nắm mục
 
 Nhiệm vụ hiện tại: sửa mốc 2A theo [brief cho Antigravity](docs/ANTIGRAVITY_2A_FIX_BRIEF.md) và [báo cáo QA của Claude](docs/qa/bao-cao-kiem-tra-2A.md). 2A chưa đạt; 2B chờ duyệt; chưa bắt đầu giai đoạn 3.
 
+Anti và Claude phải theo [quy trình E2E và retest 2A](docs/qa/2a-e2e-protocol.md): Anti kiểm tra trước bàn giao, Claude chạy lại đúng SHA mới và ghi báo cáo riêng trong `docs/qa/`.
+
 ## Phạm vi và quyền quyết định
 
 Đây là quy chế chung cho ChatGPT, Claude và Antigravity khi làm việc trong repository `lqt140304-rgb/webchinhthuc`, trên mọi nhánh và Git worktree. Mỗi agent phải đọc file này trước khi bắt đầu công việc và sau mỗi lần đồng bộ quy chế.

@@ -42,6 +42,8 @@ Các ID giữ nguyên theo báo cáo Claude để hai agent đối chiếu. Th�
 
 ## 5. Kiểm tra và đầu ra bắt buộc
 
+**E2E bắt buộc:** thực hiện [hướng dẫn E2E và retest](qa/2a-e2e-protocol.md). Anti chạy trước bàn giao; Claude chạy lại độc lập trên đúng SHA code mới. Báo cáo Anti dùng `docs/qa/2a-fix-handoff.md`; báo cáo Claude dùng `docs/qa/2a-retest-01.md` và tăng số ở các lần sau. Không coi lint/build hoặc ảnh chụp riêng lẻ là thay thế E2E.
+
 1. Chạy `npm run lint`, `npm run build`; ghi Node/npm và kết quả thực tế. Không báo đạt phần chưa chạy.
 2. Kiểm tra trang chủ, ComingSoon, 404 ở 320, 390, 768, 1366, 1440px. Ghi viewport yêu cầu, `innerWidth`, `clientWidth`, `scrollWidth` và vị trí Menu; phát hiện mobile viewport tự nới rộng thay vì báo PASS giả.
 3. Kiểm tra tương tác theo các ID bên trên, gồm focus trap hai chiều, Escape, trả focus, resize qua 1024px, scroll restore, dropdown hover/click/Tab, active route, meta qua navigation và Back.

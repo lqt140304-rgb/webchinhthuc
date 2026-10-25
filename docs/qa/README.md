@@ -1,5 +1,11 @@
 # Hồ sơ QA mốc 2A
 
+## Quy trình hiện hành
+
+Đọc [hướng dẫn E2E và retest cho Claude/Anti](2a-e2e-protocol.md). Anti ghi kết quả sửa vào `docs/qa/2a-fix-handoff.md`, ảnh tại `docs/qa/2a-fix-evidence/`. Claude chạy lại độc lập đúng SHA mới và tạo `docs/qa/2a-retest-01.md`, ảnh tại `docs/qa/2a-retest-01-evidence/`. Đây là các đầu ra cần tạo sau khi chạy, không phải kết quả đã có. Giữ nguyên báo cáo cũ; lần retest tiếp theo tăng số thứ tự.
+
+## Hồ sơ gốc
+
 - [Báo cáo Claude lần 3](bao-cao-kiem-tra-2A.md): bản gốc do người dùng cung cấp, giữ nguyên nội dung; SHA được review là `c2e5361defb0d151bf14c8153a341072060c2e42`.
 - Ngày kiểm tra do báo cáo ghi: 25/10/2026. Ngày đưa vào repo: 26/10/2026.
 - Các đường dẫn scratchpad và script trong báo cáo thuộc môi trường Claude. Repo chỉ nhận được báo cáo và ba ảnh bên dưới; chưa nhận `qa-result.json`, `qa.js`, `qa2.js` hoặc các ảnh khác. Không coi chúng là tệp có sẵn trong repo.
