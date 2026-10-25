@@ -16,7 +16,9 @@ Kế hoạch triển khai chia theo 5 giai đoạn nghiêm ngặt, mỗi giai đ
 
 ### Giai đoạn 2: Thiết Lập Routing & Xây Dựng Trang Chủ
 
-#### Mốc 2A: Routing & Bộ Khung Giao Diện (ĐÃ HOÀN TẤT & NGHIỆM THU)
+#### Mốc 2A: Routing & Bộ Khung Giao Diện (CHƯA ĐẠT — CHỜ SỬA SAU REVIEW QA)
+
+Cập nhật 26/10/2026: [Báo cáo QA lần 3 của Claude](qa/bao-cao-kiem-tra-2A.md) trên SHA `c2e5361` ghi nhận 8 lỗi P1 và các lỗi P2/P3. Các mục đã đánh dấu bên dưới chỉ thể hiện phần đã triển khai, không phải kết luận nghiệm thu. Thực hiện [brief sửa lỗi cho Antigravity](ANTIGRAVITY_2A_FIX_BRIEF.md), bàn giao SHA mới và chờ Claude kiểm tra lại trước khi đề xuất duyệt.
 - [x] Tích hợp `react-router-dom` và cấu hình hệ thống tuyến đường tập trung (`AppRoutes`).
 - [x] Dựng `RootLayout` kết nối Header, Outlet, Footer, MobileNav Drawer và MobileBottomBar.
 - [x] Header Desktop: Bố cục tối ưu trên Desktop 1440px & Laptop 1366px, đầy đủ navigation dropdown đa tầng, cụm Đăng nhập / Đăng ký, Hotline 24/24 và nút CTA Đặt lịch.
@@ -32,7 +34,7 @@ Kế hoạch triển khai chia theo 5 giai đoạn nghiêm ngặt, mỗi giai đ
 - [x] **Section 4 (Câu chuyện nổi bật):** 1 ca phục hồi tiêu biểu, quy trình 3 giai đoạn lâm sàng, có nhãn minh họa minh bạch (không có tên thuốc hay liều lượng nội bộ).
 - [x] **Section 5 (Góc kiến thức & Tin tức):** 3 thẻ bài viết tạp chí (Editorial Magazine Cards), có thông báo bản mẫu biên tập rõ ràng.
 - [x] **Section 6 (Đặt lịch & Liên hệ):** Thông tin 101 Khuất Duy Tiến, Hotline 097 355 51 05, Giờ khám 08:00 – 21:00, liên kết Google Maps và biểu mẫu demo với thông báo minh bạch chưa kết nối database (không báo gửi thành công giả).
-- [x] Kiểm thử toàn diện: Linter 0 errors, TypeScript 0 errors, Build 274ms, kiểm tra tràn ngang (PASS 5/5 breakpoints: 320px, 390px, 768px, 1366px, 1440px).
+- [ ] Kiểm chứng lại sau sửa 2A: lint/build và responsive tại 320px, 390px, 768px, 1366px, 1440px. Báo cáo cũ ghi PASS 5/5 nhưng Claude đo ở 320px thấy `scrollWidth=368px`; số đo `innerWidth=369px` trước đây không chứng minh đạt ở 320px. 2B chưa được review chi tiết toàn bộ.
 - [x] **DỪNG LẠI CHỜ PHÊ DUYỆT MỐC 2B TRƯỚC KHI BƯỚC VÀO GIAI ĐOẠN 3.**
 
 ---

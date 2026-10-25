@@ -4,6 +4,8 @@
 
 Mọi agent phải đọc [PROJECT_BRIEF.md](PROJECT_BRIEF.md) để nắm mục đích, kế hoạch, điểm dừng nghiệm thu và tiêu chí kiểm tra; sau đó đọc các tài liệu nguồn được liên kết trong brief. Claude phải đối chiếu thay đổi với kế hoạch trước khi kết luận review. Không coi báo cáo hoàn thành trước đây là bằng chứng đã được người dùng phê duyệt.
 
+Nhiệm vụ hiện tại: sửa mốc 2A theo [brief cho Antigravity](docs/ANTIGRAVITY_2A_FIX_BRIEF.md) và [báo cáo QA của Claude](docs/qa/bao-cao-kiem-tra-2A.md). 2A chưa đạt; 2B chờ duyệt; chưa bắt đầu giai đoạn 3.
+
 ## Phạm vi và quyền quyết định
 
 Đây là quy chế chung cho ChatGPT, Claude và Antigravity khi làm việc trong repository `lqt140304-rgb/webchinhthuc`, trên mọi nhánh và Git worktree. Mỗi agent phải đọc file này trước khi bắt đầu công việc và sau mỗi lần đồng bộ quy chế.

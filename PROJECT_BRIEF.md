@@ -38,7 +38,7 @@ Nguồn tiến độ chi tiết: [implementation-plan.md](docs/implementation-pl
 | Giai đoạn/mốc | Đầu ra và phạm vi | Trạng thái theo kế hoạch hiện có |
 | --- | --- | --- |
 | 1 — Nền tảng | Kiến trúc, design tokens, sitemap/phân quyền, SEO, mô hình trạng thái đặt lịch | Ghi nhận đã hoàn tất và được phê duyệt |
-| 2A — Khung đa trang | Routing tập trung, RootLayout, Header/Footer, menu desktop/mobile, logo, ComingSoon và 404 | Ghi nhận đã hoàn tất và nghiệm thu |
+| 2A — Khung đa trang | Routing tập trung, RootLayout, Header/Footer, menu desktop/mobile, logo, ComingSoon và 404 | **Chưa đạt — chờ sửa sau review QA của Claude** |
 | 2B — Trang chủ | Sáu section theo bảng bên dưới; responsive và kiểm tra tương tác | Ghi nhận đã hoàn tất, **chờ duyệt** |
 | 3 — Trang con | Giới thiệu, đội ngũ, cơ sở vật chất, dịch vụ/chi tiết, bảng giá, câu chuyện/chi tiết, góc thú cưng/bài viết, sản phẩm, đặt lịch đầy đủ; đối chiếu thêm trang liên hệ trong sitemap | Chỉ bắt đầu sau khi giai đoạn 2 được duyệt; dừng duyệt trước giai đoạn 4 |
 | 4 — Tích hợp và cổng khách hàng | Form có API, kiểm tra dữ liệu, xác thực/database khi được cho phép, các trang tài khoản theo ma trận phân quyền | Chờ duyệt giai đoạn 3 và quyết định giải pháp tích hợp |
@@ -83,7 +83,7 @@ Không đưa tên thuốc nội bộ, liều lượng, thời điểm/kỹ thu�
 
 ## 6. Công việc cụ thể tiếp theo cho từng vai
 
-1. **ChatGPT — CEO:** dùng tài liệu này và kế hoạch chi tiết để giao brief review mốc 2B; nêu commit đích, phạm vi và tiêu chí, tổng hợp các điểm cần người dùng xác nhận.
+1. **ChatGPT — CEO:** điều phối sửa mốc 2A theo [giao việc cho Anti](docs/ANTIGRAVITY_2A_FIX_BRIEF.md) và [báo cáo QA của Claude](docs/qa/bao-cao-kiem-tra-2A.md); chưa chuyển sang giai đoạn 3. Sau khi sửa và review lại 2A, tiếp tục nghiệm thu riêng 2B.
 2. **Claude — QA reviewer:** đọc các nguồn ở mục 8, kiểm tra mốc 2A/2B trên commit được giao, lập báo cáo lỗi có vị trí, cách tái hiện và mức độ ảnh hưởng. Kiểm chứng riêng các tuyên bố trong báo cáo cũ.
 3. **Antigravity — designer/developer:** sửa các lỗi cần sửa trong phạm vi mốc đang xét, giữ định hướng thiết kế và ràng buộc nghiệp vụ, bàn giao commit mới và kết quả kiểm tra.
 4. **Claude:** review lại thay đổi; **ChatGPT:** tổng hợp kết luận cho người dùng quyết định nghiệm thu.
@@ -103,6 +103,8 @@ Không đưa tên thuốc nội bộ, liều lượng, thời điểm/kỹ thu�
 **Lưu ý về bằng chứng cũ:** [milestone-2b-report.md](docs/milestone-2b-report.md) ghi PASS cho bài test “320px” nhưng số đo `innerWidth` là **369px**. Kết quả đó chưa chứng minh bố cục đạt ở 320px; Claude cần chạy lại đúng viewport. Toàn bộ PASS trong báo cáo là kết quả được báo cáo trước đây, chưa được tái chạy trong lần tạo tài liệu này.
 
 ## 8. Thứ tự đọc bắt buộc và cách cập nhật
+
+**Cập nhật 26/10/2026:** Báo cáo QA lần 3 của Claude tại SHA `c2e5361` kết luận 2A chưa đạt, ghi nhận 8 lỗi P1 cùng các lỗi P2/P3. Đây là báo cáo do người dùng cung cấp, chưa được ChatGPT chạy lại kiểm thử. Trạng thái 2A ở trên thay thế ghi nhận nghiệm thu cũ. Đọc [báo cáo QA](docs/qa/bao-cao-kiem-tra-2A.md), [ảnh bằng chứng](docs/qa/README.md) và [file giao việc sửa](docs/ANTIGRAVITY_2A_FIX_BRIEF.md) trước khi tiếp tục. 2B vẫn chờ duyệt; chưa bắt đầu giai đoạn 3.
 
 1. [AGENTS.md](AGENTS.md) — phân vai, quyền quyết định, phối hợp worktree.
 2. [PROJECT_BRIEF.md](PROJECT_BRIEF.md) — mục đích, kế hoạch và tiêu chí tổng hợp này.
