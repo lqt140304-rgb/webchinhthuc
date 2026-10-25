@@ -2,6 +2,8 @@
 
 ## Retest-01 và vòng sửa 02
 
+Người dùng đã chọn bộ E2E Claude làm chuẩn. Các tệp `tests/e2e/2a.e2e.test.cjs`, `tests/e2e/hosting-404html-sim.cjs` và `tests/e2e/run-2a-e2e.sh` được đưa nguyên bản từ `76e1e5c` vào main để dùng chung; chưa được ChatGPT chạy lại. Bộ mô phỏng GitHub Pages chỉ giữ làm hồ sơ tái hiện, không phải kiểm tra host Vercel đã chọn. Anti cập nhật các test bị ảnh hưởng bởi yêu cầu mới theo brief vòng 02 và ghi rõ lý do, không giảm khả năng bắt lỗi điều hướng/dropdown.
+
 [Claude retest-01](2a-retest-01.md) và thư mục `2a-retest-01-evidence/` được lấy riêng từ commit `76e1e5c1513a7d2626cf217361ac6064aa9488b3`, giữ nguyên nội dung. Code đích là `31e3c1e`, không phải code trên main. Claude báo 44 PASS, 7 FAIL, 2 SKIP trong 53 test; ChatGPT chưa chạy lại. Xem [brief vòng sửa 02](../ANTIGRAVITY_2A_FIX_ROUND_02.md). Anti bàn giao `docs/qa/2a-fix-handoff-02.md`; Claude tạo `docs/qa/2a-retest-02.md` sau khi có SHA mới, không ghi đè retest-01. Các link tới tệp chỉ có trên nhánh Anti/Claude trong báo cáo gốc phải đọc ở nhánh nguồn, không mặc định đã có trên main.
 
 ## Quy trình hiện hành

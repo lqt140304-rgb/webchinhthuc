@@ -1,6 +1,6 @@
 # Quy chế phối hợp agent
 
-**Nhiệm vụ mới nhất (26/10/2026):** thực hiện [brief vòng sửa 02](docs/ANTIGRAVITY_2A_FIX_ROUND_02.md) theo [Claude retest-01](docs/qa/2a-retest-01.md). Brief này cập nhật thứ tự việc hiện tại so với vòng 01; 2A vẫn chưa đạt. Bốn quyết định còn chờ được ghi trong brief, không tự xem là đã được duyệt.
+**Nhiệm vụ mới nhất (26/10/2026):** thực hiện [brief vòng sửa 02](docs/ANTIGRAVITY_2A_FIX_ROUND_02.md) theo [Claude retest-01](docs/qa/2a-retest-01.md). 2A vẫn chưa đạt. Người dùng đã chốt Vercel, xác nhận địa chỉ/giờ hoạt động, bỏ hotline Header và dùng bộ E2E Claude; xem chi tiết trong brief. Chưa có quyền triển khai hoặc nghiệm thu.
 
 ## Tài liệu phải đọc trước khi làm việc
 

@@ -17,26 +17,26 @@ P1-1, P1-2, P1-5, P1-6 đạt; P1-7 đạt phía client, HTML gốc còn BLOCKED
 
 1. **P1-4 — hover/click:** bỏ hover mở menu hoặc phân biệt menu đang mở do hover để click không đóng trái kỳ vọng. Test bằng chuột thật qua browser automation: rê vào trigger rồi click, submenu vẫn truy cập được; kiểm tra Enter, Escape, Tab ra ngoài và trả focus.
 2. **P1-3 — active route:** dùng chung hàm cho Header và MobileNav, so khớp ranh giới `p === base || p.startsWith(base + '/')` khi cần đánh dấu nhóm. Link tổng quan chỉ active khi khớp chính xác; xét query `cat=news`; bỏ aria-current khỏi logo. Chỉ một link trang hiện tại trong mỗi vùng điều hướng đang hiển thị. Phải sửa đủ sáu test FAIL của Claude và bổ sung trường hợp ranh giới cho Drawer.
-3. **P1-8 — cấu hình sai:** gỡ `public/404.html` đang làm mất deep link, cùng cấu hình host tạo sẵn chưa được chọn (`public/_redirects`, `vercel.json`), khôi phục trạng thái trung lập theo brief vòng 01. Không tự chọn host hoặc triển khai. Nếu người dùng chốt host sau đó, chỉ thêm cấu hình phù hợp quyết định mới và kiểm tra qua HOST_URL. Chưa có host: ghi BLOCKED, không báo đã giải quyết HTTP fallback/noindex HTML gốc.
-4. **R1-1 — JSON-LD:** cần xử lý trước nghiệm thu nhưng phụ thuộc quyết định nội dung ở mục dưới. Không gọi dữ liệu địa chỉ/giờ khám là đã xác minh, không tự xác nhận thay chủ bệnh viện. Khi tạm gỡ được duyệt, thực sự loại JSON-LD khỏi HTML xuất bản, không chỉ thêm chú thích “chờ duyệt”.
+3. **P1-8 — cấu hình sai:** người dùng đã chọn **Vercel**. Gỡ `public/404.html` và `public/_redirects`; chỉ giữ/rà cấu hình Vercel phù hợp SPA, không làm mất deep link, asset hoặc tệp SEO. Kiểm tra URL sai và HTTP status thật. Không tự triển khai: khi chưa có URL Vercel được phép kiểm tra, ghi phần host thật BLOCKED, không báo đã giải quyết chỉ nhờ vite preview. Đề xuất riêng phương án noindex HTML gốc/header theo route nếu cần, không áp noindex toàn site làm mất index trang chủ.
+4. **R1-1 — JSON-LD:** người dùng đã xác nhận địa chỉ **101 Khuất Duy Tiến, Thanh Xuân, Hà Nội**, giờ làm việc **08:00–21:00**, cấp cứu **24/24**. Cập nhật JSON-LD và dữ liệu dùng chung đúng nội dung này; không tự thêm “Phường Nhân Chính”, không tự khẳng định Thanh Xuân là quận/phường hiện hành. Không bịa tọa độ hoặc dữ liệu xác minh bên ngoài. Ghi nguồn là xác nhận trực tiếp của người dùng ngày 26/10/2026; bỏ chú thích khẳng định có hồ sơ đăng ký đã xác minh nếu không có hồ sơ. Chỉ phát JSON-LD bệnh viện trên trang chủ phù hợp nội dung, không phát trên trang 404/trang chờ.
 5. **P3:** bỏ canonical khỏi trang 404; tối ưu logo và tạo favicon phù hợp, giữ nhận diện và kiểm tra chất lượng hiển thị. Do 404.html sẽ gỡ, không cần giữ hoặc sửa cú pháp tệp đó chỉ để hỗ trợ host chưa chọn.
 6. Bàn giao SHA code mới để Claude chạy **retest-02**; không tự merge main hoặc chuyển giai đoạn.
 
-## Bốn quyết định đang chờ người dùng
+## Bốn quyết định đã chốt ngày 26/10/2026
 
-| Quyết định | Tình trạng và tác động |
+| Quyết định | Chỉ dẫn thực hiện |
 | --- | --- |
-| Host: Vercel/Netlify/Cloudflare Pages/GitHub Pages hoặc chưa chốt | Chưa có lựa chọn được xác nhận. Gỡ cấu hình tạo sẵn sai như trên; giữ kiểm tra host BLOCKED |
-| JSON-LD địa chỉ/giờ khám | Đề xuất tạm gỡ đến khi có dữ liệu được chủ bệnh viện xác minh. Chờ quyết định trước khi thay đổi; lỗi R1-1 vẫn mở |
-| Hotline Header desktop | Chọn luôn có nút gọi (có thể thu gọn) hoặc giữ hành vi hiện tại. Chờ quyết định; không đổi bố cục phần này theo suy đoán |
-| Bộ E2E chuẩn | Đề xuất dùng `tests/e2e/2a.e2e.test.cjs` từ commit Claude nêu trên. Chờ phê duyệt việc chọn làm chuẩn. Trong thời gian chờ vẫn dùng các ca test của Claude để tái hiện và xác nhận P1-3/P1-4; không tự đổi dependencies ứng dụng |
+| Host | **Vercel**. Giữ cấu hình đúng Vercel; gỡ 404.html/_redirects dành cho host khác. Chọn host không phải cho phép deploy |
+| JSON-LD | Dùng địa chỉ **101 Khuất Duy Tiến, Thanh Xuân, Hà Nội**; giờ **08:00–21:00**, cấp cứu **24/24**, theo xác nhận người dùng. Không thêm tên phường/quận chưa được xác nhận; kiểm tra dữ liệu hiển thị và schema khớp nhau |
+| Hotline Header | **Bỏ hotline trên Header** theo lựa chọn người dùng. Không bỏ hotline ở Drawer, Hero, Footer hoặc thanh hành động mobile; xác nhận vẫn có lối gọi dễ tìm. Đây là thay đổi yêu cầu so với sitemap cũ, phải cập nhật tài liệu và test liên quan có lý do |
+| Bộ E2E chuẩn | **Dùng `tests/e2e/2a.e2e.test.cjs` của Claude** làm bộ chuẩn cho Anti và retest-02, lấy từ commit `76e1e5c`. Không thêm dependencies ứng dụng. Bộ cũ của Anti chỉ là kiểm tra bổ sung |
 
-Các quyết định chờ không chặn sửa P1-3, P1-4, gỡ cấu hình host sai và các P3 độc lập. Ghi rõ các mục chờ trong bàn giao, không tự coi là PASS.
+Các lựa chọn này thay thế trạng thái chờ trong phiên bản brief trước. Cần xác nhận hành vi bằng test sau sửa, không coi quyết định sản phẩm là bằng chứng PASS.
 
 ## E2E và bàn giao vòng 02
 
 - Bộ Claude tại commit `76e1e5c`: `tests/e2e/2a.e2e.test.cjs`, `tests/e2e/hosting-404html-sim.cjs`, `tests/e2e/run-2a-e2e.sh`. Có thể lấy riêng các tệp này để kiểm tra; không merge toàn bộ nhánh review. Playwright có thể cài tách trong môi trường kiểm tra; không tự sửa package.json/lockfile.
 - Chạy lint, build và các test độc lập. Không giảm assertion để biến lỗi thành PASS. Dùng thao tác chuột/bàn phím thật, chờ trạng thái thay sleep cố định; đọc robots/sitemap qua HTTP, kiểm Back/Forward, Tab/Shift+Tab, route con/query, ranh giới route và 15 tổ hợp responsive.
-- Khi public/404.html được gỡ và chưa chọn host, ghi test mô phỏng cũ là không còn áp dụng kèm lý do, không báo đã PASS trên host thật. Ghi riêng test host BLOCKED; không buộc tổng số test phải giữ đúng 53 nếu có thay đổi có lý do.
+- Khi public/404.html được gỡ, test mô phỏng GitHub Pages cũ không còn áp dụng, ghi rõ lý do; không coi tệp đã gỡ là test bị lỗi ứng dụng hoặc bằng chứng Vercel PASS. Chạy kiểm tra Vercel qua HOST_URL khi có URL được phép; nếu chưa có thì host thật vẫn BLOCKED. Không buộc tổng số test phải giữ đúng 53 nếu có thay đổi có lý do. Chỉ cập nhật assertion liên quan yêu cầu mới (hotline Header/host/JSON-LD), giữ nguyên các assertion bắt P1-3/P1-4 và mở rộng Drawer; ghi diff test để Claude review.
 - Lưu `docs/qa/2a-fix-handoff-02.md`, ảnh/log tại `docs/qa/2a-fix-02-evidence/`. Giữ báo cáo vòng 01, trả lời từng ID và bốn quyết định đang chờ; ghi nhánh, SHA code đích, môi trường, lệnh, pass/fail/skip và giới hạn. SHA commit tài liệu tách khỏi SHA code đã chạy.
 - Push nhánh sửa, bàn giao đường dẫn báo cáo và SHA mới cho người dùng/ChatGPT để giao Claude. Claude ghi `docs/qa/2a-retest-02.md`, ảnh/log tại `docs/qa/2a-retest-02-evidence/`, trên nhánh review riêng `claude/2a-retest-02` theo quyền người dùng đã cấp cho quy trình review; nếu phiên Claude có giới hạn mới thì tuân thủ giới hạn đó. Không sửa ứng dụng, không force-push và không merge main.
