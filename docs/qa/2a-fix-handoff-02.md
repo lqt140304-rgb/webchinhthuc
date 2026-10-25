@@ -8,6 +8,7 @@
   - `PROJECT_BRIEF.md`
   - `docs/ANTIGRAVITY_2A_FIX_ROUND_02.md` (Brief vòng sửa 02 ngày 26/10/2026)
   - `docs/qa/2a-retest-01.md` (Báo cáo retest vòng 01 của Claude)
+- **Target Code SHA:** `4b269d9`
 - **Nhánh thực hiện:** `fix/milestone-2a-qa`
 - **Cam kết phạm vi:** Mốc 2A chưa nghiệm thu; chưa merge vào `main`; chưa triển khai hosting; chưa bắt đầu Giai đoạn 3.
 
@@ -178,7 +179,7 @@ Tổng kết:
 Claude có thể tái hiện và kiểm tra độc lập tại commit SHA được bàn giao dưới đây bằng script:
 ```bash
 # Trong môi trường Linux/macOS hoặc Git Bash:
-tests/e2e/run-2a-e2e.sh <SHA> /tmp/claude-2a-retest-02 /tmp/claude-2a-retest-02/evidence
+tests/e2e/run-2a-e2e.sh 4b269d9 /tmp/claude-2a-retest-02 /tmp/claude-2a-retest-02/evidence
 
 # Hoặc trên Windows:
 npm ci
