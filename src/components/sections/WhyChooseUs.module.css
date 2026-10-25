@@ -1,0 +1,43 @@
+.sectionContainer {
+  background-color: var(--color-bg-secondary);
+  border-top: 1px solid var(--color-border-subtle);
+  border-bottom: 1px solid var(--color-border-subtle);
+  position: relative;
+  overflow: hidden;
+}
+
+.imageWrapper {
+  position: relative;
+  border-radius: 2rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-border-subtle);
+  height: 100%;
+  min-height: 440px;
+}
+
+.bentoCard {
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
+  border: 1px solid var(--color-border-subtle);
+  box-shadow: var(--shadow-subtle);
+  transition: transform var(--motion-duration-normal) var(--motion-ease-default),
+              box-shadow var(--motion-duration-normal) var(--motion-ease-default),
+              border-color var(--motion-duration-normal) var(--motion-ease-default);
+}
+
+.bentoCard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
+  border-color: var(--color-border-medium);
+}
+
+.emergencyBanner {
+  background: linear-gradient(135deg, var(--color-plum-deep) 0%, var(--color-plum-primary) 100%);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
+  color: var(--color-fg-inverse);
+  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}

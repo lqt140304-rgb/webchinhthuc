@@ -1,0 +1,59 @@
+.serviceCard {
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  border: 1px solid var(--color-border-subtle);
+  box-shadow: var(--shadow-subtle);
+  transition: transform var(--motion-duration-normal) var(--motion-ease-default),
+              box-shadow var(--motion-duration-normal) var(--motion-ease-default),
+              border-color var(--motion-duration-normal) var(--motion-ease-default);
+  display: flex;
+  flex-direction: column;
+}
+
+.serviceCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--color-border-medium);
+}
+
+.imageContainer {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+}
+
+.serviceImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--motion-duration-slow) var(--motion-ease-default);
+}
+
+.serviceCard:hover .serviceImage {
+  transform: scale(1.05);
+}
+
+.badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-plum-deep);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.emergencyCard {
+  background-color: #FFF7ED;
+  border: 1.5px dashed var(--color-warm-orange);
+  border-radius: var(--radius-2xl);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

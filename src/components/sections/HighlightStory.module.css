@@ -1,0 +1,45 @@
+.storySection {
+  background-color: var(--color-bg-secondary);
+  border-top: 1px solid var(--color-border-subtle);
+  border-bottom: 1px solid var(--color-border-subtle);
+  position: relative;
+  overflow: hidden;
+}
+
+.storyCard {
+  background-color: var(--color-bg-card);
+  border-radius: 2.5rem;
+  overflow: hidden;
+  border: 1px solid var(--color-border-subtle);
+  box-shadow: var(--shadow-card);
+}
+
+.imageFrame {
+  position: relative;
+  min-height: 380px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.timelineStep {
+  position: relative;
+  padding-left: 2rem;
+  padding-bottom: 1.5rem;
+  border-left: 2px solid rgba(90, 30, 94, 0.15);
+}
+
+.timelineStep:last-child {
+  padding-bottom: 0;
+  border-left: 2px solid transparent;
+}
+
+.timelineDot {
+  position: absolute;
+  left: -0.45rem;
+  top: 0.1rem;
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 50%;
+  background-color: var(--color-plum-primary);
+  border: 2px solid white;
+}
