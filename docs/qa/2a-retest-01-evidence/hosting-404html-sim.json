@@ -1,0 +1,26 @@
+{
+  "base": "http://localhost:4190",
+  "results": [
+    {
+      "requested": "/gioi-thieu",
+      "firstStatus": 404,
+      "finalPath": "/",
+      "h1": "“Khi bé không khỏe, bạn không phải lo một mình.”",
+      "sessionStorageRedirect": "http://localhost:4190/gioi-thieu"
+    },
+    {
+      "requested": "/dich-vu/spa",
+      "firstStatus": 404,
+      "finalPath": "/",
+      "h1": "“Khi bé không khỏe, bạn không phải lo một mình.”",
+      "sessionStorageRedirect": "http://localhost:4190/dich-vu/spa"
+    },
+    {
+      "requested": "/khong-ton-tai",
+      "firstStatus": 404,
+      "finalPath": "/",
+      "h1": "“Khi bé không khỏe, bạn không phải lo một mình.”",
+      "sessionStorageRedirect": "http://localhost:4190/khong-ton-tai"
+    }
+  ]
+}

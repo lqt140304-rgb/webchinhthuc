@@ -1,0 +1,224 @@
+▶ P1-1 Header 320px
+  ✔ viewport đúng 320px, Menu nằm trọn và mở được Drawer (isMobile=false) (1870.051389ms)
+  ✔ viewport đúng 320px, Menu nằm trọn và mở được Drawer (isMobile=true) (1518.390336ms)
+✔ P1-1 Header 320px (3505.413811ms)
+▶ Responsive: không tràn ngang ở 5 viewport
+  ✔ home @ 320px (2380.912454ms)
+  ✔ comingSoon @ 320px (1237.397493ms)
+  ✔ notFound @ 320px (1302.280051ms)
+  ✔ home @ 390px (2326.147372ms)
+  ✔ comingSoon @ 390px (1320.53033ms)
+  ✔ notFound @ 390px (1352.694367ms)
+  ✔ home @ 768px (1638.400777ms)
+  ✔ comingSoon @ 768px (1363.824582ms)
+  ✔ notFound @ 768px (1331.171915ms)
+  ✔ home @ 1366px (1754.966116ms)
+  ✔ comingSoon @ 1366px (1571.901006ms)
+  ✔ notFound @ 1366px (1308.290905ms)
+  ✔ home @ 1440px (2066.216333ms)
+  ✔ comingSoon @ 1440px (1432.032375ms)
+  ✔ notFound @ 1440px (1423.131259ms)
+✔ Responsive: không tràn ngang ở 5 viewport (23812.35059ms)
+▶ P1-2 Kích thước khung sau khi sửa token
+  ✔ ComingSoon và 404 ở 1440px có độ rộng chữ dễ đọc (≤ 800px) (1999.940466ms)
+  ✔ Drawer ở 768px không phủ gần hết màn hình (≤ 480px) (1696.029602ms)
+✔ P1-2 Kích thước khung sau khi sửa token (3696.541373ms)
+▶ Drawer: focus, Escape, cuộn
+  ✔ mở: focus vào trong, trigger có aria-expanded/aria-controls (1597.557866ms)
+  ✔ Tab/Shift+Tab không thoát dialog; Escape đóng, trả focus, khôi phục cuộn (2679.941188ms)
+  ✔ chọn link trong Drawer: đóng, đổi route, khôi phục cuộn (1552.166391ms)
+✔ Drawer: focus, Escape, cuộn (5830.158753ms)
+▶ P1-5 Resize qua breakpoint desktop
+  ✔ mở ở 900px, resize 1180px: gỡ khóa cuộn; quay lại mobile vẫn mở được (2016.42485ms)
+✔ P1-5 Resize qua breakpoint desktop (2016.696931ms)
+▶ P1-4 và P2-2 Dropdown desktop
+  ✖ rê chuột rồi bấm vẫn truy cập được submenu (1754.14058ms)
+  ✔ bàn phím: mở, focus mục đầu, Escape đóng và trả focus (1444.962768ms)
+  ✔ P2-2: Tab rời nhóm thì submenu đóng (1452.464681ms)
+✖ P1-4 và P2-2 Dropdown desktop (4652.109972ms)
+▶ P1-3 Trạng thái trang hiện tại
+  ✖ "/" : Trang chủ có aria-current="page", không có mục nào khác (1319.531572ms)
+  ✔ "/dich-vu/spa": nhóm "Dịch vụ" được tô, tối đa 1 aria-current (1206.402011ms)
+  ✔ "/cau-chuyen/abc": nhóm "Câu chuyện" được tô, tối đa 1 aria-current (1200.541983ms)
+  ✖ dropdown desktop "/dich-vu/spa": đúng một mục aria-current (/dich-vu/spa) (1344.439584ms)
+  ✔ dropdown desktop "/dich-vu": đúng một mục aria-current (/dich-vu) (1262.587618ms)
+  ✖ dropdown desktop "/goc-thu-cung?cat=news": đúng một mục aria-current (/goc-thu-cung?cat=news) (1307.758878ms)
+  ✔ dropdown desktop "/goc-thu-cung": đúng một mục aria-current (/goc-thu-cung) (1288.005091ms)
+  ✖ ranh giới route: "/dich-vu-khong-ton-tai" (404) không làm nhóm nào là hiện tại (1238.797067ms)
+  ✖ ranh giới route: "/cau-chuyenxyz" (404) không làm nhóm nào là hiện tại (1213.872713ms)
+  ✖ ranh giới route: "/gioi-thieu-abc" (404) không làm nhóm nào là hiện tại (1176.196348ms)
+  ✔ Drawer "/dich-vu/spa": link Spa có aria-current="page" (1336.910647ms)
+✖ P1-3 Trạng thái trang hiện tại (13896.385231ms)
+▶ P1-6 Lối vào và tham số
+  ✔ desktop: có link /lien-he và /dich-vu trong header hoặc footer, vào đúng route (1640.449171ms)
+  ✔ Drawer: có link /lien-he và /dich-vu (1704.111737ms)
+  ✔ tin tức dùng ?cat=news, không còn ?tab= (1519.452534ms)
+  ✔ ComingSoon có CTA liên hệ/đặt lịch ngoài hotline và nút về trang chủ (1178.344784ms)
+  ✔ mobile 390px: hotline dễ thấy ở header hoặc thanh dưới đáy (1573.325357ms)
+✔ P1-6 Lối vào và tham số (7616.552317ms)
+▶ P1-7 Meta, lịch sử và tệp SEO
+  ✔ title riêng, noindex đúng qua navigation, Back/Forward và 404 (2639.298616ms)
+  ✔ robots.txt là text/plain, chặn /tai-khoan/, /dang-nhap, /dang-ky (1441.199911ms)
+  ✔ sitemap.xml là XML hợp lệ, chỉ chứa trang chủ (1380.247965ms)
+  ﹣ [thông tin] HTML gốc của trang chờ chưa có noindex (giới hạn client rendering) (1365.106412ms) # BLOCKED: noindex trong HTML gốc cần phương án host/prerender được duyệt
+✔ P1-7 Meta, lịch sử và tệp SEO (6826.824916ms)
+▶ P1-8 Host đích
+  ﹣ mở thẳng/F5 route con, asset và URL sai trên host đích (0.376863ms) # BLOCKED: chưa chốt host đích (đặt HOST_URL để chạy)
+✔ P1-8 Host đích (0.568341ms)
+▶ P2 Khả năng truy cập và CSS
+  ✔ P2-1 tương phản các điểm đã nêu đạt WCAG AA (1443.693876ms)
+  ✔ P2-3 chuyển trang: focus vào main/h1 hoặc có thông báo aria-live (1569.590155ms)
+  ✔ P2-4 không còn lớp animate-in/fade-in/slide-in-* và py-0.2 (2427.191055ms)
+  ✔ P2-5 thanh dưới đáy có padding theo safe-area (1368.603963ms)
+  ✔ giảm chuyển động được tôn trọng (1330.938411ms)
+✔ P2 Khả năng truy cập và CSS (8140.859657ms)
+✔ không có console error / pageerror trong toàn bộ lượt chạy (0.299266ms)
+ℹ tests 53
+ℹ suites 11
+ℹ pass 44
+ℹ fail 7
+ℹ cancelled 0
+ℹ skipped 2
+ℹ todo 0
+ℹ duration_ms 80660.382406
+
+✖ failing tests:
+
+test at 2a.e2e.test.cjs:282:3
+✖ rê chuột rồi bấm vẫn truy cập được submenu (1754.14058ms)
+  AssertionError [ERR_ASSERTION]: submenu đóng sau khi rê rồi bấm
+  
+  'false' !== 'true'
+  
+      at TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:289:14)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Promise.all (index 0)
+      at async Suite.run (node:internal/test_runner/test:1442:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'false',
+    expected: 'true',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at 2a.e2e.test.cjs:342:3
+✖ "/" : Trang chủ có aria-current="page", không có mục nào khác (1319.531572ms)
+  AssertionError [ERR_ASSERTION]: chỉ link "Trang chủ" được mang aria-current (logo không nên)
+  + actual - expected
+  
+    [
+  +   'LÊ SƠNBệnh viện Thú y',
+      'Trang chủ'
+    ]
+  
+      at TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:347:14)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Promise.all (index 0)
+      at async Suite.run (node:internal/test_runner/test:1442:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ 'LÊ SƠNBệnh viện Thú y', 'Trang chủ' ],
+    expected: [ 'Trang chủ' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at 2a.e2e.test.cjs:379:5
+✖ dropdown desktop "/dich-vu/spa": đúng một mục aria-current (/dich-vu/spa) (1344.439584ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   '/dich-vu',
+      '/dich-vu/spa'
+    ]
+  
+      at TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:385:16)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ '/dich-vu', '/dich-vu/spa' ],
+    expected: [ '/dich-vu/spa' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at 2a.e2e.test.cjs:379:5
+✖ dropdown desktop "/goc-thu-cung?cat=news": đúng một mục aria-current (/goc-thu-cung?cat=news) (1307.758878ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   '/goc-thu-cung'
+  -   '/goc-thu-cung?cat=news'
+    ]
+  
+      at TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:385:16)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ '/goc-thu-cung' ],
+    expected: [ '/goc-thu-cung?cat=news' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at 2a.e2e.test.cjs:393:5
+✖ ranh giới route: "/dich-vu-khong-ton-tai" (404) không làm nhóm nào là hiện tại (1238.797067ms)
+  AssertionError [ERR_ASSERTION]: có mục điều hướng được tô trên trang 404: Trang chủ|rgb(85, 65, 87)|500,Về Lê Sơn|rgb(85, 65, 87)|500,Dịch vụ|rgb(90, 30, 94)|600,Góc thú cưng|rgb(85, 65, 87)|500,Câu chuyện|rgb(85, 65, 87)|500,Liên hệ|rgb(85, 65, 87)|500
+  
+  2 !== 1
+  
+      at TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:402:16)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 2,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at 2a.e2e.test.cjs:393:5
+✖ ranh giới route: "/cau-chuyenxyz" (404) không làm nhóm nào là hiện tại (1213.872713ms)
+  AssertionError [ERR_ASSERTION]: trang 404 vẫn có mục aria-current: Câu chuyện
+  + actual - expected
+  
+  + [
+  +   'Câu chuyện'
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:400:16)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ 'Câu chuyện' ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at 2a.e2e.test.cjs:393:5
+✖ ranh giới route: "/gioi-thieu-abc" (404) không làm nhóm nào là hiện tại (1176.196348ms)
+  AssertionError [ERR_ASSERTION]: có mục điều hướng được tô trên trang 404: Trang chủ|rgb(85, 65, 87)|500,Về Lê Sơn|rgb(90, 30, 94)|600,Dịch vụ|rgb(85, 65, 87)|500,Góc thú cưng|rgb(85, 65, 87)|500,Câu chuyện|rgb(85, 65, 87)|500,Liên hệ|rgb(85, 65, 87)|500
+  
+  2 !== 1
+  
+      at TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:402:16)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 2,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

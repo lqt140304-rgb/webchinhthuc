@@ -1,0 +1,612 @@
+▶ P1-1 Header 320px
+  ✖ viewport đúng 320px, Menu nằm trọn và mở được Drawer (isMobile=false) (1979.727179ms)
+  ✖ viewport đúng 320px, Menu nằm trọn và mở được Drawer (isMobile=true) (1441.193923ms)
+✖ P1-1 Header 320px (3547.451849ms)
+▶ Responsive: không tràn ngang ở 5 viewport
+  ✖ home @ 320px (2270.668877ms)
+  ✖ comingSoon @ 320px (1352.931874ms)
+  ✖ notFound @ 320px (1328.604389ms)
+  ✔ home @ 390px (2372.521076ms)
+  ✔ comingSoon @ 390px (1391.060413ms)
+  ✔ notFound @ 390px (1265.860156ms)
+  ✔ home @ 768px (1585.266332ms)
+  ✔ comingSoon @ 768px (1360.266991ms)
+  ✔ notFound @ 768px (1358.848293ms)
+  ✔ home @ 1366px (1840.689139ms)
+  ✔ comingSoon @ 1366px (1643.928437ms)
+  ✔ notFound @ 1366px (1358.407228ms)
+  ✔ home @ 1440px (1887.25708ms)
+  ✔ comingSoon @ 1440px (1333.333355ms)
+  ✔ notFound @ 1440px (1340.38423ms)
+✖ Responsive: không tràn ngang ở 5 viewport (23692.999937ms)
+▶ P1-2 Kích thước khung sau khi sửa token
+  ✖ ComingSoon và 404 ở 1440px có độ rộng chữ dễ đọc (≤ 800px) (2071.751535ms)
+  ✖ Drawer ở 768px không phủ gần hết màn hình (≤ 480px) (1715.213285ms)
+✖ P1-2 Kích thước khung sau khi sửa token (3787.746691ms)
+▶ Drawer: focus, Escape, cuộn
+  ✖ mở: focus vào trong, trigger có aria-expanded/aria-controls (1354.039787ms)
+  ✔ Tab/Shift+Tab không thoát dialog; Escape đóng, trả focus, khôi phục cuộn (2586.907471ms)
+  ✔ chọn link trong Drawer: đóng, đổi route, khôi phục cuộn (1561.969289ms)
+✖ Drawer: focus, Escape, cuộn (5503.49526ms)
+▶ P1-5 Resize qua breakpoint desktop
+  ✖ mở ở 900px, resize 1180px: gỡ khóa cuộn; quay lại mobile vẫn mở được (7976.782893ms)
+✖ P1-5 Resize qua breakpoint desktop (7977.181835ms)
+▶ P1-4 và P2-2 Dropdown desktop
+  ✖ rê chuột rồi bấm vẫn truy cập được submenu (1712.774821ms)
+  ✔ bàn phím: mở, focus mục đầu, Escape đóng và trả focus (1556.864244ms)
+  ✖ P2-2: Tab rời nhóm thì submenu đóng (1556.463362ms)
+✖ P1-4 và P2-2 Dropdown desktop (4826.989834ms)
+▶ P1-3 Trạng thái trang hiện tại
+  ✖ "/" : Trang chủ có aria-current="page", không có mục nào khác (1307.109578ms)
+  ✖ "/dich-vu/spa": nhóm "Dịch vụ" được tô, tối đa 1 aria-current (1190.927113ms)
+  ✖ "/cau-chuyen/abc": nhóm "Câu chuyện" được tô, tối đa 1 aria-current (1181.348047ms)
+  ✖ dropdown desktop "/dich-vu/spa": đúng một mục aria-current (/dich-vu/spa) (1286.890285ms)
+  ✖ dropdown desktop "/dich-vu": đúng một mục aria-current (/dich-vu) (1419.476578ms)
+  ✖ dropdown desktop "/goc-thu-cung?cat=news": đúng một mục aria-current (/goc-thu-cung?cat=news) (1207.640747ms)
+  ✖ dropdown desktop "/goc-thu-cung": đúng một mục aria-current (/goc-thu-cung) (1221.876927ms)
+  ✔ ranh giới route: "/dich-vu-khong-ton-tai" (404) không làm nhóm nào là hiện tại (1230.062279ms)
+  ✔ ranh giới route: "/cau-chuyenxyz" (404) không làm nhóm nào là hiện tại (1210.704425ms)
+  ✔ ranh giới route: "/gioi-thieu-abc" (404) không làm nhóm nào là hiện tại (1242.180848ms)
+  ✖ Drawer "/dich-vu/spa": link Spa có aria-current="page" (1424.165191ms)
+✖ P1-3 Trạng thái trang hiện tại (13924.234222ms)
+▶ P1-6 Lối vào và tham số
+  ✖ desktop: có link /lien-he và /dich-vu trong header hoặc footer, vào đúng route (1504.665684ms)
+  ✖ Drawer: có link /lien-he và /dich-vu (2037.238935ms)
+  ✖ tin tức dùng ?cat=news, không còn ?tab= (1483.949632ms)
+  ✖ ComingSoon có CTA liên hệ/đặt lịch ngoài hotline và nút về trang chủ (1228.999574ms)
+  ✔ mobile 390px: hotline dễ thấy ở header hoặc thanh dưới đáy (1617.459796ms)
+✖ P1-6 Lối vào và tham số (7873.125365ms)
+▶ P1-7 Meta, lịch sử và tệp SEO
+  ✖ title riêng, noindex đúng qua navigation, Back/Forward và 404 (17256.45538ms)
+  ✖ robots.txt là text/plain, chặn /tai-khoan/, /dang-nhap, /dang-ky (1804.303696ms)
+  ✖ sitemap.xml là XML hợp lệ, chỉ chứa trang chủ (1357.728615ms)
+  ﹣ [thông tin] HTML gốc của trang chờ chưa có noindex (giới hạn client rendering) (1347.066739ms) # BLOCKED: noindex trong HTML gốc cần phương án host/prerender được duyệt
+✖ P1-7 Meta, lịch sử và tệp SEO (21766.52517ms)
+▶ P1-8 Host đích
+  ﹣ mở thẳng/F5 route con, asset và URL sai trên host đích (0.448373ms) # BLOCKED: chưa chốt host đích (đặt HOST_URL để chạy)
+✔ P1-8 Host đích (0.648584ms)
+▶ P2 Khả năng truy cập và CSS
+  ✖ P2-1 tương phản các điểm đã nêu đạt WCAG AA (1454.431421ms)
+  ✖ P2-3 chuyển trang: focus vào main/h1 hoặc có thông báo aria-live (3432.62842ms)
+  ✖ P2-4 không còn lớp animate-in/fade-in/slide-in-* và py-0.2 (2100.778707ms)
+  ✖ P2-5 thanh dưới đáy có padding theo safe-area (1255.969996ms)
+  ✔ giảm chuyển động được tôn trọng (1310.569996ms)
+✖ P2 Khả năng truy cập và CSS (9555.508029ms)
+✔ không có console error / pageerror trong toàn bộ lượt chạy (0.326411ms)
+ℹ tests 53
+ℹ suites 11
+ℹ pass 21
+ℹ fail 30
+ℹ cancelled 0
+ℹ skipped 2
+ℹ todo 0
+ℹ duration_ms 103088.248082
+
+✖ failing tests:
+
+test at 2a.e2e.test.cjs:105:5
+✖ viewport đúng 320px, Menu nằm trọn và mở được Drawer (isMobile=false) (1979.727179ms)
+  AssertionError [ERR_ASSERTION]: tràn ngang: scrollWidth=368
+      at TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:113:16)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Promise.all (index 0)
+      at async Suite.run (node:internal/test_runner/test:1442:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at 2a.e2e.test.cjs:105:5
+✖ viewport đúng 320px, Menu nằm trọn và mở được Drawer (isMobile=true) (1441.193923ms)
+  AssertionError [ERR_ASSERTION]: innerWidth bị nới khỏi 320px: nội dung tràn làm viewport mobile tự giãn
+  
+  369 !== 320
+  
+      at TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:112:16)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 369,
+    expected: 320,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at 2a.e2e.test.cjs:129:7
+✖ home @ 320px (2270.668877ms)
+  AssertionError [ERR_ASSERTION]: innerWidth=369 khác viewport yêu cầu 320
+  
+  369 !== 320
+  
+      at TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:135:18)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Promise.all (index 0)
+      at async Suite.run (node:internal/test_runner/test:1442:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 369,
+    expected: 320,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at 2a.e2e.test.cjs:129:7
+✖ comingSoon @ 320px (1352.931874ms)
+  AssertionError [ERR_ASSERTION]: innerWidth=369 khác viewport yêu cầu 320
+  
+  369 !== 320
+  
+      at TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:135:18)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 369,
+    expected: 320,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at 2a.e2e.test.cjs:129:7
+✖ notFound @ 320px (1328.604389ms)
+  AssertionError [ERR_ASSERTION]: innerWidth=369 khác viewport yêu cầu 320
+  
+  369 !== 320
+  
+      at TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:135:18)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 369,
+    expected: 320,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at 2a.e2e.test.cjs:148:3
+✖ ComingSoon và 404 ở 1440px có độ rộng chữ dễ đọc (≤ 800px) (2071.751535ms)
+  AssertionError [ERR_ASSERTION]: ComingSoon rộng 1376px (max-width 1440px)
+      at TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:165:14)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Promise.all (index 0)
+      at async Suite.run (node:internal/test_runner/test:1442:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at 2a.e2e.test.cjs:173:3
+✖ Drawer ở 768px không phủ gần hết màn hình (≤ 480px) (1715.213285ms)
+  AssertionError [ERR_ASSERTION]: Drawer rộng 640px ở viewport 768px
+      at TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:181:14)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at 2a.e2e.test.cjs:190:3
+✖ mở: focus vào trong, trigger có aria-expanded/aria-controls (1354.039787ms)
+  AssertionError [ERR_ASSERTION]: trigger chưa có aria-expanded="false" khi đóng
+  
+  null !== 'false'
+  
+      at TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:194:14)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Promise.all (index 0)
+      at async Suite.run (node:internal/test_runner/test:1442:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: 'false',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at 2a.e2e.test.cjs:252:3
+✖ mở ở 900px, resize 1180px: gỡ khóa cuộn; quay lại mobile vẫn mở được (7976.782893ms)
+  AssertionError [ERR_ASSERTION]: body vẫn overflow:hidden sau khi lên desktop
+      at TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:265:14)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Promise.all (index 0)
+      at async Suite.run (node:internal/test_runner/test:1442:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'hidden',
+    expected: 'hidden',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at 2a.e2e.test.cjs:282:3
+✖ rê chuột rồi bấm vẫn truy cập được submenu (1712.774821ms)
+  AssertionError [ERR_ASSERTION]: submenu đóng sau khi rê rồi bấm
+  
+  'false' !== 'true'
+  
+      at TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:289:14)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Promise.all (index 0)
+      at async Suite.run (node:internal/test_runner/test:1442:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'false',
+    expected: 'true',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at 2a.e2e.test.cjs:312:3
+✖ P2-2: Tab rời nhóm thì submenu đóng (1556.463362ms)
+  AssertionError [ERR_ASSERTION]: submenu vẫn mở sau khi focus rời nhóm
+  
+  'true' !== 'false'
+  
+      at TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:323:14)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'true',
+    expected: 'false',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at 2a.e2e.test.cjs:342:3
+✖ "/" : Trang chủ có aria-current="page", không có mục nào khác (1307.109578ms)
+  AssertionError [ERR_ASSERTION]: chỉ link "Trang chủ" được mang aria-current (logo không nên)
+  + actual - expected
+  
+  + []
+  - [
+  -   'Trang chủ'
+  - ]
+  
+      at TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:347:14)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Promise.all (index 0)
+      at async Suite.run (node:internal/test_runner/test:1442:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [ 'Trang chủ' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at 2a.e2e.test.cjs:357:5
+✖ "/dich-vu/spa": nhóm "Dịch vụ" được tô, tối đa 1 aria-current (1190.927113ms)
+  AssertionError [ERR_ASSERTION]: "Dịch vụ" không khác biệt so với "Về Lê Sơn"
+      at TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:364:16)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'rgb(104, 84, 107)|500',
+    expected: 'rgb(104, 84, 107)|500',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at 2a.e2e.test.cjs:357:5
+✖ "/cau-chuyen/abc": nhóm "Câu chuyện" được tô, tối đa 1 aria-current (1181.348047ms)
+  AssertionError [ERR_ASSERTION]: "Câu chuyện" không khác biệt so với "Về Lê Sơn"
+      at TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:364:16)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'rgb(104, 84, 107)|500',
+    expected: 'rgb(104, 84, 107)|500',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at 2a.e2e.test.cjs:379:5
+✖ dropdown desktop "/dich-vu/spa": đúng một mục aria-current (/dich-vu/spa) (1286.890285ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   '/dich-vu/spa'
+  - ]
+  
+      at TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:385:16)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [ '/dich-vu/spa' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at 2a.e2e.test.cjs:379:5
+✖ dropdown desktop "/dich-vu": đúng một mục aria-current (/dich-vu) (1419.476578ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   '/dich-vu'
+  - ]
+  
+      at TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:385:16)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [ '/dich-vu' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at 2a.e2e.test.cjs:379:5
+✖ dropdown desktop "/goc-thu-cung?cat=news": đúng một mục aria-current (/goc-thu-cung?cat=news) (1207.640747ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   '/goc-thu-cung?cat=news'
+  - ]
+  
+      at TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:385:16)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [ '/goc-thu-cung?cat=news' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at 2a.e2e.test.cjs:379:5
+✖ dropdown desktop "/goc-thu-cung": đúng một mục aria-current (/goc-thu-cung) (1221.876927ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   '/goc-thu-cung'
+  - ]
+  
+      at TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:385:16)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [ '/goc-thu-cung' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at 2a.e2e.test.cjs:409:3
+✖ Drawer "/dich-vu/spa": link Spa có aria-current="page" (1424.165191ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  null !== 'page'
+  
+      at TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:416:14)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: 'page',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at 2a.e2e.test.cjs:425:3
+✖ desktop: có link /lien-he và /dich-vu trong header hoặc footer, vào đúng route (1504.665684ms)
+  AssertionError [ERR_ASSERTION]: không có link /dich-vu trong header/footer
+      at TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:433:14)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Promise.all (index 0)
+      at async Suite.run (node:internal/test_runner/test:1442:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at 2a.e2e.test.cjs:443:3
+✖ Drawer: có link /lien-he và /dich-vu (2037.238935ms)
+  AssertionError [ERR_ASSERTION]: Drawer thiếu /lien-he
+      at TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:450:14)
+      at runNextTicks (node:internal/process/task_queues:65:5)
+      at process.processImmediate (node:internal/timers:453:9)
+      at process.callbackTrampoline (node:internal/async_hooks:130:17)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at 2a.e2e.test.cjs:458:3
+✖ tin tức dùng ?cat=news, không còn ?tab= (1483.949632ms)
+  AssertionError [ERR_ASSERTION]: link tin tức: /goc-thu-cung?tab=news
+      at TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:464:14)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at 2a.e2e.test.cjs:470:3
+✖ ComingSoon có CTA liên hệ/đặt lịch ngoài hotline và nút về trang chủ (1228.999574ms)
+  AssertionError [ERR_ASSERTION]: ComingSoon thiếu CTA liên hệ/đặt lịch
+      at TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:473:14)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at 2a.e2e.test.cjs:498:3
+✖ title riêng, noindex đúng qua navigation, Back/Forward và 404 (17256.45538ms)
+  AssertionError [ERR_ASSERTION]: trang chờ dùng chung title với trang chủ
+      at TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:529:14)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Promise.all (index 0)
+      at async Suite.run (node:internal/test_runner/test:1442:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'Bệnh viện Thú y Lê Sơn — Chăm Sóc Y Tế Thú Cưng Chuẩn Mực',
+    expected: 'Bệnh viện Thú y Lê Sơn — Chăm Sóc Y Tế Thú Cưng Chuẩn Mực',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at 2a.e2e.test.cjs:543:3
+✖ robots.txt là text/plain, chặn /tai-khoan/, /dang-nhap, /dang-ky (1804.303696ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /text\/plain/. Input:
+  
+  'text/html'
+  
+      at TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:550:14)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'text/html',
+    expected: /text\/plain/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at 2a.e2e.test.cjs:559:3
+✖ sitemap.xml là XML hợp lệ, chỉ chứa trang chủ (1357.728615ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /xml/. Input:
+  
+  'text/html'
+  
+      at TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:565:14)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'text/html',
+    expected: /xml/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at 2a.e2e.test.cjs:662:3
+✖ P2-1 tương phản các điểm đã nêu đạt WCAG AA (1454.431421ms)
+  AssertionError [ERR_ASSERTION]: không đạt: [{"label":"Footer: dòng phụ dưới tên bệnh viện","ratio":2.27,"need":4.5,"size":10,"weight":"500"},{"label":"Footer: số hotline trong ô cấp cứu","ratio":2.88,"need":4.5,"size":14,"weight":"700"},{"label":"Footer: link Cấp cứu","ratio":3.29,"need":4.5,"size":12,"weight":"600"},{"label":"Header: nút hotline","ratio":4.25,"need":4.5,"size":12,"weight":"600"},{"label":"Dropdown: mô tả mục (dòng phụ dưới nhãn)","ratio":3.31,"need":4.5,"size":11,"weight":"400"}]
+  
+  5 !== 0
+  
+      at TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:677:14)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Promise.all (index 0)
+      at async Suite.run (node:internal/test_runner/test:1442:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 5,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at 2a.e2e.test.cjs:683:3
+✖ P2-3 chuyển trang: focus vào main/h1 hoặc có thông báo aria-live (3432.62842ms)
+  AssertionError [ERR_ASSERTION]: không dời focus và không có thông báo khi chuyển trang
+      at TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:696:14)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at 2a.e2e.test.cjs:702:3
+✖ P2-4 không còn lớp animate-in/fade-in/slide-in-* và py-0.2 (2100.778707ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + [
+  +   'py-0.2',
+  +   'animate-in',
+  +   'fade-in',
+  +   'slide-in-from-top-1'
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:716:14)
+      at runNextTicks (node:internal/process/task_queues:65:5)
+      at process.processImmediate (node:internal/timers:453:9)
+      at process.callbackTrampoline (node:internal/async_hooks:130:17)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'py-0.2', 'animate-in', 'fade-in', 'slide-in-from-top-1' ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at 2a.e2e.test.cjs:722:3
+✖ P2-5 thanh dưới đáy có padding theo safe-area (1255.969996ms)
+  AssertionError [ERR_ASSERTION]: thanh dưới đáy không dùng env(safe-area-inset-bottom)
+  
+  false !== true
+  
+      at TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:742:14)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
