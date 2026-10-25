@@ -667,7 +667,7 @@ describe('P2 Khả năng truy cập và CSS', () => {
         ['Footer: dòng phụ dưới tên bệnh viện', 'footer a[href="/"] span:last-child'],
         ['Footer: số hotline trong ô cấp cứu', 'footer div a[href^="tel:"]'],
         ['Footer: link Cấp cứu', 'footer a[href="/dich-vu/cap-cuu"]'],
-        ['Header: nút hotline', 'header a[href^="tel:"]'],
+        // Header hotline removed per Decision 3
         ['Dropdown: mô tả mục (dòng phụ dưới nhãn)', 'header nav [id^="dropdown-menu"] a > span:last-child'],
       ])
       measurements.push({ id: 'P2-1', contrast: res })
