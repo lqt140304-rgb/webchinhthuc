@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, ShieldAlert, Phone, Stethoscope, Home, Sparkles } from 'lucide-react'
+import { HOSPITAL_CONTACT } from '@/config/contact'
 import styles from './FeaturedServices.module.css'
 
 interface ServiceItem {
@@ -123,7 +124,7 @@ export const FeaturedServices: React.FC = () => {
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <h4 className="font-serif font-bold text-lg text-[var(--color-warm-orange)]">
+                  <h4 className="font-serif font-bold text-lg text-[var(--color-warm-orange-dark)]">
                     Cấp Cứu Thú Cưng Khẩn Cấp 24/24
                   </h4>
                   <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[var(--color-warm-orange)] text-white">
@@ -131,22 +132,22 @@ export const FeaturedServices: React.FC = () => {
                   </span>
                 </div>
                 <p className="text-xs sm:text-sm text-slate-700 mt-1 max-w-xl">
-                  Bé có dấu hiệu khó thở, co giật, ngộ độc, xuất huyết hoặc tai nạn? Đội ngũ y tế trực đêm tại 101 Khuất Duy Tiến luôn sẵn sàng tiếp nhận ngay lập tức.
+                  Bé có dấu hiệu khó thở, co giật, ngộ độc, xuất huyết hoặc tai nạn? Đội ngũ y tế trực đêm tại {HOSPITAL_CONTACT.shortAddress} luôn sẵn sàng tiếp nhận ngay lập tức.
                 </p>
               </div>
             </div>
 
             <div className="flex items-center gap-3 shrink-0 w-full sm:w-auto">
               <a
-                href="tel:0973555105"
-                className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[var(--color-warm-orange)] hover:bg-[var(--color-warm-orange-hover)] text-white font-semibold text-sm transition-all shadow-[var(--shadow-warm-orange)] active:scale-98"
+                href={HOSPITAL_CONTACT.hotlineTel}
+                className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[var(--color-warm-orange)] hover:bg-[var(--color-warm-orange-hover)] text-white font-semibold text-sm transition-all shadow-[var(--shadow-warm-orange)] active:scale-[0.98]"
               >
                 <Phone className="w-4 h-4" />
-                <span>Gọi Cấp cứu: 097 355 51 05</span>
+                <span>Gọi Cấp cứu: {HOSPITAL_CONTACT.hotlineDisplay}</span>
               </a>
               <Link
                 to="/dich-vu/cap-cuu"
-                className="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl border border-orange-300 text-[var(--color-warm-orange)] hover:bg-orange-100/50 font-semibold text-sm transition-colors"
+                className="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl border border-orange-300 text-[var(--color-warm-orange-dark)] hover:bg-orange-100/50 font-semibold text-sm transition-colors"
               >
                 <span>Quy trình</span>
               </Link>

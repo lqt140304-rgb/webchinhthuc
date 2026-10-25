@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { MapPin, Phone, Clock, ShieldAlert, Navigation, AlertCircle, Calendar } from 'lucide-react'
+import { HOSPITAL_CONTACT } from '@/config/contact'
 import styles from './BookingContactSection.module.css'
 
 export const BookingContactSection: React.FC = () => {
@@ -40,23 +41,23 @@ export const BookingContactSection: React.FC = () => {
             <div className={styles.infoCard}>
               <div className="space-y-6">
                 <div>
-                  <span className="text-[10px] uppercase font-bold tracking-widest text-[var(--color-plum-orchid)]">
+                  <span className="text-[10px] uppercase font-bold tracking-widest text-[var(--color-plum-orchid-light)]">
                     Thông Tin Địa Chỉ & Hotline
                   </span>
                   <h3 className="font-serif font-bold text-2xl text-white mt-1">
-                    Bệnh viện Thú y Lê Sơn
+                    {HOSPITAL_CONTACT.name}
                   </h3>
                 </div>
 
                 <ul className="space-y-4 text-sm text-slate-200">
                   <li className="flex items-start gap-3">
-                    <MapPin className="w-5 h-5 text-[var(--color-plum-orchid)] shrink-0 mt-0.5" />
+                    <MapPin className="w-5 h-5 text-[var(--color-plum-orchid-light)] shrink-0 mt-0.5" />
                     <div>
                       <strong className="text-white block font-medium">Địa chỉ cơ sở:</strong>
-                      <span>101 Khuất Duy Tiến, Phường Nhân Chính, Quận Thanh Xuân, Hà Nội</span>
+                      <span>{HOSPITAL_CONTACT.address}</span>
                       <div className="mt-2">
                         <a
-                          href="https://maps.google.com/?q=101+Khuất+Duy+Tiến,+Nhân+Chính,+Thanh+Xuân,+Hà+Nội"
+                          href={HOSPITAL_CONTACT.mapsUrl}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-1.5 text-xs text-amber-300 hover:text-white underline underline-offset-4 font-semibold"
@@ -69,25 +70,25 @@ export const BookingContactSection: React.FC = () => {
                   </li>
 
                   <li className="flex items-start gap-3">
-                    <Phone className="w-5 h-5 text-[var(--color-warm-orange)] shrink-0 mt-0.5" />
+                    <Phone className="w-5 h-5 text-[var(--color-warm-orange-light)] shrink-0 mt-0.5" />
                     <div>
                       <strong className="text-white block font-medium">Hotline tư vấn & Cấp cứu 24/24:</strong>
                       <a
-                        href="tel:0973555105"
-                        className="text-lg font-bold text-[var(--color-warm-orange)] hover:underline inline-block mt-0.5"
+                        href={HOSPITAL_CONTACT.hotlineTel}
+                        className="text-lg font-bold text-[var(--color-warm-orange-light)] hover:underline inline-block mt-0.5"
                       >
-                        097 355 51 05
+                        {HOSPITAL_CONTACT.hotlineDisplay}
                       </a>
                     </div>
                   </li>
 
                   <li className="flex items-start gap-3">
-                    <Clock className="w-5 h-5 text-[var(--color-plum-orchid)] shrink-0 mt-0.5" />
+                    <Clock className="w-5 h-5 text-[var(--color-plum-orchid-light)] shrink-0 mt-0.5" />
                     <div>
                       <strong className="text-white block font-medium">Thời gian hoạt động:</strong>
-                      <span>Giờ khám tham chiếu: 08:00 – 21:00 (Tất cả các ngày)</span>
-                      <p className="text-xs text-[var(--color-warm-orange)] font-semibold mt-1">
-                        * Tiếp nhận cấp cứu & điều trị nội trú 24/24
+                      <span>Giờ khám tham chiếu: {HOSPITAL_CONTACT.workingHours}</span>
+                      <p className="text-xs text-[var(--color-warm-orange-light)] font-semibold mt-1">
+                        * {HOSPITAL_CONTACT.emergencyHours}
                       </p>
                     </div>
                   </li>
@@ -96,7 +97,7 @@ export const BookingContactSection: React.FC = () => {
 
               {/* Bottom Alert Banner */}
               <div className="mt-8 pt-6 border-t border-white/10 flex items-center gap-3">
-                <ShieldAlert className="w-6 h-6 text-[var(--color-warm-orange)] shrink-0" />
+                <ShieldAlert className="w-6 h-6 text-[var(--color-warm-orange-light)] shrink-0" />
                 <p className="text-xs text-slate-300 leading-snug">
                   Đội ngũ bác sĩ trực sẵn sàng tiếp nhận thú cưng khẩn cấp trong mọi khung giờ đêm hoặc ngày lễ.
                 </p>
@@ -118,9 +119,9 @@ export const BookingContactSection: React.FC = () => {
 
               {/* Transparent Status Banner */}
               <div className="mb-6 p-3.5 rounded-xl bg-amber-50 border border-amber-200/90 text-xs text-amber-950 flex items-start gap-2.5">
-                <AlertCircle className="w-4 h-4 text-[var(--color-warm-orange)] shrink-0 mt-0.5" />
+                <AlertCircle className="w-4 h-4 text-[var(--color-warm-orange-dark)] shrink-0 mt-0.5" />
                 <div>
-                  <strong>Thông báo minh bạch:</strong> Biểu mẫu dưới đây là bản mẫu giao diện tương tác (chưa kết nối cơ sở dữ liệu tiếp nhận). Để đặt lịch hẹn có hiệu lực ngay, quý khách vui lòng liên hệ qua hotline <strong>097 355 51 05</strong>.
+                  <strong>Thông báo minh bạch:</strong> Biểu mẫu dưới đây là bản mẫu giao diện tương tác (chưa kết nối cơ sở dữ liệu tiếp nhận). Để đặt lịch hẹn có hiệu lực ngay, quý khách vui lòng liên hệ qua hotline <strong>{HOSPITAL_CONTACT.hotlineDisplay}</strong>.
                 </div>
               </div>
 
@@ -137,16 +138,16 @@ export const BookingContactSection: React.FC = () => {
                   </p>
                   <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
                     <a
-                      href="tel:0973555105"
-                      className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--color-warm-orange)] hover:bg-[var(--color-warm-orange-hover)] text-white font-semibold text-sm transition-all shadow-[var(--shadow-warm-orange)]"
+                      href={HOSPITAL_CONTACT.hotlineTel}
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--color-warm-orange)] hover:bg-[var(--color-warm-orange-hover)] text-white font-semibold text-sm transition-all shadow-[var(--shadow-warm-orange)] active:scale-[0.98]"
                     >
                       <Phone className="w-4 h-4" />
-                      <span>Gọi ngay: 097 355 51 05</span>
+                      <span>Gọi ngay: {HOSPITAL_CONTACT.hotlineDisplay}</span>
                     </a>
                     <button
                       type="button"
                       onClick={() => setShowDemoNotice(false)}
-                      className="px-5 py-3 rounded-xl border border-[var(--color-border-medium)] text-xs font-semibold text-[var(--color-fg-primary)] hover:bg-white transition-colors"
+                      className="px-5 py-3 rounded-xl border border-[var(--color-border-medium)] text-xs font-semibold text-[var(--color-fg-primary)] hover:bg-white transition-colors active:scale-[0.98] cursor-pointer"
                     >
                       Xem lại biểu mẫu
                     </button>
@@ -156,10 +157,11 @@ export const BookingContactSection: React.FC = () => {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-semibold uppercase tracking-wider text-[var(--color-fg-primary)] mb-1.5">
+                      <label htmlFor="owner-name-input" className="block text-xs font-semibold uppercase tracking-wider text-[var(--color-fg-primary)] mb-1.5">
                         Họ tên của bạn *
                       </label>
                       <input
+                        id="owner-name-input"
                         type="text"
                         required
                         value={formData.ownerName}
@@ -170,10 +172,11 @@ export const BookingContactSection: React.FC = () => {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold uppercase tracking-wider text-[var(--color-fg-primary)] mb-1.5">
+                      <label htmlFor="phone-input" className="block text-xs font-semibold uppercase tracking-wider text-[var(--color-fg-primary)] mb-1.5">
                         Số điện thoại *
                       </label>
                       <input
+                        id="phone-input"
                         type="tel"
                         required
                         value={formData.phone}
@@ -186,10 +189,11 @@ export const BookingContactSection: React.FC = () => {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-semibold uppercase tracking-wider text-[var(--color-fg-primary)] mb-1.5">
+                      <label htmlFor="pet-type-select" className="block text-xs font-semibold uppercase tracking-wider text-[var(--color-fg-primary)] mb-1.5">
                         Loài thú cưng
                       </label>
                       <select
+                        id="pet-type-select"
                         value={formData.petType}
                         onChange={(e) => setFormData({ ...formData, petType: e.target.value })}
                         className="w-full px-3.5 py-2.5 rounded-xl border border-[var(--color-border-medium)] focus:border-[var(--color-plum-primary)] focus:outline-none text-sm bg-white cursor-pointer"
@@ -201,10 +205,11 @@ export const BookingContactSection: React.FC = () => {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold uppercase tracking-wider text-[var(--color-fg-primary)] mb-1.5">
+                      <label htmlFor="service-select" className="block text-xs font-semibold uppercase tracking-wider text-[var(--color-fg-primary)] mb-1.5">
                         Dịch vụ quan tâm
                       </label>
                       <select
+                        id="service-select"
                         value={formData.service}
                         onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                         className="w-full px-3.5 py-2.5 rounded-xl border border-[var(--color-border-medium)] focus:border-[var(--color-plum-primary)] focus:outline-none text-sm bg-white cursor-pointer"
@@ -220,7 +225,7 @@ export const BookingContactSection: React.FC = () => {
                   <div className="pt-2">
                     <button
                       type="submit"
-                      className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-[var(--color-plum-primary)] hover:bg-[var(--color-plum-deep)] text-white font-semibold text-sm transition-all shadow-[var(--shadow-card)] active:scale-98 cursor-pointer"
+                      className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-[var(--color-plum-primary)] hover:bg-[var(--color-plum-deep)] text-white font-semibold text-sm transition-all shadow-[var(--shadow-card)] active:scale-[0.98] cursor-pointer"
                     >
                       <Calendar className="w-4 h-4" />
                       <span>Thử nghiệm gửi yêu cầu (Bản mẫu)</span>

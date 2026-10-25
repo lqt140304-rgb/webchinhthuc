@@ -10,6 +10,39 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VeterinaryCare",
+      "name": "Bệnh viện Thú y Lê Sơn",
+      "url": "https://bvthuyleson.vn",
+      "telephone": "+84973555105",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "101 Khuất Duy Tiến, Phường Nhân Chính",
+        "addressLocality": "Quận Thanh Xuân",
+        "addressRegion": "Hà Nội",
+        "addressCountry": "VN"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "08:00",
+          "closes": "21:00",
+          "description": "Giờ khám tham chiếu"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "00:00",
+          "closes": "23:59",
+          "description": "Cấp cứu 24/24"
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

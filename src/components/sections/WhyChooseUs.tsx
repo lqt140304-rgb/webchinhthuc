@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Stethoscope, HeartHandshake, Eye, ShieldAlert, Phone } from 'lucide-react'
+import { HOSPITAL_CONTACT } from '@/config/contact'
 import styles from './WhyChooseUs.module.css'
 
 export const WhyChooseUs: React.FC = () => {
@@ -13,7 +14,7 @@ export const WhyChooseUs: React.FC = () => {
             Triết Lý Hoạt Động
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[var(--color-plum-deep)] tracking-tight leading-tight">
-            Vì sao chủ nuôi tin chọn Bệnh viện Thú y Lê Sơn?
+            Vì sao chủ nuôi tin chọn {HOSPITAL_CONTACT.name}?
           </h2>
           <p className="mt-4 text-base sm:text-lg text-[var(--color-fg-muted)] leading-relaxed font-sans">
             Mỗi người bạn bốn chân khi bước qua cánh cửa bệnh viện đều được đón nhận như một thành viên gia đình. Chúng tôi xây dựng niềm tin từ sự cẩn trọng y khoa và tấm lòng yêu thương động vật chân thành.
@@ -64,7 +65,7 @@ export const WhyChooseUs: React.FC = () => {
             {/* Value 2: Tận tâm, lắng nghe */}
             <div className={styles.bentoCard}>
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-orange-50 text-[var(--color-warm-orange)] border border-orange-100 flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-xl bg-orange-50 text-[var(--color-warm-orange-dark)] border border-orange-100 flex items-center justify-center shrink-0">
                   <HeartHandshake className="w-6 h-6" />
                 </div>
                 <div>
@@ -114,11 +115,11 @@ export const WhyChooseUs: React.FC = () => {
 
                 <div className="flex items-center gap-3 shrink-0">
                   <a
-                    href="tel:0973555105"
-                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--color-warm-orange)] hover:bg-[var(--color-warm-orange-hover)] text-white text-xs sm:text-sm font-semibold transition-all shadow-sm"
+                    href={HOSPITAL_CONTACT.hotlineTel}
+                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--color-warm-orange)] hover:bg-[var(--color-warm-orange-hover)] text-white text-xs sm:text-sm font-semibold transition-all shadow-sm active:scale-[0.98]"
                   >
                     <Phone className="w-3.5 h-3.5" />
-                    <span>097 355 51 05</span>
+                    <span>{HOSPITAL_CONTACT.hotlineDisplay}</span>
                   </a>
                   <Link
                     to="/dich-vu/cap-cuu"

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { X, ChevronDown, Phone, Calendar, MapPin, ShieldAlert, LogIn, UserPlus } from 'lucide-react'
+import { X, ChevronDown, Phone, Calendar, MapPin, ShieldAlert, LogIn, UserPlus, MessageSquare } from 'lucide-react'
+import { HOSPITAL_CONTACT } from '@/config/contact'
 
 interface MobileNavProps {
   isOpen: boolean
@@ -14,12 +15,32 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
   const drawerRef = useRef<HTMLDivElement>(null)
   const closeButtonRef = useRef<HTMLButtonElement>(null)
 
-  // Đóng drawer khi tuyến đường thay đổi thông qua useEffect (không gọi trong render)
+  // Đóng drawer khi tuyến đường thay đổi
   useEffect(() => {
     if (isOpen) {
       onClose()
     }
-  }, [location.pathname]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [location.pathname, location.search]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Đóng drawer khi kích thước màn hình vượt quá breakpoint di động (>= 1024px)
+  useEffect(() => {
+    if (!isOpen) return
+
+    const mql = window.matchMedia('(min-width: 1024px)')
+    const handleResize = (e: MediaQueryListEvent) => {
+      if (e.matches) {
+        onClose()
+      }
+    }
+
+    if (mql.matches) {
+      onClose()
+      return
+    }
+
+    mql.addEventListener('change', handleResize)
+    return () => mql.removeEventListener('change', handleResize)
+  }, [isOpen, onClose])
 
   // Khóa cuộn body an toàn, bảo lưu trạng thái overflow trước đó
   useEffect(() => {
@@ -44,7 +65,6 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
       clearTimeout(timer)
       document.body.style.overflow = previousOverflow
       document.body.style.paddingRight = previousPaddingRight
-      // Trả lại focus cho nút trigger mở menu
       triggerElement?.focus()
     }
   }, [isOpen, triggerRef])
@@ -94,6 +114,11 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
     setOpenSection(openSection === name ? null : name)
   }
 
+  const isCurrent = (path: string) => {
+    if (path === '/') return location.pathname === '/'
+    return location.pathname.startsWith(path)
+  }
+
   if (!isOpen) return null
 
   return (
@@ -107,11 +132,12 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
 
       {/* Drawer Panel với dialog semantics */}
       <div
+        id="mobile-nav-dialog"
         ref={drawerRef}
         role="dialog"
         aria-modal="true"
         aria-label="Menu điều hướng trên thiết bị di động"
-        className="fixed inset-y-0 right-0 w-full max-w-sm bg-[var(--color-bg-primary)] shadow-2xl flex flex-col z-50 animate-in slide-in-from-right duration-300"
+        className="fixed inset-y-0 right-0 w-full max-w-sm bg-[var(--color-bg-primary)] shadow-2xl flex flex-col z-50 transition-transform duration-300"
       >
         {/* Drawer Header */}
         <div className="p-4 border-b border-[var(--color-border-subtle)] flex items-center justify-between">
@@ -143,11 +169,16 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
         </div>
 
         {/* Drawer Nav Items */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-1">
+        <div className="flex-1 overflow-y-auto p-4 space-y-1.5">
           <Link
             to="/"
             onClick={onClose}
-            className="flex items-center justify-between px-3.5 py-3 rounded-xl font-medium text-sm text-[var(--color-fg-primary)] hover:bg-[var(--color-bg-secondary)]"
+            aria-current={location.pathname === '/' ? 'page' : undefined}
+            className={`flex items-center justify-between px-3.5 py-3 rounded-xl font-medium text-sm transition-colors ${
+              location.pathname === '/'
+                ? 'bg-[var(--color-bg-secondary)] text-[var(--color-plum-primary)] font-semibold'
+                : 'text-[var(--color-fg-primary)] hover:bg-[var(--color-bg-secondary)]'
+            }`}
           >
             Trang chủ
           </Link>
@@ -172,13 +203,15 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
                 <Link
                   to="/gioi-thieu"
                   onClick={onClose}
+                  aria-current={isCurrent('/gioi-thieu') ? 'page' : undefined}
                   className="block px-3 py-2 text-xs font-medium text-[var(--color-fg-muted)] hover:text-[var(--color-plum-primary)]"
                 >
-                  Giới thiệu
+                  Giới thiệu bệnh viện
                 </Link>
                 <Link
                   to="/doi-ngu"
                   onClick={onClose}
+                  aria-current={isCurrent('/doi-ngu') ? 'page' : undefined}
                   className="block px-3 py-2 text-xs font-medium text-[var(--color-fg-muted)] hover:text-[var(--color-plum-primary)]"
                 >
                   Đội ngũ bác sĩ
@@ -186,6 +219,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
                 <Link
                   to="/co-so-vat-chat"
                   onClick={onClose}
+                  aria-current={isCurrent('/co-so-vat-chat') ? 'page' : undefined}
                   className="block px-3 py-2 text-xs font-medium text-[var(--color-fg-muted)] hover:text-[var(--color-plum-primary)]"
                 >
                   Cơ sở vật chất
@@ -202,7 +236,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
               onClick={() => toggleSection('services')}
               className="w-full flex items-center justify-between px-3.5 py-3 text-sm font-medium text-[var(--color-fg-primary)] bg-[var(--color-bg-card)] hover:bg-[var(--color-bg-secondary)] cursor-pointer"
             >
-              <span>Dịch vụ</span>
+              <span>Dịch vụ y tế</span>
               <ChevronDown
                 className={`w-4 h-4 text-[var(--color-fg-subtle)] transition-transform duration-200 ${
                   openSection === 'services' ? 'rotate-180 text-[var(--color-plum-primary)]' : ''
@@ -212,15 +246,25 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
             {openSection === 'services' && (
               <div className="bg-[var(--color-bg-secondary)]/50 px-2 py-1.5 space-y-0.5 border-t border-[var(--color-border-subtle)]">
                 <Link
-                  to="/dich-vu/kham-dieu-tri"
+                  to="/dich-vu"
                   onClick={onClose}
+                  aria-current={location.pathname === '/dich-vu' ? 'page' : undefined}
                   className="block px-3 py-2 text-xs font-medium text-[var(--color-fg-muted)] hover:text-[var(--color-plum-primary)]"
                 >
-                  Khám & điều trị
+                  Tất cả dịch vụ
+                </Link>
+                <Link
+                  to="/dich-vu/kham-dieu-tri"
+                  onClick={onClose}
+                  aria-current={isCurrent('/dich-vu/kham-dieu-tri') ? 'page' : undefined}
+                  className="block px-3 py-2 text-xs font-medium text-[var(--color-fg-muted)] hover:text-[var(--color-plum-primary)]"
+                >
+                  Khám & điều trị lâm sàng
                 </Link>
                 <Link
                   to="/dich-vu/noi-tru"
                   onClick={onClose}
+                  aria-current={isCurrent('/dich-vu/noi-tru') ? 'page' : undefined}
                   className="block px-3 py-2 text-xs font-medium text-[var(--color-fg-muted)] hover:text-[var(--color-plum-primary)]"
                 >
                   Chăm sóc nội trú 24/7
@@ -228,26 +272,29 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
                 <Link
                   to="/dich-vu/spa"
                   onClick={onClose}
+                  aria-current={isCurrent('/dich-vu/spa') ? 'page' : undefined}
                   className="block px-3 py-2 text-xs font-medium text-[var(--color-fg-muted)] hover:text-[var(--color-plum-primary)]"
                 >
-                  Spa & Grooming
+                  Spa & Grooming thẩm mỹ
                 </Link>
                 <Link
                   to="/dich-vu/cap-cuu"
                   onClick={onClose}
-                  className="flex items-center justify-between px-3 py-2 text-xs font-semibold text-[var(--color-warm-orange)] bg-amber-50/70 rounded-lg"
+                  aria-current={isCurrent('/dich-vu/cap-cuu') ? 'page' : undefined}
+                  className="flex items-center justify-between px-3 py-2 text-xs font-semibold text-[var(--color-warm-orange-dark)] bg-amber-50/80 rounded-lg"
                 >
                   <span className="flex items-center gap-1.5">
                     <ShieldAlert className="w-3.5 h-3.5" />
                     Cấp cứu 24/24
                   </span>
-                  <span className="text-[9px] uppercase px-1 py-0.2 rounded bg-[var(--color-warm-orange)] text-white">
+                  <span className="text-[9px] uppercase px-1.5 py-0.5 rounded bg-[var(--color-warm-orange-dark)] text-white font-bold">
                     Khẩn cấp
                   </span>
                 </Link>
                 <Link
                   to="/bang-gia"
                   onClick={onClose}
+                  aria-current={isCurrent('/bang-gia') ? 'page' : undefined}
                   className="block px-3 py-2 text-xs font-medium text-[var(--color-fg-muted)] hover:text-[var(--color-plum-primary)]"
                 >
                   Bảng giá niêm yết
@@ -259,7 +306,12 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
           <Link
             to="/cau-chuyen"
             onClick={onClose}
-            className="flex items-center justify-between px-3.5 py-3 rounded-xl font-medium text-sm text-[var(--color-fg-primary)] hover:bg-[var(--color-bg-secondary)]"
+            aria-current={isCurrent('/cau-chuyen') ? 'page' : undefined}
+            className={`flex items-center justify-between px-3.5 py-3 rounded-xl font-medium text-sm transition-colors ${
+              isCurrent('/cau-chuyen')
+                ? 'bg-[var(--color-bg-secondary)] text-[var(--color-plum-primary)] font-semibold'
+                : 'text-[var(--color-fg-primary)] hover:bg-[var(--color-bg-secondary)]'
+            }`}
           >
             Câu chuyện điều trị
           </Link>
@@ -284,20 +336,23 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
                 <Link
                   to="/goc-thu-cung"
                   onClick={onClose}
+                  aria-current={location.pathname === '/goc-thu-cung' && !location.search ? 'page' : undefined}
                   className="block px-3 py-2 text-xs font-medium text-[var(--color-fg-muted)] hover:text-[var(--color-plum-primary)]"
                 >
                   Kiến thức chăm sóc
                 </Link>
                 <Link
-                  to="/goc-thu-cung?tab=news"
+                  to="/goc-thu-cung?cat=news"
                   onClick={onClose}
+                  aria-current={location.search.includes('cat=news') ? 'page' : undefined}
                   className="block px-3 py-2 text-xs font-medium text-[var(--color-fg-muted)] hover:text-[var(--color-plum-primary)]"
                 >
-                  Tin tức hoạt động
+                  Tin tức & Hoạt động
                 </Link>
                 <Link
                   to="/san-pham"
                   onClick={onClose}
+                  aria-current={isCurrent('/san-pham') ? 'page' : undefined}
                   className="block px-3 py-2 text-xs font-medium text-[var(--color-fg-muted)] hover:text-[var(--color-plum-primary)]"
                 >
                   Sản phẩm chọn lọc
@@ -306,12 +361,30 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
             )}
           </div>
 
+          {/* Liên hệ */}
+          <Link
+            to="/lien-he"
+            onClick={onClose}
+            aria-current={isCurrent('/lien-he') ? 'page' : undefined}
+            className={`flex items-center justify-between px-3.5 py-3 rounded-xl font-medium text-sm transition-colors ${
+              isCurrent('/lien-he')
+                ? 'bg-[var(--color-bg-secondary)] text-[var(--color-plum-primary)] font-semibold'
+                : 'text-[var(--color-fg-primary)] hover:bg-[var(--color-bg-secondary)]'
+            }`}
+          >
+            <span className="flex items-center gap-2">
+              <MessageSquare className="w-4 h-4 text-[var(--color-plum-primary)]" />
+              <span>Liên hệ & Chỉ đường</span>
+            </span>
+          </Link>
+
           {/* Account links */}
           <div className="pt-3 border-t border-[var(--color-border-subtle)] grid grid-cols-2 gap-2">
             <Link
               to="/dang-nhap"
               onClick={onClose}
-              className="flex items-center justify-center gap-1.5 py-2.5 rounded-xl border border-[var(--color-border-subtle)] text-xs font-semibold text-[var(--color-fg-primary)] hover:bg-[var(--color-bg-secondary)]"
+              aria-current={isCurrent('/dang-nhap') ? 'page' : undefined}
+              className="flex items-center justify-center gap-1.5 py-2.5 rounded-xl border border-[var(--color-border-subtle)] text-xs font-semibold text-[var(--color-fg-primary)] hover:bg-[var(--color-bg-secondary)] active:scale-[0.98]"
             >
               <LogIn className="w-3.5 h-3.5" />
               <span>Đăng nhập</span>
@@ -319,7 +392,8 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
             <Link
               to="/dang-ky"
               onClick={onClose}
-              className="flex items-center justify-center gap-1.5 py-2.5 rounded-xl border border-[var(--color-border-subtle)] text-xs font-semibold text-[var(--color-fg-primary)] hover:bg-[var(--color-bg-secondary)]"
+              aria-current={isCurrent('/dang-ky') ? 'page' : undefined}
+              className="flex items-center justify-center gap-1.5 py-2.5 rounded-xl border border-[var(--color-border-subtle)] text-xs font-semibold text-[var(--color-fg-primary)] hover:bg-[var(--color-bg-secondary)] active:scale-[0.98]"
             >
               <UserPlus className="w-3.5 h-3.5" />
               <span>Đăng ký</span>
@@ -330,17 +404,17 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
         {/* Drawer Bottom Info */}
         <div className="p-4 bg-[var(--color-bg-secondary)] border-t border-[var(--color-border-subtle)] space-y-3">
           <a
-            href="tel:0973555105"
-            className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-[var(--color-warm-orange)] hover:bg-[var(--color-warm-orange-hover)] text-white font-semibold text-xs shadow-[var(--shadow-warm-orange)]"
+            href={HOSPITAL_CONTACT.hotlineTel}
+            className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-[var(--color-warm-orange)] hover:bg-[var(--color-warm-orange-hover)] text-white font-semibold text-xs shadow-[var(--shadow-warm-orange)] active:scale-[0.98]"
           >
             <Phone className="w-4 h-4" />
-            <span>Gọi Cấp cứu 24/24: 097 355 51 05</span>
+            <span>Gọi Cấp cứu 24/24: {HOSPITAL_CONTACT.hotlineDisplay}</span>
           </a>
 
           <Link
             to="/dat-lich"
             onClick={onClose}
-            className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[var(--color-plum-primary)] hover:bg-[var(--color-plum-deep)] text-white font-semibold text-xs shadow-sm"
+            className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[var(--color-plum-primary)] hover:bg-[var(--color-plum-deep)] text-white font-semibold text-xs shadow-xs active:scale-[0.98]"
           >
             <Calendar className="w-3.5 h-3.5" />
             <span>Đặt lịch hẹn</span>
@@ -348,7 +422,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
 
           <div className="flex items-start gap-2 text-[11px] text-[var(--color-fg-muted)] pt-1">
             <MapPin className="w-3.5 h-3.5 text-[var(--color-plum-primary)] shrink-0 mt-0.5" />
-            <span>101 Khuất Duy Tiến, Nhân Chính, Thanh Xuân, Hà Nội</span>
+            <span>{HOSPITAL_CONTACT.address}</span>
           </div>
         </div>
       </div>
@@ -359,17 +433,19 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
 /**
  * Mobile Bottom Quick CTA Bar
  * Dải hành động nhanh cố định đáy màn hình trên thiết bị di động
+ * Tối ưu safe-area-inset-bottom cho thiết bị iPhone có thanh Home Indicator
  */
 export const MobileBottomBar: React.FC = () => {
   return (
     <div
       role="region"
       aria-label="Thanh tác vụ nhanh khẩn cấp"
+      style={{ paddingBottom: 'max(0.625rem, env(safe-area-inset-bottom, 0px))' }}
       className="lg:hidden fixed bottom-0 inset-x-0 z-30 bg-[var(--color-bg-card)]/95 backdrop-blur-md border-t border-[var(--color-border-subtle)] p-2.5 flex items-center gap-2 shadow-[var(--shadow-float)]"
     >
       <a
-        href="tel:0973555105"
-        className="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-[var(--color-warm-orange)] text-white font-semibold text-xs shadow-[var(--shadow-warm-orange)] active:scale-98 transition-transform"
+        href={HOSPITAL_CONTACT.hotlineTel}
+        className="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-[var(--color-warm-orange)] text-white font-semibold text-xs shadow-[var(--shadow-warm-orange)] active:scale-[0.98] transition-transform"
       >
         <Phone className="w-3.5 h-3.5" />
         <span>Cấp cứu 24/24</span>
@@ -377,7 +453,7 @@ export const MobileBottomBar: React.FC = () => {
 
       <Link
         to="/dat-lich"
-        className="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-[var(--color-plum-primary)] text-white font-semibold text-xs shadow-sm active:scale-98 transition-transform"
+        className="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-[var(--color-plum-primary)] text-white font-semibold text-xs shadow-xs active:scale-[0.98] transition-transform"
       >
         <Calendar className="w-3.5 h-3.5" />
         <span>Đặt lịch khám</span>

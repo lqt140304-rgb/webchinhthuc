@@ -28,7 +28,7 @@
 .demoBanner {
   background-color: #FEF3C7;
   border: 1px solid #F59E0B;
-  border-radius: var(--radius-lg);
+  border-radius: var(--ls-radius-lg);
   padding: 0.85rem 1rem;
   color: #92400E;
   font-size: 0.8125rem;

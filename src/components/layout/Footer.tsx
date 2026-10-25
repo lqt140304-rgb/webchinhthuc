@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { MapPin, Phone, Clock, ShieldAlert, Heart } from 'lucide-react'
+import { MapPin, Phone, Clock, ShieldAlert, Heart, MessageSquare } from 'lucide-react'
+import { HOSPITAL_CONTACT } from '@/config/contact'
 
 export const Footer: React.FC = () => {
   return (
@@ -17,27 +18,27 @@ export const Footer: React.FC = () => {
               />
               <div className="flex flex-col">
                 <span className="font-serif font-bold text-lg tracking-tight text-white leading-tight">
-                  BỆNH VIỆN THÚ Y LÊ SƠN
+                  {HOSPITAL_CONTACT.name.toUpperCase()}
                 </span>
-                <span className="text-[10px] uppercase font-medium tracking-widest text-[var(--color-plum-orchid)]">
-                  Chăm Sóc Y Tế Thú Cưng Tận Tâm
+                <span className="text-[10px] uppercase font-medium tracking-widest text-[var(--color-plum-orchid-light)]">
+                  {HOSPITAL_CONTACT.tagline}
                 </span>
               </div>
             </Link>
 
             <p className="text-sm text-slate-300 leading-relaxed max-w-sm">
-              Đơn vị y tế thú cưng chuyên nghiệp tại Hà Nội, cung cấp dịch vụ thăm khám, điều trị nội ngoại khoa, phẫu thuật, nội trú và cấp cứu 24/24 với tinh thần trách nhiệm.
+              Đơn vị y tế thú cưng chuyên nghiệp tại Hà Nội, cung cấp dịch vụ thăm khám lâm sàng, phẫu thuật ngoại khoa, chăm sóc nội trú 24/7 và cấp cứu 24/24 với tinh thần trách nhiệm.
             </p>
 
             <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 flex items-center gap-3 max-w-sm">
-              <ShieldAlert className="w-5 h-5 text-[var(--color-warm-orange)] shrink-0" />
+              <ShieldAlert className="w-5 h-5 text-[var(--color-warm-orange-light)] shrink-0" />
               <div>
                 <p className="text-xs font-semibold text-white">Đường dây nóng Cấp cứu 24/24</p>
                 <a
-                  href="tel:0973555105"
-                  className="text-sm font-bold text-[var(--color-warm-orange)] hover:underline"
+                  href={HOSPITAL_CONTACT.hotlineTel}
+                  className="text-sm font-bold text-[var(--color-warm-orange-light)] hover:underline"
                 >
-                  097 355 51 05
+                  {HOSPITAL_CONTACT.hotlineDisplay}
                 </a>
               </div>
             </div>
@@ -74,6 +75,12 @@ export const Footer: React.FC = () => {
                   Câu chuyện điều trị
                 </Link>
               </li>
+              <li>
+                <Link to="/lien-he" className="hover:text-white transition-colors flex items-center gap-1 text-[var(--color-plum-orchid-light)]">
+                  <MessageSquare className="w-3.5 h-3.5" />
+                  <span>Liên hệ & Chỉ đường</span>
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -83,6 +90,11 @@ export const Footer: React.FC = () => {
               Dịch Vụ Y Tế
             </h4>
             <ul className="space-y-2 text-xs">
+              <li>
+                <Link to="/dich-vu" className="hover:text-white transition-colors">
+                  Tất cả dịch vụ
+                </Link>
+              </li>
               <li>
                 <Link to="/dich-vu/kham-dieu-tri" className="hover:text-white transition-colors">
                   Khám & điều trị lâm sàng
@@ -101,8 +113,9 @@ export const Footer: React.FC = () => {
               <li>
                 <Link
                   to="/dich-vu/cap-cuu"
-                  className="text-[var(--color-warm-orange)] hover:underline font-semibold flex items-center gap-1"
+                  className="text-[var(--color-warm-orange-light)] hover:underline font-semibold flex items-center gap-1"
                 >
+                  <ShieldAlert className="w-3.5 h-3.5" />
                   <span>Cấp cứu khẩn cấp 24/24</span>
                 </Link>
               </li>
@@ -121,24 +134,24 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-3 text-xs">
               <li className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[var(--color-plum-orchid)] shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-[var(--color-plum-orchid-light)] shrink-0 mt-0.5" />
                 <span className="leading-snug">
-                  101 Khuất Duy Tiến, Phường Nhân Chính, Quận Thanh Xuân, Hà Nội
+                  {HOSPITAL_CONTACT.address}
                 </span>
               </li>
               <li className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-[var(--color-plum-orchid)] shrink-0" />
-                <a href="tel:0973555105" className="hover:text-white font-semibold">
-                  097 355 51 05
+                <Phone className="w-4 h-4 text-[var(--color-plum-orchid-light)] shrink-0" />
+                <a href={HOSPITAL_CONTACT.hotlineTel} className="hover:text-white font-semibold">
+                  {HOSPITAL_CONTACT.hotlineDisplay}
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
-                <Clock className="w-4 h-4 text-[var(--color-plum-orchid)] shrink-0 mt-0.5" />
+                <Clock className="w-4 h-4 text-[var(--color-plum-orchid-light)] shrink-0 mt-0.5" />
                 <div>
                   <p className="font-semibold text-white">Giờ khám tham chiếu:</p>
-                  <p>08:00 – 21:00 (Tất cả các ngày)</p>
-                  <p className="text-[11px] text-[var(--color-warm-orange)] mt-0.5 font-medium">
-                    * Tiếp nhận cấp cứu: 24/24
+                  <p>{HOSPITAL_CONTACT.workingHours}</p>
+                  <p className="text-[11px] text-[var(--color-warm-orange-light)] mt-0.5 font-medium">
+                    * {HOSPITAL_CONTACT.emergencyHours}
                   </p>
                 </div>
               </li>
@@ -148,7 +161,7 @@ export const Footer: React.FC = () => {
 
         {/* Sub-footer */}
         <div className="mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-          <p>© 2026 Bệnh viện Thú y Lê Sơn. Bảo lưu mọi quyền.</p>
+          <p>© 2026 {HOSPITAL_CONTACT.name}. Bảo lưu mọi quyền.</p>
           <div className="flex items-center gap-1 text-[11px]">
             <span>Đồng hành cùng thú cưng với tinh thần trách nhiệm</span>
             <Heart className="w-3.5 h-3.5 text-rose-400 fill-rose-400 inline" />

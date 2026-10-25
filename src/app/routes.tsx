@@ -3,6 +3,7 @@ import { RootLayout } from '@/components/layout/RootLayout'
 import { ComingSoonView } from '@/components/layout/ComingSoonView'
 import { HomePage } from '@/pages/HomePage'
 import { NotFoundPage } from '@/pages/NotFoundPage'
+import { HOSPITAL_CONTACT } from '@/config/contact'
 
 export const AppRoutes = () => {
   return (
@@ -82,7 +83,7 @@ export const AppRoutes = () => {
           element={
             <ComingSoonView
               title="Tiếp nhận Cấp cứu 24/24"
-              subtitle="Quy trình hướng dẫn sơ cứu khẩn cấp và đường dây nóng 097 355 51 05 luôn sẵn sàng phục vụ."
+              subtitle={`Quy trình hướng dẫn sơ cứu khẩn cấp và đường dây nóng ${HOSPITAL_CONTACT.hotlineDisplay} luôn sẵn sàng phục vụ.`}
             />
           }
         />
@@ -153,7 +154,7 @@ export const AppRoutes = () => {
           element={
             <ComingSoonView
               title="Đặt lịch khám trực tuyến"
-              subtitle="Form đặt lịch thông minh với 6 trạng thái xử lý đang được hoàn thiện ở Giai đoạn 4. Quý khách vui lòng gọi hotline 097 355 51 05 để đặt hẹn ngay."
+              subtitle={`Form đặt lịch thông minh với 6 trạng thái xử lý đang được hoàn thiện ở Giai đoạn 4. Quý khách vui lòng gọi hotline ${HOSPITAL_CONTACT.hotlineDisplay} để đặt hẹn ngay.`}
             />
           }
         />
@@ -162,7 +163,7 @@ export const AppRoutes = () => {
           element={
             <ComingSoonView
               title="Liên hệ & Thông tin phòng khám"
-              subtitle="Địa chỉ: 101 Khuất Duy Tiến, Thanh Xuân, Hà Nội | Hotline 24/24: 097 355 51 05."
+              subtitle={`Địa chỉ: ${HOSPITAL_CONTACT.address} | Hotline 24/24: ${HOSPITAL_CONTACT.hotlineDisplay}.`}
             />
           }
         />

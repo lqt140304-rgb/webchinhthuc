@@ -48,7 +48,7 @@ export const HighlightStory: React.FC = () => {
               <div>
                 {/* Clear Illustrated / Sample Tag (Strict Requirement) */}
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-amber-50 border border-amber-200 text-amber-900 text-xs font-medium mb-5">
-                  <AlertCircle className="w-3.5 h-3.5 text-[var(--color-warm-orange)] shrink-0" />
+                  <AlertCircle className="w-3.5 h-3.5 text-[var(--color-warm-orange-dark)] shrink-0" />
                   <span>Nội dung minh họa quy trình điều trị — Chưa xuất bản ca bệnh thực tế khi chưa có xác nhận từ chủ nuôi</span>
                 </div>
 
