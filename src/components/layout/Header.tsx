@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { ChevronDown, Phone, Calendar, Menu, ShieldAlert } from 'lucide-react'
-import { HOSPITAL_CONTACT } from '@/config/contact'
+import { ChevronDown, Calendar, Menu, ShieldAlert } from 'lucide-react'
+import { isLinkActive, isGroupActive } from '@/utils/navigation'
 
 interface DropdownItem {
   label: string
@@ -69,10 +69,11 @@ export const Header: React.FC<HeaderProps> = ({
   const navRef = useRef<HTMLDivElement>(null)
   const triggerRefs = useRef<{ [key: string]: HTMLButtonElement | null }>({})
   const menuRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
+  const openedByHoverRef = useRef<{ [key: string]: boolean }>({})
 
   const [prevPath, setPrevPath] = useState(location.pathname + location.search)
 
-  // Tự động đóng dropdown khi chuyển tuyến đường theo khuyến nghị React 19
+  // Tự động đóng dropdown khi chuyển tuyến đường
   if (prevPath !== location.pathname + location.search) {
     setPrevPath(location.pathname + location.search)
     setActiveDropdown(null)
@@ -92,6 +93,7 @@ export const Header: React.FC<HeaderProps> = ({
   // Đóng và trả lại focus cho nút trigger tương ứng
   const closeDropdown = useCallback((id: string, returnFocus = true) => {
     setActiveDropdown((current) => (current === id ? null : current))
+    openedByHoverRef.current[id] = false
     if (returnFocus && triggerRefs.current[id]) {
       triggerRefs.current[id]?.focus()
     }
@@ -134,20 +136,18 @@ export const Header: React.FC<HeaderProps> = ({
     }
   }
 
-  const isCurrentPath = (path: string) => {
-    if (path === '/') return location.pathname === '/'
-    return location.pathname.startsWith(path)
-  }
+  const isHomeActive = isLinkActive('/', location.pathname, location.search)
+  const isCauChuyenActive = isGroupActive(['/cau-chuyen'], location.pathname)
+  const isLienHeActive = isGroupActive(['/lien-he'], location.pathname)
 
   return (
     <header className="sticky top-0 z-40 bg-[var(--color-bg-primary)]/95 backdrop-blur-md border-b border-[var(--color-border-subtle)] transition-colors">
       <div className="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8 h-18 sm:h-20 flex items-center justify-between gap-2 sm:gap-4">
-        {/* BRAND LOGO */}
+        {/* BRAND LOGO (Không gắn aria-current theo chuẩn P1-3) */}
         <Link
           to="/"
           className="flex items-center gap-2 sm:gap-3 shrink-0 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-plum-primary)] rounded-xl"
           aria-label="Về Trang chủ Bệnh viện Thú y Lê Sơn"
-          aria-current={location.pathname === '/' ? 'page' : undefined}
         >
           <img
             src="/images/logo.png"
@@ -172,9 +172,9 @@ export const Header: React.FC<HeaderProps> = ({
         >
           <Link
             to="/"
-            aria-current={location.pathname === '/' ? 'page' : undefined}
+            aria-current={isHomeActive ? 'page' : undefined}
             className={`text-xs xl:text-sm font-medium transition-colors whitespace-nowrap py-2 border-b-2 ${
-              location.pathname === '/'
+              isHomeActive
                 ? 'text-[var(--color-plum-primary)] font-semibold border-[var(--color-plum-primary)]'
                 : 'text-[var(--color-fg-muted)] hover:text-[var(--color-plum-primary)] border-transparent'
             }`}
@@ -185,7 +185,7 @@ export const Header: React.FC<HeaderProps> = ({
           {/* DROPDOWN GROUPS */}
           {navGroups.map((group) => {
             const isOpen = activeDropdown === group.id
-            const isGroupActive = group.matchPrefixes.some((prefix) => location.pathname.startsWith(prefix))
+            const isGroupCurrent = isGroupActive(group.matchPrefixes, location.pathname)
             const dropdownId = `dropdown-menu-${group.id}`
             const triggerId = `dropdown-trigger-${group.id}`
 
@@ -193,10 +193,17 @@ export const Header: React.FC<HeaderProps> = ({
               <div
                 key={group.id}
                 className="relative"
-                onMouseEnter={() => setActiveDropdown(group.id)}
-                onMouseLeave={() => setActiveDropdown(null)}
+                onMouseEnter={() => {
+                  openedByHoverRef.current[group.id] = true
+                  setActiveDropdown(group.id)
+                }}
+                onMouseLeave={() => {
+                  openedByHoverRef.current[group.id] = false
+                  setActiveDropdown(null)
+                }}
                 onBlur={(e) => {
                   if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+                    openedByHoverRef.current[group.id] = false
                     setActiveDropdown(null)
                   }
                 }}
@@ -210,10 +217,19 @@ export const Header: React.FC<HeaderProps> = ({
                   aria-expanded={isOpen}
                   aria-haspopup="true"
                   aria-controls={dropdownId}
-                  onClick={() => setActiveDropdown((curr) => (curr === group.id ? null : group.id))}
+                  onClick={() => {
+                    if (openedByHoverRef.current[group.id]) {
+                      // Nếu mở do rê chuột: click vào trigger giữ nguyên trạng thái mở để tương tác
+                      openedByHoverRef.current[group.id] = false
+                      setActiveDropdown(group.id)
+                    } else {
+                      // Click bật / tắt dropdown bình thường
+                      setActiveDropdown((curr) => (curr === group.id ? null : group.id))
+                    }
+                  }}
                   onKeyDown={(e) => handleKeyDown(e, group.id)}
                   className={`inline-flex items-center gap-1 py-2 text-xs xl:text-sm font-medium transition-colors whitespace-nowrap cursor-pointer border-b-2 ${
-                    isGroupActive || isOpen
+                    isGroupCurrent || isOpen
                       ? 'text-[var(--color-plum-primary)] font-semibold border-[var(--color-plum-primary)]'
                       : 'text-[var(--color-fg-muted)] hover:text-[var(--color-plum-primary)] border-transparent'
                   }`}
@@ -239,18 +255,21 @@ export const Header: React.FC<HeaderProps> = ({
                   >
                     <div className="bg-[var(--color-bg-card)] rounded-2xl border border-[var(--color-border-subtle)] shadow-[var(--shadow-card)] p-2 backdrop-blur-md">
                       {group.items.map((item) => {
-                        const isItemActive = isCurrentPath(item.href)
+                        const isItemCurrent = isLinkActive(item.href, location.pathname, location.search)
                         return (
                           <Link
                             key={item.href}
                             to={item.href}
                             role="menuitem"
-                            aria-current={isItemActive ? 'page' : undefined}
-                            onClick={() => setActiveDropdown(null)}
+                            aria-current={isItemCurrent ? 'page' : undefined}
+                            onClick={() => {
+                              openedByHoverRef.current[group.id] = false
+                              setActiveDropdown(null)
+                            }}
                             className={`flex flex-col p-2.5 rounded-xl transition-colors ${
                               item.isEmergency
                                 ? 'bg-amber-50/80 hover:bg-amber-100 text-[var(--color-warm-orange-dark)]'
-                                : isItemActive
+                                : isItemCurrent
                                   ? 'bg-[var(--color-bg-secondary)] text-[var(--color-plum-primary)] font-semibold'
                                   : 'hover:bg-[var(--color-bg-secondary)] text-[var(--color-fg-primary)]'
                             }`}
@@ -287,9 +306,9 @@ export const Header: React.FC<HeaderProps> = ({
 
           <Link
             to="/cau-chuyen"
-            aria-current={location.pathname.startsWith('/cau-chuyen') ? 'page' : undefined}
+            aria-current={isCauChuyenActive ? 'page' : undefined}
             className={`text-xs xl:text-sm font-medium transition-colors whitespace-nowrap py-2 border-b-2 ${
-              location.pathname.startsWith('/cau-chuyen')
+              isCauChuyenActive
                 ? 'text-[var(--color-plum-primary)] font-semibold border-[var(--color-plum-primary)]'
                 : 'text-[var(--color-fg-muted)] hover:text-[var(--color-plum-primary)] border-transparent'
             }`}
@@ -299,9 +318,9 @@ export const Header: React.FC<HeaderProps> = ({
 
           <Link
             to="/lien-he"
-            aria-current={location.pathname.startsWith('/lien-he') ? 'page' : undefined}
+            aria-current={isLienHeActive ? 'page' : undefined}
             className={`text-xs xl:text-sm font-medium transition-colors whitespace-nowrap py-2 border-b-2 ${
-              location.pathname.startsWith('/lien-he')
+              isLienHeActive
                 ? 'text-[var(--color-plum-primary)] font-semibold border-[var(--color-plum-primary)]'
                 : 'text-[var(--color-fg-muted)] hover:text-[var(--color-plum-primary)] border-transparent'
             }`}
@@ -330,17 +349,6 @@ export const Header: React.FC<HeaderProps> = ({
               Đăng ký
             </Link>
           </div>
-
-          {/* Hotline Callout: Hiển thị trên tablet (< lg) và màn hình rộng (>= 1440px) để không chèn ép menu laptop */}
-          <a
-            href={HOSPITAL_CONTACT.hotlineTel}
-            aria-label={`Gọi hotline tiếp nhận ${HOSPITAL_CONTACT.hotlineDisplay}`}
-            className="hidden sm:inline-flex lg:hidden min-[1440px]:inline-flex items-center gap-1.5 px-2.5 py-1.5 xl:px-3 xl:py-1.5 rounded-lg border border-[var(--color-border-subtle)] text-xs font-semibold text-[var(--color-warm-orange-dark)] hover:bg-orange-50/80 transition-colors whitespace-nowrap"
-          >
-            <Phone className="w-3.5 h-3.5" />
-            <span className="hidden min-[1536px]:inline">Hotline:</span>
-            <span>{HOSPITAL_CONTACT.hotlineDisplay}</span>
-          </a>
 
           {/* Primary CTA */}
           <Link

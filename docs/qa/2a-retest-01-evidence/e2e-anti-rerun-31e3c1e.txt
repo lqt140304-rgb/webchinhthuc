@@ -1,0 +1,54 @@
+Đang kết nối Chrome DevTools Protocol...
+
+===============================================================
+BỘ KIỂM THỬ E2E MỐC 2A THEO QUY TRÌNH DOCS/QA/2A-E2E-PROTOCOL.MD
+===============================================================
+
+--- SUITE 1: HEADER 320PX & MENU VISIBILITY (P1-1) ---
+[EVIDENCE] Đã lưu ảnh: docs/qa/2a-fix-evidence/header-320-fixed.png
+  ✓ [PASS] Header 320px viewport & scrollWidth (scrollWidth=320px <= 320px, MenuBtn right=310px)
+  ✓ [PASS] Header 320px Drawer interaction (Bấm nút menu mở Drawer thành công)
+
+--- SUITE 2: RESPONSIVE KIỂM SOÁT TRÀN NGANG TOÀN BỘ SITE ---
+  ✓ [PASS] Trang chủ Responsive 320px (scrollWidth=320px <= 320px)
+  ✓ [PASS] Trang chủ Responsive 390px (scrollWidth=390px <= 390px)
+  ✓ [PASS] Trang chủ Responsive 768px (scrollWidth=753px <= 768px)
+  ✓ [PASS] Trang chủ Responsive 1024px (scrollWidth=1009px <= 1024px)
+  ✓ [PASS] Trang chủ Responsive 1366px (scrollWidth=1351px <= 1366px)
+  ✓ [PASS] Trang chủ Responsive 1440px (scrollWidth=1425px <= 1440px)
+[EVIDENCE] Đã lưu ảnh: docs/qa/2a-fix-evidence/homepage-320-fixed.png
+[EVIDENCE] Đã lưu ảnh: docs/qa/2a-fix-evidence/homepage-1366-fixed.png
+[EVIDENCE] Đã lưu ảnh: docs/qa/2a-fix-evidence/homepage-1440-fixed.png
+[EVIDENCE] Đã lưu ảnh: docs/qa/2a-fix-evidence/drawer-open-768-fixed.png
+[EVIDENCE] Đã lưu ảnh: docs/qa/2a-fix-evidence/coming-soon-1440-fixed.png
+  ✓ [PASS] ComingSoonView Responsive 1440px (scrollWidth=1425px <= 1440px)
+[EVIDENCE] Đã lưu ảnh: docs/qa/2a-fix-evidence/not-found-1440-fixed.png
+  ✓ [PASS] NotFoundPage Responsive 1440px (scrollWidth=1425px <= 1440px)
+
+--- SUITE 3: DRAWER UNMOUNT, BODY OVERFLOW & KEYBOARD (P1-5) ---
+  ✓ [PASS] Drawer mở & khóa cuộn body tại 900px (body.style.overflow = hidden)
+  ✓ [PASS] Drawer unmount & body scroll restore khi resize lên desktop (dialog=false, bodyOverflow="")
+  ✓ [PASS] Drawer tái mở trên mobile sau resize (Thành công)
+  ✓ [PASS] Drawer đóng qua phím Escape (Thành công)
+
+--- SUITE 4: DROPDOWN INTERACTION (P1-4) ---
+  ✓ [PASS] Dropdown click disclosure (Mở menu thành công)
+  ✓ [PASS] Dropdown toggle click lần 2 (Đóng menu thành công)
+  ✓ [PASS] Dropdown keyboard Escape (Đóng menu thành công)
+
+--- SUITE 5: NAVIGATION LINKS & ACTIVE STATE (P1-3, P1-6) ---
+  ✓ [PASS] Trang chủ active aria-current (aria-current="page")
+  ✓ [PASS] Liên kết /lien-he, /dich-vu và ?cat=news (Đầy đủ trong DOM)
+
+--- SUITE 6: ROUTE METADATA & NOINDEX (P1-7) ---
+  ✓ [PASS] Metadata Trang chủ (robots="index, follow")
+  ✓ [PASS] Metadata ComingSoonView (robots="noindex, nofollow", title="Về Bệnh viện Thú y Lê Sơn — Bệnh viện Thú y Lê Sơn")
+  ✓ [PASS] Metadata NotFoundPage (robots="noindex, nofollow")
+
+--- SUITE 7: TỆP SEO TĨNH (ROBOTS.TXT, SITEMAP.XML) ---
+  ✓ [PASS] Cấu trúc public/robots.txt (Hợp lệ)
+  ✓ [PASS] Cấu trúc public/sitemap.xml (Chỉ chứa trang chủ đã sẵn sàng)
+
+===============================================================
+TỔNG KẾT: 24/24 TEST CASES ĐẠT (100% PASS)
+===============================================================

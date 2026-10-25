@@ -1,5 +1,7 @@
 # Quy chế phối hợp agent
 
+**Nhiệm vụ mới nhất (26/10/2026):** thực hiện [brief vòng sửa 02](docs/ANTIGRAVITY_2A_FIX_ROUND_02.md) theo [Claude retest-01](docs/qa/2a-retest-01.md). 2A vẫn chưa đạt. Người dùng đã chốt Vercel, xác nhận địa chỉ/giờ hoạt động, bỏ hotline Header và dùng bộ E2E Claude; xem chi tiết trong brief. Chưa có quyền triển khai hoặc nghiệm thu.
+
 ## Tài liệu phải đọc trước khi làm việc
 
 Mọi agent phải đọc [PROJECT_BRIEF.md](PROJECT_BRIEF.md) để nắm mục đích, kế hoạch, điểm dừng nghiệm thu và tiêu chí kiểm tra; sau đó đọc các tài liệu nguồn được liên kết trong brief. Claude phải đối chiếu thay đổi với kế hoạch trước khi kết luận review. Không coi báo cáo hoàn thành trước đây là bằng chứng đã được người dùng phê duyệt.

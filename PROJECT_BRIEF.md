@@ -83,6 +83,8 @@ Không đưa tên thuốc nội bộ, liều lượng, thời điểm/kỹ thu�
 
 ## 6. Công việc cụ thể tiếp theo cho từng vai
 
+**Hiện tại:** [Claude retest-01](docs/qa/2a-retest-01.md) kết luận 2A chưa đạt trên SHA `31e3c1e`; Anti thực hiện [vòng sửa 02](docs/ANTIGRAVITY_2A_FIX_ROUND_02.md), sau đó Claude retest-02 trên SHA mới. P1-3/P1-4 còn lỗi. Ngày 26/10/2026, người dùng chốt Vercel (chưa cho phép deploy), bỏ hotline Header, dùng E2E Claude và xác nhận địa chỉ “101 Khuất Duy Tiến, Thanh Xuân, Hà Nội”, giờ 08:00–21:00, cấp cứu 24/24. Xác nhận này thay thế ghi nhận chưa xác minh ở mục 3 đối với đúng các dữ liệu nêu trên, không xác nhận thêm tên đơn vị hành chính khác. Các bước bên dưới áp dụng theo thứ tự nhiệm vụ mới này.
+
 1. **ChatGPT — CEO:** điều phối sửa mốc 2A theo [giao việc cho Anti](docs/ANTIGRAVITY_2A_FIX_BRIEF.md) và [báo cáo QA của Claude](docs/qa/bao-cao-kiem-tra-2A.md); chưa chuyển sang giai đoạn 3. Sau khi sửa và review lại 2A, tiếp tục nghiệm thu riêng 2B.
 2. **Claude — QA reviewer:** đọc các nguồn ở mục 8, kiểm tra mốc 2A/2B trên commit được giao, lập báo cáo lỗi có vị trí, cách tái hiện và mức độ ảnh hưởng. Kiểm chứng riêng các tuyên bố trong báo cáo cũ.
 3. **Antigravity — designer/developer:** sửa các lỗi cần sửa trong phạm vi mốc đang xét, giữ định hướng thiết kế và ràng buộc nghiệp vụ, bàn giao commit mới và kết quả kiểm tra.

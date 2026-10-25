@@ -1,12 +1,12 @@
 /**
  * Centralized Hospital Contact Information
- * Sourced from verified hospital registration data (Mốc 1 / 2A / 2B)
+ * Sourced from direct user confirmation on 26/10/2026.
  */
 export const HOSPITAL_CONTACT = {
   name: 'Bệnh viện Thú y Lê Sơn',
   shortName: 'Thú y Lê Sơn',
   tagline: 'Chăm Sóc Y Tế Thú Cưng Tận Tâm',
-  address: '101 Khuất Duy Tiến, Phường Nhân Chính, Quận Thanh Xuân, Hà Nội',
+  address: '101 Khuất Duy Tiến, Thanh Xuân, Hà Nội',
   shortAddress: '101 Khuất Duy Tiến, Thanh Xuân, Hà Nội',
   hotlineDisplay: '097 355 51 05',
   hotlineRaw: '0973555105',

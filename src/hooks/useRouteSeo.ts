@@ -5,11 +5,12 @@ interface SeoConfig {
   title: string
   description: string
   isIndexable?: boolean
+  noCanonical?: boolean
 }
 
 const BASE_URL = 'https://bvthuyleson.vn'
 
-export function useRouteSeo({ title, description, isIndexable = false }: SeoConfig) {
+export function useRouteSeo({ title, description, isIndexable = false, noCanonical = false }: SeoConfig) {
   const location = useLocation()
 
   useEffect(() => {
@@ -34,22 +35,28 @@ export function useRouteSeo({ title, description, isIndexable = false }: SeoConf
     }
     metaRobots.setAttribute('content', isIndexable ? 'index, follow' : 'noindex, nofollow')
 
-    // 4. Set canonical link
+    // 4. Set canonical link (bỏ canonical trên trang 404 theo khuyến nghị P3)
     let canonical = document.querySelector('link[rel="canonical"]')
-    if (!canonical) {
-      canonical = document.createElement('link')
-      canonical.setAttribute('rel', 'canonical')
-      document.head.appendChild(canonical)
+    if (noCanonical) {
+      if (canonical) {
+        canonical.remove()
+      }
+    } else {
+      if (!canonical) {
+        canonical = document.createElement('link')
+        canonical.setAttribute('rel', 'canonical')
+        document.head.appendChild(canonical)
+      }
+      const cleanPath = location.pathname.endsWith('/') && location.pathname.length > 1
+        ? location.pathname.slice(0, -1)
+        : location.pathname
+      canonical.setAttribute('href', `${BASE_URL}${cleanPath}`)
     }
-    const cleanPath = location.pathname.endsWith('/') && location.pathname.length > 1
-      ? location.pathname.slice(0, -1)
-      : location.pathname
-    canonical.setAttribute('href', `${BASE_URL}${cleanPath}`)
 
     // 5. Announce page change to screen reader live region if present
     const announcer = document.getElementById('sr-announcer')
     if (announcer) {
       announcer.textContent = `Đã chuyển đến trang: ${title}`
     }
-  }, [title, description, isIndexable, location.pathname])
+  }, [title, description, isIndexable, noCanonical, location.pathname])
 }

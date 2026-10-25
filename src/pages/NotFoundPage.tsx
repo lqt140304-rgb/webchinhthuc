@@ -9,6 +9,7 @@ export const NotFoundPage: React.FC = () => {
     title: `404 — Không tìm thấy trang | ${HOSPITAL_CONTACT.name}`,
     description: `Địa chỉ trang không tồn tại hoặc đã được thay đổi trên hệ thống ${HOSPITAL_CONTACT.name}.`,
     isIndexable: false,
+    noCanonical: true,
   })
 
   return (

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { X, ChevronDown, Phone, Calendar, MapPin, ShieldAlert, LogIn, UserPlus, MessageSquare } from 'lucide-react'
 import { HOSPITAL_CONTACT } from '@/config/contact'
+import { isLinkActive, isGroupActive } from '@/utils/navigation'
 
 interface MobileNavProps {
   isOpen: boolean
@@ -114,10 +115,10 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
     setOpenSection(openSection === name ? null : name)
   }
 
-  const isCurrent = (path: string) => {
-    if (path === '/') return location.pathname === '/'
-    return location.pathname.startsWith(path)
-  }
+  const checkActive = (href: string) => isLinkActive(href, location.pathname, location.search)
+  const isAboutGroupActive = isGroupActive(['/gioi-thieu', '/doi-ngu', '/co-so-vat-chat'], location.pathname)
+  const isServicesGroupActive = isGroupActive(['/dich-vu', '/bang-gia'], location.pathname)
+  const isPetCornerGroupActive = isGroupActive(['/goc-thu-cung', '/san-pham'], location.pathname)
 
   if (!isOpen) return null
 
@@ -173,9 +174,9 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
           <Link
             to="/"
             onClick={onClose}
-            aria-current={location.pathname === '/' ? 'page' : undefined}
+            aria-current={checkActive('/') ? 'page' : undefined}
             className={`flex items-center justify-between px-3.5 py-3 rounded-xl font-medium text-sm transition-colors ${
-              location.pathname === '/'
+              checkActive('/')
                 ? 'bg-[var(--color-bg-secondary)] text-[var(--color-plum-primary)] font-semibold'
                 : 'text-[var(--color-fg-primary)] hover:bg-[var(--color-bg-secondary)]'
             }`}
@@ -189,7 +190,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
               type="button"
               aria-expanded={openSection === 'about'}
               onClick={() => toggleSection('about')}
-              className="w-full flex items-center justify-between px-3.5 py-3 text-sm font-medium text-[var(--color-fg-primary)] bg-[var(--color-bg-card)] hover:bg-[var(--color-bg-secondary)] cursor-pointer"
+              className={`w-full flex items-center justify-between px-3.5 py-3 text-sm font-medium bg-[var(--color-bg-card)] hover:bg-[var(--color-bg-secondary)] cursor-pointer ${isAboutGroupActive ? 'text-[var(--color-plum-primary)] font-semibold' : 'text-[var(--color-fg-primary)]'}`}
             >
               <span>Về Lê Sơn</span>
               <ChevronDown
@@ -203,24 +204,24 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
                 <Link
                   to="/gioi-thieu"
                   onClick={onClose}
-                  aria-current={isCurrent('/gioi-thieu') ? 'page' : undefined}
-                  className="block px-3 py-2 text-xs font-medium text-[var(--color-fg-muted)] hover:text-[var(--color-plum-primary)]"
+                  aria-current={checkActive('/gioi-thieu') ? 'page' : undefined}
+                  className={`block px-3 py-2 text-xs font-medium hover:text-[var(--color-plum-primary)] ${checkActive('/gioi-thieu') ? 'text-[var(--color-plum-primary)] font-semibold bg-[var(--color-bg-primary)]/50 rounded-md' : 'text-[var(--color-fg-muted)]'}`}
                 >
                   Giới thiệu bệnh viện
                 </Link>
                 <Link
                   to="/doi-ngu"
                   onClick={onClose}
-                  aria-current={isCurrent('/doi-ngu') ? 'page' : undefined}
-                  className="block px-3 py-2 text-xs font-medium text-[var(--color-fg-muted)] hover:text-[var(--color-plum-primary)]"
+                  aria-current={checkActive('/doi-ngu') ? 'page' : undefined}
+                  className={`block px-3 py-2 text-xs font-medium hover:text-[var(--color-plum-primary)] ${checkActive('/doi-ngu') ? 'text-[var(--color-plum-primary)] font-semibold bg-[var(--color-bg-primary)]/50 rounded-md' : 'text-[var(--color-fg-muted)]'}`}
                 >
                   Đội ngũ bác sĩ
                 </Link>
                 <Link
                   to="/co-so-vat-chat"
                   onClick={onClose}
-                  aria-current={isCurrent('/co-so-vat-chat') ? 'page' : undefined}
-                  className="block px-3 py-2 text-xs font-medium text-[var(--color-fg-muted)] hover:text-[var(--color-plum-primary)]"
+                  aria-current={checkActive('/co-so-vat-chat') ? 'page' : undefined}
+                  className={`block px-3 py-2 text-xs font-medium hover:text-[var(--color-plum-primary)] ${checkActive('/co-so-vat-chat') ? 'text-[var(--color-plum-primary)] font-semibold bg-[var(--color-bg-primary)]/50 rounded-md' : 'text-[var(--color-fg-muted)]'}`}
                 >
                   Cơ sở vật chất
                 </Link>
@@ -234,7 +235,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
               type="button"
               aria-expanded={openSection === 'services'}
               onClick={() => toggleSection('services')}
-              className="w-full flex items-center justify-between px-3.5 py-3 text-sm font-medium text-[var(--color-fg-primary)] bg-[var(--color-bg-card)] hover:bg-[var(--color-bg-secondary)] cursor-pointer"
+              className={`w-full flex items-center justify-between px-3.5 py-3 text-sm font-medium bg-[var(--color-bg-card)] hover:bg-[var(--color-bg-secondary)] cursor-pointer ${isServicesGroupActive ? 'text-[var(--color-plum-primary)] font-semibold' : 'text-[var(--color-fg-primary)]'}`}
             >
               <span>Dịch vụ y tế</span>
               <ChevronDown
@@ -248,39 +249,39 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
                 <Link
                   to="/dich-vu"
                   onClick={onClose}
-                  aria-current={location.pathname === '/dich-vu' ? 'page' : undefined}
-                  className="block px-3 py-2 text-xs font-medium text-[var(--color-fg-muted)] hover:text-[var(--color-plum-primary)]"
+                  aria-current={checkActive('/dich-vu') ? 'page' : undefined}
+                  className={`block px-3 py-2 text-xs font-medium hover:text-[var(--color-plum-primary)] ${checkActive('/dich-vu') ? 'text-[var(--color-plum-primary)] font-semibold bg-[var(--color-bg-primary)]/50 rounded-md' : 'text-[var(--color-fg-muted)]'}`}
                 >
                   Tất cả dịch vụ
                 </Link>
                 <Link
                   to="/dich-vu/kham-dieu-tri"
                   onClick={onClose}
-                  aria-current={isCurrent('/dich-vu/kham-dieu-tri') ? 'page' : undefined}
-                  className="block px-3 py-2 text-xs font-medium text-[var(--color-fg-muted)] hover:text-[var(--color-plum-primary)]"
+                  aria-current={checkActive('/dich-vu/kham-dieu-tri') ? 'page' : undefined}
+                  className={`block px-3 py-2 text-xs font-medium hover:text-[var(--color-plum-primary)] ${checkActive('/dich-vu/kham-dieu-tri') ? 'text-[var(--color-plum-primary)] font-semibold bg-[var(--color-bg-primary)]/50 rounded-md' : 'text-[var(--color-fg-muted)]'}`}
                 >
                   Khám & điều trị lâm sàng
                 </Link>
                 <Link
                   to="/dich-vu/noi-tru"
                   onClick={onClose}
-                  aria-current={isCurrent('/dich-vu/noi-tru') ? 'page' : undefined}
-                  className="block px-3 py-2 text-xs font-medium text-[var(--color-fg-muted)] hover:text-[var(--color-plum-primary)]"
+                  aria-current={checkActive('/dich-vu/noi-tru') ? 'page' : undefined}
+                  className={`block px-3 py-2 text-xs font-medium hover:text-[var(--color-plum-primary)] ${checkActive('/dich-vu/noi-tru') ? 'text-[var(--color-plum-primary)] font-semibold bg-[var(--color-bg-primary)]/50 rounded-md' : 'text-[var(--color-fg-muted)]'}`}
                 >
                   Chăm sóc nội trú 24/7
                 </Link>
                 <Link
                   to="/dich-vu/spa"
                   onClick={onClose}
-                  aria-current={isCurrent('/dich-vu/spa') ? 'page' : undefined}
-                  className="block px-3 py-2 text-xs font-medium text-[var(--color-fg-muted)] hover:text-[var(--color-plum-primary)]"
+                  aria-current={checkActive('/dich-vu/spa') ? 'page' : undefined}
+                  className={`block px-3 py-2 text-xs font-medium hover:text-[var(--color-plum-primary)] ${checkActive('/dich-vu/spa') ? 'text-[var(--color-plum-primary)] font-semibold bg-[var(--color-bg-primary)]/50 rounded-md' : 'text-[var(--color-fg-muted)]'}`}
                 >
                   Spa & Grooming thẩm mỹ
                 </Link>
                 <Link
                   to="/dich-vu/cap-cuu"
                   onClick={onClose}
-                  aria-current={isCurrent('/dich-vu/cap-cuu') ? 'page' : undefined}
+                  aria-current={checkActive('/dich-vu/cap-cuu') ? 'page' : undefined}
                   className="flex items-center justify-between px-3 py-2 text-xs font-semibold text-[var(--color-warm-orange-dark)] bg-amber-50/80 rounded-lg"
                 >
                   <span className="flex items-center gap-1.5">
@@ -294,8 +295,8 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
                 <Link
                   to="/bang-gia"
                   onClick={onClose}
-                  aria-current={isCurrent('/bang-gia') ? 'page' : undefined}
-                  className="block px-3 py-2 text-xs font-medium text-[var(--color-fg-muted)] hover:text-[var(--color-plum-primary)]"
+                  aria-current={checkActive('/bang-gia') ? 'page' : undefined}
+                  className={`block px-3 py-2 text-xs font-medium hover:text-[var(--color-plum-primary)] ${checkActive('/bang-gia') ? 'text-[var(--color-plum-primary)] font-semibold bg-[var(--color-bg-primary)]/50 rounded-md' : 'text-[var(--color-fg-muted)]'}`}
                 >
                   Bảng giá niêm yết
                 </Link>
@@ -306,9 +307,9 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
           <Link
             to="/cau-chuyen"
             onClick={onClose}
-            aria-current={isCurrent('/cau-chuyen') ? 'page' : undefined}
+            aria-current={checkActive('/cau-chuyen') ? 'page' : undefined}
             className={`flex items-center justify-between px-3.5 py-3 rounded-xl font-medium text-sm transition-colors ${
-              isCurrent('/cau-chuyen')
+              checkActive('/cau-chuyen')
                 ? 'bg-[var(--color-bg-secondary)] text-[var(--color-plum-primary)] font-semibold'
                 : 'text-[var(--color-fg-primary)] hover:bg-[var(--color-bg-secondary)]'
             }`}
@@ -322,7 +323,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
               type="button"
               aria-expanded={openSection === 'petCorner'}
               onClick={() => toggleSection('petCorner')}
-              className="w-full flex items-center justify-between px-3.5 py-3 text-sm font-medium text-[var(--color-fg-primary)] bg-[var(--color-bg-card)] hover:bg-[var(--color-bg-secondary)] cursor-pointer"
+              className={`w-full flex items-center justify-between px-3.5 py-3 text-sm font-medium bg-[var(--color-bg-card)] hover:bg-[var(--color-bg-secondary)] cursor-pointer ${isPetCornerGroupActive ? 'text-[var(--color-plum-primary)] font-semibold' : 'text-[var(--color-fg-primary)]'}`}
             >
               <span>Góc thú cưng</span>
               <ChevronDown
@@ -336,24 +337,24 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
                 <Link
                   to="/goc-thu-cung"
                   onClick={onClose}
-                  aria-current={location.pathname === '/goc-thu-cung' && !location.search ? 'page' : undefined}
-                  className="block px-3 py-2 text-xs font-medium text-[var(--color-fg-muted)] hover:text-[var(--color-plum-primary)]"
+                  aria-current={checkActive('/goc-thu-cung') ? 'page' : undefined}
+                  className={`block px-3 py-2 text-xs font-medium hover:text-[var(--color-plum-primary)] ${checkActive('/goc-thu-cung') ? 'text-[var(--color-plum-primary)] font-semibold bg-[var(--color-bg-primary)]/50 rounded-md' : 'text-[var(--color-fg-muted)]'}`}
                 >
                   Kiến thức chăm sóc
                 </Link>
                 <Link
                   to="/goc-thu-cung?cat=news"
                   onClick={onClose}
-                  aria-current={location.search.includes('cat=news') ? 'page' : undefined}
-                  className="block px-3 py-2 text-xs font-medium text-[var(--color-fg-muted)] hover:text-[var(--color-plum-primary)]"
+                  aria-current={checkActive('/goc-thu-cung?cat=news') ? 'page' : undefined}
+                  className={`block px-3 py-2 text-xs font-medium hover:text-[var(--color-plum-primary)] ${checkActive('/goc-thu-cung?cat=news') ? 'text-[var(--color-plum-primary)] font-semibold bg-[var(--color-bg-primary)]/50 rounded-md' : 'text-[var(--color-fg-muted)]'}`}
                 >
                   Tin tức & Hoạt động
                 </Link>
                 <Link
                   to="/san-pham"
                   onClick={onClose}
-                  aria-current={isCurrent('/san-pham') ? 'page' : undefined}
-                  className="block px-3 py-2 text-xs font-medium text-[var(--color-fg-muted)] hover:text-[var(--color-plum-primary)]"
+                  aria-current={checkActive('/san-pham') ? 'page' : undefined}
+                  className={`block px-3 py-2 text-xs font-medium hover:text-[var(--color-plum-primary)] ${checkActive('/san-pham') ? 'text-[var(--color-plum-primary)] font-semibold bg-[var(--color-bg-primary)]/50 rounded-md' : 'text-[var(--color-fg-muted)]'}`}
                 >
                   Sản phẩm chọn lọc
                 </Link>
@@ -365,9 +366,9 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
           <Link
             to="/lien-he"
             onClick={onClose}
-            aria-current={isCurrent('/lien-he') ? 'page' : undefined}
+            aria-current={checkActive('/lien-he') ? 'page' : undefined}
             className={`flex items-center justify-between px-3.5 py-3 rounded-xl font-medium text-sm transition-colors ${
-              isCurrent('/lien-he')
+              checkActive('/lien-he')
                 ? 'bg-[var(--color-bg-secondary)] text-[var(--color-plum-primary)] font-semibold'
                 : 'text-[var(--color-fg-primary)] hover:bg-[var(--color-bg-secondary)]'
             }`}
@@ -383,8 +384,8 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
             <Link
               to="/dang-nhap"
               onClick={onClose}
-              aria-current={isCurrent('/dang-nhap') ? 'page' : undefined}
-              className="flex items-center justify-center gap-1.5 py-2.5 rounded-xl border border-[var(--color-border-subtle)] text-xs font-semibold text-[var(--color-fg-primary)] hover:bg-[var(--color-bg-secondary)] active:scale-[0.98]"
+              aria-current={checkActive('/dang-nhap') ? 'page' : undefined}
+              className={`flex items-center justify-center gap-1.5 py-2.5 rounded-xl border text-xs font-semibold active:scale-[0.98] ${checkActive('/dang-nhap') ? 'border-[var(--color-plum-primary)] bg-[var(--color-bg-secondary)] text-[var(--color-plum-primary)] font-semibold' : 'border-[var(--color-border-subtle)] text-[var(--color-fg-primary)] hover:bg-[var(--color-bg-secondary)]'}`}
             >
               <LogIn className="w-3.5 h-3.5" />
               <span>Đăng nhập</span>
@@ -392,8 +393,8 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
             <Link
               to="/dang-ky"
               onClick={onClose}
-              aria-current={isCurrent('/dang-ky') ? 'page' : undefined}
-              className="flex items-center justify-center gap-1.5 py-2.5 rounded-xl border border-[var(--color-border-subtle)] text-xs font-semibold text-[var(--color-fg-primary)] hover:bg-[var(--color-bg-secondary)] active:scale-[0.98]"
+              aria-current={checkActive('/dang-ky') ? 'page' : undefined}
+              className={`flex items-center justify-center gap-1.5 py-2.5 rounded-xl border text-xs font-semibold active:scale-[0.98] ${checkActive('/dang-ky') ? 'border-[var(--color-plum-primary)] bg-[var(--color-bg-secondary)] text-[var(--color-plum-primary)] font-semibold' : 'border-[var(--color-border-subtle)] text-[var(--color-fg-primary)] hover:bg-[var(--color-bg-secondary)]'}`}
             >
               <UserPlus className="w-3.5 h-3.5" />
               <span>Đăng ký</span>
