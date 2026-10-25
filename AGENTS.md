@@ -1,5 +1,9 @@
 # Quy chế phối hợp agent
 
+## Tài liệu phải đọc trước khi làm việc
+
+Mọi agent phải đọc [PROJECT_BRIEF.md](PROJECT_BRIEF.md) để nắm mục đích, kế hoạch, điểm dừng nghiệm thu và tiêu chí kiểm tra; sau đó đọc các tài liệu nguồn được liên kết trong brief. Claude phải đối chiếu thay đổi với kế hoạch trước khi kết luận review. Không coi báo cáo hoàn thành trước đây là bằng chứng đã được người dùng phê duyệt.
+
 ## Phạm vi và quyền quyết định
 
 Đây là quy chế chung cho ChatGPT, Claude và Antigravity khi làm việc trong repository `lqt140304-rgb/webchinhthuc`, trên mọi nhánh và Git worktree. Mỗi agent phải đọc file này trước khi bắt đầu công việc và sau mỗi lần đồng bộ quy chế.
