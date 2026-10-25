@@ -5,6 +5,7 @@
 - **Người điều phối:** ChatGPT (CEO) & Chủ repository
 - **Ngày thực hiện:** 26/10/2026
 - **Nhánh thực hiện:** `fix/milestone-2a-qa`
+- **Commit SHA bàn giao:** `31e3c1eafc7ac470361c860c681d49874a3768c6`
 - **Baseline commit:** `b25e887a7ab999e33c5d54d86086709d7fb5e8c2` (gốc từ `7ee4e214ec5bbd17950201b20a3e4b930c702071`)
 - **Tài liệu tuân thủ:** [AGENTS.md](../../AGENTS.md), [PROJECT_BRIEF.md](../../PROJECT_BRIEF.md), [docs/ANTIGRAVITY_2A_FIX_BRIEF.md](../ANTIGRAVITY_2A_FIX_BRIEF.md), [docs/qa/2a-e2e-protocol.md](2a-e2e-protocol.md), [docs/qa/bao-cao-kiem-tra-2A.md](bao-cao-kiem-tra-2A.md).
 
