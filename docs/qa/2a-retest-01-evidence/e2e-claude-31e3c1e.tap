@@ -1,0 +1,554 @@
+TAP version 13
+# Subtest: P1-1 Header 320px
+    # Subtest: viewport đúng 320px, Menu nằm trọn và mở được Drawer (isMobile=false)
+    ok 1 - viewport đúng 320px, Menu nằm trọn và mở được Drawer (isMobile=false)
+      ---
+      duration_ms: 1870.051389
+      type: 'test'
+      ...
+    # Subtest: viewport đúng 320px, Menu nằm trọn và mở được Drawer (isMobile=true)
+    ok 2 - viewport đúng 320px, Menu nằm trọn và mở được Drawer (isMobile=true)
+      ---
+      duration_ms: 1518.390336
+      type: 'test'
+      ...
+    1..2
+ok 1 - P1-1 Header 320px
+  ---
+  duration_ms: 3505.413811
+  type: 'suite'
+  ...
+# Subtest: Responsive: không tràn ngang ở 5 viewport
+    # Subtest: home @ 320px
+    ok 1 - home @ 320px
+      ---
+      duration_ms: 2380.912454
+      type: 'test'
+      ...
+    # Subtest: comingSoon @ 320px
+    ok 2 - comingSoon @ 320px
+      ---
+      duration_ms: 1237.397493
+      type: 'test'
+      ...
+    # Subtest: notFound @ 320px
+    ok 3 - notFound @ 320px
+      ---
+      duration_ms: 1302.280051
+      type: 'test'
+      ...
+    # Subtest: home @ 390px
+    ok 4 - home @ 390px
+      ---
+      duration_ms: 2326.147372
+      type: 'test'
+      ...
+    # Subtest: comingSoon @ 390px
+    ok 5 - comingSoon @ 390px
+      ---
+      duration_ms: 1320.53033
+      type: 'test'
+      ...
+    # Subtest: notFound @ 390px
+    ok 6 - notFound @ 390px
+      ---
+      duration_ms: 1352.694367
+      type: 'test'
+      ...
+    # Subtest: home @ 768px
+    ok 7 - home @ 768px
+      ---
+      duration_ms: 1638.400777
+      type: 'test'
+      ...
+    # Subtest: comingSoon @ 768px
+    ok 8 - comingSoon @ 768px
+      ---
+      duration_ms: 1363.824582
+      type: 'test'
+      ...
+    # Subtest: notFound @ 768px
+    ok 9 - notFound @ 768px
+      ---
+      duration_ms: 1331.171915
+      type: 'test'
+      ...
+    # Subtest: home @ 1366px
+    ok 10 - home @ 1366px
+      ---
+      duration_ms: 1754.966116
+      type: 'test'
+      ...
+    # Subtest: comingSoon @ 1366px
+    ok 11 - comingSoon @ 1366px
+      ---
+      duration_ms: 1571.901006
+      type: 'test'
+      ...
+    # Subtest: notFound @ 1366px
+    ok 12 - notFound @ 1366px
+      ---
+      duration_ms: 1308.290905
+      type: 'test'
+      ...
+    # Subtest: home @ 1440px
+    ok 13 - home @ 1440px
+      ---
+      duration_ms: 2066.216333
+      type: 'test'
+      ...
+    # Subtest: comingSoon @ 1440px
+    ok 14 - comingSoon @ 1440px
+      ---
+      duration_ms: 1432.032375
+      type: 'test'
+      ...
+    # Subtest: notFound @ 1440px
+    ok 15 - notFound @ 1440px
+      ---
+      duration_ms: 1423.131259
+      type: 'test'
+      ...
+    1..15
+ok 2 - Responsive: không tràn ngang ở 5 viewport
+  ---
+  duration_ms: 23812.35059
+  type: 'suite'
+  ...
+# Subtest: P1-2 Kích thước khung sau khi sửa token
+    # Subtest: ComingSoon và 404 ở 1440px có độ rộng chữ dễ đọc (≤ 800px)
+    ok 1 - ComingSoon và 404 ở 1440px có độ rộng chữ dễ đọc (≤ 800px)
+      ---
+      duration_ms: 1999.940466
+      type: 'test'
+      ...
+    # Subtest: Drawer ở 768px không phủ gần hết màn hình (≤ 480px)
+    ok 2 - Drawer ở 768px không phủ gần hết màn hình (≤ 480px)
+      ---
+      duration_ms: 1696.029602
+      type: 'test'
+      ...
+    1..2
+ok 3 - P1-2 Kích thước khung sau khi sửa token
+  ---
+  duration_ms: 3696.541373
+  type: 'suite'
+  ...
+# Subtest: Drawer: focus, Escape, cuộn
+    # Subtest: mở: focus vào trong, trigger có aria-expanded/aria-controls
+    ok 1 - mở: focus vào trong, trigger có aria-expanded/aria-controls
+      ---
+      duration_ms: 1597.557866
+      type: 'test'
+      ...
+    # Subtest: Tab/Shift+Tab không thoát dialog; Escape đóng, trả focus, khôi phục cuộn
+    ok 2 - Tab/Shift+Tab không thoát dialog; Escape đóng, trả focus, khôi phục cuộn
+      ---
+      duration_ms: 2679.941188
+      type: 'test'
+      ...
+    # Subtest: chọn link trong Drawer: đóng, đổi route, khôi phục cuộn
+    ok 3 - chọn link trong Drawer: đóng, đổi route, khôi phục cuộn
+      ---
+      duration_ms: 1552.166391
+      type: 'test'
+      ...
+    1..3
+ok 4 - Drawer: focus, Escape, cuộn
+  ---
+  duration_ms: 5830.158753
+  type: 'suite'
+  ...
+# Subtest: P1-5 Resize qua breakpoint desktop
+    # Subtest: mở ở 900px, resize 1180px: gỡ khóa cuộn; quay lại mobile vẫn mở được
+    ok 1 - mở ở 900px, resize 1180px: gỡ khóa cuộn; quay lại mobile vẫn mở được
+      ---
+      duration_ms: 2016.42485
+      type: 'test'
+      ...
+    1..1
+ok 5 - P1-5 Resize qua breakpoint desktop
+  ---
+  duration_ms: 2016.696931
+  type: 'suite'
+  ...
+# Subtest: P1-4 và P2-2 Dropdown desktop
+    # Subtest: rê chuột rồi bấm vẫn truy cập được submenu
+    not ok 1 - rê chuột rồi bấm vẫn truy cập được submenu
+      ---
+      duration_ms: 1754.14058
+      type: 'test'
+      location: '<scratch>/2a.e2e.test.cjs:282:3'
+      failureType: 'testCodeFailure'
+      error: |-
+        submenu đóng sau khi rê rồi bấm
+        
+        'false' !== 'true'
+        
+      code: 'ERR_ASSERTION'
+      name: 'AssertionError'
+      expected: 'true'
+      actual: 'false'
+      operator: 'strictEqual'
+      stack: |-
+        TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:289:14)
+        async Test.run (node:internal/test_runner/test:1054:7)
+        async Promise.all (index 0)
+        async Suite.run (node:internal/test_runner/test:1442:7)
+        async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+      ...
+    # Subtest: bàn phím: mở, focus mục đầu, Escape đóng và trả focus
+    ok 2 - bàn phím: mở, focus mục đầu, Escape đóng và trả focus
+      ---
+      duration_ms: 1444.962768
+      type: 'test'
+      ...
+    # Subtest: P2-2: Tab rời nhóm thì submenu đóng
+    ok 3 - P2-2: Tab rời nhóm thì submenu đóng
+      ---
+      duration_ms: 1452.464681
+      type: 'test'
+      ...
+    1..3
+not ok 6 - P1-4 và P2-2 Dropdown desktop
+  ---
+  duration_ms: 4652.109972
+  type: 'suite'
+  location: '<scratch>/2a.e2e.test.cjs:279:1'
+  failureType: 'subtestsFailed'
+  error: '1 subtest failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: P1-3 Trạng thái trang hiện tại
+    # Subtest: "/" : Trang chủ có aria-current="page", không có mục nào khác
+    not ok 1 - "/" : Trang chủ có aria-current="page", không có mục nào khác
+      ---
+      duration_ms: 1319.531572
+      type: 'test'
+      location: '<scratch>/2a.e2e.test.cjs:342:3'
+      failureType: 'testCodeFailure'
+      error: |-
+        chỉ link "Trang chủ" được mang aria-current (logo không nên)
+        + actual - expected
+        
+          [
+        +   'LÊ SƠNBệnh viện Thú y',
+            'Trang chủ'
+          ]
+        
+      code: 'ERR_ASSERTION'
+      name: 'AssertionError'
+      expected:
+        0: 'Trang chủ'
+      actual:
+        0: 'LÊ SƠNBệnh viện Thú y'
+        1: 'Trang chủ'
+      operator: 'deepStrictEqual'
+      stack: |-
+        TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:347:14)
+        async Test.run (node:internal/test_runner/test:1054:7)
+        async Promise.all (index 0)
+        async Suite.run (node:internal/test_runner/test:1442:7)
+        async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+      ...
+    # Subtest: "/dich-vu/spa": nhóm "Dịch vụ" được tô, tối đa 1 aria-current
+    ok 2 - "/dich-vu/spa": nhóm "Dịch vụ" được tô, tối đa 1 aria-current
+      ---
+      duration_ms: 1206.402011
+      type: 'test'
+      ...
+    # Subtest: "/cau-chuyen/abc": nhóm "Câu chuyện" được tô, tối đa 1 aria-current
+    ok 3 - "/cau-chuyen/abc": nhóm "Câu chuyện" được tô, tối đa 1 aria-current
+      ---
+      duration_ms: 1200.541983
+      type: 'test'
+      ...
+    # Subtest: dropdown desktop "/dich-vu/spa": đúng một mục aria-current (/dich-vu/spa)
+    not ok 4 - dropdown desktop "/dich-vu/spa": đúng một mục aria-current (/dich-vu/spa)
+      ---
+      duration_ms: 1344.439584
+      type: 'test'
+      location: '<scratch>/2a.e2e.test.cjs:379:5'
+      failureType: 'testCodeFailure'
+      error: |-
+        Expected values to be strictly deep-equal:
+        + actual - expected
+        
+          [
+        +   '/dich-vu',
+            '/dich-vu/spa'
+          ]
+        
+      code: 'ERR_ASSERTION'
+      name: 'AssertionError'
+      expected:
+        0: '/dich-vu/spa'
+      actual:
+        0: '/dich-vu'
+        1: '/dich-vu/spa'
+      operator: 'deepStrictEqual'
+      stack: |-
+        TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:385:16)
+        async Test.run (node:internal/test_runner/test:1054:7)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:744:7)
+      ...
+    # Subtest: dropdown desktop "/dich-vu": đúng một mục aria-current (/dich-vu)
+    ok 5 - dropdown desktop "/dich-vu": đúng một mục aria-current (/dich-vu)
+      ---
+      duration_ms: 1262.587618
+      type: 'test'
+      ...
+    # Subtest: dropdown desktop "/goc-thu-cung?cat=news": đúng một mục aria-current (/goc-thu-cung?cat=news)
+    not ok 6 - dropdown desktop "/goc-thu-cung?cat=news": đúng một mục aria-current (/goc-thu-cung?cat=news)
+      ---
+      duration_ms: 1307.758878
+      type: 'test'
+      location: '<scratch>/2a.e2e.test.cjs:379:5'
+      failureType: 'testCodeFailure'
+      error: |-
+        Expected values to be strictly deep-equal:
+        + actual - expected
+        
+          [
+        +   '/goc-thu-cung'
+        -   '/goc-thu-cung?cat=news'
+          ]
+        
+      code: 'ERR_ASSERTION'
+      name: 'AssertionError'
+      expected:
+        0: '/goc-thu-cung?cat=news'
+      actual:
+        0: '/goc-thu-cung'
+      operator: 'deepStrictEqual'
+      stack: |-
+        TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:385:16)
+        async Test.run (node:internal/test_runner/test:1054:7)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:744:7)
+      ...
+    # Subtest: dropdown desktop "/goc-thu-cung": đúng một mục aria-current (/goc-thu-cung)
+    ok 7 - dropdown desktop "/goc-thu-cung": đúng một mục aria-current (/goc-thu-cung)
+      ---
+      duration_ms: 1288.005091
+      type: 'test'
+      ...
+    # Subtest: ranh giới route: "/dich-vu-khong-ton-tai" (404) không làm nhóm nào là hiện tại
+    not ok 8 - ranh giới route: "/dich-vu-khong-ton-tai" (404) không làm nhóm nào là hiện tại
+      ---
+      duration_ms: 1238.797067
+      type: 'test'
+      location: '<scratch>/2a.e2e.test.cjs:393:5'
+      failureType: 'testCodeFailure'
+      error: |-
+        có mục điều hướng được tô trên trang 404: Trang chủ|rgb(85, 65, 87)|500,Về Lê Sơn|rgb(85, 65, 87)|500,Dịch vụ|rgb(90, 30, 94)|600,Góc thú cưng|rgb(85, 65, 87)|500,Câu chuyện|rgb(85, 65, 87)|500,Liên hệ|rgb(85, 65, 87)|500
+        
+        2 !== 1
+        
+      code: 'ERR_ASSERTION'
+      name: 'AssertionError'
+      expected: 1
+      actual: 2
+      operator: 'strictEqual'
+      stack: |-
+        TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:402:16)
+        async Test.run (node:internal/test_runner/test:1054:7)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:744:7)
+      ...
+    # Subtest: ranh giới route: "/cau-chuyenxyz" (404) không làm nhóm nào là hiện tại
+    not ok 9 - ranh giới route: "/cau-chuyenxyz" (404) không làm nhóm nào là hiện tại
+      ---
+      duration_ms: 1213.872713
+      type: 'test'
+      location: '<scratch>/2a.e2e.test.cjs:393:5'
+      failureType: 'testCodeFailure'
+      error: |-
+        trang 404 vẫn có mục aria-current: Câu chuyện
+        + actual - expected
+        
+        + [
+        +   'Câu chuyện'
+        + ]
+        - []
+        
+      code: 'ERR_ASSERTION'
+      name: 'AssertionError'
+      expected:
+      actual:
+        0: 'Câu chuyện'
+      operator: 'deepStrictEqual'
+      stack: |-
+        TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:400:16)
+        async Test.run (node:internal/test_runner/test:1054:7)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:744:7)
+      ...
+    # Subtest: ranh giới route: "/gioi-thieu-abc" (404) không làm nhóm nào là hiện tại
+    not ok 10 - ranh giới route: "/gioi-thieu-abc" (404) không làm nhóm nào là hiện tại
+      ---
+      duration_ms: 1176.196348
+      type: 'test'
+      location: '<scratch>/2a.e2e.test.cjs:393:5'
+      failureType: 'testCodeFailure'
+      error: |-
+        có mục điều hướng được tô trên trang 404: Trang chủ|rgb(85, 65, 87)|500,Về Lê Sơn|rgb(90, 30, 94)|600,Dịch vụ|rgb(85, 65, 87)|500,Góc thú cưng|rgb(85, 65, 87)|500,Câu chuyện|rgb(85, 65, 87)|500,Liên hệ|rgb(85, 65, 87)|500
+        
+        2 !== 1
+        
+      code: 'ERR_ASSERTION'
+      name: 'AssertionError'
+      expected: 1
+      actual: 2
+      operator: 'strictEqual'
+      stack: |-
+        TestContext.<anonymous> (<scratch>/2a.e2e.test.cjs:402:16)
+        async Test.run (node:internal/test_runner/test:1054:7)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:744:7)
+      ...
+    # Subtest: Drawer "/dich-vu/spa": link Spa có aria-current="page"
+    ok 11 - Drawer "/dich-vu/spa": link Spa có aria-current="page"
+      ---
+      duration_ms: 1336.910647
+      type: 'test'
+      ...
+    1..11
+not ok 7 - P1-3 Trạng thái trang hiện tại
+  ---
+  duration_ms: 13896.385231
+  type: 'suite'
+  location: '<scratch>/2a.e2e.test.cjs:331:1'
+  failureType: 'subtestsFailed'
+  error: '6 subtests failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: P1-6 Lối vào và tham số
+    # Subtest: desktop: có link /lien-he và /dich-vu trong header hoặc footer, vào đúng route
+    ok 1 - desktop: có link /lien-he và /dich-vu trong header hoặc footer, vào đúng route
+      ---
+      duration_ms: 1640.449171
+      type: 'test'
+      ...
+    # Subtest: Drawer: có link /lien-he và /dich-vu
+    ok 2 - Drawer: có link /lien-he và /dich-vu
+      ---
+      duration_ms: 1704.111737
+      type: 'test'
+      ...
+    # Subtest: tin tức dùng ?cat=news, không còn ?tab=
+    ok 3 - tin tức dùng ?cat=news, không còn ?tab=
+      ---
+      duration_ms: 1519.452534
+      type: 'test'
+      ...
+    # Subtest: ComingSoon có CTA liên hệ/đặt lịch ngoài hotline và nút về trang chủ
+    ok 4 - ComingSoon có CTA liên hệ/đặt lịch ngoài hotline và nút về trang chủ
+      ---
+      duration_ms: 1178.344784
+      type: 'test'
+      ...
+    # Subtest: mobile 390px: hotline dễ thấy ở header hoặc thanh dưới đáy
+    ok 5 - mobile 390px: hotline dễ thấy ở header hoặc thanh dưới đáy
+      ---
+      duration_ms: 1573.325357
+      type: 'test'
+      ...
+    1..5
+ok 8 - P1-6 Lối vào và tham số
+  ---
+  duration_ms: 7616.552317
+  type: 'suite'
+  ...
+# Subtest: P1-7 Meta, lịch sử và tệp SEO
+    # Subtest: title riêng, noindex đúng qua navigation, Back/Forward và 404
+    ok 1 - title riêng, noindex đúng qua navigation, Back/Forward và 404
+      ---
+      duration_ms: 2639.298616
+      type: 'test'
+      ...
+    # Subtest: robots.txt là text/plain, chặn /tai-khoan/, /dang-nhap, /dang-ky
+    ok 2 - robots.txt là text/plain, chặn /tai-khoan/, /dang-nhap, /dang-ky
+      ---
+      duration_ms: 1441.199911
+      type: 'test'
+      ...
+    # Subtest: sitemap.xml là XML hợp lệ, chỉ chứa trang chủ
+    ok 3 - sitemap.xml là XML hợp lệ, chỉ chứa trang chủ
+      ---
+      duration_ms: 1380.247965
+      type: 'test'
+      ...
+    # Subtest: [thông tin] HTML gốc của trang chờ chưa có noindex (giới hạn client rendering)
+    ok 4 - [thông tin] HTML gốc của trang chờ chưa có noindex (giới hạn client rendering) # SKIP BLOCKED: noindex trong HTML gốc cần phương án host/prerender được duyệt
+      ---
+      duration_ms: 1365.106412
+      type: 'test'
+      ...
+    1..4
+ok 9 - P1-7 Meta, lịch sử và tệp SEO
+  ---
+  duration_ms: 6826.824916
+  type: 'suite'
+  ...
+# Subtest: P1-8 Host đích
+    # Subtest: mở thẳng/F5 route con, asset và URL sai trên host đích
+    ok 1 - mở thẳng/F5 route con, asset và URL sai trên host đích # SKIP BLOCKED: chưa chốt host đích (đặt HOST_URL để chạy)
+      ---
+      duration_ms: 0.376863
+      type: 'test'
+      ...
+    1..1
+ok 10 - P1-8 Host đích
+  ---
+  duration_ms: 0.568341
+  type: 'suite'
+  ...
+# Subtest: P2 Khả năng truy cập và CSS
+    # Subtest: P2-1 tương phản các điểm đã nêu đạt WCAG AA
+    ok 1 - P2-1 tương phản các điểm đã nêu đạt WCAG AA
+      ---
+      duration_ms: 1443.693876
+      type: 'test'
+      ...
+    # Subtest: P2-3 chuyển trang: focus vào main/h1 hoặc có thông báo aria-live
+    ok 2 - P2-3 chuyển trang: focus vào main/h1 hoặc có thông báo aria-live
+      ---
+      duration_ms: 1569.590155
+      type: 'test'
+      ...
+    # Subtest: P2-4 không còn lớp animate-in/fade-in/slide-in-* và py-0.2
+    ok 3 - P2-4 không còn lớp animate-in/fade-in/slide-in-* và py-0.2
+      ---
+      duration_ms: 2427.191055
+      type: 'test'
+      ...
+    # Subtest: P2-5 thanh dưới đáy có padding theo safe-area
+    ok 4 - P2-5 thanh dưới đáy có padding theo safe-area
+      ---
+      duration_ms: 1368.603963
+      type: 'test'
+      ...
+    # Subtest: giảm chuyển động được tôn trọng
+    ok 5 - giảm chuyển động được tôn trọng
+      ---
+      duration_ms: 1330.938411
+      type: 'test'
+      ...
+    1..5
+ok 11 - P2 Khả năng truy cập và CSS
+  ---
+  duration_ms: 8140.859657
+  type: 'suite'
+  ...
+# Subtest: không có console error / pageerror trong toàn bộ lượt chạy
+ok 12 - không có console error / pageerror trong toàn bộ lượt chạy
+  ---
+  duration_ms: 0.299266
+  type: 'test'
+  ...
+1..12
+# tests 53
+# suites 11
+# pass 44
+# fail 7
+# cancelled 0
+# skipped 2
+# todo 0
+# duration_ms 80660.382406

@@ -83,6 +83,8 @@ Không đưa tên thuốc nội bộ, liều lượng, thời điểm/kỹ thu�
 
 ## 6. Công việc cụ thể tiếp theo cho từng vai
 
+**Hiện tại:** [Claude retest-01](docs/qa/2a-retest-01.md) kết luận 2A chưa đạt trên SHA `31e3c1e`; Anti thực hiện [vòng sửa 02](docs/ANTIGRAVITY_2A_FIX_ROUND_02.md), sau đó Claude retest-02 trên SHA mới. P1-3/P1-4 còn lỗi; quyết định hosting, JSON-LD, hotline desktop và bộ E2E chuẩn được ghi là đang chờ. Các bước bên dưới áp dụng theo thứ tự nhiệm vụ mới này.
+
 1. **ChatGPT — CEO:** điều phối sửa mốc 2A theo [giao việc cho Anti](docs/ANTIGRAVITY_2A_FIX_BRIEF.md) và [báo cáo QA của Claude](docs/qa/bao-cao-kiem-tra-2A.md); chưa chuyển sang giai đoạn 3. Sau khi sửa và review lại 2A, tiếp tục nghiệm thu riêng 2B.
 2. **Claude — QA reviewer:** đọc các nguồn ở mục 8, kiểm tra mốc 2A/2B trên commit được giao, lập báo cáo lỗi có vị trí, cách tái hiện và mức độ ảnh hưởng. Kiểm chứng riêng các tuyên bố trong báo cáo cũ.
 3. **Antigravity — designer/developer:** sửa các lỗi cần sửa trong phạm vi mốc đang xét, giữ định hướng thiết kế và ràng buộc nghiệp vụ, bàn giao commit mới và kết quả kiểm tra.

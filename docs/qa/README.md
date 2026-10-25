@@ -1,5 +1,9 @@
 # Hồ sơ QA mốc 2A
 
+## Retest-01 và vòng sửa 02
+
+[Claude retest-01](2a-retest-01.md) và thư mục `2a-retest-01-evidence/` được lấy riêng từ commit `76e1e5c1513a7d2626cf217361ac6064aa9488b3`, giữ nguyên nội dung. Code đích là `31e3c1e`, không phải code trên main. Claude báo 44 PASS, 7 FAIL, 2 SKIP trong 53 test; ChatGPT chưa chạy lại. Xem [brief vòng sửa 02](../ANTIGRAVITY_2A_FIX_ROUND_02.md). Anti bàn giao `docs/qa/2a-fix-handoff-02.md`; Claude tạo `docs/qa/2a-retest-02.md` sau khi có SHA mới, không ghi đè retest-01. Các link tới tệp chỉ có trên nhánh Anti/Claude trong báo cáo gốc phải đọc ở nhánh nguồn, không mặc định đã có trên main.
+
 ## Quy trình hiện hành
 
 Đọc [hướng dẫn E2E và retest cho Claude/Anti](2a-e2e-protocol.md). Anti ghi kết quả sửa vào `docs/qa/2a-fix-handoff.md`, ảnh tại `docs/qa/2a-fix-evidence/`. Claude chạy lại độc lập đúng SHA mới và tạo `docs/qa/2a-retest-01.md`, ảnh tại `docs/qa/2a-retest-01-evidence/`. Đây là các đầu ra cần tạo sau khi chạy, không phải kết quả đã có. Giữ nguyên báo cáo cũ; lần retest tiếp theo tăng số thứ tự.
