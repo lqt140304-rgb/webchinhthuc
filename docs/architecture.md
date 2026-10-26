@@ -123,3 +123,51 @@ d:/webbvct/
 ├── tsconfig.json
 └── vite.config.ts
 ```
+
+---
+
+### 5. Kiến Trúc Mở Rộng: Tích Hợp Hai Dashboard (Addendum 01 — Đã Phê Duyệt 26/10/2026)
+
+Theo chỉ đạo bổ sung **ADDENDUM 01 — DASHBOARD ARCHITECTURE** đã được chủ dự án phê duyệt ngày 26/10/2026, hệ thống được cấu trúc thành ba khu vực riêng biệt chia sẻ chung hệ thống Design Tokens nhưng độc lập về Layout, Navigation và Trải nghiệm:
+
+```
+                                  ┌──────────────────────────┐
+                                  │   Single Design Tokens   │
+                                  │   (src/styles/tokens.css)│
+                                  └────────────┬─────────────┘
+                                               │
+                    ┌──────────────────────────┼──────────────────────────┐
+                    ▼                          ▼                          ▼
+       ┌────────────────────────┐ ┌────────────────────────┐ ┌────────────────────────┐
+       │   A. Public Website    │ │  B. Customer Portal    │ │   C. Staff Portal      │
+       │     (RootLayout)       │ │   (CustomerLayout)     │ │    (StaffLayout)       │
+       │   / | /gioi-thieu | ...│ │     /tai-khoan/*       │ │      /quan-ly/*        │
+       ├────────────────────────┤ ├────────────────────────┤ ├────────────────────────┤
+       │ Vibrant Editorial      │ │ Mobile-first, ấm áp    │ │ Operational Dashboard  │
+       │ Luxury, serif headers, │ │ Thẻ hồ sơ thú cưng,    │ │ Mật độ dữ liệu cao,    │
+       │ 6 section trang chủ    │ │ lịch hẹn, lịch sử mua, │ │ phân quyền Quản lý,    │
+       │ FSM Form Đặt lịch      │ │ báo cáo sức khỏe mở    │ │ Bác sĩ, Spa; thao tác  │
+       │                        │ │ KHÔNG lộ thuốc/y lệnh  │ │ nhanh, bảo mật tối đa  │
+       └────────────────────────┘ └────────────────────────┘ └────────────────────────┘
+```
+
+#### 5.1 Nguyên Tắc Phân Định Ba Khu Vực
+1. **Public Website (`RootLayout`):**
+   - Giữ nguyên 100% phong cách Vibrant Editorial Luxury + Premium Veterinary.
+   - Tuyệt đối không biến website công khai thành dạng web-app dashboard.
+   - Sắp xếp Header, Footer, Hero, và 6 section Trang chủ theo chuẩn đã chốt.
+2. **Customer Portal (`/tai-khoan/*` — `CustomerLayout`):**
+   - Khách hàng chỉ truy cập: Lịch sử mua sắm, Báo cáo sức khỏe được bác sĩ ký duyệt công khai, Nhật ký/video lưu trú cho phép xem, Lịch hẹn cá nhân, Hồ sơ thú cưng cơ bản.
+   - **Tuyệt đối KHÔNG hiển thị:** Thuốc điều trị nội bộ, liều lượng, giờ tiêm, y lệnh, nhật ký thao tác nội bộ, dữ liệu khách hàng khác.
+   - Giao diện dạng Customer Dashboard: Mobile-first, card bo góc mềm mại, thanh tab bar dưới đáy tiện thao tác một tay.
+3. **Staff & Management Portal (`/quan-ly/*` — `StaffLayout`):**
+   - Dành riêng cho nhân sự vận hành: Bác sĩ, Kỹ thuật viên Spa, Quản lý điều hành và các vai trò kiêm nhiệm.
+   - Chức năng: Quản lý lịch hẹn, bệnh án lâm sàng, phác đồ điều trị, lưu chuồng nội trú, tồn kho thuốc/vật tư, phân ca công việc, báo cáo doanh thu.
+   - Giao diện dạng Operational Dashboard: Tinh gọn, tối ưu tốc độ click/phím tắt, bảng dữ liệu (Data Table) mật độ cao, font số học rõ ràng, độ tương phản cao.
+
+#### 5.2 Giải Pháp Kỹ Thuật Tránh Phải Viết Lại Website
+- **Multi-Layout Routing:** Tách `src/app/routes.tsx` thành 3 nhánh Layout ngang hàng (`RootLayout`, `CustomerLayout`, `StaffLayout`).
+- **Code Splitting & Bundle Isolation:** Sử dụng `React.lazy()` cho toàn bộ module `/tai-khoan/*` và `/quan-ly/*`. Public visitors không phải tải mã nguồn hoặc thư viện dashboard của nội bộ.
+- **Data Boundary Security:** Ranh giới bảo mật nằm ở tầng API/Service (không dùng client-side role filter để ẩn dữ liệu nhạy cảm).
+- **Lộ trình:** Khung layout và chức năng chi tiết của 2 Dashboard sẽ được triển khai ở **Giai đoạn 4** theo kế hoạch tổng thể.
+
