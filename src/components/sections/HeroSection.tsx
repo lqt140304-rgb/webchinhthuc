@@ -56,20 +56,24 @@ export const HeroSection: React.FC = () => {
 
         {/* Bottom Part: 3 Large Editorial Frames (Inspired by AURA) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
-          {/* Frame 1: Vet clinical examination */}
+          {/* Frame 1: Pet care & gentle bonding (2B-04 & 2B-08: LCP image prioritized) */}
           <div className={`${styles.frameLeft} h-[340px] sm:h-[420px] lg:h-[460px]`}>
             <img
               src="/images/hero-vet-care.jpg"
-              alt="Bác sĩ thăm khám lâm sàng nhẹ nhàng cho cún cưng"
+              alt="Chăm sóc và vỗ về thú cưng ân cần (Hình ảnh minh họa)"
+              width={1200}
+              height={800}
               loading="eager"
+              fetchPriority="high"
+              decoding="async"
               className={styles.editorialImage}
             />
             <div className={styles.frameCaption}>
               <span className="text-[10px] uppercase font-bold tracking-widest text-[var(--color-plum-orchid-light)]">
-                Lâm Sàng
+                Chăm Sóc
               </span>
               <p className="font-serif font-semibold text-base sm:text-lg leading-tight mt-0.5">
-                Thăm khám ân cần & chẩn đoán chu đáo
+                Ân cần vỗ về & thấu hiểu thú cưng
               </p>
             </div>
           </div>
@@ -79,12 +83,15 @@ export const HeroSection: React.FC = () => {
             <img
               src="/images/hero-happy-cat.jpg"
               alt="Mèo cưng khỏe mạnh, bình yên"
-              loading="eager"
+              width={1200}
+              height={826}
+              loading="lazy"
+              decoding="async"
               className={styles.editorialImage}
             />
             <div className={styles.frameCaption}>
               <span className="text-[10px] uppercase font-bold tracking-widest text-amber-300">
-                Chăm Sóc
+                Thư Thái
               </span>
               <p className="font-serif font-semibold text-base sm:text-lg leading-tight mt-0.5">
                 Môi trường dịu nhẹ, giảm stress cho bé
@@ -97,7 +104,10 @@ export const HeroSection: React.FC = () => {
             <img
               src="/images/hero-clinic-cuddle.jpg"
               alt="Sự gắn kết thân tình và đồng hành cùng thú cưng"
-              loading="eager"
+              width={1200}
+              height={800}
+              loading="lazy"
+              decoding="async"
               className={styles.editorialImage}
             />
             <div className={styles.frameCaption}>

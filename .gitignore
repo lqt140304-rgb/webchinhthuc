@@ -25,3 +25,5 @@ dist-ssr
 
 # Test & QA artifacts
 screenshots/
+ev/
+e2e-evidence/

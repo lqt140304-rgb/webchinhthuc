@@ -73,6 +73,16 @@
   box-shadow: 0 0 0 2px var(--color-plum-orchid-light);
 }
 
+/* 2B-09 Focus indicator compliance */
+.fieldInput:focus,
+.fieldSelect:focus,
+.fieldTextarea:focus {
+  outline: 2px solid var(--color-plum-primary) !important;
+  outline-offset: 1px !important;
+  box-shadow: 0 0 0 3px rgba(74, 20, 68, 0.25) !important;
+  border-color: var(--color-plum-primary) !important;
+}
+
 @media (max-width: 640px) {
   .formCard,
   .sidebarCard {

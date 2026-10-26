@@ -115,7 +115,7 @@ export const BookingContactSection: React.FC = () => {
                         <CheckCircle2 className="w-3.5 h-3.5" />
                       </div>
                       <span className="text-xs sm:text-sm text-[var(--color-fg-primary)]">
-                        <strong>Tiếp nhận ưu tiên:</strong> Giảm tối đa thời gian chờ tại phòng khám, hạn chế căng thẳng cho thú cưng.
+                        <strong>Chủ động khung giờ:</strong> Đề xuất trước thời gian thuận tiện nhất cho bạn và bé cưng.
                       </span>
                     </div>
 
@@ -124,7 +124,7 @@ export const BookingContactSection: React.FC = () => {
                         <CheckCircle2 className="w-3.5 h-3.5" />
                       </div>
                       <span className="text-xs sm:text-sm text-[var(--color-fg-primary)]">
-                        <strong>Chuẩn bị trước y án:</strong> Bác sĩ chuyên khoa theo dõi trước tiền sử sức khỏe và dịch tễ.
+                        <strong>Thông tin ban đầu:</strong> Ghi nhận trước tình trạng sức khỏe và nhu cầu thăm khám của bé.
                       </span>
                     </div>
 
@@ -133,7 +133,7 @@ export const BookingContactSection: React.FC = () => {
                         <CheckCircle2 className="w-3.5 h-3.5" />
                       </div>
                       <span className="text-xs sm:text-sm text-[var(--color-fg-primary)]">
-                        <strong>Tư vấn chuẩn bị:</strong> Hướng dẫn chi tiết trước khi đưa bé đến viện (chế độ nhịn ăn, sổ tiêm chủng).
+                        <strong>Chuẩn bị chu đáo:</strong> Hướng dẫn những lưu ý cần thiết trước khi đưa thú cưng đến khám.
                       </span>
                     </div>
                   </div>

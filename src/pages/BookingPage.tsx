@@ -6,7 +6,6 @@ import {
   Phone,
   ShieldAlert,
   AlertCircle,
-  CheckCircle2,
   Send,
   Sparkles,
   Info,
@@ -36,7 +35,7 @@ export const BookingPage: React.FC = () => {
     phone: '',
     petName: '',
     petType: 'chó',
-    serviceType: 'kham-tong-quat',
+    serviceType: 'kham-dieu-tri',
     preferredDate: '',
     preferredTimeSlot: 'sang',
     symptomsNote: '',
@@ -56,7 +55,7 @@ export const BookingPage: React.FC = () => {
 
     const phoneRegex = /^(0|\+84)[3|5|7|8|9][0-9]{8}$/
     if (!formData.phone.trim()) {
-      newErrors.phone = 'Vui lòng nhập số điện thoại'
+      newErrors.phone = 'Vui lòng nhập số điện thoại liên hệ'
     } else if (!phoneRegex.test(formData.phone.trim().replace(/\s+/g, ''))) {
       newErrors.phone = 'Số điện thoại không hợp lệ (cần 10 chữ số)'
     }
@@ -70,7 +69,26 @@ export const BookingPage: React.FC = () => {
     }
 
     setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
+
+    const hasErrors = Object.keys(newErrors).length > 0
+    if (hasErrors) {
+      // 2B-10: Chuyển focus ngay lập tức tới trường lỗi đầu tiên
+      const firstInvalidId = newErrors.ownerName
+        ? 'owner-name'
+        : newErrors.phone
+        ? 'owner-phone'
+        : newErrors.petName
+        ? 'pet-name'
+        : 'preferred-date'
+      const el = document.getElementById(firstInvalidId)
+      if (el) {
+        el.setAttribute('aria-invalid', 'true')
+        el.focus()
+      }
+      return false
+    }
+
+    return true
   }
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -78,17 +96,18 @@ export const BookingPage: React.FC = () => {
     if (!validate()) return
 
     setStatus('submitting')
-    // Mô phỏng kiểm tra dữ liệu client, sau đó hiển thị trạng thái thử nghiệm minh bạch
+    // Mô phỏng kiểm tra dữ liệu, sau đó hiển thị thông báo minh bạch
     setTimeout(() => {
       setStatus('test_completed')
-    }, 500)
+    }, 400)
   }
 
   const handleReset = () => {
     setStatus('idle')
+    setErrors({})
   }
 
-  // Ngày tối thiểu là ngày hôm nay (khởi tạo an toàn)
+  // Ngày tối thiểu là ngày hôm nay
   const [todayString] = useState(getTodayDateString)
 
   return (
@@ -120,7 +139,7 @@ export const BookingPage: React.FC = () => {
               Đăng ký lịch khám cho bé cưng
             </h1>
             <p className="mt-3 text-sm sm:text-base text-purple-100/90 leading-relaxed max-w-2xl">
-              Chủ động đặt lịch giúp đội ngũ bác sĩ {HOSPITAL_CONTACT.name} chuẩn bị trước bệnh án, thiết bị chuyên dụng và ưu tiên tiếp đón bé chu đáo nhất.
+              Đăng ký thông tin giúp đội ngũ {HOSPITAL_CONTACT.name} nắm trước nhu cầu thăm khám và hướng dẫn bạn chuẩn bị chu đáo nhất cho bé cưng.
             </p>
           </div>
         </div>
@@ -128,22 +147,22 @@ export const BookingPage: React.FC = () => {
 
       {/* Main Content Area */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        {/* Transparent Demo Status Notice (B01 requirement) */}
+        {/* Transparent Notice (2B-03: không chứa thuật ngữ kỹ thuật BookingFormData, client, API, database) */}
         <div className="mb-10 p-4 sm:p-5 rounded-2xl bg-amber-50 border border-amber-300 text-amber-950 flex items-start gap-3.5 shadow-xs">
           <AlertCircle className="w-5 h-5 text-[var(--color-warm-orange-dark)] shrink-0 mt-0.5" />
           <div className="space-y-1 text-xs sm:text-sm">
             <strong className="block font-serif text-base text-[var(--color-warm-orange-dark)]">
-              Thông Báo Minh Bạch — Giao Diện Thử Nghiệm (Chưa Kết Nối Cơ Sở Dữ Liệu)
+              Thông Báo Minh Bạch — Giao Diện Đang Trong Giai Đoạn Thử Nghiệm
             </strong>
             <p className="text-slate-700 leading-relaxed">
-              Biểu mẫu dưới đây phục vụ kiểm thử giao diện người dùng và kiểm tra tính hợp lệ của cấu trúc dữ liệu đặt lịch (<code>BookingFormData</code>). Hệ thống backend tiếp nhận tự động đang được xây dựng ở Giai đoạn 4.
+              Biểu mẫu dưới đây đang trong giai đoạn thử nghiệm giao diện. Bệnh viện chưa tiếp nhận thông tin đăng ký tự động qua website.
             </p>
             <p className="font-medium text-amber-900 pt-1">
-              &bull; Để đặt hẹn khám có hiệu lực ngay lập tức, xin quý khách vui lòng liên hệ trực tiếp hotline:{' '}
+              &bull; Để đặt hẹn khám có hiệu lực ngay, xin quý khách vui lòng liên hệ trực tiếp hotline:{' '}
               <a href={HOSPITAL_CONTACT.hotlineTel} className="underline font-bold text-[var(--color-warm-orange-dark)]">
                 {HOSPITAL_CONTACT.hotlineDisplay}
               </a>{' '}
-              (hoạt động 24/24).
+              (tiếp nhận 24/24).
             </p>
           </div>
         </div>
@@ -203,28 +222,28 @@ export const BookingPage: React.FC = () => {
 
               <div className="mt-6 pt-6 border-t border-[var(--color-border-subtle)]">
                 <h3 className="font-serif font-bold text-sm text-[var(--color-plum-deep)] uppercase tracking-wider mb-3">
-                  Quy Trình Xử Lý Đặt Lịch
+                  Quy Trình Xử Lý Đặt Hẹn
                 </h3>
                 <div className="space-y-4">
                   <div className={styles.processStep}>
                     <div className={styles.processStepDot} />
                     <p className="text-xs font-bold text-[var(--color-plum-deep)]">1. Gửi thông tin đăng ký</p>
-                    <p className="text-xs text-[var(--color-fg-muted)]">Chủ nuôi cung cấp thông tin bé và dịch vụ cần khám.</p>
+                    <p className="text-xs text-[var(--color-fg-muted)]">Chủ nuôi cung cấp thông tin bé và nhu cầu thăm khám.</p>
                   </div>
                   <div className={styles.processStep}>
                     <div className={styles.processStepDot} />
-                    <p className="text-xs font-bold text-[var(--color-plum-deep)]">2. Tiếp nhận & phân loại (received)</p>
-                    <p className="text-xs text-[var(--color-fg-muted)]">Hệ thống ghi nhận và chuyển điều phối viên phụ trách.</p>
+                    <p className="text-xs font-bold text-[var(--color-plum-deep)]">2. Tiếp nhận & phân loại</p>
+                    <p className="text-xs text-[var(--color-fg-muted)]">Phòng khám tiếp nhận thông tin và phân công điều phối viên.</p>
                   </div>
                   <div className={styles.processStep}>
                     <div className={styles.processStepDot} />
-                    <p className="text-xs font-bold text-[var(--color-plum-deep)]">3. Xác nhận giờ hẹn (awaiting_confirmation)</p>
-                    <p className="text-xs text-[var(--color-fg-muted)]">Nhân sự liên hệ để chốt khung giờ khám phù hợp nhất.</p>
+                    <p className="text-xs font-bold text-[var(--color-plum-deep)]">3. Xác nhận giờ hẹn</p>
+                    <p className="text-xs text-[var(--color-fg-muted)]">Nhân sự liên hệ qua điện thoại để chốt khung giờ phù hợp.</p>
                   </div>
                   <div className={styles.processStep}>
                     <div className={styles.processStepDot} style={{ backgroundColor: 'var(--color-status-success-text)' }} />
-                    <p className="text-xs font-bold text-emerald-700">4. Đón tiếp tại viện (confirmed)</p>
-                    <p className="text-xs text-[var(--color-fg-muted)]">Bé được ưu tiên tiếp nhận theo đúng thời gian đã hẹn.</p>
+                    <p className="text-xs font-bold text-emerald-700">4. Đón tiếp tại viện</p>
+                    <p className="text-xs text-[var(--color-fg-muted)]">Đón tiếp và thăm khám theo thời gian đã thống nhất.</p>
                   </div>
                 </div>
               </div>
@@ -253,50 +272,44 @@ export const BookingPage: React.FC = () => {
             </div>
           </aside>
 
-          {/* Right Column: Full Booking Form / Test Result */}
+          {/* Right Column: Full Booking Form / Transparent Result Panel */}
           <section className="lg:col-span-7" aria-label="Biểu mẫu đặt lịch khám">
             <div className={styles.formCard}>
               {status === 'test_completed' ? (
-                /* Honest Test Result Panel - NEVER claims real appointment confirmed */
-                <div className="p-6 sm:p-8 rounded-2xl bg-purple-50/70 border border-purple-200 text-center space-y-5">
+                /* 2B-03: Honest Test Result Panel - NEVER claims real appointment confirmed */
+                <div
+                  role="status"
+                  aria-live="polite"
+                  className="p-6 sm:p-8 rounded-2xl bg-purple-50/70 border border-purple-200 text-center space-y-5"
+                >
                   <div className="w-14 h-14 mx-auto rounded-2xl bg-[var(--color-plum-primary)] text-white flex items-center justify-center shadow-md">
-                    <CheckCircle2 className="w-8 h-8" />
+                    <Info className="w-7 h-7 text-amber-200" />
                   </div>
 
-                  <div className="max-w-md mx-auto space-y-2">
-                    <span className="text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-purple-200 text-[var(--color-plum-deep)]">
-                      Kiểm Thử Giao Diện Thành Công
+                  <div className="max-w-md mx-auto space-y-3">
+                    <span className="text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-purple-200 text-[var(--color-plum-deep)]">
+                      Giao Diện Thử Nghiệm
                     </span>
-                    <h2 className="font-serif font-bold text-2xl text-[var(--color-plum-deep)] mt-2">
-                      Đã kiểm tra hợp lệ dữ liệu mẫu!
+                    <h2 className="font-serif font-bold text-xl sm:text-2xl text-[var(--color-plum-deep)] leading-snug">
+                      Thông tin bạn nhập chưa được gửi đến bệnh viện.
                     </h2>
                     <p className="text-sm text-[var(--color-fg-muted)] leading-relaxed">
-                      Toàn bộ các trường dữ liệu theo quy chuẩn <code>BookingFormData</code> (Họ tên, SĐT, Bé cưng, Dịch vụ, Thời gian) đã được kiểm tra tính hợp lệ thành công phía client.
-                    </p>
-                  </div>
-
-                  <div className="p-4 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-950 text-left max-w-lg mx-auto space-y-1.5">
-                    <div className="flex items-center gap-2 font-bold text-[var(--color-warm-orange-dark)]">
-                      <Info className="w-4 h-4 shrink-0" />
-                      <span>Lưu ý quan trọng: Chưa kết nối máy chủ</span>
-                    </div>
-                    <p className="text-slate-700 leading-relaxed">
-                      Do hệ thống backend đang được phát triển ở Giai đoạn 4, thông tin trên <strong>chưa được gửi vào cơ sở dữ liệu thật</strong> và <strong>chưa hình thành lịch hẹn có hiệu lực</strong> tại phòng khám.
+                      Để đặt lịch khám, vui lòng gọi <strong className="text-[var(--color-plum-deep)] font-bold">{HOSPITAL_CONTACT.hotlineDisplay}</strong>.
                     </p>
                   </div>
 
                   <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
                     <a
                       href={HOSPITAL_CONTACT.hotlineTel}
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[var(--color-warm-orange)] hover:bg-[var(--color-warm-orange-hover)] text-white font-semibold text-sm transition-all shadow-[var(--shadow-warm-orange)] active:scale-[0.98]"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[var(--color-warm-orange)] hover:bg-[var(--color-warm-orange-hover)] text-white font-semibold text-sm transition-all shadow-[var(--shadow-warm-orange)] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-[var(--color-warm-orange)] focus:ring-offset-2"
                     >
                       <Phone className="w-4 h-4" />
-                      <span>Gọi hotline đặt thật: {HOSPITAL_CONTACT.hotlineDisplay}</span>
+                      <span>Gọi hotline: {HOSPITAL_CONTACT.hotlineDisplay}</span>
                     </a>
                     <button
                       type="button"
                       onClick={handleReset}
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl border border-[var(--color-border-medium)] hover:bg-white text-xs font-semibold text-[var(--color-fg-primary)] transition-colors cursor-pointer"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl border border-[var(--color-border-medium)] hover:bg-white text-xs font-semibold text-[var(--color-fg-primary)] transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-[var(--color-plum-primary)] focus:ring-offset-2"
                     >
                       <RotateCcw className="w-3.5 h-3.5" />
                       <span>Thử lại biểu mẫu</span>
@@ -328,6 +341,7 @@ export const BookingPage: React.FC = () => {
                         </label>
                         <input
                           id="owner-name"
+                          name="ownerName"
                           type="text"
                           required
                           value={formData.ownerName}
@@ -336,7 +350,7 @@ export const BookingPage: React.FC = () => {
                             if (errors.ownerName) setErrors({ ...errors, ownerName: undefined })
                           }}
                           placeholder="Ví dụ: Nguyễn Văn An"
-                          className="w-full px-3.5 py-2.5 rounded-xl border border-[var(--color-border-medium)] focus:border-[var(--color-plum-primary)] focus:outline-none text-sm bg-white"
+                          className={`w-full px-3.5 py-2.5 rounded-xl border border-[var(--color-border-medium)] focus:outline-none focus:ring-2 focus:ring-[var(--color-plum-primary)] focus:border-[var(--color-plum-primary)] text-sm bg-white ${styles.fieldInput}`}
                           aria-invalid={!!errors.ownerName}
                           aria-describedby={errors.ownerName ? 'owner-name-error' : undefined}
                         />
@@ -353,6 +367,7 @@ export const BookingPage: React.FC = () => {
                         </label>
                         <input
                           id="owner-phone"
+                          name="phone"
                           type="tel"
                           required
                           value={formData.phone}
@@ -361,7 +376,7 @@ export const BookingPage: React.FC = () => {
                             if (errors.phone) setErrors({ ...errors, phone: undefined })
                           }}
                           placeholder="Ví dụ: 0912 345 678"
-                          className="w-full px-3.5 py-2.5 rounded-xl border border-[var(--color-border-medium)] focus:border-[var(--color-plum-primary)] focus:outline-none text-sm bg-white"
+                          className={`w-full px-3.5 py-2.5 rounded-xl border border-[var(--color-border-medium)] focus:outline-none focus:ring-2 focus:ring-[var(--color-plum-primary)] focus:border-[var(--color-plum-primary)] text-sm bg-white ${styles.fieldInput}`}
                           aria-invalid={!!errors.phone}
                           aria-describedby={errors.phone ? 'owner-phone-error' : undefined}
                         />
@@ -374,7 +389,7 @@ export const BookingPage: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Section 2: Bé cưng */}
+                  {/* Section 2: Bé cưng & Dịch vụ */}
                   <div className="space-y-4 pt-2">
                     <h3 className="text-xs font-bold uppercase tracking-wider text-[var(--color-plum-primary)]">
                       2. Thông tin thú cưng & Dịch vụ
@@ -387,6 +402,7 @@ export const BookingPage: React.FC = () => {
                         </label>
                         <input
                           id="pet-name"
+                          name="petName"
                           type="text"
                           required
                           value={formData.petName}
@@ -395,7 +411,7 @@ export const BookingPage: React.FC = () => {
                             if (errors.petName) setErrors({ ...errors, petName: undefined })
                           }}
                           placeholder="Ví dụ: Milo, Bông, Miu..."
-                          className="w-full px-3.5 py-2.5 rounded-xl border border-[var(--color-border-medium)] focus:border-[var(--color-plum-primary)] focus:outline-none text-sm bg-white"
+                          className={`w-full px-3.5 py-2.5 rounded-xl border border-[var(--color-border-medium)] focus:outline-none focus:ring-2 focus:ring-[var(--color-plum-primary)] focus:border-[var(--color-plum-primary)] text-sm bg-white ${styles.fieldInput}`}
                           aria-invalid={!!errors.petName}
                           aria-describedby={errors.petName ? 'pet-name-error' : undefined}
                         />
@@ -412,9 +428,10 @@ export const BookingPage: React.FC = () => {
                         </label>
                         <select
                           id="pet-type"
+                          name="petType"
                           value={formData.petType}
                           onChange={(e) => setFormData({ ...formData, petType: e.target.value as 'chó' | 'mèo' | 'khác' })}
-                          className="w-full px-3.5 py-2.5 rounded-xl border border-[var(--color-border-medium)] focus:border-[var(--color-plum-primary)] focus:outline-none text-sm bg-white cursor-pointer"
+                          className={`w-full px-3.5 py-2.5 rounded-xl border border-[var(--color-border-medium)] focus:outline-none focus:ring-2 focus:ring-[var(--color-plum-primary)] focus:border-[var(--color-plum-primary)] text-sm bg-white cursor-pointer ${styles.fieldSelect}`}
                         >
                           <option value="chó">Chó cưng</option>
                           <option value="mèo">Mèo cưng</option>
@@ -425,20 +442,20 @@ export const BookingPage: React.FC = () => {
 
                     <div>
                       <label htmlFor="service-type" className="block text-xs font-semibold text-[var(--color-fg-primary)] mb-1.5">
-                        Dịch vụ bạn quan tâm
+                        Dịch vụ bạn quan tâm (Bản thử nghiệm)
                       </label>
                       <select
                         id="service-type"
+                        name="serviceType"
                         value={formData.serviceType}
                         onChange={(e) => setFormData({ ...formData, serviceType: e.target.value })}
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-[var(--color-border-medium)] focus:border-[var(--color-plum-primary)] focus:outline-none text-sm bg-white cursor-pointer"
+                        className={`w-full px-3.5 py-2.5 rounded-xl border border-[var(--color-border-medium)] focus:outline-none focus:ring-2 focus:ring-[var(--color-plum-primary)] focus:border-[var(--color-plum-primary)] text-sm bg-white cursor-pointer ${styles.fieldSelect}`}
                       >
-                        <option value="kham-tong-quat">Khám tổng quát & Chẩn đoán lâm sàng</option>
+                        <option value="kham-dieu-tri">Khám & Điều trị nội khoa</option>
                         <option value="noi-tru">Chăm sóc nội trú 24/7</option>
-                        <option value="spa">Spa & Grooming thẩm mỹ</option>
-                        <option value="tiem-phong">Tiêm phòng & Phòng bệnh</option>
-                        <option value="xet-nghiem">Xét nghiệm & Chẩn đoán hình ảnh</option>
-                        <option value="khac">Khác (trao đổi trực tiếp khi liên hệ)</option>
+                        <option value="spa">Spa & Thẩm mỹ y khoa</option>
+                        <option value="cap-cuu">Cấp cứu & Phẫu thuật</option>
+                        <option value="khac">Nhu cầu thăm khám khác (trao đổi trực tiếp)</option>
                       </select>
                     </div>
                   </div>
@@ -456,6 +473,7 @@ export const BookingPage: React.FC = () => {
                         </label>
                         <input
                           id="preferred-date"
+                          name="preferredDate"
                           type="date"
                           min={todayString}
                           required
@@ -464,7 +482,7 @@ export const BookingPage: React.FC = () => {
                             setFormData({ ...formData, preferredDate: e.target.value })
                             if (errors.preferredDate) setErrors({ ...errors, preferredDate: undefined })
                           }}
-                          className="w-full px-3.5 py-2.5 rounded-xl border border-[var(--color-border-medium)] focus:border-[var(--color-plum-primary)] focus:outline-none text-sm bg-white cursor-pointer"
+                          className={`w-full px-3.5 py-2.5 rounded-xl border border-[var(--color-border-medium)] focus:outline-none focus:ring-2 focus:ring-[var(--color-plum-primary)] focus:border-[var(--color-plum-primary)] text-sm bg-white cursor-pointer ${styles.fieldInput}`}
                           aria-invalid={!!errors.preferredDate}
                           aria-describedby={errors.preferredDate ? 'preferred-date-error' : undefined}
                         />
@@ -481,14 +499,19 @@ export const BookingPage: React.FC = () => {
                         </label>
                         <select
                           id="preferred-timeslot"
+                          name="preferredTimeSlot"
                           value={formData.preferredTimeSlot}
                           onChange={(e) => setFormData({ ...formData, preferredTimeSlot: e.target.value })}
-                          className="w-full px-3.5 py-2.5 rounded-xl border border-[var(--color-border-medium)] focus:border-[var(--color-plum-primary)] focus:outline-none text-sm bg-white cursor-pointer"
+                          className={`w-full px-3.5 py-2.5 rounded-xl border border-[var(--color-border-medium)] focus:outline-none focus:ring-2 focus:ring-[var(--color-plum-primary)] focus:border-[var(--color-plum-primary)] text-sm bg-white cursor-pointer ${styles.fieldSelect}`}
                         >
-                          <option value="sang">Buổi sáng (08:30 – 11:30)</option>
-                          <option value="chieu">Buổi chiều (13:30 – 17:00)</option>
-                          <option value="toi">Buổi tối (17:00 – 20:30)</option>
+                          <option value="sang">Buổi sáng (đề xuất 08:00 – 12:00)</option>
+                          <option value="chieu">Buổi chiều (đề xuất 12:00 – 17:00)</option>
+                          <option value="toi">Buổi tối (đề xuất 17:00 – 21:00)</option>
+                          <option value="linh-hoat">Linh hoạt theo sắp xếp của phòng khám</option>
                         </select>
+                        <p className="text-[11px] text-[var(--color-fg-subtle)] mt-1">
+                          * Khung giờ đề xuất tham khảo, phòng khám sẽ liên hệ xác nhận giờ hẹn chính xác.
+                        </p>
                       </div>
                     </div>
 
@@ -498,11 +521,12 @@ export const BookingPage: React.FC = () => {
                       </label>
                       <textarea
                         id="symptoms-note"
+                        name="symptomsNote"
                         rows={3}
                         value={formData.symptomsNote || ''}
                         onChange={(e) => setFormData({ ...formData, symptomsNote: e.target.value })}
                         placeholder="Mô tả các biểu hiện bất thường gần đây của bé (ví dụ: mệt mỏi, bỏ ăn, ngứa tai...)"
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-[var(--color-border-medium)] focus:border-[var(--color-plum-primary)] focus:outline-none text-sm bg-white resize-y"
+                        className={`w-full px-3.5 py-2.5 rounded-xl border border-[var(--color-border-medium)] focus:outline-none focus:ring-2 focus:ring-[var(--color-plum-primary)] focus:border-[var(--color-plum-primary)] text-sm bg-white resize-y ${styles.fieldTextarea}`}
                       />
                     </div>
                   </div>
@@ -512,22 +536,22 @@ export const BookingPage: React.FC = () => {
                     <button
                       type="submit"
                       disabled={status === 'submitting'}
-                      className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-[var(--color-plum-primary)] hover:bg-[var(--color-plum-deep)] text-white font-semibold text-sm transition-all shadow-[var(--shadow-card)] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer"
+                      className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-[var(--color-plum-primary)] hover:bg-[var(--color-plum-deep)] text-white font-semibold text-sm transition-all shadow-[var(--shadow-card)] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer focus:outline-none focus:ring-2 focus:ring-[var(--color-plum-primary)] focus:ring-offset-2"
                     >
                       {status === 'submitting' ? (
                         <>
                           <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                          <span>Đang kiểm tra dữ liệu mẫu...</span>
+                          <span>Đang kiểm tra thông tin...</span>
                         </>
                       ) : (
                         <>
                           <Send className="w-4 h-4" />
-                          <span>Gửi Đăng Ký (Bản Thử Nghiệm Giao Diện)</span>
+                          <span>Gửi Đăng Ký (Giao Diện Thử Nghiệm)</span>
                         </>
                       )}
                     </button>
                     <p className="text-[11px] text-center text-[var(--color-fg-subtle)] mt-2">
-                      * Biểu mẫu kiểm thử giao diện — Chưa gửi dữ liệu vào máy chủ cơ sở dữ liệu thật.
+                      * Biểu mẫu thử nghiệm giao diện — Thông tin chưa gửi đến bệnh viện. Để đặt hẹn ngay, xin gọi {HOSPITAL_CONTACT.hotlineDisplay}.
                     </p>
                   </div>
                 </form>
@@ -539,4 +563,5 @@ export const BookingPage: React.FC = () => {
     </div>
   )
 }
+
 export default BookingPage
