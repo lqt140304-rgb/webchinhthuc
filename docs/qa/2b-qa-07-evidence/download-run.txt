@@ -1,0 +1,15 @@
+⚠️  NOTICE: download-fonts.cjs is deprecated. Redirecting to scripts/optimize-fonts.cjs...
+=== VERIFYING / SYNCHRONIZING APPROVED FONTS (Phương án C) ===
+
+  ✓ [EXISTS] be-vietnam-pro-400.woff2         35.0 KB — Be Vietnam Pro 400 [CRITICAL]
+  ✓ [EXISTS] be-vietnam-pro-500.woff2         36.7 KB — Be Vietnam Pro 500 [SECONDARY]
+  ✓ [EXISTS] be-vietnam-pro-600.woff2         36.9 KB — Be Vietnam Pro 600 [CRITICAL]
+  ✓ [EXISTS] be-vietnam-pro-700.woff2         37.7 KB — Be Vietnam Pro 700 [SECONDARY]
+  ✓ [EXISTS] be-vietnam-pro-italic-400.woff2  35.4 KB — Be Vietnam Pro 400 [SECONDARY]
+  ✓ [EXISTS] lora-600.woff2                   48.5 KB — Lora 400 900 [CRITICAL]
+
+Verified 6 approved font files. Total disk size: 230.2 KB
+Repository hygiene check: public/fonts/ is clean (0 unapproved files).
+Successfully verified and synchronized src/styles/fonts.css (Phương án C).
+
+exit=0

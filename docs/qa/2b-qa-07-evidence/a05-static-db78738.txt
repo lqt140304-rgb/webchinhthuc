@@ -1,0 +1,246 @@
+TAP version 13
+# Subtest: A05 X-Robots-Tag theo tuyến trong vercel.json (kiểm tĩnh)
+    # Subtest: vercel.json có khối headers với X-Robots-Tag
+    ok 1 - vercel.json có khối headers với X-Robots-Tag
+      ---
+      duration_ms: 6.964982
+      type: 'test'
+      ...
+    # Subtest: "/gioi-thieu" nhận noindex
+    ok 2 - "/gioi-thieu" nhận noindex
+      ---
+      duration_ms: 2.854118
+      type: 'test'
+      ...
+    # Subtest: "/gioi-thieu/" nhận noindex
+    ok 3 - "/gioi-thieu/" nhận noindex
+      ---
+      duration_ms: 1.206002
+      type: 'test'
+      ...
+    # Subtest: "/doi-ngu" nhận noindex
+    ok 4 - "/doi-ngu" nhận noindex
+      ---
+      duration_ms: 0.708526
+      type: 'test'
+      ...
+    # Subtest: "/co-so-vat-chat" nhận noindex
+    ok 5 - "/co-so-vat-chat" nhận noindex
+      ---
+      duration_ms: 0.581205
+      type: 'test'
+      ...
+    # Subtest: "/dich-vu" nhận noindex
+    ok 6 - "/dich-vu" nhận noindex
+      ---
+      duration_ms: 0.685212
+      type: 'test'
+      ...
+    # Subtest: "/dich-vu/" nhận noindex
+    ok 7 - "/dich-vu/" nhận noindex
+      ---
+      duration_ms: 0.562555
+      type: 'test'
+      ...
+    # Subtest: "/dich-vu/kham-dieu-tri" nhận noindex
+    ok 8 - "/dich-vu/kham-dieu-tri" nhận noindex
+      ---
+      duration_ms: 3.44179
+      type: 'test'
+      ...
+    # Subtest: "/dich-vu/noi-tru" nhận noindex
+    ok 9 - "/dich-vu/noi-tru" nhận noindex
+      ---
+      duration_ms: 0.972792
+      type: 'test'
+      ...
+    # Subtest: "/dich-vu/spa" nhận noindex
+    ok 10 - "/dich-vu/spa" nhận noindex
+      ---
+      duration_ms: 0.691052
+      type: 'test'
+      ...
+    # Subtest: "/dich-vu/cap-cuu" nhận noindex
+    ok 11 - "/dich-vu/cap-cuu" nhận noindex
+      ---
+      duration_ms: 0.195019
+      type: 'test'
+      ...
+    # Subtest: "/dich-vu/spa/" nhận noindex
+    ok 12 - "/dich-vu/spa/" nhận noindex
+      ---
+      duration_ms: 0.135676
+      type: 'test'
+      ...
+    # Subtest: "/bang-gia" nhận noindex
+    ok 13 - "/bang-gia" nhận noindex
+      ---
+      duration_ms: 10.221685
+      type: 'test'
+      ...
+    # Subtest: "/cau-chuyen" nhận noindex
+    ok 14 - "/cau-chuyen" nhận noindex
+      ---
+      duration_ms: 0.548407
+      type: 'test'
+      ...
+    # Subtest: "/cau-chuyen/" nhận noindex
+    ok 15 - "/cau-chuyen/" nhận noindex
+      ---
+      duration_ms: 0.769291
+      type: 'test'
+      ...
+    # Subtest: "/cau-chuyen/mot-ca-bat-ky" nhận noindex
+    ok 16 - "/cau-chuyen/mot-ca-bat-ky" nhận noindex
+      ---
+      duration_ms: 0.308238
+      type: 'test'
+      ...
+    # Subtest: "/goc-thu-cung" nhận noindex
+    ok 17 - "/goc-thu-cung" nhận noindex
+      ---
+      duration_ms: 0.349261
+      type: 'test'
+      ...
+    # Subtest: "/bai-viet/mot-bai-bat-ky" nhận noindex
+    ok 18 - "/bai-viet/mot-bai-bat-ky" nhận noindex
+      ---
+      duration_ms: 0.428707
+      type: 'test'
+      ...
+    # Subtest: "/san-pham" nhận noindex
+    ok 19 - "/san-pham" nhận noindex
+      ---
+      duration_ms: 0.156995
+      type: 'test'
+      ...
+    # Subtest: "/dat-lich" nhận noindex
+    ok 20 - "/dat-lich" nhận noindex
+      ---
+      duration_ms: 0.250129
+      type: 'test'
+      ...
+    # Subtest: "/lien-he" nhận noindex
+    ok 21 - "/lien-he" nhận noindex
+      ---
+      duration_ms: 0.160604
+      type: 'test'
+      ...
+    # Subtest: "/dang-nhap" nhận noindex
+    ok 22 - "/dang-nhap" nhận noindex
+      ---
+      duration_ms: 0.214354
+      type: 'test'
+      ...
+    # Subtest: "/dang-ky" nhận noindex
+    ok 23 - "/dang-ky" nhận noindex
+      ---
+      duration_ms: 0.174117
+      type: 'test'
+      ...
+    # Subtest: "/tai-khoan" nhận noindex
+    ok 24 - "/tai-khoan" nhận noindex
+      ---
+      duration_ms: 0.166442
+      type: 'test'
+      ...
+    # Subtest: "/tai-khoan/" nhận noindex
+    ok 25 - "/tai-khoan/" nhận noindex
+      ---
+      duration_ms: 0.203296
+      type: 'test'
+      ...
+    # Subtest: "/tai-khoan/ho-so" nhận noindex
+    ok 26 - "/tai-khoan/ho-so" nhận noindex
+      ---
+      duration_ms: 0.207571
+      type: 'test'
+      ...
+    # Subtest: "/tai-khoan/lich-hen" nhận noindex
+    ok 27 - "/tai-khoan/lich-hen" nhận noindex
+      ---
+      duration_ms: 5.820542
+      type: 'test'
+      ...
+    # Subtest: "/quan-ly" nhận noindex
+    ok 28 - "/quan-ly" nhận noindex
+      ---
+      duration_ms: 0.187248
+      type: 'test'
+      ...
+    # Subtest: "/quan-ly/" nhận noindex
+    ok 29 - "/quan-ly/" nhận noindex
+      ---
+      duration_ms: 0.193054
+      type: 'test'
+      ...
+    # Subtest: "/quan-ly/lich-hen" nhận noindex
+    ok 30 - "/quan-ly/lich-hen" nhận noindex
+      ---
+      duration_ms: 0.279558
+      type: 'test'
+      ...
+    # Subtest: "/" KHÔNG bị noindex
+    ok 31 - "/" KHÔNG bị noindex
+      ---
+      duration_ms: 0.597354
+      type: 'test'
+      ...
+    # Subtest: "/robots.txt" KHÔNG bị noindex
+    ok 32 - "/robots.txt" KHÔNG bị noindex
+      ---
+      duration_ms: 0.160577
+      type: 'test'
+      ...
+    # Subtest: "/sitemap.xml" KHÔNG bị noindex
+    ok 33 - "/sitemap.xml" KHÔNG bị noindex
+      ---
+      duration_ms: 0.164692
+      type: 'test'
+      ...
+    # Subtest: "/favicon.png" KHÔNG bị noindex
+    ok 34 - "/favicon.png" KHÔNG bị noindex
+      ---
+      duration_ms: 0.12076
+      type: 'test'
+      ...
+    # Subtest: "/images/logo.png" KHÔNG bị noindex
+    ok 35 - "/images/logo.png" KHÔNG bị noindex
+      ---
+      duration_ms: 0.105345
+      type: 'test'
+      ...
+    # Subtest: "/assets/index-abc123.js" KHÔNG bị noindex
+    ok 36 - "/assets/index-abc123.js" KHÔNG bị noindex
+      ---
+      duration_ms: 0.232956
+      type: 'test'
+      ...
+    # Subtest: "/assets/index-abc123.css" KHÔNG bị noindex
+    ok 37 - "/assets/index-abc123.css" KHÔNG bị noindex
+      ---
+      duration_ms: 0.262442
+      type: 'test'
+      ...
+    # Subtest: [quyết định] URL không tồn tại (soft 404) có được noindex không
+    ok 38 - [quyết định] URL không tồn tại (soft 404) có được noindex không
+      ---
+      duration_ms: 1.114288
+      type: 'test'
+      ...
+    # soft 404 noindex: {"/khong-ton-tai":false,"/dich-vu-khong-ton-tai":false,"/abc/xyz":false}
+    1..38
+ok 1 - A05 X-Robots-Tag theo tuyến trong vercel.json (kiểm tĩnh)
+  ---
+  duration_ms: 46.11436
+  type: 'suite'
+  ...
+1..1
+# tests 38
+# suites 1
+# pass 38
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 242.108087
