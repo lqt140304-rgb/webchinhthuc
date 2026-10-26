@@ -21,6 +21,7 @@
 | `src/pages/BookingPage.tsx` | B01: Tạo trang Đặt lịch khám chuyên biệt tại `/dat-lich` với đầy đủ 8 trường `BookingFormData`, client validation, banner minh bạch thử nghiệm và panel kết quả không báo thành công giả |
 | `src/pages/BookingPage.module.css` | B01: CSS Modules định kiểu Editorial Luxury cho trang Đặt lịch khám |
 | `src/app/routes.tsx` | B01: Cập nhật route `/dat-lich` kết nối với `BookingPage` |
+| `vercel.json` | A05: Cấu hình `headers` với `X-Robots-Tag: noindex, nofollow` theo từng tuyến đường trang chờ/portal (được Chủ dự án duyệt 26/10/2026) |
 | `docs/implementation-plan.md` | Cập nhật tiến độ: ghi nhận 2A nghiệm thu có điều kiện, 2B hoàn tất B01/B02/B04 |
 | `tests/e2e/2b-verification.cjs` | Bộ script kiểm thử tự động toàn diện cho mốc 2B (7 viewports, không tràn ngang, form flow) |
 | `docs/qa/2b-verification-evidence/` | 14 ảnh chụp toàn trang fullpage (7 viewports cho Trang chủ + 7 viewports cho Trang Đặt lịch) và log kết quả |
@@ -72,11 +73,11 @@
 ## 4. Kết quả kiểm thử tự động (Nhiệm vụ B04)
 
 ### A. Kiểm tra chất lượng mã nguồn & Build
-- `npx oxlint`: **0 warnings, 0 errors** (31 files scanned).
+- `npx oxlint`: **0 warnings, 0 errors** (32 files scanned).
 - `npx tsc -b`: **0 errors**.
-- `npm run build`: **Thành công** trong 342ms.
-  - Bundle JS: `368.11 kB` (gzipped: `105.68 kB`).
-  - Bundle CSS: `59.04 kB` (gzipped: `10.77 kB`).
+- `npm run build`: **Thành công** trong 317ms.
+  - Bundle JS: `368.11 kB` (gzipped: `105.67 kB`).
+  - Bundle CSS: `59.04 kB` (gzipped: `10.78 kB`).
   - Thư mục `dist/images/` sạch, không chứa file rác hay logo gốc độ phân giải cao.
 
 ### B. Kiểm tra hồi quy 2A (Bộ chuẩn 100 tests E2E)
@@ -102,11 +103,12 @@
 
 ---
 
-## 5. Các vấn đề còn tồn tại & Điều kiện tiên quyết
+## 5. Các vấn đề còn tồn tại & Quyết định đã phê duyệt
 
 1. **A04 (Kiểm tra trên host Vercel thật):** Vẫn ở trạng thái **BLOCKED** chờ chủ dự án cấp phép URL preview Vercel chính thức.
-2. **A05 (X-Robots-Tag HTTP Header):** Đã chuẩn bị phương án cấu hình `vercel.json` theo từng route, chờ chủ dự án/CEO duyệt áp dụng.
-3. **Hình ảnh bệnh viện thực tế:** Toàn bộ ảnh hiện tại là ảnh mẫu (Unsplash Editorial). Bệnh viện sẽ cung cấp ảnh thực tế cơ sở 101 Khuất Duy Tiến và đội ngũ bác sĩ ở Giai đoạn 3.
+2. **A05 (X-Robots-Tag HTTP Header):** **ĐÃ ĐƯỢC CHỦ DỰ ÁN PHÊ DUYỆT (26/10/2026)** — Đã áp dụng cấu hình headers `X-Robots-Tag: noindex, nofollow` theo từng tuyến đường vào `vercel.json`.
+3. **Architecture Baseline V1:** **ĐÃ ĐƯỢC CHỦ DỰ ÁN PHÊ DUYỆT (26/10/2026)** — Đã tích hợp an toàn vào nhánh `main` (commit `d2a19c5`).
+4. **Hình ảnh bệnh viện thực tế:** Toàn bộ ảnh hiện tại là ảnh mẫu (Unsplash Editorial). Bệnh viện sẽ cung cấp ảnh thực tế cơ sở 101 Khuất Duy Tiến và đội ngũ bác sĩ ở Giai đoạn 3.
 
 ---
 

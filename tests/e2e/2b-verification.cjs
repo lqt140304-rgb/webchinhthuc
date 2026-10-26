@@ -1,7 +1,7 @@
 let playwright;
 try {
   playwright = require('playwright');
-} catch (e) {
+} catch {
   playwright = require('C:/Users/Admin/AppData/Roaming/npm/node_modules/playwright');
 }
 const { chromium } = playwright;
@@ -20,7 +20,7 @@ function waitServer(url, timeout = 10000) {
   const start = Date.now();
   return new Promise((resolve, reject) => {
     function check() {
-      http.get(url, (res) => {
+      http.get(url, (_res) => {
         resolve();
       }).on('error', () => {
         if (Date.now() - start > timeout) {
@@ -226,7 +226,7 @@ async function run() {
     if (browser) await browser.close();
     try {
       spawn('taskkill', ['/pid', preview.pid, '/f', '/t']);
-    } catch (e) {}
+    } catch {}
   }
 }
 
