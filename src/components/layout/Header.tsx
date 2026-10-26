@@ -37,7 +37,7 @@ const navGroups: NavGroup[] = [
       { label: 'Khám & điều trị', href: '/dich-vu/kham-dieu-tri', description: 'Khám lâm sàng, chẩn đoán & phẫu thuật' },
       { label: 'Chăm sóc nội trú 24/7', href: '/dich-vu/noi-tru', description: 'Chăm sóc nội trú 24/7 theo dõi liên tục' },
       { label: 'Spa & Grooming', href: '/dich-vu/spa', description: 'Tắm trị liệu & vệ sinh thẩm mỹ' },
-      { label: 'Cấp cứu 24/24', href: '/dich-vu/cap-cuu', description: 'Tiếp nhận xử lý khẩn cấp 24/7', isEmergency: true },
+      { label: 'Cấp cứu 24/24', href: '/dich-vu/cap-cuu', description: 'Tiếp nhận xử lý khẩn cấp 24/24', isEmergency: true },
       { label: 'Bảng giá niêm yết', href: '/bang-gia', description: 'Minh bạch chi phí dịch vụ tham chiếu' },
     ],
   },

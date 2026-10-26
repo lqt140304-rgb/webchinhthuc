@@ -96,7 +96,7 @@ export const EditorialKnowledge: React.FC = () => {
                   className={styles.articleImage}
                 />
                 <span className={styles.categoryBadge}>{art.category}</span>
-                <span className="absolute bottom-2.5 right-2.5 px-2 py-0.5 rounded text-[10px] font-semibold bg-black/60 text-white/90 backdrop-blur-xs">
+                <span className="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-md text-xs font-medium bg-black/75 text-white shadow-xs backdrop-blur-xs">
                   Ảnh minh họa
                 </span>
               </div>

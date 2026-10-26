@@ -90,7 +90,7 @@ export const FeaturedServices: React.FC = () => {
                     className={styles.serviceImage}
                   />
                   <span className={styles.badge}>{item.category}</span>
-                  <span className="absolute bottom-2.5 right-2.5 px-2 py-0.5 rounded text-[10px] font-semibold bg-black/60 text-white/90 backdrop-blur-xs">
+                  <span className="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-md text-xs font-medium bg-black/75 text-white shadow-xs backdrop-blur-xs">
                     Ảnh minh họa
                   </span>
                 </div>
@@ -134,7 +134,7 @@ export const FeaturedServices: React.FC = () => {
                     Cấp Cứu Thú Cưng Khẩn Cấp 24/24
                   </h4>
                   <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[var(--color-warm-orange)] text-white">
-                    24/7
+                    24/24
                   </span>
                 </div>
                 <p className="text-xs sm:text-sm text-slate-700 mt-1 max-w-xl">

@@ -80,7 +80,7 @@ export const HeroSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Frame 2: High arch / cat wellness (2B-14: LCP on desktop, MUST be eager, responsive WebP) */}
+          {/* Frame 2: High arch / cat wellness (2B-14, 2B-20: LCP on desktop, eager + high fetch priority, responsive WebP) */}
           <div className={`${styles.frameCenter} h-[380px] sm:h-[460px] lg:h-[500px] md:-mt-6`}>
             <img
               src="/images/hero-happy-cat.webp"
@@ -90,6 +90,7 @@ export const HeroSection: React.FC = () => {
               width={1200}
               height={826}
               loading="eager"
+              fetchPriority="high"
               decoding="async"
               className={styles.editorialImage}
             />
