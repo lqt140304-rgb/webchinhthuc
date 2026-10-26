@@ -27,3 +27,6 @@ dist-ssr
 screenshots/
 ev/
 e2e-evidence/
+lh-results/
+lh-summary.json
+

@@ -2,8 +2,8 @@
 
 **Dự án:** Website Bệnh viện Thú y Lê Sơn 2026  
 **Repository:** `lqt140304-rgb/webchinhthuc`  
-**Cập nhật lần cuối:** 26/10/2026 (Mốc 2B — Fix QA 2B-04 & Triển khai CEO Directive 010-A)  
-**Quy chế phối hợp:** Theo CEO Directive 006-A, 007, 008, 009, 010-A và `AGENTS.md`
+**Cập nhật lần cuối:** 26/10/2026 (Mốc 2B — Triển khai CEO Directive 011-A: Phương án C - Typography Preservation & Performance)  
+**Quy chế phối hợp:** Theo CEO Directive 006-A, 007, 008, 009, 010-A, 011-A và `AGENTS.md`
 
 ---
 
@@ -46,22 +46,28 @@
 
 ---
 
-## 3. Bảng kê bản quyền phông chữ tự lưu trữ (Font Credits Ledger — 2B-23)
+## 3. Bảng kê bản quyền phông chữ tự lưu trữ (Font Credits Ledger — 2B-23, 2B-25, 2B-26)
 
 > Toàn bộ phông chữ tự lưu trữ (self-hosted) trong thư mục `public/fonts/` được phát hành theo giấy phép bản quyền nguồn mở quốc tế **SIL Open Font License (OFL 1.1)**, cho phép sử dụng, nhúng và phân phối miễn phí trong các sản phẩm thương mại và phi thương mại. Tài liệu giấy phép chi tiết được lưu trữ tại `docs/licenses/`.
 
-| STT | Tên họ phông chữ | File WOFF2 triển khai | Dung lượng | Tác giả / Đơn vị thiết kế | Nguồn chính thức & Kho lưu trữ | Giấy phép bản quyền | Trạng thái xác minh | Phạm vi sử dụng trên Website |
+| STT | Tên họ phông chữ | File WOFF2 triển khai | Dung lượng | Tác giả / Đơn vị thiết kế | Nguồn chính thức & Kho lưu trữ | Giấy phép bản quyền | Trạng thái xác minh | Phạm vi sử dụng trên Website & Chiến lược phân tầng |
 |:---:|:---|:---|:---:|:---|:---|:---:|:---:|:---|
-| 1 | **Be Vietnam Pro** (Regular 400) | `be-vietnam-pro-400.woff2` | 35.0 KB | Fábio Duarte Martins, Vietanh Nguyen | [Google Fonts OFL Repo](https://github.com/google/fonts/tree/main/ofl/bevietnampro) / [Better Type Foundry](https://github.com/bettertypefoundry/be-vietnam-pro) | SIL OFL 1.1 ([`OFL-BeVietnamPro.txt`](licenses/OFL-BeVietnamPro.txt)) | **Đã xác minh (SIL OFL 1.1)** | Toàn bộ văn bản thân trang (Body text, paragraphs, form labels, inputs, badges). Preloaded trong `<head>`. |
-| 2 | **Be Vietnam Pro** (SemiBold 600) | `be-vietnam-pro-600.woff2` | 36.9 KB | Fábio Duarte Martins, Vietanh Nguyen | [Google Fonts OFL Repo](https://github.com/google/fonts/tree/main/ofl/bevietnampro) / [Better Type Foundry](https://github.com/bettertypefoundry/be-vietnam-pro) | SIL OFL 1.1 ([`OFL-BeVietnamPro.txt`](licenses/OFL-BeVietnamPro.txt)) | **Đã xác minh (SIL OFL 1.1)** | Nhãn nút bấm (Buttons, CTA), liên kết điều hướng Menu, tiêu đề phụ và văn bản in đậm (600–700). |
-| 3 | **Lora** (SemiBold 600) | `lora-600.woff2` | 48.5 KB | Cyreal (Olga Karpushina, Alexei Vanyashin) | [Google Fonts OFL Repo](https://github.com/google/fonts/tree/main/ofl/lora) / [Cyreal Lora](https://github.com/cyrealtype/Lora-Cyrillic) | SIL OFL 1.1 ([`OFL-Lora.txt`](licenses/OFL-Lora.txt)) | **Đã xác minh (SIL OFL 1.1)** | Tiêu đề báo chí chuẩn Editorial Luxury (Hero `h1`, Section titles `h2`, thẻ thương hiệu logo "LÊ SƠN"). Preloaded trong `<head>`. |
+| 1 | **Be Vietnam Pro** (Regular 400) | `be-vietnam-pro-400.woff2` | 35.0 KB | Fábio Duarte Martins, Vietanh Nguyen | [Google Fonts OFL Repo](https://github.com/google/fonts/tree/main/ofl/bevietnampro) / [Better Type Foundry](https://github.com/bettertypefoundry/be-vietnam-pro) | SIL OFL 1.1 ([`OFL-BeVietnamPro.txt`](licenses/OFL-BeVietnamPro.txt)) | **Đã xác minh (SIL OFL 1.1)** | **Critical Font:** Văn bản thân trang (body text, paragraphs, mô tả dịch vụ). Preload trong `<head>`. |
+| 2 | **Be Vietnam Pro** (Medium 500) | `be-vietnam-pro-500.woff2` | 36.7 KB | Fábio Duarte Martins, Vietanh Nguyen | [Google Fonts OFL Repo](https://github.com/google/fonts/tree/main/ofl/bevietnampro) / [Better Type Foundry](https://github.com/bettertypefoundry/be-vietnam-pro) | SIL OFL 1.1 ([`OFL-BeVietnamPro.txt`](licenses/OFL-BeVietnamPro.txt)) | **Đã xác minh (SIL OFL 1.1)** | **Secondary Font:** Phục hồi chuẩn xác trọng số Medium cho Logo Subtitle ("BỆNH VIỆN THÚ Y"), badges và inputs. Nạp theo nhu cầu với `font-display: swap;`. |
+| 3 | **Be Vietnam Pro** (SemiBold 600) | `be-vietnam-pro-600.woff2` | 36.9 KB | Fábio Duarte Martins, Vietanh Nguyen | [Google Fonts OFL Repo](https://github.com/google/fonts/tree/main/ofl/bevietnampro) / [Better Type Foundry](https://github.com/bettertypefoundry/be-vietnam-pro) | SIL OFL 1.1 ([`OFL-BeVietnamPro.txt`](licenses/OFL-BeVietnamPro.txt)) | **Đã xác minh (SIL OFL 1.1)** | **Critical Font:** Nhãn nút bấm (Buttons, CTA), điều hướng Menu Header/Drawer, nhãn form. Preload trong `<head>`. |
+| 4 | **Be Vietnam Pro** (Bold 700) | `be-vietnam-pro-700.woff2` | 37.7 KB | Fábio Duarte Martins, Vietanh Nguyen | [Google Fonts OFL Repo](https://github.com/google/fonts/tree/main/ofl/bevietnampro) / [Better Type Foundry](https://github.com/bettertypefoundry/be-vietnam-pro) | SIL OFL 1.1 ([`OFL-BeVietnamPro.txt`](licenses/OFL-BeVietnamPro.txt)) | **Đã xác minh (SIL OFL 1.1)** | **Secondary Font:** Phục hồi chuẩn xác trọng số Bold cho Hero Eyebrow ("CHĂM SÓC"), các điểm nhấn in đậm. Nạp theo nhu cầu với `font-display: swap;`. |
+| 5 | **Be Vietnam Pro** (Italic 400) | `be-vietnam-pro-italic-400.woff2` | 35.4 KB | Fábio Duarte Martins, Vietanh Nguyen | [Google Fonts OFL Repo](https://github.com/google/fonts/tree/main/ofl/bevietnampro) / [Better Type Foundry](https://github.com/bettertypefoundry/be-vietnam-pro) | SIL OFL 1.1 ([`OFL-BeVietnamPro.txt`](licenses/OFL-BeVietnamPro.txt)) | **Đã xác minh (SIL OFL 1.1)** | **Secondary Font:** Phục hồi phông chữ nghiêng chuẩn (True Italic) cho ghi chú disclaimer Section 4. Nạp theo nhu cầu với `font-display: swap;`. |
+| 6 | **Lora** (SemiBold 600) | `lora-600.woff2` | 48.5 KB | Cyreal (Olga Karpushina, Alexei Vanyashin) | [Google Fonts OFL Repo](https://github.com/google/fonts/tree/main/ofl/lora) / [Cyreal Lora](https://github.com/cyrealtype/Lora-Cyrillic) | SIL OFL 1.1 ([`OFL-Lora.txt`](licenses/OFL-Lora.txt)) | **Đã xác minh (SIL OFL 1.1)** | **Critical Font:** Tiêu đề báo chí chuẩn Editorial Luxury (Hero `h1`, Section titles `h2`, thẻ thương hiệu logo "LÊ SƠN"). Preload trong `<head>`. |
 
-### Kiến trúc tối ưu hóa phân phối phông chữ (2B-08):
-- **Số quy tắc `@font-face` khai báo:** Đúng **3 quy tắc** trong [`src/styles/fonts.css`](file:///d:/webbvct/src/styles/fonts.css).
-- **Số tệp phông chữ thực tế tải:** Đúng **3 tệp** trên cả trang chủ `/` và trang `/dat-lich`.
-- **Tổng dung lượng phông chữ tải:** **120.4 KB** (giảm 60% so với 301.4 KB của vòng QA trước; giảm 83% số lượng HTTP requests từ 18 tệp xuống 3 tệp).
-- **Tài nguyên chặn hiển thị (Render-blocking):** **0 tệp** (loại bỏ hoàn toàn stylesheet Google Fonts ngoại vi).
-- **Bảo toàn hiển thị:** Đầy đủ 100% dấu thanh tiếng Việt (ă, â, đ, ê, ô, ơ, ư, sắc, huyền, hỏi, ngã, nặng) không lỗi font hay layout shift (CLS = 0).
+### Chiến lược Phân tầng Nạp Phông chữ (Tiered Font Loading Strategy — Phương án C):
+- **Khắc phục triệt để lỗi 2B-25:** Loại bỏ cơ chế fallback gộp weight (không còn hiện tượng weight 500 hiển thị như 400 hoặc 700 hiển thị như 600; không dựa vào font synthesis). Mỗi trọng số dùng đúng tệp phông nguyên bản với độ dày nét chuẩn xác.
+- **Khắc phục triệt để lỗi 2B-26 (Repository Hygiene):** Đã xóa bỏ hoàn toàn 2 tệp phông không được tham chiếu trong mã nguồn (`lora-400.woff2`, `lora-700.woff2`). Thư mục `public/fonts/` chỉ lưu giữ chính xác 6 tệp phông thực tế được sử dụng.
+- **Phân bổ tải ưu tiên (Tiered Loading):**
+  - **Tầng 1 — Critical (Thiết yếu cho khung nhìn đầu tiên):** Preload 3 tệp (`be-vietnam-pro-400`, `be-vietnam-pro-600`, `lora-600`), tổng dung lượng ~120 KB, loại bỏ hoàn toàn render blocking và layout shift.
+  - **Tầng 2 — Secondary (Nạp theo nhu cầu):** 3 tệp (`be-vietnam-pro-500`, `be-vietnam-pro-700`, `be-vietnam-pro-italic-400`), tổng dung lượng ~110 KB, nạp nền với `font-display: swap;` khi cuộn trang hoặc khi gặp thành phần tương ứng.
+- **Tổng dung lượng toàn bộ phông:** 230.2 KB (giảm 38% so với 370 KB của vòng QA 2B-04).
+- **Tài nguyên chặn hiển thị (Render-blocking):** **0 tệp**.
+- **Bảo toàn hiển thị:** Đầy đủ 100% dấu thanh tiếng Việt không lỗi font hay layout shift (CLS = 0.000).
 
 ---
 

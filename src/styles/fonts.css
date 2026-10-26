@@ -1,31 +1,59 @@
 /* ==========================================================================
-   SELF-HOSTED OPTIMIZED FONTS — BỆNH VIỆN THÚ Y LÊ SƠN 2026
+   SELF-HOSTED FONTS — BỆNH VIỆN THÚ Y LÊ SƠN 2026
    SIL Open Font License (OFL 1.1)
-   Architecture: Ultra-lean consolidated WOFF2 delivery
-   - Be Vietnam Pro: 400 (Body/Medium) & 600 (SemiBold/Bold)
-   - Lora: 600 (Approved Luxury Editorial Headings per CEO Directive 010-A)
-   Full Vietnamese (dấu tiếng Việt) + Latin + Latin-ext support in single-file format.
+   Architecture: Tiered Loading Strategy (Phương án C — CEO Directive 011-A)
+   - Critical (Preloaded): Be Vietnam Pro 400, Be Vietnam Pro 600, Lora 600
+   - Secondary (On-demand true weights): Be Vietnam Pro 500, Be Vietnam Pro 700, Italic 400
+   100% full Vietnamese (dấu tiếng Việt) + Latin support per single-file WOFF2.
    Zero render-blocking external requests. font-display: swap.
    ========================================================================== */
 
-/* 1. Be Vietnam Pro — Sans-Serif Body & UI Typography */
+/* 1. Be Vietnam Pro — Regular 400 (Body text / paragraphs) [CRITICAL] */
 @font-face {
   font-family: 'Be Vietnam Pro';
   font-style: normal;
-  font-weight: 300 500;
+  font-weight: 400;
   font-display: swap;
   src: url('/fonts/be-vietnam-pro-400.woff2') format('woff2');
 }
 
+/* 2. Be Vietnam Pro — SemiBold 600 (Buttons / Navigation / CTA) [CRITICAL] */
 @font-face {
   font-family: 'Be Vietnam Pro';
   font-style: normal;
-  font-weight: 600 900;
+  font-weight: 600;
   font-display: swap;
   src: url('/fonts/be-vietnam-pro-600.woff2') format('woff2');
 }
 
-/* 2. Lora — Luxury Editorial Serif Typography (Headings & Brand Identity) */
+/* 3. Be Vietnam Pro — Medium 500 (True Weight 500: Subtitles / Badges) [SECONDARY] */
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/be-vietnam-pro-500.woff2') format('woff2');
+}
+
+/* 4. Be Vietnam Pro — Bold 700 (True Weight 700: Eyebrow badges / Status) [SECONDARY] */
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/be-vietnam-pro-700.woff2') format('woff2');
+}
+
+/* 5. Be Vietnam Pro — Italic 400 (True 400 Italic: Footnotes / Disclaimers) [SECONDARY] */
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/be-vietnam-pro-italic-400.woff2') format('woff2');
+}
+
+/* 6. Lora — Luxury Editorial Headings (Approved SemiBold 600) [CRITICAL] */
 @font-face {
   font-family: 'Lora';
   font-style: normal;
