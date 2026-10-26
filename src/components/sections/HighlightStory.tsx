@@ -30,8 +30,10 @@ export const HighlightStory: React.FC = () => {
             <div className="lg:col-span-5 relative">
               <div className={styles.imageFrame}>
                 <img
-                  src="/images/story-recovery.jpg"
-                  alt="Chú cún tươi vui, phục hồi sức sống sau ca điều trị"
+                  src="/images/story-recovery.webp"
+                  alt="Chú cún tươi vui, phục hồi sức sống sau ca điều trị (Hình ảnh minh họa)"
+                  width={1200}
+                  height={800}
                   loading="lazy"
                   className="w-full h-full object-cover"
                 />

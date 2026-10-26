@@ -56,10 +56,12 @@ export const HeroSection: React.FC = () => {
 
         {/* Bottom Part: 3 Large Editorial Frames (Inspired by AURA) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
-          {/* Frame 1: Pet care & gentle bonding (2B-04 & 2B-08: LCP image prioritized) */}
+          {/* Frame 1: Pet care & gentle bonding (2B-04, 2B-08: LCP on mobile, eager load, responsive WebP) */}
           <div className={`${styles.frameLeft} h-[340px] sm:h-[420px] lg:h-[460px]`}>
             <img
-              src="/images/hero-vet-care.jpg"
+              src="/images/hero-vet-care.webp"
+              srcSet="/images/hero-vet-care-400w.webp 400w, /images/hero-vet-care-800w.webp 800w, /images/hero-vet-care.webp 1200w"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 380px"
               alt="Chăm sóc và vỗ về thú cưng ân cần (Hình ảnh minh họa)"
               width={1200}
               height={800}
@@ -78,14 +80,16 @@ export const HeroSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Frame 2: High arch / cat wellness */}
+          {/* Frame 2: High arch / cat wellness (2B-14: LCP on desktop, MUST be eager, responsive WebP) */}
           <div className={`${styles.frameCenter} h-[380px] sm:h-[460px] lg:h-[500px] md:-mt-6`}>
             <img
-              src="/images/hero-happy-cat.jpg"
-              alt="Mèo cưng khỏe mạnh, bình yên"
+              src="/images/hero-happy-cat.webp"
+              srcSet="/images/hero-happy-cat-400w.webp 400w, /images/hero-happy-cat-800w.webp 800w, /images/hero-happy-cat.webp 1200w"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 380px"
+              alt="Mèo cưng khỏe mạnh, bình yên (Hình ảnh minh họa)"
               width={1200}
               height={826}
-              loading="lazy"
+              loading="eager"
               decoding="async"
               className={styles.editorialImage}
             />
@@ -99,14 +103,16 @@ export const HeroSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Frame 3: Cuddle / recovery connection */}
+          {/* Frame 3: Cuddle / recovery connection (2B-14: eager load inside initial desktop viewport) */}
           <div className={`${styles.frameRight} h-[340px] sm:h-[420px] lg:h-[460px]`}>
             <img
-              src="/images/hero-clinic-cuddle.jpg"
-              alt="Sự gắn kết thân tình và đồng hành cùng thú cưng"
+              src="/images/hero-clinic-cuddle.webp"
+              srcSet="/images/hero-clinic-cuddle-400w.webp 400w, /images/hero-clinic-cuddle-800w.webp 800w, /images/hero-clinic-cuddle.webp 1200w"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 380px"
+              alt="Sự gắn kết thân tình và đồng hành cùng thú cưng (Hình ảnh minh họa)"
               width={1200}
               height={800}
-              loading="lazy"
+              loading="eager"
               decoding="async"
               className={styles.editorialImage}
             />

@@ -222,7 +222,7 @@ export const BookingPage: React.FC = () => {
 
               <div className="mt-6 pt-6 border-t border-[var(--color-border-subtle)]">
                 <h3 className="font-serif font-bold text-sm text-[var(--color-plum-deep)] uppercase tracking-wider mb-3">
-                  Quy Trình Xử Lý Đặt Hẹn
+                  Quy Trình Dự Kiến Khi Hệ Thống Vận Hành
                 </h3>
                 <div className="space-y-4">
                   <div className={styles.processStep}>
@@ -233,12 +233,12 @@ export const BookingPage: React.FC = () => {
                   <div className={styles.processStep}>
                     <div className={styles.processStepDot} />
                     <p className="text-xs font-bold text-[var(--color-plum-deep)]">2. Tiếp nhận & phân loại</p>
-                    <p className="text-xs text-[var(--color-fg-muted)]">Phòng khám tiếp nhận thông tin và phân công điều phối viên.</p>
+                    <p className="text-xs text-[var(--color-fg-muted)]">Hệ thống ghi nhận và chuyển bộ phận phụ trách chuyên môn.</p>
                   </div>
                   <div className={styles.processStep}>
                     <div className={styles.processStepDot} />
                     <p className="text-xs font-bold text-[var(--color-plum-deep)]">3. Xác nhận giờ hẹn</p>
-                    <p className="text-xs text-[var(--color-fg-muted)]">Nhân sự liên hệ qua điện thoại để chốt khung giờ phù hợp.</p>
+                    <p className="text-xs text-[var(--color-fg-muted)]">Nhân sự liên hệ qua điện thoại để thống nhất khung giờ phù hợp.</p>
                   </div>
                   <div className={styles.processStep}>
                     <div className={styles.processStepDot} style={{ backgroundColor: 'var(--color-status-success-text)' }} />
@@ -451,11 +451,11 @@ export const BookingPage: React.FC = () => {
                         onChange={(e) => setFormData({ ...formData, serviceType: e.target.value })}
                         className={`w-full px-3.5 py-2.5 rounded-xl border border-[var(--color-border-medium)] focus:outline-none focus:ring-2 focus:ring-[var(--color-plum-primary)] focus:border-[var(--color-plum-primary)] text-sm bg-white cursor-pointer ${styles.fieldSelect}`}
                       >
-                        <option value="kham-dieu-tri">Khám & Điều trị nội khoa</option>
+                        <option value="kham-dieu-tri">Khám & điều trị</option>
                         <option value="noi-tru">Chăm sóc nội trú 24/7</option>
-                        <option value="spa">Spa & Thẩm mỹ y khoa</option>
-                        <option value="cap-cuu">Cấp cứu & Phẫu thuật</option>
-                        <option value="khac">Nhu cầu thăm khám khác (trao đổi trực tiếp)</option>
+                        <option value="spa">Spa & Grooming</option>
+                        <option value="cap-cuu">Cấp cứu 24/24</option>
+                        <option value="khac">Dịch vụ khác (trao đổi trực tiếp)</option>
                       </select>
                     </div>
                   </div>

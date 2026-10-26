@@ -27,8 +27,11 @@ export const WhyChooseUs: React.FC = () => {
           <div className="lg:col-span-5 flex flex-col">
             <div className={styles.imageWrapper}>
               <img
-                src="/images/why-pet-companion.jpg"
-                alt="Thú cưng bình yên, tin cậy dưới sự chăm sóc của bệnh viện"
+                src="/images/why-pet-companion.webp"
+                alt="Thú cưng bình yên, tin cậy dưới sự chăm sóc của bệnh viện (Hình ảnh minh họa)"
+                width={800}
+                height={1000}
+                decoding="async"
                 loading="lazy"
                 className="w-full h-full object-cover"
               />

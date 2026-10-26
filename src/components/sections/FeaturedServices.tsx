@@ -17,10 +17,10 @@ interface ServiceItem {
 const services: ServiceItem[] = [
   {
     id: 'kham-dieu-tri',
-    title: 'Khám & Điều Trị Chuyên Sâu',
+    title: 'Khám & Điều Trị',
     category: 'Y Khoa Lâm Sàng',
     description: 'Thăm khám kỹ lưỡng, xét nghiệm sinh hóa, chẩn đoán hình ảnh kỹ thuật số và phẫu thuật ngoại khoa an toàn.',
-    image: '/images/service-exam.jpg',
+    image: '/images/service-exam.webp',
     href: '/dich-vu/kham-dieu-tri',
     icon: Stethoscope,
   },
@@ -29,16 +29,16 @@ const services: ServiceItem[] = [
     title: 'Chăm Sóc Nội Trú 24/7',
     category: 'Lưu Trú Y Tế',
     description: 'Khu vực nội trú chuyên biệt được vệ sinh khử khuẩn định kỳ, theo dõi chỉ số sức khỏe liên tục và chế độ dinh dưỡng phục hồi.',
-    image: '/images/service-inpatient.jpg',
+    image: '/images/service-inpatient.webp',
     href: '/dich-vu/noi-tru',
     icon: Home,
   },
   {
     id: 'spa',
-    title: 'Spa & Grooming Thẩm Mỹ',
+    title: 'Spa & Grooming',
     category: 'Vệ Sinh Y Tế & Chăm Sóc',
     description: 'Quy trình tắm dưỡng da lông, cắt tỉa tạo hình vệ sinh và chăm sóc móng, tai dịu nhẹ bởi chuyên viên tận tâm.',
-    image: '/images/service-spa.jpg',
+    image: '/images/service-spa.webp',
     href: '/dich-vu/spa',
     icon: Sparkles,
   },
@@ -82,11 +82,17 @@ export const FeaturedServices: React.FC = () => {
                 <div className={styles.imageContainer}>
                   <img
                     src={item.image}
-                    alt={item.title}
+                    alt={`${item.title} (Hình ảnh minh họa)`}
+                    width={800}
+                    height={533}
                     loading="lazy"
+                    decoding="async"
                     className={styles.serviceImage}
                   />
                   <span className={styles.badge}>{item.category}</span>
+                  <span className="absolute bottom-2.5 right-2.5 px-2 py-0.5 rounded text-[10px] font-semibold bg-black/60 text-white/90 backdrop-blur-xs">
+                    Ảnh minh họa
+                  </span>
                 </div>
 
                 <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">

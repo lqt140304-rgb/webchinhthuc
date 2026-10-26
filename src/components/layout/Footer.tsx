@@ -97,7 +97,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link to="/dich-vu/kham-dieu-tri" className="hover:text-white transition-colors">
-                  Khám & điều trị lâm sàng
+                  Khám & điều trị
                 </Link>
               </li>
               <li>
@@ -107,7 +107,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link to="/dich-vu/spa" className="hover:text-white transition-colors">
-                  Spa & Grooming thẩm mỹ
+                  Spa & Grooming
                 </Link>
               </li>
               <li>
@@ -116,7 +116,7 @@ export const Footer: React.FC = () => {
                   className="text-[var(--color-warm-orange-light)] hover:underline font-semibold flex items-center gap-1"
                 >
                   <ShieldAlert className="w-3.5 h-3.5" />
-                  <span>Cấp cứu khẩn cấp 24/24</span>
+                  <span>Cấp cứu 24/24</span>
                 </Link>
               </li>
               <li>

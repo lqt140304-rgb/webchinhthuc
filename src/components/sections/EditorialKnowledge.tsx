@@ -6,7 +6,7 @@ import styles from './EditorialKnowledge.module.css'
 interface ArticleItem {
   id: string
   title: string
-  category: 'Dinh dưỡng' | 'Phòng bệnh' | 'Chăm sóc';
+  category: 'Dinh dưỡng' | 'Phòng bệnh' | 'Chăm sóc'
   excerpt: string
   readTime: string
   image: string
@@ -20,7 +20,7 @@ const articles: ArticleItem[] = [
     category: 'Dinh dưỡng',
     excerpt: 'Hướng dẫn lựa chọn thành phần thức ăn, tỷ lệ đạm, khoáng chất phù hợp cho chó mèo con và giai đoạn trưởng thành.',
     readTime: '5 phút đọc',
-    image: '/images/article-nutrition.jpg',
+    image: '/images/article-nutrition.webp',
     slug: 'dinh-duong-an-toan-cho-thu-cung',
   },
   {
@@ -29,7 +29,7 @@ const articles: ArticleItem[] = [
     category: 'Phòng bệnh',
     excerpt: 'Nhận biết sớm triệu chứng hắt hơi, sốt nhẹ, chảy nước mũi và cách giữ ấm, phòng ngừa biến chứng viêm phổi nguy hiểm.',
     readTime: '4 phút đọc',
-    image: '/images/article-prevention.jpg',
+    image: '/images/article-prevention.webp',
     slug: 'phong-ngua-benh-duong-ho-hap',
   },
   {
@@ -38,7 +38,7 @@ const articles: ArticleItem[] = [
     category: 'Chăm sóc',
     excerpt: 'Kỹ năng giữ bình tĩnh, kiểm tra khoang miệng an toàn và liên hệ hỗ trợ cấp cứu y tế kịp thời.',
     readTime: '6 phút đọc',
-    image: '/images/article-firstaid.jpg',
+    image: '/images/article-firstaid.webp',
     slug: 'xu-tri-so-cuu-hoc-di-vat',
   },
 ]
@@ -88,11 +88,17 @@ export const EditorialKnowledge: React.FC = () => {
               <div className={styles.imageWrapper}>
                 <img
                   src={art.image}
-                  alt={art.title}
+                  alt={`${art.title} (Hình ảnh minh họa)`}
+                  width={800}
+                  height={533}
                   loading="lazy"
+                  decoding="async"
                   className={styles.articleImage}
                 />
                 <span className={styles.categoryBadge}>{art.category}</span>
+                <span className="absolute bottom-2.5 right-2.5 px-2 py-0.5 rounded text-[10px] font-semibold bg-black/60 text-white/90 backdrop-blur-xs">
+                  Ảnh minh họa
+                </span>
               </div>
 
               <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
