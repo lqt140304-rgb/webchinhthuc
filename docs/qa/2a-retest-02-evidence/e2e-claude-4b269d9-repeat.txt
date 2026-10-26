@@ -1,0 +1,161 @@
+▶ R2 P1-3 Drawer: ranh giới route và đúng một mục hiện tại
+  ✔ Drawer "/": aria-current đúng / (2161.494441ms)
+  ✔ Drawer "/dich-vu": aria-current đúng /dich-vu (1845.333355ms)
+  ✔ Drawer "/dich-vu/spa": aria-current đúng /dich-vu/spa (1998.09155ms)
+  ✔ Drawer "/goc-thu-cung": aria-current đúng /goc-thu-cung (1833.935992ms)
+  ✔ Drawer "/goc-thu-cung?cat=news": aria-current đúng /goc-thu-cung?cat=news (1600.315609ms)
+  ✔ Drawer "/cau-chuyen": aria-current đúng /cau-chuyen (1739.286838ms)
+  ✖ Drawer "/cau-chuyen/abc": nhất quán với desktop (Câu chuyện là mục hiện tại) (1876.307647ms)
+  ✔ Drawer ranh giới: "/dich-vu-khong-ton-tai" (404) không có mục/nhóm hiện tại (2083.04849ms)
+  ✔ Drawer ranh giới: "/cau-chuyenxyz" (404) không có mục/nhóm hiện tại (1708.936439ms)
+  ✔ Drawer ranh giới: "/gioi-thieu-abc" (404) không có mục/nhóm hiện tại (1579.945966ms)
+  ✔ Drawer ranh giới: "/goc-thu-cung-abc" (404) không có mục/nhóm hiện tại (1608.619388ms)
+✖ R2 P1-3 Drawer: ranh giới route và đúng một mục hiện tại (20166.631788ms)
+▶ R2 P1-4 Dropdown: luồng chuột thật
+  ✔ rê → bấm → di chuột vào submenu → bấm "Spa" thì tới /dich-vu/spa (2216.419485ms)
+  ✔ bấm lần hai (sau khi đã giữ mở) thì đóng; rời chuột thì đóng (1861.656878ms)
+✔ R2 P1-4 Dropdown: luồng chuột thật (4078.559532ms)
+▶ R2 Quyết định 3: bỏ hotline Header, vẫn có lối gọi
+  ✔ Header @320px không có tel:, vẫn có lối gọi trong màn hình đầu hoặc Drawer (1736.713805ms)
+  ✔ Header @768px không có tel:, vẫn có lối gọi trong màn hình đầu hoặc Drawer (1773.831588ms)
+  ✔ Header @1366px không có tel:, vẫn có lối gọi trong màn hình đầu hoặc Drawer (1673.132042ms)
+  ✔ Header @1536px không có tel:, vẫn có lối gọi trong màn hình đầu hoặc Drawer (1748.952597ms)
+✔ R2 Quyết định 3: bỏ hotline Header, vẫn có lối gọi (6933.357217ms)
+▶ R2 R1-1 JSON-LD chỉ ở trang chủ, đúng dữ liệu đã xác nhận
+  ✔ trang chủ có đúng một VeterinaryCare khớp địa chỉ/giờ đã xác nhận (1404.062176ms)
+  ✔ HTML gốc không còn JSON-LD tĩnh (không phát trên mọi route) (1468.934894ms)
+  ✔ JSON-LD bị gỡ khi rời trang chủ, không nhân đôi khi quay lại, đúng qua Back/Forward (3338.85483ms)
+✔ R2 R1-1 JSON-LD chỉ ở trang chủ, đúng dữ liệu đã xác nhận (6212.434091ms)
+▶ R2 P3 canonical
+  ✔ 404 không có canonical, kể cả khi đi từ trang có canonical; trang chủ có canonical gốc (3012.412826ms)
+✔ R2 P3 canonical (3012.71941ms)
+▶ R2 Quyết định 1: chỉ cấu hình Vercel
+  ✔ dist/ không còn 404.html, _redirects; vercel.json hợp lệ cho SPA (0.68031ms)
+  ✔ preview không phục vụ trang chuyển hướng 404.html cũ (2330.267522ms)
+✔ R2 Quyết định 1: chỉ cấu hình Vercel (2331.315348ms)
+▶ R2 P3 tối ưu logo và favicon (brief vòng 02 mục 5)
+  ✖ logo hiển thị và favicon không dùng ảnh gốc 377KB (1689.445951ms)
+✖ R2 P3 tối ưu logo và favicon (brief vòng 02 mục 5) (1689.973344ms)
+✔ round02: không có console error / pageerror (0.279645ms)
+▶ P1-1 Header 320px
+  ✔ viewport đúng 320px, Menu nằm trọn và mở được Drawer (isMobile=false) (2079.694678ms)
+  ✔ viewport đúng 320px, Menu nằm trọn và mở được Drawer (isMobile=true) (1781.968341ms)
+✔ P1-1 Header 320px (4031.352716ms)
+▶ Responsive: không tràn ngang ở 5 viewport
+  ✔ home @ 320px (2960.600127ms)
+  ✔ comingSoon @ 320px (1426.803396ms)
+  ✔ notFound @ 320px (1339.595774ms)
+  ✔ home @ 390px (3087.865748ms)
+  ✔ comingSoon @ 390px (1607.495065ms)
+  ✔ notFound @ 390px (1487.177761ms)
+  ✔ home @ 768px (1759.717047ms)
+  ✔ comingSoon @ 768px (1335.416957ms)
+  ✔ notFound @ 768px (1386.776217ms)
+  ✔ home @ 1366px (2313.629743ms)
+  ✔ comingSoon @ 1366px (1949.781794ms)
+  ✔ notFound @ 1366px (1671.881082ms)
+  ✔ home @ 1440px (2259.523479ms)
+  ✔ comingSoon @ 1440px (1681.973715ms)
+  ✔ notFound @ 1440px (1479.90384ms)
+✔ Responsive: không tràn ngang ở 5 viewport (27751.2429ms)
+▶ P1-2 Kích thước khung sau khi sửa token
+  ✔ ComingSoon và 404 ở 1440px có độ rộng chữ dễ đọc (≤ 800px) (2459.731223ms)
+  ✔ Drawer ở 768px không phủ gần hết màn hình (≤ 480px) (2059.325149ms)
+✔ P1-2 Kích thước khung sau khi sửa token (4519.791713ms)
+▶ Drawer: focus, Escape, cuộn
+  ✔ mở: focus vào trong, trigger có aria-expanded/aria-controls (1501.433964ms)
+  ✔ Tab/Shift+Tab không thoát dialog; Escape đóng, trả focus, khôi phục cuộn (2831.952605ms)
+  ✔ chọn link trong Drawer: đóng, đổi route, khôi phục cuộn (1849.794579ms)
+✔ Drawer: focus, Escape, cuộn (6183.974147ms)
+▶ P1-5 Resize qua breakpoint desktop
+  ✔ mở ở 900px, resize 1180px: gỡ khóa cuộn; quay lại mobile vẫn mở được (2393.392955ms)
+✔ P1-5 Resize qua breakpoint desktop (2393.74149ms)
+▶ P1-4 và P2-2 Dropdown desktop
+  ✔ rê chuột rồi bấm vẫn truy cập được submenu (1823.581839ms)
+  ✔ bàn phím: mở, focus mục đầu, Escape đóng và trả focus (1459.908686ms)
+  ✔ P2-2: Tab rời nhóm thì submenu đóng (1525.607354ms)
+✔ P1-4 và P2-2 Dropdown desktop (4809.72368ms)
+▶ P1-3 Trạng thái trang hiện tại
+  ✔ "/" : Trang chủ có aria-current="page", không có mục nào khác (1446.95257ms)
+  ✔ "/dich-vu/spa": nhóm "Dịch vụ" được tô, tối đa 1 aria-current (1176.298432ms)
+  ✔ "/cau-chuyen/abc": nhóm "Câu chuyện" được tô, tối đa 1 aria-current (1095.843518ms)
+  ✔ dropdown desktop "/dich-vu/spa": đúng một mục aria-current (/dich-vu/spa) (1492.386029ms)
+  ✔ dropdown desktop "/dich-vu": đúng một mục aria-current (/dich-vu) (1381.874656ms)
+  ✔ dropdown desktop "/goc-thu-cung?cat=news": đúng một mục aria-current (/goc-thu-cung?cat=news) (1234.699921ms)
+  ✔ dropdown desktop "/goc-thu-cung": đúng một mục aria-current (/goc-thu-cung) (1345.646186ms)
+  ✔ ranh giới route: "/dich-vu-khong-ton-tai" (404) không làm nhóm nào là hiện tại (1245.225228ms)
+  ✔ ranh giới route: "/cau-chuyenxyz" (404) không làm nhóm nào là hiện tại (1208.947498ms)
+  ✔ ranh giới route: "/gioi-thieu-abc" (404) không làm nhóm nào là hiện tại (1193.028633ms)
+  ✔ Drawer "/dich-vu/spa": link Spa có aria-current="page" (1346.456522ms)
+✔ P1-3 Trạng thái trang hiện tại (14169.175712ms)
+▶ P1-6 Lối vào và tham số
+  ✔ desktop: có link /lien-he và /dich-vu trong header hoặc footer, vào đúng route (1903.619923ms)
+  ✔ Drawer: có link /lien-he và /dich-vu (1755.214953ms)
+  ✔ tin tức dùng ?cat=news, không còn ?tab= (1368.546537ms)
+  ✔ ComingSoon có CTA liên hệ/đặt lịch ngoài hotline và nút về trang chủ (1422.068786ms)
+  ✔ mobile 390px: hotline dễ thấy ở header hoặc thanh dưới đáy (1460.844678ms)
+✔ P1-6 Lối vào và tham số (7910.986186ms)
+▶ P1-7 Meta, lịch sử và tệp SEO
+  ✔ title riêng, noindex đúng qua navigation, Back/Forward và 404 (2493.836261ms)
+  ✔ robots.txt là text/plain, chặn /tai-khoan/, /dang-nhap, /dang-ky (1408.393172ms)
+  ✔ sitemap.xml là XML hợp lệ, chỉ chứa trang chủ (1380.908606ms)
+  ﹣ [thông tin] HTML gốc của trang chờ chưa có noindex (giới hạn client rendering) (1363.411286ms) # BLOCKED: noindex trong HTML gốc cần phương án host/prerender được duyệt
+✔ P1-7 Meta, lịch sử và tệp SEO (6647.257458ms)
+▶ P1-8 Host đích
+  ﹣ mở thẳng/F5 route con, asset và URL sai trên host đích (0.314381ms) # BLOCKED: chưa chốt host đích (đặt HOST_URL để chạy)
+✔ P1-8 Host đích (0.449783ms)
+▶ P2 Khả năng truy cập và CSS
+  ✔ P2-1 tương phản các điểm đã nêu đạt WCAG AA (1544.298692ms)
+  ✔ P2-3 chuyển trang: focus vào main/h1 hoặc có thông báo aria-live (1412.593032ms)
+  ✔ P2-4 không còn lớp animate-in/fade-in/slide-in-* và py-0.2 (2584.401743ms)
+  ✔ P2-5 thanh dưới đáy có padding theo safe-area (1311.120917ms)
+  ✔ giảm chuyển động được tôn trọng (1306.308212ms)
+✔ P2 Khả năng truy cập và CSS (8159.491302ms)
+✔ không có console error / pageerror trong toàn bộ lượt chạy (0.219748ms)
+ℹ tests 78
+ℹ suites 18
+ℹ pass 74
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 2
+ℹ todo 0
+ℹ duration_ms 87182.490128
+
+✖ failing tests:
+
+test at tests/e2e/2a-round02.e2e.test.cjs:101:3
+✖ Drawer "/cau-chuyen/abc": nhất quán với desktop (Câu chuyện là mục hiện tại) (1876.307647ms)
+  AssertionError [ERR_ASSERTION]: desktop đánh dấu "Câu chuyện" ở trang chi tiết nhưng Drawer thì không
+  + actual - expected
+  
+  + []
+  - [
+  -   '/cau-chuyen'
+  - ]
+  
+      at TestContext.<anonymous> (<scratch>/2a-round02.e2e.test.cjs:106:14)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [ '/cau-chuyen' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/e2e/2a-round02.e2e.test.cjs:335:3
+✖ logo hiển thị và favicon không dùng ảnh gốc 377KB (1689.445951ms)
+  AssertionError [ERR_ASSERTION]: logo Header nặng 376788 byte cho 44px
+      at TestContext.<anonymous> (<scratch>/2a-round02.e2e.test.cjs:348:14)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Promise.all (index 0)
+      at async Suite.run (node:internal/test_runner/test:1442:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

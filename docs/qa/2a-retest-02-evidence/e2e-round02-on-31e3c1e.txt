@@ -1,0 +1,327 @@
+▶ R2 P1-3 Drawer: ranh giới route và đúng một mục hiện tại
+  ✔ Drawer "/": aria-current đúng / (2285.23286ms)
+  ✔ Drawer "/dich-vu": aria-current đúng /dich-vu (1796.478511ms)
+  ✔ Drawer "/dich-vu/spa": aria-current đúng /dich-vu/spa (1715.75659ms)
+  ✔ Drawer "/goc-thu-cung": aria-current đúng /goc-thu-cung (1558.551513ms)
+  ✔ Drawer "/goc-thu-cung?cat=news": aria-current đúng /goc-thu-cung?cat=news (1739.519773ms)
+  ✔ Drawer "/cau-chuyen": aria-current đúng /cau-chuyen (1570.809659ms)
+  ✔ Drawer "/cau-chuyen/abc": nhất quán với desktop (Câu chuyện là mục hiện tại) (1583.916735ms)
+  ✔ Drawer ranh giới: "/dich-vu-khong-ton-tai" (404) không có mục/nhóm hiện tại (1533.203984ms)
+  ✖ Drawer ranh giới: "/cau-chuyenxyz" (404) không có mục/nhóm hiện tại (1636.518068ms)
+  ✖ Drawer ranh giới: "/gioi-thieu-abc" (404) không có mục/nhóm hiện tại (1570.180962ms)
+  ✔ Drawer ranh giới: "/goc-thu-cung-abc" (404) không có mục/nhóm hiện tại (1662.80724ms)
+✖ R2 P1-3 Drawer: ranh giới route và đúng một mục hiện tại (18766.995339ms)
+▶ R2 P1-4 Dropdown: luồng chuột thật
+  ✖ rê → bấm → di chuột vào submenu → bấm "Spa" thì tới /dich-vu/spa (31645.813258ms)
+  ✖ bấm lần hai (sau khi đã giữ mở) thì đóng; rời chuột thì đóng (1986.239527ms)
+✖ R2 P1-4 Dropdown: luồng chuột thật (33632.956779ms)
+▶ R2 Quyết định 3: bỏ hotline Header, vẫn có lối gọi
+  ✖ Header @320px không có tel:, vẫn có lối gọi trong màn hình đầu hoặc Drawer (1388.490387ms)
+  ✖ Header @768px không có tel:, vẫn có lối gọi trong màn hình đầu hoặc Drawer (1384.542428ms)
+  ✖ Header @1366px không có tel:, vẫn có lối gọi trong màn hình đầu hoặc Drawer (1489.197822ms)
+  ✖ Header @1536px không có tel:, vẫn có lối gọi trong màn hình đầu hoặc Drawer (1566.405464ms)
+✖ R2 Quyết định 3: bỏ hotline Header, vẫn có lối gọi (5829.722242ms)
+▶ R2 R1-1 JSON-LD chỉ ở trang chủ, đúng dữ liệu đã xác nhận
+  ✖ trang chủ có đúng một VeterinaryCare khớp địa chỉ/giờ đã xác nhận (1371.528498ms)
+  ✖ HTML gốc không còn JSON-LD tĩnh (không phát trên mọi route) (1429.102791ms)
+  ✖ JSON-LD bị gỡ khi rời trang chủ, không nhân đôi khi quay lại, đúng qua Back/Forward (9003.343077ms)
+✖ R2 R1-1 JSON-LD chỉ ở trang chủ, đúng dữ liệu đã xác nhận (11804.814019ms)
+▶ R2 P3 canonical
+  ✖ 404 không có canonical, kể cả khi đi từ trang có canonical; trang chủ có canonical gốc (5578.509265ms)
+✖ R2 P3 canonical (5578.983832ms)
+▶ R2 Quyết định 1: chỉ cấu hình Vercel
+  ✖ dist/ không còn 404.html, _redirects; vercel.json hợp lệ cho SPA (1.797036ms)
+  ✖ preview không phục vụ trang chuyển hướng 404.html cũ (1392.005438ms)
+✖ R2 Quyết định 1: chỉ cấu hình Vercel (1394.463529ms)
+▶ R2 P3 tối ưu logo và favicon (brief vòng 02 mục 5)
+  ✖ logo hiển thị và favicon không dùng ảnh gốc 377KB (1370.847162ms)
+✖ R2 P3 tối ưu logo và favicon (brief vòng 02 mục 5) (1371.350153ms)
+✔ round02: không có console error / pageerror (0.218194ms)
+ℹ tests 25
+ℹ suites 7
+ℹ pass 10
+ℹ fail 15
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 79060.878873
+
+✖ failing tests:
+
+test at tests/e2e/2a-round02.e2e.test.cjs:113:5
+✖ Drawer ranh giới: "/cau-chuyenxyz" (404) không có mục/nhóm hiện tại (1636.518068ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + [
+  +   '/cau-chuyen'
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (<scratch>/2a-round02.e2e.test.cjs:119:16)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ '/cau-chuyen' ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/e2e/2a-round02.e2e.test.cjs:113:5
+✖ Drawer ranh giới: "/gioi-thieu-abc" (404) không có mục/nhóm hiện tại (1570.180962ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + [
+  +   '/gioi-thieu'
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (<scratch>/2a-round02.e2e.test.cjs:119:16)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ '/gioi-thieu' ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/e2e/2a-round02.e2e.test.cjs:131:3
+✖ rê → bấm → di chuột vào submenu → bấm "Spa" thì tới /dich-vu/spa (31645.813258ms)
+  locator.hover: Timeout 30000ms exceeded.
+  Call log:
+  [2m  - waiting for locator('#dropdown-menu-services a[href="/dich-vu/spa"]')[22m
+  
+      at TestContext.<anonymous> (<scratch>/2a-round02.e2e.test.cjs:139:17) {
+    name: 'TimeoutError',
+    log: [ `  - waiting for locator('#dropdown-menu-services a[href="/dich-vu/spa"]')` ]
+  }
+
+test at tests/e2e/2a-round02.e2e.test.cjs:149:3
+✖ bấm lần hai (sau khi đã giữ mở) thì đóng; rời chuột thì đóng (1986.239527ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'false' !== 'true'
+  
+      at TestContext.<anonymous> (<scratch>/2a-round02.e2e.test.cjs:155:14)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'false',
+    expected: 'true',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/e2e/2a-round02.e2e.test.cjs:176:5
+✖ Header @320px không có tel:, vẫn có lối gọi trong màn hình đầu hoặc Drawer (1388.490387ms)
+  AssertionError [ERR_ASSERTION]: Header còn 1 link tel:
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (<scratch>/2a-round02.e2e.test.cjs:180:16)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Promise.all (index 0)
+      at async Suite.run (node:internal/test_runner/test:1442:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/e2e/2a-round02.e2e.test.cjs:176:5
+✖ Header @768px không có tel:, vẫn có lối gọi trong màn hình đầu hoặc Drawer (1384.542428ms)
+  AssertionError [ERR_ASSERTION]: Header còn 1 link tel:
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (<scratch>/2a-round02.e2e.test.cjs:180:16)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/e2e/2a-round02.e2e.test.cjs:176:5
+✖ Header @1366px không có tel:, vẫn có lối gọi trong màn hình đầu hoặc Drawer (1489.197822ms)
+  AssertionError [ERR_ASSERTION]: Header còn 1 link tel:
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (<scratch>/2a-round02.e2e.test.cjs:180:16)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/e2e/2a-round02.e2e.test.cjs:176:5
+✖ Header @1536px không có tel:, vẫn có lối gọi trong màn hình đầu hoặc Drawer (1566.405464ms)
+  AssertionError [ERR_ASSERTION]: Header còn 1 link tel:
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (<scratch>/2a-round02.e2e.test.cjs:180:16)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/e2e/2a-round02.e2e.test.cjs:207:3
+✖ trang chủ có đúng một VeterinaryCare khớp địa chỉ/giờ đã xác nhận (1371.528498ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + '101 Khuất Duy Tiến, Phường Nhân Chính'
+  - '101 Khuất Duy Tiến'
+                       ^
+  
+      at TestContext.<anonymous> (<scratch>/2a-round02.e2e.test.cjs:215:14)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Promise.all (index 0)
+      at async Suite.run (node:internal/test_runner/test:1442:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '101 Khuất Duy Tiến, Phường Nhân Chính',
+    expected: '101 Khuất Duy Tiến',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/e2e/2a-round02.e2e.test.cjs:230:3
+✖ HTML gốc không còn JSON-LD tĩnh (không phát trên mọi route) (1429.102791ms)
+  AssertionError [ERR_ASSERTION]: HTML gốc của / còn JSON-LD tĩnh
+      at TestContext.<anonymous> (<scratch>/2a-round02.e2e.test.cjs:235:16)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/e2e/2a-round02.e2e.test.cjs:242:3
+✖ JSON-LD bị gỡ khi rời trang chủ, không nhân đôi khi quay lại, đúng qua Back/Forward (9003.343077ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+      backHomeViaLink: 1,
+  +   comingSoon: 1,
+  +   historyBack: 1,
+  -   comingSoon: 0,
+  -   historyBack: 0,
+      historyForward: 1,
+      home: 1,
+  +   notFound: 1
+  -   notFound: 0
+    }
+  
+      at TestContext.<anonymous> (<scratch>/2a-round02.e2e.test.cjs:269:14)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { home: 1, comingSoon: 1, notFound: 1, backHomeViaLink: 1, historyBack: 1, historyForward: 1 },
+    expected: { home: 1, comingSoon: 0, notFound: 0, backHomeViaLink: 1, historyBack: 0, historyForward: 1 },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/e2e/2a-round02.e2e.test.cjs:278:3
+✖ 404 không có canonical, kể cả khi đi từ trang có canonical; trang chủ có canonical gốc (5578.509265ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + [
+  +   'https://bvthuyleson.vn/khong-ton-tai-r2'
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (<scratch>/2a-round02.e2e.test.cjs:294:14)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Promise.all (index 0)
+      at async Suite.run (node:internal/test_runner/test:1442:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'https://bvthuyleson.vn/khong-ton-tai-r2' ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/e2e/2a-round02.e2e.test.cjs:306:3
+✖ dist/ không còn 404.html, _redirects; vercel.json hợp lệ cho SPA (1.797036ms)
+  AssertionError [ERR_ASSERTION]: dist còn 404.html
+      at TestContext.<anonymous> (<scratch>/2a-round02.e2e.test.cjs:310:56)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1047:25)
+      at Test.start (node:internal/test_runner/test:944:17)
+      at node:internal/test_runner/test:1440:71
+      at node:internal/per_context/primordials:464:82
+      at new Promise (<anonymous>)
+      at new SafePromise (node:internal/per_context/primordials:433:3)
+      at node:internal/per_context/primordials:464:9
+      at Array.map (<anonymous>) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/e2e/2a-round02.e2e.test.cjs:319:3
+✖ preview không phục vụ trang chuyển hướng 404.html cũ (1392.005438ms)
+  AssertionError [ERR_ASSERTION]: 404.html chuyển hướng cũ vẫn được phục vụ
+      at TestContext.<anonymous> (<scratch>/2a-round02.e2e.test.cjs:323:14)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/e2e/2a-round02.e2e.test.cjs:335:3
+✖ logo hiển thị và favicon không dùng ảnh gốc 377KB (1370.847162ms)
+  AssertionError [ERR_ASSERTION]: logo Header nặng 376788 byte cho 44px
+      at TestContext.<anonymous> (<scratch>/2a-round02.e2e.test.cjs:348:14)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Promise.all (index 0)
+      at async Suite.run (node:internal/test_runner/test:1442:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

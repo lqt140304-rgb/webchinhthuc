@@ -119,6 +119,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
   const isAboutGroupActive = isGroupActive(['/gioi-thieu', '/doi-ngu', '/co-so-vat-chat'], location.pathname)
   const isServicesGroupActive = isGroupActive(['/dich-vu', '/bang-gia'], location.pathname)
   const isPetCornerGroupActive = isGroupActive(['/goc-thu-cung', '/san-pham'], location.pathname)
+  const isCauChuyenActive = isGroupActive(['/cau-chuyen'], location.pathname)
 
   if (!isOpen) return null
 
@@ -307,9 +308,9 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
           <Link
             to="/cau-chuyen"
             onClick={onClose}
-            aria-current={checkActive('/cau-chuyen') ? 'page' : undefined}
+            aria-current={isCauChuyenActive ? 'page' : undefined}
             className={`flex items-center justify-between px-3.5 py-3 rounded-xl font-medium text-sm transition-colors ${
-              checkActive('/cau-chuyen')
+              isCauChuyenActive
                 ? 'bg-[var(--color-bg-secondary)] text-[var(--color-plum-primary)] font-semibold'
                 : 'text-[var(--color-fg-primary)] hover:bg-[var(--color-bg-secondary)]'
             }`}

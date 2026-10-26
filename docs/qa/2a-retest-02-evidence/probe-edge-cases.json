@@ -1,0 +1,30 @@
+{
+ "/dich-vu/spa?utm_source=facebook": {
+  "h1": "Spa & Grooming thẩm mỹ",
+  "current": [],
+  "canonical": "https://bvthuyleson.vn/dich-vu/spa",
+  "robots": "noindex, nofollow"
+ },
+ "/dich-vu/spa/": {
+  "h1": "Spa & Grooming thẩm mỹ",
+  "current": [],
+  "canonical": "https://bvthuyleson.vn/dich-vu/spa",
+  "robots": "noindex, nofollow"
+ },
+ "/?utm_source=zalo": {
+  "h1": "“Khi bé không khỏe, bạn không ",
+  "current": [
+   "/"
+  ],
+  "canonical": "https://bvthuyleson.vn/",
+  "robots": "index, follow"
+ },
+ "/cau-chuyen/abc": {
+  "h1": "Chi tiết câu chuyện điều trị",
+  "current": [
+   "/cau-chuyen"
+  ],
+  "canonical": "https://bvthuyleson.vn/cau-chuyen/abc",
+  "robots": "noindex, nofollow"
+ }
+}
