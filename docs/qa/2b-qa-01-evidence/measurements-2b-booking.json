@@ -1,0 +1,186 @@
+{
+  "base": "http://localhost:4173",
+  "measurements": [
+    {
+      "id": "B01-fields",
+      "fields": [
+        {
+          "name": "owner-name",
+          "type": "text",
+          "label": "Họ và tên của bạn *",
+          "required": true
+        },
+        {
+          "name": "owner-phone",
+          "type": "tel",
+          "label": "Số điện thoại liên hệ *",
+          "required": true
+        },
+        {
+          "name": "pet-name",
+          "type": "text",
+          "label": "Tên của bé cưng *",
+          "required": true
+        },
+        {
+          "name": "pet-type",
+          "type": "select-one",
+          "label": "Loài thú cưng",
+          "required": false
+        },
+        {
+          "name": "service-type",
+          "type": "select-one",
+          "label": "Dịch vụ bạn quan tâm",
+          "required": false
+        },
+        {
+          "name": "preferred-date",
+          "type": "date",
+          "label": "Ngày hẹn dự kiến *",
+          "required": true
+        },
+        {
+          "name": "preferred-timeslot",
+          "type": "select-one",
+          "label": "Khung giờ mong muốn",
+          "required": false
+        },
+        {
+          "name": "symptoms-note",
+          "type": "textarea",
+          "label": "Triệu chứng hoặc ghi chú thêm (nếu có)",
+          "required": false
+        }
+      ]
+    },
+    {
+      "id": "B01-empty-submit",
+      "invalid": 4,
+      "described": 4,
+      "nativeInvalid": 4,
+      "focusOnInvalid": false
+    },
+    {
+      "id": "B01-date-min",
+      "min": "2026-10-26",
+      "today": "2026-10-26"
+    },
+    {
+      "id": "B01-valid-submit",
+      "requests": [],
+      "successPhrases": [
+        "KIỂM THỬ GIAO DIỆN THÀNH CÔNG",
+        "Toàn bộ các trường dữ liệu theo quy chuẩn BookingFormData (Họ tên, SĐT, Bé cưng, Dịch vụ, Thời gian) đã được kiểm tra tính hợp lệ thành công phía client."
+      ],
+      "hasHotline": true,
+      "saysNotSent": true
+    },
+    {
+      "id": "B01-focus",
+      "noRing": [],
+      "borderOnly": [
+        {
+          "name": "owner-name",
+          "width": 1,
+          "ratio": 7.79
+        },
+        {
+          "name": "owner-phone",
+          "width": 1,
+          "ratio": 7.79
+        },
+        {
+          "name": "pet-name",
+          "width": 1,
+          "ratio": 7.79
+        },
+        {
+          "name": "pet-type",
+          "width": 1,
+          "ratio": 7.79
+        },
+        {
+          "name": "service-type",
+          "width": 1,
+          "ratio": 7.79
+        },
+        {
+          "name": "preferred-date",
+          "width": 1,
+          "ratio": 7.79
+        },
+        {
+          "name": "preferred-timeslot",
+          "width": 1,
+          "ratio": 7.79
+        },
+        {
+          "name": "symptoms-note",
+          "width": 1,
+          "ratio": 7.79
+        }
+      ]
+    },
+    {
+      "id": "B01-meta",
+      "title": "Đặt Lịch Khám Trực Tuyến — Bệnh viện Thú y Lê Sơn",
+      "robots": "noindex, nofollow",
+      "h1": 1
+    },
+    {
+      "id": "B01-resp",
+      "width": 320,
+      "innerWidth": 320,
+      "scrollWidth": 320,
+      "off": []
+    },
+    {
+      "id": "B01-resp",
+      "width": 360,
+      "innerWidth": 360,
+      "scrollWidth": 360,
+      "off": []
+    },
+    {
+      "id": "B01-resp",
+      "width": 390,
+      "innerWidth": 390,
+      "scrollWidth": 390,
+      "off": []
+    },
+    {
+      "id": "B01-resp",
+      "width": 768,
+      "innerWidth": 768,
+      "scrollWidth": 768,
+      "off": []
+    },
+    {
+      "id": "B01-resp",
+      "width": 1366,
+      "innerWidth": 1366,
+      "scrollWidth": 1366,
+      "off": []
+    },
+    {
+      "id": "B01-resp",
+      "width": 1440,
+      "innerWidth": 1440,
+      "scrollWidth": 1440,
+      "off": []
+    },
+    {
+      "id": "B01-resp",
+      "width": 1920,
+      "innerWidth": 1920,
+      "scrollWidth": 1920,
+      "off": []
+    },
+    {
+      "id": "B01-contrast",
+      "fails": []
+    }
+  ],
+  "consoleErrors": []
+}

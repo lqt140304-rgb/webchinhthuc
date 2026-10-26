@@ -1,0 +1,14 @@
+
+> webbvct@0.0.0 build
+> tsc -b && vite build
+
+vite v8.3.5 building client environment for production...
+transforming...
+✓ 1965 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   1.14 kB │ gzip:   0.66 kB
+dist/assets/index-CHFTxc9B.css   59.04 kB │ gzip:  10.77 kB
+dist/assets/index-BGaHYnpu.js   368.11 kB │ gzip: 105.67 kB
+
+✓ built in 890ms

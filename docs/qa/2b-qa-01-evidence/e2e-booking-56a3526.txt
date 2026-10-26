@@ -1,0 +1,44 @@
+▶ B01 /dat-lich: form
+  ✔ mọi trường có nhãn; trường bắt buộc được đánh dấu (1500.93202ms)
+  ✖ gửi form rỗng: không gửi, có thông báo lỗi gắn với trường và focus vào lỗi đầu tiên (1391.578378ms)
+  ✔ số điện thoại sai định dạng bị chặn (2001.099466ms)
+  ✔ ngày hẹn không cho chọn ngày trong quá khứ (1229.37913ms)
+  ✔ gửi dữ liệu hợp lệ: KHÔNG báo đặt lịch/tiếp nhận thành công; nói rõ chưa gửi và dẫn tới hotline (2646.591806ms)
+  ✔ focus nhìn thấy trên mọi trường và nút của form (outline/box-shadow, hoặc viền đổi màu ≥ 3:1) (1500.429648ms)
+  ✔ /dat-lich: title riêng, noindex (meta), một h1 (1191.860411ms)
+✖ B01 /dat-lich: form (11539.608824ms)
+▶ B01 /dat-lich: responsive 7 kích thước
+  ✔ @320px không tràn, nút gửi nằm trong màn hình (1352.587149ms)
+  ✔ @360px không tràn, nút gửi nằm trong màn hình (1314.48017ms)
+  ✔ @390px không tràn, nút gửi nằm trong màn hình (1425.92079ms)
+  ✔ @768px không tràn, nút gửi nằm trong màn hình (1482.185969ms)
+  ✔ @1366px không tràn, nút gửi nằm trong màn hình (1424.293843ms)
+  ✔ @1440px không tràn, nút gửi nằm trong màn hình (1642.09121ms)
+  ✔ @1920px không tràn, nút gửi nằm trong màn hình (1429.376405ms)
+✔ B01 /dat-lich: responsive 7 kích thước (10071.79019ms)
+✔ /dat-lich: tương phản chữ đạt AA (1226.599859ms)
+✔ 2b-booking: không có console error / pageerror (0.334559ms)
+ℹ tests 16
+ℹ suites 2
+ℹ pass 15
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 23282.104348
+
+✖ failing tests:
+
+test at tests/e2e/2b-booking.e2e.test.cjs:69:3
+✖ gửi form rỗng: không gửi, có thông báo lỗi gắn với trường và focus vào lỗi đầu tiên (1391.578378ms)
+  AssertionError [ERR_ASSERTION]: focus không chuyển tới trường lỗi đầu tiên
+      at TestContext.<anonymous> (<scratch>/2b-booking.e2e.test.cjs:89:14)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

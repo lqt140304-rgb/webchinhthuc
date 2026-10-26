@@ -1,0 +1,968 @@
+TAP version 13
+# Subtest: R2 P1-3 Drawer: ranh giới route và đúng một mục hiện tại
+    # Subtest: Drawer "/": aria-current đúng /
+    ok 1 - Drawer "/": aria-current đúng /
+      ---
+      duration_ms: 2904.378144
+      type: 'test'
+      ...
+    # Subtest: Drawer "/dich-vu": aria-current đúng /dich-vu
+    ok 2 - Drawer "/dich-vu": aria-current đúng /dich-vu
+      ---
+      duration_ms: 1747.930735
+      type: 'test'
+      ...
+    # Subtest: Drawer "/dich-vu/spa": aria-current đúng /dich-vu/spa
+    ok 3 - Drawer "/dich-vu/spa": aria-current đúng /dich-vu/spa
+      ---
+      duration_ms: 1635.550612
+      type: 'test'
+      ...
+    # Subtest: Drawer "/goc-thu-cung": aria-current đúng /goc-thu-cung
+    ok 4 - Drawer "/goc-thu-cung": aria-current đúng /goc-thu-cung
+      ---
+      duration_ms: 1685.481195
+      type: 'test'
+      ...
+    # Subtest: Drawer "/goc-thu-cung?cat=news": aria-current đúng /goc-thu-cung?cat=news
+    ok 5 - Drawer "/goc-thu-cung?cat=news": aria-current đúng /goc-thu-cung?cat=news
+      ---
+      duration_ms: 1605.046867
+      type: 'test'
+      ...
+    # Subtest: Drawer "/cau-chuyen": aria-current đúng /cau-chuyen
+    ok 6 - Drawer "/cau-chuyen": aria-current đúng /cau-chuyen
+      ---
+      duration_ms: 1470.795304
+      type: 'test'
+      ...
+    # Subtest: Drawer "/cau-chuyen/abc": nhất quán với desktop (Câu chuyện là mục hiện tại)
+    ok 7 - Drawer "/cau-chuyen/abc": nhất quán với desktop (Câu chuyện là mục hiện tại)
+      ---
+      duration_ms: 1500.261868
+      type: 'test'
+      ...
+    # Subtest: Drawer ranh giới: "/dich-vu-khong-ton-tai" (404) không có mục/nhóm hiện tại
+    ok 8 - Drawer ranh giới: "/dich-vu-khong-ton-tai" (404) không có mục/nhóm hiện tại
+      ---
+      duration_ms: 1519.585918
+      type: 'test'
+      ...
+    # Subtest: Drawer ranh giới: "/cau-chuyenxyz" (404) không có mục/nhóm hiện tại
+    ok 9 - Drawer ranh giới: "/cau-chuyenxyz" (404) không có mục/nhóm hiện tại
+      ---
+      duration_ms: 1586.59006
+      type: 'test'
+      ...
+    # Subtest: Drawer ranh giới: "/gioi-thieu-abc" (404) không có mục/nhóm hiện tại
+    ok 10 - Drawer ranh giới: "/gioi-thieu-abc" (404) không có mục/nhóm hiện tại
+      ---
+      duration_ms: 1428.115954
+      type: 'test'
+      ...
+    # Subtest: Drawer ranh giới: "/goc-thu-cung-abc" (404) không có mục/nhóm hiện tại
+    ok 11 - Drawer ranh giới: "/goc-thu-cung-abc" (404) không có mục/nhóm hiện tại
+      ---
+      duration_ms: 1729.578782
+      type: 'test'
+      ...
+    1..11
+ok 1 - R2 P1-3 Drawer: ranh giới route và đúng một mục hiện tại
+  ---
+  duration_ms: 19544.64226
+  type: 'suite'
+  ...
+# Subtest: R2 P1-4 Dropdown: luồng chuột thật
+    # Subtest: rê → bấm → di chuột vào submenu → bấm "Spa" thì tới /dich-vu/spa
+    ok 1 - rê → bấm → di chuột vào submenu → bấm "Spa" thì tới /dich-vu/spa
+      ---
+      duration_ms: 1755.845895
+      type: 'test'
+      ...
+    # Subtest: bấm lần hai (sau khi đã giữ mở) thì đóng; rời chuột thì đóng
+    ok 2 - bấm lần hai (sau khi đã giữ mở) thì đóng; rời chuột thì đóng
+      ---
+      duration_ms: 1709.426115
+      type: 'test'
+      ...
+    1..2
+ok 2 - R2 P1-4 Dropdown: luồng chuột thật
+  ---
+  duration_ms: 3465.518511
+  type: 'suite'
+  ...
+# Subtest: R2 Quyết định 3: bỏ hotline Header, vẫn có lối gọi
+    # Subtest: Header @320px không có tel:, vẫn có lối gọi trong màn hình đầu hoặc Drawer
+    ok 1 - Header @320px không có tel:, vẫn có lối gọi trong màn hình đầu hoặc Drawer
+      ---
+      duration_ms: 1553.769
+      type: 'test'
+      ...
+    # Subtest: Header @768px không có tel:, vẫn có lối gọi trong màn hình đầu hoặc Drawer
+    ok 2 - Header @768px không có tel:, vẫn có lối gọi trong màn hình đầu hoặc Drawer
+      ---
+      duration_ms: 1731.571656
+      type: 'test'
+      ...
+    # Subtest: Header @1366px không có tel:, vẫn có lối gọi trong màn hình đầu hoặc Drawer
+    ok 3 - Header @1366px không có tel:, vẫn có lối gọi trong màn hình đầu hoặc Drawer
+      ---
+      duration_ms: 1566.04932
+      type: 'test'
+      ...
+    # Subtest: Header @1536px không có tel:, vẫn có lối gọi trong màn hình đầu hoặc Drawer
+    ok 4 - Header @1536px không có tel:, vẫn có lối gọi trong màn hình đầu hoặc Drawer
+      ---
+      duration_ms: 1426.193116
+      type: 'test'
+      ...
+    1..4
+ok 3 - R2 Quyết định 3: bỏ hotline Header, vẫn có lối gọi
+  ---
+  duration_ms: 6278.017324
+  type: 'suite'
+  ...
+# Subtest: R2 R1-1 JSON-LD chỉ ở trang chủ, đúng dữ liệu đã xác nhận
+    # Subtest: trang chủ có đúng một VeterinaryCare khớp địa chỉ/giờ đã xác nhận
+    ok 1 - trang chủ có đúng một VeterinaryCare khớp địa chỉ/giờ đã xác nhận
+      ---
+      duration_ms: 1282.468308
+      type: 'test'
+      ...
+    # Subtest: HTML gốc không còn JSON-LD tĩnh (không phát trên mọi route)
+    ok 2 - HTML gốc không còn JSON-LD tĩnh (không phát trên mọi route)
+      ---
+      duration_ms: 1305.324297
+      type: 'test'
+      ...
+    # Subtest: JSON-LD bị gỡ khi rời trang chủ, không nhân đôi khi quay lại, đúng qua Back/Forward
+    ok 3 - JSON-LD bị gỡ khi rời trang chủ, không nhân đôi khi quay lại, đúng qua Back/Forward
+      ---
+      duration_ms: 3288.639613
+      type: 'test'
+      ...
+    1..3
+ok 4 - R2 R1-1 JSON-LD chỉ ở trang chủ, đúng dữ liệu đã xác nhận
+  ---
+  duration_ms: 5876.825094
+  type: 'suite'
+  ...
+# Subtest: R2 P3 canonical
+    # Subtest: 404 không có canonical, kể cả khi đi từ trang có canonical; trang chủ có canonical gốc
+    ok 1 - 404 không có canonical, kể cả khi đi từ trang có canonical; trang chủ có canonical gốc
+      ---
+      duration_ms: 2684.44545
+      type: 'test'
+      ...
+    1..1
+ok 5 - R2 P3 canonical
+  ---
+  duration_ms: 2684.704022
+  type: 'suite'
+  ...
+# Subtest: R2 Quyết định 1: chỉ cấu hình Vercel
+    # Subtest: dist/ không còn 404.html, _redirects; vercel.json hợp lệ cho SPA
+    ok 1 - dist/ không còn 404.html, _redirects; vercel.json hợp lệ cho SPA
+      ---
+      duration_ms: 0.590431
+      type: 'test'
+      ...
+    # Subtest: preview không phục vụ trang chuyển hướng 404.html cũ
+    ok 2 - preview không phục vụ trang chuyển hướng 404.html cũ
+      ---
+      duration_ms: 2066.79312
+      type: 'test'
+      ...
+    1..2
+ok 6 - R2 Quyết định 1: chỉ cấu hình Vercel
+  ---
+  duration_ms: 2067.653923
+  type: 'suite'
+  ...
+# Subtest: R2 P3 tối ưu logo và favicon (brief vòng 02 mục 5)
+    # Subtest: logo hiển thị và favicon không dùng ảnh gốc 377KB
+    ok 1 - logo hiển thị và favicon không dùng ảnh gốc 377KB
+      ---
+      duration_ms: 1340.393786
+      type: 'test'
+      ...
+    1..1
+ok 7 - R2 P3 tối ưu logo và favicon (brief vòng 02 mục 5)
+  ---
+  duration_ms: 1340.62168
+  type: 'suite'
+  ...
+# Subtest: round02: không có console error / pageerror
+ok 8 - round02: không có console error / pageerror
+  ---
+  duration_ms: 0.169469
+  type: 'test'
+  ...
+# Subtest: A02 query không liên quan và dấu "/" cuối
+    # Subtest: desktop "/dich-vu/spa?utm_source=facebook": dropdown đúng /dich-vu/spa, nhóm "Dịch vụ" được tô
+    ok 1 - desktop "/dich-vu/spa?utm_source=facebook": dropdown đúng /dich-vu/spa, nhóm "Dịch vụ" được tô
+      ---
+      duration_ms: 2717.746282
+      type: 'test'
+      ...
+    # Subtest: desktop "/dich-vu/spa/": dropdown đúng /dich-vu/spa, nhóm "Dịch vụ" được tô
+    ok 2 - desktop "/dich-vu/spa/": dropdown đúng /dich-vu/spa, nhóm "Dịch vụ" được tô
+      ---
+      duration_ms: 1344.486158
+      type: 'test'
+      ...
+    # Subtest: desktop "/dich-vu/spa/?fbclid=abc": dropdown đúng /dich-vu/spa, nhóm "Dịch vụ" được tô
+    ok 3 - desktop "/dich-vu/spa/?fbclid=abc": dropdown đúng /dich-vu/spa, nhóm "Dịch vụ" được tô
+      ---
+      duration_ms: 1110.019128
+      type: 'test'
+      ...
+    # Subtest: desktop "/dich-vu?utm_medium=cpc": dropdown đúng /dich-vu, nhóm "Dịch vụ" được tô
+    ok 4 - desktop "/dich-vu?utm_medium=cpc": dropdown đúng /dich-vu, nhóm "Dịch vụ" được tô
+      ---
+      duration_ms: 1267.207435
+      type: 'test'
+      ...
+    # Subtest: desktop "/goc-thu-cung?cat=news&utm_source=zalo": dropdown đúng /goc-thu-cung?cat=news, nhóm "Góc thú cưng" được tô
+    ok 5 - desktop "/goc-thu-cung?cat=news&utm_source=zalo": dropdown đúng /goc-thu-cung?cat=news, nhóm "Góc thú cưng" được tô
+      ---
+      duration_ms: 1422.317615
+      type: 'test'
+      ...
+    # Subtest: desktop "/goc-thu-cung?utm_source=zalo": dropdown đúng /goc-thu-cung, nhóm "Góc thú cưng" được tô
+    ok 6 - desktop "/goc-thu-cung?utm_source=zalo": dropdown đúng /goc-thu-cung, nhóm "Góc thú cưng" được tô
+      ---
+      duration_ms: 1362.777469
+      type: 'test'
+      ...
+    # Subtest: desktop "/goc-thu-cung/": dropdown đúng /goc-thu-cung, nhóm "Góc thú cưng" được tô
+    ok 7 - desktop "/goc-thu-cung/": dropdown đúng /goc-thu-cung, nhóm "Góc thú cưng" được tô
+      ---
+      duration_ms: 1334.157979
+      type: 'test'
+      ...
+    # Subtest: Drawer "/dich-vu/spa?utm_source=facebook": đúng /dich-vu/spa
+    ok 8 - Drawer "/dich-vu/spa?utm_source=facebook": đúng /dich-vu/spa
+      ---
+      duration_ms: 1377.045802
+      type: 'test'
+      ...
+    # Subtest: Drawer "/dich-vu/spa/": đúng /dich-vu/spa
+    ok 9 - Drawer "/dich-vu/spa/": đúng /dich-vu/spa
+      ---
+      duration_ms: 1467.965239
+      type: 'test'
+      ...
+    # Subtest: Drawer "/dich-vu/spa/?fbclid=abc": đúng /dich-vu/spa
+    ok 10 - Drawer "/dich-vu/spa/?fbclid=abc": đúng /dich-vu/spa
+      ---
+      duration_ms: 1511.560165
+      type: 'test'
+      ...
+    # Subtest: Drawer "/dich-vu?utm_medium=cpc": đúng /dich-vu
+    ok 11 - Drawer "/dich-vu?utm_medium=cpc": đúng /dich-vu
+      ---
+      duration_ms: 1728.634441
+      type: 'test'
+      ...
+    # Subtest: Drawer "/goc-thu-cung?cat=news&utm_source=zalo": đúng /goc-thu-cung?cat=news
+    ok 12 - Drawer "/goc-thu-cung?cat=news&utm_source=zalo": đúng /goc-thu-cung?cat=news
+      ---
+      duration_ms: 1493.992567
+      type: 'test'
+      ...
+    # Subtest: Drawer "/goc-thu-cung?utm_source=zalo": đúng /goc-thu-cung
+    ok 13 - Drawer "/goc-thu-cung?utm_source=zalo": đúng /goc-thu-cung
+      ---
+      duration_ms: 1699.442858
+      type: 'test'
+      ...
+    # Subtest: Drawer "/goc-thu-cung/": đúng /goc-thu-cung
+    ok 14 - Drawer "/goc-thu-cung/": đúng /goc-thu-cung
+      ---
+      duration_ms: 1547.919987
+      type: 'test'
+      ...
+    # Subtest: trang chủ có query: chỉ "Trang chủ" là hiện tại
+    ok 15 - trang chủ có query: chỉ "Trang chủ" là hiện tại
+      ---
+      duration_ms: 1362.104171
+      type: 'test'
+      ...
+    # Subtest: 404 có dấu "/" cuối hoặc query vẫn không tô mục nào
+    ok 16 - 404 có dấu "/" cuối hoặc query vẫn không tô mục nào
+      ---
+      duration_ms: 2680.453629
+      type: 'test'
+      ...
+    1..16
+ok 9 - A02 query không liên quan và dấu "/" cuối
+  ---
+  duration_ms: 26168.539911
+  type: 'suite'
+  ...
+# Subtest: A01 Câu chuyện: danh sách và chi tiết nhất quán giữa desktop và Drawer
+    # Subtest: "/cau-chuyen": desktop và Drawer cùng đánh dấu /cau-chuyen
+    ok 1 - "/cau-chuyen": desktop và Drawer cùng đánh dấu /cau-chuyen
+      ---
+      duration_ms: 2712.024039
+      type: 'test'
+      ...
+    # Subtest: "/cau-chuyen/abc": desktop và Drawer cùng đánh dấu /cau-chuyen
+    ok 2 - "/cau-chuyen/abc": desktop và Drawer cùng đánh dấu /cau-chuyen
+      ---
+      duration_ms: 2701.161486
+      type: 'test'
+      ...
+    # Subtest: "/cau-chuyen/abc/": desktop và Drawer cùng đánh dấu /cau-chuyen
+    ok 3 - "/cau-chuyen/abc/": desktop và Drawer cùng đánh dấu /cau-chuyen
+      ---
+      duration_ms: 2853.212094
+      type: 'test'
+      ...
+    1..3
+ok 10 - A01 Câu chuyện: danh sách và chi tiết nhất quán giữa desktop và Drawer
+  ---
+  duration_ms: 8266.924944
+  type: 'suite'
+  ...
+# Subtest: A03 logo và favicon
+    # Subtest: logo đủ nét (≥ 2× cỡ hiển thị) ở Header, Drawer, Footer; favicon riêng
+    ok 1 - logo đủ nét (≥ 2× cỡ hiển thị) ở Header, Drawer, Footer; favicon riêng
+      ---
+      duration_ms: 1292.739214
+      type: 'test'
+      ...
+    # Subtest: ảnh logo gốc không được tham chiếu và không nằm trong dist/ (P3)
+    ok 2 - ảnh logo gốc không được tham chiếu và không nằm trong dist/ (P3)
+      ---
+      duration_ms: 3.386792
+      type: 'test'
+      ...
+    1..2
+ok 11 - A03 logo và favicon
+  ---
+  duration_ms: 1296.545413
+  type: 'suite'
+  ...
+# Subtest: round03: không có console error / pageerror
+ok 12 - round03: không có console error / pageerror
+  ---
+  duration_ms: 0.137029
+  type: 'test'
+  ...
+# Subtest: P1-1 Header 320px
+    # Subtest: viewport đúng 320px, Menu nằm trọn và mở được Drawer (isMobile=false)
+    ok 1 - viewport đúng 320px, Menu nằm trọn và mở được Drawer (isMobile=false)
+      ---
+      duration_ms: 2952.203854
+      type: 'test'
+      ...
+    # Subtest: viewport đúng 320px, Menu nằm trọn và mở được Drawer (isMobile=true)
+    ok 2 - viewport đúng 320px, Menu nằm trọn và mở được Drawer (isMobile=true)
+      ---
+      duration_ms: 1686.064042
+      type: 'test'
+      ...
+    1..2
+ok 13 - P1-1 Header 320px
+  ---
+  duration_ms: 5368.867494
+  type: 'suite'
+  ...
+# Subtest: Responsive: không tràn ngang ở 5 viewport
+    # Subtest: home @ 320px
+    ok 1 - home @ 320px
+      ---
+      duration_ms: 2358.386955
+      type: 'test'
+      ...
+    # Subtest: comingSoon @ 320px
+    ok 2 - comingSoon @ 320px
+      ---
+      duration_ms: 1213.130968
+      type: 'test'
+      ...
+    # Subtest: notFound @ 320px
+    ok 3 - notFound @ 320px
+      ---
+      duration_ms: 1426.827311
+      type: 'test'
+      ...
+    # Subtest: home @ 390px
+    ok 4 - home @ 390px
+      ---
+      duration_ms: 2562.680766
+      type: 'test'
+      ...
+    # Subtest: comingSoon @ 390px
+    ok 5 - comingSoon @ 390px
+      ---
+      duration_ms: 1308.384254
+      type: 'test'
+      ...
+    # Subtest: notFound @ 390px
+    ok 6 - notFound @ 390px
+      ---
+      duration_ms: 1492.072189
+      type: 'test'
+      ...
+    # Subtest: home @ 768px
+    ok 7 - home @ 768px
+      ---
+      duration_ms: 1658.545279
+      type: 'test'
+      ...
+    # Subtest: comingSoon @ 768px
+    ok 8 - comingSoon @ 768px
+      ---
+      duration_ms: 1450.473058
+      type: 'test'
+      ...
+    # Subtest: notFound @ 768px
+    ok 9 - notFound @ 768px
+      ---
+      duration_ms: 1245.776206
+      type: 'test'
+      ...
+    # Subtest: home @ 1366px
+    ok 10 - home @ 1366px
+      ---
+      duration_ms: 1645.395572
+      type: 'test'
+      ...
+    # Subtest: comingSoon @ 1366px
+    ok 11 - comingSoon @ 1366px
+      ---
+      duration_ms: 1728.340396
+      type: 'test'
+      ...
+    # Subtest: notFound @ 1366px
+    ok 12 - notFound @ 1366px
+      ---
+      duration_ms: 1624.727997
+      type: 'test'
+      ...
+    # Subtest: home @ 1440px
+    ok 13 - home @ 1440px
+      ---
+      duration_ms: 1759.053354
+      type: 'test'
+      ...
+    # Subtest: comingSoon @ 1440px
+    ok 14 - comingSoon @ 1440px
+      ---
+      duration_ms: 1483.392235
+      type: 'test'
+      ...
+    # Subtest: notFound @ 1440px
+    ok 15 - notFound @ 1440px
+      ---
+      duration_ms: 1636.226581
+      type: 'test'
+      ...
+    1..15
+ok 14 - Responsive: không tràn ngang ở 5 viewport
+  ---
+  duration_ms: 24595.369559
+  type: 'suite'
+  ...
+# Subtest: P1-2 Kích thước khung sau khi sửa token
+    # Subtest: ComingSoon và 404 ở 1440px có độ rộng chữ dễ đọc (≤ 800px)
+    ok 1 - ComingSoon và 404 ở 1440px có độ rộng chữ dễ đọc (≤ 800px)
+      ---
+      duration_ms: 2083.182184
+      type: 'test'
+      ...
+    # Subtest: Drawer ở 768px không phủ gần hết màn hình (≤ 480px)
+    ok 2 - Drawer ở 768px không phủ gần hết màn hình (≤ 480px)
+      ---
+      duration_ms: 1755.464598
+      type: 'test'
+      ...
+    1..2
+ok 15 - P1-2 Kích thước khung sau khi sửa token
+  ---
+  duration_ms: 3839.076493
+  type: 'suite'
+  ...
+# Subtest: Drawer: focus, Escape, cuộn
+    # Subtest: mở: focus vào trong, trigger có aria-expanded/aria-controls
+    ok 1 - mở: focus vào trong, trigger có aria-expanded/aria-controls
+      ---
+      duration_ms: 1434.973845
+      type: 'test'
+      ...
+    # Subtest: Tab/Shift+Tab không thoát dialog; Escape đóng, trả focus, khôi phục cuộn
+    ok 2 - Tab/Shift+Tab không thoát dialog; Escape đóng, trả focus, khôi phục cuộn
+      ---
+      duration_ms: 2449.261637
+      type: 'test'
+      ...
+    # Subtest: chọn link trong Drawer: đóng, đổi route, khôi phục cuộn
+    ok 3 - chọn link trong Drawer: đóng, đổi route, khôi phục cuộn
+      ---
+      duration_ms: 1450.5227
+      type: 'test'
+      ...
+    1..3
+ok 16 - Drawer: focus, Escape, cuộn
+  ---
+  duration_ms: 5335.16769
+  type: 'suite'
+  ...
+# Subtest: P1-5 Resize qua breakpoint desktop
+    # Subtest: mở ở 900px, resize 1180px: gỡ khóa cuộn; quay lại mobile vẫn mở được
+    ok 1 - mở ở 900px, resize 1180px: gỡ khóa cuộn; quay lại mobile vẫn mở được
+      ---
+      duration_ms: 1937.770921
+      type: 'test'
+      ...
+    1..1
+ok 17 - P1-5 Resize qua breakpoint desktop
+  ---
+  duration_ms: 1937.970221
+  type: 'suite'
+  ...
+# Subtest: P1-4 và P2-2 Dropdown desktop
+    # Subtest: rê chuột rồi bấm vẫn truy cập được submenu
+    ok 1 - rê chuột rồi bấm vẫn truy cập được submenu
+      ---
+      duration_ms: 1662.911171
+      type: 'test'
+      ...
+    # Subtest: bàn phím: mở, focus mục đầu, Escape đóng và trả focus
+    ok 2 - bàn phím: mở, focus mục đầu, Escape đóng và trả focus
+      ---
+      duration_ms: 1797.246176
+      type: 'test'
+      ...
+    # Subtest: P2-2: Tab rời nhóm thì submenu đóng
+    ok 3 - P2-2: Tab rời nhóm thì submenu đóng
+      ---
+      duration_ms: 1349.623863
+      type: 'test'
+      ...
+    1..3
+ok 18 - P1-4 và P2-2 Dropdown desktop
+  ---
+  duration_ms: 4810.251266
+  type: 'suite'
+  ...
+# Subtest: P1-3 Trạng thái trang hiện tại
+    # Subtest: "/" : Trang chủ có aria-current="page", không có mục nào khác
+    ok 1 - "/" : Trang chủ có aria-current="page", không có mục nào khác
+      ---
+      duration_ms: 1188.600184
+      type: 'test'
+      ...
+    # Subtest: "/dich-vu/spa": nhóm "Dịch vụ" được tô, tối đa 1 aria-current
+    ok 2 - "/dich-vu/spa": nhóm "Dịch vụ" được tô, tối đa 1 aria-current
+      ---
+      duration_ms: 1048.820154
+      type: 'test'
+      ...
+    # Subtest: "/cau-chuyen/abc": nhóm "Câu chuyện" được tô, tối đa 1 aria-current
+    ok 3 - "/cau-chuyen/abc": nhóm "Câu chuyện" được tô, tối đa 1 aria-current
+      ---
+      duration_ms: 1216.362949
+      type: 'test'
+      ...
+    # Subtest: dropdown desktop "/dich-vu/spa": đúng một mục aria-current (/dich-vu/spa)
+    ok 4 - dropdown desktop "/dich-vu/spa": đúng một mục aria-current (/dich-vu/spa)
+      ---
+      duration_ms: 1450.830756
+      type: 'test'
+      ...
+    # Subtest: dropdown desktop "/dich-vu": đúng một mục aria-current (/dich-vu)
+    ok 5 - dropdown desktop "/dich-vu": đúng một mục aria-current (/dich-vu)
+      ---
+      duration_ms: 1159.913039
+      type: 'test'
+      ...
+    # Subtest: dropdown desktop "/goc-thu-cung?cat=news": đúng một mục aria-current (/goc-thu-cung?cat=news)
+    ok 6 - dropdown desktop "/goc-thu-cung?cat=news": đúng một mục aria-current (/goc-thu-cung?cat=news)
+      ---
+      duration_ms: 1282.218225
+      type: 'test'
+      ...
+    # Subtest: dropdown desktop "/goc-thu-cung": đúng một mục aria-current (/goc-thu-cung)
+    ok 7 - dropdown desktop "/goc-thu-cung": đúng một mục aria-current (/goc-thu-cung)
+      ---
+      duration_ms: 1269.407922
+      type: 'test'
+      ...
+    # Subtest: ranh giới route: "/dich-vu-khong-ton-tai" (404) không làm nhóm nào là hiện tại
+    ok 8 - ranh giới route: "/dich-vu-khong-ton-tai" (404) không làm nhóm nào là hiện tại
+      ---
+      duration_ms: 1080.436314
+      type: 'test'
+      ...
+    # Subtest: ranh giới route: "/cau-chuyenxyz" (404) không làm nhóm nào là hiện tại
+    ok 9 - ranh giới route: "/cau-chuyenxyz" (404) không làm nhóm nào là hiện tại
+      ---
+      duration_ms: 1148.609755
+      type: 'test'
+      ...
+    # Subtest: ranh giới route: "/gioi-thieu-abc" (404) không làm nhóm nào là hiện tại
+    ok 10 - ranh giới route: "/gioi-thieu-abc" (404) không làm nhóm nào là hiện tại
+      ---
+      duration_ms: 1452.723522
+      type: 'test'
+      ...
+    # Subtest: Drawer "/dich-vu/spa": link Spa có aria-current="page"
+    ok 11 - Drawer "/dich-vu/spa": link Spa có aria-current="page"
+      ---
+      duration_ms: 1302.103786
+      type: 'test'
+      ...
+    1..11
+ok 19 - P1-3 Trạng thái trang hiện tại
+  ---
+  duration_ms: 13602.347806
+  type: 'suite'
+  ...
+# Subtest: P1-6 Lối vào và tham số
+    # Subtest: desktop: có link /lien-he và /dich-vu trong header hoặc footer, vào đúng route
+    ok 1 - desktop: có link /lien-he và /dich-vu trong header hoặc footer, vào đúng route
+      ---
+      duration_ms: 1353.482677
+      type: 'test'
+      ...
+    # Subtest: Drawer: có link /lien-he và /dich-vu
+    ok 2 - Drawer: có link /lien-he và /dich-vu
+      ---
+      duration_ms: 1605.365666
+      type: 'test'
+      ...
+    # Subtest: tin tức dùng ?cat=news, không còn ?tab=
+    ok 3 - tin tức dùng ?cat=news, không còn ?tab=
+      ---
+      duration_ms: 1497.334754
+      type: 'test'
+      ...
+    # Subtest: ComingSoon có CTA liên hệ/đặt lịch ngoài hotline và nút về trang chủ
+    ok 4 - ComingSoon có CTA liên hệ/đặt lịch ngoài hotline và nút về trang chủ
+      ---
+      duration_ms: 1179.520363
+      type: 'test'
+      ...
+    # Subtest: mobile 390px: hotline dễ thấy ở header hoặc thanh dưới đáy
+    ok 5 - mobile 390px: hotline dễ thấy ở header hoặc thanh dưới đáy
+      ---
+      duration_ms: 1362.296804
+      type: 'test'
+      ...
+    1..5
+ok 20 - P1-6 Lối vào và tham số
+  ---
+  duration_ms: 6998.629055
+  type: 'suite'
+  ...
+# Subtest: P1-7 Meta, lịch sử và tệp SEO
+    # Subtest: title riêng, noindex đúng qua navigation, Back/Forward và 404
+    ok 1 - title riêng, noindex đúng qua navigation, Back/Forward và 404
+      ---
+      duration_ms: 2406.079368
+      type: 'test'
+      ...
+    # Subtest: robots.txt là text/plain, chặn /tai-khoan/, /dang-nhap, /dang-ky
+    ok 2 - robots.txt là text/plain, chặn /tai-khoan/, /dang-nhap, /dang-ky
+      ---
+      duration_ms: 1376.288036
+      type: 'test'
+      ...
+    # Subtest: sitemap.xml là XML hợp lệ, chỉ chứa trang chủ
+    ok 3 - sitemap.xml là XML hợp lệ, chỉ chứa trang chủ
+      ---
+      duration_ms: 1396.795865
+      type: 'test'
+      ...
+    # Subtest: [thông tin] HTML gốc của trang chờ chưa có noindex (giới hạn client rendering)
+    ok 4 - [thông tin] HTML gốc của trang chờ chưa có noindex (giới hạn client rendering) # SKIP BLOCKED: noindex trong HTML gốc cần phương án host/prerender được duyệt
+      ---
+      duration_ms: 1381.922703
+      type: 'test'
+      ...
+    1..4
+ok 21 - P1-7 Meta, lịch sử và tệp SEO
+  ---
+  duration_ms: 6561.546042
+  type: 'suite'
+  ...
+# Subtest: P1-8 Host đích
+    # Subtest: mở thẳng/F5 route con, asset và URL sai trên host đích
+    ok 1 - mở thẳng/F5 route con, asset và URL sai trên host đích # SKIP BLOCKED: chưa chốt host đích (đặt HOST_URL để chạy)
+      ---
+      duration_ms: 0.234671
+      type: 'test'
+      ...
+    1..1
+ok 22 - P1-8 Host đích
+  ---
+  duration_ms: 0.662462
+  type: 'suite'
+  ...
+# Subtest: P2 Khả năng truy cập và CSS
+    # Subtest: P2-1 tương phản các điểm đã nêu đạt WCAG AA
+    ok 1 - P2-1 tương phản các điểm đã nêu đạt WCAG AA
+      ---
+      duration_ms: 1307.951434
+      type: 'test'
+      ...
+    # Subtest: P2-3 chuyển trang: focus vào main/h1 hoặc có thông báo aria-live
+    ok 2 - P2-3 chuyển trang: focus vào main/h1 hoặc có thông báo aria-live
+      ---
+      duration_ms: 1421.423087
+      type: 'test'
+      ...
+    # Subtest: P2-4 không còn lớp animate-in/fade-in/slide-in-* và py-0.2
+    ok 3 - P2-4 không còn lớp animate-in/fade-in/slide-in-* và py-0.2
+      ---
+      duration_ms: 2376.977085
+      type: 'test'
+      ...
+    # Subtest: P2-5 thanh dưới đáy có padding theo safe-area
+    ok 4 - P2-5 thanh dưới đáy có padding theo safe-area
+      ---
+      duration_ms: 1204.109771
+      type: 'test'
+      ...
+    # Subtest: giảm chuyển động được tôn trọng
+    ok 5 - giảm chuyển động được tôn trọng
+      ---
+      duration_ms: 1212.164706
+      type: 'test'
+      ...
+    1..5
+ok 23 - P2 Khả năng truy cập và CSS
+  ---
+  duration_ms: 7523.507989
+  type: 'suite'
+  ...
+# Subtest: không có console error / pageerror trong toàn bộ lượt chạy
+ok 24 - không có console error / pageerror trong toàn bộ lượt chạy
+  ---
+  duration_ms: 0.210543
+  type: 'test'
+  ...
+# Subtest: B04 cấu trúc: đúng 6 section, đúng thứ tự, không có section bác sĩ trưởng
+    # Subtest: main có đúng 6 section cấp 1, theo thứ tự quy định
+    ok 1 - main có đúng 6 section cấp 1, theo thứ tự quy định
+      ---
+      duration_ms: 1319.490901
+      type: 'test'
+      ...
+    # Subtest: không có section giới thiệu Bác sĩ trưởng trên trang chủ
+    ok 2 - không có section giới thiệu Bác sĩ trưởng trên trang chủ
+      ---
+      duration_ms: 1641.210747
+      type: 'test'
+      ...
+    1..2
+ok 25 - B04 cấu trúc: đúng 6 section, đúng thứ tự, không có section bác sĩ trưởng
+  ---
+  duration_ms: 3075.244689
+  type: 'suite'
+  ...
+# Subtest: B04 nội dung từng section
+    # Subtest: Section 1 Hero: đúng headline, CTA Đặt lịch và Gọi hotline, ba khung ảnh
+    ok 1 - Section 1 Hero: đúng headline, CTA Đặt lịch và Gọi hotline, ba khung ảnh
+      ---
+      duration_ms: 1540.122202
+      type: 'test'
+      ...
+    # Subtest: Section 2 Vì sao chọn Lê Sơn: ba giá trị và lối cấp cứu 24/24
+    ok 2 - Section 2 Vì sao chọn Lê Sơn: ba giá trị và lối cấp cứu 24/24
+      ---
+      duration_ms: 1597.283259
+      type: 'test'
+      ...
+    # Subtest: Section 3 Dịch vụ tiêu biểu: đúng 3 dịch vụ, CTA tất cả dịch vụ, lối cấp cứu
+    ok 3 - Section 3 Dịch vụ tiêu biểu: đúng 3 dịch vụ, CTA tất cả dịch vụ, lối cấp cứu
+      ---
+      duration_ms: 1298.300898
+      type: 'test'
+      ...
+    # Subtest: Section 4 Câu chuyện: đúng một câu chuyện, có nhãn minh họa, CTA Đọc câu chuyện tới trang chi tiết
+    ok 4 - Section 4 Câu chuyện: đúng một câu chuyện, có nhãn minh họa, CTA Đọc câu chuyện tới trang chi tiết
+      ---
+      duration_ms: 1300.581759
+      type: 'test'
+      ...
+    # Subtest: Section 5 Góc kiến thức: 2–3 bài, có nhãn bản mẫu, link /bai-viet/:slug
+    ok 5 - Section 5 Góc kiến thức: 2–3 bài, có nhãn bản mẫu, link /bai-viet/:slug
+      ---
+      duration_ms: 1366.277713
+      type: 'test'
+      ...
+    # Subtest: Section 6 Đặt lịch & Liên hệ: CTA, hotline, giờ khám, địa chỉ, chỉ đường; KHÔNG có form (B01)
+    ok 6 - Section 6 Đặt lịch & Liên hệ: CTA, hotline, giờ khám, địa chỉ, chỉ đường; KHÔNG có form (B01)
+      ---
+      duration_ms: 1278.653908
+      type: 'test'
+      ...
+    1..6
+ok 26 - B04 nội dung từng section
+  ---
+  duration_ms: 8382.281508
+  type: 'suite'
+  ...
+# Subtest: B01 trang /dat-lich
+    # Subtest: /dat-lich có form với nhãn cho mọi trường, không báo đặt lịch thành công giả
+    ok 1 - /dat-lich có form với nhãn cho mọi trường, không báo đặt lịch thành công giả
+      ---
+      duration_ms: 1434.896082
+      type: 'test'
+      ...
+    1..1
+ok 27 - B01 trang /dat-lich
+  ---
+  duration_ms: 1435.16925
+  type: 'suite'
+  ...
+# Subtest: B04 responsive ở 7 kích thước
+    # Subtest: @320px: không tràn, ảnh không méo, chữ không bị cắt
+    ok 1 - @320px: không tràn, ảnh không méo, chữ không bị cắt
+      ---
+      duration_ms: 4063.083068
+      type: 'test'
+      ...
+    # Subtest: @360px: không tràn, ảnh không méo, chữ không bị cắt
+    ok 2 - @360px: không tràn, ảnh không méo, chữ không bị cắt
+      ---
+      duration_ms: 4435.504342
+      type: 'test'
+      ...
+    # Subtest: @390px: không tràn, ảnh không méo, chữ không bị cắt
+    ok 3 - @390px: không tràn, ảnh không méo, chữ không bị cắt
+      ---
+      duration_ms: 4455.458767
+      type: 'test'
+      ...
+    # Subtest: @768px: không tràn, ảnh không méo, chữ không bị cắt
+    ok 4 - @768px: không tràn, ảnh không méo, chữ không bị cắt
+      ---
+      duration_ms: 4292.310064
+      type: 'test'
+      ...
+    # Subtest: @1366px: không tràn, ảnh không méo, chữ không bị cắt
+    ok 5 - @1366px: không tràn, ảnh không méo, chữ không bị cắt
+      ---
+      duration_ms: 4514.801223
+      type: 'test'
+      ...
+    # Subtest: @1440px: không tràn, ảnh không méo, chữ không bị cắt
+    ok 6 - @1440px: không tràn, ảnh không méo, chữ không bị cắt
+      ---
+      duration_ms: 4404.169272
+      type: 'test'
+      ...
+    # Subtest: @1920px: không tràn, ảnh không méo, chữ không bị cắt
+    ok 7 - @1920px: không tràn, ảnh không méo, chữ không bị cắt
+      ---
+      duration_ms: 4579.898076
+      type: 'test'
+      ...
+    1..7
+ok 28 - B04 responsive ở 7 kích thước
+  ---
+  duration_ms: 30746.008945
+  type: 'suite'
+  ...
+# Subtest: B04 ảnh, font tiếng Việt, liên kết
+    # Subtest: mọi ảnh trong main tải được và có alt (ảnh trang trí: alt="" kèm aria-hidden)
+    ok 1 - mọi ảnh trong main tải được và có alt (ảnh trang trí: alt="" kèm aria-hidden)
+      ---
+      duration_ms: 3019.28921
+      type: 'test'
+      ...
+    # Subtest: Be Vietnam Pro và Lora tải được, hiển thị dấu tiếng Việt
+    ok 2 - Be Vietnam Pro và Lora tải được, hiển thị dấu tiếng Việt
+      ---
+      duration_ms: 1306.529006
+      type: 'test'
+      ...
+    # Subtest: không có nút chết: mọi link nội bộ trong main mở ra trang hợp lệ, không có href="\#"
+    ok 3 - không có nút chết: mọi link nội bộ trong main mở ra trang hợp lệ, không có href="\#"
+      ---
+      duration_ms: 7500.588636
+      type: 'test'
+      ...
+    1..3
+ok 29 - B04 ảnh, font tiếng Việt, liên kết
+  ---
+  duration_ms: 11826.967379
+  type: 'suite'
+  ...
+# Subtest: B04 accessibility
+    # Subtest: mọi phần tử nhận focus trong main có vòng focus nhìn thấy
+    ok 1 - mọi phần tử nhận focus trong main có vòng focus nhìn thấy
+      ---
+      duration_ms: 1450.094076
+      type: 'test'
+      ...
+    # Subtest: tương phản chữ trong main đạt WCAG AA
+    ok 2 - tương phản chữ trong main đạt WCAG AA
+      ---
+      duration_ms: 2922.798068
+      type: 'test'
+      ...
+    # Subtest: prefers-reduced-motion: không còn animation/transition kéo dài
+    ok 3 - prefers-reduced-motion: không còn animation/transition kéo dài
+      ---
+      duration_ms: 1569.158973
+      type: 'test'
+      ...
+    1..3
+ok 30 - B04 accessibility
+  ---
+  duration_ms: 5942.453479
+  type: 'suite'
+  ...
+# Subtest: B04 layout shift, SEO, dữ liệu
+    # Subtest: CLS khi tải và cuộn @390px < 0.1
+    ok 1 - CLS khi tải và cuộn @390px < 0.1
+      ---
+      duration_ms: 3368.183898
+      type: 'test'
+      ...
+    # Subtest: CLS khi tải và cuộn @1440px < 0.1
+    ok 2 - CLS khi tải và cuộn @1440px < 0.1
+      ---
+      duration_ms: 2981.740666
+      type: 'test'
+      ...
+    # Subtest: metadata trang chủ: title, description, canonical, robots index
+    ok 3 - metadata trang chủ: title, description, canonical, robots index
+      ---
+      duration_ms: 1195.596321
+      type: 'test'
+      ...
+    # Subtest: không có dữ liệu chưa xác minh trình bày như thật (heuristic, cần xem thêm bằng mắt)
+    ok 4 - không có dữ liệu chưa xác minh trình bày như thật (heuristic, cần xem thêm bằng mắt)
+      ---
+      duration_ms: 1236.741702
+      type: 'test'
+      ...
+    1..4
+ok 31 - B04 layout shift, SEO, dữ liệu
+  ---
+  duration_ms: 8782.689655
+  type: 'suite'
+  ...
+# Subtest: 2B: không có console error / pageerror
+ok 32 - 2B: không có console error / pageerror
+  ---
+  duration_ms: 0.200816
+  type: 'test'
+  ...
+1..32
+# tests 127
+# suites 28
+# pass 125
+# fail 0
+# cancelled 0
+# skipped 2
+# todo 0
+# duration_ms 107205.412717

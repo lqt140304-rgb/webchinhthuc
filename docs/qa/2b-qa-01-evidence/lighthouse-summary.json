@@ -1,0 +1,32 @@
+[
+  {
+    "preset": "mobile",
+    "runs": 3,
+    "errors": [],
+    "performance": 73,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 100,
+    "lcp_s": 5.06,
+    "cls": 0,
+    "tbt_ms": 0,
+    "fcp_s": 3.19,
+    "lcpElement": "<img alt=\"Bác sĩ thăm khám lâm sàng nhẹ nhàng cho cún cưng\" loading=\"eager\" class=\"_editorialImage_od511_56\" src=\"/images/hero-vet-care.jpg\">",
+    "lighthouse": "12.8.2"
+  },
+  {
+    "preset": "desktop",
+    "runs": 3,
+    "errors": [],
+    "performance": 96,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 100,
+    "lcp_s": 1.25,
+    "cls": 0.004,
+    "tbt_ms": 0,
+    "fcp_s": 0.89,
+    "lcpElement": "<img alt=\"Mèo cưng khỏe mạnh, bình yên\" loading=\"eager\" class=\"_editorialImage_od511_56\" src=\"/images/hero-happy-cat.jpg\">",
+    "lighthouse": "12.8.2"
+  }
+]

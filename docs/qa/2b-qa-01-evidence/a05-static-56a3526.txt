@@ -1,0 +1,49 @@
+▶ A05 X-Robots-Tag theo tuyến trong vercel.json (kiểm tĩnh)
+  ✔ vercel.json có khối headers với X-Robots-Tag (2.973775ms)
+  ✔ "/gioi-thieu" nhận noindex (2.059508ms)
+  ✔ "/gioi-thieu/" nhận noindex (0.841174ms)
+  ✔ "/doi-ngu" nhận noindex (0.57351ms)
+  ✔ "/co-so-vat-chat" nhận noindex (0.284405ms)
+  ✔ "/dich-vu" nhận noindex (0.22911ms)
+  ✔ "/dich-vu/" nhận noindex (0.220047ms)
+  ✔ "/dich-vu/kham-dieu-tri" nhận noindex (1.332017ms)
+  ✔ "/dich-vu/noi-tru" nhận noindex (0.55527ms)
+  ✔ "/dich-vu/spa" nhận noindex (0.571636ms)
+  ✔ "/dich-vu/cap-cuu" nhận noindex (0.219416ms)
+  ✔ "/dich-vu/spa/" nhận noindex (0.14388ms)
+  ✔ "/bang-gia" nhận noindex (0.611398ms)
+  ✔ "/cau-chuyen" nhận noindex (0.2161ms)
+  ✔ "/cau-chuyen/" nhận noindex (0.319888ms)
+  ✔ "/cau-chuyen/mot-ca-bat-ky" nhận noindex (0.244878ms)
+  ✔ "/goc-thu-cung" nhận noindex (0.211405ms)
+  ✔ "/bai-viet/mot-bai-bat-ky" nhận noindex (0.271416ms)
+  ✔ "/san-pham" nhận noindex (0.152146ms)
+  ✔ "/dat-lich" nhận noindex (0.188602ms)
+  ✔ "/lien-he" nhận noindex (0.223297ms)
+  ✔ "/dang-nhap" nhận noindex (0.157143ms)
+  ✔ "/dang-ky" nhận noindex (0.137993ms)
+  ✔ "/tai-khoan" nhận noindex (0.128128ms)
+  ✔ "/tai-khoan/" nhận noindex (0.138626ms)
+  ✔ "/tai-khoan/ho-so" nhận noindex (0.136264ms)
+  ✔ "/tai-khoan/lich-hen" nhận noindex (1.136497ms)
+  ✔ "/quan-ly" nhận noindex (0.210301ms)
+  ✔ "/quan-ly/" nhận noindex (0.153068ms)
+  ✔ "/quan-ly/lich-hen" nhận noindex (0.134732ms)
+  ✔ "/" KHÔNG bị noindex (0.380472ms)
+  ✔ "/robots.txt" KHÔNG bị noindex (0.173502ms)
+  ✔ "/sitemap.xml" KHÔNG bị noindex (0.137945ms)
+  ✔ "/favicon.png" KHÔNG bị noindex (0.126939ms)
+  ✔ "/images/logo.png" KHÔNG bị noindex (0.155101ms)
+  ✔ "/assets/index-abc123.js" KHÔNG bị noindex (0.212198ms)
+  ✔ "/assets/index-abc123.css" KHÔNG bị noindex (0.279443ms)
+  ✔ [quyết định] URL không tồn tại (soft 404) có được noindex không (0.493881ms)
+  ℹ soft 404 noindex: {"/khong-ton-tai":false,"/dich-vu-khong-ton-tai":false,"/abc/xyz":false}
+✔ A05 X-Robots-Tag theo tuyến trong vercel.json (kiểm tĩnh) (19.345637ms)
+ℹ tests 38
+ℹ suites 1
+ℹ pass 38
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 113.252007
