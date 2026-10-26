@@ -1,0 +1,419 @@
+▶ A02 query không liên quan và dấu "/" cuối
+  ✖ desktop "/dich-vu/spa?utm_source=facebook": dropdown đúng /dich-vu/spa, nhóm "Dịch vụ" được tô (1428.970349ms)
+  ✖ desktop "/dich-vu/spa/": dropdown đúng /dich-vu/spa, nhóm "Dịch vụ" được tô (1135.259264ms)
+  ✖ desktop "/dich-vu/spa/?fbclid=abc": dropdown đúng /dich-vu/spa, nhóm "Dịch vụ" được tô (1163.913343ms)
+  ✖ desktop "/dich-vu?utm_medium=cpc": dropdown đúng /dich-vu, nhóm "Dịch vụ" được tô (1329.920633ms)
+  ✖ desktop "/goc-thu-cung?cat=news&utm_source=zalo": dropdown đúng /goc-thu-cung?cat=news, nhóm "Góc thú cưng" được tô (1229.495398ms)
+  ✖ desktop "/goc-thu-cung?utm_source=zalo": dropdown đúng /goc-thu-cung, nhóm "Góc thú cưng" được tô (1269.043675ms)
+  ✖ desktop "/goc-thu-cung/": dropdown đúng /goc-thu-cung, nhóm "Góc thú cưng" được tô (1260.981725ms)
+  ✖ Drawer "/dich-vu/spa?utm_source=facebook": đúng /dich-vu/spa (1353.283264ms)
+  ✖ Drawer "/dich-vu/spa/": đúng /dich-vu/spa (1398.783614ms)
+  ✖ Drawer "/dich-vu/spa/?fbclid=abc": đúng /dich-vu/spa (1442.354629ms)
+  ✖ Drawer "/dich-vu?utm_medium=cpc": đúng /dich-vu (1419.196997ms)
+  ✖ Drawer "/goc-thu-cung?cat=news&utm_source=zalo": đúng /goc-thu-cung?cat=news (1367.011204ms)
+  ✖ Drawer "/goc-thu-cung?utm_source=zalo": đúng /goc-thu-cung (1279.009891ms)
+  ✖ Drawer "/goc-thu-cung/": đúng /goc-thu-cung (1436.625226ms)
+  ✔ trang chủ có query: chỉ "Trang chủ" là hiện tại (1197.684957ms)
+  ✔ 404 có dấu "/" cuối hoặc query vẫn không tô mục nào (2394.133365ms)
+✖ A02 query không liên quan và dấu "/" cuối (22179.887994ms)
+▶ A01 Câu chuyện: danh sách và chi tiết nhất quán giữa desktop và Drawer
+  ✔ "/cau-chuyen": desktop và Drawer cùng đánh dấu /cau-chuyen (2497.239308ms)
+  ✖ "/cau-chuyen/abc": desktop và Drawer cùng đánh dấu /cau-chuyen (2623.001455ms)
+  ✖ "/cau-chuyen/abc/": desktop và Drawer cùng đánh dấu /cau-chuyen (2396.857998ms)
+✖ A01 Câu chuyện: danh sách và chi tiết nhất quán giữa desktop và Drawer (7517.806587ms)
+▶ A03 logo và favicon
+  ✖ logo đủ nét (≥ 2× cỡ hiển thị) ở Header, Drawer, Footer; favicon riêng (1226.96891ms)
+  ✖ ảnh logo gốc không được tham chiếu và không nằm trong dist/ (P3) (3.636088ms)
+✖ A03 logo và favicon (1230.784815ms)
+✔ round03: không có console error / pageerror (0.126777ms)
+ℹ tests 22
+ℹ suites 3
+ℹ pass 4
+ℹ fail 18
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 31328.117986
+
+✖ failing tests:
+
+test at tests/e2e/2a-round03.e2e.test.cjs:81:5
+✖ desktop "/dich-vu/spa?utm_source=facebook": dropdown đúng /dich-vu/spa, nhóm "Dịch vụ" được tô (1428.970349ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   '/dich-vu/spa'
+  - ]
+  
+      at TestContext.<anonymous> (<scratch>/2a-round03.e2e.test.cjs:88:16)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Promise.all (index 0)
+      at async Suite.run (node:internal/test_runner/test:1442:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [ '/dich-vu/spa' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/e2e/2a-round03.e2e.test.cjs:81:5
+✖ desktop "/dich-vu/spa/": dropdown đúng /dich-vu/spa, nhóm "Dịch vụ" được tô (1135.259264ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   '/dich-vu/spa'
+  - ]
+  
+      at TestContext.<anonymous> (<scratch>/2a-round03.e2e.test.cjs:88:16)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [ '/dich-vu/spa' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/e2e/2a-round03.e2e.test.cjs:81:5
+✖ desktop "/dich-vu/spa/?fbclid=abc": dropdown đúng /dich-vu/spa, nhóm "Dịch vụ" được tô (1163.913343ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   '/dich-vu/spa'
+  - ]
+  
+      at TestContext.<anonymous> (<scratch>/2a-round03.e2e.test.cjs:88:16)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [ '/dich-vu/spa' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/e2e/2a-round03.e2e.test.cjs:81:5
+✖ desktop "/dich-vu?utm_medium=cpc": dropdown đúng /dich-vu, nhóm "Dịch vụ" được tô (1329.920633ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   '/dich-vu'
+  - ]
+  
+      at TestContext.<anonymous> (<scratch>/2a-round03.e2e.test.cjs:88:16)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [ '/dich-vu' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/e2e/2a-round03.e2e.test.cjs:81:5
+✖ desktop "/goc-thu-cung?cat=news&utm_source=zalo": dropdown đúng /goc-thu-cung?cat=news, nhóm "Góc thú cưng" được tô (1229.495398ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   '/goc-thu-cung?cat=news'
+  - ]
+  
+      at TestContext.<anonymous> (<scratch>/2a-round03.e2e.test.cjs:88:16)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [ '/goc-thu-cung?cat=news' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/e2e/2a-round03.e2e.test.cjs:81:5
+✖ desktop "/goc-thu-cung?utm_source=zalo": dropdown đúng /goc-thu-cung, nhóm "Góc thú cưng" được tô (1269.043675ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   '/goc-thu-cung'
+  - ]
+  
+      at TestContext.<anonymous> (<scratch>/2a-round03.e2e.test.cjs:88:16)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [ '/goc-thu-cung' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/e2e/2a-round03.e2e.test.cjs:81:5
+✖ desktop "/goc-thu-cung/": dropdown đúng /goc-thu-cung, nhóm "Góc thú cưng" được tô (1260.981725ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   '/goc-thu-cung'
+  - ]
+  
+      at TestContext.<anonymous> (<scratch>/2a-round03.e2e.test.cjs:88:16)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [ '/goc-thu-cung' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/e2e/2a-round03.e2e.test.cjs:99:5
+✖ Drawer "/dich-vu/spa?utm_source=facebook": đúng /dich-vu/spa (1353.283264ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   '/dich-vu/spa'
+  - ]
+  
+      at TestContext.<anonymous> (<scratch>/2a-round03.e2e.test.cjs:104:16)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [ '/dich-vu/spa' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/e2e/2a-round03.e2e.test.cjs:99:5
+✖ Drawer "/dich-vu/spa/": đúng /dich-vu/spa (1398.783614ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   '/dich-vu/spa'
+  - ]
+  
+      at TestContext.<anonymous> (<scratch>/2a-round03.e2e.test.cjs:104:16)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [ '/dich-vu/spa' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/e2e/2a-round03.e2e.test.cjs:99:5
+✖ Drawer "/dich-vu/spa/?fbclid=abc": đúng /dich-vu/spa (1442.354629ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   '/dich-vu/spa'
+  - ]
+  
+      at TestContext.<anonymous> (<scratch>/2a-round03.e2e.test.cjs:104:16)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [ '/dich-vu/spa' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/e2e/2a-round03.e2e.test.cjs:99:5
+✖ Drawer "/dich-vu?utm_medium=cpc": đúng /dich-vu (1419.196997ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   '/dich-vu'
+  - ]
+  
+      at TestContext.<anonymous> (<scratch>/2a-round03.e2e.test.cjs:104:16)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [ '/dich-vu' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/e2e/2a-round03.e2e.test.cjs:99:5
+✖ Drawer "/goc-thu-cung?cat=news&utm_source=zalo": đúng /goc-thu-cung?cat=news (1367.011204ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   '/goc-thu-cung?cat=news'
+  - ]
+  
+      at TestContext.<anonymous> (<scratch>/2a-round03.e2e.test.cjs:104:16)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [ '/goc-thu-cung?cat=news' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/e2e/2a-round03.e2e.test.cjs:99:5
+✖ Drawer "/goc-thu-cung?utm_source=zalo": đúng /goc-thu-cung (1279.009891ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   '/goc-thu-cung'
+  - ]
+  
+      at TestContext.<anonymous> (<scratch>/2a-round03.e2e.test.cjs:104:16)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [ '/goc-thu-cung' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/e2e/2a-round03.e2e.test.cjs:99:5
+✖ Drawer "/goc-thu-cung/": đúng /goc-thu-cung (1436.625226ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   '/goc-thu-cung'
+  - ]
+  
+      at TestContext.<anonymous> (<scratch>/2a-round03.e2e.test.cjs:104:16)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [ '/goc-thu-cung' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/e2e/2a-round03.e2e.test.cjs:136:5
+✖ "/cau-chuyen/abc": desktop và Drawer cùng đánh dấu /cau-chuyen (2623.001455ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   '/cau-chuyen'
+  - ]
+  
+      at TestContext.<anonymous> (<scratch>/2a-round03.e2e.test.cjs:144:16)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [ '/cau-chuyen' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/e2e/2a-round03.e2e.test.cjs:136:5
+✖ "/cau-chuyen/abc/": desktop và Drawer cùng đánh dấu /cau-chuyen (2396.857998ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   '/cau-chuyen'
+  - ]
+  
+      at TestContext.<anonymous> (<scratch>/2a-round03.e2e.test.cjs:144:16)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [ '/cau-chuyen' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/e2e/2a-round03.e2e.test.cjs:155:3
+✖ logo đủ nét (≥ 2× cỡ hiển thị) ở Header, Drawer, Footer; favicon riêng (1226.96891ms)
+  AssertionError [ERR_ASSERTION]: favicon vẫn dùng ảnh logo: /images/logo.png
+      at TestContext.<anonymous> (<scratch>/2a-round03.e2e.test.cjs:173:14)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Promise.all (index 0)
+      at async Suite.run (node:internal/test_runner/test:1442:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/e2e/2a-round03.e2e.test.cjs:181:3
+✖ ảnh logo gốc không được tham chiếu và không nằm trong dist/ (P3) (3.636088ms)
+  AssertionError [ERR_ASSERTION]: dist/ còn ảnh logo gốc nặng, được triển khai công khai dù không dùng: images/logo.png (376788 B)
+  + actual - expected
+  
+  + [
+  +   'images/logo.png (376788 B)'
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (<scratch>/2a-round03.e2e.test.cjs:199:12)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1047:25)
+      at Suite.processPendingSubtests (node:internal/test_runner/test:744:18)
+      at Test.postRun (node:internal/test_runner/test:1173:19)
+      at Test.run (node:internal/test_runner/test:1101:12)
+      at async Promise.all (index 0)
+      at async Suite.run (node:internal/test_runner/test:1442:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ 'images/logo.png (376788 B)' ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
