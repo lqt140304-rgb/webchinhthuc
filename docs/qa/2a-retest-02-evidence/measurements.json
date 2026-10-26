@@ -340,7 +340,7 @@
       "robotsTxt": {
         "status": 200,
         "type": "text/plain",
-        "head": "User-agent: *\r\nAllow: /\r\nDisallow: /tai-khoan/\r\nDisallow: /dang-nhap\r\nDisallow: /dang-ky\r\n\r\nSitemap: https://bvthuyleson.vn/sitemap.xml\r\n"
+        "head": "User-agent: *\nAllow: /\nDisallow: /tai-khoan/\nDisallow: /dang-nhap\nDisallow: /dang-ky\n\nSitemap: https://bvthuyleson.vn/sitemap.xml\n"
       }
     },
     {

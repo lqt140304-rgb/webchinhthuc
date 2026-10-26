@@ -1,0 +1,150 @@
+▶ R2 P1-3 Drawer: ranh giới route và đúng một mục hiện tại
+  ✔ Drawer "/": aria-current đúng / (5053.0484ms)
+  ✔ Drawer "/dich-vu": aria-current đúng /dich-vu (1564.5781ms)
+  ✔ Drawer "/dich-vu/spa": aria-current đúng /dich-vu/spa (1702.6476ms)
+  ✔ Drawer "/goc-thu-cung": aria-current đúng /goc-thu-cung (2531.9343ms)
+  ✔ Drawer "/goc-thu-cung?cat=news": aria-current đúng /goc-thu-cung?cat=news (1467.1094ms)
+  ✔ Drawer "/cau-chuyen": aria-current đúng /cau-chuyen (1597.2631ms)
+  ✔ Drawer "/cau-chuyen/abc": nhất quán với desktop (Câu chuyện là mục hiện tại) (2234.8948ms)
+  ✔ Drawer ranh giới: "/dich-vu-khong-ton-tai" (404) không có mục/nhóm hiện tại (1767.8121ms)
+  ✔ Drawer ranh giới: "/cau-chuyenxyz" (404) không có mục/nhóm hiện tại (1750.751ms)
+  ✔ Drawer ranh giới: "/gioi-thieu-abc" (404) không có mục/nhóm hiện tại (2898.5399ms)
+  ✔ Drawer ranh giới: "/goc-thu-cung-abc" (404) không có mục/nhóm hiện tại (1581.2536ms)
+✔ R2 P1-3 Drawer: ranh giới route và đúng một mục hiện tại (24216.8601ms)
+▶ R2 P1-4 Dropdown: luồng chuột thật
+  ✔ rê → bấm → di chuột vào submenu → bấm "Spa" thì tới /dich-vu/spa (2849.8001ms)
+  ✔ bấm lần hai (sau khi đã giữ mở) thì đóng; rời chuột thì đóng (1709.0405ms)
+✔ R2 P1-4 Dropdown: luồng chuột thật (4559.1874ms)
+▶ R2 Quyết định 3: bỏ hotline Header, vẫn có lối gọi
+  ✔ Header @320px không có tel:, vẫn có lối gọi trong màn hình đầu hoặc Drawer (1415.7442ms)
+  ✔ Header @768px không có tel:, vẫn có lối gọi trong màn hình đầu hoặc Drawer (1418.4132ms)
+  ✔ Header @1366px không có tel:, vẫn có lối gọi trong màn hình đầu hoặc Drawer (1361.3872ms)
+  ✔ Header @1536px không có tel:, vẫn có lối gọi trong màn hình đầu hoặc Drawer (2108.8829ms)
+✔ R2 Quyết định 3: bỏ hotline Header, vẫn có lối gọi (6304.975ms)
+▶ R2 R1-1 JSON-LD chỉ ở trang chủ, đúng dữ liệu đã xác nhận
+  ✔ trang chủ có đúng một VeterinaryCare khớp địa chỉ/giờ đã xác nhận (1519.2708ms)
+  ✔ HTML gốc không còn JSON-LD tĩnh (không phát trên mọi route) (1392.3659ms)
+  ✔ JSON-LD bị gỡ khi rời trang chủ, không nhân đôi khi quay lại, đúng qua Back/Forward (2645.0201ms)
+✔ R2 R1-1 JSON-LD chỉ ở trang chủ, đúng dữ liệu đã xác nhận (5557.0442ms)
+▶ R2 P3 canonical
+  ✔ 404 không có canonical, kể cả khi đi từ trang có canonical; trang chủ có canonical gốc (4029.4098ms)
+✔ R2 P3 canonical (4029.6366ms)
+▶ R2 Quyết định 1: chỉ cấu hình Vercel
+  ✔ dist/ không còn 404.html, _redirects; vercel.json hợp lệ cho SPA (0.9957ms)
+  ✔ preview không phục vụ trang chuyển hướng 404.html cũ (2730.244ms)
+✔ R2 Quyết định 1: chỉ cấu hình Vercel (2731.4568ms)
+▶ R2 P3 tối ưu logo và favicon (brief vòng 02 mục 5)
+  ✔ logo hiển thị và favicon không dùng ảnh gốc 377KB (1375.838ms)
+✔ R2 P3 tối ưu logo và favicon (brief vòng 02 mục 5) (1376.0492ms)
+✔ round02: không có console error / pageerror (0.2238ms)
+▶ A02 query không liên quan và dấu "/" cuối
+  ✔ desktop "/dich-vu/spa?utm_source=facebook": dropdown đúng /dich-vu/spa, nhóm "Dịch vụ" được tô (4373.8229ms)
+  ✔ desktop "/dich-vu/spa/": dropdown đúng /dich-vu/spa, nhóm "Dịch vụ" được tô (1226.915ms)
+  ✔ desktop "/dich-vu/spa/?fbclid=abc": dropdown đúng /dich-vu/spa, nhóm "Dịch vụ" được tô (1234.8823ms)
+  ✔ desktop "/dich-vu?utm_medium=cpc": dropdown đúng /dich-vu, nhóm "Dịch vụ" được tô (1570.2491ms)
+  ✔ desktop "/goc-thu-cung?cat=news&utm_source=zalo": dropdown đúng /goc-thu-cung?cat=news, nhóm "Góc thú cưng" được tô (2042.0267ms)
+  ✔ desktop "/goc-thu-cung?utm_source=zalo": dropdown đúng /goc-thu-cung, nhóm "Góc thú cưng" được tô (1197.4937ms)
+  ✔ desktop "/goc-thu-cung/": dropdown đúng /goc-thu-cung, nhóm "Góc thú cưng" được tô (1145.2542ms)
+  ✔ Drawer "/dich-vu/spa?utm_source=facebook": đúng /dich-vu/spa (2525.3725ms)
+  ✔ Drawer "/dich-vu/spa/": đúng /dich-vu/spa (1650.0733ms)
+  ✔ Drawer "/dich-vu/spa/?fbclid=abc": đúng /dich-vu/spa (1916.1321ms)
+  ✔ Drawer "/dich-vu?utm_medium=cpc": đúng /dich-vu (1467.3468ms)
+  ✔ Drawer "/goc-thu-cung?cat=news&utm_source=zalo": đúng /goc-thu-cung?cat=news (2954.1316ms)
+  ✔ Drawer "/goc-thu-cung?utm_source=zalo": đúng /goc-thu-cung (1478.8088ms)
+  ✔ Drawer "/goc-thu-cung/": đúng /goc-thu-cung (3233.6112ms)
+  ✔ trang chủ có query: chỉ "Trang chủ" là hiện tại (1452.8369ms)
+  ✔ 404 có dấu "/" cuối hoặc query vẫn không tô mục nào (2788.3943ms)
+✔ A02 query không liên quan và dấu "/" cuối (32321.581ms)
+▶ A01 Câu chuyện: danh sách và chi tiết nhất quán giữa desktop và Drawer
+  ✔ "/cau-chuyen": desktop và Drawer cùng đánh dấu /cau-chuyen (2391.1794ms)
+  ✔ "/cau-chuyen/abc": desktop và Drawer cùng đánh dấu /cau-chuyen (2865.615ms)
+  ✔ "/cau-chuyen/abc/": desktop và Drawer cùng đánh dấu /cau-chuyen (2636.2319ms)
+✔ A01 Câu chuyện: danh sách và chi tiết nhất quán giữa desktop và Drawer (7893.4176ms)
+▶ A03 logo và favicon
+  ✔ logo đủ nét (≥ 2× cỡ hiển thị) ở Header, Drawer, Footer; favicon riêng (2224.199ms)
+  ✔ ảnh logo gốc không được tham chiếu và không nằm trong dist/ (P3) (3.1215ms)
+✔ A03 logo và favicon (2227.5194ms)
+✔ round03: không có console error / pageerror (0.1441ms)
+▶ P1-1 Header 320px
+  ✔ viewport đúng 320px, Menu nằm trọn và mở được Drawer (isMobile=false) (4882.4174ms)
+  ✔ viewport đúng 320px, Menu nằm trọn và mở được Drawer (isMobile=true) (1618.1861ms)
+✔ P1-1 Header 320px (6564.2441ms)
+▶ Responsive: không tràn ngang ở 5 viewport
+  ✔ home @ 320px (2036.072ms)
+  ✔ comingSoon @ 320px (2204.349ms)
+  ✔ notFound @ 320px (1461.3151ms)
+  ✔ home @ 390px (2007.4383ms)
+  ✔ comingSoon @ 390px (2013.3729ms)
+  ✔ notFound @ 390px (1557.3176ms)
+  ✔ home @ 768px (2027.528ms)
+  ✔ comingSoon @ 768px (2881.0614ms)
+  ✔ notFound @ 768px (1463.9433ms)
+  ✔ home @ 1366px (4031.9188ms)
+  ✔ comingSoon @ 1366px (1392.6862ms)
+  ✔ notFound @ 1366px (1332.491ms)
+  ✔ home @ 1440px (1628.5124ms)
+  ✔ comingSoon @ 1440px (1308.6252ms)
+  ✔ notFound @ 1440px (1323.0594ms)
+✔ Responsive: không tràn ngang ở 5 viewport (28671.5137ms)
+▶ P1-2 Kích thước khung sau khi sửa token
+  ✔ ComingSoon và 404 ở 1440px có độ rộng chữ dễ đọc (≤ 800px) (2129.9109ms)
+  ✔ Drawer ở 768px không phủ gần hết màn hình (≤ 480px) (1547.0478ms)
+✔ P1-2 Kích thước khung sau khi sửa token (3677.3437ms)
+▶ Drawer: focus, Escape, cuộn
+  ✔ mở: focus vào trong, trigger có aria-expanded/aria-controls (1487.5268ms)
+  ✔ Tab/Shift+Tab không thoát dialog; Escape đóng, trả focus, khôi phục cuộn (2736.9291ms)
+  ✔ chọn link trong Drawer: đóng, đổi route, khôi phục cuộn (2384.8658ms)
+✔ Drawer: focus, Escape, cuộn (6609.7757ms)
+▶ P1-5 Resize qua breakpoint desktop
+  ✔ mở ở 900px, resize 1180px: gỡ khóa cuộn; quay lại mobile vẫn mở được (1982.212ms)
+✔ P1-5 Resize qua breakpoint desktop (1982.5204ms)
+▶ P1-4 và P2-2 Dropdown desktop
+  ✔ rê chuột rồi bấm vẫn truy cập được submenu (1651.57ms)
+  ✔ bàn phím: mở, focus mục đầu, Escape đóng và trả focus (1292.3263ms)
+  ✔ P2-2: Tab rời nhóm thì submenu đóng (1324.6909ms)
+✔ P1-4 và P2-2 Dropdown desktop (4269.1507ms)
+▶ P1-3 Trạng thái trang hiện tại
+  ✔ "/" : Trang chủ có aria-current="page", không có mục nào khác (1332.6398ms)
+  ✔ "/dich-vu/spa": nhóm "Dịch vụ" được tô, tối đa 1 aria-current (1132.8881ms)
+  ✔ "/cau-chuyen/abc": nhóm "Câu chuyện" được tô, tối đa 1 aria-current (1110.714ms)
+  ✔ dropdown desktop "/dich-vu/spa": đúng một mục aria-current (/dich-vu/spa) (1199.4765ms)
+  ✔ dropdown desktop "/dich-vu": đúng một mục aria-current (/dich-vu) (1175.9486ms)
+  ✔ dropdown desktop "/goc-thu-cung?cat=news": đúng một mục aria-current (/goc-thu-cung?cat=news) (1198.3123ms)
+  ✔ dropdown desktop "/goc-thu-cung": đúng một mục aria-current (/goc-thu-cung) (1176.8653ms)
+  ✔ ranh giới route: "/dich-vu-khong-ton-tai" (404) không làm nhóm nào là hiện tại (1121.2278ms)
+  ✔ ranh giới route: "/cau-chuyenxyz" (404) không làm nhóm nào là hiện tại (1119.6574ms)
+  ✔ ranh giới route: "/gioi-thieu-abc" (404) không làm nhóm nào là hiện tại (1131.3891ms)
+  ✔ Drawer "/dich-vu/spa": link Spa có aria-current="page" (1344.2237ms)
+✔ P1-3 Trạng thái trang hiện tại (13044.6652ms)
+▶ P1-6 Lối vào và tham số
+  ✔ desktop: có link /lien-he và /dich-vu trong header hoặc footer, vào đúng route (1466.7013ms)
+  ✔ Drawer: có link /lien-he và /dich-vu (1569.1524ms)
+  ✔ tin tức dùng ?cat=news, không còn ?tab= (1425.8762ms)
+  ✔ ComingSoon có CTA liên hệ/đặt lịch ngoài hotline và nút về trang chủ (1309.1949ms)
+  ✔ mobile 390px: hotline dễ thấy ở header hoặc thanh dưới đáy (1516.1189ms)
+✔ P1-6 Lối vào và tham số (7287.5509ms)
+▶ P1-7 Meta, lịch sử và tệp SEO
+  ✔ title riêng, noindex đúng qua navigation, Back/Forward và 404 (2191.2948ms)
+  ✔ robots.txt là text/plain, chặn /tai-khoan/, /dang-nhap, /dang-ky (1267.4928ms)
+  ✔ sitemap.xml là XML hợp lệ, chỉ chứa trang chủ (1242.1133ms)
+  ﹣ [thông tin] HTML gốc của trang chờ chưa có noindex (giới hạn client rendering) (1232.0753ms) # BLOCKED: noindex trong HTML gốc cần phương án host/prerender được duyệt
+✔ P1-7 Meta, lịch sử và tệp SEO (5933.6236ms)
+▶ P1-8 Host đích
+  ﹣ mở thẳng/F5 route con, asset và URL sai trên host đích (0.1929ms) # BLOCKED: chưa chốt host đích (đặt HOST_URL để chạy)
+✔ P1-8 Host đích (0.2943ms)
+▶ P2 Khả năng truy cập và CSS
+  ✔ P2-1 tương phản các điểm đã nêu đạt WCAG AA (1289.1195ms)
+  ✔ P2-3 chuyển trang: focus vào main/h1 hoặc có thông báo aria-live (1316.3569ms)
+  ✔ P2-4 không còn lớp animate-in/fade-in/slide-in-* và py-0.2 (1834.8062ms)
+  ✔ P2-5 thanh dưới đáy có padding theo safe-area (1248.0524ms)
+  ✔ giảm chuyển động được tôn trọng (1441.0024ms)
+✔ P2 Khả năng truy cập và CSS (7129.8493ms)
+✔ không có console error / pageerror trong toàn bộ lượt chạy (0.1434ms)
+ℹ tests 100
+ℹ suites 21
+ℹ pass 98
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 2
+ℹ todo 0
+ℹ duration_ms 85549.087

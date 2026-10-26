@@ -18,16 +18,29 @@ Kế hoạch triển khai chia theo 5 giai đoạn nghiêm ngặt, mỗi giai đ
 
 #### Mốc 2A: Routing & Bộ Khung Giao Diện (ĐÃ ĐẠT TIÊU CHÍ ĐỀ XUẤT NGHIỆM THU CÓ ĐIỀU KIỆN)
 
-Cập nhật 26/10/2026 (Theo Báo cáo Retest-02 của Claude & Quyết định điều phối của CEO):
-- **Trạng thái kiểm thử:** 76/78 test PASS (bộ chuẩn 51/51 pass, bộ mở rộng 25/25 pass sau khi sửa A01–A03, 0 console error, 2 test skip do BLOCKED).
-- **Các tiêu chí P1 đã hoàn thành & kiểm chứng:** Khung layout, responsive không tràn ngang ở 5 viewports, active route có xét ranh giới, dropdown hover-click chuột/bàn phím, Drawer focus trap/khóa cuộn, JSON-LD động, bỏ hotline Header (Quyết định 3), Vercel rewrite (Quyết định 1).
-- **Các lỗi P3 đã khắc phục:**
-  - A01: Đồng nhất trạng thái mục Câu chuyện giữa Desktop và Drawer ở trang chi tiết (`/cau-chuyen/:slug`).
-  - A02: Xử lý query không liên quan (UTM) và dấu `/` cuối khi nhận diện mục hiện tại.
-  - A03: Tối ưu logo (`logo.png` ~27 KB <= 100 KB) và tạo favicon riêng (`favicon.png` ~3.7 KB <= 50 KB).
+**1. Các hạng mục đã triển khai:**
+- [x] Tích hợp `react-router-dom` và cấu hình hệ thống tuyến đường tập trung (`AppRoutes`).
+- [x] Dựng `RootLayout` kết nối Header, Outlet, Footer, MobileNav Drawer và MobileBottomBar.
+- [x] Header Desktop: Bố cục tối ưu trên Desktop 1440px & Laptop 1366px, đầy đủ navigation dropdown đa tầng, cụm Đăng nhập / Đăng ký, nút CTA Đặt lịch (đã bỏ hotline Header theo Quyết định 3).
+- [x] Mobile Navigation: Dialog semantics, focus trap, khóa cuộn body an toàn, menu accordion phân cấp.
+- [x] Footer Chân Trang: Thông tin cơ sở 101 Khuất Duy Tiến, Hotline 24/24, giờ khám tham chiếu 08:00 – 21:00.
+- [x] Tối ưu hóa Logo chính thức của bệnh viện (`logo.png` ~27.2 KB ≤ 100 KB) và Favicon riêng (`favicon.png` ~3.7 KB ≤ 50 KB). Cách ly ảnh gốc độ phân giải cao vào `design/source/logo-original.png` (không đưa vào bundle `dist/`).
+- [x] Xây dựng `ComingSoonView` (tự động tiêm thẻ `noindex, nofollow`, ưu tiên hotline) và `NotFoundPage` (404 độc lập, `noCanonical`).
+- [x] Dynamic JSON-LD VeterinaryCare trên trang chủ, tự cleanup khi unmount.
+- [x] Cấu hình `vercel.json` SPA rewrite chuẩn, loại bỏ các file cấu hình đa host cũ (`404.html`, `_redirects`).
+
+**2. Trạng thái kiểm chứng (Đối chiếu giữa Báo cáo Retest-02, Retest-03 của Claude và Báo cáo Handoff của Antigravity):**
+- **Bộ chuẩn và round 02:** Antigravity tự kiểm trên `cd0e68e` đạt 76/78 test (2 BLOCKED). Claude retest-03 xác nhận đạt 76/78 test, đóng hoàn toàn các lỗi P1 cũ và 2 lỗi P3 của retest-02.
+- **Bộ mở rộng round 03 (100 tests):** Claude retest-03 ghi nhận 97/100 test đạt. Lỗi P3 duy nhất còn lại (R3-1 logo-original trong dist/) đã được xử lý bằng cách chuyển file ra ngoài thư mục `public/`.
+- **Đã đóng các lỗi P3:**
+  - A01 (R2-1): Đồng nhất trạng thái mục Câu chuyện giữa Desktop và Drawer ở trang chi tiết (`/cau-chuyen/:slug`).
+  - A02 (R2-2): Xử lý query không liên quan (UTM, fbclid...) và dấu `/` cuối khi nhận diện mục hiện tại.
+  - A03 (R2-3): Tối ưu logo Header và tạo favicon riêng.
+  - R3-1: Cách ly ảnh logo gốc khỏi thư mục `public/`.
+  - R3-2: Khôi phục bằng chứng gốc của Claude trong `docs/qa/2a-retest-02-evidence/`.
 - **Hai mục BLOCKED ghi nhận mở (chờ điều kiện trước phát hành):**
   - A04: Kiểm tra trên host Vercel thật (chờ URL preview được cấp phép).
-  - A05: Bảo vệ indexability của trang chờ từ phản hồi HTTP ban đầu (chờ chốt phương án header `X-Robots-Tag` trên host thật).
+  - A05: Bảo vệ indexability của trang chờ từ phản hồi HTTP ban đầu (chờ duyệt phương án header `X-Robots-Tag` trên host thật).
 
 #### Mốc 2B: Thiết Kế & Xây Dựng 6 Section Trang Chủ (ĐÃ TRIỂN KHAI — CHỜ REVIEW CHI TIẾT)
 - [x] **Section 1 (Editorial Hero):** Headline *“Khi bé không khỏe, bạn không phải lo một mình.”*, mô tả & 2 CTA, 3 khung ảnh editorial bo góc cắt khuyết nghệ thuật lấy cảm hứng từ AURA.
@@ -36,7 +49,7 @@ Cập nhật 26/10/2026 (Theo Báo cáo Retest-02 của Claude & Quyết định
 - [x] **Section 4 (Câu chuyện nổi bật):** 1 ca phục hồi tiêu biểu, quy trình 3 giai đoạn lâm sàng, có nhãn minh họa minh bạch (không có tên thuốc hay liều lượng nội bộ).
 - [x] **Section 5 (Góc kiến thức & Tin tức):** 3 thẻ bài viết tạp chí (Editorial Magazine Cards), có thông báo bản mẫu biên tập rõ ràng.
 - [x] **Section 6 (Đặt lịch & Liên hệ):** Thông tin 101 Khuất Duy Tiến, Hotline 097 355 51 05, Giờ khám 08:00 – 21:00, liên kết Google Maps và biểu mẫu demo với thông báo minh bạch chưa kết nối database (không báo gửi thành công giả).
-- [ ] **Việc tiếp theo (Bước 2):** Xử lý B01 (chuyển form đầy đủ về `/dat-lich`, section 6 tập trung CTA/liên hệ), B02 (xác nhận cam kết trực ngày lễ) và bàn giao cho Claude review chi tiết độc lập 6 section 2B.
+- [ ] **Việc tiếp theo (Bước 2):** Xử lý B01 (chuyển form đầy đủ về `/dat-lich`, section 6 tập trung CTA/liên hệ), B02 (xác nhận cam kết trực ngày lễ) và bàn giao cho Claude review chi tiết độc lập 6 section 2B theo ma trận 7 kích thước.
 - [ ] **DỪNG LẠI CHỜ PHÊ DUYỆT MỐC 2B TRƯỚC KHI BƯỚC VÀO GIAI ĐOẠN 3.**
 
 ---

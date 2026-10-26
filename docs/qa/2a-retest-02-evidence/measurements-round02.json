@@ -76,9 +76,7 @@
     {
       "id": "R2-P1-3-drawer",
       "route": "/cau-chuyen/abc",
-      "current": [
-        "/cau-chuyen"
-      ],
+      "current": [],
       "groupStyles": [
         "Về Lê Sơn|rgb(26, 10, 28)|500",
         "Dịch vụ y tế|rgb(26, 10, 28)|500",
@@ -253,9 +251,9 @@
       "id": "R2-P3-logo",
       "logoSrc": "http://localhost:4173/images/logo.png",
       "logoRendered": 44,
-      "iconHref": "/favicon.png",
-      "logoBytes": 27288,
-      "iconBytes": 3770
+      "iconHref": "/images/logo.png",
+      "logoBytes": 376788,
+      "iconBytes": 376788
     }
   ],
   "consoleErrors": []
