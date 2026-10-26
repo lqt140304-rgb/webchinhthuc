@@ -1,0 +1,137 @@
+{
+ "tag": "b8d5dd2",
+ "viewport": 1366,
+ "paints": [
+  {
+   "n": "first-paint",
+   "t": 812
+  },
+  {
+   "n": "first-contentful-paint",
+   "t": 2052
+  },
+  {
+   "n": "lcp",
+   "t": 2052,
+   "el": "H1"
+  }
+ ],
+ "layoutShifts": [
+  {
+   "t": 2929,
+   "v": 0.0001,
+   "src": "NAV.hidden lg:flex items-center ga,DIV.flex items-center gap-1.5 sm:g"
+  }
+ ],
+ "clsTotal": 0.0001,
+ "fontStatus": [
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "unloaded",
+   "t": 788
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "unloaded",
+   "t": 788
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "unloaded",
+   "t": 788
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "unloaded",
+   "t": 789
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "unloaded",
+   "t": 789
+  },
+  {
+   "k": "Lora normal 400 900",
+   "s": "unloaded",
+   "t": 789
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2024
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loaded",
+   "t": 2024
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loading",
+   "t": 2024
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "loading",
+   "t": 2024
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loading",
+   "t": 2024
+  },
+  {
+   "k": "Lora normal 400 900",
+   "s": "loaded",
+   "t": 2024
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loaded",
+   "t": 2907
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loaded",
+   "t": 2907
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "loaded",
+   "t": 2954
+  }
+ ],
+ "fontRequests": [
+  {
+   "file": "be-vietnam-pro-400.woff2",
+   "startMs": 181,
+   "endMs": 1158
+  },
+  {
+   "file": "be-vietnam-pro-600.woff2",
+   "startMs": 182,
+   "endMs": 1179
+  },
+  {
+   "file": "lora-600.woff2",
+   "startMs": 183,
+   "endMs": 1301
+  },
+  {
+   "file": "be-vietnam-pro-500.woff2",
+   "startMs": 1898,
+   "endMs": 2895
+  },
+  {
+   "file": "be-vietnam-pro-700.woff2",
+   "startMs": 1899,
+   "endMs": 2903
+  },
+  {
+   "file": "be-vietnam-pro-italic-400.woff2",
+   "startMs": 1900,
+   "endMs": 2888
+  }
+ ],
+ "frames": 10
+}

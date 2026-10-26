@@ -1,0 +1,3607 @@
+{
+ "tag": "4c824c4",
+ "viewport": 390,
+ "paints": [
+  {
+   "n": "first-paint",
+   "t": 620
+  },
+  {
+   "n": "first-contentful-paint",
+   "t": 1484
+  },
+  {
+   "n": "lcp",
+   "t": 1484,
+   "el": "IMG"
+  }
+ ],
+ "layoutShifts": [
+  {
+   "t": 1799,
+   "v": 0.006,
+   "src": "#text,#text"
+  },
+  {
+   "t": 3006,
+   "v": 0.0059,
+   "src": "#text,#text"
+  }
+ ],
+ "clsTotal": 0.0119,
+ "fontStatus": [
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "unloaded",
+   "t": 601
+  },
+  {
+   "k": "Be Vietnam Pro normal 300",
+   "s": "unloaded",
+   "t": 601
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "unloaded",
+   "t": 601
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "unloaded",
+   "t": 601
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "unloaded",
+   "t": 602
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "unloaded",
+   "t": 602
+  },
+  {
+   "k": "Lora italic 400",
+   "s": "unloaded",
+   "t": 602
+  },
+  {
+   "k": "Lora italic 500",
+   "s": "unloaded",
+   "t": 602
+  },
+  {
+   "k": "Lora normal 400",
+   "s": "unloaded",
+   "t": 602
+  },
+  {
+   "k": "Lora normal 500",
+   "s": "unloaded",
+   "t": 603
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 603
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loading",
+   "t": 1489
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 1489
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loading",
+   "t": 1489
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loading",
+   "t": 1489
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "loading",
+   "t": 1489
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 1489
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 1496
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 1496
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 1506
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 1506
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 1520
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 1520
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 1537
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 1537
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 1554
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 1554
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 1571
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 1571
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 1588
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 1588
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 1604
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 1604
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 1620
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 1620
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 1637
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 1637
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 1654
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 1654
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 1671
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 1671
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 1687
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 1687
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 1708
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 1714
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 1726
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 1726
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 1739
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 1740
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 1740
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 1810
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 1810
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 1811
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 1811
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 1823
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 1823
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 1823
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 1823
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 1837
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 1837
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 1838
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 1838
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 1854
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 1854
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 1854
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 1854
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 1871
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 1871
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 1871
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 1871
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 1887
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 1887
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 1887
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 1887
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 1903
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 1903
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 1904
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 1904
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 1920
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 1920
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 1920
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 1920
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 1937
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 1937
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 1937
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 1937
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 1953
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 1953
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 1953
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 1953
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 1970
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 1970
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 1970
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 1970
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 1987
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 1987
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 1987
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 1987
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 2004
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2004
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 2004
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 2004
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 2024
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2024
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loaded",
+   "t": 2024
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loading",
+   "t": 2024
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 2025
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 2025
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 2086
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2086
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loaded",
+   "t": 2086
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loading",
+   "t": 2086
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 2086
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 2086
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 2086
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2086
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loaded",
+   "t": 2086
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loading",
+   "t": 2086
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 2087
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 2087
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 2103
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2103
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loaded",
+   "t": 2103
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loading",
+   "t": 2103
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 2104
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 2104
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 2120
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2120
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loaded",
+   "t": 2120
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loading",
+   "t": 2120
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 2120
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 2120
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 2137
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2137
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loaded",
+   "t": 2137
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loading",
+   "t": 2137
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 2137
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 2137
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 2153
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2153
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loaded",
+   "t": 2153
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loading",
+   "t": 2153
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 2153
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 2153
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 2170
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2170
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loaded",
+   "t": 2171
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loading",
+   "t": 2171
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 2171
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 2171
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 2188
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2188
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loaded",
+   "t": 2188
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loading",
+   "t": 2188
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 2188
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 2188
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 2204
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2204
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loaded",
+   "t": 2204
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loading",
+   "t": 2204
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 2204
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 2204
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 2222
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2222
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loaded",
+   "t": 2222
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loaded",
+   "t": 2222
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loading",
+   "t": 2222
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 2222
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 2222
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 2273
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2273
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loading",
+   "t": 2273
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loaded",
+   "t": 2273
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loaded",
+   "t": 2273
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loading",
+   "t": 2273
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 2273
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 2273
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 2287
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2287
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loading",
+   "t": 2287
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loaded",
+   "t": 2287
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loaded",
+   "t": 2287
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loading",
+   "t": 2287
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 2287
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 2287
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 2304
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2304
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loading",
+   "t": 2304
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loaded",
+   "t": 2304
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loaded",
+   "t": 2304
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loading",
+   "t": 2304
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 2304
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 2304
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 2321
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2321
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loading",
+   "t": 2321
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loaded",
+   "t": 2321
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loaded",
+   "t": 2321
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loading",
+   "t": 2321
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 2321
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 2321
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 2337
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2337
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loading",
+   "t": 2337
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loaded",
+   "t": 2337
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loaded",
+   "t": 2337
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loading",
+   "t": 2337
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 2337
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 2337
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 2354
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2354
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loading",
+   "t": 2354
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loaded",
+   "t": 2354
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loaded",
+   "t": 2354
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loading",
+   "t": 2354
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 2354
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 2354
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 2370
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2370
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loading",
+   "t": 2370
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loaded",
+   "t": 2370
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loaded",
+   "t": 2370
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loading",
+   "t": 2370
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 2370
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 2370
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 2387
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2387
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loading",
+   "t": 2387
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loaded",
+   "t": 2387
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loaded",
+   "t": 2387
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loading",
+   "t": 2387
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 2387
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 2387
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 2403
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2403
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loading",
+   "t": 2403
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loaded",
+   "t": 2403
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loaded",
+   "t": 2403
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loading",
+   "t": 2403
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 2403
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 2403
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 2423
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2423
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loading",
+   "t": 2423
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loaded",
+   "t": 2423
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loaded",
+   "t": 2423
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 2423
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 2423
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 2423
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loaded",
+   "t": 2499
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 2499
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2499
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loading",
+   "t": 2499
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loaded",
+   "t": 2499
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loading",
+   "t": 2499
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loaded",
+   "t": 2499
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "loaded",
+   "t": 2499
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 2499
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 2499
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 2499
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loading",
+   "t": 2517
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loaded",
+   "t": 2517
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 2517
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2517
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loading",
+   "t": 2517
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loaded",
+   "t": 2517
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loading",
+   "t": 2517
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loaded",
+   "t": 2517
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "loading",
+   "t": 2517
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "loaded",
+   "t": 2517
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 2517
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 2517
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 2517
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loading",
+   "t": 2527
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loaded",
+   "t": 2527
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 2527
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2527
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loading",
+   "t": 2527
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loaded",
+   "t": 2527
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loading",
+   "t": 2527
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loaded",
+   "t": 2527
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "loading",
+   "t": 2527
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "loaded",
+   "t": 2527
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 2527
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 2527
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 2527
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loading",
+   "t": 2537
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loaded",
+   "t": 2537
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 2537
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2537
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loading",
+   "t": 2537
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loaded",
+   "t": 2537
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loading",
+   "t": 2537
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loaded",
+   "t": 2537
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "loading",
+   "t": 2537
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "loaded",
+   "t": 2537
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 2538
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 2538
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 2538
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loading",
+   "t": 2555
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loaded",
+   "t": 2555
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 2555
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2555
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loading",
+   "t": 2555
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loaded",
+   "t": 2555
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loading",
+   "t": 2555
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loaded",
+   "t": 2555
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "loading",
+   "t": 2555
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "loaded",
+   "t": 2555
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 2555
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 2555
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 2555
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loading",
+   "t": 2570
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loaded",
+   "t": 2570
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 2570
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2570
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loading",
+   "t": 2570
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loaded",
+   "t": 2570
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loading",
+   "t": 2570
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loaded",
+   "t": 2570
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "loading",
+   "t": 2570
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "loaded",
+   "t": 2570
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 2570
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 2570
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 2570
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loading",
+   "t": 2694
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loaded",
+   "t": 2694
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 2694
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2694
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loading",
+   "t": 2694
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loaded",
+   "t": 2694
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loading",
+   "t": 2694
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loaded",
+   "t": 2694
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "loading",
+   "t": 2694
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "loaded",
+   "t": 2694
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 2694
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 2694
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 2694
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loading",
+   "t": 2705
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loaded",
+   "t": 2705
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 2705
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2705
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loading",
+   "t": 2705
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loaded",
+   "t": 2705
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loading",
+   "t": 2705
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loaded",
+   "t": 2705
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "loading",
+   "t": 2705
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "loaded",
+   "t": 2705
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 2705
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 2705
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 2705
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loading",
+   "t": 2725
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loaded",
+   "t": 2725
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 2725
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2725
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loading",
+   "t": 2725
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loaded",
+   "t": 2725
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loading",
+   "t": 2725
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loaded",
+   "t": 2725
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "loading",
+   "t": 2725
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "loaded",
+   "t": 2725
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 2725
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 2725
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 2725
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loading",
+   "t": 2737
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loaded",
+   "t": 2737
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 2737
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2737
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loading",
+   "t": 2737
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loaded",
+   "t": 2737
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loading",
+   "t": 2737
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loaded",
+   "t": 2737
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "loading",
+   "t": 2737
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "loaded",
+   "t": 2737
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 2737
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 2737
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 2737
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loading",
+   "t": 2754
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loaded",
+   "t": 2754
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 2754
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2754
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loading",
+   "t": 2754
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loaded",
+   "t": 2754
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loading",
+   "t": 2754
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loaded",
+   "t": 2754
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "loading",
+   "t": 2754
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "loaded",
+   "t": 2754
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 2754
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 2754
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 2754
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loading",
+   "t": 2770
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loaded",
+   "t": 2770
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 2770
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2770
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loading",
+   "t": 2770
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loaded",
+   "t": 2770
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loading",
+   "t": 2770
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loaded",
+   "t": 2770
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "loading",
+   "t": 2770
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "loaded",
+   "t": 2770
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 2770
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 2770
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 2770
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loading",
+   "t": 2788
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loaded",
+   "t": 2788
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 2788
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2788
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loading",
+   "t": 2788
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loaded",
+   "t": 2788
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loading",
+   "t": 2788
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loaded",
+   "t": 2788
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "loading",
+   "t": 2788
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "loaded",
+   "t": 2788
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 2788
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loading",
+   "t": 2788
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 2788
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loading",
+   "t": 2805
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loaded",
+   "t": 2805
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 2805
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2805
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loading",
+   "t": 2805
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loaded",
+   "t": 2805
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loading",
+   "t": 2805
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loaded",
+   "t": 2805
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "loading",
+   "t": 2805
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "loaded",
+   "t": 2805
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 2805
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 2805
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loading",
+   "t": 2935
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loaded",
+   "t": 2935
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loading",
+   "t": 2935
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2935
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loading",
+   "t": 2935
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loaded",
+   "t": 2935
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "loading",
+   "t": 2935
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "loaded",
+   "t": 2935
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 2935
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 2935
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loading",
+   "t": 3007
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loaded",
+   "t": 3007
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loading",
+   "t": 3007
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loaded",
+   "t": 3007
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "loading",
+   "t": 3007
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "loaded",
+   "t": 3007
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3007
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3007
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loading",
+   "t": 3045
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loaded",
+   "t": 3045
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loading",
+   "t": 3045
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loaded",
+   "t": 3045
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3045
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3045
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loading",
+   "t": 3051
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loaded",
+   "t": 3051
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loading",
+   "t": 3051
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loaded",
+   "t": 3051
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3051
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3051
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loading",
+   "t": 3053
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loaded",
+   "t": 3053
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loading",
+   "t": 3053
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loaded",
+   "t": 3053
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3054
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3054
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loading",
+   "t": 3070
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loaded",
+   "t": 3070
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loading",
+   "t": 3070
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loaded",
+   "t": 3070
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3070
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3070
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loading",
+   "t": 3087
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loaded",
+   "t": 3087
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loading",
+   "t": 3087
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loaded",
+   "t": 3087
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3087
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3087
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loading",
+   "t": 3103
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loaded",
+   "t": 3103
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loading",
+   "t": 3103
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loaded",
+   "t": 3103
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3104
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3104
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loading",
+   "t": 3121
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loaded",
+   "t": 3121
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loading",
+   "t": 3121
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loaded",
+   "t": 3121
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3121
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3121
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loading",
+   "t": 3137
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loaded",
+   "t": 3137
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loading",
+   "t": 3137
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loaded",
+   "t": 3137
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3137
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3137
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loading",
+   "t": 3154
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loaded",
+   "t": 3154
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loading",
+   "t": 3154
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loaded",
+   "t": 3154
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3154
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3154
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loading",
+   "t": 3171
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loaded",
+   "t": 3171
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3171
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3171
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loading",
+   "t": 3207
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loaded",
+   "t": 3207
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3207
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3207
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loading",
+   "t": 3223
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loaded",
+   "t": 3223
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3223
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3223
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3261
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3261
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3269
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3269
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3270
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3270
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3288
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3288
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3304
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3304
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3321
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3321
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3337
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3337
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3354
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3354
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3371
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3371
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3387
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3387
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3404
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3404
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3421
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3421
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3437
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3437
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3454
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3454
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3470
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3470
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3487
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3487
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3505
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3505
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3520
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3520
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3538
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3538
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3554
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3554
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3570
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3570
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3587
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3587
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3604
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3604
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3620
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3620
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3637
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3637
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3654
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3654
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3671
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3671
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3687
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3687
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3704
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3704
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3720
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3720
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3736
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3736
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3754
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3754
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3771
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3771
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3787
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3787
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3803
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3803
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3821
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3821
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3837
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3837
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3854
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3854
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3870
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3870
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3887
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3887
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3903
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3903
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3920
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3920
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3937
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3937
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3954
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3954
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3970
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3970
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 3987
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 3987
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4004
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4004
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4020
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4020
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4037
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4037
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4054
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4054
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4071
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4071
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4087
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4087
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4103
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4103
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4120
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4120
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4136
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4136
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4153
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4153
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4170
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4170
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4188
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4188
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4203
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4203
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4220
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4220
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4237
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4237
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4253
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4253
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4270
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4270
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4287
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4287
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4304
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4304
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4320
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4320
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4337
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4337
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4355
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4355
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4370
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4370
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4388
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4388
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4404
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4404
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4420
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4420
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4437
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4437
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4453
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4453
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4471
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4471
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4488
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4488
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4503
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4503
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4521
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4521
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4537
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4537
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4554
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4554
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4570
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4570
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4587
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4587
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4604
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4604
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4621
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4621
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4637
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4637
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4654
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4654
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4671
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4671
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4687
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4687
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4703
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4703
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4720
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4720
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4737
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4737
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "unloaded",
+   "t": 4754
+  },
+  {
+   "k": "Lora normal 600",
+   "s": "loaded",
+   "t": 4754
+  }
+ ],
+ "fontRequests": [
+  {
+   "file": "QdVPSTAyLFyeg_IDWvOJmVES_Hw3BXo.woff2",
+   "startMs": 1251,
+   "endMs": 1730
+  },
+  {
+   "file": "0QIvMX1D_JOuMwr7Iw.woff2",
+   "startMs": 1252,
+   "endMs": 2417
+  },
+  {
+   "file": "QdVMSTAyLFyeg_IDWvOJmVES_HTEJm81Rb0.woff2",
+   "startMs": 1252,
+   "endMs": 2217
+  },
+  {
+   "file": "QdVMSTAyLFyeg_IDWvOJmVES_HToIW87Rb0bcw.woff2",
+   "startMs": 1253,
+   "endMs": 2017
+  },
+  {
+   "file": "QdVMSTAyLFyeg_IDWvOJmVES_HToIW81Rb0.woff2",
+   "startMs": 1253,
+   "endMs": 2403
+  },
+  {
+   "file": "QdVMSTAyLFyeg_IDWvOJmVES_HSMIG81Rb0.woff2",
+   "startMs": 1254,
+   "endMs": 2425
+  },
+  {
+   "file": "QdVNSTAyLFyeg_IDWvOJmVES_HwyNXgSYA.woff2",
+   "startMs": 1256,
+   "endMs": 2453
+  },
+  {
+   "file": "0QIvMX1D_JOuMwT7I-NP.woff2",
+   "startMs": 1287,
+   "endMs": 2553
+  },
+  {
+   "file": "QdVMSTAyLFyeg_IDWvOJmVES_HTEJm86Rb0bcw.woff2",
+   "startMs": 1297,
+   "endMs": 2575
+  },
+  {
+   "file": "QdVMSTAyLFyeg_IDWvOJmVES_HToIW86Rb0bcw.woff2",
+   "startMs": 1303,
+   "endMs": 2804
+  },
+  {
+   "file": "0QIvMX1D_JOuMwX7I-NP.woff2",
+   "startMs": 1313,
+   "endMs": 2789
+  },
+  {
+   "file": "QdVPSTAyLFyeg_IDWvOJmVES_Hw5BXoKZA.woff2",
+   "startMs": 1314,
+   "endMs": 2932
+  },
+  {
+   "file": "QdVPSTAyLFyeg_IDWvOJmVES_Hw4BXoKZA.woff2",
+   "startMs": 1314,
+   "endMs": 2918
+  },
+  {
+   "file": "QdVMSTAyLFyeg_IDWvOJmVES_HSMIG87Rb0bcw.woff2",
+   "startMs": 1328,
+   "endMs": 3004
+  },
+  {
+   "file": "QdVMSTAyLFyeg_IDWvOJmVES_HSMIG86Rb0bcw.woff2",
+   "startMs": 1338,
+   "endMs": 2996
+  },
+  {
+   "file": "QdVMSTAyLFyeg_IDWvOJmVES_HTEJm87Rb0bcw.woff2",
+   "startMs": 1356,
+   "endMs": 3154
+  },
+  {
+   "file": "QdVNSTAyLFyeg_IDWvOJmVES_HwyNXcSYIAi.woff2",
+   "startMs": 1384,
+   "endMs": 3162
+  },
+  {
+   "file": "QdVNSTAyLFyeg_IDWvOJmVES_HwyNXYSYIAi.woff2",
+   "startMs": 1390,
+   "endMs": 3226
+  }
+ ],
+ "frames": 18
+}

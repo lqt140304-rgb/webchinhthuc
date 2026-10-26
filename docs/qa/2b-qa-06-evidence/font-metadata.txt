@@ -1,0 +1,6 @@
+be-vietnam-pro-400.woff2 | (c): Copyright 2021 The Be Vietnam Pro Project Authors (https://github.com/ | lic: - | url: https://scripts.sil.org/OFL
+be-vietnam-pro-500.woff2 | (c): Copyright 2021 The Be Vietnam Pro Project Authors (https://github.com/ | lic: - | url: https://scripts.sil.org/OFL
+be-vietnam-pro-600.woff2 | (c): Copyright 2021 The Be Vietnam Pro Project Authors (https://github.com/ | lic: - | url: https://scripts.sil.org/OFL
+be-vietnam-pro-700.woff2 | (c): Copyright 2021 The Be Vietnam Pro Project Authors (https://github.com/ | lic: - | url: https://scripts.sil.org/OFL
+be-vietnam-pro-italic-400.woff2 | (c): Copyright 2021 The Be Vietnam Pro Project Authors (https://github.com/ | lic: - | url: https://scripts.sil.org/OFL
+lora-600.woff2 | (c): Copyright 2011 The Lora Project Authors (https://github.com/cyrealtype | lic: - | url: https://scripts.sil.org/OFL

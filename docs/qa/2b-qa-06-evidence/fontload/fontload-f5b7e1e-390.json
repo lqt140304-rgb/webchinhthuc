@@ -1,0 +1,82 @@
+{
+ "tag": "f5b7e1e",
+ "viewport": 390,
+ "paints": [
+  {
+   "n": "first-paint",
+   "t": 732
+  },
+  {
+   "n": "first-contentful-paint",
+   "t": 1880
+  },
+  {
+   "n": "lcp",
+   "t": 1880,
+   "el": "IMG"
+  }
+ ],
+ "layoutShifts": [
+  {
+   "t": 2301,
+   "v": 0.0001,
+   "src": "DIV.flex items-center gap-1.5 sm:g,svg.[object SVGAnimatedString]"
+  }
+ ],
+ "clsTotal": 0.0001,
+ "fontStatus": [
+  {
+   "k": "Be Vietnam Pro normal 300 500",
+   "s": "unloaded",
+   "t": 719
+  },
+  {
+   "k": "Be Vietnam Pro normal 600 900",
+   "s": "unloaded",
+   "t": 719
+  },
+  {
+   "k": "Lora normal 400 900",
+   "s": "unloaded",
+   "t": 719
+  },
+  {
+   "k": "Be Vietnam Pro normal 300 500",
+   "s": "loaded",
+   "t": 1876
+  },
+  {
+   "k": "Be Vietnam Pro normal 600 900",
+   "s": "loading",
+   "t": 1876
+  },
+  {
+   "k": "Lora normal 400 900",
+   "s": "loaded",
+   "t": 1876
+  },
+  {
+   "k": "Be Vietnam Pro normal 600 900",
+   "s": "loaded",
+   "t": 2268
+  }
+ ],
+ "fontRequests": [
+  {
+   "file": "be-vietnam-pro-400.woff2",
+   "startMs": 177,
+   "endMs": 972
+  },
+  {
+   "file": "lora-600.woff2",
+   "startMs": 177,
+   "endMs": 1108
+  },
+  {
+   "file": "be-vietnam-pro-600.woff2",
+   "startMs": 1747,
+   "endMs": 2254
+  }
+ ],
+ "frames": 6
+}

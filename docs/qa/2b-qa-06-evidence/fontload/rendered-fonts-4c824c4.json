@@ -1,0 +1,460 @@
+{
+ "/": {
+  "Be Vietnam Pro|normal|400": {
+   "count": 54,
+   "samples": [
+    {
+     "text": "Nhảy đến nội dung chính",
+     "rendered": [
+      "BeVietnamPro-Regular (web) x23"
+     ]
+    },
+    {
+     "text": "Đã chuyển đến trang: Bệnh viện Thú y Lê ",
+     "rendered": [
+      "BeVietnamPro-Regular (web) x69"
+     ]
+    },
+    {
+     "text": "/",
+     "rendered": [
+      "BeVietnamPro-Regular (web) x1"
+     ]
+    }
+   ]
+  },
+  "Lora|normal|700": {
+   "count": 25,
+   "samples": [
+    {
+     "text": "LÊ SƠN",
+     "rendered": [
+      "Lora-Regular (web) x6"
+     ]
+    },
+    {
+     "text": "“Khi bé không khỏe, bạn không phải lo mộ",
+     "rendered": [
+      "Lora-Regular (web) x47"
+     ]
+    },
+    {
+     "text": "Vì sao chủ nuôi tin chọnBệnh viện Thú y ",
+     "rendered": [
+      "Lora-Regular (web) x47"
+     ]
+    }
+   ]
+  },
+  "Be Vietnam Pro|normal|500": {
+   "count": 18,
+   "samples": [
+    {
+     "text": "Bệnh viện Thú y",
+     "rendered": [
+      "BeVietnamPro-Medium (web) x15"
+     ]
+    },
+    {
+     "text": "Về Lê Sơn",
+     "rendered": [
+      "BeVietnamPro-Medium (web) x9"
+     ]
+    },
+    {
+     "text": "Dịch vụ",
+     "rendered": [
+      "BeVietnamPro-Medium (web) x7"
+     ]
+    }
+   ]
+  },
+  "Be Vietnam Pro|normal|600": {
+   "count": 36,
+   "samples": [
+    {
+     "text": "Trang chủ",
+     "rendered": [
+      "BeVietnamPro-SemiBold (web) x9"
+     ]
+    },
+    {
+     "text": "Đặt lịch khám",
+     "rendered": [
+      "BeVietnamPro-SemiBold (web) x13"
+     ]
+    },
+    {
+     "text": "Đặt lịch",
+     "rendered": []
+    }
+   ]
+  },
+  "Be Vietnam Pro|normal|700": {
+   "count": 27,
+   "samples": [
+    {
+     "text": "Chăm Sóc",
+     "rendered": [
+      "BeVietnamPro-Bold (web) x8"
+     ]
+    },
+    {
+     "text": "Thư Thái",
+     "rendered": [
+      "BeVietnamPro-Bold (web) x8"
+     ]
+    },
+    {
+     "text": "Đồng Hành",
+     "rendered": [
+      "BeVietnamPro-Bold (web) x9"
+     ]
+    }
+   ]
+  },
+  "Lora|normal|600": {
+   "count": 4,
+   "samples": [
+    {
+     "text": "Ân cần vỗ về & thấu hiểu thú cưng",
+     "rendered": [
+      "Lora-Regular (web) x33"
+     ]
+    },
+    {
+     "text": "Môi trường dịu nhẹ, giảm stress cho bé",
+     "rendered": [
+      "Lora-Regular (web) x38"
+     ]
+    },
+    {
+     "text": "Sát cánh bên bạn và bé trong mọi khoảnh ",
+     "rendered": [
+      "Lora-Regular (web) x43"
+     ]
+    }
+   ]
+  },
+  "Be Vietnam Pro|italic|400": {
+   "count": 5,
+   "samples": [
+    {
+     "text": "* Hình ảnh & tóm tắt quá trình phục hồi ",
+     "rendered": [
+      "BeVietnamPro-Italic (web) x48"
+     ]
+    },
+    {
+     "text": "Chuyên đề tham khảo",
+     "rendered": [
+      "BeVietnamPro-Italic (web) x19"
+     ]
+    },
+    {
+     "text": "Chuyên đề tham khảo",
+     "rendered": [
+      "BeVietnamPro-Italic (web) x19"
+     ]
+    }
+   ]
+  }
+ },
+ "/dat-lich": {
+  "Be Vietnam Pro|normal|400": {
+   "count": 45,
+   "samples": [
+    {
+     "text": "Nhảy đến nội dung chính",
+     "rendered": [
+      "BeVietnamPro-Regular (web) x23"
+     ]
+    },
+    {
+     "text": "Đã chuyển đến trang: Đặt Lịch Khám Trực ",
+     "rendered": [
+      "BeVietnamPro-Regular (web) x70"
+     ]
+    },
+    {
+     "text": "/",
+     "rendered": [
+      "BeVietnamPro-Regular (web) x1"
+     ]
+    }
+   ]
+  },
+  "Lora|normal|700": {
+   "count": 11,
+   "samples": [
+    {
+     "text": "LÊ SƠN",
+     "rendered": [
+      "Lora-Regular (web) x6"
+     ]
+    },
+    {
+     "text": "Đăng ký lịch khám cho bé cưng",
+     "rendered": [
+      "Lora-Regular (web) x29"
+     ]
+    },
+    {
+     "text": "Thông Báo Minh Bạch — Giao Diện Đang Tro",
+     "rendered": [
+      "Lora-Regular (web) x63"
+     ]
+    }
+   ]
+  },
+  "Be Vietnam Pro|normal|500": {
+   "count": 16,
+   "samples": [
+    {
+     "text": "Bệnh viện Thú y",
+     "rendered": [
+      "BeVietnamPro-Medium (web) x15"
+     ]
+    },
+    {
+     "text": "Trang chủ",
+     "rendered": [
+      "BeVietnamPro-Medium (web) x9"
+     ]
+    },
+    {
+     "text": "Về Lê Sơn",
+     "rendered": [
+      "BeVietnamPro-Medium (web) x9"
+     ]
+    }
+   ]
+  },
+  "Be Vietnam Pro|normal|600": {
+   "count": 19,
+   "samples": [
+    {
+     "text": "Đặt lịch khám",
+     "rendered": [
+      "BeVietnamPro-SemiBold (web) x13"
+     ]
+    },
+    {
+     "text": "Đặt lịch",
+     "rendered": []
+    },
+    {
+     "text": "Mở bản đồ Google Maps",
+     "rendered": [
+      "BeVietnamPro-SemiBold (web) x21"
+     ]
+    }
+   ]
+  },
+  "Be Vietnam Pro|normal|700": {
+   "count": 13,
+   "samples": [
+    {
+     "text": "Tiếp Nhận Thăm Khám Y Khoa",
+     "rendered": [
+      "BeVietnamPro-Bold (web) x26"
+     ]
+    },
+    {
+     "text": "097 355 51 05",
+     "rendered": [
+      "BeVietnamPro-Bold (web) x13"
+     ]
+    },
+    {
+     "text": "097 355 51 05",
+     "rendered": [
+      "BeVietnamPro-Bold (web) x13"
+     ]
+    }
+   ]
+  }
+ },
+ "fontRequests": [
+  {
+   "file": "QdVPSTAyLFyeg_IDWvOJmVES_Hw3BXo.woff2",
+   "start": 1793022199951,
+   "end": 290
+  },
+  {
+   "file": "0QIvMX1D_JOuMwr7Iw.woff2",
+   "start": 1793022199951,
+   "end": 379
+  },
+  {
+   "file": "QdVMSTAyLFyeg_IDWvOJmVES_HToIW81Rb0.woff2",
+   "start": 1793022199952,
+   "end": 453
+  },
+  {
+   "file": "QdVMSTAyLFyeg_IDWvOJmVES_HTEJm81Rb0.woff2",
+   "start": 1793022199951,
+   "end": 468
+  },
+  {
+   "file": "QdVMSTAyLFyeg_IDWvOJmVES_HSMIG81Rb0.woff2",
+   "start": 1793022199959,
+   "end": 492
+  },
+  {
+   "file": "QdVNSTAyLFyeg_IDWvOJmVES_HwyNXgSYA.woff2",
+   "start": 1793022199959,
+   "end": 505
+  },
+  {
+   "file": "0QIvMX1D_JOuMwT7I-NP.woff2",
+   "start": 1793022199960,
+   "end": 377
+  },
+  {
+   "file": "QdVMSTAyLFyeg_IDWvOJmVES_HTEJm86Rb0bcw.woff2",
+   "start": 1793022199960,
+   "end": 388
+  },
+  {
+   "file": "QdVMSTAyLFyeg_IDWvOJmVES_HToIW86Rb0bcw.woff2",
+   "start": 1793022199960,
+   "end": 405
+  },
+  {
+   "file": "QdVMSTAyLFyeg_IDWvOJmVES_HTEJm87Rb0bcw.woff2",
+   "start": 1793022199960,
+   "end": 426
+  },
+  {
+   "file": "QdVMSTAyLFyeg_IDWvOJmVES_HToIW87Rb0bcw.woff2",
+   "start": 1793022199960,
+   "end": 443
+  },
+  {
+   "file": "0QIvMX1D_JOuMwX7I-NP.woff2",
+   "start": 1793022199960,
+   "end": 461
+  },
+  {
+   "file": "QdVPSTAyLFyeg_IDWvOJmVES_Hw5BXoKZA.woff2",
+   "start": 1793022199961,
+   "end": 474
+  },
+  {
+   "file": "QdVMSTAyLFyeg_IDWvOJmVES_HSMIG87Rb0bcw.woff2",
+   "start": 1793022199961,
+   "end": 481
+  },
+  {
+   "file": "QdVMSTAyLFyeg_IDWvOJmVES_HSMIG86Rb0bcw.woff2",
+   "start": 1793022199961,
+   "end": 494
+  },
+  {
+   "file": "QdVPSTAyLFyeg_IDWvOJmVES_Hw4BXoKZA.woff2",
+   "start": 1793022199961,
+   "end": 503
+  },
+  {
+   "file": "QdVNSTAyLFyeg_IDWvOJmVES_HwyNXcSYIAi.woff2",
+   "start": 1793022199961,
+   "end": 502
+  },
+  {
+   "file": "QdVNSTAyLFyeg_IDWvOJmVES_HwyNXYSYIAi.woff2",
+   "start": 1793022199961,
+   "end": 544
+  },
+  {
+   "file": "QdVNSTAyLFyeg_IDWvOJmVES_HwyNXcSYIAi.woff2",
+   "start": 1793022206180,
+   "end": 0
+  },
+  {
+   "file": "QdVNSTAyLFyeg_IDWvOJmVES_HwyNXYSYIAi.woff2",
+   "start": 1793022206180,
+   "end": 0
+  },
+  {
+   "file": "QdVNSTAyLFyeg_IDWvOJmVES_HwyNXgSYA.woff2",
+   "start": 1793022206180,
+   "end": 0
+  },
+  {
+   "file": "QdVPSTAyLFyeg_IDWvOJmVES_Hw4BXoKZA.woff2",
+   "start": 1793022206180,
+   "end": 0
+  },
+  {
+   "file": "QdVPSTAyLFyeg_IDWvOJmVES_Hw5BXoKZA.woff2",
+   "start": 1793022206181,
+   "end": 0
+  },
+  {
+   "file": "QdVPSTAyLFyeg_IDWvOJmVES_Hw3BXo.woff2",
+   "start": 1793022206181,
+   "end": 0
+  },
+  {
+   "file": "QdVMSTAyLFyeg_IDWvOJmVES_HTEJm86Rb0bcw.woff2",
+   "start": 1793022206181,
+   "end": 0
+  },
+  {
+   "file": "QdVMSTAyLFyeg_IDWvOJmVES_HTEJm87Rb0bcw.woff2",
+   "start": 1793022206181,
+   "end": 0
+  },
+  {
+   "file": "QdVMSTAyLFyeg_IDWvOJmVES_HTEJm81Rb0.woff2",
+   "start": 1793022206181,
+   "end": 0
+  },
+  {
+   "file": "QdVMSTAyLFyeg_IDWvOJmVES_HToIW86Rb0bcw.woff2",
+   "start": 1793022206181,
+   "end": 0
+  },
+  {
+   "file": "QdVMSTAyLFyeg_IDWvOJmVES_HToIW87Rb0bcw.woff2",
+   "start": 1793022206181,
+   "end": 0
+  },
+  {
+   "file": "QdVMSTAyLFyeg_IDWvOJmVES_HToIW81Rb0.woff2",
+   "start": 1793022206181,
+   "end": 0
+  },
+  {
+   "file": "QdVMSTAyLFyeg_IDWvOJmVES_HSMIG86Rb0bcw.woff2",
+   "start": 1793022206181,
+   "end": 0
+  },
+  {
+   "file": "QdVMSTAyLFyeg_IDWvOJmVES_HSMIG87Rb0bcw.woff2",
+   "start": 1793022206181,
+   "end": 0
+  },
+  {
+   "file": "QdVMSTAyLFyeg_IDWvOJmVES_HSMIG81Rb0.woff2",
+   "start": 1793022206181,
+   "end": 0
+  },
+  {
+   "file": "0QIvMX1D_JOuMwX7I-NP.woff2",
+   "start": 1793022206182,
+   "end": 0
+  },
+  {
+   "file": "0QIvMX1D_JOuMwT7I-NP.woff2",
+   "start": 1793022206182,
+   "end": 0
+  },
+  {
+   "file": "0QIvMX1D_JOuMwr7Iw.woff2",
+   "start": 1793022206182,
+   "end": 0
+  }
+ ]
+}

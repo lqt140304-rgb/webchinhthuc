@@ -1,0 +1,131 @@
+{
+ "tag": "b8d5dd2",
+ "viewport": 390,
+ "paints": [
+  {
+   "n": "first-paint",
+   "t": 816
+  },
+  {
+   "n": "first-contentful-paint",
+   "t": 2128
+  },
+  {
+   "n": "lcp",
+   "t": 2128,
+   "el": "IMG"
+  }
+ ],
+ "layoutShifts": [],
+ "clsTotal": 0,
+ "fontStatus": [
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "unloaded",
+   "t": 801
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "unloaded",
+   "t": 801
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "unloaded",
+   "t": 801
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "unloaded",
+   "t": 801
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "unloaded",
+   "t": 801
+  },
+  {
+   "k": "Lora normal 400 900",
+   "s": "unloaded",
+   "t": 801
+  },
+  {
+   "k": "Be Vietnam Pro normal 400",
+   "s": "loaded",
+   "t": 2136
+  },
+  {
+   "k": "Be Vietnam Pro normal 600",
+   "s": "loaded",
+   "t": 2136
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loading",
+   "t": 2136
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "loading",
+   "t": 2136
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loading",
+   "t": 2136
+  },
+  {
+   "k": "Lora normal 400 900",
+   "s": "loaded",
+   "t": 2136
+  },
+  {
+   "k": "Be Vietnam Pro normal 500",
+   "s": "loaded",
+   "t": 2832
+  },
+  {
+   "k": "Be Vietnam Pro italic 400",
+   "s": "loaded",
+   "t": 2832
+  },
+  {
+   "k": "Be Vietnam Pro normal 700",
+   "s": "loaded",
+   "t": 2877
+  }
+ ],
+ "fontRequests": [
+  {
+   "file": "be-vietnam-pro-400.woff2",
+   "startMs": 187,
+   "endMs": 1171
+  },
+  {
+   "file": "be-vietnam-pro-600.woff2",
+   "startMs": 188,
+   "endMs": 1183
+  },
+  {
+   "file": "lora-600.woff2",
+   "startMs": 188,
+   "endMs": 1307
+  },
+  {
+   "file": "be-vietnam-pro-500.woff2",
+   "startMs": 1955,
+   "endMs": 2821
+  },
+  {
+   "file": "be-vietnam-pro-700.woff2",
+   "startMs": 1957,
+   "endMs": 2828
+  },
+  {
+   "file": "be-vietnam-pro-italic-400.woff2",
+   "startMs": 1957,
+   "endMs": 2813
+  }
+ ],
+ "frames": 7
+}

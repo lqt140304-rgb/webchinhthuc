@@ -1,0 +1,6 @@
+be-vietnam-pro-400.woff2 35824 | Be Vietnam Pro Regular | wght 400  | glyphs 459 | missingVN none
+be-vietnam-pro-500.woff2 37600 | Be Vietnam Pro Medium | wght 500  | glyphs 459 | missingVN none
+be-vietnam-pro-600.woff2 37776 | Be Vietnam Pro SemiBold | wght 600  | glyphs 459 | missingVN none
+be-vietnam-pro-700.woff2 38560 | Be Vietnam Pro Bold | wght 700  | glyphs 459 | missingVN none
+be-vietnam-pro-italic-400.woff2 36208 | Be Vietnam Pro Italic | wght 400  | glyphs 459 | missingVN none
+lora-600.woff2 49712 | Lora SemiBold | wght 600  | glyphs 778 | missingVN ₫

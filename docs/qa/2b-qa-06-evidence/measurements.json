@@ -1,0 +1,394 @@
+{
+  "base": "http://localhost:4173",
+  "measurements": [
+    {
+      "id": "P1-1",
+      "mobile": false,
+      "innerWidth": 320,
+      "clientWidth": 320,
+      "scrollWidth": 320,
+      "menuButton": {
+        "left": 274,
+        "right": 310,
+        "top": 18,
+        "bottom": 54,
+        "width": 36,
+        "height": 36
+      }
+    },
+    {
+      "id": "P1-1",
+      "mobile": true,
+      "innerWidth": 320,
+      "clientWidth": 320,
+      "scrollWidth": 320,
+      "menuButton": {
+        "left": 274,
+        "right": 310,
+        "top": 18,
+        "bottom": 54,
+        "width": 36,
+        "height": 36
+      }
+    },
+    {
+      "id": "RESP",
+      "page": "home",
+      "requested": 320,
+      "innerWidth": 320,
+      "clientWidth": 320,
+      "scrollWidth": 320
+    },
+    {
+      "id": "RESP",
+      "page": "comingSoon",
+      "requested": 320,
+      "innerWidth": 320,
+      "clientWidth": 320,
+      "scrollWidth": 320
+    },
+    {
+      "id": "RESP",
+      "page": "notFound",
+      "requested": 320,
+      "innerWidth": 320,
+      "clientWidth": 320,
+      "scrollWidth": 320
+    },
+    {
+      "id": "RESP",
+      "page": "home",
+      "requested": 390,
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "scrollWidth": 390
+    },
+    {
+      "id": "RESP",
+      "page": "comingSoon",
+      "requested": 390,
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "scrollWidth": 390
+    },
+    {
+      "id": "RESP",
+      "page": "notFound",
+      "requested": 390,
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "scrollWidth": 390
+    },
+    {
+      "id": "RESP",
+      "page": "home",
+      "requested": 768,
+      "innerWidth": 768,
+      "clientWidth": 768,
+      "scrollWidth": 768
+    },
+    {
+      "id": "RESP",
+      "page": "comingSoon",
+      "requested": 768,
+      "innerWidth": 768,
+      "clientWidth": 768,
+      "scrollWidth": 768
+    },
+    {
+      "id": "RESP",
+      "page": "notFound",
+      "requested": 768,
+      "innerWidth": 768,
+      "clientWidth": 768,
+      "scrollWidth": 768
+    },
+    {
+      "id": "RESP",
+      "page": "home",
+      "requested": 1366,
+      "innerWidth": 1366,
+      "clientWidth": 1366,
+      "scrollWidth": 1366
+    },
+    {
+      "id": "RESP",
+      "page": "comingSoon",
+      "requested": 1366,
+      "innerWidth": 1366,
+      "clientWidth": 1366,
+      "scrollWidth": 1366
+    },
+    {
+      "id": "RESP",
+      "page": "notFound",
+      "requested": 1366,
+      "innerWidth": 1366,
+      "clientWidth": 1366,
+      "scrollWidth": 1366
+    },
+    {
+      "id": "RESP",
+      "page": "home",
+      "requested": 1440,
+      "innerWidth": 1440,
+      "clientWidth": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "id": "RESP",
+      "page": "comingSoon",
+      "requested": 1440,
+      "innerWidth": 1440,
+      "clientWidth": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "id": "RESP",
+      "page": "notFound",
+      "requested": 1440,
+      "innerWidth": 1440,
+      "clientWidth": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "id": "P1-2",
+      "comingSoon": {
+        "maxWidth": "672px",
+        "boxWidth": 672,
+        "subtitleWidth": 672
+      },
+      "notFound": {
+        "maxWidth": "576px",
+        "boxWidth": 576
+      }
+    },
+    {
+      "id": "P1-2",
+      "drawer768": 384
+    },
+    {
+      "id": "P1-5",
+      "overflow": "",
+      "dialogInDom": false,
+      "scrolled": true
+    },
+    {
+      "id": "P1-3",
+      "route": "/",
+      "current": [
+        "Trang chủ"
+      ]
+    },
+    {
+      "id": "P1-3",
+      "route": "/dich-vu/spa",
+      "current": [],
+      "styles": {
+        "Trang chủ": "rgb(85, 65, 87)|500",
+        "Về Lê Sơn": "rgb(85, 65, 87)|500",
+        "Dịch vụ": "rgb(90, 30, 94)|600",
+        "Góc thú cưng": "rgb(85, 65, 87)|500",
+        "Câu chuyện": "rgb(85, 65, 87)|500",
+        "Liên hệ": "rgb(85, 65, 87)|500"
+      }
+    },
+    {
+      "id": "P1-3",
+      "route": "/cau-chuyen/abc",
+      "current": [
+        "Câu chuyện"
+      ],
+      "styles": {
+        "Trang chủ": "rgb(85, 65, 87)|500",
+        "Về Lê Sơn": "rgb(85, 65, 87)|500",
+        "Dịch vụ": "rgb(85, 65, 87)|500",
+        "Góc thú cưng": "rgb(85, 65, 87)|500",
+        "Câu chuyện": "rgb(90, 30, 94)|600",
+        "Liên hệ": "rgb(85, 65, 87)|500"
+      }
+    },
+    {
+      "id": "P1-3",
+      "route": "/dich-vu/spa",
+      "dropdownCurrent": [
+        "/dich-vu/spa"
+      ]
+    },
+    {
+      "id": "P1-3",
+      "route": "/dich-vu",
+      "dropdownCurrent": [
+        "/dich-vu"
+      ]
+    },
+    {
+      "id": "P1-3",
+      "route": "/goc-thu-cung?cat=news",
+      "dropdownCurrent": [
+        "/goc-thu-cung?cat=news"
+      ]
+    },
+    {
+      "id": "P1-3",
+      "route": "/goc-thu-cung",
+      "dropdownCurrent": [
+        "/goc-thu-cung"
+      ]
+    },
+    {
+      "id": "P1-3",
+      "route": "/dich-vu-khong-ton-tai",
+      "current": [],
+      "styles": [
+        "Trang chủ|rgb(85, 65, 87)|500",
+        "Về Lê Sơn|rgb(85, 65, 87)|500",
+        "Dịch vụ|rgb(85, 65, 87)|500",
+        "Góc thú cưng|rgb(85, 65, 87)|500",
+        "Câu chuyện|rgb(85, 65, 87)|500",
+        "Liên hệ|rgb(85, 65, 87)|500"
+      ]
+    },
+    {
+      "id": "P1-3",
+      "route": "/cau-chuyenxyz",
+      "current": [],
+      "styles": [
+        "Trang chủ|rgb(85, 65, 87)|500",
+        "Về Lê Sơn|rgb(85, 65, 87)|500",
+        "Dịch vụ|rgb(85, 65, 87)|500",
+        "Góc thú cưng|rgb(85, 65, 87)|500",
+        "Câu chuyện|rgb(85, 65, 87)|500",
+        "Liên hệ|rgb(85, 65, 87)|500"
+      ]
+    },
+    {
+      "id": "P1-3",
+      "route": "/gioi-thieu-abc",
+      "current": [],
+      "styles": [
+        "Trang chủ|rgb(85, 65, 87)|500",
+        "Về Lê Sơn|rgb(85, 65, 87)|500",
+        "Dịch vụ|rgb(85, 65, 87)|500",
+        "Góc thú cưng|rgb(85, 65, 87)|500",
+        "Câu chuyện|rgb(85, 65, 87)|500",
+        "Liên hệ|rgb(85, 65, 87)|500"
+      ]
+    },
+    {
+      "id": "P1-6",
+      "lienHe": 2,
+      "dichVu": 2
+    },
+    {
+      "id": "P1-6",
+      "drawerHrefs": [
+        "/",
+        "/cau-chuyen",
+        "/lien-he",
+        "/dang-nhap",
+        "/dang-ky",
+        "tel:0973555105",
+        "/dat-lich",
+        "/gioi-thieu",
+        "/doi-ngu",
+        "/co-so-vat-chat",
+        "/dich-vu",
+        "/dich-vu/kham-dieu-tri",
+        "/dich-vu/noi-tru",
+        "/dich-vu/spa",
+        "/dich-vu/cap-cuu",
+        "/bang-gia",
+        "/goc-thu-cung",
+        "/goc-thu-cung?cat=news",
+        "/san-pham"
+      ]
+    },
+    {
+      "id": "P1-7",
+      "home": {
+        "title": "Bệnh viện Thú y Lê Sơn — Chăm Sóc Y Tế Chuẩn Mực",
+        "robots": "index, follow"
+      },
+      "gioiThieu": {
+        "title": "Về Bệnh viện Thú y Lê Sơn — Bệnh viện Thú y Lê Sơn",
+        "robots": "noindex, nofollow"
+      },
+      "bangGia": {
+        "title": "Bảng giá dịch vụ niêm yết — Bệnh viện Thú y Lê Sơn",
+        "robots": "noindex, nofollow"
+      },
+      "backHome": {
+        "title": "Bệnh viện Thú y Lê Sơn — Chăm Sóc Y Tế Chuẩn Mực",
+        "robots": "index, follow"
+      },
+      "historyBack": {
+        "title": "Bảng giá dịch vụ niêm yết — Bệnh viện Thú y Lê Sơn",
+        "robots": "noindex, nofollow"
+      },
+      "historyForward": {
+        "title": "Bệnh viện Thú y Lê Sơn — Chăm Sóc Y Tế Chuẩn Mực",
+        "robots": "index, follow"
+      },
+      "notFound": {
+        "title": "404 — Không tìm thấy trang | Bệnh viện Thú y Lê Sơn",
+        "robots": "noindex, nofollow"
+      }
+    },
+    {
+      "id": "P1-7",
+      "robotsTxt": {
+        "status": 200,
+        "type": "text/plain",
+        "head": "User-agent: *\nAllow: /\nDisallow: /tai-khoan/\nDisallow: /dang-nhap\nDisallow: /dang-ky\n\nSitemap: https://bvthuyleson.vn/sitemap.xml\n"
+      }
+    },
+    {
+      "id": "P1-7",
+      "sitemap": {
+        "error": false,
+        "locs": [
+          "https://bvthuyleson.vn/"
+        ]
+      }
+    },
+    {
+      "id": "P1-7",
+      "rawHtmlNoindex": false
+    },
+    {
+      "id": "P2-1",
+      "contrast": [
+        {
+          "label": "Footer: dòng phụ dưới tên bệnh viện",
+          "ratio": 8.19,
+          "need": 4.5,
+          "size": 10,
+          "weight": "500"
+        },
+        {
+          "label": "Footer: số hotline trong ô cấp cứu",
+          "ratio": 5.77,
+          "need": 4.5,
+          "size": 14,
+          "weight": "700"
+        },
+        {
+          "label": "Footer: link Cấp cứu",
+          "ratio": 6.58,
+          "need": 4.5,
+          "size": 12,
+          "weight": "600"
+        },
+        {
+          "label": "Dropdown: mô tả mục (dòng phụ dưới nhãn)",
+          "ratio": 9.19,
+          "need": 4.5,
+          "size": 11,
+          "weight": "400"
+        }
+      ]
+    }
+  ],
+  "consoleErrors": []
+}

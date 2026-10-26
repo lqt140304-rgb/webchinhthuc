@@ -1,6 +1,6 @@
 const { chromium } = require('playwright');
 (async()=>{const br=await chromium.launch();const E=process.argv[2];const out={};
-for (const [port,tag] of [[4174,'4c824c4'],[4173,'f5b7e1e']]) for (const path of ['/','/dat-lich']) {
+for (const [port,tag] of [[4174,'4c824c4'],[4173,'b8d5dd2']]) for (const path of ['/','/dat-lich']) {
  const p=await br.newPage({viewport:{width:1366,height:900}});const fonts=[];const bad=[];const ext=[];
  p.on('response',r=>{const u=r.url();if(/woff2/.test(u))fonts.push(u.split('/').pop().slice(0,40));if(r.status()>=400)bad.push(r.status()+' '+u);if(!u.startsWith('http://localhost'))ext.push(u.slice(0,50))});
  await p.goto(`http://localhost:${port}${path}`,{waitUntil:'networkidle'});
