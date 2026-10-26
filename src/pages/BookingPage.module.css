@@ -1,0 +1,85 @@
+.pageContainer {
+  background-color: var(--color-bg-primary);
+  min-height: calc(100vh - 80px);
+}
+
+.headerBanner {
+  background: linear-gradient(135deg, var(--color-plum-deep) 0%, #350F39 60%, var(--color-plum-primary) 100%);
+  color: var(--color-fg-inverse);
+  padding: 3.5rem 1rem 3.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.headerPattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.08;
+  background-image: radial-gradient(#fff 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.noticeBanner {
+  background-color: #FEF3C7;
+  border: 1px solid #F59E0B;
+  border-radius: var(--ls-radius-xl, 1rem);
+  padding: 1rem 1.25rem;
+  color: #78350F;
+}
+
+.formCard {
+  background-color: var(--color-bg-card);
+  border-radius: 2rem;
+  padding: 2.25rem;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.sidebarCard {
+  background-color: var(--color-bg-secondary);
+  border-radius: 2rem;
+  padding: 2.25rem;
+  border: 1px solid var(--color-border-subtle);
+}
+
+.processStep {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.processStep::before {
+  content: '';
+  position: absolute;
+  left: 0.5rem;
+  top: 1.5rem;
+  bottom: -0.75rem;
+  width: 2px;
+  background-color: var(--color-border-medium);
+}
+
+.processStep:last-child::before {
+  display: none;
+}
+
+.processStepDot {
+  position: absolute;
+  left: 0.15rem;
+  top: 0.25rem;
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 9999px;
+  background-color: var(--color-plum-primary);
+  border: 2px solid white;
+  box-shadow: 0 0 0 2px var(--color-plum-orchid-light);
+}
+
+@media (max-width: 640px) {
+  .formCard,
+  .sidebarCard {
+    border-radius: 1.25rem;
+    padding: 1.25rem;
+  }
+  .headerBanner {
+    padding: 2.5rem 1rem;
+  }
+}

@@ -1,0 +1,36 @@
+=== BẮT ĐẦU KIỂM TRA TOÀN DIỆN MỐC 2B (B01, B02, B04) ===
+Thời gian: 2026-10-26T06:55:17.635Z
+Server Vite preview đã sẵn sàng trên cổng 4173.
+
+--- 1. Kiểm tra Responsive 7 Viewports trên Trang chủ (/) ---
+  ✓ Viewport 320px (320x568): PASS (không tràn ngang, 0 lỗi console, đã lưu ảnh: home-320px.png)
+  ✓ Viewport 360px (360x640): PASS (không tràn ngang, 0 lỗi console, đã lưu ảnh: home-360px.png)
+  ✓ Viewport 390px (390x844): PASS (không tràn ngang, 0 lỗi console, đã lưu ảnh: home-390px.png)
+  ✓ Viewport 768px (768x1024): PASS (không tràn ngang, 0 lỗi console, đã lưu ảnh: home-768px.png)
+  ✓ Viewport 1366px (1366x768): PASS (không tràn ngang, 0 lỗi console, đã lưu ảnh: home-1366px.png)
+  ✓ Viewport 1440px (1440x900): PASS (không tràn ngang, 0 lỗi console, đã lưu ảnh: home-1440px.png)
+  ✓ Viewport 1920px (1920x1080): PASS (không tràn ngang, 0 lỗi console, đã lưu ảnh: home-1920px.png)
+
+--- 2. Kiểm tra Section 6 trên Trang chủ (B01 & B02) ---
+  ✓ B01: Section 6 trang chủ KHÔNG chứa form đầy đủ (0 <form>).
+  ✓ B01: Có CTA dẫn sang /dat-lich: "Đặt lịch khám trực tuyến"
+  ✓ B01: Đầy đủ địa chỉ, hotline, giờ khám tham chiếu và cấp cứu 24/24.
+  ✓ B02: Đã loại bỏ cam kết "ngày lễ" chưa xác minh khỏi Section 6.
+
+--- 3. Kiểm tra Responsive 7 Viewports trên Trang Đặt Lịch (/dat-lich) ---
+  ✓ Viewport 320px (320x568): PASS (không tràn ngang, 0 lỗi console, đã lưu ảnh: booking-320px.png)
+  ✓ Viewport 360px (360x640): PASS (không tràn ngang, 0 lỗi console, đã lưu ảnh: booking-360px.png)
+  ✓ Viewport 390px (390x844): PASS (không tràn ngang, 0 lỗi console, đã lưu ảnh: booking-390px.png)
+  ✓ Viewport 768px (768x1024): PASS (không tràn ngang, 0 lỗi console, đã lưu ảnh: booking-768px.png)
+  ✓ Viewport 1366px (1366x768): PASS (không tràn ngang, 0 lỗi console, đã lưu ảnh: booking-1366px.png)
+  ✓ Viewport 1440px (1440x900): PASS (không tràn ngang, 0 lỗi console, đã lưu ảnh: booking-1440px.png)
+  ✓ Viewport 1920px (1920x1080): PASS (không tràn ngang, 0 lỗi console, đã lưu ảnh: booking-1920px.png)
+
+--- 4. Kiểm tra Biểu Mẫu BookingFormData & Trạng thái Thử Nghiệm (/dat-lich) ---
+  ✓ B01: Có banner thông báo minh bạch giao diện thử nghiệm, chưa kết nối DB.
+  ✓ B01: Đầy đủ 8 trường dữ liệu theo đặc tả BookingFormData.
+  ✓ Client validation hoạt động chuẩn: bắt lỗi khi bỏ trống các trường bắt buộc (4 thông báo lỗi).
+  ✓ B01: Panel kết quả hoàn toàn minh bạch, không gửi dữ liệu thật, không tạo thành công giả, có CTA gọi hotline.
+  ✓ B01: Nút "Thử lại biểu mẫu" hoạt động chính xác, cho phép thử lại.
+
+=== TẤT CẢ CÁC BÀI KIỂM TRA MỐC 2B ĐỀU ĐẠT (100% PASS) ===

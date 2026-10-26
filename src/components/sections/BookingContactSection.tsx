@@ -1,24 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
-import { MapPin, Phone, Clock, ShieldAlert, Navigation, AlertCircle, Calendar } from 'lucide-react'
+import { MapPin, Phone, Clock, ShieldAlert, Navigation, Calendar, ArrowRight, CheckCircle2 } from 'lucide-react'
 import { HOSPITAL_CONTACT } from '@/config/contact'
 import styles from './BookingContactSection.module.css'
 
 export const BookingContactSection: React.FC = () => {
-  const [showDemoNotice, setShowDemoNotice] = useState(false)
-  const [formData, setFormData] = useState({
-    ownerName: '',
-    phone: '',
-    petType: 'chó',
-    service: 'kham-tong-quat',
-  })
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Không bao giờ báo thành công giả — Hiển thị thông báo minh bạch
-    setShowDemoNotice(true)
-  }
-
   return (
     <section className={styles.contactSection} id="dat-lich-va-lien-he">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
@@ -95,153 +81,90 @@ export const BookingContactSection: React.FC = () => {
                 </ul>
               </div>
 
-              {/* Bottom Alert Banner */}
+              {/* Bottom Alert Banner - B02: đã bỏ cam kết trực ngày lễ chưa xác minh */}
               <div className="mt-8 pt-6 border-t border-white/10 flex items-center gap-3">
                 <ShieldAlert className="w-6 h-6 text-[var(--color-warm-orange-light)] shrink-0" />
                 <p className="text-xs text-slate-300 leading-snug">
-                  Đội ngũ bác sĩ trực sẵn sàng tiếp nhận thú cưng khẩn cấp trong mọi khung giờ đêm hoặc ngày lễ.
+                  Đội ngũ bác sĩ sẵn sàng tiếp nhận thú cưng khẩn cấp trong khung giờ trực cấp cứu 24/24.
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Transparent Preview Form (Honest Status) */}
+          {/* Right Column: Refined Booking Call To Action Card (B01: không đặt form đầy đủ trên trang chủ) */}
           <div className="lg:col-span-7 flex flex-col">
-            <div className={styles.formCard}>
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="font-serif font-bold text-xl sm:text-2xl text-[var(--color-plum-deep)]">
-                  Đăng Ký Tư Vấn & Đặt Hẹn
-                </h3>
-                <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-purple-100 text-[var(--color-plum-primary)]">
-                  Bản Mẫu Giao Diện
-                </span>
-              </div>
-
-              {/* Transparent Status Banner */}
-              <div className="mb-6 p-3.5 rounded-xl bg-amber-50 border border-amber-200/90 text-xs text-amber-950 flex items-start gap-2.5">
-                <AlertCircle className="w-4 h-4 text-[var(--color-warm-orange-dark)] shrink-0 mt-0.5" />
+            <div className={styles.ctaCard}>
+              <div className="space-y-6 flex-1 flex flex-col justify-between">
                 <div>
-                  <strong>Thông báo minh bạch:</strong> Biểu mẫu dưới đây là bản mẫu giao diện tương tác (chưa kết nối cơ sở dữ liệu tiếp nhận). Để đặt lịch hẹn có hiệu lực ngay, quý khách vui lòng liên hệ qua hotline <strong>{HOSPITAL_CONTACT.hotlineDisplay}</strong>.
-                </div>
-              </div>
-
-              {showDemoNotice ? (
-                <div className="p-6 rounded-2xl bg-purple-50/70 border border-purple-200 text-center space-y-4">
-                  <div className="w-12 h-12 mx-auto rounded-xl bg-[var(--color-plum-primary)] text-white flex items-center justify-center">
-                    <Phone className="w-6 h-6" />
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 text-[var(--color-plum-primary)] text-xs font-semibold uppercase tracking-wider mb-3">
+                    <Calendar className="w-3.5 h-3.5" />
+                    <span>Đặt Lịch Khám Chu Đáo</span>
                   </div>
-                  <h4 className="font-serif font-bold text-lg text-[var(--color-plum-deep)]">
-                    Hướng Dẫn Đặt Lịch Trực Tiếp
-                  </h4>
-                  <p className="text-sm text-[var(--color-fg-muted)] max-w-md mx-auto leading-relaxed">
-                    Hệ thống đặt lịch trực tuyến đang được hoàn thiện kỹ thuật ở Giai đoạn 4. Để đảm bảo lịch hẹn của bé được phục vụ chu đáo nhất, xin quý khách gọi điện trực tiếp hotline:
+
+                  <h3 className="font-serif font-bold text-2xl sm:text-3xl text-[var(--color-plum-deep)] mb-3 leading-snug">
+                    Chủ động thời gian, an tâm đồng hành cùng bé cưng
+                  </h3>
+
+                  <p className="text-sm sm:text-base text-[var(--color-fg-muted)] leading-relaxed font-sans mb-6">
+                    Để giảm thiểu thời gian chờ đợi và giúp bác sĩ chuẩn bị chu đáo nhất hồ sơ thăm khám cho thú cưng, quý khách có thể chủ động đăng ký trước qua trang đặt lịch trực tuyến hoặc liên hệ trực tiếp hotline.
                   </p>
-                  <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
-                    <a
-                      href={HOSPITAL_CONTACT.hotlineTel}
-                      className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--color-warm-orange)] hover:bg-[var(--color-warm-orange-hover)] text-white font-semibold text-sm transition-all shadow-[var(--shadow-warm-orange)] active:scale-[0.98]"
-                    >
-                      <Phone className="w-4 h-4" />
-                      <span>Gọi ngay: {HOSPITAL_CONTACT.hotlineDisplay}</span>
-                    </a>
-                    <button
-                      type="button"
-                      onClick={() => setShowDemoNotice(false)}
-                      className="px-5 py-3 rounded-xl border border-[var(--color-border-medium)] text-xs font-semibold text-[var(--color-fg-primary)] hover:bg-white transition-colors active:scale-[0.98] cursor-pointer"
-                    >
-                      Xem lại biểu mẫu
-                    </button>
+
+                  <div className="space-y-3 pt-1 pb-4">
+                    <div className="flex items-start gap-3">
+                      <div className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
+                        <CheckCircle2 className="w-3.5 h-3.5" />
+                      </div>
+                      <span className="text-xs sm:text-sm text-[var(--color-fg-primary)]">
+                        <strong>Tiếp nhận ưu tiên:</strong> Giảm tối đa thời gian chờ tại phòng khám, hạn chế căng thẳng cho thú cưng.
+                      </span>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <div className="w-5 h-5 rounded-full bg-purple-100 text-[var(--color-plum-primary)] flex items-center justify-center shrink-0 mt-0.5">
+                        <CheckCircle2 className="w-3.5 h-3.5" />
+                      </div>
+                      <span className="text-xs sm:text-sm text-[var(--color-fg-primary)]">
+                        <strong>Chuẩn bị trước y án:</strong> Bác sĩ chuyên khoa theo dõi trước tiền sử sức khỏe và dịch tễ.
+                      </span>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <div className="w-5 h-5 rounded-full bg-orange-100 text-[var(--color-warm-orange-dark)] flex items-center justify-center shrink-0 mt-0.5">
+                        <CheckCircle2 className="w-3.5 h-3.5" />
+                      </div>
+                      <span className="text-xs sm:text-sm text-[var(--color-fg-primary)]">
+                        <strong>Tư vấn chuẩn bị:</strong> Hướng dẫn chi tiết trước khi đưa bé đến viện (chế độ nhịn ăn, sổ tiêm chủng).
+                      </span>
+                    </div>
                   </div>
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label htmlFor="owner-name-input" className="block text-xs font-semibold uppercase tracking-wider text-[var(--color-fg-primary)] mb-1.5">
-                        Họ tên của bạn *
-                      </label>
-                      <input
-                        id="owner-name-input"
-                        type="text"
-                        required
-                        value={formData.ownerName}
-                        onChange={(e) => setFormData({ ...formData, ownerName: e.target.value })}
-                        placeholder="Ví dụ: Nguyễn Văn A"
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-[var(--color-border-medium)] focus:border-[var(--color-plum-primary)] focus:outline-none text-sm bg-white"
-                      />
-                    </div>
 
-                    <div>
-                      <label htmlFor="phone-input" className="block text-xs font-semibold uppercase tracking-wider text-[var(--color-fg-primary)] mb-1.5">
-                        Số điện thoại *
-                      </label>
-                      <input
-                        id="phone-input"
-                        type="tel"
-                        required
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        placeholder="Ví dụ: 0912 345 678"
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-[var(--color-border-medium)] focus:border-[var(--color-plum-primary)] focus:outline-none text-sm bg-white"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label htmlFor="pet-type-select" className="block text-xs font-semibold uppercase tracking-wider text-[var(--color-fg-primary)] mb-1.5">
-                        Loài thú cưng
-                      </label>
-                      <select
-                        id="pet-type-select"
-                        value={formData.petType}
-                        onChange={(e) => setFormData({ ...formData, petType: e.target.value })}
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-[var(--color-border-medium)] focus:border-[var(--color-plum-primary)] focus:outline-none text-sm bg-white cursor-pointer"
-                      >
-                        <option value="chó">Chó cưng</option>
-                        <option value="mèo">Mèo cưng</option>
-                        <option value="khác">Thú cưng khác</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label htmlFor="service-select" className="block text-xs font-semibold uppercase tracking-wider text-[var(--color-fg-primary)] mb-1.5">
-                        Dịch vụ quan tâm
-                      </label>
-                      <select
-                        id="service-select"
-                        value={formData.service}
-                        onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-[var(--color-border-medium)] focus:border-[var(--color-plum-primary)] focus:outline-none text-sm bg-white cursor-pointer"
-                      >
-                        <option value="kham-tong-quat">Khám & Điều trị lâm sàng</option>
-                        <option value="noi-tru">Chăm sóc nội trú 24/7</option>
-                        <option value="spa">Spa & Grooming thẩm mỹ</option>
-                        <option value="cap-cuu">Hỗ trợ khẩn cấp / Cấp cứu</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className="pt-2">
-                    <button
-                      type="submit"
-                      className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-[var(--color-plum-primary)] hover:bg-[var(--color-plum-deep)] text-white font-semibold text-sm transition-all shadow-[var(--shadow-card)] active:scale-[0.98] cursor-pointer"
-                    >
-                      <Calendar className="w-4 h-4" />
-                      <span>Thử nghiệm gửi yêu cầu (Bản mẫu)</span>
-                    </button>
-                  </div>
-
-                  <div className="pt-3 border-t border-[var(--color-border-subtle)] text-center">
+                <div className="pt-6 border-t border-[var(--color-border-subtle)] space-y-4">
+                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                     <Link
                       to="/dat-lich"
-                      className="text-xs text-[var(--color-plum-primary)] hover:text-[var(--color-plum-deep)] font-medium underline underline-offset-4"
+                      className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-[var(--color-plum-primary)] hover:bg-[var(--color-plum-deep)] text-white font-semibold text-sm transition-all shadow-[var(--shadow-card)] active:scale-[0.98] group"
                     >
-                      Xem trang thông tin đặt lịch chi tiết đầy đủ &rarr;
+                      <Calendar className="w-4 h-4" />
+                      <span>Đặt lịch khám trực tuyến</span>
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                     </Link>
+
+                    <a
+                      href={HOSPITAL_CONTACT.hotlineTel}
+                      className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-[var(--color-warm-orange)] hover:bg-[var(--color-warm-orange-hover)] text-white font-semibold text-sm transition-all shadow-[var(--shadow-warm-orange)] active:scale-[0.98]"
+                    >
+                      <Phone className="w-4 h-4" />
+                      <span>Hotline: {HOSPITAL_CONTACT.hotlineDisplay}</span>
+                    </a>
                   </div>
-                </form>
-              )}
+
+                  <p className="text-xs text-[var(--color-fg-subtle)] flex items-center gap-1.5 italic">
+                    <ShieldAlert className="w-3.5 h-3.5 text-[var(--color-warm-orange-dark)] shrink-0" />
+                    <span>Hỗ trợ cấp cứu 24/24 — Không cần đặt lịch trước trong trường hợp khẩn cấp.</span>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import { RootLayout } from '@/components/layout/RootLayout'
 import { ComingSoonView } from '@/components/layout/ComingSoonView'
 import { HomePage } from '@/pages/HomePage'
+import { BookingPage } from '@/pages/BookingPage'
 import { NotFoundPage } from '@/pages/NotFoundPage'
 import { HOSPITAL_CONTACT } from '@/config/contact'
 
@@ -149,15 +150,7 @@ export const AppRoutes = () => {
         />
 
         {/* Đặt lịch & Liên hệ */}
-        <Route
-          path="/dat-lich"
-          element={
-            <ComingSoonView
-              title="Đặt lịch khám trực tuyến"
-              subtitle={`Form đặt lịch thông minh với 6 trạng thái xử lý đang được hoàn thiện ở Giai đoạn 4. Quý khách vui lòng gọi hotline ${HOSPITAL_CONTACT.hotlineDisplay} để đặt hẹn ngay.`}
-            />
-          }
-        />
+        <Route path="/dat-lich" element={<BookingPage />} />
         <Route
           path="/lien-he"
           element={
