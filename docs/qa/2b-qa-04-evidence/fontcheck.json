@@ -1,0 +1,162 @@
+{
+ "4c824c4/": {
+  "h1": "Lora/700",
+  "body": "\"Be Vietnam Pro\"/400",
+  "btn": "\"Be Vietnam Pro\"/400",
+  "loaded": [
+   "Be Vietnam Pro italic 400",
+   "Be Vietnam Pro normal 400",
+   "Be Vietnam Pro normal 500",
+   "Be Vietnam Pro normal 600",
+   "Be Vietnam Pro normal 700",
+   "Lora normal 600"
+  ],
+  "used": [
+   "Be Vietnam Pro italic 400",
+   "Be Vietnam Pro normal 400",
+   "Be Vietnam Pro normal 500",
+   "Be Vietnam Pro normal 600",
+   "Be Vietnam Pro normal 700",
+   "Lora normal 600",
+   "Lora normal 700"
+  ],
+  "ext": [
+   "https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital",
+   "https://fonts.gstatic.com/s/bevietnampro/v12/QdVPSTAyLFyeg_I",
+   "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_I",
+   "https://fonts.gstatic.com/s/lora/v37/0QIvMX1D_JOuMwr7Iw.woff",
+   "https://fonts.gstatic.com/s/bevietnampro/v12/QdVNSTAyLFyeg_I",
+   "https://fonts.gstatic.com/s/lora/v37/0QIvMX1D_JOuMwT7I-NP.wo",
+   "https://fonts.gstatic.com/s/lora/v37/0QIvMX1D_JOuMwX7I-NP.wo"
+  ],
+  "bad": [],
+  "fontsFetched": 18
+ },
+ "4c824c4/dat-lich": {
+  "h1": "Lora/700",
+  "body": "\"Be Vietnam Pro\"/400",
+  "btn": "\"Be Vietnam Pro\"/400",
+  "loaded": [
+   "Be Vietnam Pro normal 400",
+   "Be Vietnam Pro normal 500",
+   "Be Vietnam Pro normal 600",
+   "Be Vietnam Pro normal 700",
+   "Lora normal 600"
+  ],
+  "used": [
+   "Be Vietnam Pro normal 400",
+   "Be Vietnam Pro normal 500",
+   "Be Vietnam Pro normal 600",
+   "Be Vietnam Pro normal 700",
+   "Lora normal 700"
+  ],
+  "ext": [
+   "https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital",
+   "https://fonts.gstatic.com/s/bevietnampro/v12/QdVPSTAyLFyeg_I",
+   "https://fonts.gstatic.com/s/lora/v37/0QIvMX1D_JOuMwr7Iw.woff",
+   "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_I",
+   "https://fonts.gstatic.com/s/lora/v37/0QIvMX1D_JOuMwT7I-NP.wo",
+   "https://fonts.gstatic.com/s/lora/v37/0QIvMX1D_JOuMwX7I-NP.wo"
+  ],
+  "bad": [],
+  "fontsFetched": 15
+ },
+ "4c824c4/khong-ton-tai": {
+  "h1": "Lora/700",
+  "body": "\"Be Vietnam Pro\"/700",
+  "btn": "\"Be Vietnam Pro\"/400",
+  "loaded": [
+   "Be Vietnam Pro normal 400",
+   "Be Vietnam Pro normal 500",
+   "Be Vietnam Pro normal 600",
+   "Be Vietnam Pro normal 700",
+   "Lora normal 600"
+  ],
+  "used": [
+   "Be Vietnam Pro normal 400",
+   "Be Vietnam Pro normal 500",
+   "Be Vietnam Pro normal 600",
+   "Be Vietnam Pro normal 700",
+   "Lora normal 700"
+  ],
+  "ext": [
+   "https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital",
+   "https://fonts.gstatic.com/s/bevietnampro/v12/QdVPSTAyLFyeg_I",
+   "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_I",
+   "https://fonts.gstatic.com/s/lora/v37/0QIvMX1D_JOuMwr7Iw.woff",
+   "https://fonts.gstatic.com/s/lora/v37/0QIvMX1D_JOuMwT7I-NP.wo",
+   "https://fonts.gstatic.com/s/lora/v37/0QIvMX1D_JOuMwX7I-NP.wo"
+  ],
+  "bad": [],
+  "fontsFetched": 14
+ },
+ "820a907/": {
+  "h1": "Lora/700",
+  "body": "\"Be Vietnam Pro\"/400",
+  "btn": "\"Be Vietnam Pro\"/400",
+  "loaded": [
+   "Be Vietnam Pro italic 400",
+   "Be Vietnam Pro normal 400",
+   "Be Vietnam Pro normal 500",
+   "Be Vietnam Pro normal 600",
+   "Be Vietnam Pro normal 700",
+   "Lora normal 400 700"
+  ],
+  "used": [
+   "Be Vietnam Pro italic 400",
+   "Be Vietnam Pro normal 400",
+   "Be Vietnam Pro normal 500",
+   "Be Vietnam Pro normal 600",
+   "Be Vietnam Pro normal 700",
+   "Lora normal 600",
+   "Lora normal 700"
+  ],
+  "ext": [],
+  "bad": [],
+  "fontsFetched": 18
+ },
+ "820a907/dat-lich": {
+  "h1": "Lora/700",
+  "body": "\"Be Vietnam Pro\"/400",
+  "btn": "\"Be Vietnam Pro\"/400",
+  "loaded": [
+   "Be Vietnam Pro normal 400",
+   "Be Vietnam Pro normal 500",
+   "Be Vietnam Pro normal 600",
+   "Be Vietnam Pro normal 700",
+   "Lora normal 400 700"
+  ],
+  "used": [
+   "Be Vietnam Pro normal 400",
+   "Be Vietnam Pro normal 500",
+   "Be Vietnam Pro normal 600",
+   "Be Vietnam Pro normal 700",
+   "Lora normal 700"
+  ],
+  "ext": [],
+  "bad": [],
+  "fontsFetched": 15
+ },
+ "820a907/khong-ton-tai": {
+  "h1": "Lora/700",
+  "body": "\"Be Vietnam Pro\"/700",
+  "btn": "\"Be Vietnam Pro\"/400",
+  "loaded": [
+   "Be Vietnam Pro normal 400",
+   "Be Vietnam Pro normal 500",
+   "Be Vietnam Pro normal 600",
+   "Be Vietnam Pro normal 700",
+   "Lora normal 400 700"
+  ],
+  "used": [
+   "Be Vietnam Pro normal 400",
+   "Be Vietnam Pro normal 500",
+   "Be Vietnam Pro normal 600",
+   "Be Vietnam Pro normal 700",
+   "Lora normal 700"
+  ],
+  "ext": [],
+  "bad": [],
+  "fontsFetched": 14
+ }
+}
