@@ -7,6 +7,7 @@
   - `AGENTS.md`
   - Báo cáo Retest-02 của Claude (`docs/qa/2a-retest-02.md`)
   - Quyết định điều phối của CEO ngày 26/10/2026: *QUYẾT ĐỊNH VÀ THỨ TỰ LÀM VIỆC — LÊ SƠN WEBSITE 2026*
+- **Target Code SHA: cd0e68e
 - **Nhánh thực hiện:** `fix/milestone-2a-qa`
 - **Cam kết phạm vi:** Thực hiện đúng Bước 1 (xử lý dứt điểm các tồn đọng nhỏ A01–A03 và D01); chưa merge vào `main`; chưa triển khai hosting; chưa chuyển sang Giai đoạn 3.
 
@@ -16,7 +17,7 @@
 
 | Mã việc | Mức độ | Nội dung yêu cầu | Kết quả thực hiện | Bằng chứng kiểm thử |
 |---|---|---|---|---|
-| **A01** | P3 | Đồng nhất trạng thái mục Câu chuyện giữa desktop và Drawer ở trang chi tiết | **ĐÃ XỬ LÝ (PASS)**<br>• Cập nhật `src/components/layout/MobileNav.tsx`: khai báo `isCauChuyenActive = isGroupActive(['/cau-chuyen'], location.pathname)`.<br>• Gán `aria-current={isCauChuyenActive ? 'page' : undefined}` và active class tương tự Desktop. | Test `Drawer "/cau-chuyen/abc": nhất quán với desktop (Câu chuyện là mục hiện tại)` trong `tests/e2e/2a-round02.e2e.test.cjs` **PASSED** (1502ms). |
+| **A01** | P3 | Đồng nhất trạng thái mục Câu chuyện giữa desktop và Drawer ở trang chi tiết | **ĐÃ XỬ LÝ (PASS)**<br>• Cập nhật `src/components/layout/MobileNav.tsx`: khai báo `isCauChuyenActive = isGroupActive(['/cau-chuyen'], location.pathname)`.<br>• Gán `aria-current={isCauChuyenActive ? 'page' : undefined}` và active class tương tự Desktop. | Test `Drawer "/cau-chuyen/abc": nhất quán với desktop (Câu chuyện là mục hiện tại)` trong `tests/e2e/2a-round02.e2e.test.cjs # trên commit cd0e68e` **PASSED** (1502ms). |
 | **A02** | P3 | Xử lý UTM/query không liên quan và dấu `/` cuối khi nhận diện mục hiện tại | **ĐÃ XỬ LÝ (PASS)**<br>• Cập nhật `src/utils/navigation.ts`: bổ sung hàm `normalizePath` chuẩn hóa bỏ dấu `/` cuối.<br>• `isLinkActive` và `isGroupActive` hỗ trợ so khớp chuẩn xác ngay cả khi URL có tham số theo dõi (UTM, fbclid...) hoặc dấu gạch chéo cuối (`/dich-vu/spa/`, `/dich-vu/spa?utm_source=facebook`).<br>• Giữ vững nguyên tắc phân biệt rạch ròi query chuyên biệt (`?cat=news`) với route bài viết gốc (`/goc-thu-cung`). | 11/11 tests so khớp ranh giới tuyến trong Drawer và Dropdown **PASSED**. |
 | **A03** | P3 | Tối ưu logo, tạo favicon riêng | **ĐÃ XỬ LÝ (PASS)**<br>• Tối ưu logo Header: `public/images/logo.png` được resize (200x183, bicubic) và nén xuống còn **27.2 KB** (đạt ngưỡng QA ≤ 100 KB). Lưu ảnh gốc tại `public/images/logo-original.png`.<br>• Tạo favicon riêng: `public/favicon.png` (48x48) dung lượng **3.7 KB** (đạt ngưỡng QA ≤ 50 KB).<br>• Cập nhật thẻ `<link rel="icon" type="image/png" href="/favicon.png" />` trong `index.html`. | Test `logo hiển thị và favicon không dùng ảnh gốc 377KB` trong `tests/e2e/2a-round02.e2e.test.cjs` **PASSED** (1267ms). |
 | **D01** | P2 | Đồng bộ trạng thái milestone và kế hoạch, bỏ tuyên bố hoàn thành 100% | **ĐÃ XỬ LÝ (PASS)**<br>• Cập nhật `docs/implementation-plan.md` phân định rõ: Đã triển khai vs Đã kiểm thử vs Chờ duyệt vs BLOCKED (A04: host Vercel thật, A05: noindex HTML gốc). | Xem nội dung cập nhật tại `docs/implementation-plan.md`. |
