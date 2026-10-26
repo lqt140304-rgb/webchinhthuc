@@ -1,0 +1,249 @@
+{
+  "base": "http://localhost:4173",
+  "measurements": [
+    {
+      "id": "B04-structure",
+      "sections": [
+        "“Khi bé không khỏe, bạn không phải lo mộ",
+        "vi-sao-chon-le-son",
+        "dich-vu-tieu-bieu",
+        "cau-chuyen-noi-bat",
+        "goc-kien-thuc",
+        "dat-lich-va-lien-he"
+      ]
+    },
+    {
+      "id": "B04-s2",
+      "values": [
+        "1. Chuyên môn và trách nhiệm",
+        "2. Tận tâm, lắng nghe",
+        "3. Theo dõi và chăm sóc minh bạch"
+      ]
+    },
+    {
+      "id": "B04-s3",
+      "hrefs": [
+        "/dich-vu/kham-dieu-tri",
+        "/dich-vu/noi-tru",
+        "/dich-vu/spa",
+        "/dich-vu/cap-cuu"
+      ]
+    },
+    {
+      "id": "B04-s4",
+      "cta": [
+        {
+          "href": "/cau-chuyen",
+          "text": "Đọc toàn bộ câu chuyện"
+        }
+      ]
+    },
+    {
+      "id": "B03-info",
+      "note": "CTA câu chuyện trỏ trang danh sách — xử lý ở Giai đoạn 3"
+    },
+    {
+      "id": "B04-s6",
+      "formsOnHome": 0
+    },
+    {
+      "id": "B04-resp",
+      "width": 320,
+      "innerWidth": 320,
+      "scrollWidth": 320,
+      "distorted": [],
+      "clipped": [],
+      "offscreen": []
+    },
+    {
+      "id": "B04-resp",
+      "width": 360,
+      "innerWidth": 360,
+      "scrollWidth": 360,
+      "distorted": [],
+      "clipped": [],
+      "offscreen": []
+    },
+    {
+      "id": "B04-resp",
+      "width": 390,
+      "innerWidth": 390,
+      "scrollWidth": 390,
+      "distorted": [],
+      "clipped": [],
+      "offscreen": []
+    },
+    {
+      "id": "B04-resp",
+      "width": 768,
+      "innerWidth": 768,
+      "scrollWidth": 768,
+      "distorted": [],
+      "clipped": [],
+      "offscreen": []
+    },
+    {
+      "id": "B04-resp",
+      "width": 1366,
+      "innerWidth": 1366,
+      "scrollWidth": 1366,
+      "distorted": [],
+      "clipped": [],
+      "offscreen": []
+    },
+    {
+      "id": "B04-resp",
+      "width": 1440,
+      "innerWidth": 1440,
+      "scrollWidth": 1440,
+      "distorted": [],
+      "clipped": [],
+      "offscreen": []
+    },
+    {
+      "id": "B04-resp",
+      "width": 1920,
+      "innerWidth": 1920,
+      "scrollWidth": 1920,
+      "distorted": [],
+      "clipped": [],
+      "offscreen": []
+    },
+    {
+      "id": "B04-img",
+      "imgs": [
+        {
+          "src": "/images/hero-vet-care.webp",
+          "ok": true,
+          "alt": "Chăm sóc và vỗ về thú cưng ân cần (Hình ảnh minh họa)",
+          "hidden": false
+        },
+        {
+          "src": "/images/hero-happy-cat.webp",
+          "ok": true,
+          "alt": "Mèo cưng khỏe mạnh, bình yên (Hình ảnh minh họa)",
+          "hidden": false
+        },
+        {
+          "src": "/images/hero-clinic-cuddle.webp",
+          "ok": true,
+          "alt": "Sự gắn kết thân tình và đồng hành cùng thú cưng (Hình ảnh minh họa)",
+          "hidden": false
+        },
+        {
+          "src": "/images/why-pet-companion.webp",
+          "ok": true,
+          "alt": "Thú cưng bình yên, tin cậy dưới sự chăm sóc của bệnh viện (Hình ảnh minh họa)",
+          "hidden": false
+        },
+        {
+          "src": "/images/service-exam.webp",
+          "ok": true,
+          "alt": "Khám & Điều Trị (Hình ảnh minh họa)",
+          "hidden": false
+        },
+        {
+          "src": "/images/service-inpatient.webp",
+          "ok": true,
+          "alt": "Chăm Sóc Nội Trú 24/7 (Hình ảnh minh họa)",
+          "hidden": false
+        },
+        {
+          "src": "/images/service-spa.webp",
+          "ok": true,
+          "alt": "Spa & Grooming (Hình ảnh minh họa)",
+          "hidden": false
+        },
+        {
+          "src": "/images/story-recovery.webp",
+          "ok": true,
+          "alt": "Chú cún tươi vui, phục hồi sức sống sau ca điều trị (Hình ảnh minh họa)",
+          "hidden": false
+        },
+        {
+          "src": "/images/article-nutrition.webp",
+          "ok": true,
+          "alt": "Xây dựng khẩu phần dinh dưỡng an toàn cho thú cưng theo từng lứa tuổi (Hình ảnh minh họa)",
+          "hidden": false
+        },
+        {
+          "src": "/images/article-prevention.webp",
+          "ok": true,
+          "alt": "Những dấu hiệu cảnh báo bệnh đường hô hấp ở chó mèo khi thời tiết giao mùa (Hình ảnh minh họa)",
+          "hidden": false
+        },
+        {
+          "src": "/images/article-firstaid.webp",
+          "ok": true,
+          "alt": "Các bước xử trí sơ cứu ban đầu tại nhà khi thú cưng có dấu hiệu hóc dị vật (Hình ảnh minh họa)",
+          "hidden": false
+        }
+      ]
+    },
+    {
+      "id": "B04-font",
+      "sans": true,
+      "serif": true,
+      "loaded": [
+        "Be Vietnam Pro 300 500 normal",
+        "Be Vietnam Pro 600 900 normal",
+        "Lora 400 900 normal"
+      ],
+      "h1Font": "Lora, Georgia, \"Times New Roman\", serif"
+    },
+    {
+      "id": "B04-links",
+      "hrefs": [
+        "/dat-lich",
+        "tel:0973555105",
+        "/dich-vu/cap-cuu",
+        "/dich-vu",
+        "/dich-vu/kham-dieu-tri",
+        "/dich-vu/noi-tru",
+        "/dich-vu/spa",
+        "/cau-chuyen",
+        "/goc-thu-cung",
+        "/bai-viet/dinh-duong-an-toan-cho-thu-cung",
+        "/bai-viet/phong-ngua-benh-duong-ho-hap",
+        "/bai-viet/xu-tri-so-cuu-hoc-di-vat",
+        "https://maps.google.com/?q=101+Khu%E1%BA%A5t+Duy+Ti%E1%BA%BFn+Thanh+Xu%C3%A2n+H%C3%A0+N%E1%BB%99i"
+      ],
+      "bad": [],
+      "dead": []
+    },
+    {
+      "id": "B04-focus",
+      "focusables": 19,
+      "noRing": []
+    },
+    {
+      "id": "B04-contrast",
+      "fails": []
+    },
+    {
+      "id": "B04-cls",
+      "width": 390,
+      "cls": 0
+    },
+    {
+      "id": "B04-cls",
+      "width": 1440,
+      "cls": 0.00015982372979895403
+    },
+    {
+      "id": "B04-seo",
+      "title": "Bệnh viện Thú y Lê Sơn — Chăm Sóc Y Tế Chuẩn Mực",
+      "desc": "Bệnh viện Thú y Lê Sơn tại 101 Khuất Duy Tiến, Hà Nội. Dịch vụ khám, nội trú, phẫu thuật và cấp cứu thú cưng 24/24 với đội ngũ nhân viên y tế tận tâm.",
+      "canonical": [
+        "https://bvthuyleson.vn/"
+      ],
+      "robots": "index, follow",
+      "lang": "vi"
+    },
+    {
+      "id": "B04-data",
+      "flags": []
+    }
+  ],
+  "consoleErrors": []
+}

@@ -1,0 +1,1394 @@
+{
+ "320": {
+  "overflow": 0,
+  "imgs": [
+   {
+    "src": "logo.png",
+    "alt": "Logo Bệnh viện Thú y Lê Sơn",
+    "ok": true,
+    "ratioDiff": "0.09",
+    "fit": "cover",
+    "cw": 36,
+    "nw": 200
+   },
+   {
+    "src": "hero-vet-care-400w.webp",
+    "alt": "Chăm sóc và vỗ về thú cưng ân cần (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.66",
+    "fit": "cover",
+    "cw": 286,
+    "nw": 320
+   },
+   {
+    "src": "hero-happy-cat-400w.webp",
+    "alt": "Mèo cưng khỏe mạnh, bình yên (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.70",
+    "fit": "cover",
+    "cw": 286,
+    "nw": 320
+   },
+   {
+    "src": "hero-clinic-cuddle-400w.webp",
+    "alt": "Sự gắn kết thân tình và đồng hành cùng thú cưng (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.66",
+    "fit": "cover",
+    "cw": 286,
+    "nw": 320
+   },
+   {
+    "src": "why-pet-companion.webp",
+    "alt": "Thú cưng bình yên, tin cậy dưới sự chăm sóc của bệnh viện (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.84",
+    "fit": "cover",
+    "cw": 286,
+    "nw": 1200
+   },
+   {
+    "src": "service-exam.webp",
+    "alt": "Khám & Điều Trị (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.31",
+    "fit": "cover",
+    "cw": 286,
+    "nw": 1200
+   },
+   {
+    "src": "service-inpatient.webp",
+    "alt": "Chăm Sóc Nội Trú 24/7 (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.31",
+    "fit": "cover",
+    "cw": 286,
+    "nw": 1200
+   },
+   {
+    "src": "service-spa.webp",
+    "alt": "Spa & Grooming (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.31",
+    "fit": "cover",
+    "cw": 286,
+    "nw": 1200
+   },
+   {
+    "src": "story-recovery.webp",
+    "alt": "Chú cún tươi vui, phục hồi sức sống sau ca điều trị (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.00",
+    "fit": "cover",
+    "cw": 286,
+    "nw": 1200
+   },
+   {
+    "src": "article-nutrition.webp",
+    "alt": "Xây dựng khẩu phần dinh dưỡng an toàn cho thú cưng theo từng lứa tuổi (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.20",
+    "fit": "cover",
+    "cw": 286,
+    "nw": 800
+   },
+   {
+    "src": "article-prevention.webp",
+    "alt": "Những dấu hiệu cảnh báo bệnh đường hô hấp ở chó mèo khi thời tiết giao mùa (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.19",
+    "fit": "cover",
+    "cw": 286,
+    "nw": 800
+   },
+   {
+    "src": "article-firstaid.webp",
+    "alt": "Các bước xử trí sơ cứu ban đầu tại nhà khi thú cưng có dấu hiệu hóc dị vật (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.19",
+    "fit": "cover",
+    "cw": 286,
+    "nw": 800
+   },
+   {
+    "src": "logo.png",
+    "alt": "Logo Bệnh viện Thú y Lê Sơn",
+    "ok": true,
+    "ratioDiff": "0.09",
+    "fit": "cover",
+    "cw": 46,
+    "nw": 200
+   }
+  ],
+  "labels": [
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   },
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   },
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   },
+   {
+    "t": "Câu chuyện minh họa",
+    "fs": "12px",
+    "color": "rgb(66, 18, 71)",
+    "bg": "oklab(0.999994 0.0000455678 0.0000200868 / 0.9)",
+    "w": 153,
+    "h": 25,
+    "sec": "_storySection_lbkoh_1"
+   },
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   },
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   },
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   }
+  ],
+  "datlichOverflow": 0
+ },
+ "360": {
+  "overflow": 0,
+  "imgs": [
+   {
+    "src": "logo.png",
+    "alt": "Logo Bệnh viện Thú y Lê Sơn",
+    "ok": true,
+    "ratioDiff": "0.09",
+    "fit": "cover",
+    "cw": 36,
+    "nw": 200
+   },
+   {
+    "src": "hero-vet-care-400w.webp",
+    "alt": "Chăm sóc và vỗ về thú cưng ân cần (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.54",
+    "fit": "cover",
+    "cw": 326,
+    "nw": 360
+   },
+   {
+    "src": "hero-happy-cat-400w.webp",
+    "alt": "Mèo cưng khỏe mạnh, bình yên (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.60",
+    "fit": "cover",
+    "cw": 326,
+    "nw": 360
+   },
+   {
+    "src": "hero-clinic-cuddle-400w.webp",
+    "alt": "Sự gắn kết thân tình và đồng hành cùng thú cưng (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.54",
+    "fit": "cover",
+    "cw": 326,
+    "nw": 360
+   },
+   {
+    "src": "why-pet-companion.webp",
+    "alt": "Thú cưng bình yên, tin cậy dưới sự chăm sóc của bệnh viện (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.75",
+    "fit": "cover",
+    "cw": 326,
+    "nw": 1200
+   },
+   {
+    "src": "service-exam.webp",
+    "alt": "Khám & Điều Trị (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.14",
+    "fit": "cover",
+    "cw": 326,
+    "nw": 1200
+   },
+   {
+    "src": "service-inpatient.webp",
+    "alt": "Chăm Sóc Nội Trú 24/7 (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.14",
+    "fit": "cover",
+    "cw": 326,
+    "nw": 1200
+   },
+   {
+    "src": "service-spa.webp",
+    "alt": "Spa & Grooming (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.14",
+    "fit": "cover",
+    "cw": 326,
+    "nw": 1200
+   },
+   {
+    "src": "story-recovery.webp",
+    "alt": "Chú cún tươi vui, phục hồi sức sống sau ca điều trị (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.00",
+    "fit": "cover",
+    "cw": 326,
+    "nw": 1200
+   },
+   {
+    "src": "article-nutrition.webp",
+    "alt": "Xây dựng khẩu phần dinh dưỡng an toàn cho thú cưng theo từng lứa tuổi (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.02",
+    "fit": "cover",
+    "cw": 326,
+    "nw": 800
+   },
+   {
+    "src": "article-prevention.webp",
+    "alt": "Những dấu hiệu cảnh báo bệnh đường hô hấp ở chó mèo khi thời tiết giao mùa (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.01",
+    "fit": "cover",
+    "cw": 326,
+    "nw": 800
+   },
+   {
+    "src": "article-firstaid.webp",
+    "alt": "Các bước xử trí sơ cứu ban đầu tại nhà khi thú cưng có dấu hiệu hóc dị vật (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.01",
+    "fit": "cover",
+    "cw": 326,
+    "nw": 800
+   },
+   {
+    "src": "logo.png",
+    "alt": "Logo Bệnh viện Thú y Lê Sơn",
+    "ok": true,
+    "ratioDiff": "0.09",
+    "fit": "cover",
+    "cw": 46,
+    "nw": 200
+   }
+  ],
+  "labels": [
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   },
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   },
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   },
+   {
+    "t": "Câu chuyện minh họa",
+    "fs": "12px",
+    "color": "rgb(66, 18, 71)",
+    "bg": "oklab(0.999994 0.0000455678 0.0000200868 / 0.9)",
+    "w": 153,
+    "h": 25,
+    "sec": "_storySection_lbkoh_1"
+   },
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   },
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   },
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   }
+  ],
+  "datlichOverflow": 0
+ },
+ "390": {
+  "overflow": 0,
+  "imgs": [
+   {
+    "src": "logo.png",
+    "alt": "Logo Bệnh viện Thú y Lê Sơn",
+    "ok": true,
+    "ratioDiff": "0.09",
+    "fit": "cover",
+    "cw": 36,
+    "nw": 200
+   },
+   {
+    "src": "hero-vet-care-400w.webp",
+    "alt": "Chăm sóc và vỗ về thú cưng ân cần (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.45",
+    "fit": "cover",
+    "cw": 356,
+    "nw": 390
+   },
+   {
+    "src": "hero-happy-cat-400w.webp",
+    "alt": "Mèo cưng khỏe mạnh, bình yên (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.51",
+    "fit": "cover",
+    "cw": 356,
+    "nw": 390
+   },
+   {
+    "src": "hero-clinic-cuddle-400w.webp",
+    "alt": "Sự gắn kết thân tình và đồng hành cùng thú cưng (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.45",
+    "fit": "cover",
+    "cw": 356,
+    "nw": 390
+   },
+   {
+    "src": "why-pet-companion.webp",
+    "alt": "Thú cưng bình yên, tin cậy dưới sự chăm sóc của bệnh viện (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.68",
+    "fit": "cover",
+    "cw": 356,
+    "nw": 1200
+   },
+   {
+    "src": "service-exam.webp",
+    "alt": "Khám & Điều Trị (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.02",
+    "fit": "cover",
+    "cw": 356,
+    "nw": 1200
+   },
+   {
+    "src": "service-inpatient.webp",
+    "alt": "Chăm Sóc Nội Trú 24/7 (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.01",
+    "fit": "cover",
+    "cw": 356,
+    "nw": 1200
+   },
+   {
+    "src": "service-spa.webp",
+    "alt": "Spa & Grooming (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.02",
+    "fit": "cover",
+    "cw": 356,
+    "nw": 1200
+   },
+   {
+    "src": "story-recovery.webp",
+    "alt": "Chú cún tươi vui, phục hồi sức sống sau ca điều trị (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.00",
+    "fit": "cover",
+    "cw": 356,
+    "nw": 1200
+   },
+   {
+    "src": "article-nutrition.webp",
+    "alt": "Xây dựng khẩu phần dinh dưỡng an toàn cho thú cưng theo từng lứa tuổi (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.12",
+    "fit": "cover",
+    "cw": 356,
+    "nw": 800
+   },
+   {
+    "src": "article-prevention.webp",
+    "alt": "Những dấu hiệu cảnh báo bệnh đường hô hấp ở chó mèo khi thời tiết giao mùa (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.13",
+    "fit": "cover",
+    "cw": 356,
+    "nw": 800
+   },
+   {
+    "src": "article-firstaid.webp",
+    "alt": "Các bước xử trí sơ cứu ban đầu tại nhà khi thú cưng có dấu hiệu hóc dị vật (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.13",
+    "fit": "cover",
+    "cw": 356,
+    "nw": 800
+   },
+   {
+    "src": "logo.png",
+    "alt": "Logo Bệnh viện Thú y Lê Sơn",
+    "ok": true,
+    "ratioDiff": "0.09",
+    "fit": "cover",
+    "cw": 46,
+    "nw": 200
+   }
+  ],
+  "labels": [
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   },
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   },
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   },
+   {
+    "t": "Câu chuyện minh họa",
+    "fs": "12px",
+    "color": "rgb(66, 18, 71)",
+    "bg": "oklab(0.999994 0.0000455678 0.0000200868 / 0.9)",
+    "w": 153,
+    "h": 25,
+    "sec": "_storySection_lbkoh_1"
+   },
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   },
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   },
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   }
+  ],
+  "datlichOverflow": 0,
+  "labelShots": [
+   {
+    "x": 264.546875,
+    "y": 438.125,
+    "width": 98.453125,
+    "height": 24
+   },
+   {
+    "x": 264.546875,
+    "y": 438.375,
+    "width": 98.453125,
+    "height": 24
+   },
+   {
+    "x": 264.546875,
+    "y": 437.625,
+    "width": 98.453125,
+    "height": 24
+   },
+   {
+    "x": 264.546875,
+    "y": 438.375,
+    "width": 98.453125,
+    "height": 24
+   },
+   {
+    "x": 264.546875,
+    "y": 438.125,
+    "width": 98.453125,
+    "height": 24
+   },
+   {
+    "x": 264.546875,
+    "y": 437.875,
+    "width": 98.453125,
+    "height": 24
+   }
+  ]
+ },
+ "768": {
+  "overflow": 0,
+  "imgs": [
+   {
+    "src": "logo.png",
+    "alt": "Logo Bệnh viện Thú y Lê Sơn",
+    "ok": true,
+    "ratioDiff": "0.09",
+    "fit": "cover",
+    "cw": 44,
+    "nw": 200
+   },
+   {
+    "src": "hero-vet-care-800w.webp",
+    "alt": "Chăm sóc và vỗ về thú cưng ân cần (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.97",
+    "fit": "cover",
+    "cw": 222,
+    "nw": 768
+   },
+   {
+    "src": "hero-happy-cat-800w.webp",
+    "alt": "Mèo cưng khỏe mạnh, bình yên (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.97",
+    "fit": "cover",
+    "cw": 222,
+    "nw": 768
+   },
+   {
+    "src": "hero-clinic-cuddle-800w.webp",
+    "alt": "Sự gắn kết thân tình và đồng hành cùng thú cưng (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.97",
+    "fit": "cover",
+    "cw": 222,
+    "nw": 768
+   },
+   {
+    "src": "why-pet-companion.webp",
+    "alt": "Thú cưng bình yên, tin cậy dưới sự chăm sóc của bệnh viện (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.00",
+    "fit": "cover",
+    "cw": 718,
+    "nw": 1200
+   },
+   {
+    "src": "service-exam.webp",
+    "alt": "Khám & Điều Trị (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.60",
+    "fit": "cover",
+    "cw": 217,
+    "nw": 1200
+   },
+   {
+    "src": "service-inpatient.webp",
+    "alt": "Chăm Sóc Nội Trú 24/7 (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.59",
+    "fit": "cover",
+    "cw": 217,
+    "nw": 1200
+   },
+   {
+    "src": "service-spa.webp",
+    "alt": "Spa & Grooming (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.60",
+    "fit": "cover",
+    "cw": 217,
+    "nw": 1200
+   },
+   {
+    "src": "story-recovery.webp",
+    "alt": "Chú cún tươi vui, phục hồi sức sống sau ca điều trị (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.00",
+    "fit": "cover",
+    "cw": 718,
+    "nw": 1200
+   },
+   {
+    "src": "article-nutrition.webp",
+    "alt": "Xây dựng khẩu phần dinh dưỡng an toàn cho thú cưng theo từng lứa tuổi (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.51",
+    "fit": "cover",
+    "cw": 217,
+    "nw": 800
+   },
+   {
+    "src": "article-prevention.webp",
+    "alt": "Những dấu hiệu cảnh báo bệnh đường hô hấp ở chó mèo khi thời tiết giao mùa (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.51",
+    "fit": "cover",
+    "cw": 217,
+    "nw": 800
+   },
+   {
+    "src": "article-firstaid.webp",
+    "alt": "Các bước xử trí sơ cứu ban đầu tại nhà khi thú cưng có dấu hiệu hóc dị vật (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.51",
+    "fit": "cover",
+    "cw": 217,
+    "nw": 800
+   },
+   {
+    "src": "logo.png",
+    "alt": "Logo Bệnh viện Thú y Lê Sơn",
+    "ok": true,
+    "ratioDiff": "0.09",
+    "fit": "cover",
+    "cw": 46,
+    "nw": 200
+   }
+  ],
+  "labels": [
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   },
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   },
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   },
+   {
+    "t": "Câu chuyện minh họa",
+    "fs": "12px",
+    "color": "rgb(66, 18, 71)",
+    "bg": "oklab(0.999994 0.0000455678 0.0000200868 / 0.9)",
+    "w": 153,
+    "h": 25,
+    "sec": "_storySection_lbkoh_1"
+   },
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   },
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   },
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   }
+  ],
+  "datlichOverflow": 0
+ },
+ "1366": {
+  "overflow": 0,
+  "imgs": [
+   {
+    "src": "logo.png",
+    "alt": "Logo Bệnh viện Thú y Lê Sơn",
+    "ok": true,
+    "ratioDiff": "0.09",
+    "fit": "cover",
+    "cw": 44,
+    "nw": 200
+   },
+   {
+    "src": "hero-vet-care-400w.webp",
+    "alt": "Chăm sóc và vỗ về thú cưng ân cần (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.67",
+    "fit": "cover",
+    "cw": 382,
+    "nw": 380
+   },
+   {
+    "src": "hero-happy-cat-400w.webp",
+    "alt": "Mèo cưng khỏe mạnh, bình yên (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.69",
+    "fit": "cover",
+    "cw": 382,
+    "nw": 380
+   },
+   {
+    "src": "hero-clinic-cuddle-400w.webp",
+    "alt": "Sự gắn kết thân tình và đồng hành cùng thú cưng (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.67",
+    "fit": "cover",
+    "cw": 382,
+    "nw": 380
+   },
+   {
+    "src": "why-pet-companion.webp",
+    "alt": "Thú cưng bình yên, tin cậy dưới sự chăm sóc của bệnh viện (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.74",
+    "fit": "cover",
+    "cw": 486,
+    "nw": 1200
+   },
+   {
+    "src": "service-exam.webp",
+    "alt": "Khám & Điều Trị (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.09",
+    "fit": "cover",
+    "cw": 382,
+    "nw": 1200
+   },
+   {
+    "src": "service-inpatient.webp",
+    "alt": "Chăm Sóc Nội Trú 24/7 (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.09",
+    "fit": "cover",
+    "cw": 382,
+    "nw": 1200
+   },
+   {
+    "src": "service-spa.webp",
+    "alt": "Spa & Grooming (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.09",
+    "fit": "cover",
+    "cw": 382,
+    "nw": 1200
+   },
+   {
+    "src": "story-recovery.webp",
+    "alt": "Chú cún tươi vui, phục hồi sức sống sau ca điều trị (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.00",
+    "fit": "cover",
+    "cw": 506,
+    "nw": 1200
+   },
+   {
+    "src": "article-nutrition.webp",
+    "alt": "Xây dựng khẩu phần dinh dưỡng an toàn cho thú cưng theo từng lứa tuổi (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.24",
+    "fit": "cover",
+    "cw": 382,
+    "nw": 800
+   },
+   {
+    "src": "article-prevention.webp",
+    "alt": "Những dấu hiệu cảnh báo bệnh đường hô hấp ở chó mèo khi thời tiết giao mùa (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.24",
+    "fit": "cover",
+    "cw": 382,
+    "nw": 800
+   },
+   {
+    "src": "article-firstaid.webp",
+    "alt": "Các bước xử trí sơ cứu ban đầu tại nhà khi thú cưng có dấu hiệu hóc dị vật (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.24",
+    "fit": "cover",
+    "cw": 382,
+    "nw": 800
+   },
+   {
+    "src": "logo.png",
+    "alt": "Logo Bệnh viện Thú y Lê Sơn",
+    "ok": true,
+    "ratioDiff": "0.09",
+    "fit": "cover",
+    "cw": 46,
+    "nw": 200
+   }
+  ],
+  "labels": [
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   },
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   },
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   },
+   {
+    "t": "Câu chuyện minh họa",
+    "fs": "12px",
+    "color": "rgb(66, 18, 71)",
+    "bg": "oklab(0.999994 0.0000455678 0.0000200868 / 0.9)",
+    "w": 153,
+    "h": 25,
+    "sec": "_storySection_lbkoh_1"
+   },
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   },
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   },
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   }
+  ],
+  "datlichOverflow": 0,
+  "labelShots": [
+   {
+    "x": 349.546875,
+    "y": 437.75,
+    "width": 98.453125,
+    "height": 24
+   },
+   {
+    "x": 765.546875,
+    "y": 437.75,
+    "width": 98.453125,
+    "height": 24
+   },
+   {
+    "x": 1181.546875,
+    "y": 437.75,
+    "width": 98.453125,
+    "height": 24
+   },
+   {
+    "x": 349.546875,
+    "y": 437.875,
+    "width": 98.453125,
+    "height": 24
+   },
+   {
+    "x": 765.546875,
+    "y": 437.875,
+    "width": 98.453125,
+    "height": 24
+   },
+   {
+    "x": 1181.546875,
+    "y": 437.875,
+    "width": 98.453125,
+    "height": 24
+   }
+  ]
+ },
+ "1440": {
+  "overflow": 0,
+  "imgs": [
+   {
+    "src": "logo.png",
+    "alt": "Logo Bệnh viện Thú y Lê Sơn",
+    "ok": true,
+    "ratioDiff": "0.09",
+    "fit": "cover",
+    "cw": 44,
+    "nw": 200
+   },
+   {
+    "src": "hero-vet-care-400w.webp",
+    "alt": "Chăm sóc và vỗ về thú cưng ân cần (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.67",
+    "fit": "cover",
+    "cw": 382,
+    "nw": 380
+   },
+   {
+    "src": "hero-happy-cat-400w.webp",
+    "alt": "Mèo cưng khỏe mạnh, bình yên (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.69",
+    "fit": "cover",
+    "cw": 382,
+    "nw": 380
+   },
+   {
+    "src": "hero-clinic-cuddle-400w.webp",
+    "alt": "Sự gắn kết thân tình và đồng hành cùng thú cưng (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.67",
+    "fit": "cover",
+    "cw": 382,
+    "nw": 380
+   },
+   {
+    "src": "why-pet-companion.webp",
+    "alt": "Thú cưng bình yên, tin cậy dưới sự chăm sóc của bệnh viện (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.74",
+    "fit": "cover",
+    "cw": 486,
+    "nw": 1200
+   },
+   {
+    "src": "service-exam.webp",
+    "alt": "Khám & Điều Trị (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.09",
+    "fit": "cover",
+    "cw": 382,
+    "nw": 1200
+   },
+   {
+    "src": "service-inpatient.webp",
+    "alt": "Chăm Sóc Nội Trú 24/7 (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.09",
+    "fit": "cover",
+    "cw": 382,
+    "nw": 1200
+   },
+   {
+    "src": "service-spa.webp",
+    "alt": "Spa & Grooming (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.09",
+    "fit": "cover",
+    "cw": 382,
+    "nw": 1200
+   },
+   {
+    "src": "story-recovery.webp",
+    "alt": "Chú cún tươi vui, phục hồi sức sống sau ca điều trị (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.00",
+    "fit": "cover",
+    "cw": 506,
+    "nw": 1200
+   },
+   {
+    "src": "article-nutrition.webp",
+    "alt": "Xây dựng khẩu phần dinh dưỡng an toàn cho thú cưng theo từng lứa tuổi (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.24",
+    "fit": "cover",
+    "cw": 382,
+    "nw": 800
+   },
+   {
+    "src": "article-prevention.webp",
+    "alt": "Những dấu hiệu cảnh báo bệnh đường hô hấp ở chó mèo khi thời tiết giao mùa (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.24",
+    "fit": "cover",
+    "cw": 382,
+    "nw": 800
+   },
+   {
+    "src": "article-firstaid.webp",
+    "alt": "Các bước xử trí sơ cứu ban đầu tại nhà khi thú cưng có dấu hiệu hóc dị vật (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.24",
+    "fit": "cover",
+    "cw": 382,
+    "nw": 800
+   },
+   {
+    "src": "logo.png",
+    "alt": "Logo Bệnh viện Thú y Lê Sơn",
+    "ok": true,
+    "ratioDiff": "0.09",
+    "fit": "cover",
+    "cw": 46,
+    "nw": 200
+   }
+  ],
+  "labels": [
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   },
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   },
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   },
+   {
+    "t": "Câu chuyện minh họa",
+    "fs": "12px",
+    "color": "rgb(66, 18, 71)",
+    "bg": "oklab(0.999994 0.0000455678 0.0000200868 / 0.9)",
+    "w": 153,
+    "h": 25,
+    "sec": "_storySection_lbkoh_1"
+   },
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   },
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   },
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   }
+  ],
+  "datlichOverflow": 0
+ },
+ "1920": {
+  "overflow": 0,
+  "imgs": [
+   {
+    "src": "logo.png",
+    "alt": "Logo Bệnh viện Thú y Lê Sơn",
+    "ok": true,
+    "ratioDiff": "0.09",
+    "fit": "cover",
+    "cw": 44,
+    "nw": 200
+   },
+   {
+    "src": "hero-vet-care-400w.webp",
+    "alt": "Chăm sóc và vỗ về thú cưng ân cần (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.67",
+    "fit": "cover",
+    "cw": 382,
+    "nw": 380
+   },
+   {
+    "src": "hero-happy-cat-400w.webp",
+    "alt": "Mèo cưng khỏe mạnh, bình yên (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.69",
+    "fit": "cover",
+    "cw": 382,
+    "nw": 380
+   },
+   {
+    "src": "hero-clinic-cuddle-400w.webp",
+    "alt": "Sự gắn kết thân tình và đồng hành cùng thú cưng (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.67",
+    "fit": "cover",
+    "cw": 382,
+    "nw": 380
+   },
+   {
+    "src": "why-pet-companion.webp",
+    "alt": "Thú cưng bình yên, tin cậy dưới sự chăm sóc của bệnh viện (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.74",
+    "fit": "cover",
+    "cw": 486,
+    "nw": 1200
+   },
+   {
+    "src": "service-exam.webp",
+    "alt": "Khám & Điều Trị (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.09",
+    "fit": "cover",
+    "cw": 382,
+    "nw": 1200
+   },
+   {
+    "src": "service-inpatient.webp",
+    "alt": "Chăm Sóc Nội Trú 24/7 (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.09",
+    "fit": "cover",
+    "cw": 382,
+    "nw": 1200
+   },
+   {
+    "src": "service-spa.webp",
+    "alt": "Spa & Grooming (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.09",
+    "fit": "cover",
+    "cw": 382,
+    "nw": 1200
+   },
+   {
+    "src": "story-recovery.webp",
+    "alt": "Chú cún tươi vui, phục hồi sức sống sau ca điều trị (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.00",
+    "fit": "cover",
+    "cw": 506,
+    "nw": 1200
+   },
+   {
+    "src": "article-nutrition.webp",
+    "alt": "Xây dựng khẩu phần dinh dưỡng an toàn cho thú cưng theo từng lứa tuổi (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.24",
+    "fit": "cover",
+    "cw": 382,
+    "nw": 800
+   },
+   {
+    "src": "article-prevention.webp",
+    "alt": "Những dấu hiệu cảnh báo bệnh đường hô hấp ở chó mèo khi thời tiết giao mùa (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.24",
+    "fit": "cover",
+    "cw": 382,
+    "nw": 800
+   },
+   {
+    "src": "article-firstaid.webp",
+    "alt": "Các bước xử trí sơ cứu ban đầu tại nhà khi thú cưng có dấu hiệu hóc dị vật (Hình ảnh minh họa)",
+    "ok": true,
+    "ratioDiff": "0.24",
+    "fit": "cover",
+    "cw": 382,
+    "nw": 800
+   },
+   {
+    "src": "logo.png",
+    "alt": "Logo Bệnh viện Thú y Lê Sơn",
+    "ok": true,
+    "ratioDiff": "0.09",
+    "fit": "cover",
+    "cw": 46,
+    "nw": 200
+   }
+  ],
+  "labels": [
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   },
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   },
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   },
+   {
+    "t": "Câu chuyện minh họa",
+    "fs": "12px",
+    "color": "rgb(66, 18, 71)",
+    "bg": "oklab(0.999994 0.0000455678 0.0000200868 / 0.9)",
+    "w": 153,
+    "h": 25,
+    "sec": "_storySection_lbkoh_1"
+   },
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   },
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   },
+   {
+    "t": "Ảnh minh họa",
+    "fs": "12px",
+    "color": "rgb(255, 255, 255)",
+    "bg": "oklab(0 0 0 / 0.75)",
+    "w": 98,
+    "h": 24,
+    "sec": "py-20 md:py-28 bg-[var(--color"
+   }
+  ],
+  "datlichOverflow": 0
+ }
+}

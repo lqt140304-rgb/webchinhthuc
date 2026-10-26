@@ -1,0 +1,213 @@
+{
+ "4c824c4/": {
+  "counts": {
+   "Be Vietnam Pro normal 400": 54,
+   "Lora normal 700": 25,
+   "Be Vietnam Pro normal 500": 18,
+   "Be Vietnam Pro normal 600": 36,
+   "Be Vietnam Pro normal 700": 27,
+   "Lora normal 600": 4,
+   "Be Vietnam Pro italic 400": 5
+  },
+  "samples": {
+   "Be Vietnam Pro normal 400": "Nhảy đến nội dung chính",
+   "Lora normal 700": "LÊ SƠN",
+   "Be Vietnam Pro normal 500": "Bệnh viện Thú y",
+   "Be Vietnam Pro normal 600": "Trang chủ",
+   "Be Vietnam Pro normal 700": "Chăm Sóc",
+   "Lora normal 600": "Ân cần vỗ về & thấu hiểu thú cưng",
+   "Be Vietnam Pro italic 400": "* Hình ảnh & tóm tắt quá trình phục hồi lâm sàng"
+  },
+  "loaded": [
+   "Be Vietnam Pro italic 400",
+   "Be Vietnam Pro italic 400",
+   "Be Vietnam Pro italic 400",
+   "Be Vietnam Pro normal 400",
+   "Be Vietnam Pro normal 400",
+   "Be Vietnam Pro normal 400",
+   "Be Vietnam Pro normal 500",
+   "Be Vietnam Pro normal 500",
+   "Be Vietnam Pro normal 500",
+   "Be Vietnam Pro normal 600",
+   "Be Vietnam Pro normal 600",
+   "Be Vietnam Pro normal 600",
+   "Be Vietnam Pro normal 700",
+   "Be Vietnam Pro normal 700",
+   "Be Vietnam Pro normal 700",
+   "Lora normal 600",
+   "Lora normal 600",
+   "Lora normal 600"
+  ],
+  "fonts": [
+   "QdVPSTAyLFyeg_IDWvOJmVES_Hw3BXo.woff2",
+   "0QIvMX1D_JOuMwr7Iw.woff2",
+   "QdVMSTAyLFyeg_IDWvOJmVES_HTEJm81Rb0.woff",
+   "QdVMSTAyLFyeg_IDWvOJmVES_HToIW81Rb0.woff",
+   "QdVMSTAyLFyeg_IDWvOJmVES_HSMIG81Rb0.woff",
+   "QdVMSTAyLFyeg_IDWvOJmVES_HTEJm86Rb0bcw.w",
+   "QdVNSTAyLFyeg_IDWvOJmVES_HwyNXgSYA.woff2",
+   "0QIvMX1D_JOuMwT7I-NP.woff2",
+   "QdVMSTAyLFyeg_IDWvOJmVES_HToIW86Rb0bcw.w",
+   "QdVMSTAyLFyeg_IDWvOJmVES_HTEJm87Rb0bcw.w",
+   "0QIvMX1D_JOuMwX7I-NP.woff2",
+   "QdVMSTAyLFyeg_IDWvOJmVES_HToIW87Rb0bcw.w",
+   "QdVPSTAyLFyeg_IDWvOJmVES_Hw4BXoKZA.woff2",
+   "QdVPSTAyLFyeg_IDWvOJmVES_Hw5BXoKZA.woff2",
+   "QdVMSTAyLFyeg_IDWvOJmVES_HSMIG87Rb0bcw.w",
+   "QdVMSTAyLFyeg_IDWvOJmVES_HSMIG86Rb0bcw.w",
+   "QdVNSTAyLFyeg_IDWvOJmVES_HwyNXcSYIAi.wof",
+   "QdVNSTAyLFyeg_IDWvOJmVES_HwyNXYSYIAi.wof"
+  ],
+  "bad": [],
+  "ext": [
+   "https://fonts.googleapis.com/css2?family=Be+Vietna",
+   "https://fonts.gstatic.com/s/bevietnampro/v12/QdVPS",
+   "https://fonts.gstatic.com/s/lora/v37/0QIvMX1D_JOuM",
+   "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMS",
+   "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMS",
+   "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMS",
+   "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMS",
+   "https://fonts.gstatic.com/s/bevietnampro/v12/QdVNS",
+   "https://fonts.gstatic.com/s/lora/v37/0QIvMX1D_JOuM",
+   "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMS",
+   "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMS",
+   "https://fonts.gstatic.com/s/lora/v37/0QIvMX1D_JOuM",
+   "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMS",
+   "https://fonts.gstatic.com/s/bevietnampro/v12/QdVPS",
+   "https://fonts.gstatic.com/s/bevietnampro/v12/QdVPS",
+   "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMS",
+   "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMS",
+   "https://fonts.gstatic.com/s/bevietnampro/v12/QdVNS",
+   "https://fonts.gstatic.com/s/bevietnampro/v12/QdVNS"
+  ]
+ },
+ "4c824c4/dat-lich": {
+  "counts": {
+   "Be Vietnam Pro normal 400": 45,
+   "Lora normal 700": 11,
+   "Be Vietnam Pro normal 500": 16,
+   "Be Vietnam Pro normal 600": 19,
+   "Be Vietnam Pro normal 700": 13
+  },
+  "samples": {
+   "Be Vietnam Pro normal 400": "Nhảy đến nội dung chính",
+   "Lora normal 700": "LÊ SƠN",
+   "Be Vietnam Pro normal 500": "Bệnh viện Thú y",
+   "Be Vietnam Pro normal 600": "Đặt lịch khám",
+   "Be Vietnam Pro normal 700": "Tiếp Nhận Thăm Khám Y Khoa"
+  },
+  "loaded": [
+   "Be Vietnam Pro normal 400",
+   "Be Vietnam Pro normal 400",
+   "Be Vietnam Pro normal 400",
+   "Be Vietnam Pro normal 500",
+   "Be Vietnam Pro normal 500",
+   "Be Vietnam Pro normal 500",
+   "Be Vietnam Pro normal 600",
+   "Be Vietnam Pro normal 600",
+   "Be Vietnam Pro normal 600",
+   "Be Vietnam Pro normal 700",
+   "Be Vietnam Pro normal 700",
+   "Be Vietnam Pro normal 700",
+   "Lora normal 600",
+   "Lora normal 600",
+   "Lora normal 600"
+  ],
+  "fonts": [
+   "QdVPSTAyLFyeg_IDWvOJmVES_Hw3BXo.woff2",
+   "0QIvMX1D_JOuMwr7Iw.woff2",
+   "QdVMSTAyLFyeg_IDWvOJmVES_HToIW87Rb0bcw.w",
+   "QdVMSTAyLFyeg_IDWvOJmVES_HTEJm81Rb0.woff",
+   "QdVMSTAyLFyeg_IDWvOJmVES_HSMIG81Rb0.woff",
+   "QdVMSTAyLFyeg_IDWvOJmVES_HToIW81Rb0.woff",
+   "0QIvMX1D_JOuMwT7I-NP.woff2",
+   "QdVMSTAyLFyeg_IDWvOJmVES_HTEJm86Rb0bcw.w",
+   "QdVMSTAyLFyeg_IDWvOJmVES_HTEJm87Rb0bcw.w",
+   "QdVMSTAyLFyeg_IDWvOJmVES_HToIW86Rb0bcw.w",
+   "QdVPSTAyLFyeg_IDWvOJmVES_Hw4BXoKZA.woff2",
+   "QdVMSTAyLFyeg_IDWvOJmVES_HSMIG87Rb0bcw.w",
+   "0QIvMX1D_JOuMwX7I-NP.woff2",
+   "QdVMSTAyLFyeg_IDWvOJmVES_HSMIG86Rb0bcw.w",
+   "QdVPSTAyLFyeg_IDWvOJmVES_Hw5BXoKZA.woff2"
+  ],
+  "bad": [],
+  "ext": [
+   "https://fonts.googleapis.com/css2?family=Be+Vietna",
+   "https://fonts.gstatic.com/s/bevietnampro/v12/QdVPS",
+   "https://fonts.gstatic.com/s/lora/v37/0QIvMX1D_JOuM",
+   "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMS",
+   "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMS",
+   "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMS",
+   "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMS",
+   "https://fonts.gstatic.com/s/lora/v37/0QIvMX1D_JOuM",
+   "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMS",
+   "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMS",
+   "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMS",
+   "https://fonts.gstatic.com/s/bevietnampro/v12/QdVPS",
+   "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMS",
+   "https://fonts.gstatic.com/s/lora/v37/0QIvMX1D_JOuM",
+   "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMS",
+   "https://fonts.gstatic.com/s/bevietnampro/v12/QdVPS"
+  ]
+ },
+ "f5b7e1e/": {
+  "counts": {
+   "Be Vietnam Pro normal 400": 54,
+   "Lora normal 700": 25,
+   "Be Vietnam Pro normal 500": 24,
+   "Be Vietnam Pro normal 600": 30,
+   "Be Vietnam Pro normal 700": 27,
+   "Lora normal 600": 4,
+   "Be Vietnam Pro italic 400": 5
+  },
+  "samples": {
+   "Be Vietnam Pro normal 400": "Nhảy đến nội dung chính",
+   "Lora normal 700": "LÊ SƠN",
+   "Be Vietnam Pro normal 500": "Bệnh viện Thú y",
+   "Be Vietnam Pro normal 600": "Trang chủ",
+   "Be Vietnam Pro normal 700": "Chăm Sóc",
+   "Lora normal 600": "Ân cần vỗ về & thấu hiểu thú cưng",
+   "Be Vietnam Pro italic 400": "* Hình ảnh & tóm tắt quá trình phục hồi lâm sàng"
+  },
+  "loaded": [
+   "Be Vietnam Pro normal 300 500",
+   "Be Vietnam Pro normal 600 900",
+   "Lora normal 400 900"
+  ],
+  "fonts": [
+   "be-vietnam-pro-400.woff2",
+   "lora-600.woff2",
+   "be-vietnam-pro-600.woff2"
+  ],
+  "bad": [],
+  "ext": []
+ },
+ "f5b7e1e/dat-lich": {
+  "counts": {
+   "Be Vietnam Pro normal 400": 45,
+   "Lora normal 700": 11,
+   "Be Vietnam Pro normal 500": 16,
+   "Be Vietnam Pro normal 600": 19,
+   "Be Vietnam Pro normal 700": 13
+  },
+  "samples": {
+   "Be Vietnam Pro normal 400": "Nhảy đến nội dung chính",
+   "Lora normal 700": "LÊ SƠN",
+   "Be Vietnam Pro normal 500": "Bệnh viện Thú y",
+   "Be Vietnam Pro normal 600": "Đặt lịch khám",
+   "Be Vietnam Pro normal 700": "Tiếp Nhận Thăm Khám Y Khoa"
+  },
+  "loaded": [
+   "Be Vietnam Pro normal 300 500",
+   "Be Vietnam Pro normal 600 900",
+   "Lora normal 400 900"
+  ],
+  "fonts": [
+   "be-vietnam-pro-400.woff2",
+   "lora-600.woff2",
+   "be-vietnam-pro-600.woff2"
+  ],
+  "bad": [],
+  "ext": []
+ }
+}
