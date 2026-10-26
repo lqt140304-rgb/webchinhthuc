@@ -1,0 +1,107 @@
+{
+ "form": {
+  "services": [
+   "Khám & Điều trị nội khoa",
+   "Chăm sóc nội trú 24/7",
+   "Spa & Thẩm mỹ y khoa",
+   "Cấp cứu & Phẫu thuật",
+   "Nhu cầu thăm khám khác (trao đổi trực tiếp)"
+  ],
+  "slots": [
+   "Buổi sáng (đề xuất 08:00 – 12:00)",
+   "Buổi chiều (đề xuất 12:00 – 17:00)",
+   "Buổi tối (đề xuất 17:00 – 21:00)",
+   "Linh hoạt theo sắp xếp của phòng khám"
+  ],
+  "slotNote": [
+   "* Khung giờ đề xuất tham khảo, phòng khám sẽ liên hệ xác nhận giờ hẹn chính xác."
+  ],
+  "jargon": false
+ },
+ "home": {
+  "disclaimer": false,
+  "disclaimerHits": [
+   "Câu chuyện minh họa",
+   "Nội dung minh họa quy trình điều trị — Chưa xuất bản ca bệnh thực tế khi chưa có xác nhận "
+  ],
+  "imgs": [
+   {
+    "src": "/images/hero-vet-care.jpg",
+    "natural": "1200x800",
+    "shown": "382x458",
+    "loading": "eager",
+    "fetchpriority": "high"
+   },
+   {
+    "src": "/images/hero-happy-cat.jpg",
+    "natural": "1200x826",
+    "shown": "382x498",
+    "loading": "lazy",
+    "fetchpriority": null
+   },
+   {
+    "src": "/images/hero-clinic-cuddle.jpg",
+    "natural": "1200x800",
+    "shown": "382x458",
+    "loading": "lazy",
+    "fetchpriority": null
+   },
+   {
+    "src": "/images/why-pet-companion.jpg",
+    "natural": "1200x802",
+    "shown": "486x645",
+    "loading": "lazy",
+    "fetchpriority": null
+   },
+   {
+    "src": "/images/service-exam.jpg",
+    "natural": "1200x800",
+    "shown": "382x240",
+    "loading": "lazy",
+    "fetchpriority": null
+   },
+   {
+    "src": "/images/service-inpatient.jpg",
+    "natural": "1200x801",
+    "shown": "382x240",
+    "loading": "lazy",
+    "fetchpriority": null
+   },
+   {
+    "src": "/images/service-spa.jpg",
+    "natural": "1200x800",
+    "shown": "382x240",
+    "loading": "lazy",
+    "fetchpriority": null
+   },
+   {
+    "src": "/images/story-recovery.jpg",
+    "natural": "1200x1811",
+    "shown": "506x763",
+    "loading": "lazy",
+    "fetchpriority": null
+   },
+   {
+    "src": "/images/article-nutrition.jpg",
+    "natural": "1200x800",
+    "shown": "382x220",
+    "loading": "lazy",
+    "fetchpriority": null
+   },
+   {
+    "src": "/images/article-prevention.jpg",
+    "natural": "1264x848",
+    "shown": "382x220",
+    "loading": "lazy",
+    "fetchpriority": null
+   },
+   {
+    "src": "/images/article-firstaid.jpg",
+    "natural": "1264x848",
+    "shown": "382x220",
+    "loading": "lazy",
+    "fetchpriority": null
+   }
+  ]
+ }
+}
