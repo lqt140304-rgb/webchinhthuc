@@ -1,0 +1,262 @@
+{
+  "base": "http://localhost:4173",
+  "measurements": [
+    {
+      "id": "R2-P1-3-drawer",
+      "route": "/",
+      "current": [
+        "/"
+      ],
+      "groupStyles": [
+        "Về Lê Sơn|rgb(26, 10, 28)|500",
+        "Dịch vụ y tế|rgb(26, 10, 28)|500",
+        "Góc thú cưng|rgb(26, 10, 28)|500"
+      ]
+    },
+    {
+      "id": "R2-P1-3-drawer",
+      "route": "/dich-vu",
+      "current": [
+        "/dich-vu"
+      ],
+      "groupStyles": [
+        "Về Lê Sơn|rgb(26, 10, 28)|500",
+        "Dịch vụ y tế|rgb(90, 30, 94)|600",
+        "Góc thú cưng|rgb(26, 10, 28)|500"
+      ]
+    },
+    {
+      "id": "R2-P1-3-drawer",
+      "route": "/dich-vu/spa",
+      "current": [
+        "/dich-vu/spa"
+      ],
+      "groupStyles": [
+        "Về Lê Sơn|rgb(26, 10, 28)|500",
+        "Dịch vụ y tế|rgb(90, 30, 94)|600",
+        "Góc thú cưng|rgb(26, 10, 28)|500"
+      ]
+    },
+    {
+      "id": "R2-P1-3-drawer",
+      "route": "/goc-thu-cung",
+      "current": [
+        "/goc-thu-cung"
+      ],
+      "groupStyles": [
+        "Về Lê Sơn|rgb(26, 10, 28)|500",
+        "Dịch vụ y tế|rgb(26, 10, 28)|500",
+        "Góc thú cưng|rgb(90, 30, 94)|600"
+      ]
+    },
+    {
+      "id": "R2-P1-3-drawer",
+      "route": "/goc-thu-cung?cat=news",
+      "current": [
+        "/goc-thu-cung?cat=news"
+      ],
+      "groupStyles": [
+        "Về Lê Sơn|rgb(26, 10, 28)|500",
+        "Dịch vụ y tế|rgb(26, 10, 28)|500",
+        "Góc thú cưng|rgb(90, 30, 94)|600"
+      ]
+    },
+    {
+      "id": "R2-P1-3-drawer",
+      "route": "/cau-chuyen",
+      "current": [
+        "/cau-chuyen"
+      ],
+      "groupStyles": [
+        "Về Lê Sơn|rgb(26, 10, 28)|500",
+        "Dịch vụ y tế|rgb(26, 10, 28)|500",
+        "Góc thú cưng|rgb(26, 10, 28)|500"
+      ]
+    },
+    {
+      "id": "R2-P1-3-drawer",
+      "route": "/cau-chuyen/abc",
+      "current": [
+        "/cau-chuyen"
+      ],
+      "groupStyles": [
+        "Về Lê Sơn|rgb(26, 10, 28)|500",
+        "Dịch vụ y tế|rgb(26, 10, 28)|500",
+        "Góc thú cưng|rgb(26, 10, 28)|500"
+      ]
+    },
+    {
+      "id": "R2-P1-3-drawer-boundary",
+      "route": "/dich-vu-khong-ton-tai",
+      "current": [],
+      "groupStyles": [
+        "Về Lê Sơn|rgb(26, 10, 28)|500",
+        "Dịch vụ y tế|rgb(26, 10, 28)|500",
+        "Góc thú cưng|rgb(26, 10, 28)|500"
+      ]
+    },
+    {
+      "id": "R2-P1-3-drawer-boundary",
+      "route": "/cau-chuyenxyz",
+      "current": [],
+      "groupStyles": [
+        "Về Lê Sơn|rgb(26, 10, 28)|500",
+        "Dịch vụ y tế|rgb(26, 10, 28)|500",
+        "Góc thú cưng|rgb(26, 10, 28)|500"
+      ]
+    },
+    {
+      "id": "R2-P1-3-drawer-boundary",
+      "route": "/gioi-thieu-abc",
+      "current": [],
+      "groupStyles": [
+        "Về Lê Sơn|rgb(26, 10, 28)|500",
+        "Dịch vụ y tế|rgb(26, 10, 28)|500",
+        "Góc thú cưng|rgb(26, 10, 28)|500"
+      ]
+    },
+    {
+      "id": "R2-P1-3-drawer-boundary",
+      "route": "/goc-thu-cung-abc",
+      "current": [],
+      "groupStyles": [
+        "Về Lê Sơn|rgb(26, 10, 28)|500",
+        "Dịch vụ y tế|rgb(26, 10, 28)|500",
+        "Góc thú cưng|rgb(26, 10, 28)|500"
+      ]
+    },
+    {
+      "id": "R2-D3",
+      "width": 320,
+      "headerTel": 0,
+      "visibleTel": [
+        "Thanh tác vụ nhanh khẩn cấp"
+      ],
+      "drawerTel": 1,
+      "footerTel": 2
+    },
+    {
+      "id": "R2-D3",
+      "width": 768,
+      "headerTel": 0,
+      "visibleTel": [
+        "SECTION",
+        "Thanh tác vụ nhanh khẩn cấp"
+      ],
+      "drawerTel": 1,
+      "footerTel": 2
+    },
+    {
+      "id": "R2-D3",
+      "width": 1366,
+      "headerTel": 0,
+      "visibleTel": [
+        "SECTION"
+      ],
+      "drawerTel": null,
+      "footerTel": 2
+    },
+    {
+      "id": "R2-D3",
+      "width": 1536,
+      "headerTel": 0,
+      "visibleTel": [
+        "SECTION"
+      ],
+      "drawerTel": null,
+      "footerTel": 2
+    },
+    {
+      "id": "R2-R1-1",
+      "route": "/",
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "VeterinaryCare",
+          "name": "Bệnh viện Thú y Lê Sơn",
+          "url": "https://bvthuyleson.vn",
+          "telephone": "+84973555105",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "101 Khuất Duy Tiến",
+            "addressLocality": "Thanh Xuân",
+            "addressRegion": "Hà Nội",
+            "addressCountry": "VN"
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "opens": "08:00",
+              "closes": "21:00",
+              "description": "Giờ khám tham chiếu"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "opens": "00:00",
+              "closes": "23:59",
+              "description": "Cấp cứu 24/24"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R2-R1-1-lifecycle",
+      "home": 1,
+      "comingSoon": 0,
+      "notFound": 0,
+      "backHomeViaLink": 1,
+      "historyBack": 0,
+      "historyForward": 1
+    },
+    {
+      "id": "R2-P3-canonical",
+      "comingSoon": [
+        "https://bvthuyleson.vn/gioi-thieu"
+      ],
+      "notFoundAfterClientNav": [],
+      "notFoundDirect": [],
+      "home": [
+        "https://bvthuyleson.vn/"
+      ]
+    },
+    {
+      "id": "R2-D1",
+      "vercel": {
+        "rewrites": [
+          {
+            "source": "/(.*)",
+            "destination": "/index.html"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R2-P3-logo",
+      "logoSrc": "http://localhost:4173/images/logo.png",
+      "logoRendered": 44,
+      "iconHref": "/favicon.png",
+      "logoBytes": 27288,
+      "iconBytes": 3770
+    }
+  ],
+  "consoleErrors": []
+}

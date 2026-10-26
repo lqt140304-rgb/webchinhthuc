@@ -1,0 +1,16 @@
+# Đối chiếu tệp của Claude trên nhánh fix/milestone-2a-qa tại 39a5835
+
+$ git diff --stat 0988eb2 39a5835 -- docs/qa/2a-retest-02.md docs/qa/2a-retest-02-evidence
+(không có dòng nào = trùng khớp)
+
+$ git diff --stat fb257d0 39a5835 -- docs/qa/2a-retest-03.md docs/qa/2a-retest-03-evidence tests/e2e
+(không có dòng nào = trùng khớp)
+
+$ git ls-tree -r -l 39a5835 -- public/images design | grep -i logo
+100644 blob 71b45238b9d402fbcc889769ad975bd2e79b6bcc  376788	design/source/logo-original.png
+100644 blob 30bb76878b3052a4197e8a01c937ec4593e1e5ad   27288	public/images/logo.png
+
+$ git diff --stat cd0e68e 39a5835 -- . ":!docs"
+ {public/images => design/source}/logo-original.png | Bin
+ tests/e2e/2a-round03.e2e.test.cjs                  | 205 +++++++++++++++++++++
+ 2 files changed, 205 insertions(+)
