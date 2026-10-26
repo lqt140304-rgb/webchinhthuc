@@ -1,0 +1,200 @@
+{
+  "base": "http://localhost:4173",
+  "measurements": [
+    {
+      "id": "A02-desktop",
+      "url": "/dich-vu/spa?utm_source=facebook",
+      "dropdownCurrent": [
+        "/dich-vu/spa"
+      ],
+      "styles": {
+        "Về Lê Sơn": "rgb(85, 65, 87)|500",
+        "Dịch vụ": "rgb(90, 30, 94)|600",
+        "Góc thú cưng": "rgb(85, 65, 87)|500"
+      }
+    },
+    {
+      "id": "A02-desktop",
+      "url": "/dich-vu/spa/",
+      "dropdownCurrent": [
+        "/dich-vu/spa"
+      ],
+      "styles": {
+        "Về Lê Sơn": "rgb(85, 65, 87)|500",
+        "Dịch vụ": "rgb(90, 30, 94)|600",
+        "Góc thú cưng": "rgb(85, 65, 87)|500"
+      }
+    },
+    {
+      "id": "A02-desktop",
+      "url": "/dich-vu/spa/?fbclid=abc",
+      "dropdownCurrent": [
+        "/dich-vu/spa"
+      ],
+      "styles": {
+        "Về Lê Sơn": "rgb(85, 65, 87)|500",
+        "Dịch vụ": "rgb(90, 30, 94)|600",
+        "Góc thú cưng": "rgb(85, 65, 87)|500"
+      }
+    },
+    {
+      "id": "A02-desktop",
+      "url": "/dich-vu?utm_medium=cpc",
+      "dropdownCurrent": [
+        "/dich-vu"
+      ],
+      "styles": {
+        "Về Lê Sơn": "rgb(85, 65, 87)|500",
+        "Dịch vụ": "rgb(90, 30, 94)|600",
+        "Góc thú cưng": "rgb(85, 65, 87)|500"
+      }
+    },
+    {
+      "id": "A02-desktop",
+      "url": "/goc-thu-cung?cat=news&utm_source=zalo",
+      "dropdownCurrent": [
+        "/goc-thu-cung?cat=news"
+      ],
+      "styles": {
+        "Về Lê Sơn": "rgb(85, 65, 87)|500",
+        "Dịch vụ": "rgb(85, 65, 87)|500",
+        "Góc thú cưng": "rgb(90, 30, 94)|600"
+      }
+    },
+    {
+      "id": "A02-desktop",
+      "url": "/goc-thu-cung?utm_source=zalo",
+      "dropdownCurrent": [
+        "/goc-thu-cung"
+      ],
+      "styles": {
+        "Về Lê Sơn": "rgb(85, 65, 87)|500",
+        "Dịch vụ": "rgb(85, 65, 87)|500",
+        "Góc thú cưng": "rgb(90, 30, 94)|600"
+      }
+    },
+    {
+      "id": "A02-desktop",
+      "url": "/goc-thu-cung/",
+      "dropdownCurrent": [
+        "/goc-thu-cung"
+      ],
+      "styles": {
+        "Về Lê Sơn": "rgb(85, 65, 87)|500",
+        "Dịch vụ": "rgb(85, 65, 87)|500",
+        "Góc thú cưng": "rgb(90, 30, 94)|600"
+      }
+    },
+    {
+      "id": "A02-drawer",
+      "url": "/dich-vu/spa?utm_source=facebook",
+      "current": [
+        "/dich-vu/spa"
+      ]
+    },
+    {
+      "id": "A02-drawer",
+      "url": "/dich-vu/spa/",
+      "current": [
+        "/dich-vu/spa"
+      ]
+    },
+    {
+      "id": "A02-drawer",
+      "url": "/dich-vu/spa/?fbclid=abc",
+      "current": [
+        "/dich-vu/spa"
+      ]
+    },
+    {
+      "id": "A02-drawer",
+      "url": "/dich-vu?utm_medium=cpc",
+      "current": [
+        "/dich-vu"
+      ]
+    },
+    {
+      "id": "A02-drawer",
+      "url": "/goc-thu-cung?cat=news&utm_source=zalo",
+      "current": [
+        "/goc-thu-cung?cat=news"
+      ]
+    },
+    {
+      "id": "A02-drawer",
+      "url": "/goc-thu-cung?utm_source=zalo",
+      "current": [
+        "/goc-thu-cung"
+      ]
+    },
+    {
+      "id": "A02-drawer",
+      "url": "/goc-thu-cung/",
+      "current": [
+        "/goc-thu-cung"
+      ]
+    },
+    {
+      "id": "A01",
+      "url": "/cau-chuyen",
+      "desktop": [
+        "/cau-chuyen"
+      ],
+      "drawer": [
+        "/cau-chuyen"
+      ]
+    },
+    {
+      "id": "A01",
+      "url": "/cau-chuyen/abc",
+      "desktop": [
+        "/cau-chuyen"
+      ],
+      "drawer": [
+        "/cau-chuyen"
+      ]
+    },
+    {
+      "id": "A01",
+      "url": "/cau-chuyen/abc/",
+      "desktop": [
+        "/cau-chuyen"
+      ],
+      "drawer": [
+        "/cau-chuyen"
+      ]
+    },
+    {
+      "id": "A03",
+      "imgs": [
+        {
+          "src": "/images/logo.png",
+          "natural": 200,
+          "rendered": 44,
+          "where": "HEADER"
+        },
+        {
+          "src": "/images/logo.png",
+          "natural": 200,
+          "rendered": 48,
+          "where": "FOOTER"
+        }
+      ],
+      "icon": [
+        {
+          "href": "/favicon.png",
+          "type": "image/png",
+          "sizes": null
+        }
+      ],
+      "iconBytes": 3770,
+      "iconType": "image/png"
+    },
+    {
+      "id": "A03-dist",
+      "bigLogoFiles": [],
+      "referenced": false
+    }
+  ],
+  "consoleErrors": []
+}
