@@ -7,6 +7,7 @@
   - `AGENTS.md`
   - Báo cáo Retest-02 & Retest-03 của Claude (`docs/qa/2a-retest-02.md`, `docs/qa/2a-retest-03.md`)
   - Quyết định điều phối của CEO ngày 26/10/2026: *QUYẾT ĐỊNH VÀ THỨ TỰ LÀM VIỆC — LÊ SƠN WEBSITE 2026*
+- **Target Code SHA: 9a5835\r
 - **Nhánh thực hiện:** `fix/milestone-2a-qa`
 - **Cam kết phạm vi:** Thực hiện đúng Bước 1 (xử lý dứt điểm các tồn đọng nhỏ A01–A03, D01 và các phát hiện R3-1, R3-2, R3-3); chưa merge vào `main`; chưa triển khai hosting; chưa chuyển sang Giai đoạn 3.
 
