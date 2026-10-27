@@ -1,17 +1,17 @@
-# HỒ SƠ THIẾT KẾ CHI TIẾT GIAI ĐOẠN 3A — PHIÊN BẢN V2.2 (PHASE 3A DESIGN BLUEPRINT V2.2)
+# HỒ SƠ THIẾT KẾ CHI TIẾT GIAI ĐOẠN 3A — PHIÊN BẢN V2.3 (PHASE 3A DESIGN BLUEPRINT V2.3)
 ## Bệnh viện Thú y Lê Sơn 2026 — Vibrant Editorial Luxury & Chuẩn Mực Y Khoa
 
 | Hạng mục | Thông tin chi tiết |
 | :--- | :--- |
 | **Dự án** | Website Bệnh viện Thú y Lê Sơn 2026 (`lqt140304-rgb/webchinhthuc`) |
-| **Phiên bản tài liệu** | **Blueprint v2.2** (Cập nhật theo **CEO DIRECTIVE 019-A — PHASE 3A DESIGN FIX 03** và Báo cáo QA độc lập `docs/qa/3a-design-qa-02.md` tại commit `ad75c8c`) |
+| **Phiên bản tài liệu** | **Blueprint v2.3** (Cập nhật theo **CEO DIRECTIVE 020-A — PHASE 3A-04 CONTENT INTEGRITY FIX** và Báo cáo QA độc lập `docs/qa/3a-design-qa-03.md` tại commit `f788d0c`) |
 | **Căn cứ chỉ đạo** | `AGENTS.md` (Architecture Baseline V1), `PROJECT_BRIEF.md`, **CEO DIRECTIVE 017-A**, **CEO DIRECTIVE 018-A**, `docs/design-system.md`, `docs/assets-credits.md` |
 | **Tác giả thiết kế** | Antigravity — Designer |
 | **Đơn vị thẩm định độc lập** | Claude — Independent QA Lead |
 | **Phạm vi 3 tuyến trang** | 1. `/gioi-thieu` (Giới thiệu bệnh viện)<br>2. `/doi-ngu` (Đội ngũ)<br>3. `/co-so-vat-chat` (Cơ sở vật chất) |
 | **Trạng thái phê duyệt** | **PHASE 3A — PENDING OWNER DESIGN APPROVAL (DESIGN ONLY — NO WEBSITE IMPLEMENTATION)** |
 | **Đường dẫn Mockup trực quan** | - Trong Repository (độc lập với `src/`): `docs/design/phase-3a-interactive-mockups.html`<br>- Trong thư mục Artifact phiên làm việc: `C:/Users/Admin/.gemini/antigravity/brain/6f5020a8-5310-41e1-a151-7821d0315e27/phase-3a-interactive-mockups.html` |
-| **Báo cáo giải quyết QA** | `docs/qa/3a-design-handoff-03.md` |
+| **Báo cáo giải quyết QA** | `docs/qa/3a-design-handoff-04.md` |
 
 ---
 
@@ -555,11 +555,26 @@ Nhằm tuân thủ tuyệt đối **Chính sách hình ảnh đã phê duyệt (
 | 6 | `public/fonts/be-vietnam-pro-italic-400.woff2` | Ghi chú minh bạch, disclaimer | WOFF2 Font | Google Fonts OFL / Better Type Foundry (`docs/licenses/OFL-BeVietnamPro.txt`) | Fábio Duarte Martins, Vietanh Nguyen | SIL Open Font License 1.1 | **ĐÃ XÁC MINH (VERIFIED)** | **CÓ** | **CÓ** | Chữ nghiêng nguyên bản (True Italic) dùng cho ghi chú minh họa. |
 | 7 | `public/fonts/lora-600.woff2` | H1, H2, tiêu đề báo chí Editorial Luxury | WOFF2 Font | Google Fonts OFL / Cyreal Type (`docs/licenses/OFL-Lora.txt`) | Cyreal (Olga Karpushina, Alexei Vanyashin) | SIL Open Font License 1.1 | **ĐÃ XÁC MINH (VERIFIED)** | **CÓ** | **CÓ** | Tiêu đề báo chí chuẩn phong cách Vibrant Editorial Luxury đã nghiệm thu. |
 | 8 | **Inline Architectural SVG & Monogram** | 100% Khung chân dung nhân sự `/doi-ngu` & Phân khu chức năng `/co-so-vat-chat` | SVG nội tuyến | Antigravity trực tiếp lập trình trong mã HTML mockup | Dự án Bệnh viện Thú y Lê Sơn 2026 | Bản quyền nội bộ dự án | **ĐÃ XÁC MINH (VERIFIED)** | **CÓ** | **CÓ** | Đảm bảo 100% không mạo danh khuôn mặt người thật (`3A-P1-1`), độc lập hoàn toàn với hình ảnh bên ngoài. |
-| 9 | `public/images/article-prevention.webp` | Ảnh minh họa bố cục Section 1.2 (`/gioi-thieu`) & Section 3.2 Frame #01 (`/co-so-vat-chat`) | WebP Minh họa | Tạo lập bằng AI nội bộ dự án qua Imagen 3 | Antigravity AI Subagent | ĐKDV Google Generative AI (Sử dụng thử nghiệm phi độc quyền) | **CHƯA XÁC MINH BẢN QUYỀN GỐC (UNVERIFIED - TỰ KHAI AI)** | **CÓ** (Cho Preview/Mockup) | **KHÔNG** | Chú chó lông vàng trong nhà, không người mặc áo blouse y tế, không có logo. **Bắt buộc thay bằng ảnh chụp thực tế trước khi phát hành (`2B-06`).** |
+| 9 | `public/images/article-prevention.webp` | Ảnh minh họa khung Hero Section 1.1 (`/gioi-thieu`) & Section 3.2 Frame #01 (`/co-so-vat-chat`) | WebP Minh họa | Tạo lập bằng AI nội bộ dự án qua Imagen 3 | Antigravity AI Subagent | ĐKDV Google Generative AI (Sử dụng thử nghiệm phi độc quyền) | **CHƯA XÁC MINH BẢN QUYỀN GỐC (UNVERIFIED - TỰ KHAI AI)** | **CÓ** (Cho Preview/Mockup) | **KHÔNG** | Chú chó lông vàng trong nhà, không người mặc áo blouse y tế, không có logo. **Bắt buộc thay bằng ảnh chụp thực tế trước khi phát hành (`2B-06`).** |
 | 10 | `public/images/article-nutrition.webp` | Ảnh minh họa bố cục Section 1.2 (`/gioi-thieu`) & Section 3.2 Frame #02 (`/co-so-vat-chat`) | WebP Minh họa | Ảnh stock tĩnh vật dinh dưỡng (Unsplash/Pexels mockup placeholder) | Chưa xác định tác giả gốc (Unverified Stock) | Giấy phép miễn phí nền tảng stock (Mockup use only) | **CHƯA XÁC MINH BẢN QUYỀN GỐC (UNVERIFIED - STOCK)** | **CÓ** (Cho Preview/Mockup) | **KHÔNG** | Bát thức ăn chăm sóc thú cưng sạch sẽ, không người, không nhãn hiệu. **Bắt buộc thay bằng ảnh chụp thực tế trước khi phát hành (`2B-06`).** |
 | 11 | *(Đã loại bỏ)* `public/images/why-pet-companion.webp` | *(ĐÃ GỠ BỎ HOÀN TOÀN KHỎI MOCKUP 3A)* | WebP Stock | Nền tảng stock placeholder | Chưa xác minh tác giả | Giấy phép stock tạm thời | **CÓ LOGO BÊN THỨ BA (CHAMPION — AP-2)** | **KHÔNG DÙNG Ở 3A** | **KHÔNG** | **Đã gỡ bỏ khỏi 3A.** Ghi nhận lỗi `2B-29` cho Section 2 Trang chủ, bảo toàn `src/` theo quy chế đóng băng Mốc 2B. |
 
 *Lưu ý bảo vệ tính chuẩn mực y khoa (`3A-P1-1` & `3A-P2-2'):* Toàn bộ các file ảnh stock cũ có mặt người mặc áo blouse hoặc đồng phục y tế (`hero-vet-care.webp`, `hero-clinic-cuddle.webp`, `service-exam.webp`, `service-spa.webp`) **tuyệt đối không được xuất hiện trong Mockup và Thiết kế của 3 trang Giai đoạn 3A**.
+
+---
+
+## 8. MỤC 8: BẢNG ĐỐI CHIẾU GIẢI QUYẾT TOÀN BỘ PHÁT HIỆN QA (MAPPING QA 3A-01, QA 3A-02 & QA 3A-03)
+
+### 8.0A. Bảng Đối Chiếu Giải Quyết Các Phát Hiện Từ Báo Cáo Claude QA 3A-03 (`docs/qa/3a-design-qa-03.md`)
+
+| Mã QA | Mức | Mô tả phát hiện của Claude | Giải pháp đã thực hiện trong Blueprint v2.3 & Mockup HTML | Bằng chứng kiểm chứng | Kết luận |
+| :---: | :---: | :--- | :--- | :--- | :---: |
+| **3A-P1-2** | **P1** | Trang `/doi-ngu` ấn định lại **chuyên môn, nhiệm vụ và cơ cấu nhân sự chưa xác minh** (chuyên môn BS. Sơn, hội chẩn, kỹ thuật viên nội trú, quy trình khép kín, kíp trực). | Đã khôi phục 100% các slot trung tính: BS. Lê Thái Sơn chỉ giữ chức danh Bác sĩ Thú y đã xác nhận; các bác sĩ khác dùng `[Bác sĩ Thú y — Dữ liệu mô phỏng]`; bộ phận hỗ trợ dùng `[Nhân viên Chăm sóc nội trú — Dữ liệu mô phỏng]`; quy trình 4 bước chuyển thành `[Đề xuất định hướng]`. Loại bỏ toàn bộ các từ "hội chẩn", "khép kín", "kíp trực", "chỉ định xét nghiệm". | Mockup `#page-doi-ngu`; Blueprint Mục 2.2, 3.2. | **FIXED** |
+| **V3-P1-1** | **P1** | Trang `/co-so-vat-chat` mô tả **phân khu và thiết bị chưa xác minh như đã có thật** (sảnh phân luồng, phòng cách ly, hồi sức, spa tách biệt, hệ thống đèn sưởi ấm, thiết bị theo dõi sinh hiệu). | Đã loại bỏ toàn bộ các khẳng định vật lý chưa xác minh. Khôi phục các slot mô tả trung tính bám sát các dịch vụ đã xác nhận: tiếp đón ban đầu, khám lâm sàng, chăm sóc nội trú 24/7, spa & grooming. Toàn bộ thiết bị cận lâm sàng và phân khu thủ thuật được đóng khung `[Slot chờ xác nhận]`. | Mockup `#page-co-so-vat-chat`; Blueprint Mục 2.3, 3.3. | **FIXED** |
+| **3A-P2-1** | **P2** | Bốn nguyên tắc phục vụ trên `/gioi-thieu` xuất hiện lại câu khẳng định như cam kết thực tế ("được vệ sinh định kỳ", "chỉ chia sẻ trực tiếp"). | Đã chuyển toàn bộ 4 nguyên tắc thành dạng bản thảo đề xuất định hướng: `[Đề xuất định hướng]: Chú trọng hạn chế tiếng ồn...`, `[Đề xuất định hướng]: Khu vực lưu trú được duy trì ngăn nắp...`, `[Đề xuất định hướng]: Thông tin bệnh án chỉ trao đổi trực tiếp với gia đình...`. | Mockup `#page-gioi-thieu` Section 1.4; Blueprint Mục 2.1. | **FIXED** |
+| **V3-P3-1** | **P3** | Header ở 375px bị chật: nút CTA xuống 2 dòng ("Đặt lịch hẹn khám"), dòng phụ dưới logo xuống dòng. | Rút gọn văn bản nút CTA trên mobile thành `Đặt lịch` qua CSS responsive media query; thiết lập `white-space: nowrap` và tinh chỉnh cỡ chữ `0.62rem` cho `.p3a-logo-subtitle` để đảm bảo 0 tràn ngang, 0 rớt dòng tại mọi viewport $\le 390\text{px}$. | Mockup CSS `.p3a-header-cta`, `.p3a-logo-subtitle`. | **FIXED** |
+| **V3-P3-2** | **P3** | Bộ mô phỏng "N = …" và câu thông báo "thuộc tính hidden" nằm trong nội dung trang khách hàng. | Đã chuyển toàn bộ các nút bấm mô phỏng $N=1..8$ lên thanh công cụ Reviewer Deck trên cùng; trang khách hàng chỉ giữ lại Bộ lọc Bộ phận chuyên môn; viết lại câu thông báo `aria-live` lịch sự cho người dùng thật: *"Đang hiển thị: Tất cả các bộ phận"*, không nhắc tới thuật ngữ dev/test. | Mockup Header toolbar & Section 2.1; hàm `updateFilterStatus`. | **FIXED** |
+| **V3-P3-3** | **P3** | Blueprint mục 9.1 lặp nguyên đoạn R-3A-05/2B-29 hai lần; bảng nguồn ảnh ghi sai vị trí dùng của `article-prevention`. | Đã xóa đoạn trùng lặp trong Mục 9.1; hiệu chỉnh vị trí sử dụng của `article-prevention.webp` thành Hero Section 1.1 (`/gioi-thieu`) và Frame #01 Section 3.2 (`/co-so-vat-chat`). | Blueprint Mục 7 & Mục 9.1. | **FIXED** |
 
 ---
 
@@ -628,14 +643,10 @@ Chúng tôi không tự ý đóng các vấn đề phụ thuộc vào quyết đ
 - **R-3A-02 (Tailwind v4 Oxide quét file trong Repo):** Toàn bộ class trong `docs/design/phase-3a-interactive-mockups.html` được đặt tiền tố riêng `p3a-` và viết bằng CSS độc lập. Đã chạy `npm run build` kiểm chứng: SHA-256 của `dist/assets/index-vrX09Urw.css` (`ca6de747195a5550d80dc7ea59cc7ea8a43c51a9b77c07d596e79ffbefe66d87`) và `dist/assets/index-CvVwFN8Z.js` (`10f187c6990780a5a4417928e9ab313db068caffce0e988233b07cadba8be234`) **giữ nguyên 100% không đổi một byte**.
 - **R-3A-03 (Bảo toàn Bundle Trang chủ):** Khi triển khai code sẽ dùng `React.lazy()` cho cả 3 route Giai đoạn 3A theo Architecture Baseline V1.
 - **R-3A-04 (Bảo mật & Quyền riêng tư trong ảnh chụp thực tế — `3A-P3-5`):** Khi chụp ảnh thực tế cơ sở vật chất tại `101 Khuất Duy Tiến`, bắt buộc kiểm duyệt không để lọt thông tin cá nhân trên màn hình máy tính, bảng theo dõi nội trú hoặc hình ảnh khách hàng/thú cưng chưa có phiếu đồng ý (`Owner Consent Form`).
-- **R-3A-05 / Lỗi 2B-29 (P2 — Tồn đọng bảo trì Trang chủ Mốc 2B do Claude phát hiện tại QA 3A-02):**
+- **R-3A-05 / Lỗi 2B-29 (P2 — Tồn đọng bảo trì Trang chủ Mốc 2B do Claude phát hiện tại QA 3A-02 & 3A-03):**
   - **Mô tả:** Tệp ảnh `public/images/why-pet-companion.webp` hiển thị logo thương hiệu **Champion** rõ ràng trên áo của chú chó. Tệp này đang được sử dụng tại Section 2 Trang chủ (`src/components/WhyChooseUs.tsx:30`).
-  - **Hành động trong Giai đoạn 3A:** Đã gỡ bỏ 100% hình ảnh này khỏi Mockup và tài liệu Blueprint v2.2.
-  - **Hành động đối với Trang chủ Mốc 2B:** Tuân thủ quy chế đóng băng Mốc 2B theo chỉ đạo CEO Directive 019-A, Antigravity **không tự ý sửa mã nguồn `src/`**. Lỗi được lập mã chính thức là **`2B-29` (P2)**, lưu trong sổ rủi ro bảo trì để CEO phân bổ nhiệm vụ xử lý (thay ảnh sạch hoặc làm mờ logo) theo đúng quy trình phối hợp.
-- **R-3A-05 / Lỗi 2B-29 (P2 — Tồn đọng bảo trì Trang chủ Mốc 2B do Claude phát hiện tại QA 3A-02):**
-  - **Mô tả:** Tệp ảnh `public/images/why-pet-companion.webp` hiển thị logo thương hiệu **Champion** rõ ràng trên áo của chú chó. Tệp này đang được sử dụng tại Section 2 Trang chủ (`src/components/WhyChooseUs.tsx:30`).
-  - **Hành động trong Giai đoạn 3A:** Đã gỡ bỏ 100% hình ảnh này khỏi Mockup và tài liệu Blueprint v2.2.
-  - **Hành động đối với Trang chủ Mốc 2B:** Tuân thủ quy chế đóng băng Mốc 2B theo chỉ đạo CEO Directive 019-A, Antigravity **không tự ý sửa mã nguồn `src/`**. Lỗi được lập mã chính thức là **`2B-29` (P2)**, lưu trong sổ rủi ro bảo trì để CEO phân bổ nhiệm vụ xử lý (thay ảnh sạch hoặc làm mờ logo) theo đúng quy trình phối hợp.
+  - **Hành động trong Giai đoạn 3A:** Đã gỡ bỏ 100% hình ảnh này khỏi Mockup và tài liệu Blueprint v2.3.
+  - **Hành động đối với Trang chủ Mốc 2B:** Tuân thủ nghiêm ngặt quy chế đóng băng Mốc 2B theo chỉ đạo CEO Directive 019-A và 020-A, Antigravity **tuyệt đối không tự ý sửa mã nguồn `src/`**. Lỗi được lập mã chính thức là **`2B-29` (P2)**, lưu trong sổ rủi ro bảo trì để CEO phân bổ nhiệm vụ xử lý riêng (thay ảnh sạch hoặc làm mờ logo).
 
 ### 9.2. Năm Điểm Cần Chủ Dự Án Xác Nhận Trước Khi Chuyển Sang Triển Khai Code
 1. **Quyết định 1 — Đồng bộ 6 vị trí mô tả `"Bác sĩ trưởng Lê Thái Sơn"` trong Repo (`3A-P2-7`):**
