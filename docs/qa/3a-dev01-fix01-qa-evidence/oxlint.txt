@@ -1,0 +1,2 @@
+tests/verify-fix01.cjs:63:9: warning eslint(no-unused-vars): Variable 'viewports' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+tests/verify-fix01.cjs:64:9: warning eslint(no-unused-vars): Variable 'routes' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
