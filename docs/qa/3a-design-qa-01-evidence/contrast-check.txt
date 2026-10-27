@@ -1,0 +1,11 @@
+# Tương phản WCAG 2.1 tính lại từ src/styles/tokens.css (công thức relative luminance)
+cặp màu | tính lại | blueprint ghi
+fg-primary #1A0A1C / Ivory | 17.82 | 17.4
+fg-secondary #421247 / Ivory | 13.96 | 11.8
+fg-muted #554157 / Ivory | 8.63 | 8.2
+fg-subtle #5A3E5E / Ivory | 8.61 | 7.6
+warm-orange-dark #9A3412 / Ivory | 6.85 | 6.7
+white / plum-primary #5A1E5E | 11.78 | 9.9
+white / warm-orange #C2560C | 4.54 | 4.65
+plum-orchid #824787 / Lavender | 5.96 | -
+fg-muted / Lavender | 8.36 | -
