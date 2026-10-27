@@ -1,17 +1,17 @@
-# HỒ SƠ THIẾT KẾ CHI TIẾT GIAI ĐOẠN 3A — PHIÊN BẢN V2.1 (PHASE 3A DESIGN BLUEPRINT V2.1)
+# HỒ SƠ THIẾT KẾ CHI TIẾT GIAI ĐOẠN 3A — PHIÊN BẢN V2.2 (PHASE 3A DESIGN BLUEPRINT V2.2)
 ## Bệnh viện Thú y Lê Sơn 2026 — Vibrant Editorial Luxury & Chuẩn Mực Y Khoa
 
 | Hạng mục | Thông tin chi tiết |
 | :--- | :--- |
 | **Dự án** | Website Bệnh viện Thú y Lê Sơn 2026 (`lqt140304-rgb/webchinhthuc`) |
-| **Phiên bản tài liệu** | **Blueprint v2.1** (Cập nhật theo **CEO DIRECTIVE 018-A — PHASE 3A DESIGN REVISION 02** và Báo cáo QA độc lập `docs/qa/3a-design-qa-01.md` tại commit `f3e86ec`) |
+| **Phiên bản tài liệu** | **Blueprint v2.2** (Cập nhật theo **CEO DIRECTIVE 019-A — PHASE 3A DESIGN FIX 03** và Báo cáo QA độc lập `docs/qa/3a-design-qa-02.md` tại commit `ad75c8c`) |
 | **Căn cứ chỉ đạo** | `AGENTS.md` (Architecture Baseline V1), `PROJECT_BRIEF.md`, **CEO DIRECTIVE 017-A**, **CEO DIRECTIVE 018-A**, `docs/design-system.md`, `docs/assets-credits.md` |
 | **Tác giả thiết kế** | Antigravity — Designer |
 | **Đơn vị thẩm định độc lập** | Claude — Independent QA Lead |
 | **Phạm vi 3 tuyến trang** | 1. `/gioi-thieu` (Giới thiệu bệnh viện)<br>2. `/doi-ngu` (Đội ngũ)<br>3. `/co-so-vat-chat` (Cơ sở vật chất) |
 | **Trạng thái phê duyệt** | **PHASE 3A — PENDING OWNER DESIGN APPROVAL (DESIGN ONLY — NO WEBSITE IMPLEMENTATION)** |
 | **Đường dẫn Mockup trực quan** | - Trong Repository (độc lập với `src/`): `docs/design/phase-3a-interactive-mockups.html`<br>- Trong thư mục Artifact phiên làm việc: `C:/Users/Admin/.gemini/antigravity/brain/6f5020a8-5310-41e1-a151-7821d0315e27/phase-3a-interactive-mockups.html` |
-| **Báo cáo giải quyết QA** | `docs/qa/3a-design-handoff-02.md` |
+| **Báo cáo giải quyết QA** | `docs/qa/3a-design-handoff-03.md` |
 
 ---
 
@@ -195,7 +195,7 @@ Public Website (RootLayout: Header + main#main-content + Footer + MobileBottomBa
 1. **Section 3.1 — Editorial Hero & Banner Điều kiện Phát hành:**
    - Breadcrumb: `Trang chủ` (`/`) `/` `Về Lê Sơn` (`<span>` tĩnh) `/` `Cơ sở vật chất` (`aria-current="page"`).
    - Eyebrow: `KHÔNG GIAN THĂM KHÁM & CHĂM SÓC — 101 KHUẤT DUY TIẾN`
-   - `h1` (`Lora 600` — đã sửa `3A-P2-10`): *“Không gian thăm khám sạch sẽ, bố trí rõ ràng vì sự an tâm của thú cưng.”*
+   - `h1` (`Lora 600` — đã sửa `3A-P2-10` & `V-P3-4`): *“Không gian thăm khám và quy hoạch các phân khu chức năng.”*
    - Đoạn dẫn: *“Cơ sở Bệnh viện Thú y Lê Sơn tại 101 Khuất Duy Tiến, Thanh Xuân, Hà Nội được tổ chức phục vụ các hoạt động tiếp đón, khám & điều trị, chăm sóc nội trú 24/7 và Spa & Grooming.”*
    - **Banner Chính sách Hình ảnh & Điều kiện Phát hành:** Ghi rõ: *"Các hình ảnh trong bản thiết kế/preview hiện là ảnh minh họa bố cục, không phải cơ sở thực tế của Lê Sơn và không dùng để chứng minh cơ sở có phòng hay thiết bị tương ứng. Trang chỉ được mở lập chỉ mục công khai sau khi cập nhật bộ ảnh chụp thực tế tại 101 Khuất Duy Tiến được Chủ dự án phê duyệt."*
    - **Thanh nhảy phân khu (`Zone Jump Bar`):** `01. Tổng quan không gian` | `02. Khu khám & Điều trị` | `03. Khu nội trú & Thiết bị` | `04. Chỉ đường & Liên hệ`.
@@ -384,7 +384,7 @@ Public Website (RootLayout: Header + main#main-content + Footer + MobileBottomBa
 | Breadcrumb: Trang chủ (Link) / Về Lê Sơn (Text tĩnh) / Cơ sở vật chất (Current)                  |
 | [Eyebrow: KHÔNG GIAN THĂM KHÁM & CHĂM SÓC — 101 KHUẤT DUY TIẾN]                                  |
 | H1 (Lora 600 — Không dùng từ "sạch khuẩn"):                                                      |
-| "Không gian thăm khám sạch sẽ, bố trí rõ ràng vì sự an tâm của thú cưng."                        |
+| "Không gian thăm khám và quy hoạch các phân khu chức năng."                                      |
 | +----------------------------------------------------------------------------------------------+ |
 | | [BANNER CHÍNH SÁCH ẢNH & ĐIỀU KIỆN PHÁT HÀNH]: Mọi ảnh dưới đây mang nhãn "Ảnh minh họa —   | |
 | | không phải cơ sở thực tế của Lê Sơn" và không dùng để chứng minh cơ sở có phòng/thiết bị đó. | |
@@ -431,7 +431,23 @@ Public Website (RootLayout: Header + main#main-content + Footer + MobileBottomBa
 
 ---
 
-## 4. MỤC 4: DANH MỤC TÁI SỬ DỤNG COMPONENT (COMPONENT REUSE & CODEBASE ALIGNMENT)
+### 3.4. Đặc Tả Điều Hướng Mobile Drawer & Khả Năng Tiếp Cận (Accessibility Specs — V-P3-1, V-P3-2, V-P3-3)
+Nhằm hoàn thiện trải nghiệm duyệt giao diện và đáp ứng tiêu chuẩn Accessibility WCAG 2.1 AA được Claude QA 3A-02 xác nhận:
+1. **Nút Menu Hamburger Mobile (`V-P3-1`):**
+   - Vị trí: Đặt tại góc phải `Header` trên các khung nhìn hẹp (`max-width: 768px`), ẩn trên desktop (`display: none`).
+   - Kích thước vùng chạm: Tối thiểu `44px x 44px` chuẩn WCAG Touch Target AAA (`min-width: 44px; min-height: 44px`).
+   - Trạng thái ARIA: `aria-expanded="false"` khi đóng, `aria-expanded="true"` khi mở; `aria-controls="p3a-mobile-drawer"`, `aria-label="Menu điều hướng"`.
+   - Hiệu ứng trực quan: 3 thanh gạch ngang chuyển thành dấu gạch chéo 'X' khi mở menu (`transition: transform 0.2s ease, opacity 0.2s ease`).
+2. **Khung Menu Trượt Xuống (`p3a-mobile-drawer`):**
+   - Bố cục danh sách điều hướng dạng trượt xuống (`slide-down`), nạp đầy đủ các tuyến link: Trang chủ (`/`), Giới thiệu (`/gioi-thieu`), Đội ngũ (`/doi-ngu`), Cơ sở vật chất (`/co-so-vat-chat`), Hotline và nút Đặt lịch hẹn.
+   - Quản lý trạng thái: Sử dụng thuộc tính chuẩn HTML5 `hidden` kết hợp `aria-live` và lắng nghe sự kiện phím Escape (`Escape` key handler) để tự động đóng drawer khi người dùng ấn phím thoát.
+3. **Vòng Focus & Vùng Chạm Breadcrumb (`V-P3-3`):**
+   - Vòng focus trên toàn bộ các nút bấm và liên kết được nâng cấp thành `outline: 2px solid var(--color-plum-primary)` với `outline-offset: 2px`, hiển thị rõ ràng cho người dùng duyệt bằng bàn phím.
+   - Các liên kết trong chuỗi Breadcrumb được thiết lập `min-height: 44px` và `display: inline-flex; align-items: center`, loại bỏ hoàn toàn cảnh báo touch target quá nhỏ.
+4. **Bố Cục Nhãn Khung #04 Cơ Sở Vật Chất (`V-P3-2`):**
+   - Tại Section 3.4 trang `/co-so-vat-chat`, khối nhãn danh mục được bố trí độc lập ở tầng trên, cách biệt với tiêu đề và đoạn văn mô tả phân khu nội trú/tiêu phẫu, loại bỏ hoàn toàn nguy cơ đè chữ trên mọi khung nhìn từ 320px đến 1920px.
+
+### 3.5. Ma Trận Kiểm Thử Lưới Đội Ngũ Nhân Sự (5 Kịch Bản Sĩ Số Nhân Sự)
 
 ### 4.1. Component & Hook hiện có tái sử dụng nguyên trạng (100% Reuse)
 | Thành phần | Đường dẫn trong Repo | Vai trò khi triển khai Giai đoạn 3A |
@@ -515,24 +531,57 @@ Bảng dưới đây phân tách minh bạch giữa **Dữ liệu đã xác minh
 
 ---
 
-## 7. MỤC 7: HỒ SƠ NGUỒN GỐC & QUYỀN SỬ DỤNG TÀI SẢN HÌNH ẢNH / PHÔNG CHỮ (ASSET PROVENANCE INVENTORY)
+## 7. MỤC 7: HỒ SƠ NGUỒN GỐC & QUYỀN SỬ DỤNG TÀI SẢN HÌNH ẢNH / PHÔNG CHỮ (ASSET PROVENANCE INVENTORY — ĐÃ NÂNG CẤP THEO AP-1 & AP-2)
 
-Toàn bộ tài sản được tham chiếu trong Mockup v2.1 (`docs/design/phase-3a-interactive-mockups.html`) nằm sẵn trong repository, **không tải bất kỳ tài nguyên nào từ bên ngoài** để Claude và Chủ dự án đều mở kiểm tra offline/online được ngay:
+Nhằm tuân thủ tuyệt đối **Chính sách hình ảnh đã phê duyệt (CEO Directive 009, 010-A, 018-A, 019-A)** và giải quyết dứt điểm các phát hiện **AP-1** (Hồ sơ nguồn gốc chi tiết) và **AP-2** (Loại bỏ ảnh có logo thương hiệu Champion) từ Báo cáo QA Claude 3A-02:
+1. **Toàn bộ tài sản được tham chiếu trong Mockup v2.2** (`docs/design/phase-3a-interactive-mockups.html`) nằm sẵn trong repository nội bộ, **không tải bất kỳ tài nguyên nào từ CDN bên ngoài** để đảm bảo khả năng kiểm tra offline và bảo vệ tính toàn vẹn bảo mật.
+2. **Quy tắc phân định trạng thái xác minh bản quyền:**
+   - **ĐÃ XÁC MINH (VERIFIED):** Tài sản sở hữu thương hiệu nội bộ của Bệnh viện hoặc phát hành theo giấy phép nguồn mở có văn bản chứng minh đầy đủ trong repository.
+   - **CHƯA XÁC MINH BẢN QUYỀN GỐC (UNVERIFIED):** Ảnh stock hoặc ảnh AI tạm thời được phép dùng cho bản dựng layout (Mockup / Preview) để kiểm thử giao diện; **tuyệt đối KHÔNG ĐƯỢC PHÁT HÀNH** ra môi trường công khai nếu chưa thay thế bằng ảnh chụp thực tế hoặc có giấy phép thương mại xác minh độc lập (`2B-06`).
+3. **Xử lý đặc biệt đối với `why-pet-companion.webp` (`AP-2` / `2B-29`):**
+   - Claude QA 3A-02 phát hiện tệp ảnh `why-pet-companion.webp` có logo thương hiệu áo chó **Champion** tại góc áo.
+   - **Hành động trong Giai đoạn 3A:** Đã gỡ bỏ 100% việc tham chiếu đến `why-pet-companion.webp` trong toàn bộ file Mockup HTML (`docs/design/phase-3a-interactive-mockups.html`) và Blueprint v2.2.
+   - **Hành động đối với Trang chủ Mốc 2B (`WhyChooseUs.tsx:30`):** Thực hiện nguyên tắc đóng băng Mốc 2B theo chỉ đạo CEO Directive 019-A, Antigravity **không tự ý sửa mã nguồn `src/`**; ghi nhận mục lỗi **`2B-29` (P2)** vào Sổ nhật ký bảo trì tại Mục 9.1 chờ quyết định và phân bổ công việc riêng từ CEO.
 
-| STT | Đường dẫn trong Repo | Loại tài sản | Nguồn gốc & Giấy phép (`docs/assets-credits.md`) | Cách sử dụng trong Mockup v2.1 & Điều kiện phát hành |
-| :---: | :--- | :--- | :--- | :--- |
-| 1 | `public/images/logo.png` | PNG Thương hiệu | Chủ dự án cung cấp — Sở hữu nội bộ Bệnh viện Thú y Lê Sơn (**Đã xác minh**). | Hiển thị trên Header & Footer của cả 3 trang. |
-| 2 | `public/fonts/lora-600.woff2`<br>`public/fonts/be-vietnam-pro-*.woff2` (6 file) | WOFF2 Fonts | SIL Open Font License 1.1 (`docs/licenses/OFL-Lora.txt`, `OFL-BeVietnamPro.txt` — **Đã xác minh**). | Nạp trực tiếp qua `@font-face` nội bộ theo đúng Phương án C (`230.2 KB`, 0 render-blocking, 0 Lora italic). |
-| 3 | **Inline Architectural SVG & Monogram Placeholders** | SVG nội tuyến | Do Antigravity thiết kế trực tiếp trong mã HTML của Mockup v2.1 (**100% Bản quyền nội bộ dự án**). | Dùng cho **100% khung chân dung nhân sự trên `/doi-ngu`** (`3A-P1-1`) và các khung sơ đồ phân khu, đảm bảo không mạo danh bất kỳ khuôn mặt người thật nào. |
-| 4 | `public/images/article-prevention.webp` | WebP Minh họa | Ảnh tạo bởi AI nội bộ dự án (Google Imagen 3 — chú chó lông vàng ấm áp trong phòng, không có người mặc áo blouse, không có logo bên thứ ba). | Dùng làm ảnh minh họa bố cục trên Preview/Mockup kèm nhãn trực tiếp `Ảnh minh họa — không phải cơ sở thực tế của Lê Sơn`. **Bắt buộc thay bằng ảnh thật trước khi phát hành (`2B-06`).** |
-| 5 | `public/images/article-nutrition.webp` | WebP Minh họa | Ảnh stock tĩnh vật bát thức ăn chăm sóc dinh dưỡng (không có người, không có nhãn hiệu). | Dùng làm ảnh minh họa góc chăm sóc nội trú trên Preview/Mockup kèm nhãn trực tiếp `Ảnh minh họa — không phải cơ sở thực tế của Lê Sơn`. **Bắt buộc thay bằng ảnh thật trước khi phát hành (`2B-06`).** |
-| 6 | `public/images/why-pet-companion.webp` | WebP Minh họa | Ảnh stock thú cưng thân thiện (không có người mặc áo blouse y tế). | Dùng làm ảnh minh họa trên `/gioi-thieu` kèm nhãn trực tiếp `Ảnh minh họa — không phải cơ sở thực tế của Lê Sơn`. **Bắt buộc thay bằng ảnh thật trước khi phát hành (`2B-06`).** |
+### Bảng Kê Chi Tiết Toàn Bộ Tài Sản Trong Giai Đoạn 3A (Asset Provenance Ledger — Chuẩn AP-1)
 
-*Lưu ý tuân thủ `3A-P1-1` & `3A-P2-2`:* Các file ảnh trong `public/images/` có hình người mặc áo blouse hoặc đồng phục y tế (`hero-vet-care.webp`, `hero-clinic-cuddle.webp`, `service-exam.webp`, `service-spa.webp`) **đã được loại bỏ hoàn toàn khỏi Mockup v2.1 của cả 3 trang Giai đoạn 3A**.
+| STT | Tên file & Đường dẫn Repo | Vị trí sử dụng trong Mockup 3A | Loại tài sản | Nguồn gốc / Nền tảng cung cấp | Tác giả / Chủ sở hữu | Giấy phép / Điều khoản áp dụng | Trạng thái xác minh | Cho phép trên Preview | Sẵn sàng phát hành (Production) | Ghi chú & Điều kiện trước phát hành |
+|:---:|:---|:---|:---|:---|:---|:---|:---:|:---:|:---:|:---|
+| 1 | `public/images/logo.png` | Header, Footer cả 3 trang (`/gioi-thieu`, `/doi-ngu`, `/co-so-vat-chat`) | PNG Thương hiệu | Do Chủ dự án cung cấp trực tiếp | Bệnh viện Thú y Lê Sơn | Sở hữu thương hiệu nội bộ bệnh viện | **ĐÃ XÁC MINH (VERIFIED)** | **CÓ** | **CÓ** | Biểu trưng chính thức duy nhất của cơ sở, hiển thị sắc nét, bảo toàn nhận diện. |
+| 2 | `public/fonts/be-vietnam-pro-400.woff2` | Body text, đoạn văn, mô tả | WOFF2 Font | Google Fonts OFL / Better Type Foundry (`docs/licenses/OFL-BeVietnamPro.txt`) | Fábio Duarte Martins, Vietanh Nguyen | SIL Open Font License 1.1 | **ĐÃ XÁC MINH (VERIFIED)** | **CÓ** | **CÓ** | Phông chữ hệ thống tự lưu trữ (self-hosted), không gọi bên thứ ba, 0 CLS. |
+| 3 | `public/fonts/be-vietnam-pro-500.woff2` | Nhãn phụ, thông số, badge | WOFF2 Font | Google Fonts OFL / Better Type Foundry (`docs/licenses/OFL-BeVietnamPro.txt`) | Fábio Duarte Martins, Vietanh Nguyen | SIL Open Font License 1.1 | **ĐÃ XÁC MINH (VERIFIED)** | **CÓ** | **CÓ** | Phục hồi trọng số Medium 500 chuẩn thiết kế theo Phương án C (Directive 011-A). |
+| 4 | `public/fonts/be-vietnam-pro-600.woff2` | Nút bấm, menu header, CTA, nhãn tab | WOFF2 Font | Google Fonts OFL / Better Type Foundry (`docs/licenses/OFL-BeVietnamPro.txt`) | Fábio Duarte Martins, Vietanh Nguyen | SIL Open Font License 1.1 | **ĐÃ XÁC MINH (VERIFIED)** | **CÓ** | **CÓ** | Phông quan trọng (Critical font), nạp ưu tiên cho tương tác người dùng. |
+| 5 | `public/fonts/be-vietnam-pro-700.woff2` | Eyebrow, số liệu nổi bật, nhấn mạnh | WOFF2 Font | Google Fonts OFL / Better Type Foundry (`docs/licenses/OFL-BeVietnamPro.txt`) | Fábio Duarte Martins, Vietanh Nguyen | SIL Open Font License 1.1 | **ĐÃ XÁC MINH (VERIFIED)** | **CÓ** | **CÓ** | Trọng số Bold chuẩn, không dùng font synthesis. |
+| 6 | `public/fonts/be-vietnam-pro-italic-400.woff2` | Ghi chú minh bạch, disclaimer | WOFF2 Font | Google Fonts OFL / Better Type Foundry (`docs/licenses/OFL-BeVietnamPro.txt`) | Fábio Duarte Martins, Vietanh Nguyen | SIL Open Font License 1.1 | **ĐÃ XÁC MINH (VERIFIED)** | **CÓ** | **CÓ** | Chữ nghiêng nguyên bản (True Italic) dùng cho ghi chú minh họa. |
+| 7 | `public/fonts/lora-600.woff2` | H1, H2, tiêu đề báo chí Editorial Luxury | WOFF2 Font | Google Fonts OFL / Cyreal Type (`docs/licenses/OFL-Lora.txt`) | Cyreal (Olga Karpushina, Alexei Vanyashin) | SIL Open Font License 1.1 | **ĐÃ XÁC MINH (VERIFIED)** | **CÓ** | **CÓ** | Tiêu đề báo chí chuẩn phong cách Vibrant Editorial Luxury đã nghiệm thu. |
+| 8 | **Inline Architectural SVG & Monogram** | 100% Khung chân dung nhân sự `/doi-ngu` & Phân khu chức năng `/co-so-vat-chat` | SVG nội tuyến | Antigravity trực tiếp lập trình trong mã HTML mockup | Dự án Bệnh viện Thú y Lê Sơn 2026 | Bản quyền nội bộ dự án | **ĐÃ XÁC MINH (VERIFIED)** | **CÓ** | **CÓ** | Đảm bảo 100% không mạo danh khuôn mặt người thật (`3A-P1-1`), độc lập hoàn toàn với hình ảnh bên ngoài. |
+| 9 | `public/images/article-prevention.webp` | Ảnh minh họa bố cục Section 1.2 (`/gioi-thieu`) & Section 3.2 Frame #01 (`/co-so-vat-chat`) | WebP Minh họa | Tạo lập bằng AI nội bộ dự án qua Imagen 3 | Antigravity AI Subagent | ĐKDV Google Generative AI (Sử dụng thử nghiệm phi độc quyền) | **CHƯA XÁC MINH BẢN QUYỀN GỐC (UNVERIFIED - TỰ KHAI AI)** | **CÓ** (Cho Preview/Mockup) | **KHÔNG** | Chú chó lông vàng trong nhà, không người mặc áo blouse y tế, không có logo. **Bắt buộc thay bằng ảnh chụp thực tế trước khi phát hành (`2B-06`).** |
+| 10 | `public/images/article-nutrition.webp` | Ảnh minh họa bố cục Section 1.2 (`/gioi-thieu`) & Section 3.2 Frame #02 (`/co-so-vat-chat`) | WebP Minh họa | Ảnh stock tĩnh vật dinh dưỡng (Unsplash/Pexels mockup placeholder) | Chưa xác định tác giả gốc (Unverified Stock) | Giấy phép miễn phí nền tảng stock (Mockup use only) | **CHƯA XÁC MINH BẢN QUYỀN GỐC (UNVERIFIED - STOCK)** | **CÓ** (Cho Preview/Mockup) | **KHÔNG** | Bát thức ăn chăm sóc thú cưng sạch sẽ, không người, không nhãn hiệu. **Bắt buộc thay bằng ảnh chụp thực tế trước khi phát hành (`2B-06`).** |
+| 11 | *(Đã loại bỏ)* `public/images/why-pet-companion.webp` | *(ĐÃ GỠ BỎ HOÀN TOÀN KHỎI MOCKUP 3A)* | WebP Stock | Nền tảng stock placeholder | Chưa xác minh tác giả | Giấy phép stock tạm thời | **CÓ LOGO BÊN THỨ BA (CHAMPION — AP-2)** | **KHÔNG DÙNG Ở 3A** | **KHÔNG** | **Đã gỡ bỏ khỏi 3A.** Ghi nhận lỗi `2B-29` cho Section 2 Trang chủ, bảo toàn `src/` theo quy chế đóng băng Mốc 2B. |
+
+*Lưu ý bảo vệ tính chuẩn mực y khoa (`3A-P1-1` & `3A-P2-2'):* Toàn bộ các file ảnh stock cũ có mặt người mặc áo blouse hoặc đồng phục y tế (`hero-vet-care.webp`, `hero-clinic-cuddle.webp`, `service-exam.webp`, `service-spa.webp`) **tuyệt đối không được xuất hiện trong Mockup và Thiết kế của 3 trang Giai đoạn 3A**.
 
 ---
 
-## 8. MỤC 8: BẢNG ĐỐI CHIẾU GIẢI QUYẾT TOÀN BỘ PHÁT HIỆN QA (MAPPING 2 P1, 11 P2 & 9 P3)
+## 8. MỤC 8: BẢNG ĐỐI CHIẾU GIẢI QUYẾT TOÀN BỘ PHÁT HIỆN QA (MAPPING QA 3A-01 & QA 3A-02)
+
+### 8.0. Bảng Đối Chiếu Giải Quyết 8 Phát Hiện Từ Báo Cáo Claude QA 3A-02 (`docs/qa/3a-design-qa-02.md`)
+
+| Mã QA | Mức | Mô tả phát hiện của Claude | Giải pháp đã thực hiện trong Blueprint v2.2 & Mockup HTML | Bằng chứng kiểm chứng | Kết luận |
+| :---: | :---: | :--- | :--- | :--- | :---: |
+| **V-P1-1** | **P1** | File mockup HTML trong repo bị **hỏng mã hóa UTF-8 (mojibake)** do PowerShell đọc dạng Windows-1252 rồi ghi lại: 280 dòng bị biến dạng ký tự tiếng Việt. | Đã viết lại toàn bộ file bằng script Node.js với mã hóa **UTF-8 thuần (No BOM)** và thiết lập chuẩn thẻ `<meta charset="UTF-8">`. Đã kiểm chứng 100% chuỗi ký tự tiếng Việt hiển thị sắc nét, không còn bất kỳ byte lỗi nào. | File `docs/design/phase-3a-interactive-mockups.html`; tiêu đề `<title>` và toàn bộ nội dung đọc trong sáng. | **FIXED** |
+| **AP-2** | **P2** | `why-pet-companion.webp` có **logo thương hiệu Champion** trên áo của chó, được dùng 2 lần trong mockup 3A và đang dùng trên trang chủ Mốc 2B (`WhyChooseUs.tsx:30`). | **Trong 3A:** Đã gỡ bỏ 100% hình ảnh này khỏi file Mockup và Blueprint v2.2, thay bằng ảnh minh họa sạch hoặc sơ đồ phân khu kiến trúc SVG.<br>**Đối với Trang chủ 2B:** Bảo toàn nguyên vẹn `src/` theo quy chế đóng băng Mốc 2B; ghi nhận mục lỗi **`2B-29` (P2)** vào Sổ nhật ký bảo trì để xử lý theo chỉ đạo riêng. | Mockup 3A không còn chứa chuỗi `why-pet-companion.webp`; Blueprint Mục 7 & Mục 9.1. | **FIXED (3A) & Ghi nhận 2B-29** |
+| **AP-1** | **P2** | Bảng nguồn ảnh (Blueprint mục 7) thiếu URL, tác giả, giấy phép và trạng thái xác minh rõ ràng. | Đã nâng cấp toàn diện Bảng Kê Chi Tiết Tài Sản (Asset Provenance Ledger) tại Mục 7 với 11 cột chuẩn mực: File repo, Vị trí 3A, Loại tài sản, Nguồn cung cấp, Tác giả, Giấy phép, Trạng thái xác minh (VERIFIED vs UNVERIFIED), Cho phép trên Preview, Sẵn sàng phát hành. | Blueprint Mục 7; `docs/qa/3a-design-handoff-03.md`. | **FIXED** |
+| **V-P2-2** | **P2** | Ghi chú QA và thuật ngữ dev còn lẫn vào nội dung trang khách hàng (ví dụ: `Mô phỏng sĩ số nhân sự nhóm Bác sĩ (Kiểm thử lưới cân bằng)`, v.v.). | Đã loại bỏ hoàn toàn các mã QA và thuật ngữ dev (`Kiểm thử lưới cân bằng`, `verified = false`, v.v.) khỏi nội dung hiển thị; thay bằng văn bản trung tính, lịch sự: *"Mô phỏng dự kiến cơ cấu nhân sự nhóm Bác sĩ"*. | File Mockup HTML; toàn bộ văn bản duyệt sạch bóng từ khóa QA nội bộ. | **FIXED** |
+| **V-P3-1** | **P3** | Mockup thiếu nút mở menu trên mobile (`Header` không bấm mở menu được trên màn hình hẹp). | Đã lập trình hoàn chỉnh **Menu Hamburger Mobile** (`.p3a-menu-toggle`) và **Khung Menu Trượt Xuống** (`#p3a-mobile-drawer`) với đầy đủ thuộc tính trợ năng `aria-expanded`, `aria-controls`, xử lý phím `Escape` và vùng chạm chuẩn 44px. | Mockup HTML: nút menu ở góc phải Header mobile và drawer trượt mượt mà. | **FIXED** |
+| **V-P3-2** | **P3** | Tại `/co-so-vat-chat` (Frame #04), nhãn phân khu bị đè lên khối chữ mô tả trên màn hình nhỏ. | Đã tái cấu trúc CSS và layout của Frame #04: nhãn phân khu được xếp độc lập ở hàng trên với khoảng cách an toàn (`margin-bottom: 0.5rem`), hoàn toàn không đè chữ ở mọi độ phân giải từ 320px đến 1920px. | Mockup HTML section 3.4; kiểm thử tại viewport 320px, 375px, 768px. | **FIXED** |
+| **V-P3-3** | **P3** | Vòng focus trên các nút và liên kết còn mảnh; các mục liên kết breadcrumb có vùng chạm nhỏ. | Đã nâng độ dày viền focus lên `2px solid var(--color-plum-primary)` kèm `outline-offset: 2px`; tăng vùng chạm liên kết breadcrumb đạt tối thiểu `44px` chiều cao (`min-height: 44px; display: inline-flex; align-items: center`). | Mockup CSS `.p3a-breadcrumb a` và `:focus`. | **FIXED** |
+| **V-P3-4** | **P3** | H1 trang `/co-so-vat-chat` đổi thành *"sạch sẽ, bố trí rõ ràng..."* vẫn là khẳng định tính chất vật lý chưa kiểm chứng. | Đã chuẩn hóa H1 thành cụm từ mô tả chức năng trung tính: *“Không gian thăm khám và quy hoạch các phân khu chức năng.”* | Blueprint Mục 2.3, 3.3; Mockup `#page-co-so-vat-chat h1`. | **FIXED** |
+| **V-P3-5** | **P3** | Các card trong cùng một hàng chưa cân bằng chiều cao trên một số viewport. | Đã chuẩn hóa lưới CSS Grid với `align-items: stretch` và thẻ con `display: flex; flex-direction: column; height: 100%`, đảm bảo tất cả các thẻ trong hàng có chiều cao đồng đều 100%. | Mockup CSS `.p3a-dept-grid`, `.p3a-spec-grid`. | **FIXED** |
+
+---
+
+## 8. MỤC 8: BẢNG ĐỐI CHIẾU GIẢI QUYẾT TOÀN BỘ PHÁT HIỆN QA TRƯỚC ĐÓ (MAPPING QA 3A-01: 2 P1, 11 P2 & 9 P3)
 
 Chúng tôi không tự ý đóng các vấn đề phụ thuộc vào quyết định hoặc dữ liệu thật của Chủ dự án. Dưới đây là bảng đối chiếu trung thực từng phát hiện trong `docs/qa/3a-design-qa-01.md`:
 
@@ -579,6 +628,14 @@ Chúng tôi không tự ý đóng các vấn đề phụ thuộc vào quyết đ
 - **R-3A-02 (Tailwind v4 Oxide quét file trong Repo):** Toàn bộ class trong `docs/design/phase-3a-interactive-mockups.html` được đặt tiền tố riêng `p3a-` và viết bằng CSS độc lập. Đã chạy `npm run build` kiểm chứng: SHA-256 của `dist/assets/index-vrX09Urw.css` (`ca6de747195a5550d80dc7ea59cc7ea8a43c51a9b77c07d596e79ffbefe66d87`) và `dist/assets/index-CvVwFN8Z.js` (`10f187c6990780a5a4417928e9ab313db068caffce0e988233b07cadba8be234`) **giữ nguyên 100% không đổi một byte**.
 - **R-3A-03 (Bảo toàn Bundle Trang chủ):** Khi triển khai code sẽ dùng `React.lazy()` cho cả 3 route Giai đoạn 3A theo Architecture Baseline V1.
 - **R-3A-04 (Bảo mật & Quyền riêng tư trong ảnh chụp thực tế — `3A-P3-5`):** Khi chụp ảnh thực tế cơ sở vật chất tại `101 Khuất Duy Tiến`, bắt buộc kiểm duyệt không để lọt thông tin cá nhân trên màn hình máy tính, bảng theo dõi nội trú hoặc hình ảnh khách hàng/thú cưng chưa có phiếu đồng ý (`Owner Consent Form`).
+- **R-3A-05 / Lỗi 2B-29 (P2 — Tồn đọng bảo trì Trang chủ Mốc 2B do Claude phát hiện tại QA 3A-02):**
+  - **Mô tả:** Tệp ảnh `public/images/why-pet-companion.webp` hiển thị logo thương hiệu **Champion** rõ ràng trên áo của chú chó. Tệp này đang được sử dụng tại Section 2 Trang chủ (`src/components/WhyChooseUs.tsx:30`).
+  - **Hành động trong Giai đoạn 3A:** Đã gỡ bỏ 100% hình ảnh này khỏi Mockup và tài liệu Blueprint v2.2.
+  - **Hành động đối với Trang chủ Mốc 2B:** Tuân thủ quy chế đóng băng Mốc 2B theo chỉ đạo CEO Directive 019-A, Antigravity **không tự ý sửa mã nguồn `src/`**. Lỗi được lập mã chính thức là **`2B-29` (P2)**, lưu trong sổ rủi ro bảo trì để CEO phân bổ nhiệm vụ xử lý (thay ảnh sạch hoặc làm mờ logo) theo đúng quy trình phối hợp.
+- **R-3A-05 / Lỗi 2B-29 (P2 — Tồn đọng bảo trì Trang chủ Mốc 2B do Claude phát hiện tại QA 3A-02):**
+  - **Mô tả:** Tệp ảnh `public/images/why-pet-companion.webp` hiển thị logo thương hiệu **Champion** rõ ràng trên áo của chú chó. Tệp này đang được sử dụng tại Section 2 Trang chủ (`src/components/WhyChooseUs.tsx:30`).
+  - **Hành động trong Giai đoạn 3A:** Đã gỡ bỏ 100% hình ảnh này khỏi Mockup và tài liệu Blueprint v2.2.
+  - **Hành động đối với Trang chủ Mốc 2B:** Tuân thủ quy chế đóng băng Mốc 2B theo chỉ đạo CEO Directive 019-A, Antigravity **không tự ý sửa mã nguồn `src/`**. Lỗi được lập mã chính thức là **`2B-29` (P2)**, lưu trong sổ rủi ro bảo trì để CEO phân bổ nhiệm vụ xử lý (thay ảnh sạch hoặc làm mờ logo) theo đúng quy trình phối hợp.
 
 ### 9.2. Năm Điểm Cần Chủ Dự Án Xác Nhận Trước Khi Chuyển Sang Triển Khai Code
 1. **Quyết định 1 — Đồng bộ 6 vị trí mô tả `"Bác sĩ trưởng Lê Thái Sơn"` trong Repo (`3A-P2-7`):**
