@@ -72,7 +72,7 @@ npm run build
   - `dist/assets/index-vrX09Urw.css` (61.36 kB, SHA-256: `ca6de747195a5550d80dc7ea59cc7ea8a43c51a9b77c07d596e79ffbefe66d87`)
 
 ### Bước 6: Loại bỏ thư mục `dist` trước khi tải lên Vercel
-Phân tích kỹ thuật của Antigravity phát hiện: Nếu thư mục `dist/` tồn tại khi chạy `vercel deploy`, Vercel CLI sẽ tải cả `dist/` lên máy chủ build, và Tailwind v4 sẽ quét ngược lại các file css trong `dist/`, nhận diện nhầm các từ khóa như `blur` và `filter` thành tiện ích CSS bổ sung.
+Phân tích kỹ thuật của Antigravity phát hiện: Nếu thư mục `dist/` tồn tại khi chạy `vercel deploy`, Vercel CLI sẽ tải cả `dist/` lên máy chủ build, và Tailwind v4 sẽ quét ngược lại các file css trong `dist/`, nhận diện nhầm các hàm CSS hiệu ứng làm mờ trong bundle cũ thành tiện ích CSS bổ sung.
 - Antigravity đã xóa sạch `dist/` và `.env.local` trước khi upload.
 - Số lượng file tải lên Vercel: Đúng chính xác **280 file** thuộc Git (không thừa bất kỳ file tạm hay file build cũ nào).
 
