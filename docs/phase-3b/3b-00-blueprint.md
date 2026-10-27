@@ -1,17 +1,17 @@
-# HỒ SƠ THIẾT KẾ CHI TIẾT GIAI ĐOẠN 3B — PHIÊN BẢN V1.0 (PHASE 3B-00 BLUEPRINT)
+# HỒ SƠ THIẾT KẾ CHI TIẾT GIAI ĐOẠN 3B — PHIÊN BẢN V1.1 (PHASE 3B-00 BLUEPRINT)
 ## Bệnh viện Thú y Lê Sơn 2026 — Kiến Trúc Tuyến Trang Dịch Vụ & Bảng Giá Niêm Yết
 
 | Hạng mục | Thông tin chi tiết |
 | :--- | :--- |
 | **Dự án** | Website Bệnh viện Thú y Lê Sơn 2026 (`lqt140304-rgb/webchinhthuc`) |
 | **Giai đoạn** | **3B-00: DOCUMENTATION & BLUEPRINT SPECIFICATION ONLY** |
-| **Căn cứ chỉ đạo** | **CEO DIRECTIVE 038-A**; `AGENTS.md` (Architecture Baseline V1); `PROJECT_BRIEF.md`; `docs/qa/3a-preview-fix01-qa.md` (Commit QA: `99a224a`) |
+| **Căn cứ chỉ đạo** | **CEO DIRECTIVE 042-A**; `AGENTS.md` (Architecture Baseline V1); `PROJECT_BRIEF.md`; Báo cáo Claude QA `docs/qa/3b-00-design-doc-qa.md` (Commit: `fa2dda2`) |
 | **Mã nguồn cơ sở 3A** | Commit `4739d45cc95100b587381b6bdcad6935352b23e8` (Nghiệm thu có điều kiện) |
-| **Tác giả thiết kế** | Antigravity — UX Architect & Design Planner |
+| **Tác giả thiết kế** | Antigravity — UX Architect & Documentation Owner |
 | **Thẩm định độc lập** | Claude — Independent QA Lead |
 | **Phạm vi tuyến trang** | **1. `/dich-vu`** (Trang tổng hợp dịch vụ y tế & chăm sóc)<br>**2. `/bang-gia`** (Trang biểu phí & bảng giá niêm yết tham chiếu) |
 | **Giới hạn nghiêm ngặt** | **TUYỆT ĐỐI KHÔNG mở trang chi tiết `/dich-vu/:slug` trong giai đoạn này**.<br>Không sửa source code, không sửa CSS, không can thiệp dependencies, không deploy Vercel, không merge `main`. |
-| **Trạng thái tài liệu** | **APPROVED FOR DOCUMENTATION ONLY — NO WEBSITE IMPLEMENTATION** |
+| **Trạng thái tài liệu** | **CHỜ CHỦ DỰ ÁN PHÊ DUYỆT (PENDING OWNER APPROVAL) — NO CODE IMPLEMENTATION** |
 
 ---
 
@@ -19,11 +19,13 @@
 
 1. [Mục 1: Sitemap & Cấu Trúc Điều Hướng Giai Đoạn 3B](#1-muc-1-sitemap--cau-truc-dieu-huong-giai-doan-3b)
 2. [Mục 2: Định Hướng Nghệ Thuật "Vibrant Editorial Luxury" & Hệ Thống Token](#2-muc-2-dinh-huong-nghe-thuat-vibrant-editorial-luxury--he-thong-token)
-3. [Mục 3: Đặc Tả Chi Tiết Tuyến Trang `/dich-vu`](#3-muc-3-dac-ta-chi-tiet-tuyen-trang-dich-vu)
-4. [Mục 4: Đặc Tả Chi Tiết Tuyến Trang `/bang-gia`](#4-muc-4-dac-ta-chi-tiet-tuyen-trang-bang-gia)
-5. [Mục 5: Kiến Trúc Cô Lập Bundle, Hiệu Năng & Ngăn Ngừa CLS](#5-muc-5-kien-truc-co-lap-bundle-hieu-nang--ngan-ngua-cls)
-6. [Mục 6: Ma Trận Trạng Thái Dữ Liệu & Quy Tắc Khóa Nội Dung (Content Lock)](#6-muc-6-ma-tran-trang-thai-du-lieu--quy-tac-khoa-noi-dung-content-lock)
-7. [Mục 7: Danh Mục Quyết Định Cần Chủ Dự Án Phê Duyệt Trước DEV-01](#7-muc-7-danh-muc-quyet-dinh-can-chu-du-an-phe-duyet-truoc-dev-01)
+3. [Mục 3: Taxonomy Chuẩn Hóa Duy Nhất Cho Giai Đoạn 3B](#3-muc-3-taxonomy-chuan-hoa-duy-nhat-cho-giai-doan-3b)
+4. [Mục 4: Đặc Tả Chi Tiết Tuyến Trang `/dich-vu`](#4-muc-4-dac-ta-chi-tiet-tuyen-trang-dich-vu)
+5. [Mục 5: Đặc Tả Chi Tiết Tuyến Trang `/bang-gia`](#5-muc-5-dac-ta-chi-tiet-tuyen-trang-bang-gia)
+6. [Mục 6: Kiến Trúc Cô Lập Bundle, Hiệu Năng & Ngăn Ngừa CLS](#6-muc-6-kien-truc-co-lap-bundle-hieu-nang--ngan-ngua-cls)
+7. [Mục 7: Khung Kiểm Soát Bằng Chứng & Khóa Nội Dung (Content Lock)](#7-muc-7-khung-kiem-soat-bang-chung--khoa-noi-dung-content-lock)
+8. [Mục 8: Danh Mục Phụ Thuộc Ngoài Phạm Vi (Out-of-Scope Dependencies)](#8-muc-8-danh-muc-phu-thuoc-ngoai-pham-vi-out-of-scope-dependencies)
+9. [Mục 9: Danh Mục 11 Quyết Định Mở Cần Chủ Dự Án Phê Duyệt (OPEN DECISIONS)](#9-muc-9-danh-muc-11-quyet-dinh-mo-can-chu-du-an-phe-duyet-open-decisions)
 
 ---
 
@@ -31,7 +33,7 @@
 
 ### 1.1. Phạm vi tuyến đường trong Giai đoạn 3B
 Giai đoạn 3B chỉ bao gồm đúng **hai (02) tuyến đường công khai**:
-- `/dich-vu`: Trang tổng quan toàn bộ hệ thống giải pháp y tế, chăm sóc nội trú, spa grooming và cấp cứu 24/24.
+- `/dich-vu`: Trang tổng quan toàn bộ hệ thống giải pháp y tế, xét nghiệm, phẫu thuật, chăm sóc nội trú và spa grooming.
 - `/bang-gia`: Trang công khai minh bạch nguyên tắc biểu phí, công cụ tra cứu dịch vụ và bảng giá tham chiếu.
 
 ```text
@@ -47,7 +49,7 @@ Public Website (RootLayout: Header + #main-content + Footer + MobileBottomBar)
 │   ├── /dich-vu (Trang tổng hợp dịch vụ y tế)
 │   └── /bang-gia (Trang bảng giá dịch vụ niêm yết)
 │
-├── /dat-lich (Đích đến chuyển đổi cho toàn bộ CTA của 3B)
+├── /dat-lich (Đích đến chuyển đổi cho CTA chính của 3B — Giữ nguyên component Mốc 2B)
 │
 └── [NGOÀI PHẠM VI 3B — KHÓA TUYỆT ĐỐI]:
     ├── /dich-vu/:slug (Chưa triển khai — Chờ phê duyệt ở giai đoạn sau)
@@ -58,24 +60,14 @@ Public Website (RootLayout: Header + #main-content + Footer + MobileBottomBar)
     └── /quan-ly/* (Staff Portal — Giai đoạn 4)
 ```
 
-### 1.2. Mối liên kết điều hướng (Incoming & Outgoing Topology)
-1. **Từ Header:**
-   - Menu desktop `Dịch vụ` (Dropdown):
-     - `Tất cả dịch vụ` $\to$ Liên kết đến `/dich-vu`.
-     - `Bảng giá niêm yết` $\to$ Liên kết đến `/bang-gia`.
-     - Các mục con chi tiết (Khám điều trị, Nội trú, Spa, Cấp cứu): Trong giai đoạn 3B-00, xác định các thẻ neo (anchor link) trực tiếp vào các nhóm section trên `/dich-vu` (ví dụ: `/dich-vu#kham-dieu-tri`, `/dich-vu#noi-tru`, `/dich-vu#spa`, `/dich-vu#cap-cuu`) thay vì dẫn về trang rỗng.
-   - Mobile Navigation Drawer: Nhóm accordion `Dịch vụ` trỏ tới `/dich-vu` và `/bang-gia`.
-2. **Từ Trang chủ (`/`):**
-   - Section 3 (`FeaturedServices`): Nút "Xem tất cả dịch vụ" $\to$ trỏ về `/dich-vu`.
-   - Các card dịch vụ tiêu biểu $\to$ trỏ về nhóm dịch vụ tương ứng trên `/dich-vu`.
-   - Thanh Cấp cứu 24/24 $\to$ liên kết gọi hotline trực tiếp `097 355 51 05` và nút quy trình neo về `/dich-vu#cap-cuu`.
-3. **Từ Footer:**
-   - Nhóm liên kết "Dịch vụ y tế" & "Bảng giá niêm yết" $\to$ trỏ chính xác về `/dich-vu` và `/bang-gia`.
-4. **Giữa `/dich-vu` và `/bang-gia`:**
-   - Trên `/dich-vu`: Tại mỗi nhóm dịch vụ và thanh CTA cuối trang đều có liên kết đối ứng: *"Xem bảng giá tham chiếu dịch vụ này"* $\to$ trỏ sang `/bang-gia?cat=[category-slug]`.
-   - Trên `/bang-gia`: Tại tiêu đề và từng dòng accordion có liên kết: *"Xem chi tiết mô tả dịch vụ"* $\to$ cuộn hoặc dẫn về nhóm nội dung trên `/dich-vu`.
-5. **Hướng chuyển đổi về `/dat-lich`:**
-   - Mọi nút CTA chính trên cả hai trang đều điều hướng về `/dat-lich` với query parameter định hướng dịch vụ (ví dụ: `/dat-lich?service=kham-tong-quat`).
+### 1.2. Mối liên kết điều hướng hiện hữu và phương án mặc định không sửa code
+1. **Liên kết hiện hữu trên Website (Mốc 2B):**
+   - Header hiện đang trỏ tới `/dich-vu` (mục "Tất cả dịch vụ"), `/bang-gia` (mục "Bảng giá niêm yết"), và 4 route con tĩnh dạng placeholder: `/dich-vu/kham-dieu-tri`, `/dich-vu/noi-tru`, `/dich-vu/spa`, `/dich-vu/cap-cuu`.
+   - Trang chủ Section 3 (`FeaturedServices`): Nút "Xem tất cả dịch vụ" trỏ về `/dich-vu`.
+   - Footer: Liên kết trỏ về `/dich-vu` và `/bang-gia`.
+2. **Phương án mặc định (Zero Code Modification):**
+   - Giữ nguyên 100% mã nguồn Header, Footer, và 4 route ComingSoon con trong giai đoạn 3B-00.
+   - Đề xuất chuyển 4 liên kết con sang anchor thẻ neo (`/dich-vu#kham-dieu-tri`, v.v.) được ghi nhận chính thức là **OPEN DECISION 3B-DEC-02**, chỉ triển khai khi chủ dự án phê duyệt nhiệm vụ cập nhật điều hướng riêng.
 
 ---
 
@@ -84,234 +76,262 @@ Public Website (RootLayout: Header + #main-content + Footer + MobileBottomBar)
 ### 2.1. Ngôn ngữ thiết kế nhất quán
 Hai trang Giai đoạn 3B tiếp tục kế thừa tuyệt đối nhận diện thương hiệu **Vibrant Editorial Luxury**:
 - **Không biến trang Dịch vụ thành Dashboard:** Tránh bố cục thẻ vụn vặt, tránh icon ma trận vô hồn. Bố cục mang phong cách tạp chí y khoa cao cấp (*Medical Journal Spread*), kết hợp dải tiêu đề ấn tượng, đường phân cách hairline thanh lịch và khoảng trắng thở rộng rãi.
-- **Trang Bảng giá tối ưu công năng nhưng chuẩn mực thẩm mỹ:** Khác với các bảng giá thương mại đại trà hoặc trang thương mại điện tử, Bảng giá Thú y Lê Sơn được thiết kế theo phong cách *Architectural Ledger* — bảng biểu tối giản, trang nhã, đường kẻ mảnh tinh tế, font số liệu rõ nét, dễ tra cứu trên màn hình nhỏ mà không cần zoom.
+- **Trang Bảng giá tối ưu công năng nhưng chuẩn mực thẩm mỹ:** Thiết kế theo phong cách *Architectural Ledger* — bảng biểu tối giản, trang nhã, đường kẻ mảnh tinh tế, font số liệu rõ nét, dễ tra cứu trên màn hình nhỏ mà không cần zoom.
 
 ### 2.2. Kế thừa Design Tokens chuẩn (`src/styles/tokens.css`)
 - **Typography:**
   - Tiêu đề chính (`h1`, `h2`, `h3`): Phông `Lora 600` (SemiBold, tự lưu trữ, `font-style: normal`). **Tuyệt đối không sử dụng Lora in nghiêng** để chống lỗi synthetic oblique.
-  - Văn bản, nhãn, dữ liệu, bảng tra cứu: Phông `Be Vietnam Pro` (`400` cho nội dung, `500` cho metadata, `600` cho CTA/tiêu đề cột bảng giá, `700` cho số hotline và giá).
-- **Màu sắc thương hiệu:**
-  - **Màu nền:** Ivory ấm (`--color-bg-primary`: `#FBF7F1`) cho nền chính; Lavender phớt (`--color-bg-secondary`: `#F8F2F9`) cho các khối ghi chú quy trình và dải filter; Trắng tuyệt đối (`--color-bg-card`: `#FFFFFF`) cho các hàng bảng giá và khối accordion nổi.
-  - **Màu chữ:** Plum đậm (`--color-plum-deep`: `#421247`) cho tiêu đề; Mận đen (`--color-fg-primary`: `#1A0A1C`) cho thân bài; Muted Plum (`--color-fg-muted`: `#554157`) đạt độ tương phản WCAG AA $> 4.5:1$ trên nền Ivory.
-  - **Màu nhấn y tế & cấp cứu:** Plum chủ đạo (`--color-plum-primary`: `#5A1E5E`) cho CTA dịch vụ; Warm Orange (`--color-warm-orange`: `#C2560C`) dành riêng cho cảnh báo cấp cứu khẩn cấp 24/24.
+  - Văn bản, nhãn, dữ liệu, bảng tra cứu: Phông `Be Vietnam Pro` (`400` cho nội dung, `500` cho metadata, `600` cho CTA/tiêu đề cột bảng giá, `700` cho số hotline).
+- **Màu sắc theo đúng Token CSS (Không dùng class màu Tailwind tùy tiện):**
+  - **Màu nền:** Ivory ấm (`var(--color-bg-primary)`: `#FBF7F1`) cho nền chính; Lavender phớt (`var(--color-bg-secondary)`: `#F8F2F9`) cho khối phụ; Trắng (`var(--color-bg-card)`: `#FFFFFF`) cho hàng bảng giá.
+  - **Màu chữ:** Plum đậm (`var(--color-plum-deep)`: `#421247`) cho tiêu đề; Mận đen (`var(--color-fg-primary)`: `#1A0A1C`) cho thân bài; Muted Plum (`var(--color-fg-muted)`: `#554157`) đạt độ tương phản WCAG AA $> 4.5:1$.
+  - **Màu nhấn y tế & cấp cứu:** Plum chủ đạo (`var(--color-plum-primary)`: `#5A1E5E`) cho CTA dịch vụ; Warm Orange (`var(--color-warm-orange)`: `#C2560C`) dành riêng cho cảnh báo cấp cứu khẩn cấp 24/24.
 - **Semantic Status Tokens cho Bảng giá:**
-  - `FIXED` / `RANGE` (Đã niêm yết): Nền xanh ngọc nhạt (`--color-status-success-bg: #F0FDF4`), viền `#86EFAC`, chữ `#166534`.
-  - `CONTACT` (Báo giá theo ca bệnh): Nền hổ phách nhạt (`--color-status-warning-bg: #FFFBEB`), viền `#FCD34D`, chữ `#92400E`.
-  - `UNAVAILABLE` (Đang cập nhật biểu phí): Nền tím nhạt lavender (`#F3E8F5`), viền `rgba(90, 30, 94, 0.20)`, chữ `--color-plum-primary` (`#5A1E5E`).
+  - `FIXED` / `RANGE` (Đã niêm yết): Nền `var(--color-status-success-bg)` (`#F0FDF4`), viền `var(--color-status-success-border)` (`#86EFAC`), chữ `var(--color-status-success-text)` (`#166534`).
+  - `CONTACT` (Báo giá theo ca bệnh): Nền `var(--color-status-warning-bg)` (`#FFFBEB`), viền `var(--color-status-warning-border)` (`#FCD34D`), chữ `var(--color-status-warning-text)` (`#92400E`).
+  - `UNAVAILABLE` (Đang cập nhật biểu phí): Nền `var(--color-bg-secondary)` (`#F8F2F9`), viền `var(--color-border-medium)` (`rgba(90, 30, 94, 0.22)`), chữ `var(--color-plum-primary)` (`#5A1E5E`).
 - **Touch Target & Phản hồi tương tác:**
   - Mọi nút bấm, tab lọc, tiêu đề accordion đạt kích thước vùng chạm tối thiểu **$44 \times 44\text{px}$** trên mọi thiết bị di động.
   - Hiệu ứng chuyển trạng thái nhẹ nhàng (`transition: 200ms cubic-bezier(0.16, 1, 0.3, 1)`), hỗ trợ đầy đủ `prefers-reduced-motion`.
 
 ---
 
-## 3. MỤC 3: ĐẶC TẢ CHI TIẾT TUYẾN TRANG `/dich-vu`
+## 3. MỤC 3: TAXONOMY CHUẨN HÓA DUY NHẤT CHO GIAI ĐOẠN 3B
 
-### 3.1. Phong cách & Cấu trúc trang
-Trang `/dich-vu` là bức tranh toàn cảnh về năng lực y khoa và tinh thần phụng sự của Bệnh viện Thú y Lê Sơn. Trang gồm **6 khu vực nội dung (sections)** được bố trí theo dòng chảy tâm lý chủ nuôi:
+Nhằm khắc phục triệt để lỗi lệch nhóm và lệch slug giữa các trang (3B00-P2-1), tài liệu thiết lập một **bộ danh mục chuẩn hóa duy nhất** gồm 5 nhóm dịch vụ được đề xuất sử dụng đồng bộ trên `/dich-vu`, `/bang-gia`, Content Mapping và Data Schema:
+
+| STT | Category ID | URL Slug | Tên nhóm danh mục đề xuất | Phạm vi chuyên môn dự kiến | Trạng thái xác minh |
+|:---:|---|---|---|---|---|
+| **01** | `cat-kham-dieu-tri` | `kham-dieu-tri` | **Khám & Điều trị lâm sàng** | Khám tổng quát, sàng lọc, tiêm phòng, điều trị nội khoa | `PROPOSED / PENDING` |
+| **02** | `cat-can-lam-sang` | `can-lam-sang` | **Chẩn đoán cận lâm sàng & Xét nghiệm** | Xét nghiệm huyết học, sinh hóa, X-quang, siêu âm, soi da | `PROPOSED / PENDING` |
+| **03** | `cat-phau-thuat` | `phau-thuat` | **Phẫu thuật ngoại khoa & Triệt sản** | Triệt sản an toàn chó mèo, tiểu phẫu, xử lý vết thương | `PROPOSED / PENDING` |
+| **04** | `cat-noi-tru` | `noi-tru` | **Chăm sóc nội trú y tế 24/7** | Lưu trú chăm sóc y tế, cách ly theo dõi | `PROPOSED / PENDING` |
+| **05** | `cat-spa-grooming` | `spa-grooming` | **Vệ sinh y tế & Spa Grooming** | Tắm vệ sinh tiêu chuẩn, cắt tỉa thẩm mỹ, tắm trị liệu da | `PROPOSED / PENDING` |
+
+*Ghi chú quan trọng:* 
+- Khối **Tiếp nhận Cấp cứu 24/24** được xác định là **Dải thông tin khẩn cấp / Gateway Bar** với thẻ neo `#cap-cuu`, không xếp vào nhóm danh mục biểu phí thương mại thông thường.
+- Cả 5 nhóm danh mục trên mang trạng thái **`PROPOSED / PENDING`** và được ghi nhận chính thức tại **OPEN DECISION 3B-DEC-05** để chờ chủ dự án phê duyệt trước khi code.
+- Tuyệt đối không hardcode số lượng dịch vụ cố định (ví dụ: "Tất cả (24)") trên giao diện khi chưa có dữ liệu thật.
+
+---
+
+## 4. MỤC 4: ĐẶC TẢ CHI TIẾT TUYẾN TRANG `/dich-vu`
+
+### 4.1. Cấu trúc tổng thể
+Trang `/dich-vu` gồm **6 khu vực nội dung (sections)** được bố trí theo dòng chảy thông tin:
 
 ```text
 Trang /dich-vu
 │
 ├── Section 1: Editorial Hero & Service Mission Anchor
-├── Section 2: Quick Category Navigation Strip (Thanh nhảy danh mục nhanh)
-├── Section 3: Bốn Khối Dịch Vụ Cốt Lõi (Core Medical Service Groups)
-│   ├── Nhóm 1: Khám Lâm Sàng & Điều Trị Chuyên Sâu
-│   ├── Nhóm 2: Chẩn Đoán Cận Lâm Sàng & Xét Nghiệm
-│   ├── Nhóm 3: Chăm Sóc Nội Trú Y Tế 24/7
-│   └── Nhóm 4: Vệ Sinh Y Tế & Spa Grooming Dịu Nhẹ
-├── Section 4: Dải Tiếp Nhận Cấp Cứu Khẩn Cấp 24/24
+├── Section 2: Quick Category Jump Bar (Thanh nhảy danh mục nhanh)
+├── Section 3: Năm Khối Dịch Vụ Cốt Lõi (Core Service Groups)
+│   ├── Khối 3.1: Khám & Điều trị lâm sàng (#kham-dieu-tri)
+│   ├── Khối 3.2: Chẩn đoán cận lâm sàng & Xét nghiệm (#can-lam-sang)
+│   ├── Khối 3.3: Phẫu thuật ngoại khoa & Triệt sản (#phau-thuat)
+│   ├── Khối 3.4: Chăm sóc nội trú y tế 24/7 (#noi-tru)
+│   └── Khối 3.5: Vệ sinh y tế & Spa Grooming (#spa-grooming)
+├── Section 4: Dải Tiếp Nhận Cấp Cứu Khẩn Cấp 24/24 (#cap-cuu)
 ├── Section 5: Hướng Dẫn & Lưu Ý Trước Khi Đưa Bé Đến Khám
 └── Section 6: Editorial Dark CTA — Chuyển Tiếp Sang Bảng Giá & Đặt Lịch
 ```
 
-### 3.2. Chi tiết từng Section trên `/dich-vu`
+### 4.2. Chi tiết từng Section trên `/dich-vu`
 
 #### Section 1: Editorial Hero & Service Mission Anchor
 - **Breadcrumb:** `Trang chủ` (`/`) `/` `Dịch vụ` (`aria-current="page"`).
 - **Tiêu đề Eyebrow:** `HỆ THỐNG DỊCH VỤ Y TẾ THÚ CƯNG LÊ SƠN`.
 - **Heading H1 (Lora 600):** `Chăm sóc chu toàn từ phòng khám đến khu nội trú`.
-- **Đoạn dẫn chính (Be Vietnam Pro 400, 16px/24px):**
-  > *"Chúng tôi hiểu rằng mỗi lần thú cưng thăm khám là một lần người bạn đồng hành cần sự dịu dàng và chuẩn xác cao nhất. Bệnh viện Thú y Lê Sơn xây dựng quy trình tiếp đón chu đáo, môi trường khử khuẩn an toàn và phác đồ điều trị được tư vấn minh bạch cùng chủ nuôi."*
+- **Đoạn dẫn chính:**
+  > *"Chúng tôi hiểu rằng mỗi lần thú cưng thăm khám là một lần người bạn đồng hành cần sự dịu dàng và cẩn trọng cao nhất. Bệnh viện Thú y Lê Sơn xây dựng quy trình tiếp đón chu đáo và phác đồ điều trị được tư vấn minh bạch cùng chủ nuôi."*
 - **Banner chính sách biên tập (Editorial Policy Banner):**
   - Nhãn: `[Thông báo chuẩn hóa danh mục]`
-  - Nội dung: *"Các dịch vụ dưới đây mô tả năng lực y khoa và các dịch vụ thực tế phục vụ tại 101 Khuất Duy Tiến. Chi phí và quy trình kỹ thuật chi tiết sẽ được bác sĩ trao đổi cụ thể sau khi thăm khám lâm sàng."*
+  - Nội dung: *"Các dịch vụ dưới đây mô tả định hướng chuyên môn y khoa và danh mục dự kiến phục vụ tại 101 Khuất Duy Tiến. Chi phí và quy trình kỹ thuật cụ thể sẽ được bác sĩ trao đổi trực tiếp sau khi thăm khám lâm sàng."*
 
-#### Section 2: Quick Category Navigation Strip (Thanh nhảy danh mục nhanh)
-- Thanh tab tĩnh dạng pill bo góc nhẹ (`rounded-xl`), dính nhẹ dưới header trên mobile khi cuộn (`sticky top-[73px]`):
-  - `Khám & Điều trị` (`#kham-dieu-tri`)
-  - `Cận lâm sàng & Xét nghiệm` (`#can-lam-sang`)
-  - `Nội trú 24/7` (`#noi-tru`)
-  - `Spa Grooming` (`#spa-grooming`)
-  - `Cấp cứu 24/24` (`#cap-cuu`)
-- Hỗ trợ cuộn mượt (`scroll-behavior: smooth`) và cập nhật active indicator dựa trên `IntersectionObserver`.
+#### Section 2: Quick Category Jump Bar (Thanh nhảy danh mục nhanh)
+- Thanh tab tĩnh dạng pill bo góc nhẹ (`rounded-xl`), có cơ chế dính khi cuộn (`sticky`):
+  - Offset vị trí dính: `top-[73px]` trên thiết bị di động (< 768px), `top-[81px]` trên máy tính bảng và máy tính để bàn ($\ge 768\text{px}$).
+  - 6 thẻ neo: `#kham-dieu-tri`, `#can-lam-sang`, `#phau-thuat`, `#noi-tru`, `#spa-grooming`, `#cap-cuu`.
+- Hỗ trợ cuộn mượt (`scroll-behavior: smooth`) và chuyển đổi tức thì khi người dùng bật `prefers-reduced-motion`.
 
-#### Section 3: Bốn Khối Dịch Vụ Cốt Lõi (Core Medical Service Groups)
+#### Section 3: Năm Khối Dịch Vụ Cốt Lõi
 
-##### Nhóm 3.1: Khám Lâm Sàng & Phẫu Thuật Điều Trị (`#kham-dieu-tri`)
+##### Khối 3.1: Khám & Điều Trị Lâm Sàng (`#kham-dieu-tri`)
 - **Bố cục:** *Asymmetric Editorial Split 7/5*.
 - **Cột thông tin (7/12 cột):**
   - Nhãn phân nhóm: `NHÓM 01 — Y KHOA LÂM SÀNG`
-  - Tiêu đề H2: `Thăm khám kỹ lưỡng, chẩn đoán đúng và điều trị tận gốc`
-  - Mô tả: Quy trình thăm khám cẩn trọng từng chỉ số sinh tồn (thân nhiệt, nhịp tim, niêm mạc, kiểm tra cơ quan vận động). Bác sĩ giải thích cặn kẽ nguyên nhân và phác đồ dự kiến.
-  - **Danh sách dịch vụ thành phần (dạng Hairline List):**
-    1. *Khám lâm sàng tổng quát & sàng lọc sức khỏe định kỳ.* [VERIFIED]
-    2. *Tiêm phòng vaccine & phòng ngừa ký sinh trùng nội/ngoại.* [VERIFIED]
-    3. *Phẫu thuật ngoại khoa mô mềm & triệt sản an toàn.* [VERIFIED — Bác sĩ Sơn phụ trách]
-    4. *Điều trị các bệnh lý nội khoa, tiêu hóa, hô hấp, da liễu.* [PENDING — Chuẩn hóa phác đồ]
-  - Liên kết phụ trợ: `Tra cứu bảng giá khám & phẫu thuật ->` (`/bang-gia?cat=kham-dieu-tri`).
+  - Tiêu đề H2: `Thăm khám cẩn trọng, chẩn đoán đúng và điều trị chu đáo`
+  - Mô tả: Quy trình kiểm tra các chỉ số sức khỏe cơ bản, lắng nghe phản ánh từ chủ nuôi và tư vấn phương án chăm sóc phù hợp.
+  - **Danh mục dịch vụ dự kiến (dạng Hairline List — PENDING):**
+    - *Khám lâm sàng tổng quát & sàng lọc sức khỏe định kỳ.* `[Đề xuất danh mục]`
+    - *Tiêm phòng vaccine & phòng ngừa ký sinh trùng.* `[Đề xuất danh mục]`
+    - *Điều trị bệnh lý nội khoa, tiêu hóa, hô hấp, da liễu.* `[Đề xuất danh mục]`
+  - Bác sĩ phụ trách: `Bác sĩ phụ trách lâm sàng [Chờ xác nhận phân công nhân sự]`.
+  - Liên kết phụ trợ: `Tra cứu bảng giá khám & điều trị ->` (`/bang-gia?cat=kham-dieu-tri`).
 - **Cột minh họa (5/12 cột):**
-  - Khung ảnh Editorial Photo Frame với ảnh chụp mèo/chó đang được thăm khám nhẹ nhàng.
-  - Nhãn ảnh: `Ảnh minh họa dịch vụ khám lâm sàng — không chụp nhân sự không xác định`.
+  - Khung ảnh Editorial Photo Frame với ảnh chụp mèo/chó được chăm sóc dịu dàng.
+  - Nhãn bắt buộc: `Ảnh minh họa dịch vụ — không chụp nhân sự không xác định`.
 
-##### Nhóm 3.2: Chẩn Đoán Cận Lâm Sàng & Xét Nghiệm (`#can-lam-sang`)
+##### Khối 3.2: Chẩn Đoán Cận Lâm Sàng & Xét Nghiệm (`#can-lam-sang`)
 - **Bố cục:** *Architectural Grid 3 cột*.
-- **Nội dung:**
-  - Nhãn phân nhóm: `NHÓM 02 — CHẨN ĐOÁN HÌNH ẢNH & XÉT NGHIỆM`
+- **Nội dung (PENDING — Chờ xác nhận cấu hình thiết bị thực tế):**
+  - Nhãn phân nhóm: `NHÓM 02 — CHẨN ĐOÁN CẬN LÂM SÀNG & XÉT NGHIỆM`
   - Tiêu đề H2: `Hỗ trợ chẩn đoán nhanh chóng và chuẩn xác`
   - 3 thẻ tính năng chuyên môn (Editorial Slot Box):
-    - *Xét nghiệm huyết học & sinh hóa máu:* Kiểm tra chức năng gan, thận, đường huyết, điện giải. [Đề xuất cấu hình xét nghiệm]
-    - *Chẩn đoán hình ảnh kỹ thuật số (X-quang / Siêu âm):* Tầm soát dị vật tiêu hóa, kiểm tra tổn thương xương khớp và ổ bụng. [Đề xuất cấu hình thiết bị]
-    - *Xét nghiệm ký sinh trùng & soi da:* Xác định nguyên nhân viêm da, nấm, ghẻ vi thể. [Đề xuất quy trình]
-  - Liên kết phụ trợ: `Xem bảng giá xét nghiệm tham chiếu ->` (`/bang-gia?cat=xet-nghiem`).
+    - *Xét nghiệm huyết học & sinh hóa:* Hỗ trợ đánh giá các chỉ số sức khỏe của thú cưng. `[Đề xuất danh mục xét nghiệm]`
+    - *Chẩn đoán hình ảnh (X-quang / Siêu âm):* Tầm soát dị vật và hỗ trợ đánh giá ổ bụng, xương khớp. `[Đề xuất cấu hình thiết bị]`
+    - *Xét nghiệm ký sinh trùng & soi da:* Hỗ trợ xác định các nguyên nhân gây viêm da, nấm ngứa. `[Đề xuất quy trình chẩn đoán]`
+  - Liên kết phụ trợ: `Xem bảng giá xét nghiệm tham chiếu ->` (`/bang-gia?cat=can-lam-sang`).
 
-##### Nhóm 3.3: Chăm Sóc Nội Trú Y Tế 24/7 (`#noi-tru`)
+##### Khối 3.3: Phẫu Thuật Ngoại Khoa & Triệt Sản (`#phau-thuat`)
+- **Bố cục:** *Editorial Split 6/6*.
+- **Nội dung (PENDING — Chờ phê duyệt quy chuẩn ngoại khoa):**
+  - Nhãn phân nhóm: `NHÓM 03 — PHẪU THUẬT & CAN THIỆP NGOẠI KHOA`
+  - Tiêu đề H2: `Quy trình ngoại khoa cẩn trọng và chuẩn bị chu đáo`
+  - Mô tả: Mọi can thiệp ngoại khoa đều được tư vấn cặn kẽ về chỉ định, thời gian hồi tỉnh và hướng dẫn chăm sóc vết thương tại nhà.
+  - Danh mục dự kiến: Triệt sản an toàn chó mèo, xử lý vết thương hở, tiểu phẫu mô mềm.
+  - Nhân sự thực hiện: `Bác sĩ ngoại khoa [Chờ phê duyệt phân công nhân sự]`. *(Tuyệt đối không tự gán tên BS. Sơn khi chưa có văn bản phê duyệt phạm vi trách nhiệm)*.
+  - Liên kết phụ trợ: `Xem bảng giá phẫu thuật tham chiếu ->` (`/bang-gia?cat=phau-thuat`).
+
+##### Khối 3.4: Chăm Sóc Nội Trú Y Tế 24/7 (`#noi-tru`)
 - **Bố cục:** *Lavender Full-width Container*.
-- **Nội dung:**
-  - Nhãn phân nhóm: `NHÓM 03 — LƯU TRÚ Y TẾ CHUYÊN BIỆT`
-  - Tiêu đề H2: `Khu nội trú yên tĩnh, kiểm soát lây nhiễm nghiêm ngặt`
-  - Nguyên tắc vận hành:
-    - *Phân khu cách ly:* Khu nội trú bệnh truyền nhiễm tách biệt tuyệt đối khỏi khu hồi sức sau mổ và khu thú cưng khỏe mạnh.
-    - *Theo dõi liên tục:* Đội ngũ trực đêm theo dõi sinh hiệu, hỗ trợ truyền dịch và cấp thuốc đúng giờ.
-    - *Cập nhật tình hình:* Thông báo định kỳ tình trạng ăn uống, bài tiết và phục hồi cho chủ nuôi. *(Không hiển thị y lệnh nội bộ trên cổng khách hàng).*
+- **Nội dung (PENDING — Chờ xác nhận quy chuẩn vận hành cơ sở):**
+  - Nhãn phân nhóm: `NHÓM 04 — LƯU TRÚ Y TẾ NỘI TRÚ`
+  - Tiêu đề H2: `Không gian lưu trú yên tĩnh và chế độ theo dõi phù hợp`
+  - Các định hướng vận hành đề xuất:
+    - *Khu vực lưu trú chuyên biệt:* Bố trí không gian phù hợp cho từng đối tượng thú cưng. `[Chờ xác nhận cơ cấu phân khu]`
+    - *Chế độ theo dõi:* Đội ngũ nhân viên hỗ trợ chăm sóc, cho ăn và theo dõi theo y lệnh. `[Chờ xác nhận quy trình kíp trực]`
+    - *Cập nhật tình hình:* Thông báo tình trạng phục hồi cho chủ nuôi. *(Không công khai y lệnh nghiệp vụ nội bộ trên cổng khách hàng).*
   - Liên kết phụ trợ: `Xem biểu phí nội trú lưu chuồng ->` (`/bang-gia?cat=noi-tru`).
 
-##### Nhóm 3.4: Vệ Sinh Y Tế & Spa Grooming (`#spa-grooming`)
+##### Khối 3.5: Vệ Sinh Y Tế & Spa Grooming (`#spa-grooming`)
 - **Bố cục:** *Editorial Split 6/6*.
-- **Nội dung:**
-  - Nhãn phân nhóm: `NHÓM 04 — SPA & CHĂM SÓC THẨM MỸ`
-  - Tiêu đề H2: `Vệ sinh êm ái, làm đẹp dịu nhẹ cho bé cưng`
-  - Mô tả: Sử dụng các dòng sữa tắm trị liệu phù hợp từng loại da lông. Quy trình vệ sinh móng, tai, vắt tuyến hôi thực hiện cẩn trọng, không gây căng thẳng tâm lý cho thú cưng.
-  - Các gói dịch vụ: Tắm vệ sinh tiêu chuẩn, Cắt tỉa tạo hình thẩm mỹ, Tắm trị liệu nấm/ve rận theo chỉ định bác sĩ.
-  - Liên kết phụ trợ: `Xem bảng giá dịch vụ spa grooming ->` (`/bang-gia?cat=spa`).
+- **Nội dung (PENDING):**
+  - Nhãn phân nhóm: `NHÓM 05 — SPA & CHĂM SÓC THẨM MỸ`
+  - Tiêu đề H2: `Vệ sinh êm ái, chăm sóc dịu nhẹ cho bé cưng`
+  - Mô tả: Sử dụng các sản phẩm vệ sinh da lông phù hợp, thao tác nhẹ nhàng giúp thú cưng thoải mái.
+  - Các gói dịch vụ đề xuất: Tắm vệ sinh tiêu chuẩn, Cắt tỉa tạo hình, Tắm chăm sóc da theo tư vấn.
+  - Liên kết phụ trợ: `Xem bảng giá dịch vụ spa grooming ->` (`/bang-gia?cat=spa-grooming`).
 
 #### Section 4: Dải Tiếp Nhận Cấp Cứu Khẩn Cấp 24/24 (`#cap-cuu`)
 - **Phong cách:** Kế thừa dải Cấp cứu Warm Orange đã nghiệm thu tại Section 3 Trang chủ.
 - **Nội dung:**
-  - Biểu tượng `ShieldAlert` màu cam ấm nổi bật trên nền gradient `from-amber-50 to-orange-50`.
+  - Biểu tượng `ShieldAlert` màu cam ấm nổi bật trên nền gradient ấm.
   - Tiêu đề: `Tiếp nhận Cấp Cứu Thú Cưng 24/24 tại 101 Khuất Duy Tiến`.
-  - Hướng dẫn dấu hiệu khẩn cấp: Khó thở, co giật, nuốt dị vật, ngộ độc, chấn thương giao thông hoặc xuất huyết.
-  - Nút bấm trực tiếp: `Gọi Cấp cứu: 097 355 51 05` (`tel:0973555105`).
+  - Dấu hiệu khẩn tham khảo: Khó thở, co giật, nuốt dị vật, chấn thương hoặc xuất huyết. `[Thông tin hướng dẫn tham khảo — Chờ bác sĩ xác nhận]`
+  - Nút gọi khẩn trực tiếp: `Gọi Cấp cứu: 097 355 51 05` (`tel:0973555105`).
 
 #### Section 5: Hướng Dẫn & Lưu Ý Trước Khi Đưa Bé Đến Khám
 - **Bố cục:** *Architectural Numbered Triptych 01–03*.
-- **Mục đích y khoa:** Giúp chủ nuôi chuẩn bị tốt nhất, đảm bảo tính chính xác của xét nghiệm và an toàn khi di chuyển:
-  1. *Lưu ý 01 — Nhịn ăn đối với xét nghiệm máu hoặc phẫu thuật:* Khuyến cáo nhịn ăn từ 6–8 tiếng trước khi làm xét nghiệm sinh hóa máu hoặc phẫu thuật gây mê (trừ trường hợp khẩn cấp).
-  2. *Lưu ý 02 — Vận chuyển an toàn:* Sử dụng lồng vận chuyển (cát/chó nhỏ) hoặc dây xích an toàn để tránh thú cưng hoảng sợ, chạy thoát hoặc va chạm với các bé khác tại phòng chờ.
-  3. *Lưu ý 03 — Mang theo sổ y bạ & thông tin thuốc:* Cung cấp lịch sử tiêm phòng, sổ tiêm hoặc các loại thuốc/thực phẩm thú cưng đang dùng để bác sĩ có dữ liệu chẩn đoán nhanh chóng.
+- **Nội dung (PENDING — Khuyến cáo y khoa tham khảo, chờ bác sĩ ký duyệt):**
+  1. *Lưu ý 01 — Chuẩn bị trước khi xét nghiệm hoặc can thiệp:* Nên trao đổi trước với bác sĩ về việc nhịn ăn/uống nếu có chỉ định xét nghiệm sinh hóa hoặc can thiệp đặc thù. `[Đề xuất hướng dẫn]`
+  2. *Lưu ý 02 — Vận chuyển an toàn:* Khuyến khích sử dụng lồng vận chuyển chuyên dụng hoặc dây dắt an toàn để bảo vệ thú cưng khi di chuyển và tại phòng chờ.
+  3. *Lưu ý 03 — Cung cấp thông tin sức khỏe:* Mang theo sổ theo dõi tiêm phòng hoặc thông tin thuốc/thức ăn bé đang sử dụng để hỗ trợ bác sĩ nắm bắt bệnh sử.
 
 #### Section 6: Editorial Dark CTA — Chuyển Tiếp Sang Bảng Giá & Đặt Lịch
-- **Phong cách:** Kế thừa component `EditorialDarkCTA` trên nền Deep Plum (`--color-bg-dark: #421247`).
+- **Phong cách:** Component `EditorialDarkCTA` trên nền Deep Plum (`--color-bg-dark: #421247`).
 - **Nội dung:**
   - Tiêu đề: `Bạn cần tư vấn dịch vụ phù hợp cho bé?`
-  - Mô tả: `Đội ngũ Bệnh viện Thú y Lê Sơn luôn sẵn sàng lắng nghe tình trạng của bé và hỗ trợ sắp xếp lịch khám chu đáo nhất.`
+  - Mô tả: `Đội ngũ Bệnh viện Thú y Lê Sơn luôn sẵn sàng lắng nghe tình trạng của bé và hỗ trợ giải đáp thắc mắc chu đáo.`
   - Cặp nút hành động:
-    - Nút 1 (Primary Plum/White): `Đặt lịch khám online` trỏ sang `/dat-lich`.
+    - Nút 1 (Primary Plum/White): `Đặt lịch khám` trỏ sang `/dat-lich`.
     - Nút 2 (Outline White): `Xem bảng giá dịch vụ` trỏ sang `/bang-gia`.
 
 ---
 
-## 4. MỤC 4: ĐẶC TẢ CHI TIẾT TUYẾN TRANG `/bang-gia`
+## 5. MỤC 5: ĐẶC TẢ CHI TIẾT TUYẾN TRANG `/bang-gia`
 
-### 4.1. Định hướng trải nghiệm (UX Philosophy)
-Trang `/bang-gia` là công cụ minh bạch thông tin cốt lõi giúp chủ nuôi an tâm trước khi đưa thú cưng đi khám. Thiết kế tuân thủ các nguyên tắc:
-1. **Minh bạch và thực tế:** Y tế thú y có tính chất cá thể hóa cao (tùy thuộc cân nặng, độ tuổi, mức độ nhiễm khuẩn). Do đó bảng giá cần giải thích rõ bản chất chi phí tham chiếu, tránh tạo cam kết cứng nhắc gây tranh chấp.
-2. **Không giá giả — Không số liệu mô phỏng công khai:** Tuyệt đối không đưa số tiền tự bịa đặt vào giao diện. Các mục chưa có số liệu được hiển thị dưới nhãn trung tính `Đang cập nhật biểu phí niêm yết` hoặc `Báo giá sau khám lâm sàng`.
-3. **Tra cứu siêu tốc & Lọc thông minh:** Cho phép tìm kiếm tức thời bằng thanh search và tab lọc danh mục không tải lại trang.
+### 5.1. Định hướng trải nghiệm & Nguyên tắc bảo vệ giá
+Trang `/bang-gia` được thiết kế theo các nguyên tắc minh bạch:
+1. **Tuyệt đối không hiển thị giá giả:** Mọi dịch vụ chưa có biểu phí chính thức được ký duyệt phải hiển thị trạng thái `UNAVAILABLE` (`Đang cập nhật biểu phí niêm yết`) hoặc `CONTACT` (`Báo giá sau khám lâm sàng`).
+2. **Không dùng `0 VNĐ` cho dữ liệu thiếu:** Không đồng nhất thiếu giá với miễn phí.
+3. **Tra cứu tức thời & Không giật layout (Zero CLS):** Khung chứa bảng giá có `min-height` cố định, chuyển tab không làm co sập trang.
 
 ```text
 Trang /bang-gia
 │
 ├── Section 1: Page Heading & Price Policy Disclaimer Banner
-├── Section 2: Search & Filter Toolbar (Tìm kiếm & Tab danh mục)
+├── Section 2: Search & Filter Toolbar (Tìm kiếm & 5 Tab danh mục chuẩn)
 ├── Section 3: Bảng Biểu Phí Dạng Accordion Có Cấu Trúc (Structured Price Accordion)
-│   ├── Nhóm 1: Khám Lâm Sàng & Thủ Thuật Cơ Bản
-│   ├── Nhóm 2: Cận Lâm Sàng, Chẩn Đoán Hình Ảnh & Xét Nghiệm
-│   ├── Nhóm 3: Phẫu Thuật Ngoại Khoa & Triệt Sản
-│   ├── Nhóm 4: Chăm Sóc Nội Trú Y Tế 24/7
-│   └── Nhóm 5: Dịch Vụ Vệ Sinh & Spa Grooming
+│   ├── Nhóm 1: Khám & Điều trị lâm sàng (cat-kham-dieu-tri)
+│   ├── Nhóm 2: Chẩn đoán cận lâm sàng & Xét nghiệm (cat-can-lam-sang)
+│   ├── Nhóm 3: Phẫu thuật ngoại khoa & Triệt sản (cat-phau-thuat)
+│   ├── Nhóm 4: Chăm sóc nội trú y tế 24/7 (cat-noi-tru)
+│   └── Nhóm 5: Vệ sinh y tế & Spa Grooming (cat-spa-grooming)
 ├── Section 4: Hướng Dẫn Quy Trình Tiếp Nhận & Báo Giá Minh Bạch (3 Bước)
 └── Section 5: Editorial Dark CTA — Đặt Hẹn & Tư Vấn Chi Phí
 ```
 
-### 4.2. Chi tiết từng Section trên `/bang-gia`
+### 5.2. Chi tiết từng Section trên `/bang-gia`
 
 #### Section 1: Page Heading & Price Policy Disclaimer Banner
 - **Breadcrumb:** `Trang chủ` (`/`) `/` `Dịch vụ` (`/dich-vu`) `/` `Bảng giá niêm yết` (`aria-current="page"`).
 - **Tiêu đề Eyebrow:** `MINH BẠCH CHI PHÍ Y TẾ THÚ CƯNG`.
 - **Heading H1 (Lora 600):** `Bảng giá dịch vụ & biểu phí tham chiếu`.
 - **Đoạn dẫn chính:**
-  > *"Bệnh viện Thú y Lê Sơn cam kết thông báo rõ ràng mọi chi phí dự kiến trước khi tiến hành điều trị. Chúng tôi tôn trọng quyền đồng thuận của chủ nuôi đối với từng bước trong phác đồ y khoa."*
+  > *"Bệnh viện Thú y Lê Sơn hướng tới sự minh bạch và rõ ràng trong tư vấn chi phí. Chúng tôi khuyến khích chủ nuôi trao đổi cặn kẽ cùng bác sĩ để lựa chọn phương án chăm sóc phù hợp nhất cho thú cưng."*
 - **Banner quy định biến động giá y khoa (Price Policy Banner):**
-  - Khung viền mảnh màu Lavender/Border-medium, nền Ivory ấm (`bg-amber-50/60 border-amber-200/80`).
+  - Khung viền mỏng theo Token CSS (`border border-[var(--color-border-medium)] bg-[var(--color-bg-secondary)]`).
   - Biểu tượng thông tin `Info`.
-  - **Nội dung xác minh:**
-    - *"1. Chi phí y tế có thể thay đổi tùy theo cân nặng, giống loài, tiền sử bệnh và mức độ nghiêm trọng thực tế của ca bệnh."*
-    - *"2. Bác sĩ luôn trao đổi cặn kẽ và lập phiếu dự toán chi phí trước khi thực hiện phẫu thuật, can thiệp chuyên sâu hoặc tiếp nhận nội trú."*
-    - *"3. Dịch vụ cấp cứu đêm và ngày lễ có thể áp dụng phụ phí phục vụ ngoài giờ y tế theo quy chế phòng khám."*
+  - **Nội dung định hướng (PENDING — Chờ chủ dự án phê duyệt quy chế):**
+    - *"1. Chi phí y tế có thể thay đổi tùy thuộc vào cân nặng, giống loài và mức độ diễn biến thực tế của ca bệnh."*
+    - *"2. Bác sĩ luôn trao đổi phương án và giải thích chi tiết các khoản dự toán trước khi thực hiện can thiệp chuyên sâu hoặc tiếp nhận nội trú."*
+    - *"3. Chính sách phụ phí ngoài giờ y tế (nếu có) sẽ được thông báo cụ thể khi tiếp nhận cấp cứu đêm hoặc ngày lễ."*
 
-#### Section 2: Search & Filter Toolbar (Tìm kiếm & Tab danh mục)
+#### Section 2: Search & Filter Toolbar (Tìm kiếm & 5 Tab danh mục chuẩn)
 - **Thanh tìm kiếm (Accessible Search Input):**
   - Ô nhập liệu dạng thanh mảnh, bo góc nhẹ (`rounded-xl`), có icon kính lúp (`Search`), nút xóa nhanh (`X`) khi có chữ.
-  - Placeholder: `Tìm tên dịch vụ, xét nghiệm, gói spa (ví dụ: siêu âm, triệt sản, tắm dưỡng...)...`
+  - Placeholder: `Tìm tên dịch vụ, xét nghiệm, gói spa (ví dụ: siêu âm, triệt sản...)...` *(Đã bỏ chữ "giá" khỏi placeholder theo góp ý P3)*.
   - Nhãn ẩn hỗ trợ đọc màn hình: `aria-label="Tìm kiếm dịch vụ trong bảng giá"`.
-  - Cơ chế tìm kiếm: Khớp chuỗi không dấu (chữ thường, chữ hoa tiếng Việt), lọc đồng thời theo tên và mô tả dịch vụ.
-- **Thanh phân loại (Category Filter Tabs):**
+  - Cơ chế tìm kiếm: Khớp chuỗi không dấu (chữ thường, chữ hoa tiếng Việt), quét qua tên dịch vụ, mô tả và tên danh mục.
+- **Thanh phân loại 5 Tab chuẩn (Category Filter Tabs):**
   - Danh sách tab dạng horizontal scrollable pills trên mobile:
-    1. `Tất cả dịch vụ` (`all`)
-    2. `Khám & Thủ thuật` (`kham-thu-thuat`)
-    3. `Xét nghiệm & Cận lâm sàng` (`xet-nghiem`)
-    4. `Phẫu thuật ngoại khoa` (`phau-thuat`)
+    1. `Tất cả` (`all`)
+    2. `Khám & Điều trị` (`kham-dieu-tri`)
+    3. `Xét nghiệm & Cận lâm sàng` (`can-lam-sang`)
+    4. `Phẫu thuật & Triệt sản` (`phau-thuat`)
     5. `Nội trú 24/7` (`noi-tru`)
-    6. `Spa & Grooming` (`spa`)
-  - Hiển thị số lượng mục khớp điều kiện bên cạnh tab (ví dụ: `Khám & Thủ thuật (4)`).
-  - Trạng thái Active: Nền Plum (`--color-plum-primary`), chữ trắng, viền rõ.
-  - Trạng thái Inactive: Nền trắng (`--color-bg-card`), viền mảnh (`--color-border-medium`), chữ `--color-fg-muted`.
+    6. `Spa & Grooming` (`spa-grooming`)
+  - Không hardcode số lượng dịch vụ cố định; hiển thị số đếm động từ dữ liệu hoặc ẩn số đếm khi chưa có biểu phí chính thức.
+  - Trạng thái Active: Nền Plum (`var(--color-plum-primary)`), chữ trắng.
+  - Trạng thái Inactive: Nền trắng (`var(--color-bg-card)`), viền mảnh (`var(--color-border-medium)`), chữ `var(--color-fg-muted)`.
 
 #### Section 3: Bảng Biểu Phí Dạng Accordion Có Cấu Trúc
-Bảng giá được chia thành các nhóm danh mục. Mỗi dịch vụ là một hàng accordion tương tác (`ServicePriceRow`):
+Bảng giá được chia thành 5 nhóm danh mục chuẩn. Mỗi dịch vụ là một hàng accordion tương tác (`ServicePriceRow`):
 - **Cấu trúc hàng hiển thị tóm tắt (Accordion Trigger Header):**
-  - Cột 1 (Trái): Tên dịch vụ (Be Vietnam Pro 600, 15px) + Nhãn phân loại nhỏ.
+  - Cột 1 (Trái): Tên dịch vụ (Be Vietnam Pro 600, 15px) + Nhãn nhóm danh mục nhỏ.
   - Cột 2 (Giữa): Đơn vị tính (Ví dụ: `Lần`, `Ngày`, `Ca`).
-  - Cột 3 (Phải): Khung hiển thị giá / Trạng thái giá:
-    - Nếu `FIXED`: Hiển thị số tiền kèm `VNĐ` (Ví dụ: `150.000 VNĐ`). *(Chỉ hiển thị khi có dữ liệu thật đã xác minh)*.
-    - Nếu `RANGE`: Hiển thị khoảng giá (Ví dụ: `300.000 – 600.000 VNĐ`). *(Chỉ hiển thị khi có dữ liệu thật đã xác minh)*.
-    - Nếu `CONTACT`: Badge hổ phách `Báo giá sau khám lâm sàng`.
+  - Cột 3 (Phải): Badge trạng thái giá trung tính:
     - Nếu `UNAVAILABLE`: Badge tím nhạt `Đang cập nhật biểu phí niêm yết`.
+    - Nếu `CONTACT`: Badge hổ phách `Báo giá sau khám lâm sàng`.
+    - Nếu `FIXED` (khi có văn bản duyệt): `[Số tiền niêm yết] VNĐ`.
+    - Nếu `RANGE` (khi có văn bản duyệt): `[Giá sàn] – [Giá trần] VNĐ`.
   - Icon mũi tên xoay `ChevronDown` báo hiệu trạng thái mở rộng.
 - **Cấu trúc nội dung mở rộng (Accordion Panel Content):**
-  - Khi người dùng click hoặc ấn phím Space/Enter, panel bung mở:
-    - *Bao gồm trong dịch vụ:* Mô tả chi tiết những bước thực hiện trong dịch vụ (Ví dụ: đo sinh hiệu, tư vấn dinh dưỡng, sổ khám bệnh).
-    - *Ghi chú y khoa & điều kiện áp dụng:* Lưu ý cân nặng, chế độ theo dõi sau thủ thuật.
-    - *Nút hành động nhanh:* Nút nhỏ `Đặt lịch dịch vụ này` trỏ sang `/dat-lich?service=[service-slug]`.
+  - Khi bung mở:
+    - *Nội dung bao gồm:* Mô tả tóm tắt các bước thực hiện cơ bản.
+    - *Lưu ý y khoa:* Ghi chú điều kiện chuẩn bị hoặc yếu tố ảnh hưởng.
+    - *Thông báo minh bạch:* *"Biểu phí chính thức đang được phòng khám đối chiếu ban hành. Quý khách vui lòng liên hệ hotline 097 355 51 05 hoặc đặt lịch để được bác sĩ thông báo dự toán chi phí cụ thể."*
+    - *Nút hành động:* Nút nhỏ `Đặt lịch khám` trỏ sang `/dat-lich`.
 
 #### Section 4: Hướng Dẫn Quy Trình Tiếp Nhận & Báo Giá Minh Bạch
 - **Bố cục:** *Architectural Hairline Ledger 3 Bước (01 — 02 — 03)*:
-  - `Bước 01 — Thăm khám & Khảo sát lâm sàng:` Bác sĩ tiến hành kiểm tra tổng quát thể trạng của bé và lắng nghe phản ánh từ chủ nuôi.
-  - `Bước 02 — Tư vấn phác đồ & Báo giá chi tiết:` Đưa ra các phương án điều trị cần thiết, giải thích mục đích từng chỉ định và cung cấp bảng dự toán chi phí trọn gói.
-  - `Bước 03 — Thực hiện điều trị theo đồng thuận:` Bệnh viện chỉ tiến hành các thủ thuật y tế khi có sự thống nhất hoàn toàn của chủ nuôi. Không phát sinh chi phí ngoài dự toán nếu không có trao đổi trước.
+  - `Bước 01 — Thăm khám & Đánh giá lâm sàng:` Bác sĩ kiểm tra tình trạng thực tế của bé và lắng nghe phản ánh từ chủ nuôi.
+  - `Bước 02 — Tư vấn phác đồ & Giải thích dự toán chi phí:` Đưa ra các phương án điều trị cần thiết, giải thích mục đích từng chỉ định và thông báo chi phí dự toán.
+  - `Bước 03 — Thực hiện theo thỏa thuận đồng thuận:` Phòng khám chỉ tiến hành can thiệp y tế khi có sự thống nhất của chủ nuôi. Mọi phát sinh (nếu có) đều được trao đổi trước.
 
 #### Section 5: Editorial Dark CTA — Đặt Hẹn & Tư Vấn Chi Phí
-- Khối CTA nền Deep Plum (`--color-bg-dark: #421247`) tiếp sức cho chủ nuôi:
+- Khối CTA nền Deep Plum (`--color-bg-dark: #421247`):
   - Tiêu đề: `Bạn cần tư vấn chi phí cụ thể cho trường hợp của bé?`
-  - Mô tả: `Liên hệ hotline hoặc gửi thông tin để được bác sĩ trực trao đổi sơ bộ tình trạng và hướng dẫn chuẩn bị.`
+  - Mô tả: `Liên hệ hotline hoặc gửi thông tin để được đội ngũ phòng khám hỗ trợ trao đổi sơ bộ tình trạng và hướng dẫn chuẩn bị.`
   - Nút chính: `Đăng ký lịch khám ngay` (`/dat-lich`) & Nút gọi: `Hotline: 097 355 51 05` (`tel:0973555105`).
 
 ---
 
-## 5. MỤC 5: KIẾN TRÚC CÔ LẬP BUNDLE, HIỆU NĂNG & NGĂN NGỪA CLS
+## 6. MỤC 6: KIẾN TRÚC CÔ LẬP BUNDLE, HIỆU NĂNG & NGĂN NGỪA CLS
 
-### 5.1. Kiến trúc phân tách Bundle theo Architecture Baseline V1
-- Theo quy chế `AGENTS.md`, hai trang `/dich-vu` và `/bang-gia` thuộc **Public Website**, được phân tách bundle độc lập bằng `React.lazy()`:
+### 6.1. Phân tách Bundle theo Architecture Baseline V1
+- Hai trang `/dich-vu` và `/bang-gia` thuộc **Public Website**, được phân tách bundle độc lập bằng `React.lazy()`:
   ```tsx
   const ServicesPage = lazy(() => import('@/pages/ServicesPage'))
   const PricingPage = lazy(() => import('@/pages/PricingPage'))
@@ -319,39 +339,51 @@ Bảng giá được chia thành các nhóm danh mục. Mỗi dịch vụ là m�
 - **Cô lập hoàn toàn khỏi Portal nội bộ:** Tuyệt đối không import bất kỳ component hay logic nào của `/tai-khoan/*` (Customer Portal) hoặc `/quan-ly/*` (Staff Portal) vào bundle của 3B.
 - Giữ nguyên `PageLoadingFallback` với `min-h-screen flex items-center justify-center bg-[var(--color-bg-primary)]` và `role="status"` đã được nghiệm thu tại DEV-01 Fix 01 nhằm bảo đảm **CLS = 0.000**.
 
-### 5.2. Biện pháp kỹ thuật loại trừ triệt để CLS trên `/bang-gia`
-Trang bảng giá có đặc thù tương tác lọc và tìm kiếm động dễ gây dịch chuyển bố cục (layout shift). Blueprint đặt ra 4 quy tắc chống CLS:
-1. **Khung chứa danh sách có `min-height` dự phòng:** Khi lọc hoặc tìm kiếm, vùng danh sách dịch vụ luôn giữ một chiều cao tối thiểu (`min-h-[400px]`), tránh hiện tượng Footer bị giật lên vị trí giữa màn hình rồi bị đẩy xuống.
-2. **Animation Accordion dùng CSS Grid Frac / Max-Height có kiểm soát:** Chuyển động đóng/mở panel dùng `grid-template-rows: 0fr -> 1fr` hoặc `max-height` mượt mà, không thay đổi padding của container bên ngoài.
-3. **Thanh tìm kiếm và tabs cố định kích thước:** Chiều cao của Toolbar tìm kiếm được định hình bằng hằng số cố định (`h-12` = 48px), không co giãn khi nhập liệu.
-4. **Trạng thái không có kết quả (Empty State) giữ chỗ cân đối:** Khung thông báo không tìm thấy kết quả có chiều cao tương đương 3 hàng bảng giá (~240px), không làm biến dạng khoảng cách đến Section tiếp theo.
+### 6.2. Biện pháp kỹ thuật loại trừ triệt để CLS trên `/bang-gia`
+1. **Khung chứa danh sách có `min-height` dự phòng:** Vùng danh sách dịch vụ luôn giữ chiều cao tối thiểu (`min-h-[400px]`), tránh hiện tượng Footer bị giật lên vị trí giữa màn hình rồi bị đẩy xuống.
+2. **Animation Accordion chuyển đổi mượt:** Chuyển động đóng/mở panel dùng `max-height` hoặc CSS Grid transition có kiểm soát, không thay đổi kích thước container bên ngoài.
+3. **Thanh tìm kiếm cố định kích thước:** Chiều cao Toolbar được định hình bằng hằng số cố định (`h-12` = 48px).
+4. **Trạng thái không có kết quả (Empty State) giữ chỗ cân đối:** Khung thông báo không tìm thấy kết quả có chiều cao tối thiểu **240px** (`min-h-[240px]`).
 
 ---
 
-## 6. MỤC 6: MA TRẬN TRẠNG THÁI DỮ LIỆU & QUY TẮC KHÓA NỘI DUNG (CONTENT LOCK)
+## 7. MỤC 7: KHUNG KIỂM SOÁT BẰNG CHỨNG & KHÓA NỘI DUNG (CONTENT LOCK)
 
-Bảo toàn tính trung thực thông tin theo nguyên tắc: **Không biến dữ liệu thiết kế/mô phỏng thành dữ liệu thật khi chưa có phê duyệt.**
-
-| Phân loại nội dung | Trạng thái xác minh | Quy tắc hiển thị trên giao diện công khai | Nguồn kiểm chứng / Căn cứ |
-|---|---|---|---|
-| **Tên bệnh viện, địa chỉ, hotline, giờ mở cửa** | **VERIFIED** | Hiển thị chính thức: `101 Khuất Duy Tiến`, `097 355 51 05`, `08:00 – 21:00`, `Cấp cứu 24/24` | Trực tiếp chủ dự án xác nhận ngày 26/10/2026 |
-| **Bác sĩ phụ trách chuyên môn (BS. Lê Thái Sơn)** | **VERIFIED** (Họ tên) | Hiển thị chính thức họ tên. Chức danh/bằng cấp giữ ở mức PENDING nếu chưa nộp văn bằng. | Chủ dự án xác nhận |
-| **4 Nhóm dịch vụ chính (Khám, Cận lâm sàng, Nội trú, Spa)** | **VERIFIED** (Định hướng) | Hiển thị như 4 giải pháp chăm sóc sức khỏe chính của phòng khám. | Homepage Section 3 đã nghiệm thu |
-| **Danh mục dịch vụ kỹ thuật chi tiết** | **PENDING** | Hiển thị kèm nhãn: `[Danh mục chuẩn hóa theo hướng dẫn bác sĩ]`. | Chờ chủ dự án & BS. Sơn đối chiếu danh mục |
-| **Giá tiền cụ thể (Số VNĐ)** | **PENDING / UNAVAILABLE** | **TUYỆT ĐỐI KHÔNG HIỂN THỊ SỐ TIỀN MÔ PHỎNG**. Hiển thị nhãn trung tính: `Đang cập nhật biểu phí niêm yết` hoặc `Báo giá sau khám lâm sàng`. | Chờ chủ dự án ban hành biểu phí chính thức |
-| **Hình ảnh minh họa dịch vụ** | **ILLUSTRATIVE** | Chỉ dùng ảnh thú cưng/không gian ấm áp. Bắt buộc có nhãn `Ảnh minh họa dịch vụ`. Tuyệt đối không dùng ảnh stock người mặc áo blouse. | Quy định AP-1 & Claude QA 3A |
-| **Cam kết y khoa, phác đồ điều trị** | **PENDING** | Không đưa ra tuyên bố tuyệt đối ("chữa khỏi 100%", "thiết bị hiện đại nhất"). Chỉ dùng ngôn ngữ trách nhiệm và cẩn trọng y khoa. | Quy tắc an toàn y tế |
+Tuân thủ nghiêm ngặt quy chế tại [`docs/phase-3b/3b-00-content-evidence-gate.md`](file:///d:/webbvct/docs/phase-3b/3b-00-content-evidence-gate.md):
+- **Gỡ bỏ toàn bộ gán chuyên môn:** Không gán chức danh ngoại khoa, kíp mổ hay máy gây mê cho BS. Lê Thái Sơn khi chưa có văn bản phê duyệt.
+- **Loại bỏ toàn bộ claim 3A đã bác bỏ:** Không công bố "khu cách ly", "khu hồi sức riêng", "trực đêm", "theo dõi sinh hiệu", "phòng mổ vô trùng", "máy gây mê" như sự thật đã hoàn tất.
+- **Không tự nâng VERIFIED:** Mọi mục thiếu bằng chứng văn bản cụ thể đều giữ nguyên trạng thái `PENDING`.
 
 ---
 
-## 7. MỤC 7: DANH MỤC QUYẾT ĐỊNH CẦN CHỦ DỰ ÁN PHÊ DUYỆT TRƯỚC DEV-01
+## 8. MỤC 8: DANH MỤC PHỤ THUỘC NGOÀI PHẠM VI (OUT-OF-SCOPE DEPENDENCIES)
 
-Trước khi Antigravity được cấp quyền chuyển sang giai đoạn lập trình (DEV-01), chủ dự án cần cho ý kiến phê duyệt đối với các quyết định sau:
+Các tính năng hoặc liên kết liên quan đến các thành phần ngoài phạm vi 3B-00 được ghi nhận rõ ràng:
 
-1. **Quyết định 3B-DEC-01 (Biểu phí tham chiếu):** Chủ dự án muốn cung cấp một bảng giá niêm yết rút gọn gồm các dịch vụ cơ bản đã có giá cố định (ví dụ: công khám, tiêm vaccine dại, tắm spa theo cân nặng), hay tiếp tục giữ trạng thái `Đang cập nhật biểu phí niêm yết` / `Báo giá sau khám` cho toàn bộ danh mục trong bản Preview đầu tiên?
-2. **Quyết định 3B-DEC-02 (Điều hướng dịch vụ con):** Thống nhất phương án điều hướng các mục con của menu Header (`/dich-vu/kham-dieu-tri`, `/dich-vu/noi-tru`...) nhảy trực tiếp về các thẻ neo tương ứng trên `/dich-vu` (`/dich-vu#kham-dieu-tri`) thay vì giữ trang `ComingSoonView` riêng lẻ.
-3. **Quyết định 3B-DEC-03 (Chính sách giá ngoài giờ cấp cứu):** Xác nhận có đưa dòng ghi chú về phụ phí phục vụ cấp cứu đêm/ngày lễ vào bảng giá hay không.
+| STT | Phụ thuộc | Hiện trạng trong Codebase (Mốc 2B/3A) | Tác động nếu triển khai | Phương án mặc định an toàn (3B-00) |
+|:---:|---|---|---|---|
+| **01** | Tham số query `?service=` trên `/dat-lich` | `BookingPage.tsx` hiện tại không đọc `location.search` hoặc `serviceType` từ URL query. | Cần sửa `BookingPage.tsx` (Mã nguồn Mốc 2B đang đóng băng). | **Mặc định:** CTA chỉ điều hướng đơn thuần về `/dat-lich` không kèm query. Tính năng pre-fill là đề xuất nâng cấp tương lai. |
+| **02** | Điều hướng menu Header con | Header hiện có 4 link trỏ về 4 route con ComingSoon `/dich-vu/*`. | Cần sửa `Header.tsx` (Component Mốc 2B). | **Mặc định:** Giữ nguyên Header và 4 route ComingSoon. Đưa vào OPEN DECISION 3B-DEC-02. |
+| **03** | Footer link & Section 3 Trang chủ | Footer và Section 3 Trang chủ hiện có các nút trỏ về `/dich-vu/*`. | Cần sửa `Footer.tsx` và `FeaturedServices.tsx` (Mốc 2B). | **Mặc định:** Giữ nguyên toàn bộ mã nguồn Footer và Trang chủ. |
 
 ---
 
-**KẾT THÚC BẢN THIẾT KẾ CHI TIẾT 3B-00 (BLUEPRINT V1.0)**
+## 9. MỤC 9: DANH MỤC 11 QUYẾT ĐỊNH MỞ CẦN CHỦ DỰ ÁN PHÊ DUYỆT (OPEN DECISIONS)
+
+Dưới đây là danh sách 11 quyết định mở được tổng hợp đầy đủ theo yêu cầu của CEO Directive 042-A và khuyến nghị QA của Claude:
+
+1. **3B-DEC-01 (Phương thức công bố biểu phí):** Chủ dự án muốn cung cấp ngay biểu phí rút gọn có mức giá thật cho một số dịch vụ cơ bản trong bản Preview đầu tiên, hay giữ toàn bộ danh mục ở trạng thái `UNAVAILABLE` / `CONTACT`?
+2. **3B-DEC-02 (Điều hướng 4 route con `/dich-vu/*` hiện hữu):** Chủ dự án muốn giữ nguyên 4 trang ComingSoon hiện tại, hay cho phép Antigravity sửa Header/Footer để chuyển hướng các mục con này thành anchor link (`#kham-dieu-tri`, `#noi-tru`...) trên trang `/dich-vu` trong một nhiệm vụ riêng?
+3. **3B-DEC-03 (Chính sách phụ phí cấp cứu ngoài giờ/ngày lễ):** Phòng khám có áp dụng phụ phí phục vụ cấp cứu ngoài giờ y tế (21:00 – 08:00) hoặc ngày lễ hay không; nếu có thì mức phụ phí và khung giờ cụ thể là bao nhiêu?
+4. **3B-DEC-04 (Danh mục dịch vụ kỹ thuật thực tế):** Phê duyệt danh sách chính thức các dịch vụ được phép công bố (đặc biệt là phẫu thuật, triệt sản, tiêm phòng, xét nghiệm máu, X-quang, siêu âm, soi da).
+5. **3B-DEC-05 (Taxonomy chuẩn hóa 5 nhóm):** Phê duyệt bộ 5 nhóm danh mục chuẩn hóa (`kham-dieu-tri`, `can-lam-sang`, `phau-thuat`, `noi-tru`, `spa-grooming`) để sử dụng thống nhất trên toàn hệ thống.
+6. **3B-DEC-06 (Vai trò chuyên môn của BS. Lê Thái Sơn trên 3B):** Chủ dự án có muốn công bố phạm vi phụ trách chuyên môn cụ thể của BS. Lê Thái Sơn trên trang Dịch vụ hay không, hay chỉ giữ họ tên ở vai trò người sáng lập / đại diện chung?
+7. **3B-DEC-07 (Quy chuẩn cơ sở vật chất & nội trú được phép công bố):** Xác nhận các thông tin cơ sở vật chất và trang thiết bị thực tế tại 101 Khuất Duy Tiến được phép đưa vào nội dung công khai.
+8. **3B-DEC-08 (Lời khuyên y khoa trước khám):** Chủ dự án và Bác sĩ có duyệt các nội dung hướng dẫn chuẩn bị (nhịn ăn trước xét nghiệm/mổ, lồng vận chuyển an toàn, sổ tiêm phòng) để công bố công khai hay không?
+9. **3B-DEC-09 (Cam kết tư vấn chi phí):** Xác nhận câu chữ cam kết giải thích dự toán chi phí trước khi can thiệp và nguyên tắc trao đổi phát sinh.
+10. **3B-DEC-10 (Tham số `?service=` trên BookingPage):** Chủ dự án có cho phép mở nhánh sửa `BookingPage.tsx` để nhận tham số tự động chọn dịch vụ từ bảng giá hay không?
+11. **3B-DEC-11 (Phân tầng giá theo cân nặng & Gói Spa Grooming):** Phòng khám có áp dụng biểu phí theo các nấc cân nặng thú cưng đối với dịch vụ spa và nội trú hay không; nếu có thì các mốc cân nặng cụ thể là gì?
+
+---
+
+**KẾT THÚC BẢN THIẾT KẾ CHI TIẾT 3B-00 (BLUEPRINT V1.1)**

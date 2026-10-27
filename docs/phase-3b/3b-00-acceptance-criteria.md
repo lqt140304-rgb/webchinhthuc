@@ -1,82 +1,114 @@
-# TIÊU CHÍ NGHIỆM THU GIAI ĐOẠN 3B — PHIÊN BẢN V1.0 (PHASE 3B-00 ACCEPTANCE CRITERIA)
-## Bệnh viện Thú y Lê Sơn 2026 — Tiêu Chí Đánh Giá Thiết Kế, Kiểm Thử & Điều Kiện Phát Hành
+# TIÊU CHÍ NGHIỆM THU GIAI ĐOẠN 3B — PHIÊN BẢN V1.1 (PHASE 3B-00 ACCEPTANCE CRITERIA)
+## Bệnh viện Thú y Lê Sơn 2026 — Khung Tiêu Chí Đánh Giá Phân Tầng Đa Giai Đoạn
 
 | Hạng mục | Thông tin chi tiết |
 | :--- | :--- |
 | **Dự án** | Website Bệnh viện Thú y Lê Sơn 2026 (`lqt140304-rgb/webchinhthuc`) |
-| **Căn cứ chỉ đạo** | **CEO DIRECTIVE 038-A (Section IX & X)**; `AGENTS.md` (Architecture Baseline V1) |
-| **Bản chất tài liệu** | **QA ACCEPTANCE CRITERIA & VERIFICATION PROTOCOL** (Khung tiêu chí kiểm định độc lập) |
-| **Giai đoạn** | **3B-00: DOCUMENTATION ONLY — KHÔNG CODE / KHÔNG DEPLOY** |
-| **Đơn vị thẩm định** | Claude — Independent QA Lead |
+| **Căn cứ chỉ đạo** | **CEO DIRECTIVE 042-A (Section XI)**; `docs/phase-3b/3b-00-content-evidence-gate.md`; Báo cáo Claude QA `docs/qa/3b-00-design-doc-qa.md` |
+| **Bản chất tài liệu** | **MULTI-TIER QA ACCEPTANCE CRITERIA FRAMEWORK** (Khung tiêu chí kiểm định độc lập phân tầng) |
+| **Giai đoạn áp dụng** | Xuyên suốt từ **3B-00 (Tài liệu)** $\to$ **3B-01 (Mockup)** $\to$ **DEV-01 (Code)** $\to$ **Preview** $\to$ **Production** |
+| **Trạng thái tài liệu** | **CHỜ CHỦ DỰ ÁN PHÊ DUYỆT (PENDING OWNER APPROVAL)** |
 
 ---
 
-## 1. MƯỜI LĂM (15) CỔNG KIỂM TRA ĐẠT CHUẨN (CORE ACCEPTANCE GATES)
+## 1. NGUYÊN TẮC PHÂN TẦNG TIÊU CHÍ (THE 5-TIER QA HIERARCHY)
 
-Mọi đánh giá QA độc lập đối với Giai đoạn 3B phải dựa trên 15 tiêu chí có thể kiểm chứng bằng công cụ định lượng:
+Để đảm bảo tính khách quan và khoa học, hệ thống tiêu chí nghiệm thu được phân chia thành **5 cấp độ kiểm định độc lập**. Không một giai đoạn nào được tự ý đánh dấu PASS hoặc tự nhận đã hoàn thành các cổng kiểm thử của các giai đoạn sau:
 
-| STT | Cổng kiểm tra (Gate) | Tiêu chí đánh giá PASS | Phương pháp kiểm chứng | Đánh giá 3B-00 |
-|---|---|---|---|---|
-| **1** | **Giới hạn phạm vi 2 tuyến đường** | Chỉ tồn tại đúng hai tuyến đường: `/dich-vu` và `/bang-gia`. Không phát sinh bất kỳ tuyến đường con nào ngoài phạm vi. | Kiểm tra Sitemap và Routes. | **ĐẠT (Đặc tả chuẩn)** |
-| **2** | **Không mở trang chi tiết `/dich-vu/:slug`** | Tuyệt đối không tạo file, route hoặc mockup cho trang chi tiết dịch vụ. Các liên kết chi tiết dẫn về anchor trên `/dich-vu`. | Quét cây route & sitemap. | **ĐẠT (Đã khóa phạm vi)** |
-| **3** | **Không tự tạo giá / Không giá giả** | Không xuất hiện bất kỳ con số tiền tệ tự bịa đặt nào trên giao diện công khai. Không hiển thị `0 VNĐ` cho dữ liệu thiếu. | Quét text render & biểu phí. | **ĐẠT (Quy chuẩn Price Lock)** |
-| **4** | **Không khẳng định claim PENDING là sự thật** | Mọi nội dung chưa xác minh về phác đồ, danh mục chi tiết đều có nhãn trung tính `[Đề xuất]` hoặc `[Dự kiến]`. | Kiểm tra Content Mapping & Text. | **ĐẠT (Tuân thủ Content Lock)** |
-| **5** | **Trạng thái hiển thị trung tính khi thiếu thông tin** | Dịch vụ chưa có giá bắt buộc mang nhãn `Đang cập nhật biểu phí niêm yết` hoặc `Báo giá sau khám lâm sàng`. | Kiểm tra trạng thái `ServicePrice`. | **ĐẠT (Đặc tả 4 trạng thái giá)** |
-| **6** | **Khả năng điều khiển Accordion & Tab bằng bàn phím** | Hỗ trợ đầy đủ phím `Enter`, `Space`, `ArrowDown`, `ArrowUp`, `Home`, `End`. Có thuộc tính `aria-expanded`, `aria-controls`. | Test tương tác bàn phím (WAI-ARIA). | **ĐẠT (Đặc tả chi tiết)** |
-| **7** | **Đặc tả đầy đủ Tìm kiếm & Empty State** | Có đặc tả ô search, lọc kết quả, giao diện khi không tìm thấy kết quả và nút xóa bộ lọc. Không để layout bị sập. | Kiểm tra kịch bản tìm kiếm rỗng. | **ĐẠT (Đặc tả chi tiết)** |
-| **8** | **Tương thích toàn diện 6 Viewports** | Bố cục chuẩn xác trên 320px, 375px, 768px, 1024px, 1440px, 1920px. Không có lỗi tràn ngang (zero horizontal overflow). | Playwright viewport snapshot. | **ĐẠT (Ma trận 6 điểm ngắt)** |
-| **9** | **Vùng chạm tối thiểu $44 \times 44\text{px}$** | Mọi nút bấm, tab lọc, hàng accordion trigger đạt kích thước tối thiểu $\ge 44\times 44\text{px}$ trên thiết bị di động. | Playwright bounding box check. | **ĐẠT (Ma trận vùng chạm)** |
-| **10**| **Hỗ trợ giảm thiểu chuyển động (Reduced Motion)** | Khi bật `prefers-reduced-motion`, toàn bộ animation accordion và cuộn mượt chuyển sang tức thì (`duration: 0.01ms`). | CSS Media query evaluation. | **ĐẠT (Đặc tả chuyển động)** |
-| **11**| **Không phát sinh CLS mới ($\text{CLS} \le 0.10$)** | Container danh sách bảng giá có `min-height` cố định, fallback route `min-h-screen`, CLS trên mọi trang đạt $\approx 0.000$. | Đo đạc PerformanceObserver. | **ĐẠT (Kế thừa giải pháp 3A)** |
-| **12**| **Bảo toàn hiệu năng Trang chủ & Bundle isolation** | Dùng `React.lazy()` cô lập `/dich-vu` và `/bang-gia`. Không tải kèm module dashboard hoặc thư viện nặng vào bundle trang chủ. | Bundle analyzer & Vite chunk check. | **ĐẠT (Kiến trúc phân tách)** |
-| **13**| **Không hồi quy Giai đoạn 3A và Mốc 2B** | 6 section Trang chủ, trang `/dat-lich`, và 3 trang 3A (`/gioi-thieu`, `/doi-ngu`, `/co-so-vat-chat`) giữ nguyên 100%. | Pixel diff & text integrity. | **ĐẠT (Không can thiệp code cũ)** |
-| **14**| **Không thay đổi Dashboard Portal** | Không đụng chạm tới `/tai-khoan/*` hoặc `/quan-ly/*`. Giữ nguyên ranh giới phân vùng theo Architecture Baseline V1. | Kiểm tra routing & imports. | **ĐẠT (Cô lập tuyệt đối)** |
-| **15**| **Bảo toàn chế độ bảo vệ Preview & Noindex** | Bản Preview giữ nguyên `X-Robots-Tag: noindex, nofollow`, Vercel SSO Authentication. Không mở index ra công chúng. | HTTP Response Header test. | **ĐẠT (Nguyên tắc bảo vệ)** |
-
----
-
-## 2. PHÂN ĐỊNH HAI CẤP ĐỘ NGHIỆM THU (ACCEPTANCE LEVELS)
-
-Nhằm đảm bảo quy trình rõ ràng, minh bạch giữa các vòng công việc, tài liệu phân định rõ hai cấp độ nghiệm thu:
-
-### Cấp độ A: Nghiệm thu Thiết kế & Tài liệu Giai đoạn 3B-00 (Hiện tại)
-- **Điều kiện PASS:**
-  1. Đầy đủ 5 tài liệu thành phần trong thư mục `docs/phase-3b/`:
-     - `3b-00-blueprint.md`
-     - `3b-00-content-mapping.md`
-     - `3b-00-data-schema.md`
-     - `3b-00-wireframe.md`
-     - `3b-00-acceptance-criteria.md`
-  2. Tuyệt đối không can thiệp vào mã nguồn website (`src/`), assets hay cấu hình dependencies.
-  3. Không thực hiện lệnh triển khai (deploy), không merge `main`.
-  4. Nội dung thiết kế phản ánh trung thực trạng thái xác minh, bảo vệ tính trung thực y khoa.
-
-### Cấp độ B: Nghiệm thu Phát hành Production (Tương lai — Phải có phê duyệt riêng từ Chủ dự án)
-- **Điều kiện tiên quyết trước khi phát hành công chúng:**
-  1. Chủ dự án và Bác sĩ chuyên môn ký duyệt văn bản Biểu phí chính thức.
-  2. Thay thế toàn bộ nhãn `[Đề xuất]`, `[Dự kiến]`, `UNAVAILABLE` bằng số liệu giá và danh mục đã được xác minh.
-  3. Có văn bản bản quyền và quyền sử dụng hình ảnh thực tế (AP-1, 2B-06).
-  4. Giải quyết các tồn đọng kỹ thuật cốt lõi (Soft 404, LCP mobile).
-  5. Chủ dự án phê duyệt riêng lệnh gỡ `noindex`, merge vào `main` và deploy Production.
+```text
+┌────────────────────────────────────────────────────────────────────────┐
+│                      HỆ THỐNG KIỂM ĐỊNH 5 CẤP ĐỘ                       │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │
+    ┌───────────────────────────────┼───────────────────────────────┐
+    ▼                               ▼                               ▼
+[ CẤP ĐỘ 1: TÀI LIỆU ]     [ CẤP ĐỘ 2: MOCKUP ]           [ CẤP ĐỘ 3: CODE ]
+Kiểm tra tính nhất quán     Kiểm tra thị giác trực quan   Kiểm tra TypeScript, Lint,
+Content Lock, Schema        & tương tác HTML tĩnh         Build bundle, Unit tests
+(Giai đoạn 3B-00)           (Giai đoạn 3B-01)             (Giai đoạn DEV-01)
+                                    │
+                                    ├───────────────────────────────┐
+                                    ▼                               ▼
+                           [ CẤP ĐỘ 4: PREVIEW ]          [ CẤP ĐỘ 5: PRODUCTION ]
+                           Kiểm tra Vercel deployment,    Văn bản ký duyệt biểu phí,
+                           CLS, SSO Protection, Noindex   ảnh thật, gỡ noindex
+                           (Giai đoạn Preview QA)         (Phát hành công khai)
+```
 
 ---
 
-## 3. DANH MỤC CÁC VẤN ĐỀ TỒN ĐỌNG KHÔNG THUỘC PHẠM VI 3B-00 (BACKLOG REGISTRY)
+## 2. MA TRẬN TIÊU CHÍ CHI TIẾT TỪNG CẤP ĐỘ
 
-Tuân thủ nghiêm ngặt **Mục X của CEO Directive 038-A**, các vấn đề dưới đây được ghi nhận chính thức vào sổ tồn đọng (backlog) và **KHÔNG LÀM ĐIỀU KIỆN CHẶN** việc hoàn thành tài liệu 3B-00:
+### Cấp độ 1: Tiêu chí Nghiệm thu Tài liệu Thiết kế (Documentation QA Gate — 3B-00)
 
-| Mã tồn đọng | Vấn đề tồn đọng | Trạng thái hiện tại | Hướng xử lý theo lộ trình |
+| Mã ID | Mục tiêu kiểm tra | Điều kiện PASS định lượng | Bằng chứng cần kiểm | Trách nhiệm | Trạng thái thẩm định |
+|---|---|---|---|---|---|
+| **AC-DOC-01** | Giới hạn phạm vi 2 tuyến đường | Chỉ đặc tả đúng hai tuyến đường: `/dich-vu` và `/bang-gia`. Không phát sinh tuyến chi tiết `/dich-vu/:slug`. | Kiểm tra Sitemap & Blueprint §1. | Antigravity / Claude | **NOT TESTED (Chờ QA)** |
+| **AC-DOC-02** | Áp dụng Content Evidence Gate | 100% mục `VERIFIED` trong Content Mapping phải có đủ 5 yếu tố (Nội dung, Nguồn, Người duyệt, Ngày, Phạm vi). | Quét bảng Content Mapping. | Antigravity / Claude | **NOT TESTED (Chờ QA)** |
+| **AC-DOC-03** | Bảo vệ danh tính Bác sĩ | 0 trường hợp tự gán chuyên khoa phẫu thuật, kíp mổ hay máy gây mê cho BS. Lê Thái Sơn khi chưa có văn bản duyệt. | Grep `"Lê Thái Sơn"`, `"BS. Sơn"`. | Antigravity / Claude | **NOT TESTED (Chờ QA)** |
+| **AC-DOC-04** | Ngăn claim 3A tái xuất hiện | 0 trường hợp khẳng định sự thật về: "phân khu cách ly", "phòng mổ vô trùng", "trực đêm", "theo dõi sinh hiệu", "máy gây mê". | Grep các từ khóa cơ sở vật chất. | Antigravity / Claude | **NOT TESTED (Chờ QA)** |
+| **AC-DOC-05** | Quy tắc bảo vệ giá (Price Lock) | Không có giá giả, không dùng `0 VNĐ`, các dịch vụ chưa có giá bắt buộc mang nhãn `UNAVAILABLE` hoặc `CONTACT`. | Kiểm tra Data Schema & Wireframe. | Antigravity / Claude | **NOT TESTED (Chờ QA)** |
+| **AC-DOC-06** | Thống nhất Taxonomy & Slug | Sử dụng cùng 5 nhóm danh mục và cùng bộ slug trên cả 5 tài liệu 3B (`kham-dieu-tri`, `can-lam-sang`, `phau-thuat`, `noi-tru`, `spa-grooming`). | Đối chiếu chéo 5 file tài liệu. | Antigravity / Claude | **NOT TESTED (Chờ QA)** |
+| **AC-DOC-07** | Trung tính hóa Fixture | Fixtures có cờ `testOnly: true`, `isPublished: false`, 0 tên người thật, 0 thiết bị tự tạo, dùng placeholder `[Số tiền niêm yết]`. | Quét file `3b-00-data-schema.md`. | Antigravity / Claude | **NOT TESTED (Chờ QA)** |
+| **AC-DOC-08** | Khai báo phụ thuộc ngoài phạm vi | Liệt kê đầy đủ 3 phụ thuộc ngoài phạm vi (`?service=` trên BookingPage, menu Header, liên kết Footer/Home) thành OPEN DECISIONS. | Kiểm tra Blueprint §8 & §9. | Antigravity / Claude | **NOT TESTED (Chờ QA)** |
+| **AC-DOC-09** | Danh mục OPEN DECISIONS | Đầy đủ ít nhất 11 quyết định mở cần chủ dự án phê duyệt trước khi code. | Kiểm tra Blueprint §9. | Antigravity / Claude | **NOT TESTED (Chờ QA)** |
+
+### Cấp độ 2: Tiêu chí Nghiệm thu Thiết kế & Mockup Trực Quan (Design & Mockup QA Gate — 3B-01)
+
+| Mã ID | Mục tiêu kiểm tra | Điều kiện PASS định lượng | Bằng chứng cần kiểm | Trách nhiệm | Trạng thái thẩm định |
+|---|---|---|---|---|---|
+| **AC-DES-01** | Trực quan hóa đầy đủ 2 trang | Mockup HTML độc lập hiển thị đầy đủ giao diện desktop và mobile cho `/dich-vu` và `/bang-gia`. | Mở file `phase-3b-mockup.html`. | Antigravity / Claude | **NOT TESTED (Giai đoạn sau)** |
+| **AC-DES-02** | Nhãn PENDING trên Mockup | 100% các mục PENDING trên mockup trực quan đều có nhãn `[Đề xuất]`, `[Chờ xác nhận]` hoặc badge `UNAVAILABLE` / `CONTACT`. | Kiểm tra trực quan trên mockup. | Antigravity / Claude | **NOT TESTED (Giai đoạn sau)** |
+| **AC-DES-03** | Khung ảnh minh họa | Mọi ảnh minh họa đều có nhãn `Ảnh minh họa dịch vụ`. Không có ảnh stock người mặc áo blouse y tế. | Quét ảnh trên mockup. | Antigravity / Claude | **NOT TESTED (Giai đoạn sau)** |
+| **AC-DES-04** | Responsive 6 Viewports | Kiểm tra visual hiển thị hoàn hảo ở 320px, 375px, 768px, 1024px, 1440px, 1920px. Không tràn ngang (overflow = 0). | Playwright visual diff. | Antigravity / Claude | **NOT TESTED (Giai đoạn sau)** |
+
+### Cấp độ 3: Tiêu chí Nghiệm thu Mã Nguồn Triển Khai (Code QA Gate — DEV-01)
+
+| Mã ID | Mục tiêu kiểm tra | Điều kiện PASS định lượng | Bằng chứng cần kiểm | Trách nhiệm | Trạng thái thẩm định |
+|---|---|---|---|---|---|
+| **AC-COD-01** | TypeScript & Build | `npm run build` (`tsc -b && vite build`) hoàn thành thành công với mã thoát 0, không có warning TypeScript. | Terminal build output log. | Antigravity / Claude | **NOT TESTED (Giai đoạn sau)** |
+| **AC-COD-02** | Linter & Code Quality | `npm run lint` (`oxlint`) đạt **0 errors, 0 warnings** trên toàn bộ codebase. | Terminal lint output log. | Antigravity / Claude | **NOT TESTED (Giai đoạn sau)** |
+| **AC-COD-03** | Phân tách Bundle (Lazy Loading) | `/dich-vu` và `/bang-gia` được tách thành các dynamic chunks riêng biệt thông qua `React.lazy()`. Không làm phình bundle trang chủ. | Kiểm tra danh sách chunk `dist/`. | Antigravity / Claude | **NOT TESTED (Giai đoạn sau)** |
+| **AC-COD-04** | WAI-ARIA Accordion | Hỗ trợ đầy đủ phím `Enter`, `Space`, `ArrowDown`, `ArrowUp`, `Home`, `End`. Có thuộc tính `aria-expanded`, `aria-controls`. | Playwright keyboard interaction test. | Antigravity / Claude | **NOT TESTED (Giai đoạn sau)** |
+| **AC-COD-05** | Vùng chạm Touch Target | 100% nút bấm, tab lọc, hàng accordion trigger đạt kích thước tối thiểu $\ge 44\times 44\text{px}$ trên thiết bị di động. | Playwright bounding box audit. | Antigravity / Claude | **NOT TESTED (Giai đoạn sau)** |
+| **AC-COD-06** | Hỗ trợ Reduced Motion | Khi kích hoạt `prefers-reduced-motion`, toàn bộ animation accordion và cuộn trang chuyển sang tức thì (`duration: 0.01ms`). | CSS Media query evaluation test. | Antigravity / Claude | **NOT TESTED (Giai đoạn sau)** |
+
+### Cấp độ 4: Tiêu chí Nghiệm thu Bản Triển Khai Kiểm Thử (Preview QA Gate)
+
+| Mã ID | Mục tiêu kiểm tra | Điều kiện PASS định lượng | Bằng chứng cần kiểm | Trách nhiệm | Trạng thái thẩm định |
+|---|---|---|---|---|---|
+| **AC-PRV-01** | Chỉ số CLS (Cumulative Layout Shift) | CLS đạt $\le 0.001$ trên cả 2 trang ở cả môi trường mobile (412px) và desktop (1440px) dưới điều kiện mạng nhanh và chậm. | PerformanceObserver & Lighthouse. | Claude QA | **NOT TESTED (Giai đoạn sau)** |
+| **AC-PRV-02** | Bảo vệ Deployment & Noindex | Deployment có cờ `target: null`, Vercel SSO Authentication bật (`302 Found`), header `X-Robots-Tag: noindex, nofollow`. | HTTP Header response test. | Claude QA | **NOT TESTED (Giai đoạn sau)** |
+| **AC-PRV-03** | Build Reproducibility | Toàn bộ asset build trên máy chủ Vercel khớp byte-for-byte với bản build cục bộ từ git checkout sạch. | Hash so sánh sha256 từng chunk. | Claude QA | **NOT TESTED (Giai đoạn sau)** |
+| **AC-PRV-04** | Zero Regression Mốc 2A/2B/3A | Trang chủ 6 sections, trang `/dat-lich` và 3 trang 3A giữ nguyên 100% layout, pixel diff và chức năng. | Pixel diff snapshot comparison. | Claude QA | **NOT TESTED (Giai đoạn sau)** |
+
+### Cấp độ 5: Điều Kiện Tiên Quyết Phát Hành Chính Thức (Production Release Gate)
+
+| Mã ID | Mục tiêu kiểm tra | Điều kiện PASS định lượng | Bằng chứng cần kiểm | Trách nhiệm | Trạng thái thẩm định |
+|---|---|---|---|---|---|
+| **AC-PRD-01** | Văn bản Biểu phí chính thức | Có văn bản bảng giá niêm yết chính thức có chữ ký và dấu mộc của Bệnh viện Thú y Lê Sơn. | File PDF văn bản ký duyệt. | Chủ dự án | **NOT TESTED (Chờ quyết định)**|
+| **AC-PRD-02** | Gỡ bỏ toàn bộ nhãn PENDING | 100% các nhãn `[Đề xuất]`, `[Chờ xác nhận]` và `UNAVAILABLE` được thay thế bằng dữ liệu thật đã xác minh. | Quét toàn bộ DOM render. | Chủ dự án / Claude | **NOT TESTED (Chờ quyết định)**|
+| **AC-PRD-03** | Bản quyền hình ảnh thực tế | Có văn bản bàn giao và cấp phép sử dụng hình ảnh thực tế tại 101 Khuất Duy Tiến (thay thế 100% ảnh minh họa). | Hợp đồng / Giấy phép bản quyền. | Chủ dự án | **NOT TESTED (Chờ quyết định)**|
+| **AC-PRD-04** | Phê duyệt mở Production | Chủ dự án ký lệnh chính thức cho phép gỡ `noindex`, merge vào nhánh `main` và deploy lên Production domain. | Quyết định bằng văn bản của Owner. | Chủ dự án | **NOT TESTED (Chờ quyết định)**|
+
+---
+
+## 3. SỔ THEO DÕI CÁC TỒN ĐỌNG KỸ THUẬT NGOÀI PHẠM VI 3B-00 (BACKLOG REGISTRY)
+
+Các tồn đọng dưới đây được ghi nhận chính thức theo Mục X của CEO Directive 042-A và **KHÔNG LÀM ĐIỀU KIỆN CHẶN** việc nghiệm thu tài liệu Giai đoạn 3B-00:
+
+| Mã tồn đọng | Nội dung tồn đọng | Trạng thái | Kế hoạch xử lý |
 |---|---|---|---|
-| **DEV01P-P2-2** | LCP mobile 3 trang 3A đạt 3.2–3.5s (chưa có preload chunk) | **OPEN** | Sẽ tối ưu hóa kèm việc xử lý tải trước (preload/prefetch) trong giai đoạn tối ưu hiệu năng toàn trang. |
-| **2B-08** | LCP mobile Trang chủ phụ thuộc hình ảnh | **OPEN** | Đã có giải pháp preload thẻ `hero-vet-care-400w.webp`, tiếp tục tinh chỉnh trong giai đoạn tối ưu. |
-| **Soft 404** | Route không tồn tại trả về mã HTTP 200 thay vì 404 thật | **OPEN** | Thuộc về cấu hình máy chủ web / edge rewrite trong giai đoạn bàn giao hạ tầng. |
-| **2B-06** | Xác minh quyền sở hữu và bản quyền ảnh chụp cơ sở vật chất | **PENDING** | Chờ chủ dự án cung cấp ảnh chụp cơ sở thực tế và văn bản giấy phép. |
-| **2B-29** | Logo Champion trong ảnh `why-pet-companion.webp` | **OPEN** | Đã khóa (frozen) theo chỉ đạo, không tự ý chỉnh sửa ảnh gốc. |
-| **SEO Production** | Kiểm thử lập chỉ mục và schema SEO trên môi trường Production | **PENDING** | Chỉ kiểm tra khi có quyết định phát hành công khai chính thức từ chủ dự án. |
-| **DEV01F-P3-1** | Lưới tablet 768–799px hiển thị 1 cột | **OPEN** | Sẽ gom sửa cùng các tinh chỉnh responsive khác. |
-| **DEV01Q-P3-1** | Class `.visible` dư khi chạy build trên checkout đầy đủ | **OPEN** | Do Tailwind quét thư mục `tests/`, đã được loại trừ khi upload qua `.vercelignore`. |
+| **DEV01P-P2-2** | LCP mobile 3 trang 3A đạt 3.2–3.5s (do chunk lazy chưa có preload) | **OPEN** | Sẽ xử lý preload chunk trong giai đoạn tối ưu hiệu năng toàn trang. |
+| **2B-08** | LCP mobile Trang chủ phụ thuộc hình ảnh | **OPEN** | Tiếp tục tinh chỉnh trong đợt tối ưu hiệu năng tổng thể. |
+| **Soft 404** | Route không tồn tại trả về mã HTTP 200 thay vì 404 thật | **OPEN** | Thuộc cấu hình server / edge router khi bàn giao hạ tầng. |
+| **2B-06** | Xác minh quyền sở hữu và bản quyền ảnh chụp cơ sở vật chất | **PENDING** | Chờ chủ dự án cung cấp ảnh chụp thực tế và giấy phép bản quyền. |
+| **2B-29** | Logo Champion trong ảnh `why-pet-companion.webp` | **OPEN** | Đã khóa (frozen) theo chỉ đạo, không tự ý can thiệp. |
+| **SEO Production** | Kiểm thử index và structured data trên môi trường Production | **PENDING** | Chỉ kiểm tra khi có quyết định phát hành công khai chính thức. |
+| **DEV01F-P3-1** | Lưới tablet 768–799px hiển thị 1 cột | **OPEN** | Gom xử lý cùng đợt tinh chỉnh responsive giao diện. |
+| **DEV01Q-P3-1** | Class `.visible` dư khi chạy build trên checkout đầy đủ | **OPEN** | Đã xử lý cô lập bằng `.vercelignore` khi upload. |
 | **Footer Phrase** | Cụm từ "phẫu thuật ngoại khoa" trong Footer | **PENDING** | Chờ xác minh giấy phép phẫu thuật chính thức từ phòng khám. |
 
 ---
 
-**KẾT THÚC BẢNG TIÊU CHÍ NGHIỆM THU 3B-00 (ACCEPTANCE CRITERIA V1.0)**
+**KẾT THÚC BẢNG TIÊU CHÍ NGHIỆM THU PHÂN TẦNG 3B-00 (ACCEPTANCE CRITERIA V1.1)**
