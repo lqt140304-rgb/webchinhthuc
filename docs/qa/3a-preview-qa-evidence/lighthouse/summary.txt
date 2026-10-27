@@ -1,0 +1,10 @@
+page mode | perf median (runs) | LCP median ms (min-max) | CLS | TBT median | FCP median
+co-so-vat-chat desktop | 81 (81/81/81) | 721 (684-738) | 0.414/0.414/0.414 | 0 | 371
+co-so-vat-chat mobile | 72 (72/72/70) | 3330 (3306-3330) | 0.411/0.411/0.411 | 120 | 1542
+doi-ngu desktop | 81 (81/81/81) | 710 (681-721) | 0.414/0.414/0.414 | 0 | 400
+doi-ngu mobile | 72 (72/81/72) | 3305 (3305-3602) | 0.411/0/0.411 | 124 | 1538
+gioi-thieu desktop | 81 (81/81/81) | 730 (689-750) | 0.414/0.414/0.414 | 0 | 430
+gioi-thieu mobile | 71 (71/68/71) | 3480 (3480-3758) | 0.411/0.411/0.411 | 114 | 1564
+home desktop | 100 (100/100/100) | 730 (711-730) | 0.0/0.0/0.0 | 10 | 430
+home mobile | 92 (82/92/95) | 2860 (2859-3542) | 0/0/0 | 186 | 1569
+config 12.8.2 mobile simulate {'rttMs': 150, 'throughputKbps': 1638.4, 'requestLatencyMs': 562.5, 'downloadThroughputKbps': 1474.5600000000002, 'uploadThroughputKbps': 675, 'cpuSlowdownMultiplier': 4} UA Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, l

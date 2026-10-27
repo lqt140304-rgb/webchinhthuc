@@ -1,0 +1,29 @@
+{
+ "id": "prj_wZg6o5vvbDe6UTT52vaqvGTNC4e3",
+ "name": "le-son-website-qa",
+ "framework": "vite",
+ "ssoProtection": {
+  "deploymentType": "all"
+ },
+ "passwordProtection": null,
+ "gitForkProtection": true,
+ "buildCommand": "npm run build",
+ "outputDirectory": "dist",
+ "nodeVersion": "24.x",
+ "gitLinkPresent": false,
+ "protectionBypassScopes": [
+  "automation-bypass"
+ ],
+ "targets": {
+  "production": {
+   "id": "dpl_BAz378AxMw59nUafGCMDM8Hws84s",
+   "createdAt": 1793031223354,
+   "sha": "db78738df347ce368e5c7738c1f351485e07f348"
+  },
+  "preview": {
+   "id": "dpl_FysMST4wMKmGLPAFKBZvvT6H6zLZ",
+   "createdAt": 1793117624129,
+   "sha": "bbd78461c1acd3b7e8aece35b5591e13556e673e"
+  }
+ }
+}

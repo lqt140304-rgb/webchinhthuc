@@ -1,0 +1,48 @@
+{
+ "id": "dpl_FysMST4wMKmGLPAFKBZvvT6H6zLZ",
+ "url": "le-son-website-e4l44qyxb-lqt140304-rgb.vercel.app",
+ "name": "le-son-website-qa",
+ "projectId": "prj_wZg6o5vvbDe6UTT52vaqvGTNC4e3",
+ "target": null,
+ "readyState": "READY",
+ "readySubstate": "STAGED",
+ "status": "READY",
+ "source": "cli",
+ "type": "LAMBDAS",
+ "createdAt": 1793117624129,
+ "buildingAt": 1793117625232,
+ "ready": 1793117639382,
+ "aliasAssigned": true,
+ "alias": [],
+ "regions": [
+  "iad1"
+ ],
+ "public": false,
+ "plan": "hobby",
+ "version": 2,
+ "meta": {
+  "githubCommitAuthorName": "lqt140304-rgb",
+  "githubCommitMessage": "fix(phase-3a): DEV-01 fix 01 \u2014 4 P2 issues & mobile touch targets",
+  "githubCommitOrg": "lqt140304-rgb",
+  "githubCommitRef": "HEAD",
+  "githubCommitRepo": "webchinhthuc",
+  "githubCommitSha": "bbd78461c1acd3b7e8aece35b5591e13556e673e",
+  "githubDeployment": "1",
+  "githubOrg": "lqt140304-rgb",
+  "githubRepo": "webchinhthuc",
+  "gitRootDirectory": "",
+  "actor": "antigravity"
+ },
+ "oidcTokenClaims": {
+  "environment": "preview",
+  "project": "le-son-website-qa",
+  "owner": "lqt140304-rgb"
+ },
+ "projectSettings": {
+  "buildCommand": "npm run build",
+  "framework": "vite",
+  "installCommand": null,
+  "outputDirectory": "dist",
+  "nodeVersion": "24.x"
+ }
+}

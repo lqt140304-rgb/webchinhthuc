@@ -1,0 +1,98 @@
+[
+ {
+  "route": "/",
+  "slow": false,
+  "cls": 0,
+  "entries": []
+ },
+ {
+  "route": "/",
+  "slow": true,
+  "cls": 0,
+  "entries": []
+ },
+ {
+  "route": "/gioi-thieu",
+  "slow": false,
+  "cls": 0.411,
+  "entries": [
+   {
+    "v": 0.4107,
+    "t": 483,
+    "src": [
+     "FOOTER y 485→0"
+    ]
+   }
+  ]
+ },
+ {
+  "route": "/gioi-thieu",
+  "slow": true,
+  "cls": 0.411,
+  "entries": [
+   {
+    "v": 0.4107,
+    "t": 2151,
+    "src": [
+     "FOOTER y 485→0"
+    ]
+   }
+  ]
+ },
+ {
+  "route": "/doi-ngu",
+  "slow": false,
+  "cls": 0.411,
+  "entries": [
+   {
+    "v": 0.4107,
+    "t": 455,
+    "src": [
+     "FOOTER y 485→0"
+    ]
+   }
+  ]
+ },
+ {
+  "route": "/doi-ngu",
+  "slow": true,
+  "cls": 0.411,
+  "entries": [
+   {
+    "v": 0.4107,
+    "t": 2146,
+    "src": [
+     "FOOTER y 485→0"
+    ]
+   }
+  ]
+ },
+ {
+  "route": "/co-so-vat-chat",
+  "slow": false,
+  "cls": 0.411,
+  "entries": [
+   {
+    "v": 0.4107,
+    "t": 480,
+    "src": [
+     "FOOTER y 485→0"
+    ]
+   }
+  ]
+ },
+ {
+  "route": "/co-so-vat-chat",
+  "slow": true,
+  "cls": 0.411,
+  "entries": [
+   {
+    "v": 0.4107,
+    "t": 2134,
+    "src": [
+     "FOOTER y 485→0"
+    ]
+   }
+  ]
+ }
+]
