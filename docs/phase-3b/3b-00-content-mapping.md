@@ -1,10 +1,10 @@
-# MA TRẬN ÁNH XẠ NỘI DUNG GIAI ĐOẠN 3B — PHIÊN BẢN V1.2 (PHASE 3B-00 CONTENT MAPPING)
+# MA TRẬN ÁNH XẠ NỘI DUNG GIAI ĐOẠN 3B — PHIÊN BẢN V1.3 (PHASE 3B-00 CONTENT MAPPING)
 ## Bệnh viện Thú y Lê Sơn 2026 — Kiểm Soát Tính Toàn Vẹn & Khóa Nội Dung (Content Lock)
 
 | Hạng mục | Thông tin chi tiết |
 | :--- | :--- |
 | **Dự án** | Website Bệnh viện Thú y Lê Sơn 2026 (`lqt140304-rgb/webchinhthuc`) |
-| **Căn cứ chỉ đạo** | **CEO DIRECTIVE 042-A**, **CEO DIRECTIVE 044-A (Section III, V, VI, VII)**; Báo cáo Claude QA `docs/qa/3b-00-fix01-qa.md` (Commit: `b9f386b`); Quy chế `docs/phase-3b/3b-00-content-evidence-gate.md` |
+| **Căn cứ chỉ đạo** | **CEO DIRECTIVE 046-A**, **CEO DIRECTIVE 044-A**; Báo cáo Claude QA Fix 02 (`e0bdeec`); Quy chế [`3b-00-content-evidence-gate.md`](3b-00-content-evidence-gate.md); Bản ghi chính sách [`3b-dec-12-13-policy-record.md`](../decisions/3b-dec-12-13-policy-record.md) |
 | **Giai đoạn** | **3B-00: DOCUMENTATION ONLY — KHÔNG CODE** |
 | **Phạm vi ánh xạ** | Tuyến trang `/dich-vu` và Tuyến trang `/bang-gia` |
 | **Trạng thái tài liệu** | **CHỜ CHỦ DỰ ÁN PHÊ DUYỆT (PENDING OWNER APPROVAL)** |
@@ -29,12 +29,12 @@
 |---|---|---|---|---|---|---|---|---|
 | **Hero** | `DV-HERO-01` | Breadcrumb: `Trang chủ / Dịch vụ` | Đề xuất cấu trúc navigation 3B | — | — | Toàn trang Public | **PENDING** | Thể hiện link Trang chủ và text Dịch vụ |
 | **Hero** | `DV-HERO-02` | Eyebrow: `HỆ THỐNG DỊCH VỤ Y TẾ THÚ CƯNG LÊ SƠN` | Đề xuất tiêu đề phụ thương hiệu (3B-DEC-12) | — | — | Đầu trang Dịch vụ | **PENDING** | Chờ Chủ dự án duyệt câu chữ theo DEC-12 |
-| **Hero** | `DV-HERO-03` | H1: `Chăm sóc chu toàn từ phòng khám đến khu nội trú` | Đề xuất Slogan định vị thương hiệu (3B-DEC-12) | — | — | Tiêu đề chính H1 | **PENDING** | Chờ Chủ dự án duyệt câu chữ theo DEC-12 |
+| **Hero** | `DV-HERO-03` | H1: `Hệ thống chăm sóc sức khỏe thú cưng tận tâm` | Đề xuất Slogan định vị thương hiệu (3B-DEC-12) | — | — | Tiêu đề chính H1 | **PENDING** | Chờ Chủ dự án duyệt câu chữ theo DEC-12 (không tự khẳng định có khu nội trú) |
 | **Hero** | `DV-HERO-04` | Đoạn dẫn giới thiệu tinh thần cẩn trọng, chu đáo | Đề xuất văn phong giới thiệu (3B-DEC-12) | — | — | Đoạn dẫn Hero | **PENDING** | Chờ Chủ dự án duyệt câu chữ theo DEC-12 |
-| **Hero** | `DV-HERO-05` | Editorial Policy Banner: Thông báo danh mục chuẩn hóa 3B | Chỉ đạo bắt buộc tại CEO Directive 042-A / 044-A | Chủ dự án | 2026-10-28 | Khung thông báo | **VERIFIED** | Khung viền mỏng, biểu tượng thông tin |
+| **Hero** | `DV-HERO-05` | Editorial Policy Banner: Thông báo danh mục chuẩn hóa 3B | Đề xuất văn phong thông báo định hướng 3B (3B-DEC-12) | — | — | Khung thông báo | **PENDING** | Khung viền mỏng, nhãn [Đề xuất], câu chữ thống nhất, chờ Chủ dự án duyệt |
 | **Jump Bar** | `DV-NAV-01` | 6 tab neo nhanh: `#kham-dieu-tri`, `#can-lam-sang`... | Đề xuất Taxonomy chuẩn 5 nhóm (3B-DEC-05) | — | — | Thanh điều hướng | **PENDING** | Dải pill dính, cuộn mượt |
 | **Nhóm 1** | `DV-GRP1-01` | Tên nhóm 01: `Khám & Điều Trị Lâm Sàng` | Đề xuất danh mục chuẩn (3B-DEC-05) | — | — | Tiêu đề nhóm H2 | **PENDING** | Tiêu đề H2 kèm nhãn `[Đề xuất]` |
-| **Nhóm 1** | `DV-GRP1-02` | Mô tả quy trình thăm khám cẩn trọng, đo sinh hiệu | Đề xuất quy trình lâm sàng | — | — | Đoạn văn mô tả | **PENDING** | Văn phong trung tính, trách nhiệm |
+| **Nhóm 1** | `DV-GRP1-02` | Mô tả quy trình thăm khám cẩn trọng, điều trị chu đáo | Đề xuất quy trình lâm sàng | — | — | Đoạn văn mô tả | **PENDING** | Văn phong trung tính, nhãn `[Đề xuất]` (không claim đo sinh hiệu) |
 | **Nhóm 1** | `DV-GRP1-03` | Dịch vụ: Khám lâm sàng tổng quát & sàng lọc sức khỏe | Đề xuất danh mục kỹ thuật (3B-DEC-04) | — | — | Danh sách dịch vụ | **PENDING** | Gắn nhãn `[Đề xuất danh mục]` |
 | **Nhóm 1** | `DV-GRP1-04` | Dịch vụ: Tiêm phòng vaccine & phòng ký sinh trùng | Đề xuất danh mục kỹ thuật (3B-DEC-04) | — | — | Danh sách dịch vụ | **PENDING** | Gắn nhãn `[Đề xuất danh mục]` |
 | **Nhóm 1** | `DV-GRP1-05` | Dịch vụ: Điều trị bệnh lý nội khoa, tiêu hóa, hô hấp | Đề xuất danh mục kỹ thuật (3B-DEC-04) | — | — | Danh sách dịch vụ | **PENDING** | Gắn nhãn `[Đề xuất danh mục]` |
@@ -50,7 +50,7 @@
 | **Nhóm 3** | `DV-GRP3-02` | Dịch vụ: Triệt sản an toàn chó mèo & tiểu phẫu mô mềm | Đề xuất danh mục phẫu thuật (3B-DEC-04) | — | — | Danh sách dịch vụ | **PENDING** | Gắn nhãn `[Đề xuất danh mục]` |
 | **Nhóm 3** | `DV-GRP3-03` | Nhân sự: `Bác sĩ ngoại khoa [Chờ phê duyệt]` | Nguyên tắc bảo vệ danh tính nhân sự (3B-DEC-06) | — | — | Thông tin bác sĩ | **PENDING** | Tuyệt đối không gán tên bác sĩ |
 | **Nhóm 3** | `DV-GRP3-04` | Link: `Xem bảng giá phẫu thuật tham chiếu ->` | Đề xuất điều hướng sang bảng giá | — | — | Nút liên kết | **PENDING** | Trỏ sang `/bang-gia?cat=phau-thuat` |
-| **Nhóm 4** | `DV-GRP4-01` | Tên nhóm 04: `Chăm Sóc Nội Trú Y Tế 24/7` | Đề xuất danh mục chuẩn (3B-DEC-05) | — | — | Tiêu đề nhóm H2 | **PENDING** | Tiêu đề H2 kèm nhãn `[Đề xuất]` |
+| **Nhóm 4** | `DV-GRP4-01` | Tên nhóm 04: `Lưu Trú Y Tế Nội Trú & Theo Dõi Sức Khỏe` | Đề xuất danh mục chuẩn (3B-DEC-05, DEC-07) | — | — | Tiêu đề nhóm H2 | **PENDING** | Tiêu đề H2 kèm nhãn `[Đề xuất]`, không hàm ý trực đêm 24/7 |
 | **Nhóm 4** | `DV-GRP4-02` | Định hướng: Khu vực lưu trú chuyên biệt theo loài | Đề xuất quy hoạch lưu trú (3B-DEC-07) | — | — | Mô tả vận hành | **PENDING** | Gắn nhãn `[Chờ xác nhận cơ cấu phân khu]` |
 | **Nhóm 4** | `DV-GRP4-03` | Định hướng: Nhân viên chăm sóc theo dõi theo y lệnh | Đề xuất phương án nhân sự theo dõi (3B-DEC-07)| — | — | Mô tả vận hành | **PENDING** | Gắn nhãn `[Chờ xác nhận nhân sự theo dõi]` |
 | **Nhóm 4** | `DV-GRP4-04` | Nguyên tắc: Cập nhật tình hình định kỳ (không lộ y lệnh) | Đề xuất chính sách bảo mật thông tin nội trú | — | — | Mô tả vận hành | **PENDING** | Chờ Chủ dự án duyệt chính sách công bố |
@@ -109,14 +109,14 @@
 
 ### 4.1. Bảng số liệu thống kê thực tế (Đối chiếu 100% khớp bảng dữ liệu)
 - **Tổng số hạng mục kiểm soát:** **68 hạng mục** (Trang `/dich-vu`: 41 hạng mục; Trang `/bang-gia`: 27 hạng mục).
-- **Số hạng mục `VERIFIED`:** **4 hạng mục** (Chỉ gồm các thông tin đã có chỉ đạo bằng văn bản hoặc kế thừa từ Mốc 2B: `DV-HERO-05`, `DV-EMG-01`, `DV-EMG-03`, `BG-CTA-03`).
-- **Số hạng mục `PENDING`:** **63 hạng mục** (Toàn bộ câu chữ Hero/Heading theo DEC-12, danh mục dịch vụ theo DEC-04/05, quy trình nội trú/thiết bị theo DEC-07, lời khuyên y khoa theo DEC-08, cam kết chi phí theo DEC-09 và biểu phí dịch vụ theo DEC-01).
+- **Số hạng mục `VERIFIED`:** **3 hạng mục** (Chỉ gồm các thông tin cơ sở và hotline đã được xác minh kế thừa từ Mốc 2A/2B: `DV-EMG-01`, `DV-EMG-03`, `BG-CTA-03`).
+- **Số hạng mục `PENDING`:** **64 hạng mục** (Toàn bộ câu chữ Hero/Heading và Banner theo DEC-12, danh mục dịch vụ theo DEC-04/05, quy trình nội trú/thiết bị theo DEC-07, lời khuyên y khoa theo DEC-08, cam kết chi phí theo DEC-09 và biểu phí dịch vụ theo DEC-01).
 - **Số hạng mục `ILLUSTRATIVE`:** **1 hạng mục** (`DV-GRP1-07` — Khung ảnh minh họa khám thú cưng).
-- **Tổng cộng:** $4 + 63 + 1 = 68$ hạng mục (Chính xác 100%, không sai lệch).
+- **Tổng cộng:** $3 + 64 + 1 = 68$ hạng mục (Chính xác 100%, không sai lệch).
 
 ### 4.2. Điều kiện chặn phát hành Production
 - 100% các mục `PENDING` bắt buộc phải có nhãn `[Đề xuất]`, `[Chờ xác nhận]` hoặc badge `UNAVAILABLE` / `CONTACT` trên giao diện người dùng. Việc gỡ bỏ các nhãn này là **ĐIỀU KIỆN CHẶN PRODUCTION** tuyệt đối.
 
 ---
 
-**KẾT THÚC MA TRẬN ÁNH XẠ NỘI DUNG 3B-00 (CONTENT MAPPING V1.2)**
+**KẾT THÚC MA TRẬN ÁNH XẠ NỘI DUNG 3B-00 (CONTENT MAPPING V1.3)**

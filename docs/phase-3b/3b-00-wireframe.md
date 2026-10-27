@@ -1,10 +1,10 @@
-# ĐẶC TẢ WIREFRAME & TƯƠNG TÁC GIAI ĐOẠN 3B — PHIÊN BẢN V1.2 (PHASE 3B-00 WIREFRAME SPECIFICATION)
+# ĐẶC TẢ WIREFRAME & TƯƠNG TÁC GIAI ĐOẠN 3B — PHIÊN BẢN V1.3 (PHASE 3B-00 WIREFRAME SPECIFICATION)
 ## Bệnh viện Thú y Lê Sơn 2026 — Đặc Tả Bố Cục Đa Điểm Ảnh, Accordion & Công Cụ Tra Cứu
 
 | Hạng mục | Thông tin chi tiết |
 | :--- | :--- |
 | **Dự án** | Website Bệnh viện Thú y Lê Sơn 2026 (`lqt140304-rgb/webchinhthuc`) |
-| **Căn cứ chỉ đạo** | **CEO DIRECTIVE 044-A**; `docs/phase-3b/3b-00-content-evidence-gate.md`; Báo cáo Claude QA `docs/qa/3b-00-fix01-qa.md` (Commit: `b9f386b`) |
+| **Căn cứ chỉ đạo** | **CEO DIRECTIVE 046-A**; `docs/phase-3b/3b-00-content-evidence-gate.md`; `docs/decisions/3b-dec-12-13-policy-record.md`; Báo cáo Claude QA `docs/qa/3b-00-fix02-qa.md` (Commit: `e0bdeec`) |
 | **Bản chất tài liệu** | **WIREFRAME & INTERACTION SPECIFICATION ONLY** (Đặc tả thiết kế chi tiết — Không phải mã nguồn triển khai) |
 | **Giai đoạn** | **3B-00: DOCUMENTATION ONLY — KHÔNG CODE / KHÔNG MOCKUP HTML** |
 | **Phạm vi** | Hai trang: **`/dich-vu`** (Tổng hợp dịch vụ) và **`/bang-gia`** (Bảng giá niêm yết) |
@@ -39,33 +39,33 @@ Hai trang Giai đoạn 3B tuân thủ tuyệt đối quy chuẩn responsive củ
 | BREADCRUMB: Trang chủ / Dịch vụ                                                                  |
 |                                                                                                  |
 | [SECTION 1: EDITORIAL HERO]                                                                      |
-| HỆ THỐNG DỊCH VỤ Y TẾ THÚ CƯNG LÊ SƠN                                                            |
-| Chăm sóc chu toàn từ phòng khám đến khu nội trú (Lora 600, 48px)                                 |
+| [Đề xuất / PENDING - DEC-12] HỆ THỐNG DỊCH VỤ Y TẾ THÚ CƯNG LÊ SƠN                                |
+| [Đề xuất / PENDING - DEC-12] Hệ thống chăm sóc sức khỏe thú cưng tận tâm (Lora 600, 48px)         |
 |                                                                                                  |
-| "Chúng tôi hiểu rằng mỗi lần thú cưng thăm khám là một lần người bạn đồng hành cần sự dịu dàng   |
-|  và cẩn trọng cao nhất. Bệnh viện Thú y Lê Sơn xây dựng quy trình tiếp đón chu đáo..."           |
+| [Đề xuất / PENDING - DEC-12] "Chúng tôi hiểu rằng mỗi lần thú cưng thăm khám là một lần người     |
+| bạn đồng hành cần sự dịu dàng và cẩn trọng cao nhất. Bệnh viện Thú y Lê Sơn xây dựng quy trình   |
+| tiếp đón chu đáo..."                                                                             |
 |                                                                                                  |
 | +----------------------------------------------------------------------------------------------+ |
-| | [i] THÔNG BÁO: Danh mục dịch vụ đang được chuẩn hóa theo định hướng Giai đoạn 3B. Chi tiết   | |
-| |     phác đồ và chi phí cụ thể sẽ được bác sĩ trao đổi trực tiếp sau khi khám lâm sàng.       | |
+| | [i] THÔNG BÁO [Đề xuất / PENDING - DEC-12]: Danh mục dịch vụ và biểu phí đang được đối chiếu | |
+| |     hoàn thiện. Mọi phác đồ can thiệp và dự toán chi phí cụ thể sẽ được bác sĩ trao đổi trực | |
+| |     tiếp khi tiếp nhận thăm khám thú cưng.                                                   | |
 | +----------------------------------------------------------------------------------------------+ |
 |                                                                                                  |
 | [SECTION 2: QUICK CATEGORY JUMP BAR - STICKY TOP-[81PX] Ở DESKTOP]                              |
-| [ Khám & Điều trị ] [ Cận lâm sàng & Xét nghiệm ] [ Phẫu thuật ] [ Nội trú 24/7 ] [ Spa ] [Cấp cứu]|
+| [ Khám & Điều trị ] [ Cận lâm sàng & Xét nghiệm ] [ Phẫu thuật ] [ Lưu trú nội trú ] [ Spa ] [Cấp cứu]|
 |--------------------------------------------------------------------------------------------------|
 |                                                                                                  |
 | [SECTION 3.1: NHÓM 01 — KHÁM & ĐIỀU TRỊ LÂM SÀNG] (#kham-dieu-tri) [Đề xuất]                     |
 | +-------------------------------------------------------+ +------------------------------------+ |
 | | NHÓM 01 — Y KHOA LÂM SÀNG [Đề xuất]                   | | KHUNG ẢNH MINH HỌA               | |
-| | Thăm khám cẩn trọng, chẩn đoán đúng và điều trị chu   | | +--------------------------------+ | |
-| | đáo                                                   | | |                                | | |
+| | [Đề xuất] Thăm khám cẩn trọng, điều trị chu đáo       | | +--------------------------------+ | |
 | | Quy trình kiểm tra các chỉ số sức khỏe cơ bản, lắng   | | |     [Ảnh thú cưng ấm áp]       | | |
-| | nghe phản ánh từ chủ nuôi.                            | | |                                | | |
-| | -- Danh mục dịch vụ dự kiến (PENDING): -------------  | | | Nhãn: Ảnh minh họa dịch vụ     | | |
-| | * Khám lâm sàng tổng quát [Đề xuất danh mục]          | | +--------------------------------+ | |
-| | * Tiêm phòng vaccine & phòng ký sinh trùng [Đề xuất]  | |                                    | |
-| | * Điều trị bệnh lý nội khoa, tiêu hóa, hô hấp [Đề xuất| | Bác sĩ phụ trách lâm sàng:         | |
-| |                                                       | | [Chờ xác nhận phân công nhân sự] | |
+| | nghe phản ánh từ chủ nuôi.                            | | | Nhãn: Ảnh minh họa dịch vụ     | | |
+| | -- Danh mục dịch vụ dự kiến (PENDING): -------------  | | +--------------------------------+ | |
+| | * Khám lâm sàng tổng quát [Đề xuất danh mục]          | |                                    | |
+| | * Tiêm phòng vaccine & phòng ký sinh trùng [Đề xuất]  | | Bác sĩ phụ trách lâm sàng:         | |
+| | * Điều trị bệnh lý nội khoa, tiêu hóa, hô hấp [Đề xuất| | [Chờ xác nhận phân công nhân sự] | |
 | | [ Tra cứu bảng giá khám & điều trị -> ]               | |                                    | |
 | +-------------------------------------------------------+ +------------------------------------+ |
 |                                                                                                  |
@@ -86,14 +86,16 @@ Hai trang Giai đoạn 3B tuân thủ tuyệt đối quy chuẩn responsive củ
 | | chăm sóc thú cưng tại nhà.                            | |                                    | |
 | | * Triệt sản an toàn chó mèo [Đề xuất danh mục]        | | -- Lưu ý y khoa: ----------------- | |
 | | * Tiểu phẫu mô mềm & xử lý vết thương [Đề xuất]       | | Trao đổi trước với bác sĩ về tiền  | |
-| | [ Xem bảng giá phẫu thuật tham chiếu -> ]             | | sử dị ứng và chuẩn bị nhịn ăn.     | |
+| | [ Xem bảng giá phẫu thuật tham chiếu -> ]             | | sử dị ứng và lưu ý chăm sóc        | |
+| |                                                       | | [Đề xuất - Chờ bác sĩ xác nhận].   | |
 | +-------------------------------------------------------+ +------------------------------------+ |
 |                                                                                                  |
-| [SECTION 3.4: NHÓM 04 — LƯU TRÚ Y TẾ NỘI TRÚ 24/7] (#noi-tru) [Đề xuất]                           |
+| [SECTION 3.4: NHÓM 04 — LƯU TRÚ Y TẾ NỘI TRÚ] (#noi-tru) [Đề xuất]                               |
 | [Đề xuất] Không gian lưu trú và phương án theo dõi phù hợp (Lavender Container)                  |
-| * Khu vực lưu trú chuyên biệt: [Chờ xác nhận cơ cấu phân khu]                                    |
-| * Chế độ theo dõi: [Chờ xác nhận phương án nhân sự chăm sóc theo y lệnh]                         |
+| * Khu vực lưu trú chuyên biệt: [Chờ xác nhận cơ cấu phân khu - DEC-07]                           |
+| * Chế độ theo dõi: [Chờ xác nhận phương án nhân sự chăm sóc - DEC-07]                            |
 | * Cập nhật tình hình: Thông báo tình trạng phục hồi cho chủ nuôi (không công khai y lệnh nội bộ) |
+|   [Chờ xác nhận quy trình công bố - DEC-07]                                                      |
 | [ Tra cứu biểu phí nội trú lưu chuồng -> ]                                                       |
 |                                                                                                  |
 | [SECTION 3.5: NHÓM 05 — VỆ SINH Y TẾ & SPA GROOMING] (#spa-grooming) [Đề xuất]                   |
@@ -132,19 +134,21 @@ Hai trang Giai đoạn 3B tuân thủ tuyệt đối quy chuẩn responsive củ
 +-----------------------------------+
 | Trang chủ / Dịch vụ               |
 |                                   |
+| [Đề xuất / PENDING - DEC-12]      |
 | HỆ THỐNG DỊCH VỤ Y TẾ LÊ SƠN      |
-| Chăm sóc chu toàn từ              |
-| phòng khám đến nội trú            |
-| (Lora 600, 28px)                  |
+| Chăm sóc sức khỏe thú cưng        |
+| tận tâm (Lora 600, 28px)          |
 |                                   |
-| [i] Thông báo chuẩn hóa danh mục  |
+| [i] Thông báo chuẩn hóa [Đề xuất] |
 |                                   |
 | [TAB NHẢY CUỘN NGANG - STICKY TOP-[73PX]]
-| [Khám điều trị] [Cận lâm sàng] .. |
+| [Khám điều trị] [CLS] [Phẫu thuật]|
+| [Lưu trú nội trú] [Spa] [Cấp cứu] |
 |-----------------------------------|
 |                                   |
-| [NHÓM 01: KHÁM & ĐIỀU TRỊ]        |
-| Thăm khám cẩn trọng               |
+| [NHÓM 01: KHÁM & ĐIỀU TRỊ - Đề xuất]
+| Thăm khám cẩn trọng, điều trị     |
+| chu đáo [Đề xuất]                 |
 |                                   |
 | [Khung ảnh minh họa tỉ lệ 16:9]   |
 |                                   |
@@ -158,30 +162,31 @@ Hai trang Giai đoạn 3B tuân thủ tuyệt đối quy chuẩn responsive củ
 | [ Tra cứu bảng giá khám -> ]      |
 |-----------------------------------|
 |                                   |
-| [NHÓM 02: CẬN LÂM SÀNG & XN]      |
-| * Thẻ 1: Xét nghiệm huyết học/SH  |
-| * Thẻ 2: Chẩn đoán hình ảnh       |
-| * Thẻ 3: Soi kính hiển vi da      |
+| [NHÓM 02: CẬN LÂM SÀNG & XN - Đề xuất]
+| * Thẻ 1: Xét nghiệm máu [Đề xuất] |
+| * Thẻ 2: CĐ hình ảnh [Đề xuất]    |
+| * Thẻ 3: Soi kính vi da [Đề xuất] |
 | [ Xem bảng giá xét nghiệm -> ]    |
 |-----------------------------------|
 |                                   |
-| [NHÓM 03: PHẪU THUẬT NGOẠI KHOA]  |
-| Quy trình cẩn trọng, chuẩn bị kỹ  |
+| [NHÓM 03: PHẪU THUẬT - Đề xuất]   |
+| Quy trình cẩn trọng [Đề xuất]     |
 | * Triệt sản an toàn [Đề xuất]     |
 | * Tiểu phẫu mô mềm [Đề xuất]      |
 | [ Xem bảng giá phẫu thuật -> ]    |
 |-----------------------------------|
 |                                   |
-| [NHÓM 04: NỘI TRÚ Y TẾ 24/7]      |
+| [NHÓM 04: LƯU TRÚ NỘI TRÚ - Đề xuất]
 | (Khung Lavender bo tròn)          |
-| * Phân khu: [Chờ xác nhận]        |
+| * Phân khu: [Chờ xác nhận-DEC-07] |
 | * Nhân sự theo dõi: [Chờ xác nhận]|
 | * Cập nhật định kỳ cho chủ nuôi   |
+|   [Chờ xác nhận - DEC-07]         |
 | [ Tra cứu biểu phí nội trú -> ]   |
 |-----------------------------------|
 |                                   |
-| [NHÓM 05: SPA GROOMING]           |
-| Vệ sinh êm ái, chăm sóc dịu nhẹ   |
+| [NHÓM 05: SPA GROOMING - Đề xuất] |
+| Vệ sinh êm ái [Đề xuất]           |
 | * Gói tắm vệ sinh [Đề xuất]       |
 | * Cắt tỉa tạo hình [Đề xuất]      |
 | [ Xem bảng giá spa grooming -> ]  |
@@ -222,12 +227,13 @@ Hai trang Giai đoạn 3B tuân thủ tuyệt đối quy chuẩn responsive củ
 | BREADCRUMB: Trang chủ / Dịch vụ / Bảng giá niêm yết                                              |
 |                                                                                                  |
 | [SECTION 1: PAGE HEADING & DISCLAIMER BANNER]                                                    |
-| MINH BẠCH CHI PHÍ Y TẾ THÚ CƯNG                                                                  |
-| Bảng giá dịch vụ & biểu phí tham chiếu (Lora 600, 48px)                                          |
-| "Bệnh viện Thú y Lê Sơn hướng tới sự minh bạch và rõ ràng trong tư vấn chi phí..."               |
+| [Đề xuất / PENDING - DEC-12] MINH BẠCH CHI PHÍ Y TẾ THÚ CƯNG                                     |
+| [Đề xuất / PENDING - DEC-12] Bảng giá dịch vụ & biểu phí tham chiếu (Lora 600, 48px)             |
+| [Đề xuất / PENDING - DEC-12] "Bệnh viện Thú y Lê Sơn hướng tới sự minh bạch và rõ ràng trong tư  |
+|  vấn chi phí..."                                                                                 |
 |                                                                                                  |
 | +----------------------------------------------------------------------------------------------+ |
-| | [i] NGUYÊN TẮC BIẾN ĐỘNG GIÁ Y KHOA [Đề xuất quy chế]:                                       | |
+| | [i] NGUYÊN TẮC BIẾN ĐỘNG GIÁ Y KHOA [Đề xuất quy chế - DEC-12]:                              | |
 | |     1. Chi phí y tế có thể thay đổi tùy thuộc vào cân nặng, giống loài và diễn biến ca bệnh. | |
 | |     2. Bác sĩ luôn trao đổi và giải thích dự toán chi phí trước khi can thiệp.               | |
 | |     3. Chính sách phụ phí ngoài giờ y tế (nếu có) sẽ được thông báo cụ thể khi tiếp nhận.    | |
@@ -237,7 +243,7 @@ Hai trang Giai đoạn 3B tuân thủ tuyệt đối quy chuẩn responsive củ
 | +----------------------------------------------------------------------------------------------+ |
 | | [Search Icon] Tìm tên dịch vụ, xét nghiệm, gói spa (ví dụ: khám tổng quát, tiêm phòng...) [x] | |
 | +----------------------------------------------------------------------------------------------+ |
-| [ (o) Tất cả ] [ Khám & Điều trị ] [ Cận lâm sàng ] [ Phẫu thuật ] [ Nội trú ] [ Spa & Grooming ]|
+| [ (o) Tất cả ] [ Khám & Điều trị ] [ Cận lâm sàng ] [ Phẫu thuật ] [ Lưu trú nội trú ] [ Spa ]  |
 |                                                                                                  |
 | [SECTION 3: BẢNG GIÁ ACCORDION CÓ CẤU TRÚC] (Container min-h-[400px])                            |
 |                                                                                                  |
@@ -246,7 +252,7 @@ Hai trang Giai đoạn 3B tuân thủ tuyệt đối quy chuẩn responsive củ
 | | [v] Khám lâm sàng tổng quát ban đầu                 | Đơn vị: Lần | [ Đang cập nhật biểu phí ] | |
 | |----------------------------------------------------------------------------------------------| |
 | |     [Đề xuất minh họa]: Kiểm tra sức khỏe lâm sàng tổng quát ban đầu.                        | |
-| |     Lưu ý y khoa: Áp dụng cho lần khám đầu tiên hoặc khám định kỳ tổng quát.                 | |
+| |     Lưu ý y khoa: [Đề xuất áp dụng] Áp dụng cho lần khám đầu tiên hoặc khám định kỳ.         | |
 | |     Thông báo: Biểu phí chính thức đang được phòng khám đối chiếu ban hành.                  | |
 | |     [ Đặt lịch khám -> ]                                                                     | |
 | +----------------------------------------------------------------------------------------------+ |
@@ -271,7 +277,7 @@ Hai trang Giai đoạn 3B tuân thủ tuyệt đối quy chuẩn responsive củ
 | | [>] Phẫu thuật mô mềm & xử lý vết thương hở         | Đơn vị: Ca  | [ Báo giá sau khám ]       | |
 | +----------------------------------------------------------------------------------------------+ |
 |                                                                                                  |
-| [SECTION 4: QUY TRÌNH TIẾP NHẬN BÁO GIÁ MINH BẠCH 3 BƯỚC - ĐỀ XUẤT]                              |
+| [SECTION 4: QUY TRÌNH TIẾP NHẬN BÁO GIÁ MINH BẠCH 3 BƯỚC - ĐỀ XUẤT - DEC-09]                     |
 | +-----------------------------+ +-----------------------------+ +------------------------------+ |
 | | BƯỚC 01: THĂM KHÁM LÂM SÀNG | | BƯỚC 02: DỰ TOÁN CHI TIẾT   | | BƯỚC 03: ĐỒNG THUẬN ĐIỀU TRỊ | |
 | | [Đề xuất quy trình]         | | [Đề xuất quy trình]         | | [Đề xuất quy trình]          | |
@@ -295,11 +301,13 @@ Hai trang Giai đoạn 3B tuân thủ tuyệt đối quy chuẩn responsive củ
 +-----------------------------------+
 | Trang chủ / Dịch vụ / Bảng giá    |
 |                                   |
+| [Đề xuất / PENDING - DEC-12]      |
 | BẢNG GIÁ DỊCH VỤ NIÊM YẾT         |
-| Minh bạch chi phí y tế            |
+| Minh bạch chi phí y tế [Đề xuất]   |
 | (Lora 600, 26px)                  |
 |                                   |
 | [i] Cảnh báo biến động giá y khoa |
+|     [Đề xuất quy chế - DEC-12]    |
 |-----------------------------------|
 |                                   |
 | [Ô TÌM KIẾM NHANH DỊCH VỤ]        |
@@ -448,4 +456,4 @@ Khi hệ điều hành kích hoạt chế độ `prefers-reduced-motion: reduce`
 
 ---
 
-**KẾT THÚC ĐẶC TẢ WIREFRAME & TƯƠNG TÁC 3B-00 (WIREFRAME SPECIFICATION V1.2)**
+**KẾT THÚC ĐẶC TẢ WIREFRAME & TƯƠNG TÁC 3B-00 (WIREFRAME SPECIFICATION V1.3)**

@@ -1,13 +1,13 @@
 # KHUNG KIỂM SOÁT BẰNG CHỨNG NỘI DUNG GIAI ĐOẠN 3B (PHASE 3B CONTENT EVIDENCE GATE)
-## Bệnh viện Thú y Lê Sơn 2026 — Quy Chuẩn Xác Minh & Khóa Nội Dung Y Khoa (Phiên bản v1.2)
+## Bệnh viện Thú y Lê Sơn 2026 — Quy Chuẩn Xác Minh & Khóa Nội Dung Y Khoa (Phiên bản v1.3)
 
 | Hạng mục | Thông tin chi tiết |
 | :--- | :--- |
 | **Dự án** | Website Bệnh viện Thú y Lê Sơn 2026 (`lqt140304-rgb/webchinhthuc`) |
-| **Căn cứ chỉ đạo** | **CEO DIRECTIVE 042-A**, **CEO DIRECTIVE 044-A**; `AGENTS.md` (Architecture Baseline V1); Quyết định **DEC-12** và **DEC-13** |
+| **Căn cứ chỉ đạo** | **CEO DIRECTIVE 046-A**, **CEO DIRECTIVE 044-A**, **CEO DIRECTIVE 042-A**; `AGENTS.md` (Architecture Baseline V1); Bản ghi nhận chính sách **DEC-12** và **DEC-13** ([`3b-dec-12-13-policy-record.md`](../decisions/3b-dec-12-13-policy-record.md)) |
 | **Bản chất tài liệu** | **CONTENT VERIFICATION FRAMEWORK & EVIDENCE STANDARDS** (Quy chế kiểm soát bằng chứng nội dung) |
 | **Áp dụng cho** | Toàn bộ tài liệu thiết kế, wireframe, data schema, content mapping và mã nguồn Giai đoạn 3B |
-| **Trạng thái** | **POLICY APPROVED (Quy chế đã duyệt) — NỘI DUNG CỤ THỂ CẦN BẰNG CHỨNG RIÊNG** |
+| **Trạng thái** | **POLICY ACCEPTED IN PRINCIPLE / FORMAL APPROVAL RECORD PENDING**<br>*(Chính sách được chấp thuận về mặt nguyên tắc trong trao đổi điều phối; đang chờ văn bản ký xác nhận chính thức lưu repo — Tuyệt đối không dùng làm bằng chứng xác minh cho từng claim riêng lẻ)* |
 
 ---
 
@@ -127,7 +127,7 @@ export interface ContentEvidenceRecord {
 
 | Cấp độ | Loại nguồn bằng chứng | Mức độ tin cậy | Ví dụ nguồn hợp lệ trong Repo |
 |:---:|---|---|---|
-| **Cấp 1** | **Chỉ đạo trực tiếp của Chủ dự án (Owner Directives)** | Cao nhất | Xác nhận địa chỉ, hotline, giờ làm việc trong Directive 017-A/018-A (26/10/2026). Quyết định DEC-12, DEC-13 trong Directive 044-A. |
+| **Cấp 1** | **Chỉ đạo trực tiếp của Chủ dự án (Owner Directives) có trong repo** | Cao nhất | Xác nhận địa chỉ, hotline (`097 355 51 05`), giờ làm việc trong Directive 017-A/018-A (26/10/2026). Các nguyên tắc chính sách DEC-12, DEC-13 được ghi nhận tại [`3b-dec-12-13-policy-record.md`](../decisions/3b-dec-12-13-policy-record.md) (trạng thái: Approval Record Pending). *(Lưu ý: Chỉ đạo điều phối CEO Directives từ ChatGPT không thay thế văn bản ký duyệt của Chủ dự án).* |
 | **Cấp 2** | **Văn bản chuyên môn có chữ ký (Signed Medical Docs)** | Cao nhất y khoa | Danh mục dịch vụ có chữ ký của Bác sĩ phụ trách; Bảng giá niêm yết có dấu phòng khám. |
 | **Cấp 3** | **Commit Git đã được nghiệm thu chính thức (Accepted Commits)** | Giá trị kỹ thuật | Commit code 3A `4739d45` được nghiệm thu có điều kiện (chỉ xác nhận layout/code, không tự mở rộng sang claim chuyên môn mới). |
 | **KHÔNG HỢP LỆ** | **Tài liệu không có trong repo, tài liệu nháp cũ, suy đoán AI** | **VÔ GIÁ TRỊ** | Nguồn không tồn tại như "Brand Identity Baseline V1", mockup cũ, câu trả lời tự sinh của AI. |
@@ -172,7 +172,7 @@ Trước khi website được phép gỡ `noindex` và triển khai ra môi trư
 - ❌ **CHẶN NẾU:** Còn gắn chuyên môn phẫu thuật/điều trị cho bác sĩ mà chưa có văn bằng/chứng chỉ hành nghề được duyệt công bố.
 - ❌ **CHẶN NẾU:** Còn sử dụng các từ ngữ tuyệt đối hóa: "chữa khỏi 100%", "điều trị tận gốc", "không phát sinh chi phí".
 - ❌ **CHẶN NẾU:** Còn tồn tại nhãn `[Đề xuất]`, `[Chờ xác nhận]` hoặc `UNAVAILABLE` trên các dịch vụ chính mà chưa có quyết định xử lý hiển thị từ chủ dự án.
-- ❌ **CHẶN NẾU:** Còn thiếu quyết định phê duyệt văn bản của Chủ dự án đối với câu chữ Hero và Heading theo **DEC-12**.
+- ❌ **CHẶN NẾU:** Còn thiếu quyết định phê duyệt văn bản của Chủ dự án đối với câu chữ Hero và Heading theo **DEC-12** (hiện trạng: DEC-12 đang ở trạng thái `APPROVAL RECORD PENDING`, chờ văn bản phê duyệt câu chữ cụ thể).
 
 ---
 
@@ -181,8 +181,9 @@ Trước khi website được phép gỡ `noindex` và triển khai ra môi trư
 Mỗi khi hoàn thành một vòng tài liệu hoặc code, Antigravity phải tự rà soát theo bảng kiểm tra sau:
 
 - [ ] **Grep tên bác sĩ:** Tìm kiếm `"Lê Thái Sơn"` hoặc `"BS. Sơn"` $\to$ Xác nhận không xuất hiện trong mô tả phẫu thuật, gây mê, điều trị nội khoa hoặc fixture khi chưa có bằng chứng.
-- [ ] **Grep từ khóa cơ sở vật chất:** Tìm kiếm `"cách ly"`, `"vô trùng"`, `"hồi sức"`, `"gây mê"`, `"sinh hiệu"`, `"trực đêm"` $\to$ Xác nhận 100% các từ này đều nằm trong slot `[Chờ xác nhận]` hoặc `[Đề xuất]`, không xuất hiện như sự thật đã hoàn tất.
+- [ ] **Grep từ khóa cơ sở vật chất:** Tìm kiếm `"cách ly"`, `"vô trùng"`, `"hồi sức"`, `"gây mê"`, `"sinh hiệu"`, `"trực đêm"`, `"24/7 nội trú"` $\to$ Xác nhận 100% các từ này đều nằm trong slot `[Chờ xác nhận]` hoặc `[Đề xuất]`, không xuất hiện như sự thật đã hoàn tất.
 - [ ] **Grep từ ngữ tuyệt đối:** Tìm kiếm `"tận gốc"`, `"không phát sinh"`, `"100%"` $\to$ Xác nhận 0 kết quả trong nội dung hiển thị của toàn bộ tài liệu.
+- [ ] **Rà soát Hotline & Thông tin liên hệ:** Đảm bảo 100% số hotline, địa chỉ, giờ mở cửa đều khớp tuyệt đối với `HOSPITAL_CONTACT` trong `src/config/contact.ts` (Hotline `097 355 51 05`), không có số sai lệch như `0988 565 056`.
 - [ ] **Rà soát cột VERIFIED & người duyệt:** Kiểm tra từng dòng `VERIFIED` trong Content Mapping $\to$ Đảm bảo có đầy đủ bằng chứng cụ thể và người duyệt là Chủ dự án hoặc Bác sĩ, tuyệt đối không có tên các AI agent (Antigravity, Claude, ChatGPT CEO).
 - [ ] **Kiểm tra DEC-12:** Đảm bảo toàn bộ câu chữ Hero và Heading đều ở trạng thái `PENDING` chờ chủ dự án phê duyệt văn bản.
 - [ ] **Kiểm tra tính nhất quán danh mục:** Xác nhận 5 nhóm danh mục và slug giống hệt nhau trên cả 5 tài liệu 3B.
@@ -190,4 +191,4 @@ Mỗi khi hoàn thành một vòng tài liệu hoặc code, Antigravity phải t
 
 ---
 
-**KẾT THÚC QUY CHẾ CONTENT EVIDENCE GATE V1.2**
+**KẾT THÚC QUY CHẾ CONTENT EVIDENCE GATE V1.3**
