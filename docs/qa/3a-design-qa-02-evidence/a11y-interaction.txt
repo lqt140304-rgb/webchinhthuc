@@ -1,0 +1,12 @@
+status region { role: 'status', live: 'polite' }
+after Enter on vet filter {
+  vet: false,
+  groom: true,
+  support: true,
+  pressed: [ 'N = 3 (3 chuẩn)', 'Bộ phận Bác sĩ Thú y' ],
+  status: 'Đang lọc: Chỉ hiển thị Bộ phận Bác sĩ Thú y (các bộ phận khác đã ẩn bằng thuộc tính hidden',
+  focusVisible: 'auto 1px'
+}
+tabbable inside hidden grooming: 0
+reduced-motion card transition: 0s
+[{"t":"[Họ và tên Bác sĩ #01 ","bg":"rgb(255, 255, 255)","border":"rgba(90, 30, 94, 0.12) 1px","shadow":"rgba(66, 18, 71, 0.07) 0px 10px 30px -5p","w":410,"h":866,"hf":"22.08px"},{"t":"BS. Lê Thái Sơn","bg":"rgb(255, 255, 255)","border":"rgba(90, 30, 94, 0.12) 1px","shadow":"rgba(66, 18, 71, 0.07) 0px 10px 30px -5p","w":410,"h":866,"hf":"22.08px"},{"t":"[Họ và tên Bác sĩ #03 ","bg":"rgb(255, 255, 255)","border":"rgba(90, 30, 94, 0.12) 1px","shadow":"rgba(66, 18, 71, 0.07) 0px 10px 30px -5p","w":410,"h":866,"hf":"22.08px"}]

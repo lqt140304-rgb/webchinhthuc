@@ -1,0 +1,6 @@
+# Phân tích mã hoá docs/design/phase-3a-interactive-mockups.html @ f6b689b
+Kích thước: 105072 byte; meta charset khai báo UTF-8
+Số dòng chứa chuỗi mojibake (Ã/á»/áº): 280
+Ví dụ <title> hiển thị: Phase 3A Interactive Design Studio v2.1 â€” Bá»‡nh viá»‡n ThÃº y LÃª SÆ¡n
+Sau khi đảo ngược mã hoá Windows-1252→UTF-8 (bản phục hồi chẩn đoán, không đưa vào repo): Phase 3A Interactive Design Studio v2.1 — Bệnh viện Thú y Lê Sơn
+Ký tự thay thế U+FFFD sau phục hồi: 0

@@ -1,0 +1,710 @@
+{
+ "gioi-thieu@320": {
+  "overflowPx": 0,
+  "wide": [],
+  "clipped": [],
+  "imgs": [
+   {
+    "src": "article-prevention.webp",
+    "ok": true,
+    "alt": "Thú cưng nghỉ ngơi trong không gian ấm áp (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   },
+   {
+    "src": "why-pet-companion.webp",
+    "ok": true,
+    "alt": "Chăm sóc thú cưng thân thiện (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   }
+  ],
+  "h1": 1,
+  "headingSkip": false,
+  "fonts": [
+   "Be Vietnam Pro/500",
+   "Lora/600",
+   "Be Vietnam Pro/400",
+   "Be Vietnam Pro/600",
+   "Be Vietnam Pro/700"
+  ],
+  "minFont": 11.52,
+  "smallTapTargets": 1,
+  "cards": []
+ },
+ "doi-ngu@320": {
+  "overflowPx": 0,
+  "wide": [],
+  "clipped": [],
+  "imgs": [],
+  "h1": 1,
+  "headingSkip": false,
+  "fonts": [
+   "Be Vietnam Pro/500",
+   "Lora/600",
+   "Be Vietnam Pro/400",
+   "Be Vietnam Pro/600",
+   "Be Vietnam Pro/400i",
+   "Be Vietnam Pro/700"
+  ],
+  "minFont": 11.52,
+  "smallTapTargets": 8,
+  "cards": [
+   [
+    288,
+    756
+   ],
+   [
+    288,
+    754
+   ],
+   [
+    288,
+    756
+   ],
+   [
+    288,
+    685
+   ],
+   [
+    288,
+    595
+   ],
+   [
+    288,
+    595
+   ]
+  ]
+ },
+ "co-so-vat-chat@320": {
+  "overflowPx": 0,
+  "wide": [],
+  "clipped": [],
+  "imgs": [
+   {
+    "src": "why-pet-companion.webp",
+    "ok": true,
+    "alt": "Khung minh họa khu vực tiếp đón (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   },
+   {
+    "src": "article-prevention.webp",
+    "ok": true,
+    "alt": "Khung minh họa khu vực khám lâm sàng (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   },
+   {
+    "src": "article-nutrition.webp",
+    "ok": true,
+    "alt": "Khung minh họa khu vực chăm sóc nội trú (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   }
+  ],
+  "h1": 1,
+  "headingSkip": false,
+  "fonts": [
+   "Be Vietnam Pro/500",
+   "Lora/600",
+   "Be Vietnam Pro/400",
+   "Be Vietnam Pro/600",
+   "Be Vietnam Pro/700"
+  ],
+  "minFont": 11.52,
+  "smallTapTargets": 1,
+  "cards": []
+ },
+ "errors@320": [],
+ "gioi-thieu@375": {
+  "overflowPx": 0,
+  "wide": [],
+  "clipped": [],
+  "imgs": [
+   {
+    "src": "article-prevention.webp",
+    "ok": true,
+    "alt": "Thú cưng nghỉ ngơi trong không gian ấm áp (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   },
+   {
+    "src": "why-pet-companion.webp",
+    "ok": true,
+    "alt": "Chăm sóc thú cưng thân thiện (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   }
+  ],
+  "h1": 1,
+  "headingSkip": false,
+  "fonts": [
+   "Be Vietnam Pro/500",
+   "Lora/600",
+   "Be Vietnam Pro/400",
+   "Be Vietnam Pro/600",
+   "Be Vietnam Pro/700"
+  ],
+  "minFont": 11.52,
+  "smallTapTargets": 1,
+  "cards": []
+ },
+ "doi-ngu@375": {
+  "overflowPx": 0,
+  "wide": [],
+  "clipped": [],
+  "imgs": [],
+  "h1": 1,
+  "headingSkip": false,
+  "fonts": [
+   "Be Vietnam Pro/500",
+   "Lora/600",
+   "Be Vietnam Pro/400",
+   "Be Vietnam Pro/600",
+   "Be Vietnam Pro/400i",
+   "Be Vietnam Pro/700"
+  ],
+  "minFont": 11.52,
+  "smallTapTargets": 8,
+  "cards": [
+   [
+    328,
+    806
+   ],
+   [
+    328,
+    782
+   ],
+   [
+    328,
+    806
+   ],
+   [
+    328,
+    735
+   ],
+   [
+    328,
+    645
+   ],
+   [
+    328,
+    645
+   ]
+  ]
+ },
+ "co-so-vat-chat@375": {
+  "overflowPx": 0,
+  "wide": [],
+  "clipped": [],
+  "imgs": [
+   {
+    "src": "why-pet-companion.webp",
+    "ok": true,
+    "alt": "Khung minh họa khu vực tiếp đón (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   },
+   {
+    "src": "article-prevention.webp",
+    "ok": true,
+    "alt": "Khung minh họa khu vực khám lâm sàng (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   },
+   {
+    "src": "article-nutrition.webp",
+    "ok": true,
+    "alt": "Khung minh họa khu vực chăm sóc nội trú (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   }
+  ],
+  "h1": 1,
+  "headingSkip": false,
+  "fonts": [
+   "Be Vietnam Pro/500",
+   "Lora/600",
+   "Be Vietnam Pro/400",
+   "Be Vietnam Pro/600",
+   "Be Vietnam Pro/700"
+  ],
+  "minFont": 11.52,
+  "smallTapTargets": 1,
+  "cards": []
+ },
+ "errors@375": [],
+ "gioi-thieu@768": {
+  "overflowPx": 0,
+  "wide": [],
+  "clipped": [],
+  "imgs": [
+   {
+    "src": "article-prevention.webp",
+    "ok": true,
+    "alt": "Thú cưng nghỉ ngơi trong không gian ấm áp (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   },
+   {
+    "src": "why-pet-companion.webp",
+    "ok": true,
+    "alt": "Chăm sóc thú cưng thân thiện (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   }
+  ],
+  "h1": 1,
+  "headingSkip": false,
+  "fonts": [
+   "Be Vietnam Pro/500",
+   "Lora/600",
+   "Be Vietnam Pro/400",
+   "Be Vietnam Pro/600",
+   "Be Vietnam Pro/700"
+  ],
+  "minFont": 11.52,
+  "smallTapTargets": 1,
+  "cards": []
+ },
+ "doi-ngu@768": {
+  "overflowPx": 0,
+  "wide": [],
+  "clipped": [],
+  "imgs": [],
+  "h1": 1,
+  "headingSkip": false,
+  "fonts": [
+   "Be Vietnam Pro/500",
+   "Lora/600",
+   "Be Vietnam Pro/400",
+   "Be Vietnam Pro/600",
+   "Be Vietnam Pro/400i",
+   "Be Vietnam Pro/700"
+  ],
+  "minFont": 11.52,
+  "smallTapTargets": 8,
+  "cards": [
+   [
+    348,
+    809
+   ],
+   [
+    348,
+    809
+   ],
+   [
+    348,
+    809
+   ],
+   [
+    348,
+    738
+   ],
+   [
+    348,
+    647
+   ],
+   [
+    348,
+    647
+   ]
+  ]
+ },
+ "co-so-vat-chat@768": {
+  "overflowPx": 0,
+  "wide": [],
+  "clipped": [],
+  "imgs": [
+   {
+    "src": "why-pet-companion.webp",
+    "ok": true,
+    "alt": "Khung minh họa khu vực tiếp đón (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   },
+   {
+    "src": "article-prevention.webp",
+    "ok": true,
+    "alt": "Khung minh họa khu vực khám lâm sàng (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   },
+   {
+    "src": "article-nutrition.webp",
+    "ok": true,
+    "alt": "Khung minh họa khu vực chăm sóc nội trú (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   }
+  ],
+  "h1": 1,
+  "headingSkip": false,
+  "fonts": [
+   "Be Vietnam Pro/500",
+   "Lora/600",
+   "Be Vietnam Pro/400",
+   "Be Vietnam Pro/600",
+   "Be Vietnam Pro/700"
+  ],
+  "minFont": 11.52,
+  "smallTapTargets": 1,
+  "cards": []
+ },
+ "errors@768": [],
+ "gioi-thieu@1024": {
+  "overflowPx": 0,
+  "wide": [],
+  "clipped": [],
+  "imgs": [
+   {
+    "src": "article-prevention.webp",
+    "ok": true,
+    "alt": "Thú cưng nghỉ ngơi trong không gian ấm áp (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   },
+   {
+    "src": "why-pet-companion.webp",
+    "ok": true,
+    "alt": "Chăm sóc thú cưng thân thiện (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   }
+  ],
+  "h1": 1,
+  "headingSkip": false,
+  "fonts": [
+   "Be Vietnam Pro/500",
+   "Lora/600",
+   "Be Vietnam Pro/400",
+   "Be Vietnam Pro/600",
+   "Be Vietnam Pro/700"
+  ],
+  "minFont": 11.52,
+  "smallTapTargets": 1,
+  "cards": []
+ },
+ "doi-ngu@1024": {
+  "overflowPx": 0,
+  "wide": [],
+  "clipped": [],
+  "imgs": [],
+  "h1": 1,
+  "headingSkip": false,
+  "fonts": [
+   "Be Vietnam Pro/500",
+   "Lora/600",
+   "Be Vietnam Pro/400",
+   "Be Vietnam Pro/600",
+   "Be Vietnam Pro/400i",
+   "Be Vietnam Pro/700"
+  ],
+  "minFont": 11.52,
+  "smallTapTargets": 8,
+  "cards": [
+   [
+    348,
+    809
+   ],
+   [
+    348,
+    809
+   ],
+   [
+    348,
+    809
+   ],
+   [
+    348,
+    738
+   ],
+   [
+    348,
+    647
+   ],
+   [
+    348,
+    647
+   ]
+  ]
+ },
+ "co-so-vat-chat@1024": {
+  "overflowPx": 0,
+  "wide": [],
+  "clipped": [],
+  "imgs": [
+   {
+    "src": "why-pet-companion.webp",
+    "ok": true,
+    "alt": "Khung minh họa khu vực tiếp đón (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   },
+   {
+    "src": "article-prevention.webp",
+    "ok": true,
+    "alt": "Khung minh họa khu vực khám lâm sàng (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   },
+   {
+    "src": "article-nutrition.webp",
+    "ok": true,
+    "alt": "Khung minh họa khu vực chăm sóc nội trú (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   }
+  ],
+  "h1": 1,
+  "headingSkip": false,
+  "fonts": [
+   "Be Vietnam Pro/500",
+   "Lora/600",
+   "Be Vietnam Pro/400",
+   "Be Vietnam Pro/600",
+   "Be Vietnam Pro/700"
+  ],
+  "minFont": 11.52,
+  "smallTapTargets": 1,
+  "cards": []
+ },
+ "errors@1024": [],
+ "gioi-thieu@1440": {
+  "overflowPx": 0,
+  "wide": [],
+  "clipped": [],
+  "imgs": [
+   {
+    "src": "article-prevention.webp",
+    "ok": true,
+    "alt": "Thú cưng nghỉ ngơi trong không gian ấm áp (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   },
+   {
+    "src": "why-pet-companion.webp",
+    "ok": true,
+    "alt": "Chăm sóc thú cưng thân thiện (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   }
+  ],
+  "h1": 1,
+  "headingSkip": false,
+  "fonts": [
+   "Be Vietnam Pro/500",
+   "Lora/600",
+   "Be Vietnam Pro/400",
+   "Be Vietnam Pro/600",
+   "Be Vietnam Pro/700"
+  ],
+  "minFont": 11.52,
+  "smallTapTargets": 1,
+  "cards": []
+ },
+ "doi-ngu@1440": {
+  "overflowPx": 0,
+  "wide": [],
+  "clipped": [],
+  "imgs": [],
+  "h1": 1,
+  "headingSkip": false,
+  "fonts": [
+   "Be Vietnam Pro/500",
+   "Lora/600",
+   "Be Vietnam Pro/400",
+   "Be Vietnam Pro/600",
+   "Be Vietnam Pro/400i",
+   "Be Vietnam Pro/700"
+  ],
+  "minFont": 11.52,
+  "smallTapTargets": 8,
+  "cards": [
+   [
+    410,
+    866
+   ],
+   [
+    410,
+    866
+   ],
+   [
+    410,
+    866
+   ],
+   [
+    410,
+    782
+   ],
+   [
+    410,
+    734
+   ],
+   [
+    410,
+    734
+   ]
+  ]
+ },
+ "co-so-vat-chat@1440": {
+  "overflowPx": 0,
+  "wide": [],
+  "clipped": [],
+  "imgs": [
+   {
+    "src": "why-pet-companion.webp",
+    "ok": true,
+    "alt": "Khung minh họa khu vực tiếp đón (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   },
+   {
+    "src": "article-prevention.webp",
+    "ok": true,
+    "alt": "Khung minh họa khu vực khám lâm sàng (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   },
+   {
+    "src": "article-nutrition.webp",
+    "ok": true,
+    "alt": "Khung minh họa khu vực chăm sóc nội trú (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   }
+  ],
+  "h1": 1,
+  "headingSkip": false,
+  "fonts": [
+   "Be Vietnam Pro/500",
+   "Lora/600",
+   "Be Vietnam Pro/400",
+   "Be Vietnam Pro/600",
+   "Be Vietnam Pro/700"
+  ],
+  "minFont": 11.52,
+  "smallTapTargets": 1,
+  "cards": []
+ },
+ "errors@1440": [],
+ "gioi-thieu@1920": {
+  "overflowPx": 0,
+  "wide": [],
+  "clipped": [],
+  "imgs": [
+   {
+    "src": "article-prevention.webp",
+    "ok": true,
+    "alt": "Thú cưng nghỉ ngơi trong không gian ấm áp (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   },
+   {
+    "src": "why-pet-companion.webp",
+    "ok": true,
+    "alt": "Chăm sóc thú cưng thân thiện (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   }
+  ],
+  "h1": 1,
+  "headingSkip": false,
+  "fonts": [
+   "Be Vietnam Pro/500",
+   "Lora/600",
+   "Be Vietnam Pro/400",
+   "Be Vietnam Pro/600",
+   "Be Vietnam Pro/700"
+  ],
+  "minFont": 11.52,
+  "smallTapTargets": 1,
+  "cards": []
+ },
+ "doi-ngu@1920": {
+  "overflowPx": 0,
+  "wide": [],
+  "clipped": [],
+  "imgs": [],
+  "h1": 1,
+  "headingSkip": false,
+  "fonts": [
+   "Be Vietnam Pro/500",
+   "Lora/600",
+   "Be Vietnam Pro/400",
+   "Be Vietnam Pro/600",
+   "Be Vietnam Pro/400i",
+   "Be Vietnam Pro/700"
+  ],
+  "minFont": 11.52,
+  "smallTapTargets": 8,
+  "cards": [
+   [
+    410,
+    866
+   ],
+   [
+    410,
+    866
+   ],
+   [
+    410,
+    866
+   ],
+   [
+    410,
+    782
+   ],
+   [
+    410,
+    734
+   ],
+   [
+    410,
+    734
+   ]
+  ]
+ },
+ "co-so-vat-chat@1920": {
+  "overflowPx": 0,
+  "wide": [],
+  "clipped": [],
+  "imgs": [
+   {
+    "src": "why-pet-companion.webp",
+    "ok": true,
+    "alt": "Khung minh họa khu vực tiếp đón (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   },
+   {
+    "src": "article-prevention.webp",
+    "ok": true,
+    "alt": "Khung minh họa khu vực khám lâm sàng (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   },
+   {
+    "src": "article-nutrition.webp",
+    "ok": true,
+    "alt": "Khung minh họa khu vực chăm sóc nội trú (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   }
+  ],
+  "h1": 1,
+  "headingSkip": false,
+  "fonts": [
+   "Be Vietnam Pro/500",
+   "Lora/600",
+   "Be Vietnam Pro/400",
+   "Be Vietnam Pro/600",
+   "Be Vietnam Pro/700"
+  ],
+  "minFont": 11.52,
+  "smallTapTargets": 1,
+  "cards": []
+ },
+ "errors@1920": []
+}
