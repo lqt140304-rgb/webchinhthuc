@@ -1,0 +1,100 @@
+{
+ "/@375": {
+  "same": true,
+  "diff": {},
+  "sections": 6,
+  "robots": "index, follow",
+  "title": "Bệnh viện Thú y Lê Sơn — Chăm Sóc Y Tế Chuẩn Mực"
+ },
+ "/@1440": {
+  "same": true,
+  "diff": {},
+  "sections": 6,
+  "robots": "index, follow",
+  "title": "Bệnh viện Thú y Lê Sơn — Chăm Sóc Y Tế Chuẩn Mực"
+ },
+ "/dat-lich@375": {
+  "same": true,
+  "diff": {},
+  "sections": 1,
+  "robots": "noindex, nofollow",
+  "title": "Đặt Lịch Khám Trực Tuyến — Bệnh viện Thú y Lê Sơn"
+ },
+ "/dat-lich@1440": {
+  "same": true,
+  "diff": {},
+  "sections": 1,
+  "robots": "noindex, nofollow",
+  "title": "Đặt Lịch Khám Trực Tuyến — Bệnh viện Thú y Lê Sơn"
+ },
+ "/dich-vu@375": {
+  "same": true,
+  "diff": {},
+  "sections": 1,
+  "robots": "noindex, nofollow",
+  "title": "Danh mục dịch vụ y tế — Bệnh viện Thú y Lê Sơn"
+ },
+ "/dich-vu@1440": {
+  "same": true,
+  "diff": {},
+  "sections": 1,
+  "robots": "noindex, nofollow",
+  "title": "Danh mục dịch vụ y tế — Bệnh viện Thú y Lê Sơn"
+ },
+ "/bang-gia@375": {
+  "same": true,
+  "diff": {},
+  "sections": 1,
+  "robots": "noindex, nofollow",
+  "title": "Bảng giá dịch vụ niêm yết — Bệnh viện Thú y Lê Sơn"
+ },
+ "/bang-gia@1440": {
+  "same": true,
+  "diff": {},
+  "sections": 1,
+  "robots": "noindex, nofollow",
+  "title": "Bảng giá dịch vụ niêm yết — Bệnh viện Thú y Lê Sơn"
+ },
+ "/lien-he@375": {
+  "same": true,
+  "diff": {},
+  "sections": 1,
+  "robots": "noindex, nofollow",
+  "title": "Liên hệ & Thông tin phòng khám — Bệnh viện Thú y Lê Sơn"
+ },
+ "/lien-he@1440": {
+  "same": true,
+  "diff": {},
+  "sections": 1,
+  "robots": "noindex, nofollow",
+  "title": "Liên hệ & Thông tin phòng khám — Bệnh viện Thú y Lê Sơn"
+ },
+ "/goc-thu-cung@375": {
+  "same": true,
+  "diff": {},
+  "sections": 1,
+  "robots": "noindex, nofollow",
+  "title": "Góc thú cưng & Cẩm nang kiến thức — Bệnh viện Thú y Lê Sơn"
+ },
+ "/goc-thu-cung@1440": {
+  "same": true,
+  "diff": {},
+  "sections": 1,
+  "robots": "noindex, nofollow",
+  "title": "Góc thú cưng & Cẩm nang kiến thức — Bệnh viện Thú y Lê Sơn"
+ },
+ "/khong-ton-tai@375": {
+  "same": true,
+  "diff": {},
+  "sections": 1,
+  "robots": "noindex, nofollow",
+  "title": "404 — Không tìm thấy trang | Bệnh viện Thú y Lê Sơn"
+ },
+ "/khong-ton-tai@1440": {
+  "same": true,
+  "diff": {},
+  "sections": 1,
+  "robots": "noindex, nofollow",
+  "title": "404 — Không tìm thấy trang | Bệnh viện Thú y Lê Sơn"
+ }
+}

@@ -1,0 +1,15 @@
+ docs/phase-3a-design-blueprint.md                  |  20 +-
+ docs/qa/3a-dev01-handoff.md                        | 190 ++++++++++++
+ src/app/routes.tsx                                 |  36 ++-
+ src/components/editorial/EditorialBreadcrumb.tsx   |  30 ++
+ src/components/editorial/EditorialDarkCTA.tsx      |  63 ++++
+ src/components/editorial/EditorialPhotoFrame.tsx   |  66 +++++
+ src/components/editorial/EditorialPolicyBanner.tsx |  28 ++
+ src/components/editorial/EditorialSlotBox.tsx      |  24 ++
+ src/components/editorial/EditorialTriptych.tsx     |  38 +++
+ src/components/editorial/TeamMemberCard.tsx        |  67 +++++
+ src/components/layout/Header.tsx                   |  12 +-
+ src/pages/AboutPage.tsx                            | 303 +++++++++++++++++++
+ src/pages/FacilitiesPage.tsx                       | 320 +++++++++++++++++++++
+ src/pages/TeamPage.tsx                             | 320 +++++++++++++++++++++
+ 14 files changed, 1489 insertions(+), 28 deletions(-)
