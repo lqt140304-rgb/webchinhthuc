@@ -1,0 +1,27 @@
+/                      (không có header từ vercel.json)
+/gioi-thieu            {"X-Robots-Tag":"noindex, nofollow"}
+/gioi-thieu/           {"X-Robots-Tag":"noindex, nofollow"}
+/dat-lich              {"X-Robots-Tag":"noindex, nofollow"}
+/dat-lich/             {"X-Robots-Tag":"noindex, nofollow"}
+/tai-khoan             {"X-Robots-Tag":"noindex, nofollow"}
+/tai-khoan/            {"X-Robots-Tag":"noindex, nofollow"}
+/tai-khoan/ho-so       {"X-Robots-Tag":"noindex, nofollow"}
+/tai-khoan/ho-so/      {"X-Robots-Tag":"noindex, nofollow"}
+/quan-ly               {"X-Robots-Tag":"noindex, nofollow"}
+/quan-ly/              {"X-Robots-Tag":"noindex, nofollow"}
+/quan-ly/lich-hen/     {"X-Robots-Tag":"noindex, nofollow"}
+/dang-nhap             {"X-Robots-Tag":"noindex, nofollow"}
+/dang-nhap/            {"X-Robots-Tag":"noindex, nofollow"}
+/dich-vu/spa           {"X-Robots-Tag":"noindex, nofollow"}
+/dich-vu/spa/          {"X-Robots-Tag":"noindex, nofollow"}
+/gioi-thieu-abc        (không có header từ vercel.json)
+/dat-lichx             (không có header từ vercel.json)
+/khong-ton-tai         (không có header từ vercel.json)
+/khong-ton-tai/        (không có header từ vercel.json)
+/robots.txt            (không có header từ vercel.json)
+
+regex:
+   ^(?:/(gioi-thieu|doi-ngu|co-so-vat-chat|bang-gia|san-pham|dat-lich|lien-he|dang-nhap|dang-ky))$
+   ^(?:/(gioi-thieu|doi-ngu|co-so-vat-chat|bang-gia|san-pham|dat-lich|lien-he|dang-nhap|dang-ky))(?:/(.*))$
+   ^(?:/(dich-vu|cau-chuyen|goc-thu-cung|bai-viet|tai-khoan|quan-ly))$
+   ^(?:/(dich-vu|cau-chuyen|goc-thu-cung|bai-viet|tai-khoan|quan-ly))(?:/(.*))$

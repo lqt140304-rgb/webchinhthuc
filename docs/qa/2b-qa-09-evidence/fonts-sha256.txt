@@ -1,0 +1,6 @@
+MATCH be-vietnam-pro-400.woff2
+MATCH be-vietnam-pro-500.woff2
+MATCH be-vietnam-pro-600.woff2
+MATCH be-vietnam-pro-700.woff2
+MATCH be-vietnam-pro-italic-400.woff2
+MATCH lora-600.woff2

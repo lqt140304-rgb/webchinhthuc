@@ -1,0 +1,20 @@
+# Phân tích chênh lệch build: Preview dpl_2ESmyhuAmLUMrS1wsPRzJXaQMUhS so với build sạch bc98765 (git archive, LF, Linux)
+Preview JS : index-6fCRVFyl.js  369957 B  sha256 43a0bc3fc296bde0b46891f0e4388f4d2bb08c9498e98c89abaf99f4984c541f
+Preview CSS: index-DlOxlv3G.css  62455 B  sha256 c4f9b3aa7c09686ae8b0c0302d0191393e306994107b2bfce25a822597a124a2
+Clean   JS : index-CvVwFN8Z.js  369950 B  sha256 10f187c6990780a5a4417928e9ab313db068caffce0e988233b07cadba8be234
+Clean   CSS: index-vrX09Urw.css  61360 B  sha256 ca6de747195a5550d80dc7ea59cc7ea8a43c51a9b77c07d596e79ffbefe66d87
+
+1) JS: GIỐNG HỆT build sạch sau khi chuẩn hoá tên class CSS-module (_name_<hash>_<line> -> _name_X).
+   Khác biệt duy nhất là hash và số dòng của tên class do CSS-module sinh ra.
+   So từng module (38 class): 3 module khớp build LF; 4 module khớp build CRLF:
+     LF  : HeroSection (od511), HighlightStory (lbkoh), BookingPage (7w7mb)
+     CRLF: WhyChooseUs (15kj9), EditorialKnowledge (1pp2z), FeaturedServices (1g862), BookingContactSection (nqa6s)
+   => Trên máy build, 4/7 file *.module.css vẫn dùng xuống dòng CRLF. .gitattributes (eol=lf) chỉ áp dụng khi
+      checkout hoặc commit; thư mục làm việc đã có sẵn không được chuẩn hoá lại (cần `git add --renormalize .`
+      hoặc checkout sạch). Blob trong git đều là LF (đã kiểm 157 file text; chỉ 2 file log bằng chứng cũ có CR).
+2) CSS: ngoài tên class CSS-module, Preview có thêm 7 utility Tailwind không có trong build sạch:
+   .blur  .filter!  .backdrop-filter  .contents  .isolate  .table  .[xml:lang]
+   Mã nguồn trong git không dùng các class này => Tailwind đã quét file nằm ngoài git (file chưa track,
+   chưa bị .gitignore) trong thư mục deploy. Lần deploy trước (dpl_Aepowy…) chỉ thừa 2 utility (.blur, .filter!).
+3) Kết luận: bản deploy được build từ thư mục làm việc trên máy cục bộ, KHÔNG từ git sạch. Logic JS tương đương
+   bc98765; CSS có thêm rule không dùng. Build reproducibility: NOT VERIFIED.

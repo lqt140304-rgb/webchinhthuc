@@ -1,0 +1,29 @@
+path	chain(status)	final_status	X-Robots-Tag(final)	content-type	bytes
+/	200 	200	noindex	text/html; charset=utf-8	1740
+/?utm_source=qa	200 	200	noindex	text/html; charset=utf-8	1740
+/gioi-thieu	200 	200	noindex, nofollow	text/html; charset=utf-8	1577
+/gioi-thieu/	200 	200	noindex, nofollow	text/html; charset=utf-8	1577
+/gioi-thieu/?utm=1	200 	200	noindex, nofollow	text/html; charset=utf-8	1577
+/dat-lich	200 	200	noindex, nofollow	text/html; charset=utf-8	1577
+/dat-lich/	200 	200	noindex, nofollow	text/html; charset=utf-8	1577
+/dat-lich?utm_source=qa	200 	200	noindex, nofollow	text/html; charset=utf-8	1577
+/dat-lich/?a=1	200 	200	noindex, nofollow	text/html; charset=utf-8	1577
+/tai-khoan	200 	200	noindex, nofollow	text/html; charset=utf-8	1577
+/tai-khoan/	200 	200	noindex, nofollow	text/html; charset=utf-8	1577
+/tai-khoan/ho-so	200 	200	noindex, nofollow	text/html; charset=utf-8	1577
+/tai-khoan/ho-so/	200 	200	noindex, nofollow	text/html; charset=utf-8	1577
+/quan-ly	200 	200	noindex, nofollow	text/html; charset=utf-8	1577
+/quan-ly/	200 	200	noindex, nofollow	text/html; charset=utf-8	1577
+/quan-ly/lich-hen/	200 	200	noindex, nofollow	text/html; charset=utf-8	1577
+/dang-nhap	200 	200	noindex, nofollow	text/html; charset=utf-8	1577
+/dang-nhap/	200 	200	noindex, nofollow	text/html; charset=utf-8	1577
+/dang-ky/	200 	200	noindex, nofollow	text/html; charset=utf-8	1577
+/dich-vu/spa	200 	200	noindex, nofollow	text/html; charset=utf-8	1577
+/dich-vu/spa/	200 	200	noindex, nofollow	text/html; charset=utf-8	1577
+/lien-he/	200 	200	noindex, nofollow	text/html; charset=utf-8	1577
+/bang-gia/	200 	200	noindex, nofollow	text/html; charset=utf-8	1577
+/khong-ton-tai	200 	200	noindex	text/html; charset=utf-8	1577
+/khong-ton-tai/	200 	200	noindex	text/html; charset=utf-8	1577
+/gioi-thieu-abc	200 	200	noindex	text/html; charset=utf-8	1577
+/robots.txt	200 	200	noindex	text/plain; charset=utf-8	137
+/sitemap.xml	200 	200	noindex	application/xml 273	0

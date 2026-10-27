@@ -1,0 +1,32 @@
+[
+  {
+    "preset": "mobile",
+    "runs": 5,
+    "errors": [],
+    "performance": 95,
+    "accessibility": 100,
+    "bestPractices": 96,
+    "seo": 61,
+    "lcp_s": 2.86,
+    "cls": 0,
+    "tbt_ms": 80,
+    "fcp_s": 1.43,
+    "lcpElement": "<img sizes=\"(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 380px\" alt=\"Chăm sóc và vỗ về thú cưng ân cần (Hình ảnh minh họa)\" width=\"1200\" height=\"800\" loading=\"eager\" fetchpriority=\"high\" decoding=\"async\" class=\"_editorialImage_od511_56\" srcset=\"/images/hero-vet-care-400w.webp 400w, /images/hero-vet-care-800w.webp 800w…\" src=\"https://le-son-website-ndk3p1kb2-lqt140304-rgb.vercel.app/images/hero-vet-…\">",
+    "lighthouse": "12.8.2"
+  },
+  {
+    "preset": "desktop",
+    "runs": 5,
+    "errors": [],
+    "performance": 100,
+    "accessibility": 100,
+    "bestPractices": 96,
+    "seo": 61,
+    "lcp_s": 0.71,
+    "cls": 0,
+    "tbt_ms": 5,
+    "fcp_s": 0.43,
+    "lcpElement": "<img sizes=\"(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 380px\" alt=\"Mèo cưng khỏe mạnh, bình yên (Hình ảnh minh họa)\" width=\"1200\" height=\"826\" loading=\"eager\" fetchpriority=\"high\" decoding=\"async\" class=\"_editorialImage_od511_56\" srcset=\"/images/hero-happy-cat-400w.webp 400w, /images/hero-happy-cat-800w.webp 80…\" src=\"https://le-son-website-ndk3p1kb2-lqt140304-rgb.vercel.app/images/hero-happ…\">",
+    "lighthouse": "12.8.2"
+  }
+]
