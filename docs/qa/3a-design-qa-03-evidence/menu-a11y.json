@@ -1,0 +1,93 @@
+{
+ "toggle": {
+  "exists": true,
+  "visible": true,
+  "box": [
+   40,
+   44
+  ],
+  "attrs": {
+   "expanded": "false",
+   "controls": "p3a-mobile-drawer",
+   "label": "Menu điều hướng"
+  }
+ },
+ "toggleFocusRing": "solid 2px rgb(90, 30, 94) off 2px",
+ "afterOpen": {
+  "expanded": "true",
+  "drawerVisible": true,
+  "links": [
+   "Giới thiệu",
+   "Đội ngũ",
+   "Cơ sở vật chất",
+   "Dịch vụ",
+   "Góc kiến thức",
+   "Liên hệ"
+  ],
+  "linkHeights": []
+ },
+ "afterEsc": {
+  "expanded": "false",
+  "drawerVisible": false,
+  "focusOnToggle": true
+ },
+ "navViaDrawer": true,
+ "breadcrumb": [
+  [
+   "Trang chủ",
+   44
+  ]
+ ],
+ "ctaFocusRing": "solid 2px off 2px",
+ "tabRings": [
+  "Gọi Hotline: 097 3: solid 2px",
+  "Xem trang Đội ngũ : solid 2px",
+  "Xem Cơ sở vật chất: solid 2px",
+  "Đặt lịch khám trực: solid 2px",
+  "Gọi 097 355 51 05: solid 2px",
+  "Studio v2.1\n      : none 3px",
+  "1. /gioi-thieu: solid 2px",
+  "2. /doi-ngu: solid 2px"
+ ],
+ "reducedMotion": "0s",
+ "simulatorPanel": {
+  "simText": "Mô phỏng dự kiến cơ cấu nhân sự nhóm Bác sĩ\nMọi thẻ giữ cố định tỷ lệ 4:5 và kích thước đồng nhất, hàng cuối luôn căn giữa đối xứng.\nN = 1 (1 căn giữa)\nN = 2 (2 căn giữa)\nN = 3 (3 chuẩn)\nN = 5 (3 + 2 căn giữa)\nN = 7 (3 + 2 + 2 cân đối)\nN = 7 (3 + 3 + 1 căn giữ"
+ },
+ "filter": {
+  "vet": false,
+  "groom": true,
+  "support": true,
+  "status": "Đang lọc: Chỉ hiển thị Bộ phận Bác sĩ Thú y (các bộ phận khác đã ẩn bằng thuộc tính hidden). Sĩ số mô phỏng nhóm Bác sĩ:",
+  "live": "polite"
+ },
+ "vipCheck": [
+  [
+   "[Bác sĩ Thú y — Đang",
+   "rgb(255, 255, 255)",
+   "rgba(90, 30, 94, 0.12)",
+   "rgba(66, 18, 71, 0.07) 0px 10p",
+   "410x809",
+   "22.08px",
+   "rgb(26, 10, 28)"
+  ],
+  [
+   "BS. Lê Thái Sơn",
+   "rgb(255, 255, 255)",
+   "rgba(90, 30, 94, 0.12)",
+   "rgba(66, 18, 71, 0.07) 0px 10p",
+   "410x809",
+   "22.08px",
+   "rgb(26, 10, 28)"
+  ],
+  [
+   "[Bác sĩ Thú y — Đang",
+   "rgb(255, 255, 255)",
+   "rgba(90, 30, 94, 0.12)",
+   "rgba(66, 18, 71, 0.07) 0px 10p",
+   "410x809",
+   "22.08px",
+   "rgb(26, 10, 28)"
+  ]
+ ],
+ "teamImgs": 0
+}

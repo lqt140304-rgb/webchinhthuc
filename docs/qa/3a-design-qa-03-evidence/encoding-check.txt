@@ -1,0 +1,10 @@
+# Kiểm tra mã hoá docs/design/phase-3a-interactive-mockups.html @ 2fc3387
+bytes 94927 | BOM: False
+decode UTF-8 strict: OK
+meta charset: UTF-8
+mojibake patterns: 2 {'Â'}
+U+FFFD: 0 | "?" kẹp giữa chữ: 0
+ký tự tiếng Việt có dấu trong text hiển thị: 1829
+ký tự dấu tổ hợp rời (NFD): 0
+title: Phase 3A Interactive Design Studio v2.1 — Bệnh viện Thú y Lê Sơn
+file:/// refs: 0

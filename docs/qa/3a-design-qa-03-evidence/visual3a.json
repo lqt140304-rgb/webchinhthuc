@@ -1,0 +1,668 @@
+{
+ "gioi-thieu@320": {
+  "overflowPx": 0,
+  "wide": [],
+  "clipped": [],
+  "imgs": [
+   {
+    "src": "article-prevention.webp",
+    "ok": true,
+    "alt": "Thú cưng nghỉ ngơi trong không gian ấm áp (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   },
+   {
+    "src": "article-nutrition.webp",
+    "ok": true,
+    "alt": "Chăm sóc dinh dưỡng cho thú cưng (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   }
+  ],
+  "h1": 1,
+  "headingSkip": false,
+  "fonts": [
+   "Be Vietnam Pro/500",
+   "Lora/600",
+   "Be Vietnam Pro/400",
+   "Be Vietnam Pro/600",
+   "Be Vietnam Pro/700"
+  ],
+  "minFont": 11.52,
+  "smallTapTargets": 0,
+  "cards": []
+ },
+ "doi-ngu@320": {
+  "overflowPx": 0,
+  "wide": [],
+  "clipped": [],
+  "imgs": [],
+  "h1": 1,
+  "headingSkip": false,
+  "fonts": [
+   "Be Vietnam Pro/500",
+   "Lora/600",
+   "Be Vietnam Pro/400",
+   "Be Vietnam Pro/600",
+   "Be Vietnam Pro/400i",
+   "Be Vietnam Pro/700"
+  ],
+  "minFont": 11.52,
+  "smallTapTargets": 7,
+  "cards": [
+   [
+    288,
+    733
+   ],
+   [
+    288,
+    710
+   ],
+   [
+    288,
+    733
+   ],
+   [
+    288,
+    685
+   ],
+   [
+    288,
+    685
+   ],
+   [
+    288,
+    663
+   ]
+  ]
+ },
+ "co-so-vat-chat@320": {
+  "overflowPx": 0,
+  "wide": [],
+  "clipped": [],
+  "imgs": [
+   {
+    "src": "article-prevention.webp",
+    "ok": true,
+    "alt": "Không gian tiếp đón và chờ thăm khám (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   },
+   {
+    "src": "article-nutrition.webp",
+    "ok": true,
+    "alt": "Khu vực thăm khám lâm sàng (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   }
+  ],
+  "h1": 1,
+  "headingSkip": false,
+  "fonts": [
+   "Be Vietnam Pro/500",
+   "Lora/600",
+   "Be Vietnam Pro/400",
+   "Be Vietnam Pro/600",
+   "Be Vietnam Pro/700"
+  ],
+  "minFont": 11.52,
+  "smallTapTargets": 0,
+  "cards": []
+ },
+ "errors@320": [],
+ "gioi-thieu@375": {
+  "overflowPx": 0,
+  "wide": [],
+  "clipped": [],
+  "imgs": [
+   {
+    "src": "article-prevention.webp",
+    "ok": true,
+    "alt": "Thú cưng nghỉ ngơi trong không gian ấm áp (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   },
+   {
+    "src": "article-nutrition.webp",
+    "ok": true,
+    "alt": "Chăm sóc dinh dưỡng cho thú cưng (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   }
+  ],
+  "h1": 1,
+  "headingSkip": false,
+  "fonts": [
+   "Be Vietnam Pro/500",
+   "Lora/600",
+   "Be Vietnam Pro/400",
+   "Be Vietnam Pro/600",
+   "Be Vietnam Pro/700"
+  ],
+  "minFont": 11.52,
+  "smallTapTargets": 0,
+  "cards": []
+ },
+ "doi-ngu@375": {
+  "overflowPx": 0,
+  "wide": [],
+  "clipped": [],
+  "imgs": [],
+  "h1": 1,
+  "headingSkip": false,
+  "fonts": [
+   "Be Vietnam Pro/500",
+   "Lora/600",
+   "Be Vietnam Pro/400",
+   "Be Vietnam Pro/600",
+   "Be Vietnam Pro/400i",
+   "Be Vietnam Pro/700"
+  ],
+  "minFont": 11.52,
+  "smallTapTargets": 7,
+  "cards": [
+   [
+    328,
+    761
+   ],
+   [
+    328,
+    737
+   ],
+   [
+    328,
+    740
+   ],
+   [
+    328,
+    713
+   ],
+   [
+    328,
+    713
+   ],
+   [
+    328,
+    713
+   ]
+  ]
+ },
+ "co-so-vat-chat@375": {
+  "overflowPx": 0,
+  "wide": [],
+  "clipped": [],
+  "imgs": [
+   {
+    "src": "article-prevention.webp",
+    "ok": true,
+    "alt": "Không gian tiếp đón và chờ thăm khám (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   },
+   {
+    "src": "article-nutrition.webp",
+    "ok": true,
+    "alt": "Khu vực thăm khám lâm sàng (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   }
+  ],
+  "h1": 1,
+  "headingSkip": false,
+  "fonts": [
+   "Be Vietnam Pro/500",
+   "Lora/600",
+   "Be Vietnam Pro/400",
+   "Be Vietnam Pro/600",
+   "Be Vietnam Pro/700"
+  ],
+  "minFont": 11.52,
+  "smallTapTargets": 0,
+  "cards": []
+ },
+ "errors@375": [],
+ "gioi-thieu@768": {
+  "overflowPx": 0,
+  "wide": [],
+  "clipped": [],
+  "imgs": [
+   {
+    "src": "article-prevention.webp",
+    "ok": true,
+    "alt": "Thú cưng nghỉ ngơi trong không gian ấm áp (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   },
+   {
+    "src": "article-nutrition.webp",
+    "ok": true,
+    "alt": "Chăm sóc dinh dưỡng cho thú cưng (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   }
+  ],
+  "h1": 1,
+  "headingSkip": false,
+  "fonts": [
+   "Be Vietnam Pro/500",
+   "Lora/600",
+   "Be Vietnam Pro/400",
+   "Be Vietnam Pro/600",
+   "Be Vietnam Pro/700"
+  ],
+  "minFont": 11.52,
+  "smallTapTargets": 0,
+  "cards": []
+ },
+ "doi-ngu@768": {
+  "overflowPx": 0,
+  "wide": [],
+  "clipped": [],
+  "imgs": [],
+  "h1": 1,
+  "headingSkip": false,
+  "fonts": [
+   "Be Vietnam Pro/500",
+   "Lora/600",
+   "Be Vietnam Pro/400",
+   "Be Vietnam Pro/600",
+   "Be Vietnam Pro/400i",
+   "Be Vietnam Pro/700"
+  ],
+  "minFont": 11.52,
+  "smallTapTargets": 7,
+  "cards": [
+   [
+    348,
+    764
+   ],
+   [
+    348,
+    764
+   ],
+   [
+    348,
+    743
+   ],
+   [
+    348,
+    717
+   ],
+   [
+    348,
+    738
+   ],
+   [
+    348,
+    738
+   ]
+  ]
+ },
+ "co-so-vat-chat@768": {
+  "overflowPx": 0,
+  "wide": [],
+  "clipped": [],
+  "imgs": [
+   {
+    "src": "article-prevention.webp",
+    "ok": true,
+    "alt": "Không gian tiếp đón và chờ thăm khám (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   },
+   {
+    "src": "article-nutrition.webp",
+    "ok": true,
+    "alt": "Khu vực thăm khám lâm sàng (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   }
+  ],
+  "h1": 1,
+  "headingSkip": false,
+  "fonts": [
+   "Be Vietnam Pro/500",
+   "Lora/600",
+   "Be Vietnam Pro/400",
+   "Be Vietnam Pro/600",
+   "Be Vietnam Pro/700"
+  ],
+  "minFont": 11.52,
+  "smallTapTargets": 0,
+  "cards": []
+ },
+ "errors@768": [],
+ "gioi-thieu@1024": {
+  "overflowPx": 0,
+  "wide": [],
+  "clipped": [],
+  "imgs": [
+   {
+    "src": "article-prevention.webp",
+    "ok": true,
+    "alt": "Thú cưng nghỉ ngơi trong không gian ấm áp (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   },
+   {
+    "src": "article-nutrition.webp",
+    "ok": true,
+    "alt": "Chăm sóc dinh dưỡng cho thú cưng (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   }
+  ],
+  "h1": 1,
+  "headingSkip": false,
+  "fonts": [
+   "Be Vietnam Pro/500",
+   "Lora/600",
+   "Be Vietnam Pro/400",
+   "Be Vietnam Pro/600",
+   "Be Vietnam Pro/700"
+  ],
+  "minFont": 11.52,
+  "smallTapTargets": 0,
+  "cards": []
+ },
+ "doi-ngu@1024": {
+  "overflowPx": 0,
+  "wide": [],
+  "clipped": [],
+  "imgs": [],
+  "h1": 1,
+  "headingSkip": false,
+  "fonts": [
+   "Be Vietnam Pro/500",
+   "Lora/600",
+   "Be Vietnam Pro/400",
+   "Be Vietnam Pro/600",
+   "Be Vietnam Pro/400i",
+   "Be Vietnam Pro/700"
+  ],
+  "minFont": 11.52,
+  "smallTapTargets": 7,
+  "cards": [
+   [
+    309,
+    760
+   ],
+   [
+    309,
+    760
+   ],
+   [
+    309,
+    760
+   ],
+   [
+    309,
+    690
+   ],
+   [
+    309,
+    690
+   ],
+   [
+    309,
+    690
+   ]
+  ]
+ },
+ "co-so-vat-chat@1024": {
+  "overflowPx": 0,
+  "wide": [],
+  "clipped": [],
+  "imgs": [
+   {
+    "src": "article-prevention.webp",
+    "ok": true,
+    "alt": "Không gian tiếp đón và chờ thăm khám (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   },
+   {
+    "src": "article-nutrition.webp",
+    "ok": true,
+    "alt": "Khu vực thăm khám lâm sàng (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   }
+  ],
+  "h1": 1,
+  "headingSkip": false,
+  "fonts": [
+   "Be Vietnam Pro/500",
+   "Lora/600",
+   "Be Vietnam Pro/400",
+   "Be Vietnam Pro/600",
+   "Be Vietnam Pro/700"
+  ],
+  "minFont": 11.52,
+  "smallTapTargets": 0,
+  "cards": []
+ },
+ "errors@1024": [],
+ "gioi-thieu@1440": {
+  "overflowPx": 0,
+  "wide": [],
+  "clipped": [],
+  "imgs": [
+   {
+    "src": "article-prevention.webp",
+    "ok": true,
+    "alt": "Thú cưng nghỉ ngơi trong không gian ấm áp (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   },
+   {
+    "src": "article-nutrition.webp",
+    "ok": true,
+    "alt": "Chăm sóc dinh dưỡng cho thú cưng (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   }
+  ],
+  "h1": 1,
+  "headingSkip": false,
+  "fonts": [
+   "Be Vietnam Pro/500",
+   "Lora/600",
+   "Be Vietnam Pro/400",
+   "Be Vietnam Pro/600",
+   "Be Vietnam Pro/700"
+  ],
+  "minFont": 11.52,
+  "smallTapTargets": 0,
+  "cards": []
+ },
+ "doi-ngu@1440": {
+  "overflowPx": 0,
+  "wide": [],
+  "clipped": [],
+  "imgs": [],
+  "h1": 1,
+  "headingSkip": false,
+  "fonts": [
+   "Be Vietnam Pro/500",
+   "Lora/600",
+   "Be Vietnam Pro/400",
+   "Be Vietnam Pro/600",
+   "Be Vietnam Pro/400i",
+   "Be Vietnam Pro/700"
+  ],
+  "minFont": 11.52,
+  "smallTapTargets": 7,
+  "cards": [
+   [
+    410,
+    809
+   ],
+   [
+    410,
+    809
+   ],
+   [
+    410,
+    809
+   ],
+   [
+    410,
+    782
+   ],
+   [
+    410,
+    803
+   ],
+   [
+    410,
+    803
+   ]
+  ]
+ },
+ "co-so-vat-chat@1440": {
+  "overflowPx": 0,
+  "wide": [],
+  "clipped": [],
+  "imgs": [
+   {
+    "src": "article-prevention.webp",
+    "ok": true,
+    "alt": "Không gian tiếp đón và chờ thăm khám (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   },
+   {
+    "src": "article-nutrition.webp",
+    "ok": true,
+    "alt": "Khu vực thăm khám lâm sàng (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   }
+  ],
+  "h1": 1,
+  "headingSkip": false,
+  "fonts": [
+   "Be Vietnam Pro/500",
+   "Lora/600",
+   "Be Vietnam Pro/400",
+   "Be Vietnam Pro/600",
+   "Be Vietnam Pro/700"
+  ],
+  "minFont": 11.52,
+  "smallTapTargets": 0,
+  "cards": []
+ },
+ "errors@1440": [],
+ "gioi-thieu@1920": {
+  "overflowPx": 0,
+  "wide": [],
+  "clipped": [],
+  "imgs": [
+   {
+    "src": "article-prevention.webp",
+    "ok": true,
+    "alt": "Thú cưng nghỉ ngơi trong không gian ấm áp (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   },
+   {
+    "src": "article-nutrition.webp",
+    "ok": true,
+    "alt": "Chăm sóc dinh dưỡng cho thú cưng (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   }
+  ],
+  "h1": 1,
+  "headingSkip": false,
+  "fonts": [
+   "Be Vietnam Pro/500",
+   "Lora/600",
+   "Be Vietnam Pro/400",
+   "Be Vietnam Pro/600",
+   "Be Vietnam Pro/700"
+  ],
+  "minFont": 11.52,
+  "smallTapTargets": 0,
+  "cards": []
+ },
+ "doi-ngu@1920": {
+  "overflowPx": 0,
+  "wide": [],
+  "clipped": [],
+  "imgs": [],
+  "h1": 1,
+  "headingSkip": false,
+  "fonts": [
+   "Be Vietnam Pro/500",
+   "Lora/600",
+   "Be Vietnam Pro/400",
+   "Be Vietnam Pro/600",
+   "Be Vietnam Pro/400i",
+   "Be Vietnam Pro/700"
+  ],
+  "minFont": 11.52,
+  "smallTapTargets": 7,
+  "cards": [
+   [
+    410,
+    809
+   ],
+   [
+    410,
+    809
+   ],
+   [
+    410,
+    809
+   ],
+   [
+    410,
+    782
+   ],
+   [
+    410,
+    803
+   ],
+   [
+    410,
+    803
+   ]
+  ]
+ },
+ "co-so-vat-chat@1920": {
+  "overflowPx": 0,
+  "wide": [],
+  "clipped": [],
+  "imgs": [
+   {
+    "src": "article-prevention.webp",
+    "ok": true,
+    "alt": "Không gian tiếp đón và chờ thăm khám (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   },
+   {
+    "src": "article-nutrition.webp",
+    "ok": true,
+    "alt": "Khu vực thăm khám lâm sàng (ảnh minh họa)",
+    "distort": false,
+    "label": true
+   }
+  ],
+  "h1": 1,
+  "headingSkip": false,
+  "fonts": [
+   "Be Vietnam Pro/500",
+   "Lora/600",
+   "Be Vietnam Pro/400",
+   "Be Vietnam Pro/600",
+   "Be Vietnam Pro/700"
+  ],
+  "minFont": 11.52,
+  "smallTapTargets": 0,
+  "cards": []
+ },
+ "errors@1920": []
+}

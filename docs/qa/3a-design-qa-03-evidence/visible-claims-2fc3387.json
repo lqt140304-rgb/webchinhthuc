@@ -1,0 +1,43 @@
+{
+ "cards": [
+  "BS Khung ảnh chân dung — Đang cập nhật ảnh thực tế Bác sĩ Thú y [Bác sĩ Thú y — Đang cập nhật hồ sơ] [Chức danh chuyên môn: Đang cập nhật] Phụ trách thăm khám tổng quát, tư vấn dinh dưỡng và chăm sóc dự phòng cho thú cưng. Lĩnh vực: Khám lâm sàng & Chăm sóc dự phòng Lịch thăm khám: Cập nhật theo lịch phân công tại viện",
+  "LTS Khung ảnh chân dung — Đang cập nhật ảnh thực tế Bác sĩ Thú y BS. Lê Thái Sơn Bác sĩ Thú y Bác sĩ phụ trách hoạt động thăm khám lâm sàng, hội chẩn và định hướng phác đồ điều trị tại Bệnh viện Thú y Lê Sơn. Lĩnh vực: Khám lâm sàng, Nội khoa & Ngoại khoa Lịch thăm khám: Theo lịch hoạt động của bệnh viện",
+  "BS Khung ảnh chân dung — Đang cập nhật ảnh thực tế Bác sĩ Thú y [Bác sĩ Thú y — Đang cập nhật hồ sơ] [Chức danh chuyên môn: Đang cập nhật] Phụ trách theo dõi điều trị nội trú, chăm sóc phục hồi và tiếp nhận ca bệnh thường quy. Lĩnh vực: Khám nội trú & Theo dõi điều trị Lịch thăm khám: Cập nhật theo lịch phân công tại viện",
+  "SG Khung ảnh chân dung — Đang cập nhật ảnh thực tế Spa & Grooming [Chuyên viên Grooming — Đang cập nhật hồ sơ] [Chức danh: Chuyên viên Grooming] Thực hiện quy trình tắm sấy, vệ sinh tai móng, cắt tỉa thẩm mỹ và theo dõi dấu hiệu da liễu ban đầu. Lĩnh vực: Tắm vệ sinh y khoa & Cắt tỉa tạo kiểu",
+  "CS Khung ảnh chân dung — Đang cập nhật ảnh thực tế Chăm sóc Nội trú [Kỹ thuật viên Nội trú — Đang cập nhật hồ sơ] [Chức danh: Kỹ thuật viên Chăm sóc] Theo dõi chế độ ăn uống, thân nhiệt và giữ vệ sinh khu lưu trú nội trú 24/7 cho thú cưng. Nhiệm vụ: Chăm sóc thú cưng nội trú & Vệ sinh khu lưu trú",
+  "HT Khung ảnh chân dung — Đang cập nhật ảnh thực tế Tiếp đón & Hỗ trợ [Nhân viên Hỗ trợ — Đang cập nhật hồ sơ] [Chức danh: Hỗ trợ vận hành] Hỗ trợ tiếp nhận thông tin ban đầu, hướng dẫn chủ nuôi và điều phối lịch hẹn thăm khám. Nhiệm vụ: Tiếp đón chủ nuôi & Hỗ trợ thủ tục"
+ ],
+ "deptIntro": [
+  "Bộ phận Bác sĩ Thú y :: \n            Phụ trách hoạt động thăm khám lâm sàng, chẩn đoán cận lâm sàng và định hướng phác đồ điều trị cho thú cưng.\n          ",
+  "Bộ phận Spa & Grooming :: \n            Phụ trách tắm vệ sinh chuẩn y khoa, cắt tỉa tạo kiểu và chăm sóc da lông êm dịu cho chó mèo.\n          ",
+  "Bộ phận Chăm sóc & Hỗ trợ vận hành :: \n            Đồng hành cùng bác sĩ trong công tác theo dõi thú cưng nội trú, khử khuẩn khu lưu chuồng và hỗ trợ tiếp đón khách hàng.\n          ",
+  "Cách đội ngũ phối hợp chăm sóc thú cưng :: \n            Quy trình phối hợp khép kín giữa các bộ phận nhằm đảm bảo an toàn và tính liên tục trong điều trị.\n          ",
+  "Đặt lịch hẹn khám cùng đội ngũ Lê Sơn :: \n              101 Khuất Duy Tiến, Thanh Xuân, Hà Nội • Khám 08:00 – 21:00 • Cấp cứu 24/24\n            "
+ ],
+ "facility": [
+  "Khu vực Tiếp đón & Chờ thăm khám",
+  "Không gian sảnh đón tiếp thoáng đãng, phân luồng tiếp nhận khám thường quy và cấp cứu 24/24.",
+  "Khu vực Thăm khám Lâm sàng",
+  "Bàn khám lâm sàng và không gian trao đổi phác đồ trực tiếp giữa bác sĩ và chủ nuôi.",
+  "Khu vực Lưu trú & Theo dõi Nội trú",
+  "Khu vực lưu chuồng cách ly và theo dõi sát sao sức khỏe của thú cưng lưu viện.",
+  "Khu vực Spa & Grooming Y khoa",
+  "Phân khu chăm sóc vệ sinh da lông tách biệt khỏi khu vực điều trị lâm sàng.",
+  "Khu vực Thăm khám Lâm sàng & Tư vấn",
+  "Phục vụ kiểm tra thể trạng tổng quát, đánh giá triệu chứng lâm sàng và trao đổi hướng chăm sóc trực tiếp cùng chủ nuôi.",
+  "Thiết bị Xét nghiệm & Chẩn đoán hình ảnh",
+  "Không gian thực hiện Thủ thuật & Điều trị",
+  "Chăm sóc & Lưu trú Nội trú 24/7",
+  "Phục vụ các bé cần theo dõi sức khỏe hoặc chăm sóc lưu trú theo dịch vụ Nội trú 24/7 của bệnh viện.",
+  "Thiết bị hỗ trợ theo dõi & chăm sóc",
+  "Hệ thống đèn sưởi ấm, thiết bị theo dõi sinh hiệu và dụng cụ hỗ trợ chăm sóc thú cưng lưu viện.",
+  "Hướng dẫn khi đưa bé đến viện",
+  "Quý khách có thể đặt lịch hẹn trước qua website để giảm thời gian chờ đợi. Trường hợp cấp cứu 24/24, vui lòng gọi trực tiếp Hotline 097 355 51 05 để kíp trực chuẩn bị đón tiếp ngay."
+ ],
+ "principles": [
+  "Định hướng hạn chế tiếng ồn và giảm căng thẳng khi thú cưng mới đến phòng khám.",
+  "Trình bày tình trạng sức khỏe và hướng chăm sóc bằng ngôn ngữ rõ ràng trước khi thực hiện can thiệp.",
+  "Khu vực lưu trú được vệ sinh định kỳ và cập nhật tình hình sức khỏe thường xuyên cho gia đình.",
+  "Thông tin bệnh án và hướng dẫn chăm sóc chỉ chia sẻ trực tiếp cho đúng chủ nuôi của bé."
+ ]
+}
