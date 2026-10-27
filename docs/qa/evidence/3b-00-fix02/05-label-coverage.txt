@@ -1,0 +1,47 @@
+# Wireframe @ddb066f — PENDING copy without label (line: text)
+42:| HỆ THỐNG DỊCH VỤ Y TẾ THÚ CƯNG LÊ SƠN                                                            |
+135:| HỆ THỐNG DỊCH VỤ Y TẾ LÊ SƠN      |
+43:| Chăm sóc chu toàn từ phòng khám đến khu nội trú (Lora 600, 48px)                                 |
+136:| Chăm sóc chu toàn từ              |
+45:| "Chúng tôi hiểu rằng mỗi lần thú cưng thăm khám là một lần người bạn đồng hành cần sự dịu dàng   |
+225:| MINH BẠCH CHI PHÍ Y TẾ THÚ CƯNG                                                                  |
+226:| Bảng giá dịch vụ & biểu phí tham chiếu (Lora 600, 48px)                                          |
+227:| "Bệnh viện Thú y Lê Sơn hướng tới sự minh bạch và rõ ràng trong tư vấn chi phí..."               |
+298:| BẢNG GIÁ DỊCH VỤ NIÊM YẾT         |
+60:| | Thăm khám cẩn trọng, chẩn đoán đúng và điều trị chu   | | +--------------------------------+ | |
+147:| Thăm khám cẩn trọng               |
+62:| | Quy trình kiểm tra các chỉ số sức khỏe cơ bản, lắng   | | |     [Ảnh thú cưng ấm áp]       | | |
+88:| | * Tiểu phẫu mô mềm & xử lý vết thương [Đề xuất]       | | Trao đổi trước với bác sĩ về tiền  | |
+96:| * Cập nhật tình hình: Thông báo tình trạng phục hồi cho chủ nuôi (không công khai y lệnh nội bộ) |
+179:| * Cập nhật định kỳ cho chủ nuôi   |
+54:| [ Khám & Điều trị ] [ Cận lâm sàng & Xét nghiệm ] [ Phẫu thuật ] [ Nội trú 24/7 ] [ Spa ] [Cấp cứu]|
+175:| [NHÓM 04: NỘI TRÚ Y TẾ 24/7]      |
+57:| [SECTION 3.1: NHÓM 01 — KHÁM & ĐIỀU TRỊ LÂM SÀNG] (#kham-dieu-tri) [Đề xuất]                     |
+59:| | NHÓM 01 — Y KHOA LÂM SÀNG [Đề xuất]                   | | KHUNG ẢNH MINH HỌA               | |
+72:| [SECTION 3.2: NHÓM 02 — CHẨN ĐOÁN CẬN LÂM SÀNG & XÉT NGHIỆM] (#can-lam-sang) [Đề xuất]           |
+82:| [SECTION 3.3: NHÓM 03 — PHẪU THUẬT NGOẠI KHOA & TRIỆT SẢN] (#phau-thuat) [Đề xuất]               |
+92:| [SECTION 3.4: NHÓM 04 — LƯU TRÚ Y TẾ NỘI TRÚ 24/7] (#noi-tru) [Đề xuất]                           |
+99:| [SECTION 3.5: NHÓM 05 — VỆ SINH Y TẾ & SPA GROOMING] (#spa-grooming) [Đề xuất]                   |
+146:| [NHÓM 01: KHÁM & ĐIỀU TRỊ]        |
+161:| [NHÓM 02: CẬN LÂM SÀNG & XN]      |
+168:| [NHÓM 03: PHẪU THUẬT NGOẠI KHOA]  |
+175:| [NHÓM 04: NỘI TRÚ Y TẾ 24/7]      |
+183:| [NHÓM 05: SPA GROOMING]           |
+169:| Quy trình cẩn trọng, chuẩn bị kỹ  |
+184:| Vệ sinh êm ái, chăm sóc dịu nhẹ   |
+162:| * Thẻ 1: Xét nghiệm huyết học/SH  |
+249:| |     Lưu ý y khoa: Áp dụng cho lần khám đầu tiên hoặc khám định kỳ tổng quát.                 | |
+120:| Bạn cần tư vấn dịch vụ phù hợp cho bé cưng?                                                      |
+283:| Bạn cần tư vấn chi phí cụ thể cho trường hợp của bé?                                             |
+
+# Blueprint §4 still carries pre-fix wording (not synced with wireframe)
+192:  - Mô tả: Mọi can thiệp ngoại khoa đều được tư vấn cặn kẽ về chỉ định, thời gian hồi tỉnh và hướng dẫn chăm sóc vết thương tại nhà.
+201:  - Tiêu đề H2: `Không gian lưu trú yên tĩnh và chế độ theo dõi phù hợp`
+213:  - Mô tả: Sử dụng các sản phẩm vệ sinh da lông phù hợp, thao tác nhẹ nhàng giúp thú cưng thoải mái.
+285:  - Placeholder: `Tìm tên dịch vụ, xét nghiệm, gói spa (ví dụ: siêu âm, triệt sản...)...` *(Đã bỏ chữ "giá" khỏi placeholder theo góp ý P3)*.
+229:  2. *Lưu ý 02 — Vận chuyển an toàn:* Khuyến khích sử dụng lồng vận chuyển chuyên dụng hoặc dây dắt an toàn để bảo vệ thú cưng khi di chuyển và tại phòng chờ.
+230:  3. *Lưu ý 03 — Cung cấp thông tin sức khỏe:* Mang theo sổ theo dõi tiêm phòng hoặc thông tin thuốc/thức ăn bé đang sử dụng để hỗ trợ bác sĩ nắm bắt bệnh sử.
+144:- **Tiêu đề Eyebrow:** `HỆ THỐNG DỊCH VỤ Y TẾ THÚ CƯNG LÊ SƠN`.
+270:- **Tiêu đề Eyebrow:** `MINH BẠCH CHI PHÍ Y TẾ THÚ CƯNG`.
+145:- **Heading H1 (Lora 600):** `Chăm sóc chu toàn từ phòng khám đến khu nội trú`.
+271:- **Heading H1 (Lora 600):** `Bảng giá dịch vụ & biểu phí tham chiếu`.

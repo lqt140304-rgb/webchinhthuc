@@ -1,0 +1,22 @@
+# Commit
+ddb066f16819fd451037721f8c5cba3c6b383bef 2026-10-28 02:40:46 +0700 lqt140304-rgb docs(phase-3b): 3B-00 Fix 02 — resolve P1-3, P2-7/8/9, apply DEC-12/13 & SEO Metadata Gate
+parent: 9074aa6cbffbe7c7f3b529071fd93c6216f43916
+
+# git diff --stat 9074aa6 ddb066f
+ docs/phase-3b/3b-00-acceptance-criteria.md   |  18 ++-
+ docs/phase-3b/3b-00-blueprint.md             |  77 +++++++++--
+ docs/phase-3b/3b-00-content-evidence-gate.md | 128 +++++++++++++-----
+ docs/phase-3b/3b-00-content-mapping.md       | 188 ++++++++++++++-------------
+ docs/phase-3b/3b-00-data-schema.md           |  67 +++++++---
+ docs/phase-3b/3b-00-wireframe.md             |  55 ++++----
+ docs/qa/3b-00-fix02-handoff.md               | 110 ++++++++++++++++
+ 7 files changed, 452 insertions(+), 191 deletions(-)
+
+# Files outside docs/
+(none)
+
+# src/ public/ package*.json config diff
+(empty above = no change)
+
+# origin/main
+d2a19c579df929e7a99462aad399f9010652e4f6

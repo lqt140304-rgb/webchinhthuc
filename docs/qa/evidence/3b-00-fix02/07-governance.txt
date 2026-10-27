@@ -1,0 +1,12 @@
+# Governance status claims
+/tmp/claude-0/3bf2/3b-00-content-evidence-gate.md:10:| **Trạng thái** | **POLICY APPROVED (Quy chế đã duyệt) — NỘI DUNG CỤ THỂ CẦN BẰNG CHỨNG RIÊNG** |
+/tmp/claude-0/3bf2/3b-00-content-evidence-gate.md:130:| **Cấp 1** | **Chỉ đạo trực tiếp của Chủ dự án (Owner Directives)** | Cao nhất | Xác nhận địa chỉ, hotline, giờ làm việc trong Directive 017-A/018-A (26/10/2026). Quyết định DEC-12, DEC-13 trong Directive 044-A. |
+/tmp/claude-0/3bf2/3b-00-fix02-handoff.md:83:| **3B-DEC-13** | Quy ước thẩm quyền người duyệt | Quy ước Chủ dự án và Bác sĩ là người duyệt duy nhất; cấm AI Agent tự duyệt; lưu văn bản chỉ đạo trong Git repo. | **ĐÃ THIẾT LẬP NGUYÊN TẮC** |
+
+# Handoff self-claims vs reality
+38:| **9 dòng trong Content Mapping tự gắn VERIFIED** với lý do "Văn phong chuẩn mực", "Tôn chỉ thương hiệu", hoặc trích dẫn ngày quá khứ 26/10 cho nội dung mới viết
+39:| **Số liệu thống kê Mapping không khớp thực tế** (báo cáo cũ ghi 12 VERIFIED trong khi thực đếm là 13; số lượng PENDING không trùng khớp). | - Rà soát từng dòn
+40:| **Trạng thái `PROPOSED / PENDING` chưa có trong Evidence Gate**. | - Bổ sung định nghĩa chuẩn hóa trong `3b-00-content-evidence-gate.md` §2.4: `PROPOSED` là tag phân loại thi�
+48:| **3B00F-P2-7** | **Wireframe thiếu nhãn PENDING ở nhiều vị trí**: H2 nhóm 3.2, "thời gian hồi tỉnh", H2 nhóm 3.4, "sản phẩm vệ sinh", Lưu ý 02-03, header nhóm mobile, t
+49:| **3B00F-P2-8** | **Tự duyệt (Self-approval)**: Antigravity đứng tên người duyệt ở 8 dòng VERIFIED. | - Gỡ bỏ 100% tên Antigravity khỏi cột Người duyệt `verifiedBy` v
+50:| **3B00F-P2-9** | **Thiếu đặc tả SEO Metadata Gate**: Chưa có `<title>`, description, canonical, OG tags, robots policy và chính sách Schema.org / JSON-LD cho 2 tuyến đường. | - 

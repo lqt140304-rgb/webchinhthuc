@@ -1,0 +1,5 @@
+# Vercel read-only (GET /v6/deployments limit=5, GET /v9/projects) — no secrets recorded
+latest: dpl_8XZEtH3csgeHa5cmzf5aw9hNR4EE target=preview READY sha=4739d45 created=2026-10-27T17:05Z
+production target: dpl_BAz378AxMw59nUafGCMDM8Hws84s sha=db78738
+project.link (Git Integration): none
+ddb066f created 2026-10-27T19:40Z -> no deployment after it

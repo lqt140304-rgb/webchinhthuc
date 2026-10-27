@@ -1,0 +1,39 @@
+# content-mapping.md @ddb066f
+data rows: 68
+VERIFIED: 4
+PENDING: 63
+ILLUSTRATIVE: 1
+
+# 9 rows from Fix 01 P1-3
+| **Hero** | `DV-HERO-02` | Eyebrow: `HỆ THỐNG DỊCH VỤ Y TẾ THÚ CƯNG LÊ SƠN` | Đề xuất tiêu đề phụ thương hiệu (3B-DEC-12) | — | — | Đầu trang Dịch vụ | **PENDING** | Chờ Chủ dự án duyệt câu chữ theo DEC-12 |
+| **Hero** | `DV-HERO-03` | H1: `Chăm sóc chu toàn từ phòng khám đến khu nội trú` | Đề xuất Slogan định vị thương hiệu (3B-DEC-12) | — | — | Tiêu đề chính H1 | **PENDING** | Chờ Chủ dự án duyệt câu chữ theo DEC-12 |
+| **Hero** | `DV-HERO-04` | Đoạn dẫn giới thiệu tinh thần cẩn trọng, chu đáo | Đề xuất văn phong giới thiệu (3B-DEC-12) | — | — | Đoạn dẫn Hero | **PENDING** | Chờ Chủ dự án duyệt câu chữ theo DEC-12 |
+| **Nhóm 4** | `DV-GRP4-04` | Nguyên tắc: Cập nhật tình hình định kỳ (không lộ y lệnh) | Đề xuất chính sách bảo mật thông tin nội trú | — | — | Mô tả vận hành | **PENDING** | Chờ Chủ dự án duyệt chính sách công bố |
+| **Lưu ý** | `DV-NOTE-02` | Lưu ý 02: Vận chuyển an toàn bằng lồng hoặc dây dắt | Đề xuất hướng dẫn an toàn phòng khám (3B-DEC-08)| — | — | Thẻ lưu ý 02 | **PENDING** | Chờ Bác sĩ / Chủ dự án duyệt |
+| **Heading** | `BG-HEAD-02` | Eyebrow: `MINH BẠCH CHI PHÍ Y TẾ THÚ CƯNG` | Đề xuất tiêu đề phụ thương hiệu (3B-DEC-12) | — | — | Tiêu đề phụ | **PENDING** | Chờ Chủ dự án duyệt câu chữ theo DEC-12 |
+| **Heading** | `BG-HEAD-03` | H1: `Bảng giá dịch vụ & biểu phí tham chiếu` | Đề xuất tiêu đề H1 bảng giá (3B-DEC-12) | — | — | Tiêu đề H1 | **PENDING** | Chờ Chủ dự án duyệt câu chữ theo DEC-12 |
+| **Heading** | `BG-HEAD-04` | Đoạn dẫn cam kết tư vấn chi phí rõ ràng, tôn trọng chủ nuôi | Đề xuất định hướng tư vấn chi phí (3B-DEC-09/12)| — | — | Đoạn dẫn | **PENDING** | Chờ Chủ dự án duyệt cam kết theo DEC-09 |
+| **Quy trình**| `BG-PROC-01` | Bước 01: Thăm khám lâm sàng & đánh giá thể trạng | Đề xuất quy trình báo giá (3B-DEC-09) | — | — | Thẻ quy trình 01 | **PENDING** | Chờ Chủ dự án duyệt quy trình theo DEC-09 |
+
+# Remaining VERIFIED rows
+34:| **Hero** | `DV-HERO-05` | Editorial Policy Banner: Thông báo danh mục chuẩn hóa 3B | Chỉ đạo bắt buộc tại CEO Directive 042-A / 044-A | Chủ dự án | 2026-10-28 | Khung thông báo | **VERIFIED** | Khung viền mỏng, biểu tượng thông tin |
+62:| **Cấp cứu** | `DV-EMG-01` | Khối Tiếp nhận Cấp cứu 24/24 Warm Orange | Homepage Section 3 đã duyệt (Commit `db78738`) | Chủ dự án | 2026-10-26 | Khung cấp cứu | **VERIFIED** | Nền Warm Orange/Amber, Hotline 24/24 |
+64:| **Cấp cứu** | `DV-EMG-03` | Nút gọi khẩn: `Gọi Cấp cứu: 097 355 51 05` | Xác nhận trực tiếp của Chủ dự án (Directive 017-A) | Chủ dự án | 2026-10-26 | Nút bấm gọi điện | **VERIFIED** | Gắn link `tel:0973555105` |
+104:| **Dark CTA** | `BG-CTA-03` | Nút 2: `Gọi tư vấn: 097 355 51 05` | Xác nhận trực tiếp của Chủ dự án (Directive 017-A) | Chủ dự án | 2026-10-26 | Nút phụ | **VERIFIED** | Gắn link `tel:0973555105` |
+
+# AI names in approver columns
+0
+
+# 'Brand Identity Baseline' / 26/10 dates left
+(none in mapping)
+/tmp/claude-0/3bf2/3b-00-content-evidence-gate.md:133:| **KHÔNG HỢP LỆ** | **Tài liệu không có trong repo, tài liệu nháp cũ, suy đoán AI** | **VÔ GIÁ TRỊ** | Nguồn không tồn tại như "Brand Identity Baseline V1", mockup cũ, câu trả lời tự sinh của AI. |
+
+# DV-HERO-05 banner text in other docs (two different strings)
+148:- **Banner chính sách biên tập (Editorial Policy Banner):**
+149-  - Nhãn: `[Thông báo chuẩn hóa danh mục]`
+150-  - Nội dung: *"Các dịch vụ dưới đây mô tả định hướng chuyên môn y khoa và danh mục dự kiến phục vụ tại 101 Khuất Duy Tiến. Chi phí và quy trình kỹ thuật cụ thể sẽ được bác sĩ trao đổi trực tiếp sau khi thăm khám lâm sàng."*
+49:| | [i] THÔNG BÁO: Danh mục dịch vụ đang được chuẩn hóa theo định hướng Giai đoạn 3B. Chi tiết   | |
+50-| |     phác đồ và chi phí cụ thể sẽ được bác sĩ trao đổi trực tiếp sau khi khám lâm sàng.       | |
+
+# Directive archives in repo
+(no directive files in repo)

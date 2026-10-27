@@ -1,0 +1,14 @@
+# SEO §7 checks
+dich-vu description: doc says 158, actual 150
+bang-gia description: doc says 151, actual 137
+
+# prerender / raw HTML / per-route head strategy mentioned?
+(none)
+
+# AC SEO/perf rows
+55:| **AC-DOC-10** | Đặc tả SEO Metadata Gate | Đặc tả đầy đủ `<title>`, meta description, canonical placeholder, Open Graph tags, robots policy và quy tắc Schema.org không chứa PENDING. | Kiểm tra Blueprint §7. | Antigravity / Claude | **NOT TESTED (Chờ QA)** |
+77:| **AC-COD-07** | Triển khai SEO Metadata | Thẻ `<title>`, description, canonical, OG tags được chèn đúng chuẩn semantic HTML. 0 console errors khi tải trang. | DOM inspection & browser logs. | Antigravity / Claude | **NOT TESTED (Giai đoạn sau)** |
+78:| **AC-COD-08** | Bảo vệ tuyến đường (HTTP 404) | Đường dẫn ngoài phạm vi như `/dich-vu/:slug` trả về 404 hoặc ComingSoon, không gây vỡ runtime React. | HTTP status & Navigation test. | Antigravity / Claude | **NOT TESTED (Giai đoạn sau)** |
+84:| **AC-PRV-01** | Chỉ số CLS (Cumulative Layout Shift) | CLS đạt $\le 0.001$ trên cả 2 trang ở cả môi trường mobile (412px) và desktop (1440px) dưới điều kiện mạng nhanh và chậm. | PerformanceObserver & Lighthouse. | Claude QA | **NOT TESTED (Giai đoạn sau)** |
+88:| **AC-PRV-05** | Hiệu năng Core Web Vitals | LCP mobile $\le 2.5\text{s}$, FID/INP $\le 200\text{ms}$, 0 console errors trên Chrome DevTools. | Lighthouse & Web Vitals report. | Claude QA | **NOT TESTED (Giai đoạn sau)** |
+89:| **AC-PRV-06** | Kiểm định Schema.org JSON-LD | 0 phần tử `Offer` nào chứa mức giá chưa xác minh hoặc dịch vụ `PENDING`. Dữ liệu cấu trúc hợp lệ với Schema Validator. | Google Rich Results Test tool. | Claude QA | **NOT TESTED (Giai đoạn sau)** |

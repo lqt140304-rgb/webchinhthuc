@@ -1,0 +1,13 @@
+# Hotline in Blueprint §7.1 (schema.org VERIFIED list)
+367:   - Chỉ tích hợp Schema.org `MedicalBusiness` / `MedicalWebPage` với các thông tin đã `VERIFIED` (Địa chỉ 101 Khuất Duy Tiến, Hotline 0988 565 056, Giờ mở cửa 08:00 – 21:00, Tiếp nhận cấp cứu 24/24).
+
+# First appearance of '0988 565 056'
+ddb066f 2026-10-28 02:40:46 +0700 docs(phase-3b): 3B-00 Fix 02 — resolve P1-3, P2-7/8/9, apply DEC-12/13 & SEO Metadata Gate
+
+# Verified hotline in accepted code (src/config/contact.ts @4739d45)
+11:  hotlineDisplay: '097 355 51 05',
+12:  hotlineRaw: '0973555105',
+13:  hotlineTel: 'tel:0973555105',
+14:  workingHours: '08:00 – 21:00 (Tất cả các ngày)',
+15:  workingHoursDetail: '08:00 – 21:00 (Tất cả các ngày trong tuần)',
+16:  emergencyHours: 'Tiếp nhận cấp cứu 24/24',
