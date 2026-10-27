@@ -1,17 +1,17 @@
-# HỒ SƠ THIẾT KẾ CHI TIẾT GIAI ĐOẠN 3A — PHIÊN BẢN V2.3 (PHASE 3A DESIGN BLUEPRINT V2.3)
+# HỒ SƠ THIẾT KẾ CHI TIẾT GIAI ĐOẠN 3A — PHIÊN BẢN V2.4 (PHASE 3A DESIGN BLUEPRINT V2.4)
 ## Bệnh viện Thú y Lê Sơn 2026 — Vibrant Editorial Luxury & Chuẩn Mực Y Khoa
 
 | Hạng mục | Thông tin chi tiết |
 | :--- | :--- |
 | **Dự án** | Website Bệnh viện Thú y Lê Sơn 2026 (`lqt140304-rgb/webchinhthuc`) |
-| **Phiên bản tài liệu** | **Blueprint v2.3** (Cập nhật theo **CEO DIRECTIVE 020-A — PHASE 3A-04 CONTENT INTEGRITY FIX** và Báo cáo QA độc lập `docs/qa/3a-design-qa-03.md` tại commit `f788d0c`) |
+| **Phiên bản tài liệu** | **Blueprint v2.4** (Cập nhật theo **CEO DIRECTIVE 024-A — PHASE 3A DEV-00: DOCUMENTATION FREEZE** và Báo cáo Claude QA 3A-04 tại commit `cd01f11`) |
 | **Căn cứ chỉ đạo** | `AGENTS.md` (Architecture Baseline V1), `PROJECT_BRIEF.md`, **CEO DIRECTIVE 017-A**, **CEO DIRECTIVE 018-A**, `docs/design-system.md`, `docs/assets-credits.md` |
 | **Tác giả thiết kế** | Antigravity — Designer |
 | **Đơn vị thẩm định độc lập** | Claude — Independent QA Lead |
 | **Phạm vi 3 tuyến trang** | 1. `/gioi-thieu` (Giới thiệu bệnh viện)<br>2. `/doi-ngu` (Đội ngũ)<br>3. `/co-so-vat-chat` (Cơ sở vật chất) |
 | **Trạng thái phê duyệt** | **PHASE 3A — PENDING OWNER DESIGN APPROVAL (DESIGN ONLY — NO WEBSITE IMPLEMENTATION)** |
 | **Đường dẫn Mockup trực quan** | - Trong Repository (độc lập với `src/`): `docs/design/phase-3a-interactive-mockups.html`<br>- Trong thư mục Artifact phiên làm việc: `C:/Users/Admin/.gemini/antigravity/brain/6f5020a8-5310-41e1-a151-7821d0315e27/phase-3a-interactive-mockups.html` |
-| **Báo cáo giải quyết QA** | `docs/qa/3a-design-handoff-04.md` |
+| **Báo cáo giải quyết QA** | `docs/qa/3a-design-handoff-05.md` |
 
 ---
 
@@ -173,9 +173,13 @@ Public Website (RootLayout: Header + main#main-content + Footer + MobileBottomBa
        - **Nhóm 2.3A — Bộ phận Spa & Grooming** (`[Cơ cấu & số lượng nhân sự: Chờ xác nhận]`).
        - **Nhóm 2.3B — Bộ phận Chăm sóc Nội trú & Hỗ trợ vận hành** (`[Cơ cấu & số lượng nhân sự: Chờ xác nhận]`).
      - Mỗi nhóm áp dụng đúng quy tắc lưới đồng nhất (kể cả khi nhóm chỉ có $N=1$ người thì hiển thị 1 card căn giữa có cùng kích thước chuẩn).
-4. **Section 2.4 — Cách đội ngũ phối hợp chăm sóc thú cưng (`3A-P2-8` Đã sửa):**
-   - Nền Lavender (`#F8F2F9`), trình bày dạng dải ngang có gắn nhãn trạng thái rõ ràng ở đầu mục: **`[ĐỀ XUẤT MÔ TẢ QUY TRÌNH PHỐI HỢP — CHỜ CHỦ DỰ ÁN XÁC NHẬN VẬN HÀNH THỰC TẾ]`**.
-   - Nội dung chỉ giữ thông tin đã có nguồn (tiếp nhận thăm khám và cấp cứu 24/24) và đánh dấu các bước phối hợp nội bộ là khung đề xuất chờ duyệt, không khẳng định các cam kết chưa xác minh.
+4. **Section 2.4 — Cách đội ngũ phối hợp chăm sóc thú cưng (`3A-P2-8` Đã sửa — Triptych 3 Bước):**
+   - Nền Lavender (`#F8F2F9`), trình bày dạng dải ngang Triptych 3 cột đồng nhất, có gắn nhãn trạng thái rõ ràng ở đầu mục: **`[ĐỀ XUẤT MÔ TẢ QUY TRÌNH PHỐI HỢP — CHỜ CHỦ DỰ ÁN XÁC NHẬN VẬN HÀNH THỰC TẾ]`**.
+   - Nội dung triptych gồm 3 bước phối hợp đề xuất:
+     - Bước 01: Tiếp nhận & Ghi nhận thông tin (đón tiếp tại 101 Khuất Duy Tiến, khám 08:00 – 21:00, cấp cứu 24/24 qua Hotline 097 355 51 05).
+     - Bước 02: Thăm khám & Trao đổi cùng chủ nuôi [Đề xuất: bác sĩ trực tiếp thăm khám và trao đổi định hướng chăm sóc cùng gia đình].
+     - Bước 03: Chăm sóc & Hướng dẫn theo dõi [Đề xuất: thực hiện chăm sóc hoặc lưu trú theo hướng dẫn chuyên môn và dặn dò theo dõi tại nhà].
+   - Đánh dấu rõ ràng là khung đề xuất chờ duyệt, tuyệt đối không khẳng định các cam kết vận hành chưa xác minh.
 5. **Section 2.5 — CTA Liên hệ & Đặt lịch khám:**
    - Dải CTA mời đặt lịch qua `/dat-lich` hoặc gọi trực tiếp Hotline `097 355 51 05` (tiếp nhận cấp cứu 24/24 tại `101 Khuất Duy Tiến, Thanh Xuân, Hà Nội`).
 
@@ -199,12 +203,13 @@ Public Website (RootLayout: Header + main#main-content + Footer + MobileBottomBa
    - Đoạn dẫn: *“Cơ sở Bệnh viện Thú y Lê Sơn tại 101 Khuất Duy Tiến, Thanh Xuân, Hà Nội được tổ chức phục vụ các hoạt động tiếp đón, khám & điều trị, chăm sóc nội trú 24/7 và Spa & Grooming.”*
    - **Banner Chính sách Hình ảnh & Điều kiện Phát hành:** Ghi rõ: *"Các hình ảnh trong bản thiết kế/preview hiện là ảnh minh họa bố cục, không phải cơ sở thực tế của Lê Sơn và không dùng để chứng minh cơ sở có phòng hay thiết bị tương ứng. Trang chỉ được mở lập chỉ mục công khai sau khi cập nhật bộ ảnh chụp thực tế tại 101 Khuất Duy Tiến được Chủ dự án phê duyệt."*
    - **Thanh nhảy phân khu (`Zone Jump Bar`):** `01. Tổng quan không gian` | `02. Khu khám & Điều trị` | `03. Khu nội trú & Thiết bị` | `04. Chỉ đường & Liên hệ`.
-2. **Section 3.2 — Gallery Không gian Bệnh viện (Asymmetric Editorial Spread):**
-   - Bố cục tạp chí 12 cột bất đối xứng (1 khung lớn 7 cột + 2 khung phụ 5 cột; kèm đề xuất mở rộng từ 4 ảnh thật trở lên khi Chủ dự án cung cấp ảnh cơ sở thực tế).
-   - Mỗi khung ảnh gắn nhãn trực tiếp: **`Ảnh minh họa — không phải cơ sở thực tế của Lê Sơn`** và chú thích phân khu ở trạng thái chờ ảnh thực tế:
-     - Khung 01: *Khu vực Tiếp đón & Chờ thăm khám (Minh họa bố cục — Chờ ảnh thực tế)*.
-     - Khung 02: *Khu vực Thăm khám Lâm sàng (Minh họa bố cục — Chờ ảnh thực tế)*.
-     - Khung 03: *Khu vực Vệ sinh & Spa — Grooming (Minh họa bố cục — Chờ ảnh thực tế)*.
+2. **Section 3.2 — Gallery Không gian Bệnh viện (Asymmetric Editorial Spread — 4 Khung Phân Khu):**
+   - Bố cục tạp chí 12 cột bất đối xứng gồm **4 khung phân khu chức năng** (Hàng 1: Frame 1 7-cột + Frame 2 5-cột; Hàng 2: Frame 3 6-cột + Frame 4 6-cột; kèm đề xuất mở rộng từ 4 ảnh thật trở lên khi Chủ dự án cung cấp bộ ảnh cơ sở thực tế):
+     - Khung 01 (Span 7): *Khu vực Tiếp đón & Chờ thăm khám (Minh họa bố cục — Chờ ảnh thực tế)*.
+     - Khung 02 (Span 5): *Khu vực Thăm khám Lâm sàng (Minh họa bố cục — Chờ ảnh thực tế)*.
+     - Khung 03 (Span 6): *Khu vực Lưu trú & Chăm sóc Nội trú 24/7 (Khung sơ đồ kiến trúc — Chờ ảnh thực tế)*.
+     - Khung 04 (Span 6): *Khu vực Vệ sinh & Dịch vụ Spa — Grooming (Khung sơ đồ kiến trúc — Chờ ảnh thực tế)*.
+   - Mỗi khung ảnh/sơ đồ gắn nhãn trực tiếp: **`Ảnh minh họa — không phải cơ sở thực tế của Lê Sơn`** hoặc **`Khung sơ đồ kiến trúc — Chờ ảnh thực tế`**.
 3. **Section 3.3 — Khu Khám và Điều Trị (Clinical Examination Zone — Đã sửa `3A-P2-11`):**
    - Bố cục 2 cột (5 cột khung minh họa + 7 cột bảng kê đường kẻ mảnh `Architectural Specification Ledger`).
    - Nội dung phân khu trung tính, không nêu tên hãng thiết bị chưa xác minh và không tự khẳng định có phòng phẫu thuật riêng:
@@ -523,7 +528,8 @@ Bảng dưới đây phân tách minh bạch giữa **Dữ liệu đã xác minh
 | **`/gioi-thieu`** | 4 Nguyên tắc phục vụ thú cưng (Section 1.4) | **Đề xuất chờ duyệt (`3A-P2-1`):** Ghi rõ nhãn `[ĐỀ XUẤT NỘI DUNG — CHỜ CHỦ DỰ ÁN XÁC NHẬN]`. | - [ ] Xác nhận hoặc hiệu chỉnh 4 nguyên tắc phục vụ thực tế tại bệnh viện. |
 | **`/gioi-thieu`** | Ảnh Hero & Ảnh minh họa câu chuyện | **Ảnh minh họa không có người mặc áo blouse (`3A-P2-2`)** + Nhãn `Ảnh minh họa — không phải cơ sở thực tế của Lê Sơn`. | - [ ] 02 ảnh chụp thực tế tại bệnh viện (không gian tiếp đón / hoạt động chăm sóc đã được duyệt). |
 | **`/doi-ngu`** | Ảnh chân dung nhân sự (Toàn bộ các thẻ — `3A-P1-1`) | **Monogram / Khung trống trung tính `4:5`:** Nhãn `Chưa có ảnh thực tế — Khung chân dung chờ duyệt`. **0% ảnh stock/AI người thật.** | - [ ] Ảnh chân dung thật của `BS. Lê Thái Sơn` và từng nhân sự thực tế (cùng tỷ lệ `4:5`). |
-| **`/doi-ngu`** | Cơ cấu bộ phận, số lượng nhân sự, chức danh & kiêm nhiệm (`3A-P1-2`) | **Placeholder trung tính:** `[Họ và tên nhân sự — Chờ danh sách xác minh]`, `[Chức danh chuyên môn — Chờ xác minh]`, `[Vai trò kiêm nhiệm — Nếu có]`. | - [ ] Danh sách bộ phận thực tế tại viện.<br>- [ ] Họ tên, chức danh chuyên môn, các vai trò kiêm nhiệm thực tế và mô tả công việc của từng người.<br>- [ ] Quy tắc sắp xếp thứ tự nhân sự trong từng bộ phận (`A–Z` hay theo thứ tự danh sách). |
+| **`/doi-ngu`** | Hồ sơ BS. Lê Thái Sơn (`3A04-P2-3`) | **Phân tách minh bạch:**<br>- Họ tên: **ĐÃ XÁC MINH (VERIFIED)** (`BS. Lê Thái Sơn`).<br>- Chức danh: **CHỜ XÁC MINH (PENDING)** (`[Chức danh: Bác sĩ Thú y — Chờ xác nhận]`).<br>- Lịch khám: **CHỜ XÁC MINH (PENDING)** (`[Chờ cập nhật]`). | - [ ] Xác nhận cách ghi chức danh chính thức của BS. Sơn ("Bác sĩ Thú y", "Phụ trách chuyên môn", hay "Bác sĩ trưởng").<br>- [ ] Lịch trực/khám thực tế. |
+| **`/doi-ngu`** | Cơ cấu bộ phận & Nhân sự khác (`3A-P1-2`, `3A04-P2-4`) | **Chờ xác nhận cơ cấu (PENDING VERIFICATION):**<br>- Bộ phận Lâm sàng: Bộ phận Bác sĩ Thú y (Lâm sàng).<br>- Bộ phận đề xuất: Spa & Grooming (Chờ xác nhận), Chăm sóc & Hỗ trợ (Chờ xác nhận).<br>- Toàn bộ thẻ nhân sự khác dạng placeholder mô phỏng. | - [ ] Danh sách bộ phận thực tế đang hoạt động.<br>- [ ] Họ tên, chức danh chuyên môn, vai trò kiêm nhiệm và mô tả công việc thực tế.<br>- [ ] Quy tắc sắp xếp thứ tự (`A–Z` hay danh sách phẳng). |
 | **`/doi-ngu`** | Quy trình phối hợp liên bộ phận (Section 2.4 — `3A-P2-8`) | **Đề xuất chờ duyệt:** Ghi rõ nhãn `[QUY TRÌNH PHỐI HỢP ĐỀ XUẤT — CHỜ CHỦ DỰ ÁN XÁC NHẬN]`. | - [ ] Xác nhận các bước phối hợp thực tế giữa các bộ phận khi tiếp nhận ca khám/nội trú/spa. |
 | **`/co-so-vat-chat`** | Bộ ảnh Gallery không gian bệnh viện (Section 3.2 — `3A-P2-9`) | **Ảnh minh họa / Sơ đồ kiến trúc có gắn nhãn trực tiếp:** `Ảnh minh họa — không phải cơ sở thực tế của Lê Sơn`. | - [ ] Bộ ảnh chụp thực tế các phân khu tại `101 Khuất Duy Tiến` (đề xuất thiết kế tối thiểu 04 ảnh thật được duyệt trước khi mở index công khai; không lọt khách hàng/hồ sơ bệnh án `3A-P3-5`). |
 | **`/co-so-vat-chat`** | Thiết bị xét nghiệm & chẩn đoán hình ảnh (Section 3.3 — `3A-P2-11`) | **Slot trung tính không nêu tên hãng:** `[Thiết bị xét nghiệm — chờ xác minh]`, `[Thiết bị chẩn đoán hình ảnh — chờ xác minh]`. | - [ ] Xác nhận danh mục, tên hãng (ví dụ có sử dụng thiết bị Mindray hay không), mã model và công năng thực tế được phép công bố. |
@@ -563,29 +569,38 @@ Nhằm tuân thủ tuyệt đối **Chính sách hình ảnh đã phê duyệt (
 
 ---
 
-## 8. MỤC 8: BẢNG ĐỐI CHIẾU GIẢI QUYẾT TOÀN BỘ PHÁT HIỆN QA (MAPPING QA 3A-01, QA 3A-02 & QA 3A-03)
+## 8. MỤC 8: BẢNG ĐỐI CHIẾU GIẢI QUYẾT TOÀN BỘ PHÁT HIỆN QA (MAPPING QA 3A-01, QA 3A-02, QA 3A-03 & QA 3A-04)
 
-### 8.0A. Bảng Đối Chiếu Giải Quyết Các Phát Hiện Từ Báo Cáo Claude QA 3A-03 (`docs/qa/3a-design-qa-03.md`)
+### 8.0. Bảng Đối Chiếu Giải Quyết 4 Phát Hiện P2 Từ Báo Cáo Claude QA 3A-04 (`docs/qa/3a-design-qa-04.md`)
 
-| Mã QA | Mức | Mô tả phát hiện của Claude | Giải pháp đã thực hiện trong Blueprint v2.3 & Mockup HTML | Bằng chứng kiểm chứng | Kết luận |
+| Mã QA | Mức | Mô tả phát hiện của Claude | Giải pháp đã thực hiện trong Blueprint v2.4 & Mockup DEV-00 | Bằng chứng kiểm chứng | Kết luận |
+| :---: | :--- :| :--- | :--- | :--- | :---: |
+| **3A04-P2-1** | **P2** | Nút CTA Header tại mobile $\le 390\text{px}$ bị rớt dòng ("Đặt lịch hẹn / khám"); handoff 04 báo đã sửa nhưng CSS mockup chưa cập nhật. | Tuân thủ tuyệt đối **Quy chế DEV-00 Freeze** (CEO Directive 024-A): **Giữ nguyên trạng thái OPEN, không sửa CSS mockup trong DEV-00**, ghi nhận chính xác vào tồn đọng triển khai (Implementation Backlog) để xử lý dứt điểm khi bước vào giai đoạn code website chính thức. | Mockup Header CSS; Handoff 05 ghi rõ trạng thái OPEN. | **OPEN (Chuyển sang Implementation Backlog)** |
+| **3A04-P2-2** | **P2** | Handoff 04 báo đã chuyển các nút mô phỏng $N=1..8$ lên thanh công cụ trên cùng, nhưng thực tế các nút này đã bị xóa khỏi markup. | Báo cáo trung thực và chính xác: **Các nút bấm mô phỏng $N=1..8$ đã được chủ động gỡ bỏ hoàn toàn khỏi giao diện người dùng** (cả trang và thanh công cụ) từ Vòng 04 để tránh làm rối mắt người dùng. Khả năng kiểm thử lưới $N=1..8$ vẫn được bảo toàn trọn vẹn thông qua hàm script/console `setTeamCount(n, layout)`. | Mockup HTML markup; hàm `setTeamCount` trong thẻ `<script>`. | **FIXED IN REPORT (Gỡ khỏi UI — Giữ API kiểm thử)** |
+| **3A04-P2-3** | **P2** | Handoff 04 gộp chung Tên và Chức danh BS. Sơn thành `VERIFIED`; trong khi chức danh chưa có văn bản xác nhận chính thức từ Chủ dự án. | **Phân tách minh bạch từng trường dữ liệu:**<br>- Họ tên: **VERIFIED** (`BS. Lê Thái Sơn`).<br>- Chức danh: **PENDING VERIFICATION** (`[Chức danh: Bác sĩ Thú y — Chờ xác nhận]`).<br>- Lịch thăm khám: **PENDING VERIFICATION** (`[Chờ cập nhật]`).<br>Đã cập nhật đồng bộ trong Mockup HTML card BS. Sơn và Bảng đối chiếu nội dung. | Mockup card BS. Lê Thái Sơn; Bảng đối chiếu Mục 6 & Handoff 05. | **FIXED** |
+| **3A04-P2-4** | **P2** | Cơ cấu bộ phận Spa & Grooming và Chăm sóc & Hỗ trợ chưa được xác nhận nhưng nút lọc và tiêu đề mục chưa gắn nhãn chờ xác minh; đoạn dẫn Hero khẳng định phân chia bộ phận thực tế. | **Bổ sung nhãn chờ xác nhận toàn diện:**<br>1. Nút lọc: `Bộ phận Bác sĩ Thú y (Lâm sàng)`, `Bộ phận Spa & Grooming (Chờ xác nhận)`, `Bộ phận Chăm sóc & Hỗ trợ (Chờ xác nhận)`.<br>2. Tiêu đề mục: thêm `(Chờ xác nhận cơ cấu)` tại Section 2.3A và 2.3B.<br>3. Card badge: đổi thành `[Spa & Grooming — Đề xuất]`, `[Chăm sóc Nội trú — Chờ xác nhận]`, `[Tiếp đón & Hỗ trợ — Chờ xác nhận]`.<br>4. Đoạn dẫn Hero: viết lại trung tính, khẳng định đây là khung mô phỏng chờ Chủ dự án duyệt cơ cấu. | Mockup Section 2.1, 2.3A, 2.3B; Bảng đối chiếu Handoff 05. | **FIXED** |
+
+---
+
+### 8.1. Bảng Đối Chiếu Giải Quyết Các Phát Hiện Từ Báo Cáo Claude QA 3A-03 (`docs/qa/3a-design-qa-03.md`)
+
+| Mã QA | Mức | Mô tả phát hiện của Claude | Giải pháp đã thực hiện trong Blueprint & Mockup HTML | Bằng chứng kiểm chứng | Kết luận |
 | :---: | :---: | :--- | :--- | :--- | :---: |
-| **3A-P1-2** | **P1** | Trang `/doi-ngu` ấn định lại **chuyên môn, nhiệm vụ và cơ cấu nhân sự chưa xác minh** (chuyên môn BS. Sơn, hội chẩn, kỹ thuật viên nội trú, quy trình khép kín, kíp trực). | Đã khôi phục 100% các slot trung tính: BS. Lê Thái Sơn chỉ giữ chức danh Bác sĩ Thú y đã xác nhận; các bác sĩ khác dùng `[Bác sĩ Thú y — Dữ liệu mô phỏng]`; bộ phận hỗ trợ dùng `[Nhân viên Chăm sóc nội trú — Dữ liệu mô phỏng]`; quy trình 4 bước chuyển thành `[Đề xuất định hướng]`. Loại bỏ toàn bộ các từ "hội chẩn", "khép kín", "kíp trực", "chỉ định xét nghiệm". | Mockup `#page-doi-ngu`; Blueprint Mục 2.2, 3.2. | **FIXED** |
+| **3A-P1-2** | **P1** | Trang `/doi-ngu` ấn định lại **chuyên môn, nhiệm vụ và cơ cấu nhân sự chưa xác minh** (chuyên môn BS. Sơn, hội chẩn, kỹ thuật viên nội trú, quy trình khép kín, kíp trực). | Đã khôi phục 100% các slot trung tính: BS. Lê Thái Sơn chỉ giữ chức danh Bác sĩ Thú y chờ xác nhận; các bác sĩ khác dùng `[Bác sĩ Thú y — Dữ liệu mô phỏng]`; bộ phận hỗ trợ dùng `[Nhân viên Chăm sóc nội trú — Dữ liệu mô phỏng]`; quy trình phối hợp 3 bước chuyển thành `[Đề xuất định hướng]`. Loại bỏ toàn bộ các từ "hội chẩn", "khép kín", "kíp trực", "chỉ định xét nghiệm". | Mockup `#page-doi-ngu`; Blueprint Mục 2.2, 3.2. | **FIXED** |
 | **V3-P1-1** | **P1** | Trang `/co-so-vat-chat` mô tả **phân khu và thiết bị chưa xác minh như đã có thật** (sảnh phân luồng, phòng cách ly, hồi sức, spa tách biệt, hệ thống đèn sưởi ấm, thiết bị theo dõi sinh hiệu). | Đã loại bỏ toàn bộ các khẳng định vật lý chưa xác minh. Khôi phục các slot mô tả trung tính bám sát các dịch vụ đã xác nhận: tiếp đón ban đầu, khám lâm sàng, chăm sóc nội trú 24/7, spa & grooming. Toàn bộ thiết bị cận lâm sàng và phân khu thủ thuật được đóng khung `[Slot chờ xác nhận]`. | Mockup `#page-co-so-vat-chat`; Blueprint Mục 2.3, 3.3. | **FIXED** |
 | **3A-P2-1** | **P2** | Bốn nguyên tắc phục vụ trên `/gioi-thieu` xuất hiện lại câu khẳng định như cam kết thực tế ("được vệ sinh định kỳ", "chỉ chia sẻ trực tiếp"). | Đã chuyển toàn bộ 4 nguyên tắc thành dạng bản thảo đề xuất định hướng: `[Đề xuất định hướng]: Chú trọng hạn chế tiếng ồn...`, `[Đề xuất định hướng]: Khu vực lưu trú được duy trì ngăn nắp...`, `[Đề xuất định hướng]: Thông tin bệnh án chỉ trao đổi trực tiếp với gia đình...`. | Mockup `#page-gioi-thieu` Section 1.4; Blueprint Mục 2.1. | **FIXED** |
-| **V3-P3-1** | **P3** | Header ở 375px bị chật: nút CTA xuống 2 dòng ("Đặt lịch hẹn khám"), dòng phụ dưới logo xuống dòng. | Rút gọn văn bản nút CTA trên mobile thành `Đặt lịch` qua CSS responsive media query; thiết lập `white-space: nowrap` và tinh chỉnh cỡ chữ `0.62rem` cho `.p3a-logo-subtitle` để đảm bảo 0 tràn ngang, 0 rớt dòng tại mọi viewport $\le 390\text{px}$. | Mockup CSS `.p3a-header-cta`, `.p3a-logo-subtitle`. | **FIXED** |
-| **V3-P3-2** | **P3** | Bộ mô phỏng "N = …" và câu thông báo "thuộc tính hidden" nằm trong nội dung trang khách hàng. | Đã chuyển toàn bộ các nút bấm mô phỏng $N=1..8$ lên thanh công cụ Reviewer Deck trên cùng; trang khách hàng chỉ giữ lại Bộ lọc Bộ phận chuyên môn; viết lại câu thông báo `aria-live` lịch sự cho người dùng thật: *"Đang hiển thị: Tất cả các bộ phận"*, không nhắc tới thuật ngữ dev/test. | Mockup Header toolbar & Section 2.1; hàm `updateFilterStatus`. | **FIXED** |
+| **V3-P3-1** | **P3** | Header ở 375px bị chật: nút CTA xuống 2 dòng ("Đặt lịch hẹn khám"), dòng phụ dưới logo xuống dòng. | Rút gọn văn bản nút CTA trên mobile thành `Đặt lịch` qua CSS responsive media query; thiết lập `white-space: nowrap` và tinh chỉnh cỡ chữ `0.62rem` cho `.p3a-logo-subtitle` để đảm bảo 0 tràn ngang, 0 rớt dòng tại mọi viewport $\le 390\text{px}$. (Ghi nhận `3A04-P2-1` đang mở cho phần mockup tĩnh). | Mockup CSS `.p3a-header-cta`, `.p3a-logo-subtitle`. | **FIXED (Blueprint Spec) / OPEN (Mockup CSS)** |
+| **V3-P3-2** | **P3** | Bộ mô phỏng "N = …" và câu thông báo "thuộc tính hidden" nằm trong nội dung trang khách hàng. | Đã gỡ bỏ toàn bộ các nút bấm mô phỏng $N=1..8$ khỏi markup hiển thị; trang khách hàng chỉ giữ lại Bộ lọc Bộ phận chuyên môn; viết lại câu thông báo `aria-live` lịch sự cho người dùng thật: *"Đang hiển thị: Tất cả các bộ phận"*, không nhắc tới thuật ngữ dev/test. | Mockup Header toolbar & Section 2.1; hàm `updateFilterStatus`. | **FIXED** |
 | **V3-P3-3** | **P3** | Blueprint mục 9.1 lặp nguyên đoạn R-3A-05/2B-29 hai lần; bảng nguồn ảnh ghi sai vị trí dùng của `article-prevention`. | Đã xóa đoạn trùng lặp trong Mục 9.1; hiệu chỉnh vị trí sử dụng của `article-prevention.webp` thành Hero Section 1.1 (`/gioi-thieu`) và Frame #01 Section 3.2 (`/co-so-vat-chat`). | Blueprint Mục 7 & Mục 9.1. | **FIXED** |
 
 ---
 
-## 8. MỤC 8: BẢNG ĐỐI CHIẾU GIẢI QUYẾT TOÀN BỘ PHÁT HIỆN QA (MAPPING QA 3A-01 & QA 3A-02)
+### 8.2. Bảng Đối Chiếu Giải Quyết 8 Phát Hiện Từ Báo Cáo Claude QA 3A-02 (`docs/qa/3a-design-qa-02.md`)
 
-### 8.0. Bảng Đối Chiếu Giải Quyết 8 Phát Hiện Từ Báo Cáo Claude QA 3A-02 (`docs/qa/3a-design-qa-02.md`)
-
-| Mã QA | Mức | Mô tả phát hiện của Claude | Giải pháp đã thực hiện trong Blueprint v2.2 & Mockup HTML | Bằng chứng kiểm chứng | Kết luận |
+| Mã QA | Mức | Mô tả phát hiện của Claude | Giải pháp đã thực hiện trong Blueprint & Mockup HTML | Bằng chứng kiểm chứng | Kết luận |
 | :---: | :---: | :--- | :--- | :--- | :---: |
 | **V-P1-1** | **P1** | File mockup HTML trong repo bị **hỏng mã hóa UTF-8 (mojibake)** do PowerShell đọc dạng Windows-1252 rồi ghi lại: 280 dòng bị biến dạng ký tự tiếng Việt. | Đã viết lại toàn bộ file bằng script Node.js với mã hóa **UTF-8 thuần (No BOM)** và thiết lập chuẩn thẻ `<meta charset="UTF-8">`. Đã kiểm chứng 100% chuỗi ký tự tiếng Việt hiển thị sắc nét, không còn bất kỳ byte lỗi nào. | File `docs/design/phase-3a-interactive-mockups.html`; tiêu đề `<title>` và toàn bộ nội dung đọc trong sáng. | **FIXED** |
-| **AP-2** | **P2** | `why-pet-companion.webp` có **logo thương hiệu Champion** trên áo của chó, được dùng 2 lần trong mockup 3A và đang dùng trên trang chủ Mốc 2B (`WhyChooseUs.tsx:30`). | **Trong 3A:** Đã gỡ bỏ 100% hình ảnh này khỏi file Mockup và Blueprint v2.2, thay bằng ảnh minh họa sạch hoặc sơ đồ phân khu kiến trúc SVG.<br>**Đối với Trang chủ 2B:** Bảo toàn nguyên vẹn `src/` theo quy chế đóng băng Mốc 2B; ghi nhận mục lỗi **`2B-29` (P2)** vào Sổ nhật ký bảo trì để xử lý theo chỉ đạo riêng. | Mockup 3A không còn chứa chuỗi `why-pet-companion.webp`; Blueprint Mục 7 & Mục 9.1. | **FIXED (3A) & Ghi nhận 2B-29** |
+| **AP-2** | **P2** | `why-pet-companion.webp` có **logo thương hiệu Champion** trên áo của chó, được dùng 2 lần trong mockup 3A và đang dùng trên trang chủ Mốc 2B (`WhyChooseUs.tsx:30`). | **Trong 3A:** Đã gỡ bỏ 100% hình ảnh này khỏi file Mockup và Blueprint, thay bằng ảnh minh họa sạch hoặc sơ đồ phân khu kiến trúc SVG.<br>**Đối với Trang chủ 2B:** Bảo toàn nguyên vẹn `src/` theo quy chế đóng băng Mốc 2B; ghi nhận mục lỗi **`2B-29` (P2)** vào Sổ nhật ký bảo trì để xử lý theo chỉ đạo riêng. | Mockup 3A không còn chứa chuỗi `why-pet-companion.webp`; Blueprint Mục 7 & Mục 9.1. | **FIXED (3A) & Ghi nhận 2B-29** |
 | **AP-1** | **P2** | Bảng nguồn ảnh (Blueprint mục 7) thiếu URL, tác giả, giấy phép và trạng thái xác minh rõ ràng. | Đã nâng cấp toàn diện Bảng Kê Chi Tiết Tài Sản (Asset Provenance Ledger) tại Mục 7 với 11 cột chuẩn mực: File repo, Vị trí 3A, Loại tài sản, Nguồn cung cấp, Tác giả, Giấy phép, Trạng thái xác minh (VERIFIED vs UNVERIFIED), Cho phép trên Preview, Sẵn sàng phát hành. | Blueprint Mục 7; `docs/qa/3a-design-handoff-03.md`. | **FIXED** |
 | **V-P2-2** | **P2** | Ghi chú QA và thuật ngữ dev còn lẫn vào nội dung trang khách hàng (ví dụ: `Mô phỏng sĩ số nhân sự nhóm Bác sĩ (Kiểm thử lưới cân bằng)`, v.v.). | Đã loại bỏ hoàn toàn các mã QA và thuật ngữ dev (`Kiểm thử lưới cân bằng`, `verified = false`, v.v.) khỏi nội dung hiển thị; thay bằng văn bản trung tính, lịch sự: *"Mô phỏng dự kiến cơ cấu nhân sự nhóm Bác sĩ"*. | File Mockup HTML; toàn bộ văn bản duyệt sạch bóng từ khóa QA nội bộ. | **FIXED** |
 | **V-P3-1** | **P3** | Mockup thiếu nút mở menu trên mobile (`Header` không bấm mở menu được trên màn hình hẹp). | Đã lập trình hoàn chỉnh **Menu Hamburger Mobile** (`.p3a-menu-toggle`) và **Khung Menu Trượt Xuống** (`#p3a-mobile-drawer`) với đầy đủ thuộc tính trợ năng `aria-expanded`, `aria-controls`, xử lý phím `Escape` và vùng chạm chuẩn 44px. | Mockup HTML: nút menu ở góc phải Header mobile và drawer trượt mượt mà. | **FIXED** |
@@ -596,32 +611,32 @@ Nhằm tuân thủ tuyệt đối **Chính sách hình ảnh đã phê duyệt (
 
 ---
 
-## 8. MỤC 8: BẢNG ĐỐI CHIẾU GIẢI QUYẾT TOÀN BỘ PHÁT HIỆN QA TRƯỚC ĐÓ (MAPPING QA 3A-01: 2 P1, 11 P2 & 9 P3)
+### 8.3. Bảng Đối Chiếu Giải Quyết Toàn Bộ Phát Hiện QA 3A-01 (`docs/qa/3a-design-qa-01.md`: 2 P1, 11 P2 & 9 P3)
 
-Chúng tôi không tự ý đóng các vấn đề phụ thuộc vào quyết định hoặc dữ liệu thật của Chủ dự án. Dưới đây là bảng đối chiếu trung thực từng phát hiện trong `docs/qa/3a-design-qa-01.md`:
+Dưới đây là bảng đối chiếu trung thực từng phát hiện trong `docs/qa/3a-design-qa-01.md`:
 
-### 8.1. Hai Lỗi P1 (Bắt buộc sửa trong thiết kế)
-| Mã QA | Mô tả phát hiện của Claude | Giải pháp đã thực hiện trong Blueprint v2.1 & Mockup v2.1 | Bằng chứng vị trí | Trạng thái |
+#### A. Hai Lỗi P1 (Bắt buộc sửa trong thiết kế)
+| Mã QA | Mô tả phát hiện của Claude | Giải pháp đã thực hiện trong Blueprint & Mockup | Bằng chứng vị trí | Trạng thái |
 | :---: | :--- | :--- | :--- | :---: |
 | **3A-P1-1** | Card mang tên thật `"BS. Lê Thái Sơn"` (và các card nhân sự) dùng ảnh stock có mặt người thật là trình bày sai danh tính. | Đã gỡ bỏ 100% ảnh người (stock/AI) khỏi toàn bộ các card nhân sự trên `/doi-ngu`. Thay hoàn toàn bằng **Monogram & Khung chân dung trống `4:5`** trên nền Lavender nhạt kèm nhãn `Chưa có ảnh thực tế — Khung chân dung chờ duyệt`. | Blueprint Mục 2.2, 3.2.C, 6, 7; Mockup `#page-doi-ngu` (tất cả card). | **FIXED (Trong Thiết kế & Mockup)** |
 | **3A-P1-2** | Wireframe tự ấn định cơ cấu nhân sự chưa xác minh (3 bác sĩ, chuyên khoa Ngoại khoa & Cấp cứu, kiêm nhiệm Nội trú 24/7, lễ tân/điều dưỡng). | Đã xóa toàn bộ số lượng mặc định, chuyên khoa tự đặt, lịch trực và thông tin kiêm nhiệm chưa xác minh. Thay bằng các **Slot trung tính** (`[Chức danh chuyên môn — Chờ xác minh]`, `[Vai trò kiêm nhiệm — Chỉ hiển thị nếu có dữ liệu xác minh]`, `[Phạm vi công việc — Chờ hồ sơ]`). | Blueprint Mục 2.2, 3.2.C, 6; Mockup `#page-doi-ngu`. | **FIXED (Trong Thiết kế & Mockup)** |
 
-### 8.2. Mười Một Lỗi P2 (`3A-P2-1` đến `3A-P2-11`)
-| Mã QA | Mô tả phát hiện của Claude | Giải pháp đã thực hiện trong Blueprint v2.1 & Mockup v2.1 | Bằng chứng vị trí | Trạng thái |
+#### B. Mười Một Lỗi P2 (`3A-P2-1` đến `3A-P2-11`)
+| Mã QA | Mô tả phát hiện của Claude | Giải pháp đã thực hiện trong Blueprint & Mockup | Bằng chứng vị trí | Trạng thái |
 | :---: | :--- | :--- | :--- | :---: |
-| **3A-P2-1** | Bốn "nguyên tắc phục vụ" trên `/gioi-thieu` là cam kết vận hành chưa xác minh nhưng viết như sự thật đang áp dụng. | Đã chuyển cả khối Section 1.4 về dạng **Đề xuất chờ duyệt**, gắn nhãn nổi bật `[ĐỀ XUẤT NỘI DUNG — CHỜ CHỦ DỰ ÁN XÁC NHẬN QUY TRÌNH PHỤC VỤ THỰC TẾ]` và viết lại từng dòng theo văn phong đề xuất trung tính. | Blueprint Mục 2.1 (Section 1.4), 3.1.A; Mockup `#page-gioi-thieu`. | **FIXED (Trong Thiết kế — Chờ Chủ dự án duyệt nội dung)** |
-| **3A-P2-2** | Ảnh Hero `/gioi-thieu` dùng ảnh stock có người mặc áo blouse dễ bị hiểu nhầm là bác sĩ của Lê Sơn. | Đã loại bỏ hoàn toàn mọi ảnh có người mặc áo blouse khỏi cả 3 trang trong Mockup v2.1; chỉ dùng ảnh thú cưng thuần túy / đồ họa kiến trúc kèm nhãn `Ảnh minh họa — không phải cơ sở thực tế của Lê Sơn`. | Blueprint Mục 2.1, 7; Mockup `#page-gioi-thieu`. | **FIXED** |
-| **3A-P2-3** | Luôn đặt `BS. Lê Thái Sơn` ở Thẻ 1 vẫn tạo ra thứ bậc ngầm theo chức vụ. | Đã bỏ quy tắc xếp đầu theo chức vụ. Quy định rõ thứ tự hiển thị trung tính (`A–Z` hoặc theo danh sách phẳng của Chủ dự án); trong Wireframe & Mockup v2.1, thẻ `BS. Lê Thái Sơn` được đặt ở vị trí trung tính (Thẻ #2) và có nút chuyển đổi chế độ sắp xếp. | Blueprint Mục 2.2 (Quy tắc 5), 3.2.C; Mockup `#page-doi-ngu`. | **FIXED** |
-| **3A-P2-4** | Gộp `"Spa & Grooming và Điều dưỡng"` thành 1 section để cân đối lưới có thể sai cơ cấu thực tế; quy tắc $N=1$ đặt thẩm mỹ lên trên tính chính xác. | Đã bãi bỏ quy tắc gộp bộ phận khi $N=1$. Chỉ phân nhóm theo bộ phận thực tế; khi bộ phận có $N=1$ thành viên thì hiển thị **1 card căn giữa có cùng kích thước chuẩn** (`1/3` container trên Desktop), không gộp nhãn bộ phận. | Blueprint Mục 2.2 (Quy tắc 8), 3.2.A–B; Mockup `#page-doi-ngu` (nút thử `N = 1`). | **FIXED** |
-| **3A-P2-5** | Ma trận lưới ở Tablet khi $N=5$ dùng thẻ ngang khác dạng card; chưa định nghĩa quy tắc cho $N \ge 7$. | Đã thiết lập **Universal 12-Column Centered Grid Rule** cho $N = 1, 2, 3, 4, 5, 6, 7$ và $N \ge 7$: mọi card trên cả Desktop lẫn Tablet đều giữ nguyên kiểu card dọc `4:5` đồng kích thước 100%, hàng cuối căn giữa đối xứng (hỗ trợ cả chế độ `3+2+2` cho $N=7$), không bao giờ phóng to card lẻ. | Blueprint Mục 3.2.A–B; Mockup `#page-doi-ngu` (nút thử `N = 1, 2, 3, 5, 7, 8`). | **FIXED** |
-| **3A-P2-6** | Bộ lọc bộ phận làm mờ (`opacity`) các card không thuộc nhóm đang lọc, vẫn đọc và `Tab` tới được gây nhiễu cho Screen Reader. | Đã bỏ hoàn toàn hiệu ứng làm mờ. Bộ lọc trong Mockup v2.1 và đặc tả Blueprint v2.1 sử dụng thuộc tính **`hidden` (`display: none`)** để ẩn thực sự các nhóm không được chọn, kèm `aria-pressed="true/false"` và thông báo kết quả qua `role="status" aria-live="polite"`. | Blueprint Mục 2.2, 5.1; Mockup `#page-doi-ngu`. | **FIXED** |
-| **3A-P2-7** | Cụm từ `"Bác sĩ trưởng Lê Thái Sơn"` / `"nổi bật BST Lê Thái Sơn"` còn sót ở `Header.tsx:27`, `routes.tsx:31`, `types/index.ts:34`, `seo-strategy.md:18`, `sitemap.md:11`, `implementation-plan.md:70`. | Đã lập bảng kiểm kê đầy đủ cả 6 file và số dòng tại Mục 4.2 kèm phương án đồng bộ. Vì Chỉ đạo 018-A cấm sửa source code ứng dụng trong lượt này, việc sửa `src/` được giữ ở trạng thái **PARTIAL (Đã kiểm kê đủ trong Blueprint — Chờ pha Implementation)**. | Blueprint Mục 4.2, 9.2 (Quyết định 1). | **PARTIAL (Đã đặc tả đủ 6 vị trí — Chờ phép sửa code)** |
-| **3A-P2-8** | Quy trình phối hợp 4 bước trên `/doi-ngu` chứa cam kết vận hành chưa xác minh ("ưu tiên ngay ca cấp cứu", "bàn giao ca trực 24/24", "hội chẩn"). | Đã đóng khung toàn bộ Section 2.4 bằng nhãn `[QUY TRÌNH PHỐI HỢP ĐỀ XUẤT — CHỜ CHỦ DỰ ÁN XÁC NHẬN VẬN HÀNH THỰC TẾ]` và lược bỏ các khẳng định chưa có nguồn. | Blueprint Mục 2.2 (Section 2.4), 3.2.C; Mockup `#page-doi-ngu`. | **FIXED (Trong Thiết kế — Chờ Chủ dự án duyệt nội dung)** |
-| **3A-P2-9** | Trang `/co-so-vat-chat` nếu toàn ảnh stock gắn nhãn "không phải ảnh bệnh viện" khi phát hành sẽ làm giảm niềm tin. | Đã bổ sung quy tắc **Pre-release Gate** theo đúng Directive 018-A Mục IV.C: Preview/Mockup được dùng ảnh minh họa gắn nhãn `"Ảnh minh họa — không phải cơ sở thực tế của Lê Sơn"`; nhưng trước khi phát hành / mở index công khai bắt buộc phải có bộ ảnh cơ sở thực tế được Chủ dự án duyệt (đề xuất thiết kế $\ge 4$ ảnh thật). | Blueprint Mục 2.3, 3.3, 6, 9.2. | **FIXED (Trong Quy tắc Thiết kế & Pre-release Gate)** |
-| **3A-P2-10** | Tiêu đề H1 trang `/co-so-vat-chat` dùng cụm từ `"sạch khuẩn"` là tuyên bố mạnh chưa được xác minh. | Đã xóa hoàn toàn cụm từ `"sạch khuẩn"` trong cả Blueprint v2.1 lẫn Mockup v2.1; đổi H1 thành *"Không gian thăm khám sạch sẽ, bố trí rõ ràng vì sự an tâm của thú cưng"*. | Blueprint Mục 2.3 (Section 3.1), 3.3; Mockup `#page-co-so-vat-chat`. | **FIXED** |
-| **3A-P2-11** | Slot thiết bị vẫn hiển thị thương hiệu `"(VD: Mindray)"` và tự khẳng định có `"Khu vực Thủ thuật & Phẫu thuật ngoại khoa"` riêng. | Đã đổi toàn bộ hiển thị trên Wireframe & Mockup thành slot trung tính `[Thiết bị xét nghiệm — chờ xác minh]`, `[Thiết bị chẩn đoán hình ảnh — chờ xác minh]` (không nêu tên hãng trên giao diện mẫu) và chuyển khu thủ thuật/ngoại khoa thành `[Phân khu chức năng — Chờ Chủ dự án xác nhận cấu trúc phòng thực tế]`. | Blueprint Mục 2.3 (Section 3.3), 3.3; Mockup `#page-co-so-vat-chat`. | **FIXED** |
+| **3A-P2-1** | Bốn "nguyên tắc phục vụ" trên `/gioi-thieu` là cam kết vận hành chưa xác minh nhưng viết như sự thật đang áp dụng. | Đã chuyển cả khối Section 1.4 về dạng **Đề xuất chờ duyệt**, gắn nhãn nổi bật `[ĐỀ XUẤT NỘI DUNG — CHỜ CHỦ DỰ ÁN XÁC NHẬN QUY TRÌNH PHỤC VỤ THỰC TẾ]` và viết lại từng dòng theo văn phong đề xuất trung tính. | Blueprint Mục 2.1 (Section 1.4), 3.1.A; Mockup `#page-gioi-thieu`. | **FIXED (Chờ Chủ dự án duyệt nội dung)** |
+| **3A-P2-2** | Ảnh Hero `/gioi-thieu` dùng ảnh stock có người mặc áo blouse dễ bị hiểu nhầm là bác sĩ của Lê Sơn. | Đã loại bỏ hoàn toàn mọi ảnh có người mặc áo blouse khỏi cả 3 trang trong Mockup; chỉ dùng ảnh thú cưng thuần túy / đồ họa kiến trúc kèm nhãn `Ảnh minh họa — không phải cơ sở thực tế của Lê Sơn`. | Blueprint Mục 2.1, 7; Mockup `#page-gioi-thieu`. | **FIXED** |
+| **3A-P2-3** | Luôn đặt `BS. Lê Thái Sơn` ở Thẻ 1 vẫn tạo ra thứ bậc ngầm theo chức vụ. | Đã bỏ quy tắc xếp đầu theo chức vụ. Quy định rõ thứ tự hiển thị trung tính (`A–Z` hoặc theo danh sách phẳng của Chủ dự án); trong Wireframe & Mockup, thẻ `BS. Lê Thái Sơn` được đặt ở vị trí trung tính (Thẻ #2). | Blueprint Mục 2.2 (Quy tắc 5), 3.2.C; Mockup `#page-doi-ngu`. | **FIXED** |
+| **3A-P2-4** | Gộp `"Spa & Grooming và Điều dưỡng"` thành 1 section để cân đối lưới có thể sai cơ cấu thực tế; quy tắc $N=1$ đặt thẩm mỹ lên trên tính chính xác. | Đã bãi bỏ quy tắc gộp bộ phận khi $N=1$. Chỉ phân nhóm theo bộ phận thực tế; khi bộ phận có $N=1$ thành viên thì hiển thị **1 card căn giữa có cùng kích thước chuẩn** (`1/3` container trên Desktop), không gộp nhãn bộ phận. | Blueprint Mục 2.2 (Quy tắc 8), 3.2.A–B; Mockup `#page-doi-ngu`. | **FIXED** |
+| **3A-P2-5** | Ma trận lưới ở Tablet khi $N=5$ dùng thẻ ngang khác dạng card; chưa định nghĩa quy tắc cho $N \ge 7$. | Đã thiết lập **Universal 12-Column Centered Grid Rule** cho $N = 1, 2, 3, 4, 5, 6, 7$ và $N \ge 7$: mọi card trên cả Desktop lẫn Tablet đều giữ nguyên kiểu card dọc `4:5` đồng kích thước 100%, hàng cuối căn giữa đối xứng. | Blueprint Mục 3.2.A–B; Mockup `#page-doi-ngu`. | **FIXED** |
+| **3A-P2-6** | Bộ lọc bộ phận làm mờ (`opacity`) các card không thuộc nhóm đang lọc, vẫn đọc và `Tab` tới được gây nhiễu cho Screen Reader. | Đã bỏ hoàn toàn hiệu ứng làm mờ. Bộ lọc trong Mockup và đặc tả Blueprint sử dụng thuộc tính **`hidden` (`display: none`)** để ẩn thực sự các nhóm không được chọn, kèm `aria-pressed="true/false"` và thông báo kết quả qua `role="status" aria-live="polite"`. | Blueprint Mục 2.2, 5.1; Mockup `#page-doi-ngu`. | **FIXED** |
+| **3A-P2-7** | Cụm từ `"Bác sĩ trưởng Lê Thái Sơn"` / `"nổi bật BST Lê Thái Sơn"` còn sót ở 6 vị trí mã nguồn và tài liệu. | Đã lập bảng kiểm kê đầy đủ cả 6 file và số dòng tại Mục 4.2 kèm phương án đồng bộ. Giữ ở trạng thái **PARTIAL (Đã kiểm kê đủ trong Blueprint — Chờ pha Implementation)**. | Blueprint Mục 4.2, 9.2 (Quyết định 1). | **PARTIAL (Chờ pha triển khai code)** |
+| **3A-P2-8** | Quy trình phối hợp trên `/doi-ngu` chứa cam kết vận hành chưa xác minh ("ưu tiên ngay ca cấp cứu", "bàn giao ca trực 24/24", "hội chẩn"). | Đã đóng khung toàn bộ Section 2.4 bằng nhãn `[QUY TRÌNH PHỐI HỢP ĐỀ XUẤT — CHỜ CHỦ DỰ ÁN XÁC NHẬN VẬN HÀNH THỰC TẾ]` và quy chuẩn thành 3 bước phối hợp đề xuất trung tính. | Blueprint Mục 2.2 (Section 2.4), 3.2.C; Mockup `#page-doi-ngu`. | **FIXED (Chờ Chủ dự án duyệt nội dung)** |
+| **3A-P2-9** | Trang `/co-so-vat-chat` nếu toàn ảnh stock gắn nhãn "không phải ảnh bệnh viện" khi phát hành sẽ làm giảm niềm tin. | Đã bổ sung quy tắc **Pre-release Gate**: Preview/Mockup được dùng ảnh minh họa gắn nhãn; trước khi phát hành / mở index công khai bắt buộc phải có bộ ảnh cơ sở thực tế tại 101 Khuất Duy Tiến được Chủ dự án duyệt. | Blueprint Mục 2.3, 3.3, 6, 9.2. | **FIXED (Quy tắc Pre-release Gate)** |
+| **3A-P2-10** | Tiêu đề H1 trang `/co-so-vat-chat` dùng cụm từ `"sạch khuẩn"` là tuyên bố mạnh chưa được xác minh. | Đã xóa hoàn toàn cụm từ `"sạch khuẩn"` trong cả Blueprint lẫn Mockup; đổi H1 thành *"Không gian thăm khám và quy hoạch các phân khu chức năng."* | Blueprint Mục 2.3 (Section 3.1), 3.3; Mockup `#page-co-so-vat-chat`. | **FIXED** |
+| **3A-P2-11** | Slot thiết bị vẫn hiển thị thương hiệu `"(VD: Mindray)"` và tự khẳng định có `"Khu vực Thủ thuật & Phẫu thuật ngoại khoa"` riêng. | Đã đổi toàn bộ hiển thị trên Wireframe & Mockup thành slot trung tính `[Thiết bị xét nghiệm — chờ xác minh]`, `[Thiết bị chẩn đoán hình ảnh — chờ xác minh]` (không nêu tên hãng trên giao diện) và chuyển khu thủ thuật/ngoại khoa thành slot phân khu chức năng chờ xác nhận cấu trúc phòng thực tế. | Blueprint Mục 2.3 (Section 3.3), 3.3; Mockup `#page-co-so-vat-chat`. | **FIXED** |
 
-### 8.3. Chín Phát Hiện P3 (`3A-P3-1` đến `3A-P3-9` — Đã xử lý đầy đủ)
+#### C. Chín Phát Hiện P3 (`3A-P3-1` đến `3A-P3-9` — Đã xử lý đầy đủ)
 | Mã QA | Mô tả phát hiện P3 | Giải pháp đã thực hiện | Trạng thái |
 | :---: | :--- | :--- | :---: |
 | **3A-P3-1** | Dải thông tin (địa chỉ, giờ khám, cấp cứu) lặp lại ở cả Hero và CTA cuối trang `/gioi-thieu`. | Đã giữ dải thông tin 3 cột ở Hero và rút gọn dải CTA cuối trang `/gioi-thieu`. | **FIXED** |
@@ -630,7 +645,7 @@ Chúng tôi không tự ý đóng các vấn đề phụ thuộc vào quyết đ
 | **3A-P3-4** | Dòng `[Bằng cấp / Chứng chỉ: Chờ xác minh]` không nên hiển thị khi publish. | Đã quy định rõ: ẩn hoàn toàn trường này khi xuất bản nếu `verified === false`. | **FIXED** |
 | **3A-P3-5** | Ảnh thật chụp cơ sở có thể lọt khách hàng, thú cưng hoặc màn hình bệnh án. | Đã bổ sung quy tắc bảo mật hình ảnh và `Owner Consent Form` vào Mục 6 & Mục 9. | **FIXED** |
 | **3A-P3-6** | Sai số bảng độ tương phản ở mục 8.2 (ví dụ `#FFFFFF` / `#C2560C` là `4.54:1`). | Đã cập nhật chính xác toàn bộ con số tương phản theo `contrast-check.txt` tại Mục 5.2 và đặt quy tắc cỡ chữ tối thiểu cho nút cam. | **FIXED** |
-| **3A-P3-7** | Mockup thiếu nút chọn viewport `360px` và `1920px`. | Đã bổ sung đủ **7 mốc viewport** (`1920`, `1440`, `1366`, `768`, `390`, `360`, `320`) trên thanh công cụ của Mockup v2.1. | **FIXED** |
+| **3A-P3-7** | Mockup thiếu nút chọn viewport `360px` và `1920px`. | Đã bổ sung đủ **7 mốc viewport** (`1920`, `1440`, `1366`, `768`, `390`, `360`, `320`) trên thanh công cụ của Mockup. | **FIXED** |
 | **3A-P3-8** | Hậu tố `alt` quá dài lặp lại ở mọi ảnh. | Đã rút gọn hậu tố `alt` thành `"(ảnh minh họa)"` kèm 1 banner giải thích chung ở đầu trang. | **FIXED** |
 | **3A-P3-9** | Trạng thái ghi `"APPROVED FOR DESIGN"` dễ gây nhầm là thiết kế đã được duyệt. | Đã đổi thành `"PHASE 3A — PENDING OWNER DESIGN APPROVAL (DESIGN ONLY — NO WEBSITE IMPLEMENTATION)"`. | **FIXED** |
 
@@ -664,23 +679,20 @@ Chúng tôi không tự ý đóng các vấn đề phụ thuộc vào quyết đ
 
 ## 10. MỤC 10: ĐƯỜNG DẪN CHÍNH XÁC ĐẾN MOCKUP TRỰC QUAN & HƯỚNG DẪN MỞ XEM TRÊN WINDOWS / TRÌNH DUYỆT
 
-### 10.1. Đường dẫn chính xác của Mockup Trực Quan v2.1
-Để đảm bảo cả **Claude (Independent QA)** trên mọi nhánh/worktree lẫn **Chủ dự án** trên máy Windows đều mở và kiểm tra được ngay lập tức (khắc phục triệt để trạng thái `BLOCKED` của vòng trước), file Mockup HTML độc lập được lưu đồng thời tại 2 vị trí:
+### 10.1. Đường dẫn chính xác của Mockup Trực Quan DEV-00
+Để đảm bảo cả **Claude (Independent QA)** trên mọi nhánh/worktree lẫn **Chủ dự án** đều mở và kiểm tra được ngay lập tức, file Mockup HTML độc lập được lưu đồng thời tại 2 vị trí:
 
-1. **Đường dẫn trong Git Repository (Đã commit trên nhánh `fix/milestone-2a-qa`):**
+1. **Đường dẫn chuẩn trong Git Repository (nhánh `fix/milestone-2a-qa`):**
    - Đường dẫn tương đối: `docs/design/phase-3a-interactive-mockups.html`
-   - Đường dẫn tuyệt đối trên Windows: `d:\webbvct\docs\design\phase-3a-interactive-mockups.html`
-   - URL `file:///`: `file:///d:/webbvct/docs/design/phase-3a-interactive-mockups.html`
-2. **Đường dẫn trong thư mục Artifacts của phiên làm việc:**
-   - Đường dẫn tuyệt đối: `C:\Users\Admin\.gemini\antigravity\brain\6f5020a8-5310-41e1-a151-7821d0315e27\phase-3a-interactive-mockups.html`
-   - URL `file:///`: `file:///C:/Users/Admin/.gemini/antigravity/brain/6f5020a8-5310-41e1-a151-7821d0315e27/phase-3a-interactive-mockups.html`
+2. **Đường dẫn trong thư mục Artifacts phiên làm việc:**
+   - Tên artifact: `phase-3a-interactive-mockups.html`
 
 ### 10.2. Hướng dẫn mở và kiểm tra Mockup trên Windows & Trình duyệt
 - **Cách 1 — Mở trực tiếp từ Windows Explorer hoặc PowerShell (Không cần chạy server):**
   ```powershell
   Start-Process "d:\webbvct\docs\design\phase-3a-interactive-mockups.html"
   ```
-  *(File sử dụng đường dẫn tương đối `../../public/fonts/` và `../../public/images/` kèm fallback `file:///d:/webbvct/public/...` và SVG nội tuyến, nên mở trực tiếp bằng Chrome, Edge hoặc Playwright đều hiển thị đầy đủ 100% phông chữ và hình ảnh).*
+  *(File sử dụng đường dẫn tương đối `../../public/fonts/` và `../../public/images/` kèm SVG nội tuyến độc lập, mở trực tiếp bằng Chrome, Edge hoặc Playwright đều hiển thị đầy đủ 100% phông chữ và hình ảnh).*
 - **Cách 2 — Mở qua máy chủ tĩnh cục bộ (Phục vụ Claude QA tự động bằng Playwright / Headless Browser):**
   ```powershell
   npx serve d:\webbvct -l 4173
@@ -691,9 +703,9 @@ Chúng tôi không tự ý đóng các vấn đề phụ thuộc vào quyết đ
   1. **Chuyển trang:** `1. /gioi-thieu` | `2. /doi-ngu` | `3. /co-so-vat-chat`.
   2. **Chuyển chế độ hiển thị:** `Mockup Trực quan` | `Wireframe Blueprint`.
   3. **Chuyển đổi đủ 7 mốc Viewport QA (`3A-P3-7`):** `1920px` | `1440px` | `1366px` | `768px` | `390px` | `360px` | `320px`.
-  4. **Bộ mô phỏng sĩ số nhân sự trên `/doi-ngu` (`3A-P2-4`, `3A-P2-5`):** Cho phép bấm thử trực tiếp **`N = 1`**, **`N = 2`**, **`N = 3`**, **`N = 5`**, **`N = 7 (3+2+2)`**, **`N = 7 (3+3+1)`**, **`N = 8 (3+3+2)`** để kiểm tra trực quan quy tắc lưới cân bằng không bao giờ phóng to card lẻ trên cả Desktop, Tablet và Mobile.
+  4. **Bộ mô phỏng sĩ số nhân sự trên `/doi-ngu` (`3A-P2-4`, `3A-P2-5`, `3A04-P2-2`):** Các nút bấm mô phỏng $N=1..8$ đã được chủ động gỡ bỏ khỏi markup giao diện để tránh làm rối nội dung. Kiểm thử lưới cân bằng tại các giá trị $N=1, 2, 3, 5, 7, 8$ được thực hiện trực tiếp qua hàm console script `setTeamCount(n, layout)`.
   5. **Bộ lọc bộ phận chuẩn Accessibility (`3A-P2-6`):** Ẩn/hiện bằng thuộc tính `hidden` thực sự (không làm mờ card) và phát thông báo vào vùng `aria-live="polite"`.
 
 ---
 
-**PHASE 3A DESIGN V2.1 READY FOR CLAUDE QA 3A-02**
+**PHASE 3A DEV-00 — READY FOR INDEPENDENT CONTENT GATE QA**

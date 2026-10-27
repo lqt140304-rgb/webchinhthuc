@@ -145,10 +145,10 @@ dist/assets/index-CvVwFN8Z.js   369.95 kB │ gzip: 105.92 kB
 
 ## 6. SẢN PHẨM BÀN GIAO ĐỢT 3A-04
 
-1. [`docs/phase-3a-design-blueprint.md`](file:///d:/webbvct/docs/phase-3a-design-blueprint.md): Hồ sơ Blueprint v2.3.
-2. [`docs/design/phase-3a-interactive-mockups.html`](file:///d:/webbvct/docs/design/phase-3a-interactive-mockups.html): Mockup HTML tương tác sạch UTF-8, áp dụng nguyên tắc Content Lock:
-   - [Mockup Artifact](file:///C:/Users/Admin/.gemini/antigravity/brain/6f5020a8-5310-41e1-a151-7821d0315e27/phase-3a-interactive-mockups.html)
-3. [`docs/qa/3a-design-handoff-04.md`](file:///d:/webbvct/docs/qa/3a-design-handoff-04.md): Báo cáo bàn giao và bảng đối chiếu nội dung chi tiết này.
+1. [`docs/phase-3a-design-blueprint.md`]: Hồ sơ Blueprint v2.3.
+2. [`docs/design/phase-3a-interactive-mockups.html`]: Mockup HTML tương tác sạch UTF-8, áp dụng nguyên tắc Content Lock:
+   - Artifact: phase-3a-interactive-mockups.html
+3. [`docs/qa/3a-design-handoff-04.md`]: Báo cáo bàn giao và bảng đối chiếu nội dung chi tiết này.
 
 ---
 
