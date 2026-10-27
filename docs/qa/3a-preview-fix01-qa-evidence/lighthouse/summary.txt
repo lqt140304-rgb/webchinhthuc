@@ -1,0 +1,10 @@
+Lighthouse 12.8.2, Chrome for Testing 153 headless; mobile default (simulate, RTT150, 1.6Mbps, CPU4x); desktop --preset=desktop; 3 runs each
+page mode | perf median (runs) | LCP median ms (min-max) | CLS runs | TBT median | FCP median
+co-so-vat-chat desktop | 100 (100/100/100) | 680 (648-750) | 0.0/0.0/0.0 | 0 | 365
+co-so-vat-chat mobile | 92 (92/91/92) | 3201 (3171-3313) | 0/0/0 | 110 | 1543
+doi-ngu desktop | 100 (100/100/100) | 670 (658-676) | 0.0/0.0/0.0 | 0 | 390
+doi-ngu mobile | 91 (92/84/91) | 3306 (3165-3626) | 0/0/0 | 110 | 1505
+gioi-thieu desktop | 100 (100/100/100) | 695 (680-790) | 0.0/0.0/0.0 | 0 | 382
+gioi-thieu mobile | 90 (90/89/90) | 3471 (3458-3472) | 0/0/0 | 135 | 1529
+home desktop | 100 (100/100/100) | 730 (683-730) | 0.0/0.0/0.0 | 0 | 403
+home mobile | 94 (78/94/94) | 2880 (2858-3536) | 0/0/0 | 144 | 1461

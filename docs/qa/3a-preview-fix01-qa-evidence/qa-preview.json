@@ -1,0 +1,1745 @@
+{
+ "pages": {
+  "/gioi-thieu@320": {
+   "overflowPx": 0,
+   "wide": [],
+   "clipped": [],
+   "imgs": [
+    {
+     "src": "/images/article-prevention.webp",
+     "alt": "Thú cưng nghỉ ngơi trong không gian ấm áp (ảnh minh họa)",
+     "fit": "cover",
+     "w": 286,
+     "h": 358,
+     "nat": "800x536",
+     "loaded": true
+    },
+    {
+     "src": "/images/article-nutrition.webp",
+     "alt": "Chăm sóc dinh dưỡng cho thú cưng (ảnh minh họa)",
+     "fit": "cover",
+     "w": 286,
+     "h": 358,
+     "nat": "800x533",
+     "loaded": true
+    }
+   ],
+   "distorted": 0,
+   "h1": 1,
+   "headingSkip": false,
+   "smallTap": [
+    "LÊ SƠNBệnh viện Thú y 93x36"
+   ],
+   "title": "Về Bệnh viện Thú y Lê Sơn — Chăm Sóc Y Tế Chuẩn Mực",
+   "robots": "noindex, nofollow",
+   "canonical": "https://bvthuyleson.vn/gioi-thieu",
+   "description": "Giới thiệu về Bệnh viện Thú y Lê Sơn tại 101 Khuất Duy Tiến, Thanh Xuân, Hà Nội. Nơi sự cẩn trọng y khoa song hành cùng lòng thấu cảm.",
+   "italicSerif": [],
+   "fonts": [
+    "Be Vietnam Pro/400/normal",
+    "Be Vietnam Pro/600/normal",
+    "Be Vietnam Pro/500/normal",
+    "Be Vietnam Pro/700/normal",
+    "Be Vietnam Pro/400/italic",
+    "Lora/400 900/normal"
+   ],
+   "console": []
+  },
+  "/gioi-thieu@375": {
+   "overflowPx": 0,
+   "wide": [],
+   "clipped": [],
+   "imgs": [
+    {
+     "src": "/images/article-prevention.webp",
+     "alt": "Thú cưng nghỉ ngơi trong không gian ấm áp (ảnh minh họa)",
+     "fit": "cover",
+     "w": 341,
+     "h": 427,
+     "nat": "800x536",
+     "loaded": true
+    },
+    {
+     "src": "/images/article-nutrition.webp",
+     "alt": "Chăm sóc dinh dưỡng cho thú cưng (ảnh minh họa)",
+     "fit": "cover",
+     "w": 341,
+     "h": 427,
+     "nat": "800x533",
+     "loaded": true
+    }
+   ],
+   "distorted": 0,
+   "h1": 1,
+   "headingSkip": false,
+   "smallTap": [
+    "LÊ SƠNBệnh viện Thú y 93x36"
+   ],
+   "title": "Về Bệnh viện Thú y Lê Sơn — Chăm Sóc Y Tế Chuẩn Mực",
+   "robots": "noindex, nofollow",
+   "canonical": "https://bvthuyleson.vn/gioi-thieu",
+   "description": "Giới thiệu về Bệnh viện Thú y Lê Sơn tại 101 Khuất Duy Tiến, Thanh Xuân, Hà Nội. Nơi sự cẩn trọng y khoa song hành cùng lòng thấu cảm.",
+   "italicSerif": [],
+   "fonts": [
+    "Be Vietnam Pro/400/normal",
+    "Be Vietnam Pro/600/normal",
+    "Be Vietnam Pro/500/normal",
+    "Be Vietnam Pro/700/normal",
+    "Be Vietnam Pro/400/italic",
+    "Lora/400 900/normal"
+   ],
+   "console": []
+  },
+  "/gioi-thieu@768": {
+   "overflowPx": 0,
+   "wide": [],
+   "clipped": [],
+   "imgs": [
+    {
+     "src": "/images/article-prevention.webp",
+     "alt": "Thú cưng nghỉ ngơi trong không gian ấm áp (ảnh minh họa)",
+     "fit": "cover",
+     "w": 718,
+     "h": 898,
+     "nat": "800x536",
+     "loaded": true
+    },
+    {
+     "src": "/images/article-nutrition.webp",
+     "alt": "Chăm sóc dinh dưỡng cho thú cưng (ảnh minh họa)",
+     "fit": "cover",
+     "w": 718,
+     "h": 898,
+     "nat": "800x533",
+     "loaded": true
+    }
+   ],
+   "distorted": 0,
+   "h1": 1,
+   "headingSkip": false,
+   "smallTap": [],
+   "title": "Về Bệnh viện Thú y Lê Sơn — Chăm Sóc Y Tế Chuẩn Mực",
+   "robots": "noindex, nofollow",
+   "canonical": "https://bvthuyleson.vn/gioi-thieu",
+   "description": "Giới thiệu về Bệnh viện Thú y Lê Sơn tại 101 Khuất Duy Tiến, Thanh Xuân, Hà Nội. Nơi sự cẩn trọng y khoa song hành cùng lòng thấu cảm.",
+   "italicSerif": [],
+   "fonts": [
+    "Be Vietnam Pro/400/normal",
+    "Be Vietnam Pro/600/normal",
+    "Be Vietnam Pro/500/normal",
+    "Be Vietnam Pro/700/normal",
+    "Be Vietnam Pro/400/italic",
+    "Lora/400 900/normal"
+   ],
+   "console": []
+  },
+  "/gioi-thieu@1024": {
+   "overflowPx": 0,
+   "wide": [],
+   "clipped": [],
+   "imgs": [
+    {
+     "src": "/images/article-prevention.webp",
+     "alt": "Thú cưng nghỉ ngơi trong không gian ấm áp (ảnh minh họa)",
+     "fit": "cover",
+     "w": 370,
+     "h": 463,
+     "nat": "800x536",
+     "loaded": true
+    },
+    {
+     "src": "/images/article-nutrition.webp",
+     "alt": "Chăm sóc dinh dưỡng cho thú cưng (ảnh minh họa)",
+     "fit": "cover",
+     "w": 370,
+     "h": 463,
+     "nat": "800x533",
+     "loaded": true
+    }
+   ],
+   "distorted": 0,
+   "h1": 1,
+   "headingSkip": false,
+   "smallTap": [
+    "Trang chủ 59x34",
+    "Về Lê Sơn 77x34",
+    "Dịch vụ 62x34",
+    "Góc thú cưng 97x34",
+    "Câu chuyện 69x34",
+    "Liên hệ 42x34",
+    "Đăng nhập 65x24",
+    "Đăng ký 49x24"
+   ],
+   "title": "Về Bệnh viện Thú y Lê Sơn — Chăm Sóc Y Tế Chuẩn Mực",
+   "robots": "noindex, nofollow",
+   "canonical": "https://bvthuyleson.vn/gioi-thieu",
+   "description": "Giới thiệu về Bệnh viện Thú y Lê Sơn tại 101 Khuất Duy Tiến, Thanh Xuân, Hà Nội. Nơi sự cẩn trọng y khoa song hành cùng lòng thấu cảm.",
+   "italicSerif": [],
+   "fonts": [
+    "Be Vietnam Pro/400/normal",
+    "Be Vietnam Pro/600/normal",
+    "Be Vietnam Pro/500/normal",
+    "Be Vietnam Pro/700/normal",
+    "Be Vietnam Pro/400/italic",
+    "Lora/400 900/normal"
+   ],
+   "console": []
+  },
+  "/gioi-thieu@1440": {
+   "overflowPx": 0,
+   "wide": [],
+   "clipped": [],
+   "imgs": [
+    {
+     "src": "/images/article-prevention.webp",
+     "alt": "Thú cưng nghỉ ngơi trong không gian ấm áp (ảnh minh họa)",
+     "fit": "cover",
+     "w": 477,
+     "h": 596,
+     "nat": "800x536",
+     "loaded": true
+    },
+    {
+     "src": "/images/article-nutrition.webp",
+     "alt": "Chăm sóc dinh dưỡng cho thú cưng (ảnh minh họa)",
+     "fit": "cover",
+     "w": 477,
+     "h": 596,
+     "nat": "800x533",
+     "loaded": true
+    }
+   ],
+   "distorted": 0,
+   "h1": 1,
+   "headingSkip": false,
+   "smallTap": [
+    "Trang chủ 68x38",
+    "Về Lê Sơn 86x38",
+    "Dịch vụ 69x38",
+    "Góc thú cưng 110x38",
+    "Câu chuyện 81x38",
+    "Liên hệ 49x38",
+    "Đăng nhập 65x24",
+    "Đăng ký 49x24"
+   ],
+   "title": "Về Bệnh viện Thú y Lê Sơn — Chăm Sóc Y Tế Chuẩn Mực",
+   "robots": "noindex, nofollow",
+   "canonical": "https://bvthuyleson.vn/gioi-thieu",
+   "description": "Giới thiệu về Bệnh viện Thú y Lê Sơn tại 101 Khuất Duy Tiến, Thanh Xuân, Hà Nội. Nơi sự cẩn trọng y khoa song hành cùng lòng thấu cảm.",
+   "italicSerif": [],
+   "fonts": [
+    "Be Vietnam Pro/400/normal",
+    "Be Vietnam Pro/600/normal",
+    "Be Vietnam Pro/500/normal",
+    "Be Vietnam Pro/700/normal",
+    "Be Vietnam Pro/400/italic",
+    "Lora/400 900/normal"
+   ],
+   "console": []
+  },
+  "/gioi-thieu@1920": {
+   "overflowPx": 0,
+   "wide": [],
+   "clipped": [],
+   "imgs": [
+    {
+     "src": "/images/article-prevention.webp",
+     "alt": "Thú cưng nghỉ ngơi trong không gian ấm áp (ảnh minh họa)",
+     "fit": "cover",
+     "w": 477,
+     "h": 596,
+     "nat": "800x536",
+     "loaded": true
+    },
+    {
+     "src": "/images/article-nutrition.webp",
+     "alt": "Chăm sóc dinh dưỡng cho thú cưng (ảnh minh họa)",
+     "fit": "cover",
+     "w": 477,
+     "h": 596,
+     "nat": "800x533",
+     "loaded": true
+    }
+   ],
+   "distorted": 0,
+   "h1": 1,
+   "headingSkip": false,
+   "smallTap": [
+    "Trang chủ 68x38",
+    "Về Lê Sơn 86x38",
+    "Dịch vụ 69x38",
+    "Góc thú cưng 110x38",
+    "Câu chuyện 81x38",
+    "Liên hệ 49x38",
+    "Đăng nhập 65x24",
+    "Đăng ký 49x24"
+   ],
+   "title": "Về Bệnh viện Thú y Lê Sơn — Chăm Sóc Y Tế Chuẩn Mực",
+   "robots": "noindex, nofollow",
+   "canonical": "https://bvthuyleson.vn/gioi-thieu",
+   "description": "Giới thiệu về Bệnh viện Thú y Lê Sơn tại 101 Khuất Duy Tiến, Thanh Xuân, Hà Nội. Nơi sự cẩn trọng y khoa song hành cùng lòng thấu cảm.",
+   "italicSerif": [],
+   "fonts": [
+    "Be Vietnam Pro/400/normal",
+    "Be Vietnam Pro/600/normal",
+    "Be Vietnam Pro/500/normal",
+    "Be Vietnam Pro/700/normal",
+    "Be Vietnam Pro/400/italic",
+    "Lora/400 900/normal"
+   ],
+   "console": []
+  },
+  "/doi-ngu@320": {
+   "overflowPx": 0,
+   "wide": [],
+   "clipped": [
+    "Đang hiển thị: Tất cả các bộ phận."
+   ],
+   "imgs": [],
+   "distorted": 0,
+   "h1": 1,
+   "headingSkip": false,
+   "smallTap": [
+    "LÊ SƠNBệnh viện Thú y 93x36"
+   ],
+   "title": "Đội ngũ Bác sĩ & Nhân sự Chăm sóc — Bệnh viện Thú y Lê Sơn",
+   "robots": "noindex, nofollow",
+   "canonical": "https://bvthuyleson.vn/doi-ngu",
+   "description": "Thông tin cơ cấu bộ phận và đội ngũ nhân sự chăm sóc thú cưng tại Bệnh viện Thú y Lê Sơn. Mô phỏng cơ cấu tổ chức chuyên môn.",
+   "italicSerif": [],
+   "fonts": [
+    "Be Vietnam Pro/400/normal",
+    "Be Vietnam Pro/600/normal",
+    "Be Vietnam Pro/500/normal",
+    "Be Vietnam Pro/700/normal",
+    "Be Vietnam Pro/400/italic",
+    "Lora/400 900/normal"
+   ],
+   "console": []
+  },
+  "/doi-ngu@375": {
+   "overflowPx": 0,
+   "wide": [],
+   "clipped": [
+    "Đang hiển thị: Tất cả các bộ phận."
+   ],
+   "imgs": [],
+   "distorted": 0,
+   "h1": 1,
+   "headingSkip": false,
+   "smallTap": [
+    "LÊ SƠNBệnh viện Thú y 93x36"
+   ],
+   "title": "Đội ngũ Bác sĩ & Nhân sự Chăm sóc — Bệnh viện Thú y Lê Sơn",
+   "robots": "noindex, nofollow",
+   "canonical": "https://bvthuyleson.vn/doi-ngu",
+   "description": "Thông tin cơ cấu bộ phận và đội ngũ nhân sự chăm sóc thú cưng tại Bệnh viện Thú y Lê Sơn. Mô phỏng cơ cấu tổ chức chuyên môn.",
+   "italicSerif": [],
+   "fonts": [
+    "Be Vietnam Pro/400/normal",
+    "Be Vietnam Pro/600/normal",
+    "Be Vietnam Pro/500/normal",
+    "Be Vietnam Pro/700/normal",
+    "Be Vietnam Pro/400/italic",
+    "Lora/400 900/normal"
+   ],
+   "console": []
+  },
+  "/doi-ngu@768": {
+   "overflowPx": 0,
+   "wide": [],
+   "clipped": [
+    "Đang hiển thị: Tất cả các bộ phận."
+   ],
+   "imgs": [],
+   "distorted": 0,
+   "h1": 1,
+   "headingSkip": false,
+   "smallTap": [],
+   "title": "Đội ngũ Bác sĩ & Nhân sự Chăm sóc — Bệnh viện Thú y Lê Sơn",
+   "robots": "noindex, nofollow",
+   "canonical": "https://bvthuyleson.vn/doi-ngu",
+   "description": "Thông tin cơ cấu bộ phận và đội ngũ nhân sự chăm sóc thú cưng tại Bệnh viện Thú y Lê Sơn. Mô phỏng cơ cấu tổ chức chuyên môn.",
+   "italicSerif": [],
+   "fonts": [
+    "Be Vietnam Pro/400/normal",
+    "Be Vietnam Pro/600/normal",
+    "Be Vietnam Pro/500/normal",
+    "Be Vietnam Pro/700/normal",
+    "Be Vietnam Pro/400/italic",
+    "Lora/400 900/normal"
+   ],
+   "console": []
+  },
+  "/doi-ngu@1024": {
+   "overflowPx": 0,
+   "wide": [],
+   "clipped": [
+    "Đang hiển thị: Tất cả các bộ phận."
+   ],
+   "imgs": [],
+   "distorted": 0,
+   "h1": 1,
+   "headingSkip": false,
+   "smallTap": [
+    "Trang chủ 59x34",
+    "Về Lê Sơn 77x34",
+    "Dịch vụ 62x34",
+    "Góc thú cưng 97x34",
+    "Câu chuyện 69x34",
+    "Liên hệ 42x34",
+    "Đăng nhập 65x24",
+    "Đăng ký 49x24"
+   ],
+   "title": "Đội ngũ Bác sĩ & Nhân sự Chăm sóc — Bệnh viện Thú y Lê Sơn",
+   "robots": "noindex, nofollow",
+   "canonical": "https://bvthuyleson.vn/doi-ngu",
+   "description": "Thông tin cơ cấu bộ phận và đội ngũ nhân sự chăm sóc thú cưng tại Bệnh viện Thú y Lê Sơn. Mô phỏng cơ cấu tổ chức chuyên môn.",
+   "italicSerif": [],
+   "fonts": [
+    "Be Vietnam Pro/400/normal",
+    "Be Vietnam Pro/600/normal",
+    "Be Vietnam Pro/500/normal",
+    "Be Vietnam Pro/700/normal",
+    "Be Vietnam Pro/400/italic",
+    "Lora/400 900/normal"
+   ],
+   "console": []
+  },
+  "/doi-ngu@1440": {
+   "overflowPx": 0,
+   "wide": [],
+   "clipped": [
+    "Đang hiển thị: Tất cả các bộ phận."
+   ],
+   "imgs": [],
+   "distorted": 0,
+   "h1": 1,
+   "headingSkip": false,
+   "smallTap": [
+    "Trang chủ 68x38",
+    "Về Lê Sơn 86x38",
+    "Dịch vụ 69x38",
+    "Góc thú cưng 110x38",
+    "Câu chuyện 81x38",
+    "Liên hệ 49x38",
+    "Đăng nhập 65x24",
+    "Đăng ký 49x24"
+   ],
+   "title": "Đội ngũ Bác sĩ & Nhân sự Chăm sóc — Bệnh viện Thú y Lê Sơn",
+   "robots": "noindex, nofollow",
+   "canonical": "https://bvthuyleson.vn/doi-ngu",
+   "description": "Thông tin cơ cấu bộ phận và đội ngũ nhân sự chăm sóc thú cưng tại Bệnh viện Thú y Lê Sơn. Mô phỏng cơ cấu tổ chức chuyên môn.",
+   "italicSerif": [],
+   "fonts": [
+    "Be Vietnam Pro/400/normal",
+    "Be Vietnam Pro/600/normal",
+    "Be Vietnam Pro/500/normal",
+    "Be Vietnam Pro/700/normal",
+    "Be Vietnam Pro/400/italic",
+    "Lora/400 900/normal"
+   ],
+   "console": []
+  },
+  "/doi-ngu@1920": {
+   "overflowPx": 0,
+   "wide": [],
+   "clipped": [
+    "Đang hiển thị: Tất cả các bộ phận."
+   ],
+   "imgs": [],
+   "distorted": 0,
+   "h1": 1,
+   "headingSkip": false,
+   "smallTap": [
+    "Trang chủ 68x38",
+    "Về Lê Sơn 86x38",
+    "Dịch vụ 69x38",
+    "Góc thú cưng 110x38",
+    "Câu chuyện 81x38",
+    "Liên hệ 49x38",
+    "Đăng nhập 65x24",
+    "Đăng ký 49x24"
+   ],
+   "title": "Đội ngũ Bác sĩ & Nhân sự Chăm sóc — Bệnh viện Thú y Lê Sơn",
+   "robots": "noindex, nofollow",
+   "canonical": "https://bvthuyleson.vn/doi-ngu",
+   "description": "Thông tin cơ cấu bộ phận và đội ngũ nhân sự chăm sóc thú cưng tại Bệnh viện Thú y Lê Sơn. Mô phỏng cơ cấu tổ chức chuyên môn.",
+   "italicSerif": [],
+   "fonts": [
+    "Be Vietnam Pro/400/normal",
+    "Be Vietnam Pro/600/normal",
+    "Be Vietnam Pro/500/normal",
+    "Be Vietnam Pro/700/normal",
+    "Be Vietnam Pro/400/italic",
+    "Lora/400 900/normal"
+   ],
+   "console": []
+  },
+  "/co-so-vat-chat@320": {
+   "overflowPx": 0,
+   "wide": [],
+   "clipped": [],
+   "imgs": [
+    {
+     "src": "/images/article-prevention.webp",
+     "alt": "Thú cưng nghỉ ngơi trong không gian ấm áp (ảnh minh họa)",
+     "fit": "cover",
+     "w": 284,
+     "h": 177,
+     "nat": "800x536",
+     "loaded": true
+    },
+    {
+     "src": "/images/article-nutrition.webp",
+     "alt": "Chăm sóc dinh dưỡng cho thú cưng (ảnh minh họa)",
+     "fit": "cover",
+     "w": 284,
+     "h": 213,
+     "nat": "800x533",
+     "loaded": true
+    }
+   ],
+   "distorted": 0,
+   "h1": 1,
+   "headingSkip": false,
+   "smallTap": [
+    "LÊ SƠNBệnh viện Thú y 93x36"
+   ],
+   "title": "Cơ sở vật chất & Không gian Thăm khám — Bệnh viện Thú y Lê Sơn",
+   "robots": "noindex, nofollow",
+   "canonical": "https://bvthuyleson.vn/co-so-vat-chat",
+   "description": "Quy hoạch không gian tiếp đón, thăm khám, chăm sóc nội trú 24/7 và dịch vụ tại Bệnh viện Thú y Lê Sơn, 101 Khuất Duy Tiến, Hà Nội.",
+   "italicSerif": [],
+   "fonts": [
+    "Be Vietnam Pro/400/normal",
+    "Be Vietnam Pro/600/normal",
+    "Be Vietnam Pro/500/normal",
+    "Be Vietnam Pro/700/normal",
+    "Be Vietnam Pro/400/italic",
+    "Lora/400 900/normal"
+   ],
+   "console": []
+  },
+  "/co-so-vat-chat@375": {
+   "overflowPx": 0,
+   "wide": [],
+   "clipped": [],
+   "imgs": [
+    {
+     "src": "/images/article-prevention.webp",
+     "alt": "Thú cưng nghỉ ngơi trong không gian ấm áp (ảnh minh họa)",
+     "fit": "cover",
+     "w": 339,
+     "h": 211,
+     "nat": "800x536",
+     "loaded": true
+    },
+    {
+     "src": "/images/article-nutrition.webp",
+     "alt": "Chăm sóc dinh dưỡng cho thú cưng (ảnh minh họa)",
+     "fit": "cover",
+     "w": 339,
+     "h": 254,
+     "nat": "800x533",
+     "loaded": true
+    }
+   ],
+   "distorted": 0,
+   "h1": 1,
+   "headingSkip": false,
+   "smallTap": [
+    "LÊ SƠNBệnh viện Thú y 93x36"
+   ],
+   "title": "Cơ sở vật chất & Không gian Thăm khám — Bệnh viện Thú y Lê Sơn",
+   "robots": "noindex, nofollow",
+   "canonical": "https://bvthuyleson.vn/co-so-vat-chat",
+   "description": "Quy hoạch không gian tiếp đón, thăm khám, chăm sóc nội trú 24/7 và dịch vụ tại Bệnh viện Thú y Lê Sơn, 101 Khuất Duy Tiến, Hà Nội.",
+   "italicSerif": [],
+   "fonts": [
+    "Be Vietnam Pro/400/normal",
+    "Be Vietnam Pro/600/normal",
+    "Be Vietnam Pro/500/normal",
+    "Be Vietnam Pro/700/normal",
+    "Be Vietnam Pro/400/italic",
+    "Lora/400 900/normal"
+   ],
+   "console": []
+  },
+  "/co-so-vat-chat@768": {
+   "overflowPx": 0,
+   "wide": [],
+   "clipped": [],
+   "imgs": [
+    {
+     "src": "/images/article-prevention.webp",
+     "alt": "Thú cưng nghỉ ngơi trong không gian ấm áp (ảnh minh họa)",
+     "fit": "cover",
+     "w": 716,
+     "h": 447,
+     "nat": "800x536",
+     "loaded": true
+    },
+    {
+     "src": "/images/article-nutrition.webp",
+     "alt": "Chăm sóc dinh dưỡng cho thú cưng (ảnh minh họa)",
+     "fit": "cover",
+     "w": 716,
+     "h": 537,
+     "nat": "800x533",
+     "loaded": true
+    }
+   ],
+   "distorted": 0,
+   "h1": 1,
+   "headingSkip": false,
+   "smallTap": [],
+   "title": "Cơ sở vật chất & Không gian Thăm khám — Bệnh viện Thú y Lê Sơn",
+   "robots": "noindex, nofollow",
+   "canonical": "https://bvthuyleson.vn/co-so-vat-chat",
+   "description": "Quy hoạch không gian tiếp đón, thăm khám, chăm sóc nội trú 24/7 và dịch vụ tại Bệnh viện Thú y Lê Sơn, 101 Khuất Duy Tiến, Hà Nội.",
+   "italicSerif": [],
+   "fonts": [
+    "Be Vietnam Pro/400/normal",
+    "Be Vietnam Pro/600/normal",
+    "Be Vietnam Pro/500/normal",
+    "Be Vietnam Pro/700/normal",
+    "Be Vietnam Pro/400/italic",
+    "Lora/400 900/normal"
+   ],
+   "console": []
+  },
+  "/co-so-vat-chat@1024": {
+   "overflowPx": 0,
+   "wide": [],
+   "clipped": [],
+   "imgs": [
+    {
+     "src": "/images/article-prevention.webp",
+     "alt": "Thú cưng nghỉ ngơi trong không gian ấm áp (ảnh minh họa)",
+     "fit": "cover",
+     "w": 543,
+     "h": 338,
+     "nat": "800x536",
+     "loaded": true
+    },
+    {
+     "src": "/images/article-nutrition.webp",
+     "alt": "Chăm sóc dinh dưỡng cho thú cưng (ảnh minh họa)",
+     "fit": "cover",
+     "w": 377,
+     "h": 283,
+     "nat": "800x533",
+     "loaded": true
+    }
+   ],
+   "distorted": 0,
+   "h1": 1,
+   "headingSkip": false,
+   "smallTap": [
+    "Trang chủ 59x34",
+    "Về Lê Sơn 77x34",
+    "Dịch vụ 62x34",
+    "Góc thú cưng 97x34",
+    "Câu chuyện 69x34",
+    "Liên hệ 42x34",
+    "Đăng nhập 65x24",
+    "Đăng ký 49x24"
+   ],
+   "title": "Cơ sở vật chất & Không gian Thăm khám — Bệnh viện Thú y Lê Sơn",
+   "robots": "noindex, nofollow",
+   "canonical": "https://bvthuyleson.vn/co-so-vat-chat",
+   "description": "Quy hoạch không gian tiếp đón, thăm khám, chăm sóc nội trú 24/7 và dịch vụ tại Bệnh viện Thú y Lê Sơn, 101 Khuất Duy Tiến, Hà Nội.",
+   "italicSerif": [],
+   "fonts": [
+    "Be Vietnam Pro/400/normal",
+    "Be Vietnam Pro/600/normal",
+    "Be Vietnam Pro/500/normal",
+    "Be Vietnam Pro/700/normal",
+    "Be Vietnam Pro/400/italic",
+    "Lora/400 900/normal"
+   ],
+   "console": []
+  },
+  "/co-so-vat-chat@1440": {
+   "overflowPx": 0,
+   "wide": [],
+   "clipped": [],
+   "imgs": [
+    {
+     "src": "/images/article-prevention.webp",
+     "alt": "Thú cưng nghỉ ngơi trong không gian ấm áp (ảnh minh họa)",
+     "fit": "cover",
+     "w": 692,
+     "h": 432,
+     "nat": "800x536",
+     "loaded": true
+    },
+    {
+     "src": "/images/article-nutrition.webp",
+     "alt": "Chăm sóc dinh dưỡng cho thú cưng (ảnh minh họa)",
+     "fit": "cover",
+     "w": 484,
+     "h": 363,
+     "nat": "800x533",
+     "loaded": true
+    }
+   ],
+   "distorted": 0,
+   "h1": 1,
+   "headingSkip": false,
+   "smallTap": [
+    "Trang chủ 68x38",
+    "Về Lê Sơn 86x38",
+    "Dịch vụ 69x38",
+    "Góc thú cưng 110x38",
+    "Câu chuyện 81x38",
+    "Liên hệ 49x38",
+    "Đăng nhập 65x24",
+    "Đăng ký 49x24"
+   ],
+   "title": "Cơ sở vật chất & Không gian Thăm khám — Bệnh viện Thú y Lê Sơn",
+   "robots": "noindex, nofollow",
+   "canonical": "https://bvthuyleson.vn/co-so-vat-chat",
+   "description": "Quy hoạch không gian tiếp đón, thăm khám, chăm sóc nội trú 24/7 và dịch vụ tại Bệnh viện Thú y Lê Sơn, 101 Khuất Duy Tiến, Hà Nội.",
+   "italicSerif": [],
+   "fonts": [
+    "Be Vietnam Pro/400/normal",
+    "Be Vietnam Pro/600/normal",
+    "Be Vietnam Pro/500/normal",
+    "Be Vietnam Pro/700/normal",
+    "Be Vietnam Pro/400/italic",
+    "Lora/400 900/normal"
+   ],
+   "console": []
+  },
+  "/co-so-vat-chat@1920": {
+   "overflowPx": 0,
+   "wide": [],
+   "clipped": [],
+   "imgs": [
+    {
+     "src": "/images/article-prevention.webp",
+     "alt": "Thú cưng nghỉ ngơi trong không gian ấm áp (ảnh minh họa)",
+     "fit": "cover",
+     "w": 692,
+     "h": 432,
+     "nat": "800x536",
+     "loaded": true
+    },
+    {
+     "src": "/images/article-nutrition.webp",
+     "alt": "Chăm sóc dinh dưỡng cho thú cưng (ảnh minh họa)",
+     "fit": "cover",
+     "w": 484,
+     "h": 363,
+     "nat": "800x533",
+     "loaded": true
+    }
+   ],
+   "distorted": 0,
+   "h1": 1,
+   "headingSkip": false,
+   "smallTap": [
+    "Trang chủ 68x38",
+    "Về Lê Sơn 86x38",
+    "Dịch vụ 69x38",
+    "Góc thú cưng 110x38",
+    "Câu chuyện 81x38",
+    "Liên hệ 49x38",
+    "Đăng nhập 65x24",
+    "Đăng ký 49x24"
+   ],
+   "title": "Cơ sở vật chất & Không gian Thăm khám — Bệnh viện Thú y Lê Sơn",
+   "robots": "noindex, nofollow",
+   "canonical": "https://bvthuyleson.vn/co-so-vat-chat",
+   "description": "Quy hoạch không gian tiếp đón, thăm khám, chăm sóc nội trú 24/7 và dịch vụ tại Bệnh viện Thú y Lê Sơn, 101 Khuất Duy Tiến, Hà Nội.",
+   "italicSerif": [],
+   "fonts": [
+    "Be Vietnam Pro/400/normal",
+    "Be Vietnam Pro/600/normal",
+    "Be Vietnam Pro/500/normal",
+    "Be Vietnam Pro/700/normal",
+    "Be Vietnam Pro/400/italic",
+    "Lora/400 900/normal"
+   ],
+   "console": []
+  }
+ },
+ "header": {
+  "/@320": {
+   "headerH": 73,
+   "cta": "Đặt lịch",
+   "ctaH": 44,
+   "ctaW": 85,
+   "ctaRight": 260,
+   "subVisible": false,
+   "subH": 0,
+   "overflow": 0
+  },
+  "/@360": {
+   "headerH": 73,
+   "cta": "Đặt lịch",
+   "ctaH": 44,
+   "ctaW": 85,
+   "ctaRight": 300,
+   "subVisible": false,
+   "subH": 0,
+   "overflow": 0
+  },
+  "/@375": {
+   "headerH": 73,
+   "cta": "Đặt lịch",
+   "ctaH": 44,
+   "ctaW": 85,
+   "ctaRight": 315,
+   "subVisible": false,
+   "subH": 0,
+   "overflow": 0
+  },
+  "/@390": {
+   "headerH": 73,
+   "cta": "Đặt lịch",
+   "ctaH": 44,
+   "ctaW": 85,
+   "ctaRight": 330,
+   "subVisible": false,
+   "subH": 0,
+   "overflow": 0
+  },
+  "/@400": {
+   "headerH": 73,
+   "cta": "Đặt lịch",
+   "ctaH": 44,
+   "ctaW": 85,
+   "ctaRight": 340,
+   "subVisible": false,
+   "subH": 0,
+   "overflow": 0
+  },
+  "/@414": {
+   "headerH": 73,
+   "cta": "Đặt lịch",
+   "ctaH": 44,
+   "ctaW": 85,
+   "ctaRight": 354,
+   "subVisible": false,
+   "subH": 0,
+   "overflow": 0
+  },
+  "/@420": {
+   "headerH": 73,
+   "cta": "Đặt lịch khám",
+   "ctaH": 44,
+   "ctaW": 120,
+   "ctaRight": 360,
+   "subVisible": true,
+   "subH": 15,
+   "overflow": 0
+  },
+  "/@430": {
+   "headerH": 73,
+   "cta": "Đặt lịch khám",
+   "ctaH": 44,
+   "ctaW": 120,
+   "ctaRight": 370,
+   "subVisible": true,
+   "subH": 15,
+   "overflow": 0
+  },
+  "/@768": {
+   "headerH": 81,
+   "cta": "Đặt lịch khám",
+   "ctaH": 44,
+   "ctaW": 130,
+   "ctaRight": 688,
+   "subVisible": true,
+   "subH": 16,
+   "overflow": 0
+  },
+  "/doi-ngu@320": {
+   "headerH": 73,
+   "cta": "Đặt lịch",
+   "ctaH": 44,
+   "ctaW": 85,
+   "ctaRight": 260,
+   "subVisible": false,
+   "subH": 0,
+   "overflow": 0
+  },
+  "/doi-ngu@360": {
+   "headerH": 73,
+   "cta": "Đặt lịch",
+   "ctaH": 44,
+   "ctaW": 85,
+   "ctaRight": 300,
+   "subVisible": false,
+   "subH": 0,
+   "overflow": 0
+  },
+  "/doi-ngu@375": {
+   "headerH": 73,
+   "cta": "Đặt lịch",
+   "ctaH": 44,
+   "ctaW": 85,
+   "ctaRight": 315,
+   "subVisible": false,
+   "subH": 0,
+   "overflow": 0
+  },
+  "/doi-ngu@390": {
+   "headerH": 73,
+   "cta": "Đặt lịch",
+   "ctaH": 44,
+   "ctaW": 85,
+   "ctaRight": 330,
+   "subVisible": false,
+   "subH": 0,
+   "overflow": 0
+  },
+  "/doi-ngu@400": {
+   "headerH": 73,
+   "cta": "Đặt lịch",
+   "ctaH": 44,
+   "ctaW": 85,
+   "ctaRight": 340,
+   "subVisible": false,
+   "subH": 0,
+   "overflow": 0
+  },
+  "/doi-ngu@414": {
+   "headerH": 73,
+   "cta": "Đặt lịch",
+   "ctaH": 44,
+   "ctaW": 85,
+   "ctaRight": 354,
+   "subVisible": false,
+   "subH": 0,
+   "overflow": 0
+  },
+  "/doi-ngu@420": {
+   "headerH": 73,
+   "cta": "Đặt lịch khám",
+   "ctaH": 44,
+   "ctaW": 120,
+   "ctaRight": 360,
+   "subVisible": true,
+   "subH": 15,
+   "overflow": 0
+  },
+  "/doi-ngu@430": {
+   "headerH": 73,
+   "cta": "Đặt lịch khám",
+   "ctaH": 44,
+   "ctaW": 120,
+   "ctaRight": 370,
+   "subVisible": true,
+   "subH": 15,
+   "overflow": 0
+  },
+  "/doi-ngu@768": {
+   "headerH": 81,
+   "cta": "Đặt lịch khám",
+   "ctaH": 44,
+   "ctaW": 130,
+   "ctaRight": 688,
+   "subVisible": true,
+   "subH": 16,
+   "overflow": 0
+  }
+ },
+ "team": {
+  "320": [
+   {
+    "id": "dept-vet",
+    "cards": [
+     {
+      "name": "[Bác sĩ Thú y — Dữ liệ",
+      "x": 16,
+      "y": 1456,
+      "w": 288,
+      "h": 649,
+      "bg": "rgb(255, 255, 255)",
+      "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0",
+      "border": "rgba(90, 30, 94, 0.1)"
+     },
+     {
+      "name": "BS. Lê Thái Sơn",
+      "x": 16,
+      "y": 2129,
+      "w": 288,
+      "h": 617,
+      "bg": "rgb(255, 255, 255)",
+      "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0",
+      "border": "rgba(90, 30, 94, 0.1)"
+     },
+     {
+      "name": "[Bác sĩ Thú y — Dữ liệ",
+      "x": 16,
+      "y": 2770,
+      "w": 288,
+      "h": 649,
+      "bg": "rgb(255, 255, 255)",
+      "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0",
+      "border": "rgba(90, 30, 94, 0.1)"
+     }
+    ],
+    "container": {
+     "left": 0,
+     "width": 320
+    }
+   },
+   {
+    "id": "dept-grooming",
+    "cards": [
+     {
+      "name": "[Chuyên viên Chăm sóc ",
+      "x": 16,
+      "y": 3734,
+      "w": 288,
+      "h": 607,
+      "bg": "rgb(255, 255, 255)",
+      "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0",
+      "border": "rgba(90, 30, 94, 0.1)"
+     }
+    ],
+    "container": {
+     "left": 0,
+     "width": 320
+    }
+   },
+   {
+    "id": "dept-support",
+    "cards": [
+     {
+      "name": "[Nhân viên Chăm sóc nộ",
+      "x": 16,
+      "y": 4689,
+      "w": 288,
+      "h": 607,
+      "bg": "rgb(255, 255, 255)",
+      "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0",
+      "border": "rgba(90, 30, 94, 0.1)"
+     },
+     {
+      "name": "[Nhân viên Tiếp đón & ",
+      "x": 16,
+      "y": 5320,
+      "w": 288,
+      "h": 607,
+      "bg": "rgb(255, 255, 255)",
+      "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0",
+      "border": "rgba(90, 30, 94, 0.1)"
+     }
+    ],
+    "container": {
+     "left": 0,
+     "width": 320
+    }
+   },
+   {
+    "id": "",
+    "cards": [],
+    "container": {
+     "left": 0,
+     "width": 320
+    }
+   }
+  ],
+  "375": [
+   {
+    "id": "dept-vet",
+    "cards": [
+     {
+      "name": "[Bác sĩ Thú y — Dữ liệ",
+      "x": 16,
+      "y": 1362,
+      "w": 343,
+      "h": 690,
+      "bg": "rgb(255, 255, 255)",
+      "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0",
+      "border": "rgba(90, 30, 94, 0.1)"
+     },
+     {
+      "name": "BS. Lê Thái Sơn",
+      "x": 16,
+      "y": 2076,
+      "w": 343,
+      "h": 670,
+      "bg": "rgb(255, 255, 255)",
+      "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0",
+      "border": "rgba(90, 30, 94, 0.1)"
+     },
+     {
+      "name": "[Bác sĩ Thú y — Dữ liệ",
+      "x": 16,
+      "y": 2770,
+      "w": 343,
+      "h": 690,
+      "bg": "rgb(255, 255, 255)",
+      "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0",
+      "border": "rgba(90, 30, 94, 0.1)"
+     }
+    ],
+    "container": {
+     "left": 0,
+     "width": 375
+    }
+   },
+   {
+    "id": "dept-grooming",
+    "cards": [
+     {
+      "name": "[Chuyên viên Chăm sóc ",
+      "x": 16,
+      "y": 3756,
+      "w": 343,
+      "h": 676,
+      "bg": "rgb(255, 255, 255)",
+      "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0",
+      "border": "rgba(90, 30, 94, 0.1)"
+     }
+    ],
+    "container": {
+     "left": 0,
+     "width": 375
+    }
+   },
+   {
+    "id": "dept-support",
+    "cards": [
+     {
+      "name": "[Nhân viên Chăm sóc nộ",
+      "x": 16,
+      "y": 4727,
+      "w": 343,
+      "h": 676,
+      "bg": "rgb(255, 255, 255)",
+      "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0",
+      "border": "rgba(90, 30, 94, 0.1)"
+     },
+     {
+      "name": "[Nhân viên Tiếp đón & ",
+      "x": 16,
+      "y": 5427,
+      "w": 343,
+      "h": 676,
+      "bg": "rgb(255, 255, 255)",
+      "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0",
+      "border": "rgba(90, 30, 94, 0.1)"
+     }
+    ],
+    "container": {
+     "left": 0,
+     "width": 375
+    }
+   },
+   {
+    "id": "",
+    "cards": [],
+    "container": {
+     "left": 0,
+     "width": 375
+    }
+   }
+  ],
+  "768": [
+   {
+    "id": "dept-vet",
+    "cards": [
+     {
+      "name": "[Bác sĩ Thú y — Dữ liệ",
+      "x": 210,
+      "y": 1251,
+      "w": 348,
+      "h": 743,
+      "bg": "rgb(255, 255, 255)",
+      "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0",
+      "border": "rgba(90, 30, 94, 0.1)"
+     },
+     {
+      "name": "BS. Lê Thái Sơn",
+      "x": 210,
+      "y": 2026,
+      "w": 348,
+      "h": 695,
+      "bg": "rgb(255, 255, 255)",
+      "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0",
+      "border": "rgba(90, 30, 94, 0.1)"
+     },
+     {
+      "name": "[Bác sĩ Thú y — Dữ liệ",
+      "x": 210,
+      "y": 2752,
+      "w": 348,
+      "h": 743,
+      "bg": "rgb(255, 255, 255)",
+      "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0",
+      "border": "rgba(90, 30, 94, 0.1)"
+     }
+    ],
+    "container": {
+     "left": 0,
+     "width": 768
+    }
+   },
+   {
+    "id": "dept-grooming",
+    "cards": [
+     {
+      "name": "[Chuyên viên Chăm sóc ",
+      "x": 210,
+      "y": 3801,
+      "w": 348,
+      "h": 701,
+      "bg": "rgb(255, 255, 255)",
+      "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0",
+      "border": "rgba(90, 30, 94, 0.1)"
+     }
+    ],
+    "container": {
+     "left": 0,
+     "width": 768
+    }
+   },
+   {
+    "id": "dept-support",
+    "cards": [
+     {
+      "name": "[Nhân viên Chăm sóc nộ",
+      "x": 210,
+      "y": 4844,
+      "w": 348,
+      "h": 701,
+      "bg": "rgb(255, 255, 255)",
+      "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0",
+      "border": "rgba(90, 30, 94, 0.1)"
+     },
+     {
+      "name": "[Nhân viên Tiếp đón & ",
+      "x": 210,
+      "y": 5577,
+      "w": 348,
+      "h": 701,
+      "bg": "rgb(255, 255, 255)",
+      "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0",
+      "border": "rgba(90, 30, 94, 0.1)"
+     }
+    ],
+    "container": {
+     "left": 0,
+     "width": 768
+    }
+   },
+   {
+    "id": "",
+    "cards": [],
+    "container": {
+     "left": 0,
+     "width": 768
+    }
+   }
+  ],
+  "1024": [
+   {
+    "id": "dept-vet",
+    "cards": [
+     {
+      "name": "[Bác sĩ Thú y — Dữ liệ",
+      "x": 32,
+      "y": 1268,
+      "w": 299,
+      "h": 701,
+      "bg": "rgb(255, 255, 255)",
+      "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0",
+      "border": "rgba(90, 30, 94, 0.1)"
+     },
+     {
+      "name": "BS. Lê Thái Sơn",
+      "x": 363,
+      "y": 1268,
+      "w": 299,
+      "h": 701,
+      "bg": "rgb(255, 255, 255)",
+      "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0",
+      "border": "rgba(90, 30, 94, 0.1)"
+     },
+     {
+      "name": "[Bác sĩ Thú y — Dữ liệ",
+      "x": 693,
+      "y": 1268,
+      "w": 299,
+      "h": 701,
+      "bg": "rgb(255, 255, 255)",
+      "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0",
+      "border": "rgba(90, 30, 94, 0.1)"
+     }
+    ],
+    "container": {
+     "left": 0,
+     "width": 1024
+    }
+   },
+   {
+    "id": "dept-grooming",
+    "cards": [
+     {
+      "name": "[Chuyên viên Chăm sóc ",
+      "x": 363,
+      "y": 2276,
+      "w": 299,
+      "h": 662,
+      "bg": "rgb(255, 255, 255)",
+      "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0",
+      "border": "rgba(90, 30, 94, 0.1)"
+     }
+    ],
+    "container": {
+     "left": 0,
+     "width": 1024
+    }
+   },
+   {
+    "id": "dept-support",
+    "cards": [
+     {
+      "name": "[Nhân viên Chăm sóc nộ",
+      "x": 197,
+      "y": 3221,
+      "w": 299,
+      "h": 662,
+      "bg": "rgb(255, 255, 255)",
+      "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0",
+      "border": "rgba(90, 30, 94, 0.1)"
+     },
+     {
+      "name": "[Nhân viên Tiếp đón & ",
+      "x": 528,
+      "y": 3221,
+      "w": 299,
+      "h": 662,
+      "bg": "rgb(255, 255, 255)",
+      "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0",
+      "border": "rgba(90, 30, 94, 0.1)"
+     }
+    ],
+    "container": {
+     "left": 0,
+     "width": 1024
+    }
+   },
+   {
+    "id": "",
+    "cards": [],
+    "container": {
+     "left": 0,
+     "width": 1024
+    }
+   }
+  ],
+  "1440": [
+   {
+    "id": "dept-vet",
+    "cards": [
+     {
+      "name": "[Bác sĩ Thú y — Dữ liệ",
+      "x": 112,
+      "y": 1214,
+      "w": 384,
+      "h": 739,
+      "bg": "rgb(255, 255, 255)",
+      "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0",
+      "border": "rgba(90, 30, 94, 0.1)"
+     },
+     {
+      "name": "BS. Lê Thái Sơn",
+      "x": 528,
+      "y": 1214,
+      "w": 384,
+      "h": 739,
+      "bg": "rgb(255, 255, 255)",
+      "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0",
+      "border": "rgba(90, 30, 94, 0.1)"
+     },
+     {
+      "name": "[Bác sĩ Thú y — Dữ liệ",
+      "x": 944,
+      "y": 1214,
+      "w": 384,
+      "h": 739,
+      "bg": "rgb(255, 255, 255)",
+      "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0",
+      "border": "rgba(90, 30, 94, 0.1)"
+     }
+    ],
+    "container": {
+     "left": 80,
+     "width": 1280
+    }
+   },
+   {
+    "id": "dept-grooming",
+    "cards": [
+     {
+      "name": "[Chuyên viên Chăm sóc ",
+      "x": 528,
+      "y": 2260,
+      "w": 384,
+      "h": 745,
+      "bg": "rgb(255, 255, 255)",
+      "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0",
+      "border": "rgba(90, 30, 94, 0.1)"
+     }
+    ],
+    "container": {
+     "left": 80,
+     "width": 1280
+    }
+   },
+   {
+    "id": "dept-support",
+    "cards": [
+     {
+      "name": "[Nhân viên Chăm sóc nộ",
+      "x": 320,
+      "y": 3289,
+      "w": 384,
+      "h": 745,
+      "bg": "rgb(255, 255, 255)",
+      "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0",
+      "border": "rgba(90, 30, 94, 0.1)"
+     },
+     {
+      "name": "[Nhân viên Tiếp đón & ",
+      "x": 736,
+      "y": 3289,
+      "w": 384,
+      "h": 745,
+      "bg": "rgb(255, 255, 255)",
+      "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0",
+      "border": "rgba(90, 30, 94, 0.1)"
+     }
+    ],
+    "container": {
+     "left": 80,
+     "width": 1280
+    }
+   },
+   {
+    "id": "",
+    "cards": [],
+    "container": {
+     "left": 80,
+     "width": 1280
+    }
+   }
+  ],
+  "1920": [
+   {
+    "id": "dept-vet",
+    "cards": [
+     {
+      "name": "[Bác sĩ Thú y — Dữ liệ",
+      "x": 352,
+      "y": 1214,
+      "w": 384,
+      "h": 739,
+      "bg": "rgb(255, 255, 255)",
+      "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0",
+      "border": "rgba(90, 30, 94, 0.1)"
+     },
+     {
+      "name": "BS. Lê Thái Sơn",
+      "x": 768,
+      "y": 1214,
+      "w": 384,
+      "h": 739,
+      "bg": "rgb(255, 255, 255)",
+      "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0",
+      "border": "rgba(90, 30, 94, 0.1)"
+     },
+     {
+      "name": "[Bác sĩ Thú y — Dữ liệ",
+      "x": 1184,
+      "y": 1214,
+      "w": 384,
+      "h": 739,
+      "bg": "rgb(255, 255, 255)",
+      "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0",
+      "border": "rgba(90, 30, 94, 0.1)"
+     }
+    ],
+    "container": {
+     "left": 320,
+     "width": 1280
+    }
+   },
+   {
+    "id": "dept-grooming",
+    "cards": [
+     {
+      "name": "[Chuyên viên Chăm sóc ",
+      "x": 768,
+      "y": 2260,
+      "w": 384,
+      "h": 745,
+      "bg": "rgb(255, 255, 255)",
+      "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0",
+      "border": "rgba(90, 30, 94, 0.1)"
+     }
+    ],
+    "container": {
+     "left": 320,
+     "width": 1280
+    }
+   },
+   {
+    "id": "dept-support",
+    "cards": [
+     {
+      "name": "[Nhân viên Chăm sóc nộ",
+      "x": 560,
+      "y": 3289,
+      "w": 384,
+      "h": 745,
+      "bg": "rgb(255, 255, 255)",
+      "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0",
+      "border": "rgba(90, 30, 94, 0.1)"
+     },
+     {
+      "name": "[Nhân viên Tiếp đón & ",
+      "x": 976,
+      "y": 3289,
+      "w": 384,
+      "h": 745,
+      "bg": "rgb(255, 255, 255)",
+      "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0",
+      "border": "rgba(90, 30, 94, 0.1)"
+     }
+    ],
+    "container": {
+     "left": 320,
+     "width": 1280
+    }
+   },
+   {
+    "id": "",
+    "cards": [],
+    "container": {
+     "left": 320,
+     "width": 1280
+    }
+   }
+  ]
+ },
+ "filter": {
+  "buttons": [
+   "Tất cả bộ phận pressed=true h=44",
+   "Bộ phận Bác sĩ Thú y (Lâm sàng) pressed=false h=44",
+   "Bộ phận Spa & Grooming (Chờ xác nhận) pressed=false h=44",
+   "Bộ phận Chăm sóc & Hỗ trợ (Chờ xác nhận) pressed=false h=44"
+  ]
+ },
+ "keyboard": [
+  {
+   "key": "Tab",
+   "focused": "Bộ phận Bác sĩ Thú y (Lâm sàng)",
+   "focusRing": "solid 2px / none",
+   "pressed": "true,false,false,false",
+   "sections": "dept-vet,dept-grooming,dept-support",
+   "live": "Đang hiển thị: Tất cả các bộ phận.",
+   "liveAttr": "polite"
+  },
+  {
+   "key": "Enter",
+   "focused": "Bộ phận Bác sĩ Thú y (Lâm sàng)",
+   "focusRing": "solid 2px / rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0",
+   "pressed": "false,true,false,false",
+   "sections": "dept-vet",
+   "live": "Đang hiển thị: Bộ phận Bác sĩ Thú y (Lâm sàng).",
+   "liveAttr": "polite"
+  },
+  {
+   "key": "Tab",
+   "focused": "Bộ phận Spa & Grooming (Chờ xác nhận)",
+   "focusRing": "solid 2px / none",
+   "pressed": "false,true,false,false",
+   "sections": "dept-vet",
+   "live": "Đang hiển thị: Bộ phận Bác sĩ Thú y (Lâm sàng).",
+   "liveAttr": "polite"
+  },
+  {
+   "key": "Space",
+   "focused": "Bộ phận Spa & Grooming (Chờ xác nhận)",
+   "focusRing": "solid 2px / rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0",
+   "pressed": "false,false,true,false",
+   "sections": "dept-grooming",
+   "live": "Đang hiển thị: Bộ phận Spa & Grooming (Chờ xác nhận).",
+   "liveAttr": "polite"
+  },
+  {
+   "key": "Tab",
+   "focused": "Bộ phận Chăm sóc & Hỗ trợ (Chờ xác nhận)",
+   "focusRing": "solid 2px / none",
+   "pressed": "false,false,true,false",
+   "sections": "dept-grooming",
+   "live": "Đang hiển thị: Bộ phận Spa & Grooming (Chờ xác nhận).",
+   "liveAttr": "polite"
+  },
+  {
+   "key": "Enter",
+   "focused": "Bộ phận Chăm sóc & Hỗ trợ (Chờ xác nhận)",
+   "focusRing": "solid 2px / rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0",
+   "pressed": "false,false,false,true",
+   "sections": "dept-support",
+   "live": "Đang hiển thị: Bộ phận Chăm sóc & Hỗ trợ (Chờ xác nhận).",
+   "liveAttr": "polite"
+  },
+  {
+   "key": "Shift+Tab",
+   "focused": "Bộ phận Spa & Grooming (Chờ xác nhận)",
+   "focusRing": "solid 2px / none",
+   "pressed": "false,false,false,true",
+   "sections": "dept-support",
+   "live": "Đang hiển thị: Bộ phận Chăm sóc & Hỗ trợ (Chờ xác nhận).",
+   "liveAttr": "polite"
+  },
+  {
+   "key": "Shift+Tab",
+   "focused": "Bộ phận Bác sĩ Thú y (Lâm sàng)",
+   "focusRing": "solid 2px / none",
+   "pressed": "false,false,false,true",
+   "sections": "dept-support",
+   "live": "Đang hiển thị: Bộ phận Chăm sóc & Hỗ trợ (Chờ xác nhận).",
+   "liveAttr": "polite"
+  },
+  {
+   "key": "Shift+Tab",
+   "focused": "Tất cả bộ phận",
+   "focusRing": "solid 2px / none",
+   "pressed": "false,false,false,true",
+   "sections": "dept-support",
+   "live": "Đang hiển thị: Bộ phận Chăm sóc & Hỗ trợ (Chờ xác nhận).",
+   "liveAttr": "polite"
+  },
+  {
+   "key": "Enter",
+   "focused": "Tất cả bộ phận",
+   "focusRing": "solid 2px / rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0",
+   "pressed": "true,false,false,false",
+   "sections": "dept-vet,dept-grooming,dept-support",
+   "live": "Đang hiển thị: Tất cả các bộ phận.",
+   "liveAttr": "polite"
+  }
+ ],
+ "drawer": {
+  "before": {
+   "label": "Mở menu điều hướng trên thiết bị di động",
+   "expanded": "false",
+   "controls": "mobile-nav-dialog",
+   "box": "44x44"
+  },
+  "open": {
+   "expanded": "true",
+   "dialog": true,
+   "links": [
+    "/",
+    "/cau-chuyen",
+    "/lien-he",
+    "/dang-nhap",
+    "/dang-ky",
+    "tel:0973555105",
+    "/dat-lich"
+   ],
+   "focusInside": true
+  },
+  "esc": {
+   "expanded": "false",
+   "dialog": false,
+   "focus": "Mở menu điều hướng trên thiết bị di động"
+  },
+  "nav": {
+   "path": "/doi-ngu",
+   "h1": "Sự tận tâm từ những người trực tiếp đồng hành cùng thú cưng.",
+   "dialog": false
+  }
+ },
+ "reload": {
+  "/gioi-thieu": {
+   "status1": 200,
+   "h1": "Nơi sự cẩn trọng y khoa song hành cùng lòng thấu cảm.",
+   "status2": 200,
+   "after": {
+    "h1": "Nơi sự cẩn trọng y khoa song hành cùng lòng thấu cảm.",
+    "robots": "noindex, nofollow",
+    "title": "Về Bệnh viện Thú y Lê Sơn — Chăm Sóc Y Tế Chuẩn Mực"
+   }
+  },
+  "/doi-ngu": {
+   "status1": 200,
+   "h1": "Sự tận tâm từ những người trực tiếp đồng hành cùng thú cưng.",
+   "status2": 200,
+   "after": {
+    "h1": "Sự tận tâm từ những người trực tiếp đồng hành cùng thú cưng.",
+    "robots": "noindex, nofollow",
+    "title": "Đội ngũ Bác sĩ & Nhân sự Chăm sóc — Bệnh viện Thú y Lê Sơn"
+   }
+  },
+  "/co-so-vat-chat": {
+   "status1": 200,
+   "h1": "Không gian thăm khám và quy hoạch các phân khu chức năng.",
+   "status2": 200,
+   "after": {
+    "h1": "Không gian thăm khám và quy hoạch các phân khu chức năng.",
+    "robots": "noindex, nofollow",
+    "title": "Cơ sở vật chất & Không gian Thăm khám — Bệnh viện Thú y Lê Sơn"
+   }
+  }
+ },
+ "reduced": {
+  "maxTransition": 1e-05,
+  "maxAnim": 1e-05
+ },
+ "console": {},
+ "content": {
+  "hits": {
+   "phẫu thuật": [
+    "header+footer: …ú cưng chuyên nghiệp tại Hà Nội, cung cấp dịch vụ thăm khám lâm sàng, phẫu thuật ngoại khoa, chăm sóc nội trú 24/7 và cấ…"
+   ]
+  }
+ },
+ "focus": {
+  "gioiThieu": [
+   "Trang chủ :: none 2px rgb(90, 30, 94) | shadow",
+   "Đặt lịch khám :: solid 2px rgb(90, 30, 94) | shadow",
+   "Gọi Hotline: 097 355 51 05 :: solid 2px rgb(90, 30, 94) | shadow",
+   "Xem trang Đội ngũ :: solid 2px rgb(90, 30, 94)",
+   "Xem Cơ sở vật chất :: solid 2px rgb(90, 30, 94)",
+   "Đặt lịch khám trực tuyến :: solid 2px rgb(90, 30, 94) | shadow",
+   "Gọi 097 355 51 05 :: solid 2px rgb(90, 30, 94) | shadow",
+   "BỆNH VIỆN THÚ Y LÊ SƠNChăm S :: solid 2px rgb(90, 30, 94)",
+   "097 355 51 05 :: solid 2px rgb(90, 30, 94)",
+   "Giới thiệu bệnh viện :: solid 2px rgb(90, 30, 94)",
+   "Đội ngũ bác sĩ :: solid 2px rgb(90, 30, 94)",
+   "Cơ sở vật chất :: solid 2px rgb(90, 30, 94)",
+   "Bảng giá niêm yết :: solid 2px rgb(90, 30, 94)",
+   "Câu chuyện điều trị :: solid 2px rgb(90, 30, 94)",
+   "Liên hệ & Chỉ đường :: solid 2px rgb(90, 30, 94)",
+   "Tất cả dịch vụ :: solid 2px rgb(90, 30, 94)",
+   "Khám & điều trị :: solid 2px rgb(90, 30, 94)",
+   "Chăm sóc nội trú 24/7 :: solid 2px rgb(90, 30, 94)"
+  ]
+ },
+ "drawerAbout": [
+  "/ Trang chủ",
+  "/gioi-thieu Giới thiệu bệnh viện",
+  "/doi-ngu Đội ngũ bác sĩ",
+  "/co-so-vat-chat Cơ sở vật chất",
+  "/cau-chuyen Câu chuyện điều trị",
+  "/lien-he Liên hệ & Chỉ đường",
+  "/dang-nhap Đăng nhập",
+  "/dang-ky Đăng ký",
+  "tel:0973555105 Gọi Cấp cứu 24/24: 097 355 51 05",
+  "/dat-lich Đặt lịch hẹn"
+ ]
+}

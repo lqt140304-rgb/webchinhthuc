@@ -1,0 +1,60 @@
+Clean git archive 4739d45 + npm ci: tsc exit 0, oxlint exit 0 (0 warnings), vite build
+Plain checkout build:
+f2c2ba1d0f26af6d16abd0773b8fa355ba25e5da3f30a4f1f8dd27a647708049  assets/AboutPage-BUJtRZN2.js
+06a27c336401cd4abc68230f90267de44726cad36d45803bea3042851fe3c6da  assets/EditorialDarkCTA-DZP4EYk8.js
+52602576301276ae626476a3c2980a977e9c04813fbe5d246f6cf8dd9dd3c328  assets/EditorialPhotoFrame-8k6dkmwd.js
+6acb8608ecc215cba54830428ac710cad3e8a86743365e85a84c1ff0b51102ca  assets/EditorialPolicyBanner-B57cek5S.js
+7b8d077fadccc8c7319ac824ec91518523d291f452cc4c1152e4fa8a7fd4203b  assets/EditorialSlotBox-BCus9Gv_.js
+015cc96d4fa08688a989386ee640f025cb101b359f703db31408a3c81bf0f87d  assets/FacilitiesPage-t-8STXn_.js
+b0ef88446aa9be276733ca1b1d3dedad4de300da5c90b846ce6a532e01def2a3  assets/TeamPage-j1n4YWdB.js
+0430a40b5419b87df3f4ee816b3dfd6eef2ae1dbb88401ded16dee62e9a5cd16  assets/index-BCvVG95G.css
+1d14abe07ad6b8222e684c5a596bcb4d9bfb3b95efbf689b275a0bf74b94523b  assets/index-nGP6YY4t.js
+13659 assets/AboutPage-BUJtRZN2.js
+2961 assets/EditorialDarkCTA-DZP4EYk8.js
+1225 assets/EditorialPhotoFrame-8k6dkmwd.js
+538 assets/EditorialPolicyBanner-B57cek5S.js
+1524 assets/EditorialSlotBox-BCus9Gv_.js
+15543 assets/FacilitiesPage-t-8STXn_.js
+13955 assets/TeamPage-j1n4YWdB.js
+67937 assets/index-BCvVG95G.css
+372153 assets/index-nGP6YY4t.js
+
+Build with committed .vercelignore applied (tests/ and .gitignore not uploaded):
+0e0facd89ecf247a7cf137c1ab7575886a27644fe6aa1d8c3b0148331d3a4ce5  assets/AboutPage-CBXd2Qer.js
+2dc1db8f1a0945219d961d9ce0ded75785f1621240e79f803e521cce70f3e1c6  assets/EditorialDarkCTA-Bmhsf706.js
+5ea67b8c961a920cd24d2eae7949a4abe3e8099b4c6b6131e9cd48d9e765ef26  assets/EditorialPhotoFrame-YHweX_cR.js
+52eb1e15b7cb7ec56abb358799162e177cd6b025c6988cd7f4a36ee30bca6327  assets/EditorialPolicyBanner-Brxp4a0Y.js
+dfd7eeddcc230a3cd5c9f0aee151b09f0b436638f35b02090bc497be8cb6c87c  assets/EditorialSlotBox-DBDekLyJ.js
+b7d8250d80d02362f3c92eecd8a9fb3d993885c12d0393331f7e15e33ca9bedd  assets/FacilitiesPage-D4h7uKPk.js
+1ef16eecfac6e7746a1f955fa8c5226b9887ff0e246d5174bd8b9aeeee927bec  assets/TeamPage-SMADq2FC.js
+2aff063691490848cf74954bee5720c20369c67b78ed3719558e7d898d154eef  assets/index-BwV2i7ww.js
+f50992e2033420f5a651dcb6a108e3340ebd714949b549db9bd10a5d10ffbc34  assets/index-DnHgEJZY.css
+13659 assets/AboutPage-CBXd2Qer.js
+2961 assets/EditorialDarkCTA-Bmhsf706.js
+1225 assets/EditorialPhotoFrame-YHweX_cR.js
+538 assets/EditorialPolicyBanner-Brxp4a0Y.js
+1524 assets/EditorialSlotBox-DBDekLyJ.js
+15543 assets/FacilitiesPage-D4h7uKPk.js
+13955 assets/TeamPage-SMADq2FC.js
+372153 assets/index-BwV2i7ww.js
+67909 assets/index-DnHgEJZY.css
+
+Served by Preview dpl_8XZEtH3csgeHa5cmzf5aw9hNR4EE:
+0e0facd89ecf247a7cf137c1ab7575886a27644fe6aa1d8c3b0148331d3a4ce5  assets/AboutPage-CBXd2Qer.js
+2dc1db8f1a0945219d961d9ce0ded75785f1621240e79f803e521cce70f3e1c6  assets/EditorialDarkCTA-Bmhsf706.js
+5ea67b8c961a920cd24d2eae7949a4abe3e8099b4c6b6131e9cd48d9e765ef26  assets/EditorialPhotoFrame-YHweX_cR.js
+52eb1e15b7cb7ec56abb358799162e177cd6b025c6988cd7f4a36ee30bca6327  assets/EditorialPolicyBanner-Brxp4a0Y.js
+dfd7eeddcc230a3cd5c9f0aee151b09f0b436638f35b02090bc497be8cb6c87c  assets/EditorialSlotBox-DBDekLyJ.js
+b7d8250d80d02362f3c92eecd8a9fb3d993885c12d0393331f7e15e33ca9bedd  assets/FacilitiesPage-D4h7uKPk.js
+1ef16eecfac6e7746a1f955fa8c5226b9887ff0e246d5174bd8b9aeeee927bec  assets/TeamPage-SMADq2FC.js
+2aff063691490848cf74954bee5720c20369c67b78ed3719558e7d898d154eef  assets/index-BwV2i7ww.js
+f50992e2033420f5a651dcb6a108e3340ebd714949b549db9bd10a5d10ffbc34  assets/index-DnHgEJZY.css
+13659 assets/AboutPage-CBXd2Qer.js
+2961 assets/EditorialDarkCTA-Bmhsf706.js
+1225 assets/EditorialPhotoFrame-YHweX_cR.js
+538 assets/EditorialPolicyBanner-Brxp4a0Y.js
+1524 assets/EditorialSlotBox-DBDekLyJ.js
+15543 assets/FacilitiesPage-D4h7uKPk.js
+13955 assets/TeamPage-SMADq2FC.js
+372153 assets/index-BwV2i7ww.js
+67909 assets/index-DnHgEJZY.css

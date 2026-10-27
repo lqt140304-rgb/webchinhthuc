@@ -1,0 +1,20 @@
+{
+ "id": "prj_wZg6o5vvbDe6UTT52vaqvGTNC4e3",
+ "name": "le-son-website-qa",
+ "ssoProtection": {
+  "deploymentType": "all"
+ },
+ "passwordProtection": null,
+ "gitForkProtection": true,
+ "gitLinkPresent": false,
+ "targets": {
+  "production": {
+   "id": "dpl_BAz378AxMw59nUafGCMDM8Hws84s",
+   "sha": "db78738df347ce368e5c7738c1f351485e07f348"
+  },
+  "preview": {
+   "id": "dpl_8XZEtH3csgeHa5cmzf5aw9hNR4EE",
+   "sha": "4739d45cc95100b587381b6bdcad6935352b23e8"
+  }
+ }
+}

@@ -1,0 +1,40 @@
+{
+ "id": "dpl_8XZEtH3csgeHa5cmzf5aw9hNR4EE",
+ "url": "le-son-website-q5i16t9zn-lqt140304-rgb.vercel.app",
+ "name": "le-son-website-qa",
+ "projectId": "prj_wZg6o5vvbDe6UTT52vaqvGTNC4e3",
+ "target": null,
+ "readyState": "READY",
+ "readySubstate": "STAGED",
+ "status": "READY",
+ "source": "cli",
+ "type": "LAMBDAS",
+ "createdAt": 1793120701403,
+ "ready": 1793120715058,
+ "aliasAssigned": true,
+ "alias": [],
+ "automaticAliases": [],
+ "regions": [
+  "iad1"
+ ],
+ "public": false,
+ "plan": "hobby",
+ "meta": {
+  "githubCommitAuthorName": "lqt140304-rgb",
+  "githubCommitMessage": "fix(phase-3a): fix CLS layout shift on lazy routes via min-h-screen fallback",
+  "githubCommitOrg": "lqt140304-rgb",
+  "githubCommitRef": "feat/phase-3a-dev01",
+  "githubCommitRepo": "webchinhthuc",
+  "githubCommitSha": "4739d45cc95100b587381b6bdcad6935352b23e8",
+  "githubDeployment": "1",
+  "githubOrg": "lqt140304-rgb",
+  "githubRepo": "webchinhthuc",
+  "gitRootDirectory": "",
+  "actor": "antigravity"
+ },
+ "oidcTokenClaims": {
+  "environment": "preview",
+  "project": "le-son-website-qa",
+  "owner": "lqt140304-rgb"
+ }
+}
