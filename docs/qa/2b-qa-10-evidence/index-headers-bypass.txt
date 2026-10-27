@@ -1,0 +1,17 @@
+HTTP/1.1 200 Connection Established
+
+HTTP/2 200 
+access-control-allow-origin: *
+age: 22
+cache-control: public, max-age=0, must-revalidate
+content-disposition: inline
+content-type: text/html; charset=utf-8
+date: Tue, 27 Oct 2026 09:38:06 GMT
+etag: W/"adb328afc2ff09c403aa4f9ddc7751f7"
+last-modified: Tue, 27 Oct 2026 09:37:44 GMT
+server: Vercel
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+x-robots-tag: noindex
+x-vercel-cache: HIT
+x-vercel-id: iad1:iad1:iad1::zs5nh-1793093886575-8d93f7f9dcf5
+

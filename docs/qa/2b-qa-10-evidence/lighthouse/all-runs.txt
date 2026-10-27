@@ -1,0 +1,16 @@
+lh/lh-desktop-1.json 100 706 16 0.0001167657613615302
+lh/lh-desktop-2.json 100 730 9 0.0001167657613615302
+lh/lh-desktop-3.json 100 710 4 0.0001167657613615302
+lh/lh-mobile-1.json 78 3330 499 0
+lh/lh-mobile-2.json 82 3480 207 0
+lh/lh-mobile-3.json 93 2857 164 0
+lh5/lh-desktop-1.json 100 730 8 0.0001167657613615302
+lh5/lh-desktop-2.json 100 730 14 0.0001167657613615302
+lh5/lh-desktop-3.json 100 730 0 0.0001167657613615302
+lh5/lh-desktop-4.json 100 706 15 0.0001167657613615302
+lh5/lh-desktop-5.json 100 730 2 0.0001167657613615302
+lh5/lh-mobile-1.json 96 2406 153 0
+lh5/lh-mobile-2.json 90 2880 258 0
+lh5/lh-mobile-3.json 94 2864 88 0
+lh5/lh-mobile-4.json 78 3480 337 0
+lh5/lh-mobile-5.json 95 2862 74 0
