@@ -6,8 +6,11 @@
 | **Ngày thực hiện** | 27/10/2026 |
 | **Căn cứ chỉ đạo** | [CEO DIRECTIVE 014-A (A05 FIX & REPRODUCIBLE PREVIEW BUILD)](#) & Báo cáo Claude QA `docs/qa/2b-qa-08.md` |
 | **Nhánh làm việc** | `fix/milestone-2a-qa` |
-| **SHA nguồn được kiểm tra trước** | `db78738df347ce368e5c7738c1f351485e07f348` |
+| **SHA nguồn commit** | [`d3c32dd7aef8644149646139de470b8a99fda10d`](https://github.com/lqt140304-rgb/webchinhthuc/commit/d3c32dd7aef8644149646139de470b8a99fda10d) (ngắn gọn: `d3c32dd`) |
 | **Vercel Project** | `le-son-website-qa` (Project ID: `prj_wZg6o5vvbDe6UTT52vaqvGTNC4e3`) |
+| **Vercel Deployment ID** | `dpl_3F22pWx1VVJhKjEsDJTc8yE2Gxaf` |
+| **Vercel Preview URL** | `https://le-son-website-qoptkiynb-lqt140304-rgb.vercel.app` |
+| **Trạng thái deployment** | `target: preview`, `status: ● Ready` |
 | **Trạng thái mốc** | **READY FOR CLAUDE QA 2B-09** |
 
 ---
@@ -103,35 +106,24 @@ Biểu thức `(?:/(.*))` khớp hoàn hảo:
 
 ---
 
-## 3. Bảng Đối Chiếu Ma Trận Kiểm Thử Headers Trước & Sau
+## 3. Bằng Chứng Kiểm Tra HTTP Headers Thực Tế Trên Live Vercel Preview
 
-Kiểm tra tự động toàn diện qua [`scripts/test-a05-matrix.cjs`](file:///d:/webbvct/scripts/test-a05-matrix.cjs) trên 51 trường hợp URL:
+Đã kiểm tra trực tiếp qua `vercel curl -I` tới deployment ID `dpl_3F22pWx1VVJhKjEsDJTc8yE2Gxaf`:
 
-| STT | Tuyến đường kiểm tra | Nhóm URL | Trạng thái trước sửa (QA 2B-08) | Trạng thái sau sửa (Hiện tại) | Kết luận |
-|:---:|---|---|:---:|:---:|:---:|
-| 1 | `/` | Trang chủ công khai | `noindex` (nền tảng) | **NONE (Indexable)** | **Chuẩn** (chỉ preview có noindex nền tảng, không bị `vercel.json` chặn) |
-| 2 | `/robots.txt` | SEO Asset | `noindex` (nền tảng) | **NONE (Indexable)** | **Chuẩn** |
-| 3 | `/sitemap.xml` | SEO Asset | `noindex` (nền tảng) | **NONE (Indexable)** | **Chuẩn** |
-| 4 | `/assets/index.js` | Static Asset | `noindex` (nền tảng) | **NONE (Indexable)** | **Chuẩn** |
-| 5 | `/gioi-thieu` | Trang chờ (no slash) | `noindex, nofollow` | **`noindex, nofollow`** | **Đạt** |
-| 6 | `/gioi-thieu/` | Trang chờ (trailing slash) | `noindex` (thiếu nofollow) | **`noindex, nofollow`** | **ĐÃ SỬA TRIỆT ĐỂ (PASS)** |
-| 7 | `/dat-lich` | Trang đặt lịch (no slash) | `noindex, nofollow` | **`noindex, nofollow`** | **Đạt** |
-| 8 | `/dat-lich/` | Trang đặt lịch (trailing slash) | `noindex` (thiếu nofollow) | **`noindex, nofollow`** | **ĐÃ SỬA TRIỆT ĐỂ (PASS)** |
-| 9 | `/dich-vu` | Dịch vụ (no slash) | `noindex, nofollow` | **`noindex, nofollow`** | **Đạt** |
-| 10 | `/dich-vu/` | Dịch vụ (trailing slash) | `noindex` (thiếu nofollow) | **`noindex, nofollow`** | **ĐÃ SỬA TRIỆT ĐỂ (PASS)** |
-| 11 | `/dich-vu/spa/` | Dịch vụ subpath (trailing slash) | `noindex` (thiếu nofollow) | **`noindex, nofollow`** | **ĐÃ SỬA TRIỆT ĐỂ (PASS)** |
-| 12 | `/dich-vu/kham-dieu-tri/` | Dịch vụ subpath (trailing slash) | `noindex` (thiếu nofollow) | **`noindex, nofollow`** | **ĐÃ SỬA TRIỆT ĐỂ (PASS)** |
-| 13 | `/tai-khoan` | Khách hàng portal (no slash) | `noindex, nofollow` | **`noindex, nofollow`** | **Đạt** |
-| 14 | `/tai-khoan/` | Khách hàng portal (trailing slash) | `noindex` (thiếu nofollow) | **`noindex, nofollow`** | **ĐÃ SỬA TRIỆT ĐỂ (PASS)** |
-| 15 | `/tai-khoan/ho-so/` | Hồ sơ portal (trailing slash) | `noindex` (thiếu nofollow) | **`noindex, nofollow`** | **ĐÃ SỬA TRIỆT ĐỂ (PASS)** |
-| 16 | `/quan-ly` | Quản lý portal (no slash) | `noindex, nofollow` | **`noindex, nofollow`** | **Đạt** |
-| 17 | `/quan-ly/` | Quản lý portal (trailing slash) | `noindex` (thiếu nofollow) | **`noindex, nofollow`** | **ĐÃ SỬA TRIỆT ĐỂ (PASS)** |
-| 18 | `/quan-ly/lich-hen/` | Quản lý subpath (trailing slash) | `noindex` (thiếu nofollow) | **`noindex, nofollow`** | **ĐÃ SỬA TRIỆT ĐỂ (PASS)** |
-| 19 | `/dang-nhap/` | Auth route (trailing slash) | `noindex` (thiếu nofollow) | **`noindex, nofollow`** | **ĐÃ SỬA TRIỆT ĐỂ (PASS)** |
-| 20 | `/gioi-thieu/?utm=1` | Slash + Query string | `noindex` (thiếu nofollow) | **`noindex, nofollow`** | **ĐÃ SỬA TRIỆT ĐỂ (PASS)** |
-| 21 | `/dich-vu/spa/?fbclid=abc` | Subpath slash + Query string | `noindex` (thiếu nofollow) | **`noindex, nofollow`** | **ĐÃ SỬA TRIỆT ĐỂ (PASS)** |
-| 22 | `/gioi-thieu-abc` | Ranh giới route (soft 404) | Không khớp | **NONE (Indexable)** | **Không chặn nhầm 404** |
-| 23 | `/khong-ton-tai` | Soft 404 | Không khớp | **NONE (Indexable)** | **Không chặn nhầm 404** |
+| URL trên Live Preview | HTTP Status | Header `X-Robots-Tag` thực tế | Đánh giá |
+|---|:---:|:---:|:---:|
+| `https://le-son-website-qoptkiynb-lqt140304-rgb.vercel.app/` | `200 OK` | `noindex` (nền tảng preview) | **Đạt** (Trang chủ không nhận noindex, nofollow) |
+| `https://le-son-website-qoptkiynb-lqt140304-rgb.vercel.app/gioi-thieu` | `200 OK` | **`noindex, nofollow`** | **Đạt** |
+| `https://le-son-website-qoptkiynb-lqt140304-rgb.vercel.app/gioi-thieu/` | `200 OK` | **`noindex, nofollow`** | **ĐÃ SỬA A05-F1 (PASS)** |
+| `https://le-son-website-qoptkiynb-lqt140304-rgb.vercel.app/dich-vu/spa/` | `200 OK` | **`noindex, nofollow`** | **ĐÃ SỬA A05-F1 (PASS)** |
+| `https://le-son-website-qoptkiynb-lqt140304-rgb.vercel.app/tai-khoan/` | `200 OK` | **`noindex, nofollow`** | **ĐÃ SỬA A05-F1 (PASS)** |
+| `https://le-son-website-qoptkiynb-lqt140304-rgb.vercel.app/tai-khoan/ho-so/` | `200 OK` | **`noindex, nofollow`** | **ĐÃ SỬA A05-F1 (PASS)** |
+| `https://le-son-website-qoptkiynb-lqt140304-rgb.vercel.app/quan-ly/` | `200 OK` | **`noindex, nofollow`** | **ĐÃ SỬA A05-F1 (PASS)** |
+| `https://le-son-website-qoptkiynb-lqt140304-rgb.vercel.app/dang-nhap/` | `200 OK` | **`noindex, nofollow`** | **ĐÃ SỬA A05-F1 (PASS)** |
+| `https://le-son-website-qoptkiynb-lqt140304-rgb.vercel.app/gioi-thieu/?utm=1` | `200 OK` | **`noindex, nofollow`** | **ĐÃ SỬA A05-F1 (PASS)** |
+| `https://le-son-website-qoptkiynb-lqt140304-rgb.vercel.app/khong-ton-tai` | `200 OK` | `noindex` (nền tảng preview) | **Đạt** (Soft 404 client-side, không chặn nhầm) |
+
+*(Đã chạy kiểm thử 51 trường hợp URL trên script `scripts/test-a05-matrix.cjs`, đạt 51/51 PASS)*.
 
 ---
 
@@ -144,7 +136,32 @@ Tạo tệp [`.gitattributes`](file:///d:/webbvct/.gitattributes) ở thư mục
 
 ---
 
-## 5. Kết Quả Kiểm Thử Tự Động Trước Khi Triển Khai
+## 5. Thông Tin Bản Build & Triển Khai Vercel Preview (Nhiệm Vụ 2 & Mục V)
+
+### A. Vercel Metadata (`vercel inspect`):
+```text
+General:
+  id:           dpl_3F22pWx1VVJhKjEsDJTc8yE2Gxaf
+  name:         le-son-website-qa
+  target:       preview
+  status:       ● Ready
+  url:          https://le-son-website-qoptkiynb-lqt140304-rgb.vercel.app
+  created:      Tue Oct 27 2026 14:57:09 GMT+0700
+  build time:   10s
+
+Build Machine:
+  cores:        2 vCPU
+  memory:       8192 MiB
+```
+
+### B. Asset phục vụ thực tế trên Live Preview:
+- **JavaScript Bundle:** `/assets/index-6fCRVFyl.js` — Dung lượng: **369.957 bytes** (369.95 kB).
+- **CSS Bundle:** `/assets/index-DlOxlv3G.css` — Dung lượng: **62.455 bytes** (62.45 kB).
+- **Phông chữ tự lưu trữ:** 6 tệp WOFF2 (Be Vietnam Pro 400, 500, 600, 700, Italic 400, Lora 600) nguyên bản, 100% tiếng Việt có dấu.
+
+---
+
+## 6. Kết Quả Kiểm Thử Tự Động Trước Khi Bàn Giao
 
 | Bộ kiểm thử | Lệnh thực hiện | Kết quả thực tế | Ghi chú |
 |---|---|:---:|---|
@@ -161,10 +178,21 @@ Tạo tệp [`.gitattributes`](file:///d:/webbvct/.gitattributes) ở thư mục
 
 ---
 
-## 6. Danh Sách Tệp Thay Đổi Trong Đợt Này
+## 7. Danh Sách Tệp Đã Thay Đổi
 
 1. [`.gitattributes`](file:///d:/webbvct/.gitattributes): Thiết lập chuẩn hóa xuống dòng `LF` và bảo toàn asset binary.
 2. [`.gitignore`](file:///d:/webbvct/.gitignore): Thêm `.vercel` và `.env*` bảo mật môi trường.
 3. [`vercel.json`](file:///d:/webbvct/vercel.json): Cập nhật quy tắc định tuyến header bao phủ 100% trailing slash và subpaths.
 4. [`scripts/test-a05-matrix.cjs`](file:///d:/webbvct/scripts/test-a05-matrix.cjs): Script kiểm tra ma trận header 51 URL.
-5. [`docs/qa/2b-handoff-09.md`](file:///d:/webbvct/docs/qa/2b-handoff-09.md): Báo cáo bàn giao chi tiết.
+5. [`docs/qa/2b-handoff-09.md`](file:///d:/webbvct/docs/qa/2b-handoff-09.md): Báo cáo bàn giao chi tiết QA 2B-09.
+
+---
+
+## 8. Kết Luận & Tín Hiệu Bàn Giao
+
+- Lỗi **A05-F1** đã được khắc phục hoàn toàn trên cả cấu hình cục bộ và máy chủ Vercel Live Preview thực tế.
+- Tệp `.gitattributes` đã chuẩn hóa quy tắc line endings `LF`.
+- Bản Vercel Preview mới đã triển khai thành công (`target=preview`, `status=Ready`).
+- Bàn giao SHA và Preview URL cho Independent QA Lead Claude kiểm định độc lập.
+
+**Tín hiệu bàn giao:** **READY FOR CLAUDE QA 2B-09**
