@@ -13,8 +13,8 @@ const FacilitiesPage = lazy(() => import('@/pages/FacilitiesPage'))
 
 const PageLoadingFallback = () => (
   <div
-    className="min-h-[50vh] flex items-center justify-center"
-    aria-busy="true"
+    className="min-h-screen flex items-center justify-center bg-[var(--color-bg-primary)]"
+    role="status"
     aria-label="Đang tải trang"
   >
     <div className="w-8 h-8 rounded-full border-2 border-[var(--color-plum-primary)] border-t-transparent animate-spin" />

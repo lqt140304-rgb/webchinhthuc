@@ -60,9 +60,6 @@ async function runTests() {
   const browser = await chromium.launch();
   const BASE = `http://127.0.0.1:${PORT}`;
 
-  const viewports = [320, 360, 375, 390, 414, 768, 1024, 1440, 1920];
-  const routes = ['/gioi-thieu', '/doi-ngu', '/co-so-vat-chat', '/', '/dat-lich'];
-
   console.log('\n--- 1. TESTING HEADER MOBILE TOUCH TARGETS & SIZES ---');
   for (const vp of [320, 360, 375, 390, 414, 768, 1024]) {
     const context = await browser.newContext({ viewport: { width: vp, height: 800 } });

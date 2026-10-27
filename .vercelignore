@@ -1,0 +1,12 @@
+# Vercel Ignore file to ensure clean remote builds without local artifacts
+dist
+dist-ssr
+node_modules
+.git
+.vercel
+tests
+*.log
+screenshots
+ev
+e2e-evidence
+lh-results

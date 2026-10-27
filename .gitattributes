@@ -26,6 +26,7 @@
 *.yml text eol=lf
 *.yaml text eol=lf
 .gitignore text eol=lf
+.vercelignore text eol=lf
 .gitattributes text eol=lf
 
 # Binary assets — strictly preserve byte-for-byte integrity without modification
