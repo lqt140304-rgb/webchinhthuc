@@ -1,0 +1,14 @@
+HTTP/1.1 200 Connection Established
+
+HTTP/2 302 
+cache-control: no-store, max-age=0
+content-type: text/plain
+date: Tue, 27 Oct 2026 07:03:11 GMT
+location: https://vercel.com/sso-api?url=https%3A%2F%2Fle-son-website-jeu9cg4vb-lqt140304-rgb.vercel.app%2F&nonce=<redacted>
+server: Vercel
+set-cookie: _vercel_sso_nonce=<redacted>; Max-Age=3600; Path=/; Secure; HttpOnly; SameSite=Lax
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+x-frame-options: DENY
+x-robots-tag: noindex
+x-vercel-id: iad1::47p9w-1793084591815-ebcddbf569e8
+

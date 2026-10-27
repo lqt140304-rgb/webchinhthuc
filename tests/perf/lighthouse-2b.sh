@@ -14,9 +14,13 @@ for preset in mobile desktop; do
   for i in $(seq 1 "$RUNS"); do
     extra=()
     [ "$preset" = desktop ] && extra=(--preset=desktop)
+    # Tùy chọn: LH_EXTRA_HEADERS_FILE=<file JSON> để gửi header (vd. x-vercel-protection-bypass) khi đo Vercel Preview
+    [ -n "${LH_EXTRA_HEADERS_FILE:-}" ] && extra+=(--extra-headers="$LH_EXTRA_HEADERS_FILE")
     (cd "$LH_DIR" && npx lighthouse "$URL" --quiet "${extra[@]}" \
       --chrome-flags="--headless=new --no-sandbox" \
       --output=json --output-path="$OUT/lh-$preset-$i.json") > "$OUT/lh-$preset-$i.log" 2>&1
+    # Không lưu secret: xóa extraHeaders khỏi JSON kết quả
+    [ -n "${LH_EXTRA_HEADERS_FILE:-}" ] && [ -f "$OUT/lh-$preset-$i.json" ] && node -e 'const f=process.argv[1],r=JSON.parse(require("fs").readFileSync(f));if(r.configSettings)r.configSettings.extraHeaders="<redacted>";require("fs").writeFileSync(f,JSON.stringify(r))' "$OUT/lh-$preset-$i.json"
   done
 done
 

@@ -1,0 +1,3 @@
+# Build cục bộ từ db78738df347ce368e5c7738c1f351485e07f348 (git archive + npm ci + vite build), 26/10/2026
+10f187c6990780a5a4417928e9ab313db068caffce0e988233b07cadba8be234  assets/index-CvVwFN8Z.js
+ca6de747195a5550d80dc7ea59cc7ea8a43c51a9b77c07d596e79ffbefe66d87  assets/index-vrX09Urw.css
