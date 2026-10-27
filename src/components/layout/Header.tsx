@@ -354,7 +354,7 @@ export const Header: React.FC<HeaderProps> = ({
           <Link
             to="/dat-lich"
             aria-current={location.pathname === '/dat-lich' ? 'page' : undefined}
-            className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 py-1.5 sm:px-3.5 sm:py-2 xl:px-5 xl:py-2.5 rounded-xl bg-[var(--color-plum-primary)] hover:bg-[var(--color-plum-deep)] text-white text-xs xl:text-sm font-semibold transition-all shadow-xs active:scale-[0.98] whitespace-nowrap shrink-0"
+            className="inline-flex items-center justify-center gap-1 sm:gap-1.5 px-2.5 py-2 sm:px-3.5 sm:py-2.5 xl:px-5 xl:py-2.5 min-h-[44px] rounded-xl bg-[var(--color-plum-primary)] hover:bg-[var(--color-plum-deep)] text-white text-xs xl:text-sm font-semibold transition-all shadow-xs active:scale-[0.98] whitespace-nowrap shrink-0"
           >
             <Calendar className="w-3.5 h-3.5 xl:w-4 xl:h-4 shrink-0" />
             <span className="hidden min-[420px]:inline">Đặt lịch khám</span>
@@ -370,7 +370,7 @@ export const Header: React.FC<HeaderProps> = ({
             aria-haspopup="dialog"
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-nav-dialog"
-            className="lg:hidden p-1.5 sm:p-2 rounded-xl text-[var(--color-fg-primary)] hover:bg-[var(--color-bg-secondary)] transition-colors cursor-pointer"
+            className="lg:hidden min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl text-[var(--color-fg-primary)] hover:bg-[var(--color-bg-secondary)] transition-colors cursor-pointer"
           >
             <Menu className="w-6 h-6" />
           </button>

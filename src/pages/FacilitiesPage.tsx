@@ -62,7 +62,7 @@ export const FacilitiesPage: React.FC = () => {
             <figure className="lg:col-span-7 rounded-2xl bg-[var(--color-bg-primary)] border border-[var(--color-border-subtle)] overflow-hidden flex flex-col shadow-xs">
               <EditorialPhotoFrame
                 src="/images/article-prevention.webp"
-                alt="Không gian tiếp đón và chờ thăm khám (ảnh minh họa)"
+                alt="Thú cưng nghỉ ngơi trong không gian ấm áp (ảnh minh họa)"
                 aspectRatio="16/10"
                 label="Ảnh minh họa — không phải cơ sở thực tế của Lê Sơn"
               />
@@ -80,7 +80,7 @@ export const FacilitiesPage: React.FC = () => {
             <figure className="lg:col-span-5 rounded-2xl bg-[var(--color-bg-primary)] border border-[var(--color-border-subtle)] overflow-hidden flex flex-col shadow-xs">
               <EditorialPhotoFrame
                 src="/images/article-nutrition.webp"
-                alt="Khu vực thăm khám lâm sàng (ảnh minh họa)"
+                alt="Chăm sóc dinh dưỡng cho thú cưng (ảnh minh họa)"
                 aspectRatio="4/3"
                 label="Ảnh minh họa — không phải cơ sở thực tế của Lê Sơn"
               />

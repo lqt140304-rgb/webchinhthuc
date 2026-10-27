@@ -6,6 +6,7 @@ import { EditorialSlotBox } from '@/components/editorial/EditorialSlotBox'
 import { EditorialTriptych } from '@/components/editorial/EditorialTriptych'
 import { EditorialDarkCTA } from '@/components/editorial/EditorialDarkCTA'
 import { TeamMemberCard, type TeamMember } from '@/components/editorial/TeamMemberCard'
+import { TeamGrid } from '@/components/editorial/TeamGrid'
 
 type DeptFilter = 'all' | 'vet' | 'grooming' | 'support'
 
@@ -187,22 +188,20 @@ export const TeamPage: React.FC = () => {
               Bộ phận Bác sĩ Thú y
             </h2>
 
-            <EditorialSlotBox label="KHUNG MÔ PHỎNG KIỂM THỬ GIAO DIỆN" className="mb-4 max-w-3xl">
-              Sĩ số và danh sách nhân sự thực tế đang chờ Chủ dự án cung cấp. Bản mockup hiện hiển thị các thẻ mẫu trung tính để kiểm thử quy tắc lưới cân bằng.
+            <EditorialSlotBox label="DỮ LIỆU NHÂN SỰ ĐANG CẬP NHẬT" className="mb-4 max-w-3xl">
+              Sĩ số và danh sách nhân sự thực tế đang chờ Chủ dự án xác nhận. Các thẻ dưới đây hiện là dữ liệu mẫu trung tính để phục vụ hiển thị bố cục.
             </EditorialSlotBox>
 
             <p className="text-xs sm:text-sm text-[var(--color-fg-muted)] leading-relaxed mb-8 max-w-3xl">
               [Bộ phận Bác sĩ Thú y phụ trách thăm khám lâm sàng và các hoạt động chuyên môn y khoa — Chờ cập nhật danh mục phân công].
             </p>
 
-            {/* Universal Grid: 3 cards on desktop, equal height */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
+            {/* Universal Grid: Same card width across all departments, auto-centered last row */}
+            <TeamGrid>
               {vetTeam.map((member) => (
-                <div key={member.id} className="flex flex-col h-full">
-                  <TeamMemberCard member={member} />
-                </div>
+                <TeamMemberCard key={member.id} member={member} />
               ))}
-            </div>
+            </TeamGrid>
           </div>
         </section>
       )}
@@ -221,12 +220,12 @@ export const TeamPage: React.FC = () => {
               [Bộ phận Spa &amp; Grooming phục vụ dịch vụ tắm vệ sinh và chăm sóc da lông — Chờ xác nhận cơ cấu nhân sự thực tế].
             </p>
 
-            {/* N=1 Centered Grid Rule (1/3 max width on desktop, perfectly centered) */}
-            <div className="flex justify-center">
-              <div className="w-full max-w-sm">
-                <TeamMemberCard member={groomingTeam[0]} />
-              </div>
-            </div>
+            {/* Universal Grid: N=1 Card centered with identical width system */}
+            <TeamGrid>
+              {groomingTeam.map((member) => (
+                <TeamMemberCard key={member.id} member={member} />
+              ))}
+            </TeamGrid>
           </div>
         </section>
       )}
@@ -245,14 +244,12 @@ export const TeamPage: React.FC = () => {
               [Đề xuất định hướng hỗ trợ công tác chăm sóc nội trú và tiếp đón khách hàng — Chờ xác nhận cơ cấu thực tế].
             </p>
 
-            {/* N=2 Centered Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-3xl mx-auto">
+            {/* Universal Grid: N=2 Cards centered with identical width system */}
+            <TeamGrid>
               {supportTeam.map((member) => (
-                <div key={member.id} className="flex flex-col h-full">
-                  <TeamMemberCard member={member} />
-                </div>
+                <TeamMemberCard key={member.id} member={member} />
               ))}
-            </div>
+            </TeamGrid>
           </div>
         </section>
       )}

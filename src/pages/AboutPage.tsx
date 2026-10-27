@@ -103,7 +103,7 @@ export const AboutPage: React.FC = () => {
               <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-plum-primary)] mb-2.5 block">
                 01 • Câu chuyện Lê Sơn
               </span>
-              <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[var(--color-plum-deep)] leading-snug border-l-4 border-[var(--color-plum-primary)] pl-4 italic">
+              <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[var(--color-plum-deep)] leading-snug border-l-4 border-[var(--color-plum-primary)] pl-4">
                 “Mỗi bé cưng đến viện đều mang theo niềm thương yêu và sự gửi gắm của cả một gia đình.”
               </h2>
             </div>

@@ -18,12 +18,12 @@ interface TeamMemberCardProps {
 export const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ member, className = '' }) => {
   return (
     <article
-      className={`rounded-2xl bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] shadow-xs overflow-hidden flex flex-col h-full transition-all duration-200 hover:shadow-sm ${className}`}
+      className={`w-full max-w-[360px] md:w-[calc((100%-1.5rem)/2)] md:max-w-[360px] lg:w-[calc((100%-4rem)/3)] lg:max-w-[384px] rounded-2xl bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] shadow-xs overflow-hidden flex flex-col transition-all duration-200 hover:shadow-sm ${className}`}
     >
       {/* Monogram Box (4:5 Aspect Ratio, neutral placeholder, NO stock face) */}
-      <div className="w-full aspect-[4/5] bg-[#F8F2F9] flex flex-col items-center justify-center p-6 border-b border-[var(--color-border-subtle)] relative">
+      <div className="w-full aspect-[4/5] bg-[var(--color-lavender)] flex flex-col items-center justify-center p-6 border-b border-[var(--color-border-subtle)] relative">
         <div
-          className="w-16 h-16 sm:w-18 sm:h-18 rounded-full bg-[#EFE4F2] text-[var(--color-plum-primary)] font-serif font-bold text-xl sm:text-2xl flex items-center justify-center shadow-xs select-none"
+          className="w-16 h-16 sm:w-18 sm:h-18 rounded-full bg-[var(--color-plum-primary)]/10 text-[var(--color-plum-primary)] font-serif font-bold text-xl sm:text-2xl flex items-center justify-center shadow-xs select-none"
           aria-hidden="true"
         >
           {member.monogram}
