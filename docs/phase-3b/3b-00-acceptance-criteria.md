@@ -1,10 +1,10 @@
-# TIÊU CHÍ NGHIỆM THU GIAI ĐOẠN 3B — PHIÊN BẢN V1.1 (PHASE 3B-00 ACCEPTANCE CRITERIA)
+# TIÊU CHÍ NGHIỆM THU GIAI ĐOẠN 3B — PHIÊN BẢN V1.2 (PHASE 3B-00 ACCEPTANCE CRITERIA)
 ## Bệnh viện Thú y Lê Sơn 2026 — Khung Tiêu Chí Đánh Giá Phân Tầng Đa Giai Đoạn
 
 | Hạng mục | Thông tin chi tiết |
 | :--- | :--- |
 | **Dự án** | Website Bệnh viện Thú y Lê Sơn 2026 (`lqt140304-rgb/webchinhthuc`) |
-| **Căn cứ chỉ đạo** | **CEO DIRECTIVE 042-A (Section XI)**; `docs/phase-3b/3b-00-content-evidence-gate.md`; Báo cáo Claude QA `docs/qa/3b-00-design-doc-qa.md` |
+| **Căn cứ chỉ đạo** | **CEO DIRECTIVE 044-A**; `docs/phase-3b/3b-00-content-evidence-gate.md`; Báo cáo Claude QA Fix 01 `docs/qa/3b-00-fix01-qa.md` (Commit: `b9f386b`) |
 | **Bản chất tài liệu** | **MULTI-TIER QA ACCEPTANCE CRITERIA FRAMEWORK** (Khung tiêu chí kiểm định độc lập phân tầng) |
 | **Giai đoạn áp dụng** | Xuyên suốt từ **3B-00 (Tài liệu)** $\to$ **3B-01 (Mockup)** $\to$ **DEV-01 (Code)** $\to$ **Preview** $\to$ **Production** |
 | **Trạng thái tài liệu** | **CHỜ CHỦ DỰ ÁN PHÊ DUYỆT (PENDING OWNER APPROVAL)** |
@@ -24,7 +24,7 @@
     ▼                               ▼                               ▼
 [ CẤP ĐỘ 1: TÀI LIỆU ]     [ CẤP ĐỘ 2: MOCKUP ]           [ CẤP ĐỘ 3: CODE ]
 Kiểm tra tính nhất quán     Kiểm tra thị giác trực quan   Kiểm tra TypeScript, Lint,
-Content Lock, Schema        & tương tác HTML tĩnh         Build bundle, Unit tests
+Content Lock, Schema        & tương tác HTML tĩnh         Build bundle, Unit tests, SEO
 (Giai đoạn 3B-00)           (Giai đoạn 3B-01)             (Giai đoạn DEV-01)
                                     │
                                     ├───────────────────────────────┐
@@ -50,8 +50,10 @@ Content Lock, Schema        & tương tác HTML tĩnh         Build bundle, Unit
 | **AC-DOC-05** | Quy tắc bảo vệ giá (Price Lock) | Không có giá giả, không dùng `0 VNĐ`, các dịch vụ chưa có giá bắt buộc mang nhãn `UNAVAILABLE` hoặc `CONTACT`. | Kiểm tra Data Schema & Wireframe. | Antigravity / Claude | **NOT TESTED (Chờ QA)** |
 | **AC-DOC-06** | Thống nhất Taxonomy & Slug | Sử dụng cùng 5 nhóm danh mục và cùng bộ slug trên cả 5 tài liệu 3B (`kham-dieu-tri`, `can-lam-sang`, `phau-thuat`, `noi-tru`, `spa-grooming`). | Đối chiếu chéo 5 file tài liệu. | Antigravity / Claude | **NOT TESTED (Chờ QA)** |
 | **AC-DOC-07** | Trung tính hóa Fixture | Fixtures có cờ `testOnly: true`, `isPublished: false`, 0 tên người thật, 0 thiết bị tự tạo, dùng placeholder `[Số tiền niêm yết]`. | Quét file `3b-00-data-schema.md`. | Antigravity / Claude | **NOT TESTED (Chờ QA)** |
-| **AC-DOC-08** | Khai báo phụ thuộc ngoài phạm vi | Liệt kê đầy đủ 3 phụ thuộc ngoài phạm vi (`?service=` trên BookingPage, menu Header, liên kết Footer/Home) thành OPEN DECISIONS. | Kiểm tra Blueprint §8 & §9. | Antigravity / Claude | **NOT TESTED (Chờ QA)** |
-| **AC-DOC-09** | Danh mục OPEN DECISIONS | Đầy đủ ít nhất 11 quyết định mở cần chủ dự án phê duyệt trước khi code. | Kiểm tra Blueprint §9. | Antigravity / Claude | **NOT TESTED (Chờ QA)** |
+| **AC-DOC-08** | Khai báo phụ thuộc ngoài phạm vi | Liệt kê đầy đủ 3 phụ thuộc ngoài phạm vi (`?service=` trên BookingPage, menu Header, liên kết Footer/Home) thành OPEN DECISIONS. | Kiểm tra Blueprint §9. | Antigravity / Claude | **NOT TESTED (Chờ QA)** |
+| **AC-DOC-09** | Danh mục OPEN DECISIONS | Đầy đủ ít nhất 13 quyết định mở cần chủ dự án phê duyệt trước khi code (kèm DEC-12 và DEC-13). | Kiểm tra Blueprint §10. | Antigravity / Claude | **NOT TESTED (Chờ QA)** |
+| **AC-DOC-10** | Đặc tả SEO Metadata Gate | Đặc tả đầy đủ `<title>`, meta description, canonical placeholder, Open Graph tags, robots policy và quy tắc Schema.org không chứa PENDING. | Kiểm tra Blueprint §7. | Antigravity / Claude | **NOT TESTED (Chờ QA)** |
+| **AC-DOC-11** | Phân định thẩm quyền (DEC-12/13)| 0 trường hợp AI Agent (Antigravity, Claude, ChatGPT CEO) đứng tên người duyệt phòng khám trong `verifiedBy` / `approvedBy`. | Quét trường `verifiedBy` trong Mapping và Schema. | Antigravity / Claude | **NOT TESTED (Chờ QA)** |
 
 ### Cấp độ 2: Tiêu chí Nghiệm thu Thiết kế & Mockup Trực Quan (Design & Mockup QA Gate — 3B-01)
 
@@ -72,6 +74,8 @@ Content Lock, Schema        & tương tác HTML tĩnh         Build bundle, Unit
 | **AC-COD-04** | WAI-ARIA Accordion | Hỗ trợ đầy đủ phím `Enter`, `Space`, `ArrowDown`, `ArrowUp`, `Home`, `End`. Có thuộc tính `aria-expanded`, `aria-controls`. | Playwright keyboard interaction test. | Antigravity / Claude | **NOT TESTED (Giai đoạn sau)** |
 | **AC-COD-05** | Vùng chạm Touch Target | 100% nút bấm, tab lọc, hàng accordion trigger đạt kích thước tối thiểu $\ge 44\times 44\text{px}$ trên thiết bị di động. | Playwright bounding box audit. | Antigravity / Claude | **NOT TESTED (Giai đoạn sau)** |
 | **AC-COD-06** | Hỗ trợ Reduced Motion | Khi kích hoạt `prefers-reduced-motion`, toàn bộ animation accordion và cuộn trang chuyển sang tức thì (`duration: 0.01ms`). | CSS Media query evaluation test. | Antigravity / Claude | **NOT TESTED (Giai đoạn sau)** |
+| **AC-COD-07** | Triển khai SEO Metadata | Thẻ `<title>`, description, canonical, OG tags được chèn đúng chuẩn semantic HTML. 0 console errors khi tải trang. | DOM inspection & browser logs. | Antigravity / Claude | **NOT TESTED (Giai đoạn sau)** |
+| **AC-COD-08** | Bảo vệ tuyến đường (HTTP 404) | Đường dẫn ngoài phạm vi như `/dich-vu/:slug` trả về 404 hoặc ComingSoon, không gây vỡ runtime React. | HTTP status & Navigation test. | Antigravity / Claude | **NOT TESTED (Giai đoạn sau)** |
 
 ### Cấp độ 4: Tiêu chí Nghiệm thu Bản Triển Khai Kiểm Thử (Preview QA Gate)
 
@@ -81,6 +85,8 @@ Content Lock, Schema        & tương tác HTML tĩnh         Build bundle, Unit
 | **AC-PRV-02** | Bảo vệ Deployment & Noindex | Deployment có cờ `target: null`, Vercel SSO Authentication bật (`302 Found`), header `X-Robots-Tag: noindex, nofollow`. | HTTP Header response test. | Claude QA | **NOT TESTED (Giai đoạn sau)** |
 | **AC-PRV-03** | Build Reproducibility | Toàn bộ asset build trên máy chủ Vercel khớp byte-for-byte với bản build cục bộ từ git checkout sạch. | Hash so sánh sha256 từng chunk. | Claude QA | **NOT TESTED (Giai đoạn sau)** |
 | **AC-PRV-04** | Zero Regression Mốc 2A/2B/3A | Trang chủ 6 sections, trang `/dat-lich` và 3 trang 3A giữ nguyên 100% layout, pixel diff và chức năng. | Pixel diff snapshot comparison. | Claude QA | **NOT TESTED (Giai đoạn sau)** |
+| **AC-PRV-05** | Hiệu năng Core Web Vitals | LCP mobile $\le 2.5\text{s}$, FID/INP $\le 200\text{ms}$, 0 console errors trên Chrome DevTools. | Lighthouse & Web Vitals report. | Claude QA | **NOT TESTED (Giai đoạn sau)** |
+| **AC-PRV-06** | Kiểm định Schema.org JSON-LD | 0 phần tử `Offer` nào chứa mức giá chưa xác minh hoặc dịch vụ `PENDING`. Dữ liệu cấu trúc hợp lệ với Schema Validator. | Google Rich Results Test tool. | Claude QA | **NOT TESTED (Giai đoạn sau)** |
 
 ### Cấp độ 5: Điều Kiện Tiên Quyết Phát Hành Chính Thức (Production Release Gate)
 
@@ -111,4 +117,4 @@ Các tồn đọng dưới đây được ghi nhận chính thức theo Mục X 
 
 ---
 
-**KẾT THÚC BẢNG TIÊU CHÍ NGHIỆM THU PHÂN TẦNG 3B-00 (ACCEPTANCE CRITERIA V1.1)**
+**KẾT THÚC BẢNG TIÊU CHÍ NGHIỆM THU PHÂN TẦNG 3B-00 (ACCEPTANCE CRITERIA V1.2)**

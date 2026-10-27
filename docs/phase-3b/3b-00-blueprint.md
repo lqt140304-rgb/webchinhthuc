@@ -1,11 +1,11 @@
-# HỒ SƠ THIẾT KẾ CHI TIẾT GIAI ĐOẠN 3B — PHIÊN BẢN V1.1 (PHASE 3B-00 BLUEPRINT)
+# HỒ SƠ THIẾT KẾ CHI TIẾT GIAI ĐOẠN 3B — PHIÊN BẢN V1.2 (PHASE 3B-00 BLUEPRINT)
 ## Bệnh viện Thú y Lê Sơn 2026 — Kiến Trúc Tuyến Trang Dịch Vụ & Bảng Giá Niêm Yết
 
 | Hạng mục | Thông tin chi tiết |
 | :--- | :--- |
 | **Dự án** | Website Bệnh viện Thú y Lê Sơn 2026 (`lqt140304-rgb/webchinhthuc`) |
 | **Giai đoạn** | **3B-00: DOCUMENTATION & BLUEPRINT SPECIFICATION ONLY** |
-| **Căn cứ chỉ đạo** | **CEO DIRECTIVE 042-A**; `AGENTS.md` (Architecture Baseline V1); `PROJECT_BRIEF.md`; Báo cáo Claude QA `docs/qa/3b-00-design-doc-qa.md` (Commit: `fa2dda2`) |
+| **Căn cứ chỉ đạo** | **CEO DIRECTIVE 044-A**; `AGENTS.md` (Architecture Baseline V1); `PROJECT_BRIEF.md`; Báo cáo Claude QA Fix 01 `docs/qa/3b-00-fix01-qa.md` (Commit: `b9f386b`) |
 | **Mã nguồn cơ sở 3A** | Commit `4739d45cc95100b587381b6bdcad6935352b23e8` (Nghiệm thu có điều kiện) |
 | **Tác giả thiết kế** | Antigravity — UX Architect & Documentation Owner |
 | **Thẩm định độc lập** | Claude — Independent QA Lead |
@@ -23,9 +23,10 @@
 4. [Mục 4: Đặc Tả Chi Tiết Tuyến Trang `/dich-vu`](#4-muc-4-dac-ta-chi-tiet-tuyen-trang-dich-vu)
 5. [Mục 5: Đặc Tả Chi Tiết Tuyến Trang `/bang-gia`](#5-muc-5-dac-ta-chi-tiet-tuyen-trang-bang-gia)
 6. [Mục 6: Kiến Trúc Cô Lập Bundle, Hiệu Năng & Ngăn Ngừa CLS](#6-muc-6-kien-truc-co-lap-bundle-hieu-nang--ngan-ngua-cls)
-7. [Mục 7: Khung Kiểm Soát Bằng Chứng & Khóa Nội Dung (Content Lock)](#7-muc-7-khung-kiem-soat-bang-chung--khoa-noi-dung-content-lock)
-8. [Mục 8: Danh Mục Phụ Thuộc Ngoài Phạm Vi (Out-of-Scope Dependencies)](#8-muc-8-danh-muc-phu-thuoc-ngoai-pham-vi-out-of-scope-dependencies)
-9. [Mục 9: Danh Mục 11 Quyết Định Mở Cần Chủ Dự Án Phê Duyệt (OPEN DECISIONS)](#9-muc-9-danh-muc-11-quyet-dinh-mo-can-chu-du-an-phe-duyet-open-decisions)
+7. [Mục 7: Đặc Tả SEO Metadata Gate Cho Hai Tuyến Đường](#7-muc-7-dac-ta-seo-metadata-gate-cho-hai-tuyen-duong)
+8. [Mục 8: Khung Kiểm Soát Bằng Chứng & Khóa Nội Dung (Content Lock)](#8-muc-8-khung-kiem-soat-bang-chung--khoa-noi-dung-content-lock)
+9. [Mục 9: Danh Mục Phụ Thuộc Ngoài Phạm Vi (Out-of-Scope Dependencies)](#9-muc-9-danh-muc-phu-thuoc-ngoai-pham-vi-out-of-scope-dependencies)
+10. [Mục 10: Danh Mục 13 Quyết Định Mở Cần Chủ Dự Án Phê Duyệt (OPEN DECISIONS)](#10-muc-10-danh-muc-13-quyet-dinh-mo-can-chu-du-an-phe-duyet-open-decisions)
 
 ---
 
@@ -105,7 +106,7 @@ Nhằm khắc phục triệt để lỗi lệch nhóm và lệch slug giữa cá
 | **01** | `cat-kham-dieu-tri` | `kham-dieu-tri` | **Khám & Điều trị lâm sàng** | Khám tổng quát, sàng lọc, tiêm phòng, điều trị nội khoa | `PROPOSED / PENDING` |
 | **02** | `cat-can-lam-sang` | `can-lam-sang` | **Chẩn đoán cận lâm sàng & Xét nghiệm** | Xét nghiệm huyết học, sinh hóa, X-quang, siêu âm, soi da | `PROPOSED / PENDING` |
 | **03** | `cat-phau-thuat` | `phau-thuat` | **Phẫu thuật ngoại khoa & Triệt sản** | Triệt sản an toàn chó mèo, tiểu phẫu, xử lý vết thương | `PROPOSED / PENDING` |
-| **04** | `cat-noi-tru` | `noi-tru` | **Chăm sóc nội trú y tế 24/7** | Lưu trú chăm sóc y tế, cách ly theo dõi | `PROPOSED / PENDING` |
+| **04** | `cat-noi-tru` | `noi-tru` | **Chăm sóc nội trú y tế 24/7** | Lưu trú chăm sóc y tế theo dõi [Chờ xác nhận danh mục] | `PROPOSED / PENDING` |
 | **05** | `cat-spa-grooming` | `spa-grooming` | **Vệ sinh y tế & Spa Grooming** | Tắm vệ sinh tiêu chuẩn, cắt tỉa thẩm mỹ, tắm trị liệu da | `PROPOSED / PENDING` |
 
 *Ghi chú quan trọng:* 
@@ -200,7 +201,7 @@ Trang /dich-vu
   - Tiêu đề H2: `Không gian lưu trú yên tĩnh và chế độ theo dõi phù hợp`
   - Các định hướng vận hành đề xuất:
     - *Khu vực lưu trú chuyên biệt:* Bố trí không gian phù hợp cho từng đối tượng thú cưng. `[Chờ xác nhận cơ cấu phân khu]`
-    - *Chế độ theo dõi:* Đội ngũ nhân viên hỗ trợ chăm sóc, cho ăn và theo dõi theo y lệnh. `[Chờ xác nhận quy trình kíp trực]`
+    - *Chế độ theo dõi:* Đội ngũ nhân viên hỗ trợ chăm sóc, cho ăn và theo dõi theo y lệnh. `[Chờ xác nhận phương án nhân sự theo dõi y tế]`
     - *Cập nhật tình hình:* Thông báo tình trạng phục hồi cho chủ nuôi. *(Không công khai y lệnh nghiệp vụ nội bộ trên cổng khách hàng).*
   - Liên kết phụ trợ: `Xem biểu phí nội trú lưu chuồng ->` (`/bang-gia?cat=noi-tru`).
 
@@ -347,16 +348,64 @@ Bảng giá được chia thành 5 nhóm danh mục chuẩn. Mỗi dịch vụ l
 
 ---
 
-## 7. MỤC 7: KHUNG KIỂM SOÁT BẰNG CHỨNG & KHÓA NỘI DUNG (CONTENT LOCK)
+## 7. MỤC 7: ĐẶC TẢ SEO METADATA GATE CHO HAI TUYẾN ĐƯỜNG (/dich-vu & /bang-gia)
 
-Tuân thủ nghiêm ngặt quy chế tại [`docs/phase-3b/3b-00-content-evidence-gate.md`](file:///d:/webbvct/docs/phase-3b/3b-00-content-evidence-gate.md):
-- **Gỡ bỏ toàn bộ gán chuyên môn:** Không gán chức danh ngoại khoa, kíp mổ hay máy gây mê cho BS. Lê Thái Sơn khi chưa có văn bản phê duyệt.
-- **Loại bỏ toàn bộ claim 3A đã bác bỏ:** Không công bố "khu cách ly", "khu hồi sức riêng", "trực đêm", "theo dõi sinh hiệu", "phòng mổ vô trùng", "máy gây mê" như sự thật đã hoàn tất.
-- **Không tự nâng VERIFIED:** Mọi mục thiếu bằng chứng văn bản cụ thể đều giữ nguyên trạng thái `PENDING`.
+Để đáp ứng tiêu chuẩn SEO kỹ thuật và tuân thủ nguyên tắc kiểm soát bằng chứng (Content Evidence Gate & 3B00F-P2-9), toàn bộ thẻ meta tiêu đề, mô tả, chỉ dẫn robot và cấu trúc dữ liệu schema.org phải được quy hoạch chặt chẽ trước khi triển khai:
+
+### 7.1. Nguyên tắc quản trị Metadata Gate
+1. **Khóa nội dung Meta Description:** Tuyệt đối không đưa các tuyên bố chuyên môn chưa được xác minh (như máy gây mê khí dung, khu cách ly, phẫu thuật chuyên sâu khi chưa duyệt) hoặc các mức giá chưa niêm yết vào thẻ `<meta name="description">` và `<meta property="og:description">`.
+2. **Chính sách Canonical URL:** Trong giai đoạn phát triển và preview, canonical URL sử dụng định dạng placeholder tiêu chuẩn:
+   - `/dich-vu`: `https://[domain-chinh-thuc]/dich-vu`
+   - `/bang-gia`: `https://[domain-chinh-thuc]/bang-gia`
+   *(Domain chính thức sẽ được cấu hình khi chủ dự án chốt tên miền triển khai).*
+3. **Chính sách Robots Indexing:**
+   - Môi trường Preview / Staging: Bắt buộc cấu hình `<meta name="robots" content="noindex, nofollow" />` để tránh lập chỉ mục dữ liệu dự thảo.
+   - Môi trường Production: Chỉ kích hoạt `<meta name="robots" content="index, follow" />` sau khi toàn bộ dữ liệu đạt `VERIFIED` và được chủ dự án nghiệm thu.
+4. **Bảo vệ bản quyền & Nguồn gốc OG Image:** Thẻ `og:image` sử dụng ảnh nhận diện thương hiệu chuẩn kích thước $1200 \times 630\text{px}$ có sẵn trong asset Mốc 2A/2B hoặc logo đồ họa thương hiệu, không dùng ảnh chụp phòng mổ/trang thiết bị chưa xác minh nguồn gốc.
+5. **Chính sách Schema.org / JSON-LD:**
+   - Tuyệt đối **KHÔNG** đưa các dịch vụ đang ở trạng thái `PROPOSED / PENDING` vào cấu trúc `Offer` hoặc `priceSpecification` của Schema.org.
+   - Chỉ tích hợp Schema.org `MedicalBusiness` / `MedicalWebPage` với các thông tin đã `VERIFIED` (Địa chỉ 101 Khuất Duy Tiến, Hotline 0988 565 056, Giờ mở cửa 08:00 – 21:00, Tiếp nhận cấp cứu 24/24).
+   - Biểu phí chỉ được xuất bản vào Schema.org `OfferCatalog` khi dịch vụ đạt trạng thái `FIXED` hoặc `RANGE` kèm văn bản phê duyệt từ chủ dự án.
+6. **Xử lý mã phản hồi HTTP 404 cho tuyến đường ngoài phạm vi:**
+   - Các tuyến con như `/dich-vu/:slug` chưa được phép mở. Mọi yêu cầu truy cập vào đường dẫn không tồn tại phải trả về trang HTTP 404 Not Found (hoặc chuyển tiếp ComingSoon theo kiến trúc đã duyệt), tuyệt đối không trả trang trống hoặc HTTP 200 không nội dung.
+
+### 7.2. Đặc tả Metadata chi tiết cho Tuyến Đường `/dich-vu`
+
+| Thuộc tính Meta | Giá trị đặc tả | Trạng thái xác minh |
+|---|---|---|
+| `<title>` | `Dịch Vụ Y Tế & Chăm Sóc Thú Cưng | Bệnh Viện Thú Y Lê Sơn Hà Nội` | `PROPOSED / PENDING` |
+| `meta[name="description"]` | `Tổng quan hệ sinh thái dịch vụ thú y tại Lê Sơn: Khám điều trị lâm sàng, xét nghiệm cận lâm sàng, ngoại khoa, nội trú y tế và spa grooming tiêu chuẩn.` | `PROPOSED / PENDING` (Độ dài: 158 ký tự) |
+| `link[rel="canonical"]` | `https://[domain-chinh-thuc]/dich-vu` | `PROPOSED` |
+| `meta[property="og:title"]` | `Dịch Vụ Y Tế & Chăm Sóc Thú Cưng | Bệnh Viện Thú Y Lê Sơn` | `PROPOSED / PENDING` |
+| `meta[property="og:description"]` | `Hệ thống giải pháp y tế thú cưng chuẩn mực, tận tâm và minh bạch tại 101 Khuất Duy Tiến, Thanh Xuân, Hà Nội.` | `PROPOSED / PENDING` |
+| `meta[property="og:image"]` | `https://[domain-chinh-thuc]/assets/og-dich-vu.jpg` ($1200 \times 630\text{px}$) | `PROPOSED` |
+| `meta[property="og:type"]` | `website` | `VERIFIED` |
+
+### 7.3. Đặc tả Metadata chi tiết cho Tuyến Đường `/bang-gia`
+
+| Thuộc tính Meta | Giá trị đặc tả | Trạng thái xác minh |
+|---|---|---|
+| `<title>` | `Bảng Giá Dịch Vụ Niêm Yết Tham Chiếu | Bệnh Viện Thú Y Lê Sơn` | `PROPOSED / PENDING` |
+| `meta[name="description"]` | `Tra cứu biểu phí và bảng giá dịch vụ thú y tham chiếu tại Bệnh viện Thú y Lê Sơn. Minh bạch chi phí, tư vấn rõ ràng và đồng hành tận tâm.` | `PROPOSED / PENDING` (Độ dài: 151 ký tự) |
+| `link[rel="canonical"]` | `https://[domain-chinh-thuc]/bang-gia` | `PROPOSED` |
+| `meta[property="og:title"]` | `Bảng Giá Dịch Vụ Niêm Yết | Bệnh Viện Thú Y Lê Sơn` | `PROPOSED / PENDING` |
+| `meta[property="og:description"]` | `Minh bạch biểu phí khám chữa bệnh, chẩn đoán, nội trú và chăm sóc thú cưng tại 101 Khuất Duy Tiến, Hà Nội.` | `PROPOSED / PENDING` |
+| `meta[property="og:image"]` | `https://[domain-chinh-thuc]/assets/og-bang-gia.jpg` ($1200 \times 630\text{px}$) | `PROPOSED` |
+| `meta[property="og:type"]` | `website` | `VERIFIED` |
 
 ---
 
-## 8. MỤC 8: DANH MỤC PHỤ THUỘC NGOÀI PHẠM VI (OUT-OF-SCOPE DEPENDENCIES)
+## 8. MỤC 8: KHUNG KIỂM SOÁT BẰNG CHỨNG & KHÓA NỘI DUNG (CONTENT LOCK)
+
+Tuân thủ nghiêm ngặt quy chế tại [`3b-00-content-evidence-gate.md`](3b-00-content-evidence-gate.md):
+- **Gỡ bỏ toàn bộ gán chuyên môn:** Không gán chức danh ngoại khoa, kíp mổ hay máy gây mê cho BS. Lê Thái Sơn khi chưa có văn bản phê duyệt.
+- **Loại bỏ toàn bộ claim 3A đã bác bỏ:** Không công bố "khu cách ly", "khu hồi sức riêng", "trực đêm", "theo dõi sinh hiệu", "phòng mổ vô trùng", "máy gây mê" như sự thật đã hoàn tất.
+- **Không tự nâng VERIFIED:** Mọi mục thiếu bằng chứng văn bản cụ thể đều giữ nguyên trạng thái `PENDING`.
+- **Áp dụng DEC-12 & DEC-13:** Mọi câu chữ tiêu đề, đoạn dẫn thương hiệu chỉ được chuyển thành `VERIFIED` khi có văn bản phê duyệt của chủ dự án; AI agent không tự xưng là người duyệt dữ liệu y tế.
+
+---
+
+## 9. MỤC 9: DANH MỤC PHỤ THUỘC NGOÀI PHẠM VI (OUT-OF-SCOPE DEPENDENCIES)
 
 Các tính năng hoặc liên kết liên quan đến các thành phần ngoài phạm vi 3B-00 được ghi nhận rõ ràng:
 
@@ -368,9 +417,9 @@ Các tính năng hoặc liên kết liên quan đến các thành phần ngoài 
 
 ---
 
-## 9. MỤC 9: DANH MỤC 11 QUYẾT ĐỊNH MỞ CẦN CHỦ DỰ ÁN PHÊ DUYỆT (OPEN DECISIONS)
+## 10. MỤC 10: DANH MỤC 13 QUYẾT ĐỊNH MỞ CẦN CHỦ DỰ ÁN PHÊ DUYỆT (OPEN DECISIONS)
 
-Dưới đây là danh sách 11 quyết định mở được tổng hợp đầy đủ theo yêu cầu của CEO Directive 042-A và khuyến nghị QA của Claude:
+Dưới đây là danh sách 13 quyết định mở được tổng hợp đầy đủ theo yêu cầu của CEO Directive 042-A, Directive 044-A và khuyến nghị QA của Claude:
 
 1. **3B-DEC-01 (Phương thức công bố biểu phí):** Chủ dự án muốn cung cấp ngay biểu phí rút gọn có mức giá thật cho một số dịch vụ cơ bản trong bản Preview đầu tiên, hay giữ toàn bộ danh mục ở trạng thái `UNAVAILABLE` / `CONTACT`?
 2. **3B-DEC-02 (Điều hướng 4 route con `/dich-vu/*` hiện hữu):** Chủ dự án muốn giữ nguyên 4 trang ComingSoon hiện tại, hay cho phép Antigravity sửa Header/Footer để chuyển hướng các mục con này thành anchor link (`#kham-dieu-tri`, `#noi-tru`...) trên trang `/dich-vu` trong một nhiệm vụ riêng?
@@ -383,7 +432,9 @@ Dưới đây là danh sách 11 quyết định mở được tổng hợp đầ
 9. **3B-DEC-09 (Cam kết tư vấn chi phí):** Xác nhận câu chữ cam kết giải thích dự toán chi phí trước khi can thiệp và nguyên tắc trao đổi phát sinh.
 10. **3B-DEC-10 (Tham số `?service=` trên BookingPage):** Chủ dự án có cho phép mở nhánh sửa `BookingPage.tsx` để nhận tham số tự động chọn dịch vụ từ bảng giá hay không?
 11. **3B-DEC-11 (Phân tầng giá theo cân nặng & Gói Spa Grooming):** Phòng khám có áp dụng biểu phí theo các nấc cân nặng thú cưng đối với dịch vụ spa và nội trú hay không; nếu có thì các mốc cân nặng cụ thể là gì?
+12. **3B-DEC-12 (Phê duyệt văn bản cho tiêu đề và câu dẫn Hero/Heading 3B):** Chủ dự án phê duyệt bằng văn bản cho câu chữ Hero, Eyebrow và Heading của hai tuyến trang `/dich-vu` (`DV-HERO-02/03/04`) và `/bang-gia` (`BG-HEAD-02/03/04`) trước khi chuyển từ `PENDING` sang `VERIFIED`.
+13. **3B-DEC-13 (Quy ước thẩm quyền người duyệt & quản lý nguồn bằng chứng):** Quy ước rõ ràng phân quyền: Chủ dự án duyệt thương hiệu, dịch vụ, biểu phí; Bác sĩ phụ trách duyệt quy trình y khoa; các AI Agent (Antigravity, Claude, ChatGPT CEO) là công cụ soạn thảo/QA, tuyệt đối không đứng tên `verifiedBy` / `approvedBy` cho dữ liệu thực tế phòng khám. Toàn bộ CEO Directives và biên bản duyệt văn bản được lưu trữ trong Git repo để làm nguồn căn cứ bằng chứng.
 
 ---
 
-**KẾT THÚC BẢN THIẾT KẾ CHI TIẾT 3B-00 (BLUEPRINT V1.1)**
+**KẾT THÚC BẢN THIẾT KẾ CHI TIẾT 3B-00 (BLUEPRINT V1.2)**

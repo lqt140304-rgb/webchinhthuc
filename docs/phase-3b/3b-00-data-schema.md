@@ -1,10 +1,10 @@
-# MÔ HÌNH DỮ LIỆU DỊCH VỤ & BẢNG GIÁ GIAI ĐOẠN 3B — PHIÊN BẢN V1.1 (PHASE 3B-00 DATA SCHEMA)
+# MÔ HÌNH DỮ LIỆU DỊCH VỤ & BẢNG GIÁ GIAI ĐOẠN 3B — PHIÊN BẢN V1.2 (PHASE 3B-00 DATA SCHEMA)
 ## Bệnh viện Thú y Lê Sơn 2026 — Mô Hình Dữ Liệu Logic (Logical Data Model)
 
 | Hạng mục | Thông tin chi tiết |
 | :--- | :--- |
 | **Dự án** | Website Bệnh viện Thú y Lê Sơn 2026 (`lqt140304-rgb/webchinhthuc`) |
-| **Căn cứ chỉ đạo** | **CEO DIRECTIVE 042-A (Section VIII, IX)**; `docs/phase-3b/3b-00-content-evidence-gate.md`; Báo cáo Claude QA `docs/qa/3b-00-design-doc-qa.md` |
+| **Căn cứ chỉ đạo** | **CEO DIRECTIVE 044-A**; `docs/phase-3b/3b-00-content-evidence-gate.md`; Báo cáo Claude QA `docs/qa/3b-00-fix01-qa.md` (Commit: `b9f386b`) |
 | **Bản chất tài liệu** | **LOGICAL DATA MODEL & TYPE DEFINITION ONLY** (Chưa phải Migration SQL, Prisma schema, API hoặc Database thực thi) |
 | **Giai đoạn** | **3B-00: DOCUMENTATION ONLY — KHÔNG CODE / KHÔNG DATABASE** |
 | **Trạng thái tài liệu** | **CHỜ CHỦ DỰ ÁN PHÊ DUYỆT (PENDING OWNER APPROVAL)** |
@@ -29,8 +29,12 @@ erDiagram
         int displayOrder "Thứ tự sắp xếp hiển thị"
         string verificationStatus "VERIFIED | PENDING | PROPOSED"
         string evidenceSource "Nguồn bằng chứng xác thực"
-        string verifiedBy "Chủ thể xác minh / phê duyệt"
-        string verifiedAt "Ngày xác minh (ISO 8601)"
+        string verifiedBy "Chuyên môn y tế xác minh (null nếu PENDING)"
+        string verifiedAt "Ngày xác minh y tế (YYYY-MM-DD)"
+        string approvedBy "Chủ thể phê duyệt công bố (Chủ dự án)"
+        string approvedAt "Ngày phê duyệt công bố (YYYY-MM-DD)"
+        string approvalReference "Số hiệu văn bản phê duyệt / Chỉ đạo"
+        string publicationScope "INTERNAL | PREVIEW_ONLY | PUBLIC"
         boolean publicationApproval "Chủ dự án cho phép công bố"
         boolean isPublished "Trạng thái công bố trên website"
     }
@@ -47,8 +51,12 @@ erDiagram
         int displayOrder "Thứ tự sắp xếp trong nhóm"
         string verificationStatus "VERIFIED | PENDING | PROPOSED"
         string evidenceSource "Nguồn bằng chứng xác thực"
-        string verifiedBy "Chủ thể xác minh / phê duyệt"
-        string verifiedAt "Ngày xác minh (ISO 8601)"
+        string verifiedBy "Chuyên môn y tế xác minh (null nếu PENDING)"
+        string verifiedAt "Ngày xác minh y tế (YYYY-MM-DD)"
+        string approvedBy "Chủ thể phê duyệt công bố (Chủ dự án)"
+        string approvedAt "Ngày phê duyệt công bố (YYYY-MM-DD)"
+        string approvalReference "Số hiệu văn bản phê duyệt / Chỉ đạo"
+        string publicationScope "INTERNAL | PREVIEW_ONLY | PUBLIC"
         boolean publicationApproval "Chủ dự án cho phép công bố"
         boolean isPublished "Trạng thái công bố"
     }
@@ -67,8 +75,12 @@ erDiagram
         string updatedAt "Thời điểm cập nhật gần nhất"
         string verificationStatus "VERIFIED | PENDING"
         string evidenceSource "Văn bản biểu phí có chữ ký"
-        string verifiedBy "Chủ thể phê duyệt biểu phí"
-        string verifiedAt "Ngày phê duyệt biểu phí"
+        string verifiedBy "Chuyên môn kiểm tra biểu phí (null nếu PENDING)"
+        string verifiedAt "Ngày kiểm tra biểu phí"
+        string approvedBy "Chủ dự án ký phê duyệt biểu phí"
+        string approvedAt "Ngày ký ban hành biểu phí"
+        string approvalReference "Số hiệu quyết định ban hành giá"
+        string publicationScope "INTERNAL | PREVIEW_ONLY | PUBLIC"
         boolean publicationApproval "Chủ dự án duyệt công bố giá"
     }
 ```
@@ -89,8 +101,12 @@ erDiagram
 | `displayOrder` | `number` | Có | Số nguyên không âm $\ge 0$ | Thứ tự ưu tiên hiển thị trên Toolbar và Section. |
 | `verificationStatus` | `enum` | Có | `'VERIFIED' \| 'PENDING' \| 'PROPOSED'` | Trạng thái xác minh của nhóm danh mục. |
 | `evidenceSource` | `string \| null` | Không | Chuỗi mô tả nguồn | Căn cứ pháp lý / chỉ đạo CEO. |
-| `verifiedBy` | `string \| null` | Không | Tên người duyệt cụ thể | Bắt buộc nếu status = `VERIFIED`. |
-| `verifiedAt` | `string \| null` | Không | ISO 8601 Date (`YYYY-MM-DD`) | Ngày phê duyệt chính thức. |
+| `verifiedBy` | `string \| null` | Không | Tên bác sĩ xác minh chuyên môn | Bắt buộc nếu status = `VERIFIED`. AI agent không được tự gán. |
+| `verifiedAt` | `string \| null` | Không | ISO 8601 Date (`YYYY-MM-DD`) | Ngày xác minh chuyên môn. |
+| `approvedBy` | `string \| null` | Không | Tên chủ dự án phê duyệt | Người có thẩm quyền cao nhất phê duyệt công bố. |
+| `approvedAt` | `string \| null` | Không | ISO 8601 Date (`YYYY-MM-DD`) | Ngày chủ dự án ký phê duyệt. |
+| `approvalReference` | `string \| null` | Không | Số hiệu quyết định / directive | Căn cứ văn bản lưu trong Git. |
+| `publicationScope` | `enum` | Có | `'INTERNAL' \| 'PREVIEW_ONLY' \| 'PUBLIC'` | Phạm vi phát hành dữ liệu. |
 | `publicationApproval` | `boolean` | Có | `true \| false` | Quyết định cho phép công bố từ chủ dự án. |
 | `isPublished` | `boolean` | Có | `true \| false` | Cờ hiển thị công khai trên website. |
 
@@ -109,8 +125,12 @@ erDiagram
 | `displayOrder` | `number` | Có | Số nguyên $\ge 0$ | Thứ tự xuất hiện trong bảng danh mục. |
 | `verificationStatus` | `enum` | Có | `'VERIFIED' \| 'PENDING' \| 'PROPOSED'` | Trạng thái xác minh chuyên môn. |
 | `evidenceSource` | `string \| null` | Không | Chuỗi mô tả nguồn | Căn cứ phê duyệt danh mục. |
-| `verifiedBy` | `string \| null` | Không | Tên người duyệt | Bắt buộc nếu status = `VERIFIED`. |
-| `verifiedAt` | `string \| null` | Không | ISO 8601 Date | Ngày phê duyệt chuyên môn. |
+| `verifiedBy` | `string \| null` | Không | Tên bác sĩ xác minh chuyên môn | Bắt buộc nếu status = `VERIFIED`. AI agent không được tự gán. |
+| `verifiedAt` | `string \| null` | Không | ISO 8601 Date (`YYYY-MM-DD`) | Ngày phê duyệt chuyên môn. |
+| `approvedBy` | `string \| null` | Không | Tên chủ dự án phê duyệt | Người có thẩm quyền cao nhất phê duyệt công bố. |
+| `approvedAt` | `string \| null` | Không | ISO 8601 Date (`YYYY-MM-DD`) | Ngày chủ dự án ký phê duyệt. |
+| `approvalReference` | `string \| null` | Không | Số hiệu quyết định / directive | Căn cứ văn bản lưu trong Git. |
+| `publicationScope` | `enum` | Có | `'INTERNAL' \| 'PREVIEW_ONLY' \| 'PUBLIC'` | Phạm vi phát hành dữ liệu. |
 | `publicationApproval` | `boolean` | Có | `true \| false` | Quyết định công bố từ chủ dự án. |
 | `isPublished` | `boolean` | Có | `true \| false` | Cho phép xuất hiện trên bảng giá. |
 
@@ -131,8 +151,12 @@ erDiagram
 | `updatedAt` | `string` | Có | ISO 8601 Timestamp | Thời điểm rà soát biểu phí gần nhất. |
 | `verificationStatus` | `enum` | Có | `'VERIFIED' \| 'PENDING'` | Phê duyệt từ chủ dự án trước khi công bố giá. |
 | `evidenceSource` | `string \| null` | Không | Tên văn bản biểu phí | Bắt buộc nếu status = `VERIFIED`. |
-| `verifiedBy` | `string \| null` | Không | Tên chủ dự án ký duyệt | Bắt buộc nếu status = `VERIFIED`. |
-| `verifiedAt` | `string \| null` | Không | ISO 8601 Date | Ngày ký quyết định ban hành giá. |
+| `verifiedBy` | `string \| null` | Không | Tên chuyên môn kiểm tra | Bắt buộc nếu status = `VERIFIED`. |
+| `verifiedAt` | `string \| null` | Không | ISO 8601 Date | Ngày kiểm tra chuyên môn. |
+| `approvedBy` | `string \| null` | Không | Tên chủ dự án ký ban hành giá | Bắt buộc nếu status = `VERIFIED`. |
+| `approvedAt` | `string \| null` | Không | ISO 8601 Date | Ngày ký quyết định ban hành giá. |
+| `approvalReference` | `string \| null` | Không | Số hiệu quyết định biểu phí | Căn cứ văn bản pháp lý lưu trong Git. |
+| `publicationScope` | `enum` | Có | `'INTERNAL' \| 'PREVIEW_ONLY' \| 'PUBLIC'` | Phạm vi công bố biểu phí. |
 | `publicationApproval` | `boolean` | Có | `true \| false` | Quyết định công bố giá. |
 
 ---
@@ -141,12 +165,17 @@ erDiagram
 
 Để ngăn ngừa lỗi hiển thị thông tin chưa kiểm chứng ra công chúng, hệ thống áp dụng các quy tắc logic chặt chẽ:
 
-1. **Quy tắc `isPublished` phụ thuộc `verificationStatus`:**
+1. **Ý nghĩa pháp lý của `PROPOSED` vs `PENDING`:**
+   - Trạng thái `PROPOSED` là nhãn phân loại thiết kế (Authoring Design Tag) cho các nội dung do Antigravity đề xuất cấu trúc UI/UX.
+   - Về mặt pháp lý và quản trị Content Evidence Gate, toàn bộ mục `PROPOSED` mang giá trị pháp lý tương đương `PENDING`.
+   - Tuyệt đối không xem nhãn `PROPOSED` là sự chuẩn thuận; tất cả bắt buộc phải có văn bản phê duyệt của chủ dự án và bác sĩ phụ trách trước khi chuyển sang `VERIFIED`.
+   - Áp dụng DEC-12 và DEC-13: Các AI Agent (Antigravity, Claude, ChatGPT) tuyệt đối không được gán vào `verifiedBy` hoặc `approvedBy`.
+2. **Quy tắc `isPublished` phụ thuộc `verificationStatus`:**
    - Nếu `verificationStatus === 'VERIFIED'` VÀ `publicationApproval === true`: Dữ liệu được công bố chính thức, không cần nhãn bảo lưu.
    - Nếu `verificationStatus === 'PENDING'` hoặc `'PROPOSED'`:
      - Trên môi trường Preview kiểm thử giao diện: Có thể đặt `isPublished = true` **VỚI ĐIỀU KIỆN BẮT BUỘC** là giao diện phải tự động gắn nhãn `[Đề xuất]` hoặc badge `UNAVAILABLE` / `CONTACT`.
      - Trên môi trường Production chính thức: Bắt buộc `isPublished = false` (ẩn hoàn toàn) cho đến khi chuyển thành `VERIFIED`.
-2. **Quy tắc tính hợp lệ của số tiền (Price Validation Constraints):**
+3. **Quy tắc tính hợp lệ của số tiền (Price Validation Constraints):**
    - Khi `priceStatus === 'UNAVAILABLE'`: Bắt buộc `amount === null`, `rangeMin === null`, `rangeMax === null`. Tuyệt đối không lưu giá trị `0`.
    - Khi `priceStatus === 'CONTACT'`: Bắt buộc `amount === null`, `rangeMin === null`, `rangeMax === null` và bắt buộc có `priceNote` giải thích lý do cần khám trước.
    - Khi `priceStatus === 'FIXED'`: Bắt buộc `amount > 0`, `rangeMin === null`, `rangeMax === null` và `verificationStatus === 'VERIFIED'`.
@@ -202,7 +231,7 @@ export const TEST_ONLY_NEUTRAL_FIXTURES = [
     name: 'Dịch vụ khám lâm sàng thử nghiệm mẫu',
     shortDescription: 'Mô tả ngắn gọn quy trình thăm khám phục vụ kiểm thử giao diện.',
     detailSummary: 'Nội dung chi tiết các bước kiểm tra lâm sàng cơ bản mẫu.',
-    includedFeatures: ['Kiểm tra sinh hiệu mẫu', 'Tư vấn chăm sóc mẫu'],
+    includedFeatures: ['Kiểm tra lâm sàng cơ bản mẫu', 'Tư vấn chăm sóc mẫu'],
     preparationNotes: 'Lưu ý chuẩn bị mẫu cho người nuôi.',
     displayOrder: 1,
     verificationStatus: 'PENDING',
@@ -238,7 +267,7 @@ export const TEST_ONLY_NEUTRAL_FIXTURES = [
     name: 'Dịch vụ tiểu phẫu thử nghiệm mẫu',
     shortDescription: 'Mô tả quy trình tiểu phẫu mẫu phục vụ kiểm thử trạng thái CONTACT.',
     detailSummary: 'Quy trình theo dõi và trao đổi phác đồ chi tiết trước can thiệp mẫu.',
-    includedFeatures: ['Quy trình sát khuẩn mẫu', 'Theo dõi hồi tỉnh mẫu'],
+    includedFeatures: ['Thao tác vệ sinh cơ bản mẫu', 'Chăm sóc theo dõi mẫu'],
     preparationNotes: 'Trao đổi trước với bác sĩ về thời gian nhịn ăn của bé.',
     displayOrder: 2,
     verificationStatus: 'PENDING',
@@ -272,4 +301,4 @@ export const TEST_ONLY_NEUTRAL_FIXTURES = [
 
 ---
 
-**KẾT THÚC MÔ HÌNH DỮ LIỆU GIAI ĐOẠN 3B (DATA SCHEMA V1.1)**
+**KẾT THÚC MÔ HÌNH DỮ LIỆU GIAI ĐOẠN 3B (DATA SCHEMA V1.2)**
