@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { RootLayout } from '@/components/layout/RootLayout'
 import { ComingSoonView } from '@/components/layout/ComingSoonView'
@@ -5,6 +6,20 @@ import { HomePage } from '@/pages/HomePage'
 import { BookingPage } from '@/pages/BookingPage'
 import { NotFoundPage } from '@/pages/NotFoundPage'
 import { HOSPITAL_CONTACT } from '@/config/contact'
+
+const AboutPage = lazy(() => import('@/pages/AboutPage'))
+const TeamPage = lazy(() => import('@/pages/TeamPage'))
+const FacilitiesPage = lazy(() => import('@/pages/FacilitiesPage'))
+
+const PageLoadingFallback = () => (
+  <div
+    className="min-h-[50vh] flex items-center justify-center"
+    aria-busy="true"
+    aria-label="Đang tải trang"
+  >
+    <div className="w-8 h-8 rounded-full border-2 border-[var(--color-plum-primary)] border-t-transparent animate-spin" />
+  </div>
+)
 
 export const AppRoutes = () => {
   return (
@@ -17,28 +32,25 @@ export const AppRoutes = () => {
         <Route
           path="/gioi-thieu"
           element={
-            <ComingSoonView
-              title="Về Bệnh viện Thú y Lê Sơn"
-              subtitle="Lịch sử hình thành, triết lý y khoa và hành trình đồng hành cùng sức khỏe thú cưng đang được chuẩn hóa nội dung."
-            />
+            <Suspense fallback={<PageLoadingFallback />}>
+              <AboutPage />
+            </Suspense>
           }
         />
         <Route
           path="/doi-ngu"
           element={
-            <ComingSoonView
-              title="Đội ngũ bác sĩ & chuyên môn"
-              subtitle="Hồ sơ Bác sĩ trưởng Lê Thái Sơn và đội ngũ kỹ thuật viên đang được xác thực trước khi công khai."
-            />
+            <Suspense fallback={<PageLoadingFallback />}>
+              <TeamPage />
+            </Suspense>
           }
         />
         <Route
           path="/co-so-vat-chat"
           element={
-            <ComingSoonView
-              title="Cơ sở vật chất & Trang thiết bị"
-              subtitle="Hình ảnh thực tế hệ thống phòng khám, phòng mổ và khu lưu trú tại 101 Khuất Duy Tiến đang được chụp và cập nhật."
-            />
+            <Suspense fallback={<PageLoadingFallback />}>
+              <FacilitiesPage />
+            </Suspense>
           }
         />
 

@@ -519,9 +519,9 @@ Các tỷ lệ tương phản dưới đây được tính chính xác theo côn
 
 ## 6. MỤC 6: DANH MỤC DỮ LIỆU PLACEHOLDER & HỒ SƠ THẬT CÒN THIẾU (DATA PLACEHOLDERS & MISSING REAL DATA)
 
-Bảng dưới đây phân tách minh bạch giữa **Dữ liệu đã xác minh**, **Dữ liệu Placeholder trung tính đang hiển thị trên Mockup v2.1**, và **Danh sách dữ liệu thật còn thiếu cần Chủ dự án cung cấp**:
+Bảng dưới đây phân tách minh bạch giữa **Dữ liệu đã xác minh**, **Dữ liệu Placeholder trung tính đang hiển thị trên Mockup v2.4**, và **Danh sách dữ liệu thật còn thiếu cần Chủ dự án cung cấp**:
 
-| Tuyến trang | Hạng mục nội dung | Trạng thái trên Blueprint v2.1 & Mockup v2.1 | Dữ liệu thật còn thiếu cần Chủ dự án cung cấp / xác nhận |
+| Tuyến trang | Hạng mục nội dung | Trạng thái trên Blueprint v2.4 & Mockup v2.4 | Dữ liệu thật còn thiếu cần Chủ dự án cung cấp / xác nhận |
 | :--- | :--- | :--- | :--- |
 | **`/gioi-thieu`** | Thông tin liên hệ, địa chỉ, giờ khám, cấp cứu 24/24 | **Đã xác minh** (`101 Khuất Duy Tiến, Thanh Xuân, Hà Nội` • `08:00 – 21:00` • Cấp cứu `24/24` • `097 355 51 05`). | Không thiếu (đã chốt ở Mốc 2A). |
 | **`/gioi-thieu`** | Câu chuyện hình thành & cột mốc hoạt động (Section 1.2) | **Placeholder Slot trung tính:** `[SLOT CHỜ CHỦ DỰ ÁN CUNG CẤP: Lịch sử hình thành & câu chuyện sáng lập thực tế]`. | - [ ] Nội dung câu chuyện sáng lập / năm hoạt động thực tế (nếu muốn công bố). |
@@ -540,13 +540,13 @@ Bảng dưới đây phân tách minh bạch giữa **Dữ liệu đã xác minh
 ## 7. MỤC 7: HỒ SƠ NGUỒN GỐC & QUYỀN SỬ DỤNG TÀI SẢN HÌNH ẢNH / PHÔNG CHỮ (ASSET PROVENANCE INVENTORY — ĐÃ NÂNG CẤP THEO AP-1 & AP-2)
 
 Nhằm tuân thủ tuyệt đối **Chính sách hình ảnh đã phê duyệt (CEO Directive 009, 010-A, 018-A, 019-A)** và giải quyết dứt điểm các phát hiện **AP-1** (Hồ sơ nguồn gốc chi tiết) và **AP-2** (Loại bỏ ảnh có logo thương hiệu Champion) từ Báo cáo QA Claude 3A-02:
-1. **Toàn bộ tài sản được tham chiếu trong Mockup v2.2** (`docs/design/phase-3a-interactive-mockups.html`) nằm sẵn trong repository nội bộ, **không tải bất kỳ tài nguyên nào từ CDN bên ngoài** để đảm bảo khả năng kiểm tra offline và bảo vệ tính toàn vẹn bảo mật.
+1. **Toàn bộ tài sản được tham chiếu trong Mockup v2.4** (`docs/design/phase-3a-interactive-mockups.html`) nằm sẵn trong repository nội bộ, **không tải bất kỳ tài nguyên nào từ CDN bên ngoài** để đảm bảo khả năng kiểm tra offline và bảo vệ tính toàn vẹn bảo mật.
 2. **Quy tắc phân định trạng thái xác minh bản quyền:**
    - **ĐÃ XÁC MINH (VERIFIED):** Tài sản sở hữu thương hiệu nội bộ của Bệnh viện hoặc phát hành theo giấy phép nguồn mở có văn bản chứng minh đầy đủ trong repository.
    - **CHƯA XÁC MINH BẢN QUYỀN GỐC (UNVERIFIED):** Ảnh stock hoặc ảnh AI tạm thời được phép dùng cho bản dựng layout (Mockup / Preview) để kiểm thử giao diện; **tuyệt đối KHÔNG ĐƯỢC PHÁT HÀNH** ra môi trường công khai nếu chưa thay thế bằng ảnh chụp thực tế hoặc có giấy phép thương mại xác minh độc lập (`2B-06`).
 3. **Xử lý đặc biệt đối với `why-pet-companion.webp` (`AP-2` / `2B-29`):**
    - Claude QA 3A-02 phát hiện tệp ảnh `why-pet-companion.webp` có logo thương hiệu áo chó **Champion** tại góc áo.
-   - **Hành động trong Giai đoạn 3A:** Đã gỡ bỏ 100% việc tham chiếu đến `why-pet-companion.webp` trong toàn bộ file Mockup HTML (`docs/design/phase-3a-interactive-mockups.html`) và Blueprint v2.2.
+   - **Hành động trong Giai đoạn 3A:** Đã gỡ bỏ 100% việc tham chiếu đến `why-pet-companion.webp` trong toàn bộ file Mockup HTML (`docs/design/phase-3a-interactive-mockups.html`) và Blueprint v2.4.
    - **Hành động đối với Trang chủ Mốc 2B (`WhyChooseUs.tsx:30`):** Thực hiện nguyên tắc đóng băng Mốc 2B theo chỉ đạo CEO Directive 019-A, Antigravity **không tự ý sửa mã nguồn `src/`**; ghi nhận mục lỗi **`2B-29` (P2)** vào Sổ nhật ký bảo trì tại Mục 9.1 chờ quyết định và phân bổ công việc riêng từ CEO.
 
 ### Bảng Kê Chi Tiết Toàn Bộ Tài Sản Trong Giai Đoạn 3A (Asset Provenance Ledger — Chuẩn AP-1)
@@ -590,7 +590,7 @@ Nhằm tuân thủ tuyệt đối **Chính sách hình ảnh đã phê duyệt (
 | **3A-P1-2** | **P1** | Trang `/doi-ngu` ấn định lại **chuyên môn, nhiệm vụ và cơ cấu nhân sự chưa xác minh** (chuyên môn BS. Sơn, hội chẩn, kỹ thuật viên nội trú, quy trình khép kín, kíp trực). | Đã khôi phục 100% các slot trung tính: BS. Lê Thái Sơn chỉ giữ chức danh Bác sĩ Thú y chờ xác nhận; các bác sĩ khác dùng `[Bác sĩ Thú y — Dữ liệu mô phỏng]`; bộ phận hỗ trợ dùng `[Nhân viên Chăm sóc nội trú — Dữ liệu mô phỏng]`; quy trình phối hợp 3 bước chuyển thành `[Đề xuất định hướng]`. Loại bỏ toàn bộ các từ "hội chẩn", "khép kín", "kíp trực", "chỉ định xét nghiệm". | Mockup `#page-doi-ngu`; Blueprint Mục 2.2, 3.2. | **FIXED** |
 | **V3-P1-1** | **P1** | Trang `/co-so-vat-chat` mô tả **phân khu và thiết bị chưa xác minh như đã có thật** (sảnh phân luồng, phòng cách ly, hồi sức, spa tách biệt, hệ thống đèn sưởi ấm, thiết bị theo dõi sinh hiệu). | Đã loại bỏ toàn bộ các khẳng định vật lý chưa xác minh. Khôi phục các slot mô tả trung tính bám sát các dịch vụ đã xác nhận: tiếp đón ban đầu, khám lâm sàng, chăm sóc nội trú 24/7, spa & grooming. Toàn bộ thiết bị cận lâm sàng và phân khu thủ thuật được đóng khung `[Slot chờ xác nhận]`. | Mockup `#page-co-so-vat-chat`; Blueprint Mục 2.3, 3.3. | **FIXED** |
 | **3A-P2-1** | **P2** | Bốn nguyên tắc phục vụ trên `/gioi-thieu` xuất hiện lại câu khẳng định như cam kết thực tế ("được vệ sinh định kỳ", "chỉ chia sẻ trực tiếp"). | Đã chuyển toàn bộ 4 nguyên tắc thành dạng bản thảo đề xuất định hướng: `[Đề xuất định hướng]: Chú trọng hạn chế tiếng ồn...`, `[Đề xuất định hướng]: Khu vực lưu trú được duy trì ngăn nắp...`, `[Đề xuất định hướng]: Thông tin bệnh án chỉ trao đổi trực tiếp với gia đình...`. | Mockup `#page-gioi-thieu` Section 1.4; Blueprint Mục 2.1. | **FIXED** |
-| **V3-P3-1** | **P3** | Header ở 375px bị chật: nút CTA xuống 2 dòng ("Đặt lịch hẹn khám"), dòng phụ dưới logo xuống dòng. | Rút gọn văn bản nút CTA trên mobile thành `Đặt lịch` qua CSS responsive media query; thiết lập `white-space: nowrap` và tinh chỉnh cỡ chữ `0.62rem` cho `.p3a-logo-subtitle` để đảm bảo 0 tràn ngang, 0 rớt dòng tại mọi viewport $\le 390\text{px}$. (Ghi nhận `3A04-P2-1` đang mở cho phần mockup tĩnh). | Mockup CSS `.p3a-header-cta`, `.p3a-logo-subtitle`. | **FIXED (Blueprint Spec) / OPEN (Mockup CSS)** |
+| **V3-P3-1** | **P3** | Header ở 375px bị chật: nút CTA xuống 2 dòng ("Đặt lịch hẹn khám"), dòng phụ dưới logo xuống dòng. | Đã xử lý dứt điểm trong code giao diện DEV-01: tại `src/components/layout/Header.tsx`, thiết lập breakpoint `min-[420px]` cho phụ đề logo và nút CTA Đặt lịch (dưới 420px chỉ hiện "Đặt lịch" với `whitespace-nowrap`, ẩn phụ đề logo). Đảm bảo 0 tràn ngang, 0 rớt dòng tại mọi viewport $\le 390\text{px}$. | `src/components/layout/Header.tsx`; Mockup CSS `.p3a-header-cta`, `.p3a-logo-subtitle`. | **FIXED** |
 | **V3-P3-2** | **P3** | Bộ mô phỏng "N = …" và câu thông báo "thuộc tính hidden" nằm trong nội dung trang khách hàng. | Đã gỡ bỏ toàn bộ các nút bấm mô phỏng $N=1..8$ khỏi markup hiển thị; trang khách hàng chỉ giữ lại Bộ lọc Bộ phận chuyên môn; viết lại câu thông báo `aria-live` lịch sự cho người dùng thật: *"Đang hiển thị: Tất cả các bộ phận"*, không nhắc tới thuật ngữ dev/test. | Mockup Header toolbar & Section 2.1; hàm `updateFilterStatus`. | **FIXED** |
 | **V3-P3-3** | **P3** | Blueprint mục 9.1 lặp nguyên đoạn R-3A-05/2B-29 hai lần; bảng nguồn ảnh ghi sai vị trí dùng của `article-prevention`. | Đã xóa đoạn trùng lặp trong Mục 9.1; hiệu chỉnh vị trí sử dụng của `article-prevention.webp` thành Hero Section 1.1 (`/gioi-thieu`) và Frame #01 Section 3.2 (`/co-so-vat-chat`). | Blueprint Mục 7 & Mục 9.1. | **FIXED** |
 
@@ -646,7 +646,7 @@ Dưới đây là bảng đối chiếu trung thực từng phát hiện trong `
 | **3A-P3-4** | Dòng `[Bằng cấp / Chứng chỉ: Chờ xác minh]` không nên hiển thị khi publish. | Đã quy định rõ: ẩn hoàn toàn trường này khi xuất bản nếu `verified === false`. | **FIXED** |
 | **3A-P3-5** | Ảnh thật chụp cơ sở có thể lọt khách hàng, thú cưng hoặc màn hình bệnh án. | Đã bổ sung quy tắc bảo mật hình ảnh và `Owner Consent Form` vào Mục 6 & Mục 9. | **FIXED** |
 | **3A-P3-6** | Sai số bảng độ tương phản ở mục 8.2 (ví dụ `#FFFFFF` / `#C2560C` là `4.54:1`). | Đã cập nhật chính xác toàn bộ con số tương phản theo `contrast-check.txt` tại Mục 5.2 và đặt quy tắc cỡ chữ tối thiểu cho nút cam. | **FIXED** |
-| **3A-P3-7** | Mockup thiếu nút chọn viewport `360px` và `1920px`. | Đã bổ sung đủ **7 mốc viewport** (`1920`, `1440`, `1366`, `768`, `390`, `360`, `320`) trên thanh công cụ của Mockup. | **FIXED** |
+| **3A-P3-7** | Mockup thiếu nút chọn viewport `360px` và `1920px`. | Đã bổ sung đủ **8 mốc viewport QA** (`1920`, `1440`, `1366`, `1024`, `768`, `390`, `360`, `320`) trên thanh công cụ của Mockup. | **FIXED** |
 | **3A-P3-8** | Hậu tố `alt` quá dài lặp lại ở mọi ảnh. | Đã rút gọn hậu tố `alt` thành `"(ảnh minh họa)"` kèm 1 banner giải thích chung ở đầu trang. | **FIXED** |
 | **3A-P3-9** | Trạng thái ghi `"APPROVED FOR DESIGN"` dễ gây nhầm là thiết kế đã được duyệt. | Đã đổi thành `"PHASE 3A — PENDING OWNER DESIGN APPROVAL (DESIGN ONLY — NO WEBSITE IMPLEMENTATION)"`. | **FIXED** |
 
@@ -661,7 +661,7 @@ Dưới đây là bảng đối chiếu trung thực từng phát hiện trong `
 - **R-3A-04 (Bảo mật & Quyền riêng tư trong ảnh chụp thực tế — `3A-P3-5`):** Khi chụp ảnh thực tế cơ sở vật chất tại `101 Khuất Duy Tiến`, bắt buộc kiểm duyệt không để lọt thông tin cá nhân trên màn hình máy tính, bảng theo dõi nội trú hoặc hình ảnh khách hàng/thú cưng chưa có phiếu đồng ý (`Owner Consent Form`).
 - **R-3A-05 / Lỗi 2B-29 (P2 — Tồn đọng bảo trì Trang chủ Mốc 2B do Claude phát hiện tại QA 3A-02 & 3A-03):**
   - **Mô tả:** Tệp ảnh `public/images/why-pet-companion.webp` hiển thị logo thương hiệu **Champion** rõ ràng trên áo của chú chó. Tệp này đang được sử dụng tại Section 2 Trang chủ (`src/components/WhyChooseUs.tsx:30`).
-  - **Hành động trong Giai đoạn 3A:** Đã gỡ bỏ 100% hình ảnh này khỏi Mockup và tài liệu Blueprint v2.3.
+  - **Hành động trong Giai đoạn 3A:** Đã gỡ bỏ 100% hình ảnh này khỏi Mockup và tài liệu Blueprint v2.4.
   - **Hành động đối với Trang chủ Mốc 2B:** Tuân thủ nghiêm ngặt quy chế đóng băng Mốc 2B theo chỉ đạo CEO Directive 019-A và 020-A, Antigravity **tuyệt đối không tự ý sửa mã nguồn `src/`**. Lỗi được lập mã chính thức là **`2B-29` (P2)**, lưu trong sổ rủi ro bảo trì để CEO phân bổ nhiệm vụ xử lý riêng (thay ảnh sạch hoặc làm mờ logo).
 
 ### 9.2. Năm Điểm Cần Chủ Dự Án Xác Nhận Trước Khi Chuyển Sang Triển Khai Code
@@ -700,13 +700,13 @@ Dưới đây là bảng đối chiếu trung thực từng phát hiện trong `
   # Sau đó mở trình duyệt tại:
   # http://localhost:4173/docs/design/phase-3a-interactive-mockups.html
   ```
-- **Các bộ điều khiển tương tác có sẵn trên thanh công cụ đầu trang Mockup v2.1:**
+- **Các bộ điều khiển tương tác có sẵn trên thanh công cụ đầu trang Mockup v2.4:**
   1. **Chuyển trang:** `1. /gioi-thieu` | `2. /doi-ngu` | `3. /co-so-vat-chat`.
   2. **Chuyển chế độ hiển thị:** `Mockup Trực quan` | `Wireframe Blueprint`.
-  3. **Chuyển đổi đủ 7 mốc Viewport QA (`3A-P3-7`):** `1920px` | `1440px` | `1366px` | `768px` | `390px` | `360px` | `320px`.
+  3. **Chuyển đổi đủ 8 mốc Viewport QA (`3A-P3-7`):** `1920px` | `1440px` | `1366px` | `1024px` | `768px` | `390px` | `360px` | `320px`.
   4. **Bộ mô phỏng sĩ số nhân sự trên `/doi-ngu` (`3A-P2-4`, `3A-P2-5`, `3A04-P2-2`):** Các nút bấm mô phỏng $N=1..8$ đã được chủ động gỡ bỏ khỏi markup giao diện để tránh làm rối nội dung. Kiểm thử lưới cân bằng tại các giá trị $N=1, 2, 3, 5, 7, 8$ được thực hiện trực tiếp qua hàm console script `setTeamCount(n, layout)`.
   5. **Bộ lọc bộ phận chuẩn Accessibility (`3A-P2-6`):** Ẩn/hiện bằng thuộc tính `hidden` thực sự (không làm mờ card) và phát thông báo vào vùng `aria-live="polite"`.
 
 ---
 
-**PHASE 3A DEV-00 — READY FOR INDEPENDENT CONTENT GATE QA**
+**PHASE 3A DEV-01 — READY FOR INDEPENDENT LOCAL QA**

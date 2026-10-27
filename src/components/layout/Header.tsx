@@ -24,7 +24,7 @@ const navGroups: NavGroup[] = [
     matchPrefixes: ['/gioi-thieu', '/doi-ngu', '/co-so-vat-chat'],
     items: [
       { label: 'Giới thiệu', href: '/gioi-thieu', description: 'Lịch sử & triết lý chăm sóc y khoa' },
-      { label: 'Đội ngũ bác sĩ', href: '/doi-ngu', description: 'Bác sĩ trưởng Lê Thái Sơn & cộng sự' },
+      { label: 'Đội ngũ bác sĩ', href: '/doi-ngu', description: 'Đội ngũ bác sĩ thú y & nhân sự chăm sóc' },
       { label: 'Cơ sở vật chất', href: '/co-so-vat-chat', description: 'Phòng khám & trang thiết bị chuyên dụng' },
     ],
   },
@@ -158,7 +158,7 @@ export const Header: React.FC<HeaderProps> = ({
             <span className="font-serif font-bold text-sm sm:text-base xl:text-lg tracking-tight text-[var(--color-plum-deep)] leading-tight">
               LÊ SƠN
             </span>
-            <span className="hidden min-[380px]:inline text-[10px] sm:text-xs uppercase font-medium tracking-widest text-[var(--color-fg-muted)]">
+            <span className="hidden min-[420px]:inline text-[10px] sm:text-xs uppercase font-medium tracking-widest text-[var(--color-fg-muted)] whitespace-nowrap">
               Bệnh viện Thú y
             </span>
           </div>
@@ -354,11 +354,11 @@ export const Header: React.FC<HeaderProps> = ({
           <Link
             to="/dat-lich"
             aria-current={location.pathname === '/dat-lich' ? 'page' : undefined}
-            className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 py-1.5 sm:px-3.5 sm:py-2 xl:px-5 xl:py-2.5 rounded-xl bg-[var(--color-plum-primary)] hover:bg-[var(--color-plum-deep)] text-white text-xs xl:text-sm font-semibold transition-all shadow-xs active:scale-[0.98] whitespace-nowrap"
+            className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 py-1.5 sm:px-3.5 sm:py-2 xl:px-5 xl:py-2.5 rounded-xl bg-[var(--color-plum-primary)] hover:bg-[var(--color-plum-deep)] text-white text-xs xl:text-sm font-semibold transition-all shadow-xs active:scale-[0.98] whitespace-nowrap shrink-0"
           >
-            <Calendar className="w-3.5 h-3.5 xl:w-4 xl:h-4" />
-            <span className="hidden min-[380px]:inline">Đặt lịch khám</span>
-            <span className="min-[380px]:hidden">Đặt lịch</span>
+            <Calendar className="w-3.5 h-3.5 xl:w-4 xl:h-4 shrink-0" />
+            <span className="hidden min-[420px]:inline">Đặt lịch khám</span>
+            <span className="min-[420px]:hidden">Đặt lịch</span>
           </Link>
 
           {/* Mobile Drawer Hamburger Button */}
