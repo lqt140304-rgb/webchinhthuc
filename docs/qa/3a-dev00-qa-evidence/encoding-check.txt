@@ -1,0 +1,4 @@
+docs/design/phase-3a-interactive-mockups.html: bytes=94511 strict-utf8=OK BOM=False U+FFFD=0 mojibake=0 file:///=0 C:/Users=0 d:webbvct=0
+docs/phase-3a-design-blueprint.md: bytes=109543 strict-utf8=OK BOM=False U+FFFD=0 mojibake=0 file:///=0 C:/Users=1 d:webbvct=2
+docs/qa/3a-design-handoff-04.md: bytes=23888 strict-utf8=OK BOM=False U+FFFD=0 mojibake=0 file:///=0 C:/Users=0 d:webbvct=0
+docs/qa/3a-design-handoff-05.md: bytes=15682 strict-utf8=OK BOM=False U+FFFD=0 mojibake=0 file:///=2 C:/Users=0 d:webbvct=0

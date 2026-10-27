@@ -1,0 +1,5 @@
+ docs/design/phase-3a-interactive-mockups.html |  26 +++---
+ docs/phase-3a-design-blueprint.md             | 122 ++++++++++++++------------
+ docs/qa/3a-design-handoff-04.md               |   8 +-
+ docs/qa/3a-design-handoff-05.md               | 105 ++++++++++++++++++++++
+ 4 files changed, 189 insertions(+), 72 deletions(-)
