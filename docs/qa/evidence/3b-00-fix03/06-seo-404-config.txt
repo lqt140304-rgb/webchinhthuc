@@ -1,0 +1,84 @@
+# vercel.json @4739d45 (unchanged in 32b8a0a)
+{
+  "headers": [
+    {
+      "source": "/(gioi-thieu|doi-ngu|co-so-vat-chat|bang-gia|san-pham|dat-lich|lien-he|dang-nhap|dang-ky)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/(gioi-thieu|doi-ngu|co-so-vat-chat|bang-gia|san-pham|dat-lich|lien-he|dang-nhap|dang-ky)/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/(dich-vu|cau-chuyen|goc-thu-cung|bai-viet|tai-khoan|quan-ly)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/(dich-vu|cau-chuyen|goc-thu-cung|bai-viet|tai-khoan|quan-ly)/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
+
+# routes.tsx /dich-vu/* and catch-all
+4739d45:src/app/routes.tsx:59:          path="/dich-vu"
+4739d45:src/app/routes.tsx:68:          path="/dich-vu/kham-dieu-tri"
+4739d45:src/app/routes.tsx:77:          path="/dich-vu/noi-tru"
+4739d45:src/app/routes.tsx:86:          path="/dich-vu/spa"
+4739d45:src/app/routes.tsx:95:          path="/dich-vu/cap-cuu"
+4739d45:src/app/routes.tsx:206:        <Route path="*" element={<NotFoundPage />} />
+
+# Blueprint 404 / SEO strategy / DEC-14
+380:   - Các tuyến con như `/dich-vu/:slug` chưa được phép mở. Mọi yêu cầu truy cập vào đường dẫn không tồn tại bắt buộc phải trả về mã **HTTP 404 Not Found thực tế** từ server / edge router; tuyệt đối không trả mã HTTP 200 kèm giao diện giả 404 (Soft 404). *(Bốn tuyến ComingSoon `/dich-vu/*` hiện hữu của Mốc 2B tiếp tục hoạt động theo định tuyến đã duyệt cho đến khi có chỉ đạo riêng).*
+382:   - *Triển khai Client-side SPA:* Sử dụng dynamic document head manager (`react-helmet-async` hoặc tương đương) để cập nhật `<title>`, meta tags, canonical URL khi người dùng chuyển trang.
+383:   - *Kiểm thử HTML gốc (Raw HTML Testing):* Đặc tả kiểm tra trực tiếp raw HTML nhận được từ HTTP GET request không chạy JavaScript (bằng `curl` hoặc scraper). Xác định rõ dữ liệu tĩnh có sẵn trong HTML ban đầu vs dữ liệu được chèn động sau hydration.
+384:   - *Hỗ trợ Social Crawlers:* Đối với crawler mạng xã hội (Facebook, Zalo, Telegram không chạy JS đầy đủ), hướng nghiên cứu Prerender / React Router Framework Mode được ghi nhận tại **3B-DEC-14** (trạng thái: `RESEARCH DIRECTION SELECTED / IMPLEMENTATION NOT APPROVED`).
+451:14. **3B-DEC-14 (Chiến lược SEO cho SPA — Client-side vs Prerender / Architecture Spike 01):** Hướng đi ưu tiên là React Router Framework Mode / Prerender để phục vụ social crawlers và SEO HTML gốc. Trạng thái: `RESEARCH DIRECTION SELECTED / IMPLEMENTATION NOT APPROVED`. Không tự ý mở Architecture Spike 01 hoặc triển khai migration khi chưa có chỉ đạo từ Chủ dự án.
+
+# Blueprint out-of-scope dependency list
+## 9. MỤC 9: DANH MỤC PHỤ THUỘC NGOÀI PHẠM VI (OUT-OF-SCOPE DEPENDENCIES)
+
+Các tính năng hoặc liên kết liên quan đến các thành phần ngoài phạm vi 3B-00 được ghi nhận rõ ràng:
+
+| STT | Phụ thuộc | Hiện trạng trong Codebase (Mốc 2B/3A) | Tác động nếu triển khai | Phương án mặc định an toàn (3B-00) |
+|:---:|---|---|---|---|
+| **01** | Tham số query `?service=` trên `/dat-lich` | `BookingPage.tsx` hiện tại không đọc `location.search` hoặc `serviceType` từ URL query. | Cần sửa `BookingPage.tsx` (Mã nguồn Mốc 2B đang đóng băng). | **Mặc định:** CTA chỉ điều hướng đơn thuần về `/dat-lich` không kèm query. Tính năng pre-fill là đề xuất nâng cấp tương lai. |
+| **02** | Điều hướng menu Header con | Header hiện có 4 link trỏ về 4 route con ComingSoon `/dich-vu/*`. | Cần sửa `Header.tsx` (Component Mốc 2B). | **Mặc định:** Giữ nguyên Header và 4 route ComingSoon. Đưa vào OPEN DECISION 3B-DEC-02. |
+| **03** | Footer link & Section 3 Trang chủ | Footer và Section 3 Trang chủ hiện có các nút trỏ về `/dich-vu/*`. | Cần sửa `Footer.tsx` và `FeaturedServices.tsx` (Mốc 2B). | **Mặc định:** Giữ nguyên toàn bộ mã nguồn Footer và Trang chủ. |
+
+---
+
+## 10. MỤC 10: DANH MỤC 14 QUYẾT ĐỊNH MỞ CẦN CHỦ DỰ ÁN PHÊ DUYỆT (OPEN DECISIONS)
+
+# AC rows
+57:| **AC-DOC-12** | Nhất quán dữ liệu liên hệ | 100% dữ liệu liên hệ (hotline `097 355 51 05`, địa chỉ `101 Khuất Duy Tiến`, email, giờ mở cửa) trong tài liệu, wireframe, metadata, schema và fixtures khớp tuyệt đối với `HOSPITAL_CONTACT` tại `src/config/contact.ts`. Tuyệt đối không xuất hiện số điện thoại lạ. | Đối chiếu với
+78:| **AC-COD-07** | Triển khai SEO Metadata & Raw HTML Gate | Thẻ `<title>`, description, canonical, OG tags được chèn đúng chuẩn semantic HTML. Kiểm thử bằng lệnh `curl` / raw HTTP GET không qua JavaScript phải thấy thẻ meta hoặc có giải pháp SSR/Prerender (DEC-14). 0 console errors khi tải trang. | DOM inspection & raw HTML scraper test. | Antigravity / Claud
+79:| **AC-COD-08** | Bảo vệ tuyến đường & HTTP 404 thực | Mọi đường dẫn con không hỗ trợ như `/dich-vu/:slug`, `/bang-gia/:slug` phải trả về mã trạng thái HTTP 404 thực tế (không chấp nhận Soft 404 mã 200). Không gây crash ứng dụng React. | HTTP status & Navigation test. | Antigravity / Claude | **NOT TESTED (Giai đoạn sau)** |
+86:| **AC-PRV-01** | Chỉ số CLS (Cumulative Layout Shift) | CLS đạt $< 0.1$ (chuẩn Core Web Vitals của Google; benchmark mục tiêu $0.000$) trên cả 2 trang ở cả môi trường mobile (412px) và desktop (1440px) dưới điều kiện mạng nhanh và chậm. | PerformanceObserver & Lighthouse. | Claude QA | **NOT TESTED (Giai đoạn sau)** |
+92:| **AC-PRV-07** | Kiểm định Scraper / Raw HTML Trực tiếp | Dùng lệnh `curl` hoặc HTTP Client gửi GET request trực tiếp tới URL preview Vercel: Phải trả về tiêu đề và mô tả SEO hợp lệ hoặc xác minh cơ chế render theo DEC-14. | Raw HTTP GET response inspection. | Claude QA | **NOT TESTED (Giai đoạn sau)** |

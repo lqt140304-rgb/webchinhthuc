@@ -1,0 +1,19 @@
+# Commit
+32b8a0a89e9a3e8a39fb284aefdd6ea342b64d7b 2026-10-28 03:08:32 +0700 lqt140304-rgb docs(phase-3b): 3B-00 Fix 03 — resolve P1-1, P1-2, P2-7, DEC-12/13/14 policy record & SEO HTML gate
+parent: ddb066f16819fd451037721f8c5cba3c6b383bef
+
+ docs/decisions/3b-dec-12-13-policy-record.md |  69 +++++++++++++++
+ docs/phase-3b/3b-00-acceptance-criteria.md   |  23 ++---
+ docs/phase-3b/3b-00-blueprint.md             | 119 +++++++++++++++-----------
+ docs/phase-3b/3b-00-content-evidence-gate.md |  15 ++--
+ docs/phase-3b/3b-00-content-mapping.md       |  20 ++---
+ docs/phase-3b/3b-00-data-schema.md           |  44 +++++-----
+ docs/phase-3b/3b-00-wireframe.md             | 102 ++++++++++++----------
+ docs/qa/3b-00-fix03-handoff.md               | 123 +++++++++++++++++++++++++++
+ 8 files changed, 369 insertions(+), 146 deletions(-)
+
+# Files outside docs/
+(none)
+# src/public/package/config diff
+(empty = no change)
+# origin/main: d2a19c579df929e7a99462aad399f9010652e4f6

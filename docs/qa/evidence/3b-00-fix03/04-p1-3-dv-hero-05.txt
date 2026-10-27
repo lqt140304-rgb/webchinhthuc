@@ -1,0 +1,32 @@
+# Mapping @32b8a0a
+rows 68
+VERIFIED 3
+PENDING 64
+ILLUSTRATIVE 1
+AI names in rows: 0
+
+# DV-HERO-05
+| **Hero** | `DV-HERO-05` | Editorial Policy Banner: Thông báo danh mục chuẩn hóa 3B | Đề xuất văn phong thông báo định hướng 3B (3B-DEC-12) | — | — | Khung thông báo | **PENDING** | Khung viền mỏng, nhãn [Đề xuất], câu chữ thống nhất, chờ Chủ dự án duyệt |
+
+# Banner text: blueprint vs wireframe
+151:  - Nội dung thống nhất: *"THÔNG BÁO [Đề xuất]: Danh mục dịch vụ và biểu phí đang được đối chiếu hoàn thiện. Mọi phác đồ can thiệp và dự toán chi phí cụ thể sẽ được bác sĩ trao đổi trực tiếp khi tiếp nhận thăm khám thú cưng."*
+152-
+50:| | [i] THÔNG BÁO [Đề xuất / PENDING - DEC-12]: Danh mục dịch vụ và biểu phí đang được đối chiếu | |
+51-| |     hoàn thiện. Mọi phác đồ can thiệp và dự toán chi phí cụ thể sẽ được bác sĩ trao đổi trực | |
+52-| |     tiếp khi tiếp nhận thăm khám thú cưng.                                                   | |
+
+# VERIFIED rows and evidence source
+| **Cấp cứu** | `DV-EMG-01` | Khối Tiếp nhận Cấp cứu 24/24 Warm Orange | Homepage Section 3 đã duyệt (Commit `db78738`) | Chủ dự án | 2026-10-26 | Khung cấp cứu | **VERIFIED** | Nền Warm Orange/Amber, Hotline 24/24 |
+| **Cấp cứu** | `DV-EMG-03` | Nút gọi khẩn: `Gọi Cấp cứu: 097 355 51 05` | Xác nhận trực tiếp của Chủ dự án (Directive 017-A) | Chủ dự án | 2026-10-26 | Nút bấm gọi điện | **VERIFIED** | Gắn link `tel:0973555105` |
+| **Dark CTA** | `BG-CTA-03` | Nút 2: `Gọi tư vấn: 097 355 51 05` | Xác nhận trực tiếp của Chủ dự án (Directive 017-A) | Chủ dự án | 2026-10-26 | Nút phụ | **VERIFIED** | Gắn link `tel:0973555105` |
+
+# Directive files in repo
+docs/decisions/3b-dec-12-13-policy-record.md
+
+# Gate Cấp 1 wording
+130:| **Cấp 1** | **Chỉ đạo trực tiếp của Chủ dự án (Owner Directives) có trong repo** | Cao nhất | Xác nhận địa chỉ, hotline (`097 355 51 05`), giờ làm việc trong Directive 017-A/018-A (26/10/2026). Các nguyên tắc chính sách DEC-12, DEC-13 được ghi nhận tại [`3b-dec-12-13-policy-record.md`](../decisions/3b-dec-12-13-policy-record.md) (trạng thái:
+
+# Schema: verifiedBy required for every VERIFIED
+104:| `verifiedBy` | `string \| null` | Không | Tên bác sĩ xác minh chuyên môn | Bắt buộc nếu status = `'VERIFIED'`. AI agent không được tự gán. |
+128:| `verifiedBy` | `string \| null` | Không | Tên bác sĩ xác minh chuyên môn | Bắt buộc nếu status = `'VERIFIED'`. AI agent không được tự gán. |
+154:| `verifiedBy` | `string \| null` | Không | Tên chuyên môn kiểm tra | Bắt buộc nếu status = `VERIFIED`. |

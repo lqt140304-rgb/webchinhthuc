@@ -1,0 +1,10 @@
+# Policy record status
+8:| **Nguồn gốc chính sách**| Cuộc trao đổi trực tiếp giữa Chủ dự án và ChatGPT CEO (Điều phối dự án) |
+10:| **Trạng thái phê duyệt**| **POLICY ACCEPTED IN PRINCIPLE / FORMAL APPROVAL RECORD PENDING**<br>*(Chính sách đã được Chủ dự án đồng thuận về mặt nguyên tắc trong trao đổi điều phối; đang chờ bản ghi hoặc văn bản ký duyệt chính thức lưu vào Git repository)* |
+
+# DEC-08 says fasting advice removed, but Lưu ý 01 still has it
+445:8. **3B-DEC-08 (Lời khuyên y khoa trước khám):** Chủ dự án và Bác sĩ có duyệt các nội dung hướng dẫn chuẩn bị (vận chuyển an toàn, sổ tiêm phòng) để công bố công khai hay không? Khuyến cáo nhịn ăn trước phẫu thuật/xét nghiệm tạm thời gỡ bỏ cho đến khi Bác sĩ ban hành văn bản chính thức.
+/tmp/claude-0/3bf3/docs_phase-3b_3b-00-blueprint.md:194:  - Lưu ý y khoa đề xuất: Trao đổi trước với bác sĩ về tiền sử dị ứng và lưu ý chăm sóc `[Chờ bác sĩ ban hành hướng dẫn — DEC-08]`. *(Đã loại bỏ hoàn toàn khuyến cáo nhịn ăn khi chưa có bác sĩ duyệt)*.
+/tmp/claude-0/3bf3/docs_phase-3b_3b-00-blueprint.md:232:  1. *Lưu ý 01 — Chuẩn bị trước khi xét nghiệm hoặc can thiệp:* Nên trao đổi trước với bác sĩ về việc nhịn ăn/uống nếu có chỉ định xét nghiệm sinh hóa hoặc can thiệp đặc thù. `[Đề xuất hướng dẫn]`
+/tmp/claude-0/3bf3/docs_phase-3b_3b-00-blueprint.md:445:8. **3B-DEC-08 (Lời khuyên y khoa trước khám):** Chủ dự án và Bác sĩ có duyệt các nội dung hướng dẫn chuẩn bị (vận chuyển an toàn, sổ tiêm phòng) để công bố công khai hay không? Khuyến cáo nhịn ăn trước phẫu thuật/xét nghiệm tạm thời gỡ bỏ cho đến khi Bác sĩ ban hành văn bản chính thức.
+/tmp/claude-0/3bf3/docs_phase-3b_3b-00-wireframe.md:118:| | về việc chuẩn bị nhịn ăn    | | chuyển hoặc dây dắt an toàn | | phòng hoặc đơn thuốc đang dùng | |

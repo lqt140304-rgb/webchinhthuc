@@ -1,0 +1,7 @@
+# Vercel read-only GET /v6/deployments limit=3 (no secrets recorded)
+dpl_8XZEtH3csgeHa5cmzf5aw9hNR4EE target= None READY 4739d45 1793120701403
+dpl_FysMST4wMKmGLPAFKBZvvT6H6zLZ target= None READY bbd7846 1793117624129
+dpl_HvyLw6bGTrDuNxJV3xeSSt6yimyC target= None READY d3c32dd 1793093065032
+project.link (Git Integration): none
+production: dpl_BAz378AxMw59nUafGCMDM8Hws84s db78738
+# 32b8a0a committed 2026-10-27T20:08:32Z

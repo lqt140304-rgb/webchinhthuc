@@ -1,0 +1,37 @@
+# Wireframe label coverage @32b8a0a
+42:| [Đề xuất / PENDING - DEC-12] HỆ THỐNG DỊCH VỤ Y TẾ THÚ CƯNG LÊ SƠN                                |
+138:| HỆ THỐNG DỊCH VỤ Y TẾ LÊ SƠN      |
+43:| [Đề xuất / PENDING - DEC-12] Hệ thống chăm sóc sức khỏe thú cưng tận tâm (Lora 600, 48px)         |
+45:| [Đề xuất / PENDING - DEC-12] "Chúng tôi hiểu rằng mỗi lần thú cưng thăm khám là một lần người     |
+230:| [Đề xuất / PENDING - DEC-12] MINH BẠCH CHI PHÍ Y TẾ THÚ CƯNG                                     |
+305:| BẢNG GIÁ DỊCH VỤ NIÊM YẾT         |
+306:| Minh bạch chi phí y tế [Đề xuất]   |
+59:| [SECTION 3.1: NHÓM 01 — KHÁM & ĐIỀU TRỊ LÂM SÀNG] (#kham-dieu-tri) [Đề xuất]                     |
+61:| | NHÓM 01 — Y KHOA LÂM SÀNG [Đề xuất]                   | | KHUNG ẢNH MINH HỌA               | |
+72:| [SECTION 3.2: NHÓM 02 — CHẨN ĐOÁN CẬN LÂM SÀNG & XÉT NGHIỆM] (#can-lam-sang) [Đề xuất]           |
+82:| [SECTION 3.3: NHÓM 03 — PHẪU THUẬT NGOẠI KHOA & TRIỆT SẢN] (#phau-thuat) [Đề xuất]               |
+93:| [SECTION 3.4: NHÓM 04 — LƯU TRÚ Y TẾ NỘI TRÚ] (#noi-tru) [Đề xuất]                               |
+101:| [SECTION 3.5: NHÓM 05 — VỆ SINH Y TẾ & SPA GROOMING] (#spa-grooming) [Đề xuất]                   |
+149:| [NHÓM 01: KHÁM & ĐIỀU TRỊ - Đề xuất]
+165:| [NHÓM 02: CẬN LÂM SÀNG & XN - Đề xuất]
+172:| [NHÓM 03: PHẪU THUẬT - Đề xuất]   |
+179:| [NHÓM 04: LƯU TRÚ NỘI TRÚ - Đề xuất]
+188:| [NHÓM 05: SPA GROOMING - Đề xuất] |
+183:| * Cập nhật định kỳ cho chủ nuôi   |
+97:| * Cập nhật tình hình: Thông báo tình trạng phục hồi cho chủ nuôi (không công khai y lệnh nội bộ) |
+56:| [ Khám & Điều trị ] [ Cận lâm sàng & Xét nghiệm ] [ Phẫu thuật ] [ Lưu trú nội trú ] [ Spa ] [Cấp cứu]|
+146:| [Lưu trú nội trú] [Spa] [Cấp cứu] |
+246:| [ (o) Tất cả ] [ Khám & Điều trị ] [ Cận lâm sàng ] [ Phẫu thuật ] [ Lưu trú nội trú ] [ Spa ]  |
+118:| | về việc chuẩn bị nhịn ăn    | | chuyển hoặc dây dắt an toàn | | phòng hoặc đơn thuốc đang dùng | |
+122:| Bạn cần tư vấn dịch vụ phù hợp cho bé cưng?                                                      |
+289:| Bạn cần tư vấn chi phí cụ thể cho trường hợp của bé?                                             |
+207:| Tư vấn dịch vụ phù hợp cho bé?    |
+236:| | [i] NGUYÊN TẮC BIẾN ĐỘNG GIÁ Y KHOA [Đề xuất quy chế - DEC-12]:                              | |
+310:|     [Đề xuất quy chế - DEC-12]    |
+
+# Blueprint residuals
+194:  - Lưu ý y khoa đề xuất: Trao đổi trước với bác sĩ về tiền sử dị ứng và lưu ý chăm sóc `[Chờ bác sĩ ban hành hướng dẫn — DEC-08]`. *(Đã loại bỏ hoàn toàn khuyến cáo nhịn ăn khi chưa có bác sĩ duyệt)*.
+232:  1. *Lưu ý 01 — Chuẩn bị trước khi xét nghiệm hoặc can thiệp:* Nên trao đổi trước với bác sĩ về việc nhịn ăn/uống nếu có chỉ định xét nghiệm sinh hóa hoặc can thiệp đặc thù. `[Đề xuất hướng dẫn]`
+233:  2. *Lưu ý 02 — Vận chuyển an toàn:* Khuyến khích sử dụng lồng vận chuyển chuyên dụng hoặc dây dắt an toàn để bảo vệ thú cưng khi di chuyển và tại phòng chờ.
+234:  3. *Lưu ý 03 — Cung cấp thông tin sức khỏe:* Mang theo sổ theo dõi tiêm phòng hoặc thông tin thuốc/thức ăn bé đang sử dụng để hỗ trợ bác sĩ nắm bắt bệnh sử.
+445:8. **3B-DEC-08 (Lời khuyên y khoa trước khám):** Chủ dự án và Bác sĩ có duyệt các nội dung hướng dẫn chuẩn bị (vận chuyển an toàn, sổ tiêm phòng) để công bố công khai hay không? Khuyến cáo nhịn ăn trước phẫu thuật/xét nghiệm tạm thời gỡ bỏ cho đến khi Bác sĩ ban hành văn bản chính thức.

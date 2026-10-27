@@ -1,0 +1,20 @@
+# Fix 02 P1-1: hotline
+/tmp/claude-0/3bf3/docs_phase-3b_3b-00-blueprint.md:377:     - Tuyệt đối không ghi cứng số điện thoại hay thông tin ngoài cấu hình chuẩn (loại bỏ hoàn toàn mọi số sai lệch như `0988 565 056`).
+/tmp/claude-0/3bf3/docs_phase-3b_3b-00-content-evidence-gate.md:186:- [ ] **Rà soát Hotline & Thông tin liên hệ:** Đảm bảo 100% số hotline, địa chỉ, giờ mở cửa đều khớp tuyệt đối với `HOSPITAL_CONTACT` trong `src/config/contact.ts` (Hotline `097 355 51 05`), không có số sai lệch như `0988 565 056`.
+
+371:   - Chỉ tích hợp Schema.org `MedicalBusiness` / `MedicalWebPage` với các thông tin đã `VERIFIED`. **Toàn bộ thông tin định danh và liên hệ BẮT BUỘC lấy trực tiếp từ hằng số `HOSPITAL_CONTACT` trong `src/config/contact.ts`**:
+372-     - Tên cơ sở: `HOSPITAL_CONTACT.name` (`Bệnh viện Thú y Lê Sơn`)
+373-     - Địa chỉ: `HOSPITAL_CONTACT.address` (`101 Khuất Duy Tiến, Thanh Xuân, Hà Nội`)
+374-     - Hotline: `HOSPITAL_CONTACT.hotlineDisplay` / `HOSPITAL_CONTACT.hotlineTel` (`097 355 51 05`)
+375-     - Giờ mở cửa: `HOSPITAL_CONTACT.workingHours` (`08:00 – 21:00 (Tất cả các ngày)`)
+376-     - Cấp cứu: `HOSPITAL_CONTACT.emergencyHours` (`Tiếp nhận cấp cứu 24/24`)
+377-     - Tuyệt đối không ghi cứng số điện thoại hay thông tin ngoài cấu hình chuẩn (loại bỏ hoàn toàn mọi số sai lệch như `0988 565 056`).
+
+# contact.ts @4739d45
+9:  address: '101 Khuất Duy Tiến, Thanh Xuân, Hà Nội',
+11:  hotlineDisplay: '097 355 51 05',
+12:  hotlineRaw: '0973555105',
+13:  hotlineTel: 'tel:0973555105',
+14:  workingHours: '08:00 – 21:00 (Tất cả các ngày)',
+15:  workingHoursDetail: '08:00 – 21:00 (Tất cả các ngày trong tuần)',
+16:  emergencyHours: 'Tiếp nhận cấp cứu 24/24',
