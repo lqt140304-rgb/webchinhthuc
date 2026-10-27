@@ -8,8 +8,8 @@
 | **Nhánh làm việc** | `fix/milestone-2a-qa` |
 | **SHA nguồn commit** | [`d3c32dd7aef8644149646139de470b8a99fda10d`](https://github.com/lqt140304-rgb/webchinhthuc/commit/d3c32dd7aef8644149646139de470b8a99fda10d) (ngắn gọn: `d3c32dd`) |
 | **Vercel Project** | `le-son-website-qa` (Project ID: `prj_wZg6o5vvbDe6UTT52vaqvGTNC4e3`) |
-| **Vercel Deployment ID** | `dpl_3F22pWx1VVJhKjEsDJTc8yE2Gxaf` |
-| **Vercel Preview URL** | `https://le-son-website-qoptkiynb-lqt140304-rgb.vercel.app` |
+| **Vercel Deployment ID** | `dpl_2ESmyhuAmLUMrS1wsPRzJXaQMUhS` |
+| **Vercel Preview URL** | `https://le-son-website-ndk3p1kb2-lqt140304-rgb.vercel.app` |
 | **Trạng thái deployment** | `target: preview`, `status: ● Ready` |
 | **Trạng thái mốc** | **READY FOR CLAUDE QA 2B-09** |
 
@@ -108,20 +108,20 @@ Biểu thức `(?:/(.*))` khớp hoàn hảo:
 
 ## 3. Bằng Chứng Kiểm Tra HTTP Headers Thực Tế Trên Live Vercel Preview
 
-Đã kiểm tra trực tiếp qua `vercel curl -I` tới deployment ID `dpl_3F22pWx1VVJhKjEsDJTc8yE2Gxaf`:
+Đã kiểm tra trực tiếp qua `vercel curl -I` tới deployment ID `dpl_2ESmyhuAmLUMrS1wsPRzJXaQMUhS`:
 
 | URL trên Live Preview | HTTP Status | Header `X-Robots-Tag` thực tế | Đánh giá |
 |---|:---:|:---:|:---:|
-| `https://le-son-website-qoptkiynb-lqt140304-rgb.vercel.app/` | `200 OK` | `noindex` (nền tảng preview) | **Đạt** (Trang chủ không nhận noindex, nofollow) |
-| `https://le-son-website-qoptkiynb-lqt140304-rgb.vercel.app/gioi-thieu` | `200 OK` | **`noindex, nofollow`** | **Đạt** |
-| `https://le-son-website-qoptkiynb-lqt140304-rgb.vercel.app/gioi-thieu/` | `200 OK` | **`noindex, nofollow`** | **ĐÃ SỬA A05-F1 (PASS)** |
-| `https://le-son-website-qoptkiynb-lqt140304-rgb.vercel.app/dich-vu/spa/` | `200 OK` | **`noindex, nofollow`** | **ĐÃ SỬA A05-F1 (PASS)** |
-| `https://le-son-website-qoptkiynb-lqt140304-rgb.vercel.app/tai-khoan/` | `200 OK` | **`noindex, nofollow`** | **ĐÃ SỬA A05-F1 (PASS)** |
-| `https://le-son-website-qoptkiynb-lqt140304-rgb.vercel.app/tai-khoan/ho-so/` | `200 OK` | **`noindex, nofollow`** | **ĐÃ SỬA A05-F1 (PASS)** |
-| `https://le-son-website-qoptkiynb-lqt140304-rgb.vercel.app/quan-ly/` | `200 OK` | **`noindex, nofollow`** | **ĐÃ SỬA A05-F1 (PASS)** |
-| `https://le-son-website-qoptkiynb-lqt140304-rgb.vercel.app/dang-nhap/` | `200 OK` | **`noindex, nofollow`** | **ĐÃ SỬA A05-F1 (PASS)** |
-| `https://le-son-website-qoptkiynb-lqt140304-rgb.vercel.app/gioi-thieu/?utm=1` | `200 OK` | **`noindex, nofollow`** | **ĐÃ SỬA A05-F1 (PASS)** |
-| `https://le-son-website-qoptkiynb-lqt140304-rgb.vercel.app/khong-ton-tai` | `200 OK` | `noindex` (nền tảng preview) | **Đạt** (Soft 404 client-side, không chặn nhầm) |
+| `https://le-son-website-ndk3p1kb2-lqt140304-rgb.vercel.app/` | `200 OK` | `noindex` (nền tảng preview) | **Đạt** (Trang chủ không nhận noindex, nofollow) |
+| `https://le-son-website-ndk3p1kb2-lqt140304-rgb.vercel.app/gioi-thieu` | `200 OK` | **`noindex, nofollow`** | **Đạt** |
+| `https://le-son-website-ndk3p1kb2-lqt140304-rgb.vercel.app/gioi-thieu/` | `200 OK` | **`noindex, nofollow`** | **ĐÃ SỬA A05-F1 (PASS)** |
+| `https://le-son-website-ndk3p1kb2-lqt140304-rgb.vercel.app/dich-vu/spa/` | `200 OK` | **`noindex, nofollow`** | **ĐÃ SỬA A05-F1 (PASS)** |
+| `https://le-son-website-ndk3p1kb2-lqt140304-rgb.vercel.app/tai-khoan/` | `200 OK` | **`noindex, nofollow`** | **ĐÃ SỬA A05-F1 (PASS)** |
+| `https://le-son-website-ndk3p1kb2-lqt140304-rgb.vercel.app/tai-khoan/ho-so/` | `200 OK` | **`noindex, nofollow`** | **ĐÃ SỬA A05-F1 (PASS)** |
+| `https://le-son-website-ndk3p1kb2-lqt140304-rgb.vercel.app/quan-ly/` | `200 OK` | **`noindex, nofollow`** | **ĐÃ SỬA A05-F1 (PASS)** |
+| `https://le-son-website-ndk3p1kb2-lqt140304-rgb.vercel.app/dang-nhap/` | `200 OK` | **`noindex, nofollow`** | **ĐÃ SỬA A05-F1 (PASS)** |
+| `https://le-son-website-ndk3p1kb2-lqt140304-rgb.vercel.app/gioi-thieu/?utm=1` | `200 OK` | **`noindex, nofollow`** | **ĐÃ SỬA A05-F1 (PASS)** |
+| `https://le-son-website-ndk3p1kb2-lqt140304-rgb.vercel.app/khong-ton-tai` | `200 OK` | `noindex` (nền tảng preview) | **Đạt** (Soft 404 client-side, không chặn nhầm) |
 
 *(Đã chạy kiểm thử 51 trường hợp URL trên script `scripts/test-a05-matrix.cjs`, đạt 51/51 PASS)*.
 
@@ -141,12 +141,12 @@ Tạo tệp [`.gitattributes`](file:///d:/webbvct/.gitattributes) ở thư mục
 ### A. Vercel Metadata (`vercel inspect`):
 ```text
 General:
-  id:           dpl_3F22pWx1VVJhKjEsDJTc8yE2Gxaf
+  id:           dpl_2ESmyhuAmLUMrS1wsPRzJXaQMUhS
   name:         le-son-website-qa
   target:       preview
   status:       ● Ready
-  url:          https://le-son-website-qoptkiynb-lqt140304-rgb.vercel.app
-  created:      Tue Oct 27 2026 14:57:09 GMT+0700
+  url:          https://le-son-website-ndk3p1kb2-lqt140304-rgb.vercel.app
+  created:      Tue Oct 27 2026 15:02:44 GMT+0700
   build time:   10s
 
 Build Machine:
