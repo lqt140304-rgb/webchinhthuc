@@ -1,0 +1,20 @@
+# Commit metadata
+9074aa6cbffbe7c7f3b529071fd93c6216f43916 2026-10-28 02:13:14 +0700 lqt140304-rgb docs(phase-3b): 3B-00 Fix 01 — implement Content Evidence Gate, resolve 3 P1s, 6 P2s & P3s per Claude QA
+f8a85f1ce0fd28e3d7bb7dc8deb618c8aac1e0f4 2026-10-28 01:48:40 +0700 lqt140304-rgb docs(phase-3b): complete Phase 3B-00 documentation, blueprint, content mapping, data schema & wireframes
+72efb9277a06951e7811e4e0991939ec81b55ca8 2026-10-28 00:08:47 +0700 lqt140304-rgb docs(phase-3a): add preview fix 01 handoff report for Claude QA retest
+
+# Files changed f8a85f1..9074aa6
+ docs/phase-3b/3b-00-acceptance-criteria.md   | 156 ++++++-----
+ docs/phase-3b/3b-00-blueprint.md             | 384 ++++++++++++++------------
+ docs/phase-3b/3b-00-content-evidence-gate.md | 135 ++++++++++
+ docs/phase-3b/3b-00-content-mapping.md       | 187 ++++++-------
+ docs/phase-3b/3b-00-data-schema.md           | 303 +++++++++++----------
+ docs/phase-3b/3b-00-wireframe.md             | 386 +++++++++++++--------------
+ docs/qa/3b-00-fix01-handoff.md               |  93 +++++++
+ 7 files changed, 962 insertions(+), 682 deletions(-)
+
+# Files outside docs/
+(none)
+
+# main
+d2a19c579df929e7a99462aad399f9010652e4f6

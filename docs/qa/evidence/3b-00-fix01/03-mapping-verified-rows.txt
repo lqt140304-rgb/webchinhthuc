@@ -1,0 +1,43 @@
+# content-mapping.md status counts @9074aa6 (rows with an ID in backticks)
+data rows: 68
+VERIFIED rows: 21
+PENDING rows: 46
+PROPOSED rows: 0
+
+# Summary claimed in doc
+---
+
+## 4. TỔNG HỢP TRẠNG THÁI & ĐIỀU KIỆN CHẶN PRODUCTION
+
+- **Tổng số hạng mục rà soát:** 42 hạng mục.
+- **Số hạng mục `VERIFIED`:** 16 hạng mục (Chỉ gồm các thông tin đã có chỉ đạo bằng văn bản: tên bệnh viện, địa chỉ, hotline, slogan, layout, component hệ thống).
+- **Số hạng mục `PENDING`:** 25 hạng mục (Toàn bộ danh mục dịch vụ chi tiết, phác đồ, quy trình nội trú, phụ phí ngoài giờ và giá dịch vụ).
+- **Số hạng mục `ILLUSTRATIVE`:** 1 hạng mục (Ảnh minh họa dịch vụ khám).
+- **Cam kết Content Lock:** 100% các mục `PENDING` bắt buộc phải có nhãn `[Đề xuất]`, `[Chờ xác nhận]` hoặc badge `UNAVAILABLE` / `CONTACT` trên giao diện người dùng. Việc gỡ bỏ các nhãn này là **ĐIỀU KIỆN CHẶN PRODUCTION** tuyệt đối.
+
+---
+
+**KẾT THÚC MA TRẬN ÁNH XẠ NỘI DUNG 3B-00 (CONTENT MAPPING V1.1)**
+
+# VERIFIED rows (line: content)
+28:| **Hero** | `DV-HERO-01` | Breadcrumb: `Trang chủ / Dịch vụ` | Architecture Baseline V1 (`AGENTS.md`) | Antigravity (26/10/2026) | Toàn trang Public | **VERIFIED** | Hiển thị link Trang chủ + nhãn Dịch vụ |
+29:| **Hero** | `DV-HERO-02` | Eyebrow: `HỆ THỐNG DỊCH VỤ Y TẾ THÚ CƯNG LÊ SƠN` | Brand Identity Baseline V1 | Chủ dự án (26/10/2026) | Toàn trang Public | **VERIFIED** | Chữ in hoa, màu Plum Primary |
+30:| **Hero** | `DV-HERO-03` | H1: `Chăm sóc chu toàn từ phòng khám đến khu nội trú` | Slogan định vị thương hiệu đã duyệt | Chủ dự án (26/10/2026) | Toàn trang Public | **VERIFIED** | Font Lora 600, không in nghiêng |
+31:| **Hero** | `DV-HERO-04` | Đoạn dẫn giới thiệu tinh thần cẩn trọng, chu đáo | Văn phong chuẩn mực Mốc 2A/2B | Chủ dự án (26/10/2026) | Toàn trang Public | **VERIFIED** | Font Be Vietnam Pro 400 |
+32:| **Hero** | `DV-HERO-05` | Editorial Policy Banner: Thông báo danh mục đang chuẩn hóa Giai đoạn 3B | CEO Directive 042-A | CEO / Chủ dự án (28/10/2026)| Khung thông báo | **VERIFIED** | Khung viền mỏng, icon thông tin |
+54:| **Nhóm 4** | `DV-GRP4-04` | Nguyên tắc: Cập nhật tình hình định kỳ (không lộ y lệnh) | Architecture Baseline V1 (`AGENTS.md`) | Chủ dự án (26/10/2026) | Mô tả vận hành | **VERIFIED** | Cam kết bảo mật y lệnh nghiệp vụ |
+60:| **Cấp cứu** | `DV-EMG-01` | Khối Tiếp nhận Cấp cứu 24/24 Warm Orange | Homepage Section 3 đã duyệt (Commit `db78738`)| Chủ dự án (26/10/2026) | Khung cấp cứu | **VERIFIED** | Nền Warm Orange/Amber, Hotline 24/24 |
+62:| **Cấp cứu** | `DV-EMG-03` | Nút gọi khẩn: `Gọi Cấp cứu: 097 355 51 05` | Xác nhận trực tiếp của Chủ dự án (26/10/2026) | Chủ dự án (26/10/2026) | Nút bấm gọi điện | **VERIFIED** | Gắn link `tel:0973555105` |
+64:| **Lưu ý** | `DV-NOTE-02` | Lưu ý 02: Vận chuyển an toàn bằng lồng hoặc dây dắt | Biện pháp an toàn phòng khám | Chủ dự án (26/10/2026) | Thẻ lưu ý 02 | **VERIFIED** | Khuyến cáo an toàn di chuyển |
+66:| **Dark CTA** | `DV-CTA-01` | Tiêu đề: `Bạn cần tư vấn dịch vụ phù hợp cho bé?` | Component `EditorialDarkCTA` đã duyệt 3A | Antigravity (28/10/2026)| Khung CTA cuối | **VERIFIED** | Nền Deep Plum `#421247` |
+67:| **Dark CTA** | `DV-CTA-02` | Nút 1: `Đặt lịch khám` trỏ `/dat-lich` | Luồng chuyển đổi chuẩn (không kèm query) | Antigravity (28/10/2026)| Nút chính | **VERIFIED** | Trỏ về `/dat-lich` |
+68:| **Dark CTA** | `DV-CTA-03` | Nút 2: `Xem bảng giá dịch vụ` trỏ `/bang-gia` | Luồng chuyển tiếp 3B | Antigravity (28/10/2026)| Nút phụ | **VERIFIED** | Trỏ sang `/bang-gia` |
+76:| **Heading** | `BG-HEAD-01` | Breadcrumb: `Trang chủ / Dịch vụ / Bảng giá niêm yết` | Navigation chuẩn | Antigravity (26/10/2026) | Đầu trang Bảng giá | **VERIFIED** | Phân cấp rõ ràng |
+77:| **Heading** | `BG-HEAD-02` | Eyebrow: `MINH BẠCH CHI PHÍ Y TẾ THÚ CƯNG` | Tôn chỉ thương hiệu | Chủ dự án (26/10/2026) | Tiêu đề phụ | **VERIFIED** | Chữ in hoa màu Plum |
+78:| **Heading** | `BG-HEAD-03` | H1: `Bảng giá dịch vụ & biểu phí tham chiếu` | Chuẩn SEO & định vị trang bảng giá | Chủ dự án (26/10/2026) | Tiêu đề H1 | **VERIFIED** | Font Lora 600 |
+79:| **Heading** | `BG-HEAD-04` | Đoạn dẫn cam kết tư vấn chi phí rõ ràng, tôn trọng chủ nuôi | Định hướng đạo đức y khoa | Chủ dự án (26/10/2026) | Đoạn dẫn | **VERIFIED** | Font Be Vietnam Pro 400 |
+81:| **Toolbar** | `BG-TOOL-01` | Ô tìm kiếm: Tìm theo tên dịch vụ, xét nghiệm, gói spa | Tính năng tìm kiếm client-side | Antigravity (28/10/2026)| Toolbar tìm kiếm | **VERIFIED** | Accessible search input, có nút xóa `X` |
+97:| **Quy trình**| `BG-PROC-01` | Bước 01: Thăm khám lâm sàng & lắng nghe phản ánh | Quy trình tiếp đón chuẩn y khoa | Chủ dự án (26/10/2026) | Thẻ quy trình 01 | **VERIFIED** | Trình bày 3 bước Hairline Ledger |
+100:| **Dark CTA** | `BG-CTA-01` | Tiêu đề: `Bạn cần tư vấn chi phí cụ thể cho trường hợp của bé?` | Component `EditorialDarkCTA` đã duyệt 3A | Antigravity (28/10/2026)| Khung CTA cuối | **VERIFIED** | Nền Deep Plum `#421247` |
+101:| **Dark CTA** | `BG-CTA-02` | Nút 1: `Đăng ký lịch khám ngay` trỏ `/dat-lich` | Luồng chuyển đổi chuẩn (không kèm query) | Antigravity (28/10/2026)| Nút chính | **VERIFIED** | Trỏ về `/dat-lich` |
+102:| **Dark CTA** | `BG-CTA-03` | Nút 2: `Gọi tư vấn: 097 355 51 05` | Hotline xác thực 26/10/2026 | Chủ dự án (26/10/2026) | Nút phụ | **VERIFIED** | Gắn link `tel:0973555105` |

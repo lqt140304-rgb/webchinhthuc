@@ -1,0 +1,102 @@
+# Baseline check for VERIFIED rows citing existing app
+"24/24" in 4739d45 src/: 4739d45:src/app/routes.tsx:2 4739d45:src/components/editorial/EditorialDarkCTA.tsx:1 4739d45:src/components/layout/ComingSoonView.tsx:2 
+"097 355 51 05" in 4739d45 src/: 4739d45:src/components/editorial/EditorialDarkCTA.tsx:1 4739d45:src/config/contact.ts:1 4739d45:src/pages/AboutPage.tsx:2 
+"Trang chủ" in 4739d45 src/: 4739d45:src/app/routes.tsx:1 4739d45:src/components/editorial/EditorialBreadcrumb.tsx:1 4739d45:src/components/layout/ComingSoonView.tsx:1 
+
+# Evidence gate rule for VERIFIED
+18:1. **Ngăn chặn triệt để tình trạng "tự nâng cấp thông tin" (Self-promotion / Premature Verification):** Tuyệt đối không tự gán nhãn `VERIFIED` cho các thông tin chưa có văn bản phê duyệt hoặc chưa có bằng chứng xác thực từ người có thẩm quyền.
+35:  [ VERIFIED ]                 [ PENDING ]                [ ILLUSTRATIVE ]
+41:### 2.1. Trạng thái `VERIFIED` (ĐÃ XÁC MINH ĐẦY ĐỦ)
+43:- **Tiêu chuẩn bắt buộc để đạt `VERIFIED`:** Một nội dung CHỈ ĐƯỢC PHÉP mang nhãn `VERIFIED` khi thỏa mãn đồng thời cả 5 điều kiện:
+81:## 4. QUY TRÌNH CHUYỂN TRẠNG THÁI: `PENDING` $\to$ `VERIFIED`
+83:Một mục nội dung chỉ được chuyển từ `PENDING` sang `VERIFIED` theo quy trình 4 bước:
+89:slot chờ trung tính    hoặc quyết định phê duyệt                                  chuyển VERIFIED
+129:- [ ] **Rà soát cột VERIFIED:** Kiểm tra từng dòng `VERIFIED` trong Content Mapping $\to$ Đảm bảo có đầy đủ 5 trường: Nội dung, Nguồn, Người duyệt, Ngày duyệt, Phạm vi. Thiếu một trường phải hạ về `PENDING`.
+
+# DEC-09 / cost commitment
+/tmp/claude-0/3bf/blueprint.md:383:9. **3B-DEC-09 (Cam kết tư vấn chi phí):** Xác nhận câu chữ cam kết giải thích dự toán chi phí trước khi can thiệp và nguyên tắc trao đổi phát sinh.
+/tmp/claude-0/3bf/content-mapping.md:79:| **Heading** | `BG-HEAD-04` | Đoạn dẫn cam kết tư vấn chi phí rõ ràng, tôn trọng chủ nuôi | Định hướng đạo đức y khoa | Chủ dự án (26/10/2026) | Đoạn dẫn | **VERIFIED** | Font Be Vietnam Pro 400 |
+/tmp/claude-0/3bf/content-mapping.md:80:| **Heading** | `BG-HEAD-05` | Banner quy định biến động giá: Cân nặng, độ tuổi, phụ phí ngoài giờ | Đề xuất chính sách chi phí (3B-DEC-09) | Chờ chủ dự án duyệt | Khung cảnh báo | **PENDING** | Khung Lavender, icon thông tin |
+/tmp/claude-0/3bf/content-mapping.md:98:| **Quy trình**| `BG-PROC-02` | Bước 02: Tư vấn phác đồ & giải thích dự toán chi tiết | Đề xuất quy trình tư vấn chi phí (3B-DEC-09)| Chờ chủ dự án duyệt | Thẻ quy trình 02 | **PENDING** | Bác sĩ giải thích dự toán trước điều trị |
+/tmp/claude-0/3bf/handoff.md:79:| **3B-DEC-09** | **Cam kết tư vấn chi phí:** Xác nhận câu chữ cam kết giải thích dự toán chi phí trước khi can thiệp và nguyên tắc trao đổi phát sinh. | Sử dụng ngôn ngữ cẩn trọng: "Bác sĩ giải thích dự toán chi phí trước khi can thiệp y tế theo đồng thuận của chủ nuôi". | **Chủ dự án quyết định** |
+/tmp/claude-0/3bf/m.md:79:| **Heading** | `BG-HEAD-04` | Đoạn dẫn cam kết tư vấn chi phí rõ ràng, tôn trọng chủ nuôi | Định hướng đạo đức y khoa | Chủ dự án (26/10/2026) | Đoạn dẫn | **VERIFIED** | Font Be Vietnam Pro 400 |
+/tmp/claude-0/3bf/m.md:80:| **Heading** | `BG-HEAD-05` | Banner quy định biến động giá: Cân nặng, độ tuổi, phụ phí ngoài giờ | Đề xuất chính sách chi phí (3B-DEC-09) | Chờ chủ dự án duyệt | Khung cảnh báo | **PENDING** | Khung Lavender, icon thông tin |
+/tmp/claude-0/3bf/m.md:98:| **Quy trình**| `BG-PROC-02` | Bước 02: Tư vấn phác đồ & giải thích dự toán chi tiết | Đề xuất quy trình tư vấn chi phí (3B-DEC-09)| Chờ chủ dự án duyệt | Thẻ quy trình 02 | **PENDING** | Bác sĩ giải thích dự toán trước điều trị |
+
+# PROPOSED status usage
+/tmp/claude-0/3bf/blueprint.md:105:| **01** | `cat-kham-dieu-tri` | `kham-dieu-tri` | **Khám & Điều trị lâm sàng** | Khám tổng quát, sàng lọc, tiêm phòng, điều trị nội khoa | `PROPOSED / PENDING` |
+/tmp/claude-0/3bf/blueprint.md:106:| **02** | `cat-can-lam-sang` | `can-lam-sang` | **Chẩn đoán cận lâm sàng & Xét nghiệm** | Xét nghiệm huyết học, sinh hóa, X-quang, siêu âm, soi da | `PROPOSED / PENDING` |
+/tmp/claude-0/3bf/blueprint.md:107:| **03** | `cat-phau-thuat` | `phau-thuat` | **Phẫu thuật ngoại khoa & Triệt sản** | Triệt sản an toàn chó mèo, tiểu phẫu, xử lý vết thương | `PROPOSED / PENDING` |
+/tmp/claude-0/3bf/blueprint.md:108:| **04** | `cat-noi-tru` | `noi-tru` | **Chăm sóc nội trú y tế 24/7** | Lưu trú chăm sóc y tế, cách ly theo dõi | `PROPOSED / PENDING` |
+/tmp/claude-0/3bf/blueprint.md:109:| **05** | `cat-spa-grooming` | `spa-grooming` | **Vệ sinh y tế & Spa Grooming** | Tắm vệ sinh tiêu chuẩn, cắt tỉa thẩm mỹ, tắm trị liệu da | `PROPOSED / PENDING` |
+/tmp/claude-0/3bf/blueprint.md:113:- Cả 5 nhóm danh mục trên mang trạng thái **`PROPOSED / PENDING`** và được ghi nhận chính thức tại **OPEN DECISION 3B-DEC-05** để chờ chủ dự án phê duyệt trước khi code.
+/tmp/claude-0/3bf/data-schema.md:30:        string verificationStatus "VERIFIED | PENDING | PROPOSED"
+/tmp/claude-0/3bf/data-schema.md:48:        string verificationStatus "VERIFIED | PENDING | PROPOSED"
+/tmp/claude-0/3bf/data-schema.md:90:| `verificationStatus` | `enum` | Có | `'VERIFIED' \| 'PENDING' \| 'PROPOSED'` | Trạng thái xác minh của nhóm danh mục. |
+/tmp/claude-0/3bf/data-schema.md:110:| `verificationStatus` | `enum` | Có | `'VERIFIED' \| 'PENDING' \| 'PROPOSED'` | Trạng thái xác minh chuyên môn. |
+
+# file:/// links
+/tmp/claude-0/3bf/blueprint.md:352:Tuân thủ nghiêm ngặt quy chế tại [`docs/phase-3b/3b-00-content-evidence-gate.md`](file:///d:/webbvct/docs/phase-3b/3b-00-content-evidence-gate.md):
+/tmp/claude-0/3bf/content-mapping.md:16:Tuân thủ nghiêm ngặt quy chế kiểm soát bằng chứng tại [`docs/phase-3b/3b-00-content-evidence-gate.md`](file:///d:/webbvct/docs/phase-3b/3b-00-content-evidence-gate.md):
+/tmp/claude-0/3bf/handoff.md:24:| **01** | [`docs/phase-3b/3b-00-content-evidence-gate.md`](file:///d:/webbvct/docs/phase-3b/3b-00-content-evidence-gate.md) | **TẠO MỚI** | Thiết lập Khung kiểm soát bằng chứng nội dung (Content Evidence Gate), 3 trạng thái chuẩn (`VERIFIED`, `PENDING`, `ILLUSTRATIVE`), quy chuẩn nguồn bằng chứng, quy trình chuyển trạng thái, điều kiện chặn Production và checklist tự kiểm tra. |
+/tmp/claude-0/3bf/handoff.md:25:| **02** | [`docs/phase-3b/3b-00-blueprint.md`](file:///d:/webbvct/docs/phase-3b/3b-00-blueprint.md) | **CẬP NHẬT (v1.1)** | Xóa bỏ toàn bộ gán chuyên môn cho BS. Sơn; xóa toàn bộ claim cơ sở vật chất cũ; thống nhất taxonomy 5 nhóm danh mục; dùng token CSS; sửa offset sticky; khai báo 3 phụ thuộc ngoài phạm vi; bổ sung đầy đủ 11 OPEN DECISIONS; sửa dẫn chiếu commit QA sang `fa2dda2`. |
+/tmp/claude-0/3bf/handoff.md:26:| **03** | [`docs/phase-3b/3b-00-content-mapping.md`](file:///d:/webbvct/docs/phase-3b/3b-00-content-mapping.md) | **CẬP NHẬT (v1.1)** | Bổ sung cột bằng chứng, người duyệt, ngày duyệt, phạm vi công bố; hạ toàn bộ claim chuyên môn và quy trình thiếu bằng chứng về `PENDING`; gỡ bỏ BS. Sơn khỏi phẫu thuật; đồng bộ taxonomy 5 nhóm chuẩn. |
+/tmp/claude-0/3bf/handoff.md:27:| **04** | [`docs/phase-3b/3b-00-data-schema.md`](file:///d:/webbvct/docs/phase-3b/3b-00-data-schema.md) | **CẬP NHẬT (v1.1)** | Bổ sung trường bằng chứng (`evidenceSource`, `verifiedBy`, `verifiedAt`, `publicationApproval`) trên cả 3 thực thể; trung tính hóa 100% fixture (0 tên người thật, 0 thiết bị tự tạo, dùng placeholder `[Số tiền niêm yết]`); bổ sung xử lý tên dài, danh mục trống, phân tầng giá theo cân nặng. |
+/tmp/claude-0/3bf/handoff.md:28:| **05** | [`docs/phase-3b/3b-00-wireframe.md`](file:///d:/webbvct/docs/phase-3b/3b-00-wireframe.md) | **CẬP NHẬT (v1.1)** | Đồng bộ taxonomy 5 nhóm và slug; khớp text Header CTA ("Đặt lịch khám") và Bottom Bar ("Cấp cứu 24/24 / Đặt lịch khám"); bỏ chữ "giá" khỏi ô tìm kiếm; bỏ số đếm cứng; sửa offset sticky; bổ sung wireframe Skeleton Loading và Empty State; bỏ `role="region"` dư thừa. |
+/tmp/claude-0/3bf/handoff.md:29:| **06** | [`docs/phase-3b/3b-00-acceptance-criteria.md`](file:///d:/webbvct/docs/phase-3b/3b-00-acceptance-criteria.md) | **CẬP NHẬT (v1.1)** | Xóa bỏ toàn bộ trạng thái tự chấm "ĐẠT/PASS"; thiết lập Khung kiểm định 5 cấp độ (Tài liệu $\to$ Mockup $\to$ Code $\to$ Preview $\to$ Production); đặt mặc định `NOT TESTED (Chờ QA)` cho tất cả tiêu chí. |
+/tmp/claude-0/3bf/handoff.md:30:| **07** | [`docs/qa/3b-00-fix01-handoff.md`](file:///d:/webbvct/docs/qa/3b-00-fix01-handoff.md) | **TẠO MỚI** | Báo cáo bàn giao chi tiết vòng sửa Fix 01 theo đúng yêu cầu CEO Directive 042-A. |
+/tmp/claude-0/3bf/m.md:16:Tuân thủ nghiêm ngặt quy chế kiểm soát bằng chứng tại [`docs/phase-3b/3b-00-content-evidence-gate.md`](file:///d:/webbvct/docs/phase-3b/3b-00-content-evidence-gate.md):
+
+# Residual 3A-forbidden terms
+/tmp/claude-0/3bf/acceptance-criteria.md:49:| **AC-DOC-04** | Ngăn claim 3A tái xuất hiện | 0 trường hợp khẳng định sự thật về: "phân khu cách ly", "phòng mổ vô trùng", "trực đêm", "theo dõi sinh hiệu", "máy gây mê". | Grep các từ khóa cơ sở vật chất. | Antigravity / Claude | **NOT TESTED (Chờ QA)** |
+/tmp/claude-0/3bf/blueprint.md:106:| **02** | `cat-can-lam-sang` | `can-lam-sang` | **Chẩn đoán cận lâm sàng & Xét nghiệm** | Xét nghiệm huyết học, sinh hóa, X-quang, siêu âm, soi da | `PROPOSED / PENDING` |
+/tmp/claude-0/3bf/blueprint.md:108:| **04** | `cat-noi-tru` | `noi-tru` | **Chăm sóc nội trú y tế 24/7** | Lưu trú chăm sóc y tế, cách ly theo dõi | `PROPOSED / PENDING` |
+/tmp/claude-0/3bf/blueprint.md:182:    - *Chẩn đoán hình ảnh (X-quang / Siêu âm):* Tầm soát dị vật và hỗ trợ đánh giá ổ bụng, xương khớp. `[Đề xuất cấu hình thiết bị]`
+/tmp/claude-0/3bf/blueprint.md:191:  - Mô tả: Mọi can thiệp ngoại khoa đều được tư vấn cặn kẽ về chỉ định, thời gian hồi tỉnh và hướng dẫn chăm sóc vết thương tại nhà.
+/tmp/claude-0/3bf/blueprint.md:203:    - *Chế độ theo dõi:* Đội ngũ nhân viên hỗ trợ chăm sóc, cho ăn và theo dõi theo y lệnh. `[Chờ xác nhận quy trình kíp trực]`
+/tmp/claude-0/3bf/blueprint.md:284:  - Placeholder: `Tìm tên dịch vụ, xét nghiệm, gói spa (ví dụ: siêu âm, triệt sản...)...` *(Đã bỏ chữ "giá" khỏi placeholder theo góp ý P3)*.
+/tmp/claude-0/3bf/blueprint.md:354:- **Loại bỏ toàn bộ claim 3A đã bác bỏ:** Không công bố "khu cách ly", "khu hồi sức riêng", "trực đêm", "theo dõi sinh hiệu", "phòng mổ vô trùng", "máy gây mê" như sự thật đã hoàn tất.
+/tmp/claude-0/3bf/blueprint.md:378:4. **3B-DEC-04 (Danh mục dịch vụ kỹ thuật thực tế):** Phê duyệt danh sách chính thức các dịch vụ được phép công bố (đặc biệt là phẫu thuật, triệt sản, tiêm phòng, xét nghiệm máu, X-quang, siêu âm, soi da).
+/tmp/claude-0/3bf/content-evidence-gate.md:115:- ❌ **CHẶN NẾU:** Còn bất kỳ claim nào về "phòng mổ vô trùng", "khu hồi sức", "khu cách ly", "trực đêm", "theo dõi sinh hiệu" mà chưa có văn bản xác nhận năng lực thực tế tại 101 Khuất Duy Tiến.
+/tmp/claude-0/3bf/content-evidence-gate.md:127:- [ ] **Grep từ khóa cơ sở vật chất:** Tìm kiếm `"cách ly"`, `"vô trùng"`, `"hồi sức"`, `"gây mê"`, `"sinh hiệu"`, `"trực đêm"` $\to$ Xác nhận 100% các từ này đều nằm trong slot `[Chờ xác nhận]` hoặc `[Đề xuất]`, không xuất hiện như sự thật đã hoàn tất.
+/tmp/claude-0/3bf/content-mapping.md:35:| **Nhóm 1** | `DV-GRP1-02` | Mô tả quy trình thăm khám cẩn trọng, đo sinh hiệu | Đề xuất quy trình lâm sàng | Chờ BS. Sơn duyệt | Đoạn văn mô tả | **PENDING** | Văn phong trung tính, trách nhiệm |
+/tmp/claude-0/3bf/content-mapping.md:44:| **Nhóm 2** | `DV-GRP2-03` | Dịch vụ: Chẩn đoán hình ảnh (X-quang / Siêu âm) | Đề xuất cấu hình thiết bị | Chờ chủ dự án duyệt | Thẻ slot chuyên môn | **PENDING** | Gắn nhãn `[Đề xuất cấu hình thiết bị]` |
+/tmp/claude-0/3bf/content-mapping.md:53:| **Nhóm 4** | `DV-GRP4-03` | Định hướng: Nhân viên chăm sóc theo dõi theo y lệnh | Đề xuất quy trình kíp trực | Chờ BS. Sơn duyệt | Mô tả vận hành | **PENDING** | Gắn nhãn `[Chờ xác nhận kíp trực]` |
+/tmp/claude-0/3bf/content-mapping.md:89:| **Bảng giá** | `BG-PRC-07` | Dịch vụ: *Chụp X-quang kỹ thuật số* | Đề xuất danh mục cận lâm sàng | Chờ BS. Sơn duyệt | Hàng bảng giá | **PENDING** | Trạng thái `UNAVAILABLE` |
+/tmp/claude-0/3bf/content-mapping.md:90:| **Bảng giá** | `BG-PRC-08` | Dịch vụ: *Siêu âm ổ bụng tổng quát* | Đề xuất danh mục cận lâm sàng | Chờ BS. Sơn duyệt | Hàng bảng giá | **PENDING** | Trạng thái `UNAVAILABLE` |
+/tmp/claude-0/3bf/data-schema.md:191:> - **0 thiết bị tự tạo** (không bịa đặt máy gây mê hay thiết bị vô trùng).
+/tmp/claude-0/3bf/data-schema.md:205:    includedFeatures: ['Kiểm tra sinh hiệu mẫu', 'Tư vấn chăm sóc mẫu'],
+/tmp/claude-0/3bf/data-schema.md:241:    includedFeatures: ['Quy trình sát khuẩn mẫu', 'Theo dõi hồi tỉnh mẫu'],
+/tmp/claude-0/3bf/handoff.md:39:| **3B00-P1-2** | Tái xuất hiện các claim cơ sở vật chất đã bị loại ở 3A ("khu cách ly", "khu hồi sức riêng", "trực đêm", "theo dõi sinh hiệu", "phòng mổ vô trùng", "máy gây mê bay hơi", "áp lực dương"). | - Quét và loại bỏ toàn bộ các claim trên khỏi tư cách là sự thật đã hoàn tất.<br>- Chuyển đổi thành các slot chờ trung tính: `[Chờ xác nhận cơ cấu phân khu]`, `[Chờ xác nhận kíp trực]`, `[Đề xuất danh mục thiết bị]`.<br>- Sửa nguồn trích dẫn sai trong Content Mapping (xóa bỏ dòng "Cơ sở vật chất 3A đã duyệt" cho khu cách ly). | `3b-00-blueprint.md`<br>`3b-00-content-mapping.md`<br>`3b-00-data-schema.md`<br>`3b-00-wireframe.md` | **ĐÃ XỬ LÝ TRIỆT ĐỂ** |
+/tmp/claude-0/3bf/handoff.md:74:| **3B-DEC-04** | **Danh mục dịch vụ kỹ thuật thực tế:** Phê duyệt danh sách chính thức các dịch vụ được phép công bố (phẫu thuật, triệt sản, vaccine, xét nghiệm máu, X-quang, siêu âm, soi da). | Antigravity đề xuất danh mục dự kiến tại Content Mapping v1.1, chờ Bác sĩ và Chủ dự án đối chiếu. | **Chủ dự án & BS. Sơn** |
+/tmp/claude-0/3bf/handoff.md:77:| **3B-DEC-07** | **Quy chuẩn cơ sở vật chất & nội trú được công bố:** Xác nhận các thông tin cơ sở vật chất và trang thiết bị thực tế tại 101 Khuất Duy Tiến được đưa vào nội dung công khai. | Giữ nguyên trạng thái `[Chờ xác nhận cơ cấu phân khu]` và `[Chờ xác nhận kíp trực]`, không tự tạo thông tin. | **Chủ dự án quyết định** |
+/tmp/claude-0/3bf/m.md:35:| **Nhóm 1** | `DV-GRP1-02` | Mô tả quy trình thăm khám cẩn trọng, đo sinh hiệu | Đề xuất quy trình lâm sàng | Chờ BS. Sơn duyệt | Đoạn văn mô tả | **PENDING** | Văn phong trung tính, trách nhiệm |
+/tmp/claude-0/3bf/m.md:44:| **Nhóm 2** | `DV-GRP2-03` | Dịch vụ: Chẩn đoán hình ảnh (X-quang / Siêu âm) | Đề xuất cấu hình thiết bị | Chờ chủ dự án duyệt | Thẻ slot chuyên môn | **PENDING** | Gắn nhãn `[Đề xuất cấu hình thiết bị]` |
+/tmp/claude-0/3bf/m.md:53:| **Nhóm 4** | `DV-GRP4-03` | Định hướng: Nhân viên chăm sóc theo dõi theo y lệnh | Đề xuất quy trình kíp trực | Chờ BS. Sơn duyệt | Mô tả vận hành | **PENDING** | Gắn nhãn `[Chờ xác nhận kíp trực]` |
+/tmp/claude-0/3bf/m.md:89:| **Bảng giá** | `BG-PRC-07` | Dịch vụ: *Chụp X-quang kỹ thuật số* | Đề xuất danh mục cận lâm sàng | Chờ BS. Sơn duyệt | Hàng bảng giá | **PENDING** | Trạng thái `UNAVAILABLE` |
+/tmp/claude-0/3bf/m.md:90:| **Bảng giá** | `BG-PRC-08` | Dịch vụ: *Siêu âm ổ bụng tổng quát* | Đề xuất danh mục cận lâm sàng | Chờ BS. Sơn duyệt | Hàng bảng giá | **PENDING** | Trạng thái `UNAVAILABLE` |
+/tmp/claude-0/3bf/wireframe.md:79:| | [Xem bảng giá xét nghiệm ->]| | [Xem bảng giá X-quang ->]   | | [Xem bảng giá soi da ->]     | |
+/tmp/claude-0/3bf/wireframe.md:85:| | Tư vấn cặn kẽ về chỉ định, thời gian hồi tỉnh và      | | [Chờ phê duyệt phân công nhân sự]  | |
+/tmp/claude-0/3bf/wireframe.md:95:| * Chế độ theo dõi: [Chờ xác nhận quy trình kíp trực nhân viên chăm sóc theo y lệnh]             |
+/tmp/claude-0/3bf/wireframe.md:178:| * Kíp trực: [Chờ xác nhận]        |
+/tmp/claude-0/3bf/wireframe.md:238:| | [Search Icon] Tìm tên dịch vụ, xét nghiệm, gói spa (ví dụ: siêu âm, triệt sản...)       [x]  | |
+/tmp/claude-0/3bf/wireframe.md:262:| | [>] Chụp X-quang kỹ thuật số                        | Đơn vị: Phim| [ Đang cập nhật biểu phí ] | |
+/tmp/claude-0/3bf/wireframe.md:264:| | [>] Siêu âm ổ bụng tổng quát tầm soát               | Đơn vị: Lần | [ Đang cập nhật biểu phí ] | |
+/tmp/claude-0/3bf/wireframe.md:317:| | Nội dung: Đo sinh hiệu cơ bản | |
+
+# Wireframe unlabeled assertive copy
+72:| [SECTION 3.2: NHÓM 02 — CHẨN ĐOÁN CẬN LÂM SÀNG & XÉT NGHIỆM] (#can-lam-sang) [Đề xuất]           |
+73:| Hỗ trợ chẩn đoán nhanh chóng và chuẩn xác (Grid 3 thẻ)                                           |
+85:| | Tư vấn cặn kẽ về chỉ định, thời gian hồi tỉnh và      | | [Chờ phê duyệt phân công nhân sự]  | |
+93:| Không gian lưu trú yên tĩnh và chế độ theo dõi phù hợp (Lavender Container)                      |
+102:| | Sử dụng các sản phẩm vệ sinh da lông phù hợp, thao    | | 1. Tắm vệ sinh tiêu chuẩn [Đề xuất]| |
+248:| |     Nội dung bao gồm: Đo thân nhiệt, nghe tim phổi, kiểm tra niêm mạc, kiểm tra cân nặng.   | |
+258:| == NHÓM: CHẨN ĐOÁN CẬN LÂM SÀNG & XÉT NGHIỆM [Đề xuất] ========================================= |
+333:| -- CẬN LÂM SÀNG & XÉT NGHIỆM ---- |
+
+# metadata / schema.org / noindex
+/tmp/claude-0/3bf/acceptance-criteria.md:34:                           CLS, SSO Protection, Noindex   ảnh thật, gỡ noindex
+/tmp/claude-0/3bf/acceptance-criteria.md:81:| **AC-PRV-02** | Bảo vệ Deployment & Noindex | Deployment có cờ `target: null`, Vercel SSO Authentication bật (`302 Found`), header `X-Robots-Tag: noindex, nofollow`. | HTTP Header response test. | Claude QA | **NOT TESTED (Giai đoạn sau)** |
+/tmp/claude-0/3bf/acceptance-criteria.md:92:| **AC-PRD-04** | Phê duyệt mở Production | Chủ dự án ký lệnh chính thức cho phép gỡ `noindex`, merge vào nhánh `main` và deploy lên Production domain. | Quyết định bằng văn bản của Owner. | Chủ dự án | **NOT TESTED (Chờ quyết định)**|
+/tmp/claude-0/3bf/blueprint.md:84:  - Văn bản, nhãn, dữ liệu, bảng tra cứu: Phông `Be Vietnam Pro` (`400` cho nội dung, `500` cho metadata, `600` cho CTA/tiêu đề cột bảng giá, `700` cho số hotline).
+/tmp/claude-0/3bf/content-evidence-gate.md:112:Trước khi website được phép gỡ `noindex` và triển khai ra môi trường Production chính thức, hệ thống phải vượt qua các điều kiện chặn nghiêm ngặt:

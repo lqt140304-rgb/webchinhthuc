@@ -1,0 +1,35 @@
+## "Chăm sóc chu toàn từ phòng khám đến khu nội trú"
+first appearance (git log --all -S, oldest):
+  f8a85f1 2026-10-28 01:48:40 +0700 docs(phase-3b): complete Phase 3B-00 documentation, blueprint, content mapping, data schema & wireframes
+  present in 4739d45 (app code baseline): NO
+
+## "HỆ THỐNG DỊCH VỤ Y TẾ THÚ CƯNG LÊ SƠN"
+first appearance (git log --all -S, oldest):
+  f8a85f1 2026-10-28 01:48:40 +0700 docs(phase-3b): complete Phase 3B-00 documentation, blueprint, content mapping, data schema & wireframes
+  present in 4739d45 (app code baseline): NO
+
+## "MINH BẠCH CHI PHÍ Y TẾ THÚ CƯNG"
+first appearance (git log --all -S, oldest):
+  f8a85f1 2026-10-28 01:48:40 +0700 docs(phase-3b): complete Phase 3B-00 documentation, blueprint, content mapping, data schema & wireframes
+  present in 4739d45 (app code baseline): NO
+
+## "Bảng giá dịch vụ & biểu phí tham chiếu"
+first appearance (git log --all -S, oldest):
+  f8a85f1 2026-10-28 01:48:40 +0700 docs(phase-3b): complete Phase 3B-00 documentation, blueprint, content mapping, data schema & wireframes
+  present in 4739d45 (app code baseline): NO
+
+## "Brand Identity Baseline"
+first appearance (git log --all -S, oldest):
+  f8a85f1 2026-10-28 01:48:40 +0700 docs(phase-3b): complete Phase 3B-00 documentation, blueprint, content mapping, data schema & wireframes
+  present in 4739d45 (app code baseline): NO
+
+## "Bạn cần tư vấn dịch vụ phù hợp cho bé"
+first appearance (git log --all -S, oldest):
+  f8a85f1 2026-10-28 01:48:40 +0700 docs(phase-3b): complete Phase 3B-00 documentation, blueprint, content mapping, data schema & wireframes
+  present in 4739d45 (app code baseline): NO
+
+## "lồng vận chuyển"
+first appearance (git log --all -S, oldest):
+  f8a85f1 2026-10-28 01:48:40 +0700 docs(phase-3b): complete Phase 3B-00 documentation, blueprint, content mapping, data schema & wireframes
+  present in 4739d45 (app code baseline): NO
+
