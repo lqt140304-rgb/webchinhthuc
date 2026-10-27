@@ -1,0 +1,103 @@
+blueprint.md:134:  > *"Chúng tôi hiểu rằng mỗi lần thú cưng thăm khám là một lần người bạn đồng hành cần sự dịu dàng và chuẩn xác cao nhất. Bệnh viện Thú y Lê Sơn xây dự
+blueprint.md:154:  - Tiêu đề H2: `Thăm khám kỹ lưỡng, chẩn đoán đúng và điều trị tận gốc`
+blueprint.md:157:    1. *Khám lâm sàng tổng quát & sàng lọc sức khỏe định kỳ.* [VERIFIED]
+blueprint.md:158:    2. *Tiêm phòng vaccine & phòng ngừa ký sinh trùng nội/ngoại.* [VERIFIED]
+blueprint.md:159:    3. *Phẫu thuật ngoại khoa mô mềm & triệt sản an toàn.* [VERIFIED — Bác sĩ Sơn phụ trách]
+blueprint.md:173:    - *Chẩn đoán hình ảnh kỹ thuật số (X-quang / Siêu âm):* Tầm soát dị vật tiêu hóa, kiểm tra tổn thương xương khớp và ổ bụng. [Đề xuất cấu hình thiết b�
+blueprint.md:183:    - *Phân khu cách ly:* Khu nội trú bệnh truyền nhiễm tách biệt tuyệt đối khỏi khu hồi sức sau mổ và khu thú cưng khỏe mạnh.
+blueprint.md:184:    - *Theo dõi liên tục:* Đội ngũ trực đêm theo dõi sinh hiệu, hỗ trợ truyền dịch và cấp thuốc đúng giờ.
+blueprint.md:208:  1. *Lưu ý 01 — Nhịn ăn đối với xét nghiệm máu hoặc phẫu thuật:* Khuyến cáo nhịn ăn từ 6–8 tiếng trước khi làm xét nghiệm sinh hóa máu hoặc phẫu thuật g�
+blueprint.md:257:  - **Nội dung xác minh:**
+blueprint.md:260:    - *"3. Dịch vụ cấp cứu đêm và ngày lễ có thể áp dụng phụ phí phục vụ ngoài giờ y tế theo quy chế phòng khám."*
+blueprint.md:293:    - *Bao gồm trong dịch vụ:* Mô tả chi tiết những bước thực hiện trong dịch vụ (Ví dụ: đo sinh hiệu, tư vấn dinh dưỡng, sổ khám bệnh).
+blueprint.md:301:  - `Bước 03 — Thực hiện điều trị theo đồng thuận:` Bệnh viện chỉ tiến hành các thủ thuật y tế khi có sự thống nhất hoàn toàn của chủ nuôi. Không phát s
+blueprint.md:337:| **Tên bệnh viện, địa chỉ, hotline, giờ mở cửa** | **VERIFIED** | Hiển thị chính thức: `101 Khuất Duy Tiến`, `097 355 51 05`, `08:00 – 21:00`, `Cấp cứu 24/24` | Trực t
+blueprint.md:338:| **Bác sĩ phụ trách chuyên môn (BS. Lê Thái Sơn)** | **VERIFIED** (Họ tên) | Hiển thị chính thức họ tên. Chức danh/bằng cấp giữ ở mức PENDING nếu chưa nộp văn b�
+blueprint.md:339:| **4 Nhóm dịch vụ chính (Khám, Cận lâm sàng, Nội trú, Spa)** | **VERIFIED** (Định hướng) | Hiển thị như 4 giải pháp chăm sóc sức khỏe chính của phòng khám. | Homep
+blueprint.md:353:3. **Quyết định 3B-DEC-03 (Chính sách giá ngoài giờ cấp cứu):** Xác nhận có đưa dòng ghi chú về phụ phí phục vụ cấp cứu đêm/ngày lễ vào bảng giá hay không.
+content-mapping.md:18:1. **`VERIFIED` (ĐÃ XÁC MINH):**
+content-mapping.md:22:   - Nội dung giả định, danh mục dự kiến, các dịch vụ chuyên môn cần đối chiếu với bác sĩ phụ trách trước khi công bố.
+content-mapping.md:39:| **Hero** | `DV-HERO-01` | Breadcrumb: `Trang chủ / Dịch vụ` | Kiến trúc Navigation chuẩn | **VERIFIED** | Antigravity | Hiển thị link Trang chủ + nhãn Dịch vụ hiện tại |
+content-mapping.md:40:| **Hero** | `DV-HERO-02` | Eyebrow: `HỆ THỐNG DỊCH VỤ Y TẾ THÚ CƯNG LÊ SƠN` | Brand Identity Baseline V1 | **VERIFIED** | Chủ dự án | Hiển thị chữ in hoa, màu Plum Primary
+content-mapping.md:41:| **Hero** | `DV-HERO-03` | H1: `Chăm sóc chu toàn từ phòng khám đến khu nội trú` | Slogan & Định vị thương hiệu | **VERIFIED** | Chủ dự án | Font Lora 600, không in nghi
+content-mapping.md:42:| **Hero** | `DV-HERO-04` | Đoạn dẫn giới thiệu tinh thần tận tâm, quy trình khử khuẩn, đồng thuận chủ nuôi | Văn phong chuẩn mực Mốc 2A/2B | **VERIFIED** | Chủ d
+content-mapping.md:43:| **Hero** | `DV-HERO-05` | Editorial Policy Banner: Thông báo danh mục đang chuẩn hóa theo định hướng Giai đoạn 3B | Yêu cầu minh bạch thông tin | **VERIFIED** | CEO Directiv
+content-mapping.md:44:| **Jump Bar** | `DV-NAV-01` | 5 tab neo nhanh: Khám điều trị, Cận lâm sàng, Nội trú, Spa, Cấp cứu | Sitemap cấu trúc dịch vụ | **VERIFIED** | CEO Directive 038-A | Thanh pil
+content-mapping.md:45:| **Nhóm 1** | `DV-GRP1-01` | Tên nhóm: `Khám Lâm Sàng & Điều Trị Chuyên Sâu` | Homepage Section 3 đã duyệt | **VERIFIED** | Chủ dự án | Tiêu đề H2 Lora 600 |
+content-mapping.md:46:| **Nhóm 1** | `DV-GRP1-02` | Mô tả quy trình đo sinh hiệu, giải thích nguyên nhân, tư vấn phác đồ | Chuẩn y khoa phòng khám | **PENDING** | BS. Lê Thái Sơn | Giữ văn p
+content-mapping.md:47:| **Nhóm 1** | `DV-GRP1-03` | Dịch vụ: Khám lâm sàng tổng quát & sàng lọc sức khỏe | Dịch vụ cơ bản của bệnh viện | **VERIFIED** | Chủ dự án | Hiển thị danh m
+content-mapping.md:48:| **Nhóm 1** | `DV-GRP1-04` | Dịch vụ: Tiêm phòng vaccine & phòng ký sinh trùng | Dịch vụ cơ bản của bệnh viện | **VERIFIED** | Chủ dự án | Hiển thị danh mục chính
+content-mapping.md:49:| **Nhóm 1** | `DV-GRP1-05` | Dịch vụ: Phẫu thuật ngoại khoa mô mềm & triệt sản an toàn | Chuyên môn BS. Lê Thái Sơn | **VERIFIED** | Chủ dự án | Hiển thị rõ trách
+content-mapping.md:52:| **Nhóm 1** | `DV-GRP1-08` | Link liên kết: `Tra cứu bảng giá khám & phẫu thuật ->` | Topology `/bang-gia` | **VERIFIED** | Antigravity | Trỏ sang `/bang-gia?cat=kham-dieu-tri` |
+content-mapping.md:53:| **Nhóm 2** | `DV-GRP2-01` | Tên nhóm: `Chẩn Đoán Cận Lâm Sàng & Xét Nghiệm` | Năng lực chẩn đoán hình ảnh | **VERIFIED** | Chủ dự án | Tiêu đề H2 Lora 600 |
+content-mapping.md:55:| **Nhóm 2** | `DV-GRP2-03` | Dịch vụ: Chẩn đoán hình ảnh X-quang & Siêu âm kỹ thuật số | Năng lực thiết bị chẩn đoán | **PENDING** | BS. Lê Thái Sơn | Gắn nhãn 
+content-mapping.md:57:| **Nhóm 2** | `DV-GRP2-05` | Link liên kết: `Xem bảng giá xét nghiệm tham chiếu ->` | Topology `/bang-gia` | **VERIFIED** | Antigravity | Trỏ sang `/bang-gia?cat=xet-nghiem` |
+content-mapping.md:58:| **Nhóm 3** | `DV-GRP3-01` | Tên nhóm: `Chăm Sóc Nội Trú Y Tế 24/7` | Homepage Section 3 đã duyệt | **VERIFIED** | Chủ dự án | Tiêu đề H2 Lora 600 |
+content-mapping.md:59:| **Nhóm 3** | `DV-GRP3-02` | Nguyên tắc: Phân khu cách ly lây nhiễm nghiêm ngặt | Cơ sở vật chất 3A đã duyệt | **VERIFIED** | BS. Lê Thái Sơn | Trình bày nguyên tắc a
+content-mapping.md:60:| **Nhóm 3** | `DV-GRP3-03` | Nguyên tắc: Đội ngũ theo dõi sinh hiệu, truyền dịch đúng giờ | Quy trình vận hành nội trú | **PENDING** | BS. Lê Thái Sơn | Gắn nhãn `[�
+content-mapping.md:61:| **Nhóm 3** | `DV-GRP3-04` | Nguyên tắc: Báo cáo tình hình bé định kỳ (không lộ y lệnh) | Architecture Baseline V1 | **VERIFIED** | Chủ dự án | Cam kết cập nhật không
+content-mapping.md:62:| **Nhóm 3** | `DV-GRP3-05` | Link liên kết: `Xem biểu phí nội trú lưu chuồng ->` | Topology `/bang-gia` | **VERIFIED** | Antigravity | Trỏ sang `/bang-gia?cat=noi-tru` |
+content-mapping.md:63:| **Nhóm 4** | `DV-GRP4-01` | Tên nhóm: `Vệ Sinh Y Tế & Spa Grooming Dịu Nhẹ` | Homepage Section 3 đã duyệt | **VERIFIED** | Chủ dự án | Tiêu đề H2 Lora 600 |
+content-mapping.md:67:| **Nhóm 4** | `DV-GRP4-05` | Link liên kết: `Xem bảng giá dịch vụ spa grooming ->` | Topology `/bang-gia` | **VERIFIED** | Antigravity | Trỏ sang `/bang-gia?cat=spa` |
+content-mapping.md:68:| **Cấp cứu** | `DV-EMG-01` | Khối Tiếp nhận Cấp cứu 24/24 Warm Orange | Homepage Section 3 đã duyệt | **VERIFIED** | Chủ dự án | Nền Warm Orange/Amber, Hotline 24/24 |
+content-mapping.md:69:| **Cấp cứu** | `DV-EMG-02` | Dấu hiệu khẩn: Khó thở, co giật, ngộ độc, dị vật, tai nạn | Hướng dẫn sơ cấp cứu y khoa | **VERIFIED** | BS. Lê Thái Sơn | Liệt
+content-mapping.md:70:| **Cấp cứu** | `DV-EMG-03` | Nút gọi khẩn: `Gọi Cấp cứu: 097 355 51 05` | Hotline xác thực 26/10 | **VERIFIED** | Chủ dự án | Gắn link `tel:0973555105` |
+content-mapping.md:71:| **Lưu ý** | `DV-NOTE-01` | Lưu ý 01: Nhịn ăn 6-8h trước xét nghiệm sinh hóa / phẫu thuật | Khuyến cáo y khoa quốc tế | **VERIFIED** | BS. Lê Thái Sơn | Khung thẻ ki�
+content-mapping.md:72:| **Lưu ý** | `DV-NOTE-02` | Lưu ý 02: Vận chuyển an toàn bằng lồng hoặc dây dắt | Biện pháp an toàn phòng khám | **VERIFIED** | Chủ dự án | Khung thẻ kiến trúc 02 
+content-mapping.md:73:| **Lưu ý** | `DV-NOTE-03` | Lưu ý 03: Mang theo sổ tiêm chủng & thuốc đang dùng | Quy trình tiếp đón thú y | **VERIFIED** | BS. Lê Thái Sơn | Khung thẻ kiến trúc 03 |
+content-mapping.md:74:| **Dark CTA** | `DV-CTA-01` | Tiêu đề: `Bạn cần tư vấn dịch vụ phù hợp cho bé?` | Component EditorialDarkCTA | **VERIFIED** | Antigravity | Nền Deep Plum `#421247` |
+content-mapping.md:75:| **Dark CTA** | `DV-CTA-02` | Nút 1: `Đặt lịch khám online` trỏ `/dat-lich` | Luồng chuyển đổi chuẩn | **VERIFIED** | Antigravity | Nút chính Plum Primary |
+content-mapping.md:76:| **Dark CTA** | `DV-CTA-03` | Nút 2: `Xem bảng giá dịch vụ` trỏ `/bang-gia` | Luồng chuyển tiếp 3B | **VERIFIED** | Antigravity | Nút phụ viền trắng |
+content-mapping.md:84:| **Heading** | `BG-HEAD-01` | Breadcrumb: `Trang chủ / Dịch vụ / Bảng giá niêm yết` | Navigation chuẩn | **VERIFIED** | Antigravity | Thể hiện phân cấp rõ ràng |
+content-mapping.md:85:| **Heading** | `BG-HEAD-02` | Eyebrow: `MINH BẠCH CHI PHÍ Y TẾ THÚ CƯNG` | Tôn chỉ thương hiệu | **VERIFIED** | Chủ dự án | Chữ in hoa màu Plum |
+content-mapping.md:86:| **Heading** | `BG-HEAD-03` | H1: `Bảng giá dịch vụ & biểu phí tham chiếu` | Chuẩn SEO & định vị bảng giá | **VERIFIED** | Chủ dự án | Font Lora 600 |
+content-mapping.md:87:| **Heading** | `BG-HEAD-04` | Đoạn dẫn cam kết báo giá trước điều trị, không chi phí ẩn | Cam kết đạo đức y khoa | **VERIFIED** | Chủ dự án | Font Be Vietnam Pro 4
+content-mapping.md:88:| **Heading** | `BG-HEAD-05` | Banner quy định biến động giá: Cân nặng, độ tuổi, cấp cứu đêm | Quy chế vận hành y tế | **VERIFIED** | Chủ dự án | Khung cảnh báo
+content-mapping.md:89:| **Toolbar** | `BG-TOOL-01` | Ô tìm kiếm: Tìm theo tên dịch vụ, xét nghiệm, gói spa | Tính năng tìm kiếm tức thời | **VERIFIED** | Antigravity | Accessible search input, có 
+content-mapping.md:90:| **Toolbar** | `BG-TOOL-02` | 6 Tab phân loại: Tất cả, Khám & Thủ thuật, Xét nghiệm, Phẫu thuật, Nội trú, Spa | Cấu trúc phân nhóm dịch vụ | **VERIFIED** | CEO Direct
+content-mapping.md:94:| **Bảng giá** | `BG-PRC-04` | Dịch vụ: *Cấp cứu ngoài giờ y tế (21:00 – 08:00)* | Dịch vụ khẩn cấp 24/24 | **PENDING** | Chủ dự án | Gắn nhãn phụ phí ngoài gi�
+content-mapping.md:95:| **Bảng giá** | `BG-PRC-05` | Dịch vụ: *Xét nghiệm huyết học tổng quát 18 chỉ số* | Kỹ thuật cận lâm sàng | **PENDING** | BS. Lê Thái Sơn | Hiển thị trạng thá
+content-mapping.md:97:| **Bảng giá** | `BG-PRC-07` | Dịch vụ: *Chụp X-quang kỹ thuật số (1 tư thế)* | Kỹ thuật cận lâm sàng | **PENDING** | BS. Lê Thái Sơn | Hiển thị trạng thái `UNAVA
+content-mapping.md:98:| **Bảng giá** | `BG-PRC-08` | Dịch vụ: *Siêu âm ổ bụng tổng quát* | Kỹ thuật cận lâm sàng | **PENDING** | BS. Lê Thái Sơn | Hiển thị trạng thái `UNAVAILABLE` hoặ
+content-mapping.md:107:| **Quy trình**| `BG-PROC-01` | Bước 01: Thăm khám lâm sàng & lắng nghe phản ánh | Quy trình báo giá chuẩn | **VERIFIED** | Chủ dự án | Trình bày 3 bước Hairline Ledger 
+content-mapping.md:108:| **Quy trình**| `BG-PROC-02` | Bước 02: Tư vấn phác đồ & lập dự toán chi tiết | Quy trình báo giá chuẩn | **VERIFIED** | Chủ dự án | Cam kết không phát sinh ngoài 
+content-mapping.md:109:| **Quy trình**| `BG-PROC-03` | Bước 03: Điều trị theo thỏa thuận đồng thuận | Đạo đức hành nghề y | **VERIFIED** | Chủ dự án | Chủ nuôi toàn quyền quyết đ�
+content-mapping.md:110:| **Dark CTA** | `BG-CTA-01` | Tiêu đề: `Bạn cần tư vấn chi phí cụ thể cho trường hợp của bé?` | Component EditorialDarkCTA | **VERIFIED** | Antigravity | Nền Deep Plum `#
+content-mapping.md:111:| **Dark CTA** | `BG-CTA-02` | Nút 1: `Đăng ký lịch khám ngay` trỏ `/dat-lich` | Luồng chuyển đổi chuẩn | **VERIFIED** | Antigravity | Nút chính Plum Primary |
+content-mapping.md:112:| **Dark CTA** | `BG-CTA-03` | Nút 2: `Gọi tư vấn: 097 355 51 05` (`tel:0973555105`) | Hotline xác thực 26/10 | **VERIFIED** | Chủ dự án | Nút phụ viền trắng |
+content-mapping.md:118:Để đưa hai trang `/dich-vu` và `/bang-gia` từ giai đoạn Preview sang phát hành Production chính thức, danh mục thông tin sau bắt buộc phải có tài liệu ký duyệt từ 
+content-mapping.md:121:2. **Quy định phụ phí ngoài giờ:** Mức phụ phí và khung giờ áp dụng ngoài giờ y tế (hiện đề xuất khung 21:00 – 08:00 sáng hôm sau).
+data-schema.md:33:        string verificationStatus "VERIFIED | PENDING | ILLUSTRATIVE"
+data-schema.md:47:        string verificationStatus "VERIFIED | PENDING | ILLUSTRATIVE"
+data-schema.md:63:        string verificationStatus "VERIFIED | PENDING"
+data-schema.md:82:| `verificationStatus` | `enum` | Có | `'VERIFIED' \| 'PENDING'` | Trạng thái xác minh của nhóm danh mục. |
+data-schema.md:99:| `verificationStatus` | `enum` | Có | `'VERIFIED' \| 'PENDING'` | Trạng thái xác minh chuyên môn từ bác sĩ phụ trách. |
+data-schema.md:118:| `verificationStatus` | `enum` | Có | `'VERIFIED' \| 'PENDING'` | Phê duyệt từ chủ dự án trước khi công bố giá. |
+data-schema.md:167:  - `verificationStatus` bắt buộc phải là `VERIFIED`.
+data-schema.md:175:  - `verificationStatus` bắt buộc phải là `VERIFIED`.
+data-schema.md:196:    detailSummary: 'Quy trình kiểm tra toàn diện 7 cơ quan trọng yếu nhằm phát hiện sớm các dấu hiệu tiềm ẩn.',
+data-schema.md:197:    includedFeatures: ['Kiểm tra mắt, tai, mũi họng', 'Đo sinh hiệu & cân nặng', 'Lập sổ theo dõi sức khỏe'],
+data-schema.md:219:    shortDescription: 'Can thiệp ngoại khoa vết thương hở, u bướu hoặc thoát vị trong phòng mổ vô trùng.',
+data-schema.md:220:    detailSummary: 'Thực hiện bởi BS. Lê Thái Sơn với hệ thống máy gây mê bay hơi và khử khuẩn áp lực dương.',
+wireframe.md:59:| | Thăm khám kỹ lưỡng, chẩn đoán đúng và điều trị tận gốc| | +--------------------------------+ | |
+wireframe.md:61:| | Quy trình đo sinh hiệu, nghe tim phổi và giải thích   | | |     [Ảnh thú cưng ấm áp]       | | |
+wireframe.md:66:| | * Tiêm phòng vaccine & phòng ký sinh trùng            | | BS. Lê Thái Sơn phụ trách phẫu     | |
+wireframe.md:77:| | Phân tích 18 chỉ số máu,    | | X-quang kỹ thuật số & Siêu  | | Tầm soát nấm da, ghẻ Demodex | |
+wireframe.md:79:| | [Xem bảng giá xét nghiệm ->]| | [Xem bảng giá X-quang ->]   | | [Xem bảng giá soi da ->]     | |
+wireframe.md:84:| * Phân khu cách ly tuyệt đối bệnh truyền nhiễm và khu hồi sức sau phẫu thuật                     |
+wireframe.md:85:| * Bác sĩ & điều dưỡng trực đêm theo dõi sinh hiệu, truyền dịch và cấp thuốc đúng cữ              |
+wireframe.md:104:| | Nhịn ăn 6-8h nếu cần xét    | | Dùng lồng vận chuyển chuyên | | Cung cấp lịch sử tiêm phòng  | |
+wireframe.md:137:| chẩn đoán tận gốc                 |
+wireframe.md:151:| * Thẻ 2: X-quang & Siêu âm        |
+wireframe.md:159:| * Phân khu cách ly lây nhiễm      |
+wireframe.md:160:| * Bác sĩ & điều dưỡng trực đêm    |
+wireframe.md:181:| 01. Nhịn ăn 6-8h trước mổ/XN      |
+wireframe.md:218:| |     3. Dịch vụ cấp cứu đêm và ngày lễ có thể áp dụng phụ phí phục vụ ngoài giờ y tế.         | |
+wireframe.md:244:| | [>] Xét nghiệm huyết học tổng quát (18 chỉ số máu)  | Đơn vị: Mẫu | [ Đang cập nhật biểu phí ] | |
+wireframe.md:246:| | [>] Chụp X-quang kỹ thuật số (1 tư thế)             | Đơn vị: Phim| [ Đang cập nhật biểu phí ] | |
+wireframe.md:248:| | [>] Siêu âm ổ bụng tổng quát tầm soát               | Đơn vị: Lần | [ Đang cập nhật biểu phí ] | |
+wireframe.md:301:| | Nội dung: Đo sinh hiệu, tim   | |
+wireframe.md:318:| | Xét nghiệm máu 18 chỉ số  [>] | |
+wireframe.md:358:- Trong panel mở rộng, hiển thị thông báo rõ ràng: *"Biểu phí chính thức đang được hội đồng chuyên môn đối chiếu ban hành. Quý khách vui lòng liên hệ hotline 097
+wireframe.md:407:1. `name` (Tên dịch vụ kỹ thuật, ví dụ: "Siêu âm ổ bụng").
+wireframe.md:414:- Loại bỏ dấu tiếng Việt (ví dụ: gõ `"sieu am"` vẫn tìm ra `"Siêu âm"`; gõ `"triet san"` vẫn tìm ra `"Triệt sản"`).
