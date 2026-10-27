@@ -1,0 +1,70 @@
+{
+  "_endpoint": "GET https://api.vercel.com/v9/projects/prj_wZg6o5vvbDe6UTT52vaqvGTNC4e3",
+  "_http": 200,
+  "_filtered": "whitelist; protectionBypass secret keys removed, only scope kept",
+  "id": "prj_wZg6o5vvbDe6UTT52vaqvGTNC4e3",
+  "name": "le-son-website-qa",
+  "accountId": "team_JRJ3QbFNxjCkt551nl0Frolb",
+  "framework": "vite",
+  "createdAt": 1793027357610,
+  "updatedAt": 1793084762554,
+  "live": false,
+  "ssoProtection": {
+    "deploymentType": "all"
+  },
+  "gitForkProtection": true,
+  "gitProviderOptions": {
+    "createDeployments": "disabled",
+    "disableRepositoryDispatchEvents": true
+  },
+  "previewDeploymentsDisabled": false,
+  "autoAssignCustomDomains": true,
+  "deploymentExpiration": {
+    "expirationDays": 30,
+    "expirationDaysProduction": 30,
+    "expirationDaysCanceled": 30,
+    "expirationDaysErrored": 30,
+    "deploymentsToKeep": 10
+  },
+  "link": "<absent>",
+  "passwordProtection": "<absent>",
+  "trustedIps": "<absent>",
+  "protectionBypass_scopes": [
+    "automation-bypass"
+  ],
+  "targets.production": {
+    "id": "dpl_BAz378AxMw59nUafGCMDM8Hws84s",
+    "deploymentHostname": "le-son-website-jag4z698x-lqt140304-rgb",
+    "alias": [
+      "le-son-website-qa.vercel.app"
+    ],
+    "automaticAliases": [
+      "le-son-website-qa-lqt140304-rgb.vercel.app"
+    ],
+    "createdAt": 1793031223354,
+    "readyState": "READY",
+    "readySubstate": "PROMOTED",
+    "target": "production",
+    "meta": {
+      "githubCommitSha": "db78738df347ce368e5c7738c1f351485e07f348",
+      "githubCommitRef": "HEAD",
+      "githubCommitRepo": "webchinhthuc",
+      "githubCommitOrg": "lqt140304-rgb",
+      "githubDeployment": "1"
+    }
+  },
+  "latestDeployments": [
+    {
+      "id": "dpl_HvyLw6bGTrDuNxJV3xeSSt6yimyC",
+      "target": null,
+      "readyState": "READY",
+      "createdAt": 1793093065032
+    },
+    {
+      "id": "dpl_62NFAPXdtN8bfwZN8xsgo6SMg1Lx",
+      "target": null,
+      "readyState": "READY",
+      "createdAt": 1793092808557
+    }
+  ]
+}

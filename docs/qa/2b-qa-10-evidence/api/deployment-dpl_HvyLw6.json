@@ -1,0 +1,45 @@
+{
+  "_endpoint": "GET https://api.vercel.com/v13/deployments/dpl_HvyLw6bGTrDuNxJV3xeSSt6yimyC",
+  "_http": 200,
+  "_filtered": "whitelist; no email/env/secrets",
+  "id": "dpl_HvyLw6bGTrDuNxJV3xeSSt6yimyC",
+  "name": "le-son-website-qa",
+  "projectId": "prj_wZg6o5vvbDe6UTT52vaqvGTNC4e3",
+  "target": null,
+  "readyState": "READY",
+  "readySubstate": "STAGED",
+  "status": "READY",
+  "url": "le-son-website-jcml07jh0-lqt140304-rgb.vercel.app",
+  "createdAt": 1793093065032,
+  "ready": 1793093073844,
+  "source": "cli",
+  "type": "LAMBDAS",
+  "alias": [],
+  "aliasAssigned": true,
+  "automaticAliases": [],
+  "public": false,
+  "ownerId": "team_JRJ3QbFNxjCkt551nl0Frolb",
+  "inspectorUrl": "https://vercel.com/lqt140304-rgb/le-son-website-qa/HvyLw6bGTrDuNxJV3xeSSt6yimyC",
+  "plan": "hobby",
+  "meta": {
+    "githubCommitSha": "d3c32dd7aef8644149646139de470b8a99fda10d",
+    "githubCommitRef": "HEAD",
+    "githubCommitRepo": "webchinhthuc",
+    "githubCommitOrg": "lqt140304-rgb",
+    "githubDeployment": "1",
+    "actor": "antigravity"
+  },
+  "creator": {
+    "username": "lqt140304-rgb"
+  },
+  "oidcTokenClaims": {
+    "environment": "preview",
+    "project": "le-son-website-qa",
+    "project_id": "prj_wZg6o5vvbDe6UTT52vaqvGTNC4e3",
+    "owner_id": "team_JRJ3QbFNxjCkt551nl0Frolb"
+  },
+  "team": {
+    "slug": "lqt140304-rgb",
+    "id": "team_JRJ3QbFNxjCkt551nl0Frolb"
+  }
+}

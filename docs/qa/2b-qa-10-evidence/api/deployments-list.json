@@ -1,0 +1,123 @@
+{
+  "_endpoint": "GET https://api.vercel.com/v6/deployments?projectId=prj_wZg6o5vvbDe6UTT52vaqvGTNC4e3&limit=50&teamId=team_JRJ3QbFNxjCkt551nl0Frolb",
+  "_http": 200,
+  "pagination": {
+    "count": 6,
+    "next": null,
+    "prev": 1793093065032
+  },
+  "deployments": [
+    {
+      "uid": "dpl_HvyLw6bGTrDuNxJV3xeSSt6yimyC",
+      "name": "le-son-website-qa",
+      "projectId": "prj_wZg6o5vvbDe6UTT52vaqvGTNC4e3",
+      "target": null,
+      "readyState": "READY",
+      "readySubstate": "STAGED",
+      "createdAt": 1793093065032,
+      "source": "cli",
+      "url": "le-son-website-jcml07jh0-lqt140304-rgb.vercel.app",
+      "meta": {
+        "githubCommitSha": "d3c32dd7aef8644149646139de470b8a99fda10d",
+        "githubCommitRef": "HEAD",
+        "githubCommitRepo": "webchinhthuc",
+        "githubCommitOrg": "lqt140304-rgb",
+        "githubDeployment": "1",
+        "actor": "antigravity"
+      }
+    },
+    {
+      "uid": "dpl_62NFAPXdtN8bfwZN8xsgo6SMg1Lx",
+      "name": "le-son-website-qa",
+      "projectId": "prj_wZg6o5vvbDe6UTT52vaqvGTNC4e3",
+      "target": null,
+      "readyState": "READY",
+      "readySubstate": "STAGED",
+      "createdAt": 1793092808557,
+      "source": "cli",
+      "url": "le-son-website-6p57yxkh2-lqt140304-rgb.vercel.app",
+      "meta": {
+        "githubCommitSha": "d3c32dd7aef8644149646139de470b8a99fda10d",
+        "githubCommitRef": "HEAD",
+        "githubCommitRepo": "webchinhthuc",
+        "githubCommitOrg": "lqt140304-rgb",
+        "githubDeployment": "1",
+        "actor": "antigravity"
+      }
+    },
+    {
+      "uid": "dpl_2ESmyhuAmLUMrS1wsPRzJXaQMUhS",
+      "name": "le-son-website-qa",
+      "projectId": "prj_wZg6o5vvbDe6UTT52vaqvGTNC4e3",
+      "target": null,
+      "readyState": "READY",
+      "readySubstate": "STAGED",
+      "createdAt": 1793088135009,
+      "source": "cli",
+      "url": "le-son-website-ndk3p1kb2-lqt140304-rgb.vercel.app",
+      "meta": {
+        "githubCommitSha": "7d07a295314869daa3bfe6a25e33c87112c45bae",
+        "githubCommitRef": "fix/milestone-2a-qa",
+        "githubCommitRepo": "webchinhthuc",
+        "githubCommitOrg": "lqt140304-rgb",
+        "githubDeployment": "1",
+        "actor": "antigravity"
+      }
+    },
+    {
+      "uid": "dpl_3F22pWx1VVJhKjEsDJTc8yE2Gxaf",
+      "name": "le-son-website-qa",
+      "projectId": "prj_wZg6o5vvbDe6UTT52vaqvGTNC4e3",
+      "target": null,
+      "readyState": "READY",
+      "readySubstate": "STAGED",
+      "createdAt": 1793087829634,
+      "source": "cli",
+      "url": "le-son-website-qoptkiynb-lqt140304-rgb.vercel.app",
+      "meta": {
+        "githubCommitSha": "d3c32dd7aef8644149646139de470b8a99fda10d",
+        "githubCommitRef": "fix/milestone-2a-qa",
+        "githubCommitRepo": "webchinhthuc",
+        "githubCommitOrg": "lqt140304-rgb",
+        "githubDeployment": "1",
+        "actor": "antigravity"
+      }
+    },
+    {
+      "uid": "dpl_AepowyGh3A4iCrd47AQ9i2XoN4Xe",
+      "name": "le-son-website-qa",
+      "projectId": "prj_wZg6o5vvbDe6UTT52vaqvGTNC4e3",
+      "target": null,
+      "readyState": "READY",
+      "readySubstate": "STAGED",
+      "createdAt": 1793031426811,
+      "source": "cli",
+      "url": "le-son-website-jeu9cg4vb-lqt140304-rgb.vercel.app",
+      "meta": {
+        "githubCommitSha": "db78738df347ce368e5c7738c1f351485e07f348",
+        "githubCommitRef": "HEAD",
+        "githubCommitRepo": "webchinhthuc",
+        "githubCommitOrg": "lqt140304-rgb",
+        "githubDeployment": "1"
+      }
+    },
+    {
+      "uid": "dpl_BAz378AxMw59nUafGCMDM8Hws84s",
+      "name": "le-son-website-qa",
+      "projectId": "prj_wZg6o5vvbDe6UTT52vaqvGTNC4e3",
+      "target": "production",
+      "readyState": "READY",
+      "readySubstate": "PROMOTED",
+      "createdAt": 1793031223354,
+      "source": "cli",
+      "url": "le-son-website-jag4z698x-lqt140304-rgb.vercel.app",
+      "meta": {
+        "githubCommitSha": "db78738df347ce368e5c7738c1f351485e07f348",
+        "githubCommitRef": "HEAD",
+        "githubCommitRepo": "webchinhthuc",
+        "githubCommitOrg": "lqt140304-rgb",
+        "githubDeployment": "1"
+      }
+    }
+  ]
+}
