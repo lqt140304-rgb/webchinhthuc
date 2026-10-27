@@ -1,666 +1,631 @@
-# HỒ SƠ THIẾT KẾ CHI TIẾT GIAI ĐOẠN 3A (PHASE 3A DESIGN BLUEPRINT)
+# HỒ SƠ THIẾT KẾ CHI TIẾT GIAI ĐOẠN 3A — PHIÊN BẢN V2.1 (PHASE 3A DESIGN BLUEPRINT V2.1)
 ## Bệnh viện Thú y Lê Sơn 2026 — Vibrant Editorial Luxury & Chuẩn Mực Y Khoa
 
 | Hạng mục | Thông tin chi tiết |
 | :--- | :--- |
 | **Dự án** | Website Bệnh viện Thú y Lê Sơn 2026 (`lqt140304-rgb/webchinhthuc`) |
-| **Căn cứ chỉ đạo** | **CEO DIRECTIVE 017-A — PHASE 3A DESIGN ONLY**, `AGENTS.md` (Architecture Baseline V1), `PROJECT_BRIEF.md`, `docs/design-system.md` |
-| **Tác giả thiết kế** | Antigravity — Designer & Developer |
-| **Đơn vị thẩm định độc lập** | Claude — Independent QA Reviewer |
+| **Phiên bản tài liệu** | **Blueprint v2.1** (Cập nhật theo **CEO DIRECTIVE 018-A — PHASE 3A DESIGN REVISION 02** và Báo cáo QA độc lập `docs/qa/3a-design-qa-01.md` tại commit `f3e86ec`) |
+| **Căn cứ chỉ đạo** | `AGENTS.md` (Architecture Baseline V1), `PROJECT_BRIEF.md`, **CEO DIRECTIVE 017-A**, **CEO DIRECTIVE 018-A**, `docs/design-system.md`, `docs/assets-credits.md` |
+| **Tác giả thiết kế** | Antigravity — Designer |
+| **Đơn vị thẩm định độc lập** | Claude — Independent QA Lead |
 | **Phạm vi 3 tuyến trang** | 1. `/gioi-thieu` (Giới thiệu bệnh viện)<br>2. `/doi-ngu` (Đội ngũ)<br>3. `/co-so-vat-chat` (Cơ sở vật chất) |
-| **Trạng thái phê duyệt** | **APPROVED FOR DESIGN — NOT IMPLEMENTATION** (Chưa triển khai vào mã nguồn ứng dụng) |
-| **Mockup trực quan đính kèm** | Interactive HTML Design Studio (`phase-3a-interactive-mockups.html` trong thư mục Artifacts) |
+| **Trạng thái phê duyệt** | **PHASE 3A — PENDING OWNER DESIGN APPROVAL (DESIGN ONLY — NO WEBSITE IMPLEMENTATION)** |
+| **Đường dẫn Mockup trực quan** | - Trong Repository (độc lập với `src/`): `docs/design/phase-3a-interactive-mockups.html`<br>- Trong thư mục Artifact phiên làm việc: `C:/Users/Admin/.gemini/antigravity/brain/6f5020a8-5310-41e1-a151-7821d0315e27/phase-3a-interactive-mockups.html` |
+| **Báo cáo giải quyết QA** | `docs/qa/3a-design-handoff-02.md` |
 
 ---
 
-## MỤC LỤC
-1. [Định Hướng Nghệ Thuật & Nguyên Tắc Bảo Toàn Hệ Thống](#1-dinh-huong-nghe-thuat--nguyen-tac-bao-toan-he-thong)
-2. [Deliverable 1: Content & UX Blueprint Cho Từng Trang](#2-deliverable-1-content--ux-blueprint-cho-tung-trang)
+## MỤC LỤC (10 HẠNG MỤC NGHIỆM THU BẮT BUỘC THEO CEO DIRECTIVE 018-A)
+
+1. [Mục 1: Sitemap Ba Trang Giai Đoạn 3A & Định Hướng Nghệ Thuật](#1-muc-1-sitemap-ba-trang-giai-doan-3a--dinh-huong-nghe-thuat)
+2. [Mục 2: Nội Dung Chi Tiết Từng Section (Content & UX Blueprint)](#2-muc-2-noi-dung-chi-tiet-tung-section-content--ux-blueprint)
    - [2.1. Trang /gioi-thieu — Giới Thiệu Bệnh Viện](#21-trang-gioi-thieu--gioi-thieu-benh-vien)
-   - [2.2. Trang /doi-ngu — Đội Ngũ Nhân Sự & Chuyên Môn](#22-trang-doi-ngu--doi-ngu-nhan-su--chuyen-mon)
-   - [2.3. Trang /co-so-vat-chat — Cơ Sở Vật Chất & Trang Thiết Bị](#23-trang-co-so-vat-chat--co-so-vat-chat--trang-thiet-bi)
-3. [Deliverable 2: Wireframe Chi Tiết Desktop, Tablet & Mobile](#3-deliverable-2-wireframe-chi-tiet-desktop-tablet--mobile)
-   - [3.1. Wireframe Trang /gioi-thieu](#31-wireframe-trang-gioi-thieu)
-   - [3.2. Wireframe Trang /doi-ngu & Ma Trận Lưới Tự Cân Bằng](#32-wireframe-trang-doi-ngu--ma-tran-luoi-tu-can-bang)
-   - [3.3. Wireframe Trang /co-so-vat-chat](#33-wireframe-trang-co-so-vat-chat)
-4. [Deliverable 3: Đặc Tả Mockup Trực Quan (Visual Design Specification)](#4-deliverable-3-dac-ta-mockup-truc-quan-visual-design-specification)
-5. [Deliverable 4: Danh Mục Component Hiện Có & Quy Chuẩn Mở Rộng](#5-deliverable-4-danh-muc-component-hien-co--quy-chuan-mo-rong)
-6. [Deliverable 5: Đề Xuất Animation & Tương Tác Cho Từng Section](#6-deliverable-5-de-xuat-animation--tuong-tac-cho-tung-section)
-7. [Deliverable 6: Danh Sách Thông Tin, Ảnh & Hồ Sơ Cần Chủ Dự Án Cung Cấp](#7-deliverable-6-danh-sach-thong-tin-anh--ho-so-can-chu-du-an-cung-cap)
-8. [Deliverable 7: Tiêu Chí Responsive & Khả Năng Tiếp Cận (WCAG 2.1 AA)](#8-deliverable-7-tieu-chi-responsive--kha-nang-tiep-can-wcag-21-aa)
-9. [Deliverable 8: Rủi Ro Triển Khai & Các Điểm Cần Quyết Định](#9-deliverable-8-rui-ro-trien-khai--cac-diem-can-quyet-dinh)
+   - [2.2. Trang /doi-ngu — Đội Ngũ Nhân Sự](#22-trang-doi-ngu--doi-ngu-nhan-su)
+   - [2.3. Trang /co-so-vat-chat — Cơ Sở Vật Chất](#23-trang-co-so-vat-chat--co-so-vat-chat)
+3. [Mục 3: Wireframe Responsive (Desktop, Tablet & Mobile) & Ma Trận Lưới Đội Ngũ](#3-muc-3-wireframe-responsive-desktop-tablet--mobile--ma-tran-luoi-doi-ngu)
+4. [Mục 4: Danh Mục Tái Sử Dụng Component (Component Reuse & Codebase Alignment)](#4-muc-4-danh-muc-tai-su-dung-component-component-reuse--codebase-alignment)
+5. [Mục 5: Đặc Tả Chuyển Động & Tương Tác (Animation & Accessibility Interaction Specs)](#5-muc-5-dac-ta-chuyen-dong--tuong-tac-animation--accessibility-interaction-specs)
+6. [Mục 6: Danh Mục Dữ Liệu Placeholder & Hồ Sơ Thật Còn Thiếu (Data Placeholders & Missing Real Data)](#6-muc-6-danh-muc-du-lieu-placeholder--ho-so-that-con-thieu-data-placeholders--missing-real-data)
+7. [Mục 7: Hồ Sơ Nguồn Gốc & Quyền Sử Dụng Tài Sản Hình Ảnh / Phông Chữ (Asset Provenance Inventory)](#7-muc-7-ho-so-nguon-goc--quyen-su-dung-tai-san-hinh-anh--phong-chu-asset-provenance-inventory)
+8. [Mục 8: Bảng Đối Chiếu Giải Quyết Toàn Bộ Phát Hiện QA (Mapping 2 P1, 11 P2 & 9 P3)](#8-muc-8-bang-doi-chieu-giai-quyet-toan-bo-phat-hien-qa-mapping-2-p1-11-p2--9-p3)
+9. [Mục 9: Rủi Ro Kỹ Thuật & Danh Sách Quyết Định Cần Chủ Dự Án Xác Nhận](#9-muc-9-rui-ro-ky-thuat--danh-sach-quyet-dinh-can-chu-du-an-xac-nhan)
+10. [Mục 10: Đường Dẫn Chính Xác Đến Mockup Trực Quan & Hướng Dẫn Mở Xem Trên Windows / Trình Duyệt](#10-muc-10-duong-dan-chinh-xac-den-mockup-truc-quan--huong-dan-mo-xem-tren-windows--trinh-duyet)
 
 ---
 
-## 1. ĐỊNH HƯỚNG NGHỆ THUẬT & NGUYÊN TẮC BẢO TOÀN HỆ THỐNG
+## 1. MỤC 1: SITEMAP BA TRANG GIAI ĐOẠN 3A & ĐỊNH HƯỚNG NGHỆ THUẬT
 
-### 1.1. Bảo toàn Kiến trúc Baseline V1 & Mốc 2A/2B
-- **Giữ nguyên 100% Public Website hiện hữu:** Toàn bộ 3 trang thuộc Giai đoạn 3A nằm bên trong `RootLayout` công khai (`Header`, `MobileNav`, `main#main-content`, `Footer`, `MobileBottomBar`), kế thừa trọn vẹn nhận diện **Vibrant Editorial Luxury + Premium Veterinary**.
-- **Bảo toàn tuyệt đối 6 Section Trang chủ:** Không thay đổi cấu trúc, nội dung hay style của 6 section Trang chủ đã nghiệm thu có điều kiện.
-- **Độc lập với 2 Portal Giai đoạn 4:** Không pha trộn giao diện dạng bảng điều khiển (dashboard) vào 3 trang thông tin công khai này.
+### 1.1. Sitemap & Cấu trúc Điều hướng Giai đoạn 3A
+Ba trang thuộc Giai đoạn 3A nằm trong phân khu **Public Website (`RootLayout`)**, thuộc cụm điều hướng **Về Lê Sơn** trên `Header` và `MobileNav`:
 
-### 1.2. Hệ màu, Typography & Nhịp điệu Thị giác (Visual Rhythm)
+```text
+Public Website (RootLayout: Header + main#main-content + Footer + MobileBottomBar)
+│
+├── / (Trang chủ — Bảo toàn nguyên vẹn 100% 6 section đã nghiệm thu Mốc 2A/2B)
+│
+├── Cụm menu "Về Lê Sơn" (Nhãn nhóm dạng text tĩnh trong Breadcrumb — không tạo link giả):
+│   │
+│   ├── 1. /gioi-thieu (Giới thiệu bệnh viện)
+│   │      ├── Section 1.1: Editorial Hero (Định vị thương hiệu & Dải thông tin cơ sở xác thực)
+│   │      ├── Section 1.2: Câu chuyện Lê Sơn (Open Magazine Spread + Slot câu chuyện sáng lập chờ duyệt)
+│   │      ├── Section 1.3: Giá trị và Triết lý chăm sóc (Architectural Numbered Triptych 01–03)
+│   │      ├── Section 1.4: Quan điểm phục vụ, chăm sóc thú cưng (Editorial Hairline Ledger — Đề xuất chờ duyệt)
+│   │      └── Section 1.5: Khám phá Đội ngũ, Cơ sở vật chất & Dải CTA rút gọn
+│   │
+│   ├── 2. /doi-ngu (Đội ngũ)
+│   │      ├── Section 2.1: Team Introduction Hero + Thông báo minh bạch hồ sơ + Bộ lọc bộ phận (Accessible Filter)
+│   │      ├── Section 2.2: Nhóm Bộ phận Lâm sàng / Bác sĩ Thú y (Uniform Card Grid — Không VIP, Không ảnh giả)
+│   │      ├── Section 2.3: Các Bộ phận Chăm sóc, Spa & Hỗ trợ theo cơ cấu thực tế (Không tự gộp bộ phận trái thực tế)
+│   │      ├── Section 2.4: Cách đội ngũ phối hợp chăm sóc thú cưng (Workflow Strip — Đề xuất chờ xác nhận)
+│   │      └── Section 2.5: CTA Liên hệ & Đặt lịch khám
+│   │
+│   └── 3. /co-so-vat-chat (Cơ sở vật chất)
+│          ├── Section 3.1: Editorial Hero + Banner chính sách ảnh minh họa & điều kiện phát hành + Zone Jump Bar
+│          ├── Section 3.2: Gallery không gian bệnh viện (Asymmetric Editorial Spread + Nhãn ảnh minh họa bắt buộc)
+│          ├── Section 3.3: Khu khám và điều trị (Editorial Split + Slot thiết bị xét nghiệm/chẩn đoán trung tính)
+│          ├── Section 3.4: Khu nội trú và trang thiết bị chăm sóc (Lavender Split + Slot quy cách nội trú chờ xác nhận)
+│          └── Section 3.5: CTA đến bệnh viện (101 Khuất Duy Tiến) hoặc liên hệ cấp cứu 24/24
+│
+└── /dat-lich (Đặt lịch khám — Đích đến của CTA chính trên cả 3 trang)
+```
+
+### 1.2. Bảo toàn Art Direction "Vibrant Editorial Luxury" & Hệ thống Token
 - **Nguồn Design Tokens duy nhất (`src/styles/tokens.css`):**
-  - **Nền (Backgrounds):** Nền giấy ấm Ivory (`--color-bg-primary`: `#FBF7F1`), nền phân vùng Lavender nhạt (`--color-bg-secondary`: `#F8F2F9`), bề mặt nổi (`--color-bg-card`: `#FFFFFF`), nền nhấn chiều sâu Deep Plum (`--color-bg-dark`: `#421247`, `--color-bg-dark-secondary`: `#310D35`).
-  - **Chữ & Tương phản (Foregrounds):** Chữ chính (`--color-fg-primary`: `#1A0A1C` — tương phản `17.4:1` trên Ivory), tiêu đề mận đậm (`--color-fg-secondary`: `#421247`), văn bản mô tả (`--color-fg-muted`: `#554157` — tương phản `8.2:1` trên Ivory), metadata (`--color-fg-subtle`: `#5A3E5E` — tương phản `7.6:1` trên Ivory).
-  - **Điểm nhấn hành động:** Plum chủ đạo (`--color-plum-primary`: `#5A1E5E`), Orchid phụ trợ (`--color-plum-orchid`: `#824787`, `--color-plum-orchid-light`: `#D8B4E2`), và Cam ấm khẩn cấp (`--color-warm-orange`: `#C2560C`, `--color-warm-orange-dark`: `#9A3412`, `--color-warm-orange-light`: `#FB923C`) dành riêng cho cấp cứu 24/24 và hotline.
-- **Bảo toàn chiến lược Font Phương án C (`src/styles/fonts.css` — Lỗi 2B-25 đã đóng):**
-  - Sử dụng đúng 6 file WOFF2 tự lưu trữ (self-hosted):
-    1. `Lora` SemiBold `600` (`lora-600.woff2` — Critical Preload): Dùng cho mọi tiêu đề `h1`, `h2`, `h3`, số thứ tự editorial lớn và câu trích dẫn chủ đạo. **Lưu ý kỹ thuật:** Vì dự án chỉ nạp `lora-600.woff2` kiểu đứng (`normal`), thiết kế **không dùng Lora in nghiêng** để tránh trình duyệt tự tạo chữ nghiêng giả (synthetic oblique).
-    2. `Be Vietnam Pro` Regular `400` (`be-vietnam-pro-400.woff2` — Critical Preload): Văn bản thân bài, đoạn mô tả.
-    3. `Be Vietnam Pro` Medium `500` (`be-vietnam-pro-500.woff2` — Secondary): Nhãn phụ, breadcrumb, metadata, pill tag chuyên môn.
-    4. `Be Vietnam Pro` SemiBold `600` (`be-vietnam-pro-600.woff2` — Critical Preload): Nút bấm CTA, điều hướng, chức danh nhân sự, tiêu đề mục nhỏ.
-    5. `Be Vietnam Pro` Bold `700` (`be-vietnam-pro-700.woff2` — Secondary): Eyebrow chữ hoa (`uppercase`), nhãn trạng thái, số hotline.
-    6. `Be Vietnam Pro` Italic `400` (`be-vietnam-pro-italic-400.woff2` — Secondary): Ghi chú nguồn minh họa, chú thích ảnh, disclaimer.
-- **Chống đơn điệu & Hạn chế lạm dụng Card bo tròn:**
-  - Thực thi nghiêm túc chỉ đạo Art Direction: *"Lưới editorial hiện đại, ảnh lớn, khoảng trắng có chủ đích. Hạn chế card lặp và bo tròn quá nhiều."*
-  - Thay vì đóng khung mọi đoạn văn vào các thẻ trắng bo tròn giống hệt nhau, thiết kế đan xen 4 kiểu cấu trúc:
-    1. **Asymmetric Editorial Split (Chia cột bất đối xứng 7/5 hoặc 5/7):** Đặt chữ trực tiếp trên nền giấy ấm Ivory kết hợp khung ảnh lớn cắt góc nghệ thuật (`2.25rem 0.75rem 2.25rem 0.75rem` kế thừa từ `HeroSection.module.css`).
-    2. **Architectural Hairline Ledger (Bảng kẻ chỉ mảnh tạp chí):** Dùng đường kẻ ngang/dọc `1px solid var(--color-border-subtle)` cùng số thứ tự serif lớn (`01`, `02`, `03`) trên nền mở, tạo cảm giác trang báo cao cấp và thoáng đãng.
-    3. **Photo Editorial Spread (Bố cục ảnh tạp chí):** Kết hợp 1 khung ảnh chủ đạo cỡ lớn và 2 khung ảnh cận cảnh có chú thích biên tập.
-    4. **Structured Uniform Cards (Thẻ chuẩn hóa có chọn lọc):** Chỉ dùng card đóng khung khi thật sự cần phân tách các thực thể đồng cấp (như thẻ nhân sự trên `/doi-ngu` hoặc thẻ điều hướng liên trang).
-
-### 1.3. Ranh giới nghiêm ngặt giữa Dữ liệu Xác minh & Khung Nội dung Chờ duyệt
-| Phân loại | Dữ liệu được phép hiển thị như thông tin chính thức | Nội dung tuyệt đối KHÔNG tự bịa (Đặt vào Slot chờ xác minh) |
-| :--- | :--- | :--- |
-| **Thông tin chung** | - Tên: **Bệnh viện Thú y Lê Sơn**<br>- Địa chỉ: **101 Khuất Duy Tiến, Thanh Xuân, Hà Nội**<br>- Hotline: **097 355 51 05** (`tel:0973555105`)<br>- Giờ khám tham chiếu: **08:00 – 21:00 (Tất cả các ngày)**<br>- Cấp cứu: **Tiếp nhận cấp cứu 24/24**<br>- 4 nhóm dịch vụ: Khám & điều trị, Nội trú 24/7, Spa & Grooming, Cấp cứu 24/24 | - Năm thành lập cụ thể, lịch sử mở rộng chưa xác minh<br>- Số lượng ca khám/phẫu thuật, tỷ lệ thành công, số năm kinh nghiệm<br>- Giải thưởng, chứng nhận quốc tế chưa có hồ sơ<br>- Cam kết thời gian phản hồi cố định chưa được duyệt |
-| **Trang `/doi-ngu`** | - Cấu trúc bộ phận thực tế (Bác sĩ thú y; Spa & Grooming; Điều dưỡng & Hỗ trợ vận hành)<br>- Tên nhân sự đã có trong tài liệu gốc: **BS. Lê Thái Sơn** | - Hồ sơ nhân sự giả định, tên bác sĩ/kỹ thuật viên tự đặt<br>- Bằng cấp, trường đào tạo, chứng chỉ hành nghề, số năm kinh nghiệm khi chưa có bản xác nhận từ chủ dự án |
-| **Trang `/co-so-vat-chat`** | - Không gian phục vụ các dịch vụ đã xác nhận tại 101 Khuất Duy Tiến: Khu tiếp đón, khu khám & điều trị, khu nội trú 24/7, khu Spa & Grooming | - Thông số kỹ thuật cụ thể của máy xét nghiệm Mindray, model máy siêu âm/X-quang, áp lực phòng mổ, vật liệu chuồng khi chưa xác minh thực tế<br>- Không trình bày ảnh minh họa/placeholder như ảnh chụp thật tại bệnh viện |
+  - **Nền (Backgrounds):** Ivory ấm (`--color-bg-primary`: `#FBF7F1`), Lavender nhạt (`--color-bg-secondary`: `#F8F2F9`), bề mặt nổi (`--color-bg-card`: `#FFFFFF`), Deep Plum (`--color-bg-dark`: `#421247`, `--color-bg-dark-secondary`: `#310D35`).
+  - **Chữ (Foregrounds):** Chữ chính (`--color-fg-primary`: `#1A0A1C`), tiêu đề phụ mận đậm (`--color-fg-secondary`: `#421247`), văn bản mô tả (`--color-fg-muted`: `#554157`), metadata (`--color-fg-subtle`: `#5A3E5E`).
+  - **Điểm nhấn hành động:** Plum chủ đạo (`--color-plum-primary`: `#5A1E5E`), Orchid (`--color-plum-orchid`: `#824787`, `--color-plum-orchid-light`: `#D8B4E2`), và Cam ấm (`--color-warm-orange`: `#C2560C`, `--color-warm-orange-dark`: `#9A3412`) dành riêng cho cấp cứu 24/24 và hotline.
+- **Bảo toàn chiến lược Font Phương án C (`src/styles/fonts.css`):**
+  - Chỉ sử dụng đúng 6 file WOFF2 tự lưu trữ (`public/fonts/`):
+    1. `lora-600.woff2` (`Lora` SemiBold `600`, `font-style: normal` — **Critical Preload**): Dùng cho tiêu đề `h1`, `h2`, `h3`, số thứ tự `01–03` và câu trích dẫn lớn. **Tuyệt đối không dùng Lora in nghiêng** để tránh trình duyệt tự tạo nghiêng giả (synthetic oblique).
+    2. `be-vietnam-pro-400.woff2` (`Be Vietnam Pro` Regular `400` — **Critical Preload**): Văn bản thân bài.
+    3. `be-vietnam-pro-500.woff2` (`Be Vietnam Pro` Medium `500` — Secondary): Breadcrumb, metadata, pill tag.
+    4. `be-vietnam-pro-600.woff2` (`Be Vietnam Pro` SemiBold `600` — **Critical Preload**): Nút CTA, thanh điều hướng, dòng chức danh chuyên môn.
+    5. `be-vietnam-pro-700.woff2` (`Be Vietnam Pro` Bold `700` — Secondary): Eyebrow chữ hoa, nhãn cảnh báo, số hotline.
+    6. `be-vietnam-pro-italic-400.woff2` (`Be Vietnam Pro` Italic `400` — Secondary): Chú thích ảnh, ghi chú trạng thái chờ xác minh.
+- **Bố cục đa dạng, hạn chế lạm dụng card bo tròn:**
+  - Kết hợp 4 cấu trúc: (1) *Asymmetric Editorial Split 7/5*, (2) *Architectural Hairline Ledger & Numbered Triptych*, (3) *Photo Editorial Spread*, và (4) *Uniform Cards có chọn lọc* (chỉ dùng cho lưới nhân sự `/doi-ngu` và 2 thẻ dẫn đường cuối `/gioi-thieu`).
 
 ---
 
-## 2. DELIVERABLE 1: CONTENT & UX BLUEPRINT CHO TỪNG TRANG
+## 2. MỤC 2: NỘI DUNG CHI TIẾT TỪNG SECTION (CONTENT & UX BLUEPRINT)
 
 ### 2.1. TRANG `/gioi-thieu` — GIỚI THIỆU BỆNH VIỆN
-- **Phong cách chủ đạo:** *Editorial Storytelling + Clinical Credibility* (Kể chuyện giàu cảm xúc kết hợp sự điềm tĩnh, chuẩn mực của y khoa thú y).
-- **Mục tiêu UX:** Giúp chủ nuôi hiểu rõ "Bệnh viện Thú y Lê Sơn là ai, làm việc theo nguyên tắc nào và chăm sóc thú cưng ra sao", từ đó xây dựng niềm tin trước khi xem Đội ngũ, Cơ sở vật chất hoặc Đặt lịch khám.
-- **Luồng điều hướng & SEO:**
-  - Breadcrumb: `Trang chủ` (`/`) ➔ `Về Lê Sơn` ➔ `Giới thiệu bệnh viện` (`aria-current="page"`).
-  - SEO Hook: `useRouteSeo` với `title: "Về Chúng Tôi — Bệnh viện Thú y Lê Sơn"`, giữ `isIndexable: false` khi còn khung nội dung/ảnh chờ duyệt.
+- **Phong cách:** *Editorial Storytelling + Clinical Credibility*.
+- **Breadcrumb (`3A-P3-2` Đã sửa):** `Trang chủ` (`<a href="/">`) `/` `Về Lê Sơn` (`<span>` tĩnh, không đặt link) `/` `Giới thiệu bệnh viện` (`<span aria-current="page">`).
+- **Quy tắc hình ảnh (`3A-P2-2` Đã sửa):** **Tuyệt đối không dùng ảnh stock có người mặc áo blouse hoặc đồng phục y tế** trên trang `/gioi-thieu` để tránh người xem hiểu nhầm người trong ảnh là bác sĩ thật của Lê Sơn. Khung ảnh minh họa trong Preview/Mockup chỉ sử dụng ảnh thú cưng hoặc không gian ấm áp không có nhân sự giả, kèm nhãn trực tiếp: `Ảnh minh họa — không phải cơ sở thực tế của Lê Sơn`.
 
-#### Cấu trúc 5 Khu vực (5 Sections) của `/gioi-thieu`:
-
-1. **Khu vực 1 — Editorial Hero (Định vị thương hiệu & Điểm tựa y tế):**
-   - **Bố cục:** Lưới 12 cột bất đối xứng (7 cột nội dung bên trái + 5 cột cụm 2 khung ảnh editorial cắt góc nghệ thuật bên phải), phía dưới là dải thông tin xác thực kẻ chỉ mảnh (`Architectural Metadata Strip`).
-   - **Thông điệp chính:**
+#### 5 Khu vực nội dung của `/gioi-thieu`:
+1. **Section 1.1 — Editorial Hero:**
+   - **Cột trái (7/12 cột):**
      - Eyebrow: `VỀ BỆNH VIỆN THÚ Y LÊ SƠN`
-     - Tiêu đề `h1` (Lora 600): *“Nơi sự cẩn trọng y khoa song hành cùng lòng thấu cảm.”*
-     - Đoạn dẫn (Lead paragraph): *“Tại 101 Khuất Duy Tiến, Thanh Xuân, Hà Nội, Bệnh viện Thú y Lê Sơn được xây dựng với mong muốn trở thành điểm tựa y tế đáng tin cậy cho chủ nuôi — nơi mỗi bé cưng đều được thăm khám kỹ lưỡng, giải thích minh bạch và chăm sóc bằng sự tôn trọng sự sống.”*
-   - **Dải thông tin xác thực (3 cột kẻ chỉ dọc):**
-     - `Địa chỉ cơ sở`: 101 Khuất Duy Tiến, Thanh Xuân, Hà Nội.
-     - `Khung giờ khám tham chiếu`: 08:00 – 21:00 (Tất cả các ngày).
-     - `Trực cấp cứu`: Tiếp nhận cấp cứu 24/24 — Hotline `097 355 51 05`.
-   - **CTA trên Hero:** Nút chính `Đặt lịch khám` (`/dat-lich`) + Nút phụ `Liên hệ Hotline: 097 355 51 05` (`tel:0973555105`).
-   - **Quy tắc ảnh:** Khung ảnh minh họa sự gắn kết giữa bác sĩ và thú cưng, gắn nhãn rõ ràng `Ảnh minh họa — Chờ cập nhật ảnh thực tế bệnh viện`.
-
-2. **Khu vực 2 — Câu chuyện Lê Sơn (Editorial Narrative Spread):**
-   - **Bố cục:** Bố cục tạp chí mở (Open Magazine Spread) trên nền Ivory (`--color-bg-primary`), **không đóng khung card**. Cột trái (5 cột) là câu trích dẫn chủ đạo cỡ lớn (`Lora 600`) và hộp trạng thái hồ sơ; cột phải (7 cột) là mạch văn tự sự chia 2 đoạn rõ ràng kèm 1 khung ảnh ngang tỷ lệ `16:10`.
-   - **Nội dung cốt lõi:**
-     - Tập trung vào sự đồng cảm với nỗi lo của người nuôi thú cưng khi bé có biểu hiện bất thường, và lý do Lê Sơn đề cao việc lắng nghe bệnh sử, quan sát lâm sàng cẩn trọng trước mọi can thiệp.
-     - **Khung dữ liệu chờ xác minh (`Owner Story Slot`):** Dành sẵn một khối thông tin có nhãn `[Mốc hình thành & Câu chuyện sáng lập — Chờ Chủ dự án cung cấp nội dung xác thực]`, tuyệt đối không tự điền năm thành lập hay số liệu giả định.
-
-3. **Khu vực 3 — Giá trị và Triết lý chăm sóc (Architectural Numbered Triptych):**
-   - **Bố cục:** Nền Lavender nhạt (`--color-bg-secondary`) có viền trên/dưới mảnh. Chia làm 3 cột ngăn cách bằng đường kẻ dọc mảnh (`1px solid var(--color-border-subtle)`), đầu mỗi cột là số thứ tự `01`, `02`, `03` bằng font `Lora 600` cỡ lớn màu Orchid (`--color-plum-orchid`) — **thay thế hoàn toàn kiểu 3 thẻ bo tròn lặp lại**.
-   - **3 Giá trị cốt lõi (đồng bộ nhất quán với Mốc 2B):**
+     - `h1` (`Lora 600`): *“Nơi sự cẩn trọng y khoa song hành cùng lòng thấu cảm.”*
+     - Đoạn dẫn: *“Tại 101 Khuất Duy Tiến, Thanh Xuân, Hà Nội, Bệnh viện Thú y Lê Sơn hướng tới việc xây dựng một điểm tựa y tế đáng tin cậy cho chủ nuôi — nơi mỗi bé cưng được thăm khám kỹ lưỡng, giải thích rõ ràng và chăm sóc bằng sự tôn trọng sự sống.”*
+     - Cụm CTA: Nút chính `Đặt lịch khám` (`/dat-lich`) + Nút phụ `Gọi Hotline: 097 355 51 05` (`tel:0973555105`).
+   - **Cột phải (5/12 cột):** Khung ảnh nghệ thuật cắt góc bất đối xứng hiển thị hình ảnh thú cưng ấm áp (không có người mặc áo blouse), gắn nhãn trực quan `Ảnh minh họa — không phải cơ sở thực tế của Lê Sơn`.
+   - **Dải thông tin xác thực (Architectural Metadata Strip — 3 cột kẻ chỉ mảnh):**
+     - `01. Địa chỉ`: 101 Khuất Duy Tiến, Thanh Xuân, Hà Nội.
+     - `02. Giờ khám tham chiếu`: 08:00 – 21:00 (Tất cả các ngày).
+     - `03. Trực cấp cứu`: Tiếp nhận cấp cứu 24/24 — `097 355 51 05`.
+2. **Section 1.2 — Câu chuyện Lê Sơn (Open Magazine Spread):**
+   - **Cột trái (5/12 cột):** Câu trích dẫn chủ đạo (`Lora 600`, kiểu chữ đứng `normal`): *“Mỗi bé cưng đến viện đều mang theo niềm thương yêu và sự gửi gắm của cả một gia đình.”*
+   - **Cột phải (7/12 cột):**
+     - Đoạn văn biên tập trung tính nói về sự đồng cảm với nỗi lo của người nuôi thú cưng và định hướng thăm khám dựa trên quan sát lâm sàng cẩn trọng.
+     - **Slot dữ liệu chờ xác nhận (`Owner Story Slot`):** Khung viền nét đứt ghi rõ `[SLOT CHỜ CHỦ DỰ ÁN CUNG CẤP: Lịch sử hình thành, cột mốc hoạt động thực tế và thông điệp sáng lập của Bệnh viện Thú y Lê Sơn — Không tự điền năm thành lập hay số liệu chưa xác minh]`.
+3. **Section 1.3 — Giá trị và Triết lý chăm sóc (Architectural Numbered Triptych):**
+   - Nền Lavender (`#F8F2F9`), chia 3 cột kẻ chỉ dọc mảnh (`1px solid var(--color-border-subtle)`), đồng bộ 100% với 3 giá trị đã nghiệm thu ở `WhyChooseUs.tsx`:
      - `01 — Chuyên môn và trách nhiệm`: Tiếp cận từng ca bệnh cẩn trọng, chẩn đoán dựa trên biểu hiện lâm sàng và các bước kiểm tra cần thiết; đặt sự an toàn của thú cưng làm trọng tâm.
      - `02 — Tận tâm và lắng nghe`: Lắng nghe kỹ lưỡng những thay đổi nhỏ trong thói quen sinh hoạt của bé do chủ nuôi chia sẻ; giao tiếp nhẹ nhàng, giảm bớt áp lực tâm lý cho cả bé và gia đình.
      - `03 — Theo dõi và minh bạch`: Giải thích rõ ràng tình trạng sức khỏe, hướng xử trí và chi phí dự kiến trước khi thực hiện; thông tin trung thực trong suốt quá trình theo dõi.
-
-4. **Khu vực 4 — Quan điểm phục vụ, chăm sóc thú cưng (Care Principles in Practice):**
-   - **Bố cục:** Bố cục 12 cột bất đối xứng: Cột trái (5 cột) là khung ảnh dọc lớn (`aspect-ratio: 4/5`) kèm chú thích biên tập; cột phải (7 cột) là **Danh mục 4 nguyên tắc phục vụ** trình bày dạng dòng kẻ ngang tạp chí (`Editorial Accordion / Ledger Rows`), không dùng hộp card rời rạc:
-     - *Nguyên tắc 1 — Tiếp nhận điềm tĩnh, thao tác nhẹ nhàng:* Hạn chế tiếng ồn và các tác động gây hoảng sợ khi bé mới đến phòng khám.
-     - *Nguyên tắc 2 — Giải thích dễ hiểu cho chủ nuôi:* Trình bày tình trạng và hướng chăm sóc bằng ngôn ngữ rõ ràng, giúp chủ nuôi chủ động phối hợp tại nhà.
-     - *Nguyên tắc 3 — Chăm sóc nội trú có theo dõi sát sao:* Vệ sinh khử khuẩn định kỳ khu lưu trú, theo dõi ăn uống, sinh hoạt và cập nhật tình hình cho gia đình.
-     - *Nguyên tắc 4 — Bảo mật thông tin điều trị:* Chỉ chia sẻ các báo cáo sức khỏe và hướng dẫn chăm sóc đã được bác sĩ duyệt cho đúng chủ nuôi.
-
-5. **Khu vực 5 — Khám phá Đội ngũ, Cơ sở vật chất và CTA:**
-   - **Bố cục:**
-     - Phần trên: **2 Thẻ Chuyển Tiếp Chuyên Trang (Editorial Pathway Portals)** dẫn sang `/doi-ngu` (*"Tìm hiểu đội ngũ bác sĩ & nhân sự chăm sóc"*) và `/co-so-vat-chat` (*"Tham quan không gian phòng khám & khu nội trú"*).
-     - Phần dưới: **Dải CTA Deep Plum (`--color-plum-deep`)** hiển thị địa chỉ `101 Khuất Duy Tiến, Thanh Xuân, Hà Nội`, giờ khám `08:00 – 21:00`, cấp cứu `24/24`, nút `Đặt lịch khám trực tuyến` (`/dat-lich`) và nút `Gọi Hotline: 097 355 51 05`.
+4. **Section 1.4 — Quan điểm phục vụ, chăm sóc thú cưng (`3A-P2-1` Đã sửa — Chuyển về dạng Đề xuất chờ duyệt):**
+   - **Bố cục:** Chia 5/7 trên nền Ivory. Cột trái là khung minh họa không gian/thú cưng; cột phải là bảng 4 dòng kẻ chỉ ngang (`Editorial Hairline Ledger`).
+   - **Nhãn trạng thái bắt buộc ở đầu khối:** `[ĐỀ XUẤT NỘI DUNG — CHỜ CHỦ DỰ ÁN XÁC NHẬN QUY TRÌNH PHỤC VỤ THỰC TẾ]` (không trình bày như cam kết vận hành đã áp dụng khi chưa được duyệt):
+     - *Đề xuất I — Tiếp nhận điềm tĩnh, thao tác nhẹ nhàng:* Định hướng giảm tiếng ồn và hạn chế căng thẳng khi thú cưng mới đến phòng khám *(Chờ xác nhận)*.
+     - *Đề xuất II — Giải thích dễ hiểu trước khi can thiệp:* Trình bày tình trạng và hướng chăm sóc bằng ngôn ngữ rõ ràng để chủ nuôi nắm bắt *(Chờ xác nhận)*.
+     - *Đề xuất III — Quy trình theo dõi khi lưu trú nội trú:* Đề xuất khung nội dung mô tả cách thức vệ sinh và cập nhật tình hình cho gia đình *(Chờ Chủ dự án xác nhận quy trình thực tế)*.
+     - *Đề xuất IV — Tôn trọng và bảo mật thông tin khách hàng:* Đề xuất nguyên tắc chia sẻ thông tin chăm sóc cho đúng chủ nuôi *(Chờ Chủ dự án xác nhận)*.
+5. **Section 1.5 — Khám phá Đội ngũ, Cơ sở vật chất và CTA (`3A-P3-1` Đã sửa):**
+   - **2 Thẻ điều hướng liên trang (Pathway Cards):** Dẫn sang `/doi-ngu` và `/co-so-vat-chat`.
+   - **Dải CTA cuối trang rút gọn:** Vì địa chỉ và khung giờ đã hiển thị đầy đủ ở Hero (`Section 1.1`), dải CTA cuối trang được rút gọn tập trung vào câu mời hành động và 2 nút bấm (`Đặt lịch khám trực tuyến` `/dat-lich` + `Gọi Hotline: 097 355 51 05`).
 
 ---
 
-### 2.2. TRANG `/doi-ngu` — ĐỘI NGŨ NHÂN SỰ & CHUYÊN MÔN
-- **Phong cách chủ đạo:** *Human-Centric Editorial + Equal Department Organization* (Tôn vinh con người và sự phối hợp đồng đội, bình đẳng về thị giác).
-- **Quyết định đặc biệt của Chủ dự án — Quy tắc bắt buộc 100%:**
-  1. **Tổ chức theo bộ phận thực tế, KHÔNG theo cấp bậc:** Phân chia theo nhóm công việc chuyên môn thực tế tại bệnh viện, không xếp tầng trên/dưới theo chức vụ quản lý.
-  2. **Đồng đều tuyệt đối trong cùng nhóm:** Mọi thành viên trong cùng bộ phận có **cùng kích thước khung ảnh (`aspect-ratio: 4 / 5`), cùng kích thước card, cùng cỡ chữ tên, cùng số dòng mô tả và cùng kiểu viền/đổ bóng**.
-  3. **Không làm riêng một section lớn dành cho Bác sĩ trưởng:** Bác sĩ phụ trách chuyên môn (`BS. Lê Thái Sơn`) nằm chung trong lưới **Đội ngũ Bác sĩ** với kích thước card bằng hệt các bác sĩ khác.
-  4. **Không tạo hiệu ứng VIP hoặc visual hierarchy vì chức vụ:** Không gắn vương miện, không viền vàng, không đổi màu nền card, không làm card to gấp đôi. Chức danh (ví dụ: *Bác sĩ Thú y — Phụ trách chuyên môn*) chỉ ghi ở dòng chức danh tiêu chuẩn bên dưới tên.
-  5. **Hỗ trợ nhân sự kiêm nhiệm — Không lặp lại cùng một người:** Mỗi nhân sự có một mã định danh duy nhất (`id`) và **chỉ xuất hiện 1 lần trên trang** tại bộ phận chính. Các công việc kiêm nhiệm được gắn bằng **Tag kiêm nhiệm (`Kiêm nhiệm: ...`)** ngay trên card đó.
-  6. **Gom nhóm hợp lý bộ phận ít người:** Nếu một bộ phận thực tế chỉ có 1 nhân sự (ví dụ 1 chuyên viên Grooming và 1 nhân sự Điều dưỡng/Hỗ trợ), thiết kế gom vào một khu vực chung (**"Bộ phận Spa & Grooming và Điều dưỡng Chăm sóc"**) với nhãn bộ phận rõ ràng trên từng card để tạo thành lưới 2 cột cân đối, tuyệt đối không để 1 card đứng trơ trọi thành 1 section riêng.
-  7. **Cân đối trên cả Desktop, Tablet và Mobile:** Áp dụng **Ma trận lưới tự cân bằng (Adaptive Zero-Orphan Grid Matrix)** để không bao giờ xảy ra tình trạng card lẻ thiếu cân đối.
+### 2.2. TRANG `/doi-ngu` — ĐỘI NGŨ NHÂN SỰ
+- **Phong cách:** *Human-Centric Editorial + Equal Department Structure*.
+- **10 Quy tắc bắt buộc từ Chủ dự án (CEO Directive 018-A Mục II & III):**
+  1. **Không sai danh tính ảnh (`3A-P1-1`):** Tuyệt đối không gắn ảnh stock hoặc ảnh AI của người khác vào hồ sơ có tên thật hay bất kỳ hồ sơ nhân sự nào. Khi chưa có ảnh thực tế được duyệt, toàn bộ card nhân sự dùng **Monogram / Biểu tượng trung tính trên khung trống `4:5`** kèm nhãn rõ ràng: `Chưa có ảnh thực tế — Khung chân dung chờ duyệt`.
+  2. **Không tự tạo cơ cấu nhân sự (`3A-P1-2`):** Loại bỏ mọi con số nhân viên mặc định (không mặc định có 3 bác sĩ), loại bỏ chuyên khoa tự đặt (`Ngoại khoa & Cấp cứu`), lịch trực (`Nội trú 24/7`) và thông tin kiêm nhiệm chưa xác minh. Sử dụng dữ liệu placeholder trung tính.
+  3. **Không dùng chức vụ để tạo phân cấp thị giác:** Không sử dụng thứ bậc chức vụ để xác định kích thước, vị trí hoặc mức độ nổi bật của card.
+  4. **Không có section riêng cho Bác sĩ trưởng:** Không tách khu vực riêng cho người quản lý/phụ trách.
+  5. **Không tự động xếp `BS. Lê Thái Sơn` đầu tiên vì chức vụ (`3A-P2-3`):** Thứ tự hiển thị trong mỗi bộ phận tuân theo quy tắc trung tính (ví dụ: sắp xếp theo bảng chữ cái tên gọi `A–Z`, hoặc theo thứ tự danh sách phẳng do Chủ dự án cung cấp). Trong wireframe và mockup mẫu, thẻ `BS. Lê Thái Sơn` được đặt ở vị trí trung tính (ví dụ vị trí thứ 2 trong nhóm) để minh họa rõ nguyên tắc không ưu tiên vị trí số 1 theo chức vụ.
+  6. **Đồng đều tuyệt đối:** Mọi card nhân sự có cùng tỷ lệ ảnh (`4:5`), cùng kích thước, cùng hệ typography và cùng hiệu ứng hover. Chiều cao card tự cân bằng theo hàng bằng CSS Grid (`align-items: stretch`), **không dùng `line-clamp` cắt chữ** (`3A-P3-3`).
+  7. **Một người — Một hồ sơ duy nhất:** Mỗi nhân sự chỉ xuất hiện 1 lần trên toàn trang; các vai trò kiêm nhiệm (nếu đã xác minh) được trình bày ngay trong cùng hồ sơ đó.
+  8. **Không gộp bộ phận không liên quan chỉ vì cần cân đối lưới (`3A-P2-4`):** Chỉ phân nhóm theo bộ phận thực tế được xác minh. Nếu một bộ phận thực tế chỉ có `1` thành viên ($N = 1$), hiển thị đúng bộ phận đó với **1 card căn giữa có cùng kích thước chuẩn**, không gộp chung với bộ phận khác.
+  9. **Quy tắc lưới đầy đủ cho $N = 1, 2, 3, 5, 7$ và nhiều thành viên (`3A-P2-5`):** Hàng cuối luôn căn giữa cân đối, **tuyệt đối không phóng to một card để lấp khoảng trống** và không biến dạng kiểu card trên Tablet.
+  10. **Bộ lọc nhân sự chuẩn Accessibility (`3A-P2-6`):** Không dùng cơ chế làm mờ (`opacity`) các card không thuộc nhóm được chọn; sử dụng cơ chế **ẩn/hiện thực sự (`hidden` / `display: none`)** kết hợp nhãn truy cập được (`aria-pressed` và vùng thông báo `aria-live="polite"`). Không quảng bá cấp bậc bằng các nhãn trang trí.
 
-#### Cấu trúc 5 Khu vực (5 Sections) của `/doi-ngu`:
-
-1. **Khu vực 1 — Team Introduction Hero & Thanh Điều Hướng Bộ Phận:**
-   - **Bố cục:** Tiêu đề tạp chí kết hợp dải thông báo minh bạch về hồ sơ nhân sự và thanh nhảy nhanh / lọc theo bộ phận thực tế (`Department Filter / Jump Bar`).
-   - **Thông điệp chính:**
-     - Breadcrumb: `Trang chủ` ➔ `Về Lê Sơn` ➔ `Đội ngũ`
-     - Eyebrow: `ĐỘI NGŨ BỆNH VIỆN THÚ Y LÊ SƠN`
-     - Tiêu đề `h1` (Lora 600): *“Sự tận tâm từ những người trực tiếp đồng hành cùng bé cưng.”*
-     - Đoạn dẫn: *“Mỗi ca thăm khám, mỗi đêm trực nội trú hay mỗi buổi chăm sóc vệ sinh đều là sự phối hợp nhịp nhàng giữa các bộ phận chuyên môn tại Lê Sơn — nơi mọi thành viên cùng chia sẻ một chuẩn mực trách nhiệm.”*
-   - **Banner minh bạch dữ liệu (Data Authenticity Notice):** Thông báo rõ các khung nhân sự mẫu trên bản thiết kế đang chờ cập nhật danh sách, ảnh chân dung và chứng chỉ đã xác minh từ bệnh viện.
-   - **Thanh điều hướng bộ phận (Touch target ≥ 44px):**
-     - `Tất cả bộ phận` | `Đội ngũ Bác sĩ` | `Spa, Grooming & Điều dưỡng` | `Quy trình phối hợp`
-
-2. **Khu vực 2 — Đội ngũ Bác sĩ (Veterinary Medical Department):**
-   - **Vai trò bộ phận:** Phụ trách khám lâm sàng, chẩn đoán, điều trị nội/ngoại khoa, theo dõi phác đồ nội trú và tiếp nhận cấp cứu 24/24.
-   - **Quy chuẩn Card Nhân Sự Đồng Đều (`UniformTeamCard`):**
-     - **Tỷ lệ ảnh:** `4 : 5` dọc, bo góc trên theo card, có nhãn `Ảnh minh họa — Chờ ảnh nhân sự thực tế`.
-     - **Dòng 1 — Bộ phận chính & Tag kiêm nhiệm:** Ví dụ `[Bộ phận: Bác sĩ Thú y]` + Tag phụ `[Kiêm nhiệm: Chẩn đoán & Nội trú]` (nếu có).
-     - **Dòng 2 — Họ và tên (`h3`, Lora 600, `20px`):**
-       - Thẻ 1 hiển thị: `BS. Lê Thái Sơn` (nhân sự đã được ghi nhận trong tài liệu gốc của dự án).
-       - Các thẻ còn lại hiển thị khung cấu trúc chuẩn: `[Họ và tên Bác sĩ — Chờ hồ sơ xác minh]` (tuyệt đối không tự bịa tên giả hay bằng cấp giả).
-     - **Dòng 3 — Chức danh bên dưới tên (`Be Vietnam Pro 600`, `14px`, màu `--color-plum-primary`):** Ví dụ *Bác sĩ Thú y — Phụ trách chuyên môn* (trên thẻ BS. Lê Thái Sơn) và *Bác sĩ Thú y — Khám & Điều trị lâm sàng* (trên các thẻ bác sĩ khác). Cỡ chữ và vị trí hoàn toàn như nhau.
-     - **Dòng 4 — Mô tả công việc & phạm vi phụ trách (`Be Vietnam Pro 400`, `14px`, màu `--color-fg-muted`):** Tóm tắt công việc thực tế (3 dòng đồng đều), kèm khung `[Bằng cấp / Chứng chỉ hành nghề: Chờ xác minh]`.
-     - **Dòng 5 — Nhãn mảng công việc thực tế (Footer Pills):** Tối đa 3 nhãn ngắn gọn (`Khám lâm sàng`, `Theo dõi nội trú`, `Trực cấp cứu`).
-
-3. **Khu vực 3 — Bộ phận Spa & Grooming và các Bộ phận Thực tế Khác:**
-   - **Nguyên tắc tổ chức:**
-     - Nếu bộ phận `Spa & Grooming` và bộ phận `Điều dưỡng / Hỗ trợ chăm sóc nội trú & Tiếp đón` mỗi bên có từ 2 nhân sự trở lên: hiển thị thành các cụm bộ phận cân đối.
-     - Nếu mỗi bộ phận chỉ có 1 nhân sự (hoặc ít người): gom chung vào khu vực **“Bộ phận Spa & Grooming và Điều dưỡng Chăm sóc”** để tạo thành lưới chẵn (2 hoặc 4 thẻ đồng đều), mỗi thẻ ghi rõ nhãn bộ phận và vai trò kiêm nhiệm (ví dụ: *Chuyên viên Spa & Grooming — Kiêm hỗ trợ vệ sinh y tế*, *Điều dưỡng chăm sóc nội trú — Kiêm hỗ trợ tiếp nhận*).
-   - **Quy chuẩn hiển thị:** Dùng **cùng một component `UniformTeamCard`**, cùng tỷ lệ ảnh `4:5` và cùng kích thước chữ như khu vực Bác sĩ.
-
-4. **Khu vực 4 — Cách đội ngũ phối hợp (Cross-Functional Care Workflow):**
-   - **Bố cục:** Trình bày dạng **Dải Quy Trình Ngang 4 Chặng (Architectural Workflow Strip)** trên nền Lavender (`--color-bg-secondary`), nối liền bằng đường kẻ trục thời gian — không lặp lại kiểu card nhân sự:
-     - **Chặng 01 — Tiếp nhận & Ghi nhận ban đầu:** Lắng nghe triệu chứng từ chủ nuôi, kiểm tra tình trạng chung và ưu tiên ngay cho các ca cấp cứu khẩn cấp.
-     - **Chặng 02 — Thăm khám & Trao đổi chuyên môn:** Bác sĩ trực tiếp khám lâm sàng, phối hợp kiểm tra cận lâm sàng (khi cần thiết) và giải thích rõ cho chủ nuôi.
-     - **Chặng 03 — Chăm sóc điều trị / Lưu trú / Grooming:** Phối hợp giữa bác sĩ và bộ phận điều dưỡng/chăm sóc để thực hiện đúng hướng xử trí và giữ vệ sinh khử khuẩn.
-     - **Chặng 04 — Bàn giao ca trực & Hướng dẫn tại nhà:** Bàn giao đầy đủ thông tin giữa các ca trực 24/24 và dặn dò chi tiết cách theo dõi bé sau khi về nhà.
-
-5. **Khu vực 5 — CTA Liên hệ & Đặt lịch khám:**
-   - **Bố cục:** Khung CTA hai cột cân đối: hướng dẫn chủ nuôi đặt lịch hẹn khám trước qua `/dat-lich` hoặc gọi trực tiếp Hotline `097 355 51 05` (tiếp nhận 24/24 tại `101 Khuất Duy Tiến, Thanh Xuân, Hà Nội`).
+#### 5 Khu vực nội dung của `/doi-ngu`:
+1. **Section 2.1 — Team Introduction Hero & Bộ lọc Bộ phận (Accessible Department Filter):**
+   - Breadcrumb: `Trang chủ` (`/`) `/` `Về Lê Sơn` (`<span>` tĩnh) `/` `Đội ngũ` (`aria-current="page"`).
+   - Eyebrow: `ĐỘI NGŨ BỆNH VIỆN THÚ Y LÊ SƠN`
+   - `h1` (`Lora 600`): *“Sự tận tâm từ những người trực tiếp đồng hành cùng thú cưng.”*
+   - Đoạn dẫn trung tính: *“Tại Bệnh viện Thú y Lê Sơn, hoạt động thăm khám và chăm sóc được tổ chức theo từng bộ phận chuyên môn thực tế. Mỗi thành viên đều có vai trò rõ ràng và phối hợp chặt chẽ vì sự an toàn của từng bé cưng.”*
+   - **Banner minh bạch hồ sơ nhân sự:** Nêu rõ các hồ sơ trên bản thiết kế hiện sử dụng khung dữ liệu placeholder trung tính và khung ảnh monogram trống; chỉ hiển thị tên, ảnh chân dung, chức danh và bằng cấp sau khi Chủ dự án xác nhận từng hồ sơ thực tế.
+   - **Thanh lọc bộ phận chuẩn Accessibility (`role="toolbar"`, nút `<button type="button" aria-pressed="...">`):**
+     - `Tất cả bộ phận` | `Bộ phận Bác sĩ Thú y (Lâm sàng)` | `Bộ phận Spa & Grooming (Chờ xác nhận)` | `Bộ phận Hỗ trợ & Chăm sóc (Chờ xác nhận)`
+     - Kèm vùng thông báo `<p role="status" aria-live="polite">` cập nhật tường minh khi người dùng chọn lọc bộ phận.
+2. **Section 2.2 — Nhóm Bộ phận Bác sĩ Thú y (Clinical Veterinary Department):**
+   - **Cấu trúc mỗi Card Nhân sự Đồng nhất (`UniformTeamCard`):**
+     - **Khung ảnh (`aspect-ratio: 4 / 5`):** Nền Lavender nhạt `#F8F2F9`, chính giữa là biểu tượng Monogram vector trung tính (chữ cái viết tắt hoặc biểu tượng y khoa tối giản) và nhãn `Khung ảnh chân dung 4:5 — Chờ ảnh thực tế được duyệt`. **Không dùng ảnh người thật/stock/AI.**
+     - **Nhãn bộ phận:** `[Bộ phận: Bác sĩ Thú y]` (kiểu chữ trung tính, không dùng nhãn trang trí cấp bậc).
+     - **Họ và tên (`h3`, `Lora 600`, `20px`):**
+       - Các thẻ placeholder: `[Họ và tên Bác sĩ — Chờ danh sách xác minh]`.
+       - Thẻ dữ liệu đã có tên trong tài liệu dự án (đặt ở vị trí trung tính, ví dụ Thẻ #2): `BS. Lê Thái Sơn`.
+     - **Dòng chức danh chuyên môn bên dưới tên (`Be Vietnam Pro 600`, `14px`, màu `--color-plum-primary`):**
+       - Hiển thị `[Chức danh chuyên môn — Chờ xác minh]`.
+       - Với `BS. Lê Thái Sơn`: ghi `[Chức danh: Bác sĩ Thú y — Chờ Chủ dự án xác nhận cách ghi chức danh công bố]` (nếu Chủ dự án duyệt ghi "Bác sĩ trưởng" hoặc "Phụ trách chuyên môn" như dữ liệu thực tế thì hiển thị tại dòng văn bản này, không thay đổi kích thước hay vị trí card).
+     - **Khung vai trò kiêm nhiệm (trong cùng hồ sơ):** `[Vai trò kiêm nhiệm: Chỉ hiển thị khi có dữ liệu xác minh]`.
+     - **Mô tả phạm vi công việc (`Be Vietnam Pro 400`, `14px`):** `[Mô tả mảng công việc thực tế — Chờ hồ sơ nhân sự xác minh]`.
+     - **Ghi chú bằng cấp (`3A-P3-4`):** Trong bản thiết kế hiển thị khung nét đứt `[Bằng cấp / Chứng chỉ: Ẩn hoàn toàn khi xuất bản nếu verified = false]`.
+3. **Section 2.3 — Các Bộ phận Thực tế Khác (Spa & Grooming; Chăm sóc & Hỗ trợ vận hành):**
+   - **Nguyên tắc phân nhóm trung thực (`3A-P1-2` & `3A-P2-4`):**
+     - Tách riêng từng bộ phận theo đúng cơ cấu thực tế do Chủ dự án xác nhận, **không tự ý gộp `Spa & Grooming` với `Điều dưỡng` chỉ để làm chẵn hàng**.
+     - Trong bản thiết kế khi chưa có danh sách nhân sự thật, trình bày 2 nhóm trung tính chờ xác nhận:
+       - **Nhóm 2.3A — Bộ phận Spa & Grooming** (`[Cơ cấu & số lượng nhân sự: Chờ xác nhận]`).
+       - **Nhóm 2.3B — Bộ phận Chăm sóc Nội trú & Hỗ trợ vận hành** (`[Cơ cấu & số lượng nhân sự: Chờ xác nhận]`).
+     - Mỗi nhóm áp dụng đúng quy tắc lưới đồng nhất (kể cả khi nhóm chỉ có $N=1$ người thì hiển thị 1 card căn giữa có cùng kích thước chuẩn).
+4. **Section 2.4 — Cách đội ngũ phối hợp chăm sóc thú cưng (`3A-P2-8` Đã sửa):**
+   - Nền Lavender (`#F8F2F9`), trình bày dạng dải ngang có gắn nhãn trạng thái rõ ràng ở đầu mục: **`[ĐỀ XUẤT MÔ TẢ QUY TRÌNH PHỐI HỢP — CHỜ CHỦ DỰ ÁN XÁC NHẬN VẬN HÀNH THỰC TẾ]`**.
+   - Nội dung chỉ giữ thông tin đã có nguồn (tiếp nhận thăm khám và cấp cứu 24/24) và đánh dấu các bước phối hợp nội bộ là khung đề xuất chờ duyệt, không khẳng định các cam kết chưa xác minh.
+5. **Section 2.5 — CTA Liên hệ & Đặt lịch khám:**
+   - Dải CTA mời đặt lịch qua `/dat-lich` hoặc gọi trực tiếp Hotline `097 355 51 05` (tiếp nhận cấp cứu 24/24 tại `101 Khuất Duy Tiến, Thanh Xuân, Hà Nội`).
 
 ---
 
-### 2.3. TRANG `/co-so-vat-chat` — CƠ SỞ VẬT CHẤT & TRANG THIẾT BỊ
-- **Phong cách chủ đạo:** *Clinic Tour + Photo Editorial* (Tham quan không gian bệnh viện qua bố cục ảnh báo chí kết hợp bảng thông tin kỹ thuật minh bạch).
-- **Quy tắc bắt buộc từ CEO Directive 017-A:**
-  1. Ảnh cơ sở vật chất khi công bố chính thức như hình ảnh của Lê Sơn **bắt buộc phải là ảnh chụp thật tại 101 Khuất Duy Tiến đã được Chủ dự án duyệt**.
-  2. Trong bản thiết kế và mockup, mọi hình ảnh placeholder đều phải gắn nhãn nổi bật: **`Ảnh minh họa bố cục — Không phải ảnh thực tế tại bệnh viện`**.
-  3. **Chỉ mô tả thiết bị Mindray, máy siêu âm và các chức năng cụ thể khi đã xác minh model và khả năng thực tế.** Trên blueprint và mockup, các vị trí này được thiết kế thành **Khung thông số chờ xác minh (`Equipment Verification Slot`)** để Chủ dự án duyệt và điền đúng model thật.
+### 2.3. TRANG `/co-so-vat-chat` — CƠ SỞ VẬT CHẤT
+- **Phong cách:** *Clinic Tour + Photo Editorial*.
+- **Quy tắc bắt buộc từ CEO Directive 018-A Mục IV.C (`3A-P2-9`, `3A-P2-10`, `3A-P2-11`):**
+  1. **Nhãn ảnh minh họa bắt buộc:** Trong Preview/Mockup được phép dùng ảnh minh họa có quyền sử dụng rõ ràng (không có người mặc áo blouse), nhưng phải gắn nhãn trực tiếp trên từng khung ảnh: **`Ảnh minh họa — không phải cơ sở thực tế của Lê Sơn`**.
+  2. **Không dùng ảnh minh họa làm bằng chứng:** Không dùng ảnh minh họa để chứng minh cơ sở có phòng, khu vực hoặc thiết bị đó.
+  3. **Không dùng từ "sạch khuẩn" (`3A-P2-10`):** Loại bỏ hoàn toàn cụm từ `"sạch khuẩn"` khi chưa có căn cứ kiểm định; dùng ngôn ngữ trung thực, đúng mức.
+  4. **Slot thiết bị trung tính, không nêu tên hãng khi chưa xác minh (`3A-P2-11`):** Chuyển toàn bộ thông tin thiết bị xét nghiệm (bao gồm Mindray) và chẩn đoán hình ảnh chưa được xác minh trong tài liệu thành **Slot trung tính** (`[Thiết bị xét nghiệm — Chờ xác minh]`), không hiển thị tên hãng trong nội dung giao diện trước khi Chủ dự án xác nhận.
+  5. **Không tự khẳng định có phòng phẫu thuật riêng (`3A-P2-11`):** Không tự công bố bệnh viện có phòng phẫu thuật tách biệt; đặt vào danh mục phân khu chờ Chủ dự án xác nhận.
+  6. **Điều kiện trước phát hành (`3A-P2-9`):** Giữ điều kiện bắt buộc trước khi phát hành công khai / mở index: phải thay bằng ảnh cơ sở thực tế tại `101 Khuất Duy Tiến` được Chủ dự án duyệt (đề xuất thiết kế tối thiểu 4 ảnh thật cho gallery là tiêu chuẩn thiết kế đề xuất, không phải số lượng đã được xác nhận).
 
-#### Cấu trúc 5 Khu vực (5 Sections) của `/co-so-vat-chat`:
-
-1. **Khu vực 1 — Editorial Hero (Clinic Tour Introduction):**
-   - **Bố cục:** Tiêu đề lớn kết hợp khung thông tin địa điểm xác thực (`101 Khuất Duy Tiến, Thanh Xuân, Hà Nội`) và thanh điều hướng nhanh qua 4 phân khu không gian (`Zone Jump Bar`).
-   - **Thông điệp chính:**
-     - Breadcrumb: `Trang chủ` ➔ `Về Lê Sơn` ➔ `Cơ sở vật chất`
-     - Eyebrow: `KHÔNG GIAN Y TẾ & TRANG THIẾT BỊ`
-     - Tiêu đề `h1` (Lora 600): *“Không gian thăm khám sạch khuẩn, tổ chức khoa học vì sự an toàn của thú cưng.”*
-     - Đoạn dẫn: *“Cơ sở Bệnh viện Thú y Lê Sơn tại 101 Khuất Duy Tiến được bố trí phân khu rõ ràng giữa khu vực tiếp đón, phòng khám lâm sàng, khu chăm sóc nội trú 24/7 và khu vệ sinh Spa & Grooming.”*
-   - **Banner minh bạch hình ảnh (Mandatory Photo Policy Banner):** Nêu rõ các khung hình trong bản thiết kế hiện là ảnh minh họa bố cục (placeholder), không phải ảnh thực tế của bệnh viện; sẽ được thay bằng ảnh chụp thật tại cơ sở trước khi xuất bản.
-
-2. **Khu vực 2 — Gallery Không gian Bệnh viện (Photo Editorial Spread):**
-   - **Bố cục:** Lưới ảnh tạp chí bất đối xứng 12 cột (**Asymmetric Editorial Gallery**):
-     - **Khung chính (7 cột, cao 2 hàng):** Không gian tiếp đón & khu vực chờ thăm khám.
-     - **Khung phụ 1 (5 cột, hàng trên):** Không gian phòng khám & tư vấn chủ nuôi.
-     - **Khung phụ 2 (5 cột, hàng dưới):** Không gian Spa & Grooming vệ sinh y tế.
-   - **Đặc tả hiển thị:** Mỗi khung ảnh đều có (1) Nhãn phân khu góc trên trái, (2) Huy hiệu bắt buộc `Ảnh minh họa — Không phải ảnh bệnh viện` góc dưới phải (nền tối, tương phản WCAG AAA > 10:1), và (3) Chú thích biên tập bên dưới giải thích mục đích công năng của từng khu vực.
-
-3. **Khu vực 3 — Khu Khám và Điều Trị (Clinical Examination & Diagnostic Zone):**
-   - **Bố cục:** Bố cục tạp chí 2 cột (Cột trái: Khung ảnh lớn + Quy chuẩn vệ sinh; Cột phải: Bảng kê phân khu chức năng với đường kẻ chỉ mảnh `Architectural Specification Ledger` — không lạm dụng card nhỏ).
-   - **Nội dung chức năng:**
-     - *Bàn khám & Khu vực thăm khám lâm sàng:* Nơi thực hiện kiểm tra thể trạng tổng quát, nghe tim phổi, kiểm tra da lông, tai mắt và tư vấn trực tiếp cho chủ nuôi.
-     - *Khu vực Chẩn đoán & Xét nghiệm:*
-       - Hiển thị mô tả tổng quan phục vụ chẩn đoán cận lâm sàng.
-       - **Khung chờ xác minh (`Mindray / Ultrasound Verification Slot`):** Thiết kế sẵn bảng thông số có nhãn trạng thái `[CHỜ CHỦ DỰ ÁN XÁC MINH MODEL & CHỨC NĂNG THỰC TẾ]` dành cho:
-         1. Hệ thống máy xét nghiệm (ví dụ: thiết bị Mindray — cần xác nhận đúng mã model và các chỉ số xét nghiệm thực tế tại viện).
-         2. Thiết bị siêu âm / chẩn đoán hình ảnh (cần xác nhận đúng dòng máy và phạm vi khảo sát thực tế).
-     - *Khu vực Thủ thuật & Phẫu thuật ngoại khoa:* Phục vụ các ca xử lý vết thương, can thiệp ngoại khoa theo chỉ định của bác sĩ (kèm slot xác minh danh mục thiết bị hỗ trợ theo dõi).
-
-4. **Khu vực 4 — Khu Nội Trú 24/7 và Trang Thiết Bị Chăm Sóc (Inpatient & Recovery Zone):**
-   - **Bố cục:** Chia 2 khối đối xứng theo chiều ngang trên nền Lavender (`--color-bg-secondary`):
-     - **Khối A — Khu vực Lưu trú & Theo dõi 24/7:** Mô tả quy trình vệ sinh khử khuẩn định kỳ, bố trí chuồng lưu trú thông thoáng, theo dõi chỉ số sức khỏe, chế độ ăn uống phục hồi và cập nhật tình hình định kỳ cho chủ nuôi (đồng bộ 100% với mô tả dịch vụ Nội trú 24/7 đã duyệt).
-     - **Khối B — Bảng Quy chuẩn Vệ sinh & Thiết bị Hỗ trợ Nội trú:** Liệt kê quy trình làm sạch bề mặt, khử khuẩn giữa các lượt lưu trú, kèm slot `[Chờ xác minh số lượng/quy cách chuồng lưu trú & thiết bị hỗ trợ sưởi/theo dõi thực tế]`.
-
-5. **Khu vực 5 — CTA Đến Bệnh Viện / Liên Hệ (Visit & Direction Guide):**
-   - **Bố cục:** Thẻ hướng dẫn lộ trình & liên hệ trực tiếp (kế thừa ngôn ngữ thiết kế của `BookingContactSection`):
-     - Cột trái (Deep Plum): Địa chỉ chính xác `101 Khuất Duy Tiến, Thanh Xuân, Hà Nội`, Giờ khám tham chiếu `08:00 – 21:00 (Tất cả các ngày)`, Tiếp nhận cấp cứu `24/24`, Hotline `097 355 51 05` và liên kết mở bản đồ Google Maps (`HOSPITAL_CONTACT.mapsUrl`).
-     - Cột phải (Ivory/Card): Lời mời đặt lịch hẹn trước qua `/dat-lich` để bệnh viện chuẩn bị đón tiếp chu đáo, kèm lưu ý cấp cứu 24/24 không cần đặt lịch trước.
+#### 5 Khu vực nội dung của `/co-so-vat-chat`:
+1. **Section 3.1 — Editorial Hero & Banner Điều kiện Phát hành:**
+   - Breadcrumb: `Trang chủ` (`/`) `/` `Về Lê Sơn` (`<span>` tĩnh) `/` `Cơ sở vật chất` (`aria-current="page"`).
+   - Eyebrow: `KHÔNG GIAN THĂM KHÁM & CHĂM SÓC — 101 KHUẤT DUY TIẾN`
+   - `h1` (`Lora 600` — đã sửa `3A-P2-10`): *“Không gian thăm khám sạch sẽ, bố trí rõ ràng vì sự an tâm của thú cưng.”*
+   - Đoạn dẫn: *“Cơ sở Bệnh viện Thú y Lê Sơn tại 101 Khuất Duy Tiến, Thanh Xuân, Hà Nội được tổ chức phục vụ các hoạt động tiếp đón, khám & điều trị, chăm sóc nội trú 24/7 và Spa & Grooming.”*
+   - **Banner Chính sách Hình ảnh & Điều kiện Phát hành:** Ghi rõ: *"Các hình ảnh trong bản thiết kế/preview hiện là ảnh minh họa bố cục, không phải cơ sở thực tế của Lê Sơn và không dùng để chứng minh cơ sở có phòng hay thiết bị tương ứng. Trang chỉ được mở lập chỉ mục công khai sau khi cập nhật bộ ảnh chụp thực tế tại 101 Khuất Duy Tiến được Chủ dự án phê duyệt."*
+   - **Thanh nhảy phân khu (`Zone Jump Bar`):** `01. Tổng quan không gian` | `02. Khu khám & Điều trị` | `03. Khu nội trú & Thiết bị` | `04. Chỉ đường & Liên hệ`.
+2. **Section 3.2 — Gallery Không gian Bệnh viện (Asymmetric Editorial Spread):**
+   - Bố cục tạp chí 12 cột bất đối xứng (1 khung lớn 7 cột + 2 khung phụ 5 cột; kèm đề xuất mở rộng từ 4 ảnh thật trở lên khi Chủ dự án cung cấp ảnh cơ sở thực tế).
+   - Mỗi khung ảnh gắn nhãn trực tiếp: **`Ảnh minh họa — không phải cơ sở thực tế của Lê Sơn`** và chú thích phân khu ở trạng thái chờ ảnh thực tế:
+     - Khung 01: *Khu vực Tiếp đón & Chờ thăm khám (Minh họa bố cục — Chờ ảnh thực tế)*.
+     - Khung 02: *Khu vực Thăm khám Lâm sàng (Minh họa bố cục — Chờ ảnh thực tế)*.
+     - Khung 03: *Khu vực Vệ sinh & Spa — Grooming (Minh họa bố cục — Chờ ảnh thực tế)*.
+3. **Section 3.3 — Khu Khám và Điều Trị (Clinical Examination Zone — Đã sửa `3A-P2-11`):**
+   - Bố cục 2 cột (5 cột khung minh họa + 7 cột bảng kê đường kẻ mảnh `Architectural Specification Ledger`).
+   - Nội dung phân khu trung tính, không nêu tên hãng thiết bị chưa xác minh và không tự khẳng định có phòng phẫu thuật riêng:
+     - *Hạng mục 01 — Bàn khám & Khu vực Thăm khám Lâm sàng:* Phục vụ kiểm tra thể trạng tổng quát và tư vấn trực tiếp cho chủ nuôi.
+     - *Hạng mục 02 — Slot Thiết bị Xét nghiệm & Chẩn đoán cận lâm sàng (Trung tính):*
+       - `[SLOT THIẾT BỊ XÉT NGHIỆM — CHỜ CHỦ DỰ ÁN XÁC MINH DANH MỤC, HÃNG SẢN XUẤT, MODEL & CÔNG NĂNG THỰC TẾ]`
+       - `[SLOT THIẾT BỊ CHẨN ĐOÁN HÌNH ẢNH / SIÊU ÂM — CHỜ CHỦ DỰ ÁN XÁC MINH MODEL & PHẠM VI KHẢO SÁT THỰC TẾ]`
+     - *Hạng mục 03 — Slot Không gian thực hiện Thủ thuật / Can thiệp điều trị:*
+       - `[SLOT PHÂN KHU CHỨC NĂNG — CHỜ CHỦ DỰ ÁN XÁC NHẬN CẤU TRÚC PHÒNG THỦ THUẬT / NGOẠI KHOA THỰC TẾ TẠI CƠ SỞ]` (không mặc định có phòng phẫu thuật tách biệt khi chưa xác nhận).
+4. **Section 3.4 — Khu Nội Trú 24/7 và Trang Thiết Bị Chăm Sóc:**
+   - Nền Lavender (`#F8F2F9`), chia 2 khối:
+     - **Khối A — Khu vực Lưu trú & Theo dõi 24/7:** Trình bày dịch vụ chăm sóc nội trú 24/7 đã có trong phạm vi dự án, kèm khung ảnh gắn nhãn `Ảnh minh họa — không phải cơ sở thực tế của Lê Sơn`.
+     - **Khối B — Slot Quy chuẩn Lưu trú & Thiết bị Hỗ trợ:** `[SLOT CHỜ XÁC MINH: Quy cách khu vực lưu chuồng, quy trình vệ sinh định kỳ và danh mục thiết bị hỗ trợ chăm sóc nội trú thực tế tại 101 Khuất Duy Tiến]`.
+5. **Section 3.5 — CTA Đến Bệnh Viện hoặc Liên Hệ:**
+   - Hiển thị thông tin xác thực: Địa chỉ `101 Khuất Duy Tiến, Thanh Xuân, Hà Nội`, Giờ khám tham chiếu `08:00 – 21:00 (Tất cả các ngày)`, Tiếp nhận cấp cứu `24/24`, nút mở Google Maps (`HOSPITAL_CONTACT.mapsUrl`), nút `Đặt lịch khám` (`/dat-lich`) và nút `Gọi Hotline: 097 355 51 05`.
 
 ---
 
-## 3. DELIVERABLE 2: WIREFRAME CHI TIẾT DESKTOP, TABLET & MOBILE
+## 3. MỤC 3: WIREFRAME RESPONSIVE (DESKTOP, TABLET & MOBILE) & MA TRẬN LƯỚI ĐỘI NGŨ
 
-### 3.1. Wireframe Trang `/gioi-thieu`
+### 3.1. Wireframe Trang `/gioi-thieu` (Desktop `1440px` & Mobile `390px/320px`)
 
-#### A. Desktop (`1440px` / `1366px` — Container `max-w-7xl`, Grid 12 cột)
+#### A. Desktop (`1440px` / `1366px`)
 ```text
 +--------------------------------------------------------------------------------------------------+
-| HEADER (Sticky, h-20): [Logo LÊ SƠN]   Trang chủ | Về Lê Sơn (Active) | Dịch vụ...   [Đặt lịch] |
+| HEADER (Sticky): [Logo LÊ SƠN]   Trang chủ | Về Lê Sơn (Active) | Dịch vụ...          [Đặt lịch] |
 +--------------------------------------------------------------------------------------------------+
-| SECTION 1: EDITORIAL HERO (bg-primary Ivory #FBF7F1, py-16 md:py-24)                             |
-| Breadcrumb: Trang chủ / Về Lê Sơn / Giới thiệu bệnh viện                                         |
+| SECTION 1.1: EDITORIAL HERO (bg-primary Ivory #FBF7F1)                                           |
+| Breadcrumb: Trang chủ (Link) / Về Lê Sơn (Text tĩnh) / Giới thiệu bệnh viện (Current)            |
 | +----------------------------------------------------+ +---------------------------------------+ |
-| | [7 COLS]                                           | | [5 COLS] ASYMMETRIC DUAL FRAMES       | |
-| | [Eyebrow Badge: VỀ BỆNH VIỆN THÚ Y LÊ SƠN]         | | +-------------------+ +-------------+ | |
-| | H1 (Lora 600, 48px-56px):                          | | | Khung ảnh chính   | | Khung phụ   | | |
-| | "Nơi sự cẩn trọng y khoa song hành cùng            | | | (Tỷ lệ 4:5,       | | (Tỷ lệ 4:5, | | |
-| |  lòng thấu cảm."                                   | | |  bo góc AURA)     | |  lệch nhịp) | | |
-| | Lead Paragraph (Be Vietnam Pro 400, 18px):         | | | [Nhãn: Ảnh        | | [Nhãn: Ảnh  | | |
-| | Mô tả định vị tại 101 Khuất Duy Tiến...            | | |  minh họa]        | |  minh họa]  | | |
-| | [CTA Primary: Đặt lịch khám] [CTA Cam: 0973555105] | | +-------------------+ +-------------+ | |
+| | [7 COLS]                                           | | [5 COLS] ASYMMETRIC EDITORIAL FRAME   | |
+| | [Eyebrow: VỀ BỆNH VIỆN THÚ Y LÊ SƠN]               | | +-----------------------------------+ | |
+| | H1 (Lora 600): "Nơi sự cẩn trọng y khoa song hành  | | | Ảnh minh họa thú cưng ấm áp       | | |
+| |  cùng lòng thấu cảm."                              | | | (KHÔNG dùng ảnh người mặc blouse) | | |
+| | Lead Paragraph: Định vị tại 101 Khuất Duy Tiến...  | | | [Nhãn: Ảnh minh họa — không phải  | | |
+| | [CTA Primary: Đặt lịch khám] [CTA Cam: 0973555105] | | |  cơ sở thực tế của Lê Sơn]        | | |
 | +----------------------------------------------------+ +---------------------------------------+ |
 | +----------------------------------------------------------------------------------------------+ |
-| | ARCHITECTURAL METADATA STRIP (Border-y 1px subtle, 3 cột kẻ chỉ dọc):                        | |
+| | ARCHITECTURAL METADATA STRIP (3 cột kẻ chỉ dọc):                                             | |
 | | 01. ĐỊA CHỈ: 101 Khuất Duy Tiến, Thanh Xuân | 02. GIỜ KHÁM: 08:00–21:00 | 03. CẤP CỨU: 24/24 | |
 | +----------------------------------------------------------------------------------------------+ |
 +--------------------------------------------------------------------------------------------------+
-| SECTION 2: CÂU CHUYỆN LÊ SƠN (bg-primary Ivory, Open Magazine Spread — KHÔNG DÙNG CARD LẶP)      |
+| SECTION 1.2: CÂU CHUYỆN LÊ SƠN (Open Magazine Spread — Không dùng card lặp)                      |
 | +----------------------------------------+ +---------------------------------------------------+ |
-| | [5 COLS] EDITORIAL PULL-QUOTE          | | [7 COLS] NARRATIVE PROSE & VERIFICATION SLOT      | |
-| | Eyebrow: CÂU CHUYỆN LÊ SƠN             | | Đoạn 1: Sự thấu hiểu nỗi lo của người nuôi...     | |
-| | H2 (Lora 600, 36px):                   | | Đoạn 2: Nguyên tắc thăm khám cẩn trọng, giải      | |
-| | "Mỗi bé cưng đến viện đều mang theo    | | thích rõ ràng và đồng hành chu đáo...             | |
+| | [5 COLS] PULL-QUOTE (Lora 600 normal)  | | [7 COLS] NARRATIVE & OWNER STORY SLOT             | |
+| | "Mỗi bé cưng đến viện đều mang theo    | | Đoạn văn tự sự trung tính về sự thấu cảm...       | |
 | |  niềm thương yêu của cả một gia đình." | | +-----------------------------------------------+ | |
-| | Đường kẻ chỉ dọc 2px màu Plum Primary  | | | [SLOT CHỜ CHỦ DỰ ÁN XÁC NHẬN]:                | | |
-| | Ghi chú trích dẫn biên tập             | | | Mốc hình thành & câu chuyện sáng lập thực tế  | | |
+| |                                        | | | [SLOT CHỜ CHỦ DỰ ÁN CUNG CẤP]:                | | |
+| |                                        | | | Lịch sử hình thành & câu chuyện sáng lập thật | | |
 | |                                        | | +-----------------------------------------------+ | |
-| |                                        | | [Khung ảnh ngang 16:10 + Nhãn: Ảnh minh họa]      | |
 | +----------------------------------------+ +---------------------------------------------------+ |
 +--------------------------------------------------------------------------------------------------+
-| SECTION 3: GIÁ TRỊ & TRIẾT LÝ CHĂM SÓC (bg-secondary Lavender #F8F2F9, Architectural Triptych)   |
-| Header: [TRIẾT LÝ HOẠT ĐỘNG] — H2: "Ba trụ cột làm nên chuẩn mực chăm sóc tại Lê Sơn"            |
+| SECTION 1.3: GIÁ TRỊ & TRIẾT LÝ CHĂM SÓC (bg-secondary Lavender #F8F2F9 — Numbered Triptych)     |
 | +-------------------------------+-------------------------------+------------------------------+ |
-| | 01 (Lora 600, 40px, Orchid)   | 02 (Lora 600, 40px, Orchid)   | 03 (Lora 600, 40px, Orchid)  | |
-| | H3: Chuyên môn & Trách nhiệm  | H3: Tận tâm & Lắng nghe       | H3: Theo dõi & Minh bạch     | |
-| | (Kẻ chỉ dọc 1px ngăn cột)     | (Kẻ chỉ dọc 1px ngăn cột)     | Chẩn đoán rõ ràng, thông tin | |
-| | Thăm khám dựa trên căn cứ     | Lắng nghe kỹ biểu hiện nhỏ    | trung thực về liệu trình và  | |
-| | khoa học, đặt an toàn lên đầu | nhất, giảm căng thẳng cho bé  | chi phí trước khi thực hiện  | |
+| | 01. Chuyên môn & Trách nhiệm  | 02. Tận tâm & Lắng nghe       | 03. Theo dõi & Minh bạch     | |
+| | (Kẻ chỉ dọc 1px ngăn cột)     | (Kẻ chỉ dọc 1px ngăn cột)     | (Khớp 100% nội dung Mốc 2B)  | |
 | +-------------------------------+-------------------------------+------------------------------+ |
 +--------------------------------------------------------------------------------------------------+
-| SECTION 4: QUAN ĐIỂM PHỤC VỤ & CHĂM SÓC THÚ CƯNG (bg-primary Ivory, Split 5/7)                   |
+| SECTION 1.4: QUAN ĐIỂM PHỤC VỤ (Split 5/7 — Đóng khung ĐỀ XUẤT CHỜ CHỦ DỰ ÁN DUYỆT)              |
+| [NHÃN TRẠNG THÁI: ĐỀ XUẤT NỘI DUNG — CHỜ CHỦ DỰ ÁN XÁC NHẬN QUY TRÌNH PHỤC VỤ THỰC TẾ]           |
 | +----------------------------------------+ +---------------------------------------------------+ |
-| | [5 COLS] PORTRAIT VISUAL (4:5)         | | [7 COLS] 4 NGUYÊN TẮC PHỤC VỤ (KẺ CHỈ NGANG)      | |
-| | Khung ảnh dọc bo góc 32px              | | ------------------------------------------------- | |
-| | [Nhãn: Ảnh minh họa]                   | | 1. Tiếp nhận điềm tĩnh, thao tác nhẹ nhàng        | |
-| | Chú thích: Môi trường thăm khám        | | ------------------------------------------------- | |
-| | tôn trọng cảm xúc của thú cưng         | | 2. Giải thích dễ hiểu, đồng hành cùng chủ nuôi    | |
-| |                                        | | ------------------------------------------------- | |
-| |                                        | | 3. Chăm sóc nội trú 24/7 vệ sinh & sát sao        | |
-| |                                        | | ------------------------------------------------- | |
-| |                                        | | 4. Bảo mật thông tin & tôn trọng quyền riêng tư   | |
+| | [5 COLS] Khung ảnh thú cưng (4:5)      | | [7 COLS] 4 DÒNG ĐỀ XUẤT KẺ CHỈ NGANG              | |
+| | [Nhãn: Ảnh minh họa — không phải cơ sở | | I. Tiếp nhận điềm tĩnh, nhẹ nhàng (Chờ duyệt)     | |
+| |  thực tế của Lê Sơn]                   | | II. Giải thích dễ hiểu cho chủ nuôi (Chờ duyệt)   | |
+| |                                        | | III. Quy trình theo dõi nội trú (Chờ duyệt)       | |
+| |                                        | | IV. Bảo mật thông tin khách hàng (Chờ duyệt)      | |
 | +----------------------------------------+ +---------------------------------------------------+ |
 +--------------------------------------------------------------------------------------------------+
-| SECTION 5: KHÁM PHÁ ĐỘI NGŨ, CƠ SỞ VẬT CHẤT & CTA                                               |
-| +------------------------------------------------+ +-------------------------------------------+ |
-| | PATHWAY 1 -> /doi-ngu                          | | PATHWAY 2 -> /co-so-vat-chat              | |
-| | H3: Khám phá Đội ngũ Bác sĩ & Nhân sự          | | H3: Tham quan Cơ sở vật chất & Thiết bị   | |
-| | Tìm hiểu các bộ phận chuyên môn ->             | | Xem không gian khám & nội trú 24/7 ->     | |
-| +------------------------------------------------+ +-------------------------------------------+ |
-| +----------------------------------------------------------------------------------------------+ |
-| | DEEP PLUM CTA BAND (#421247): 101 Khuất Duy Tiến | 08:00–21:00 | Cấp cứu 24/24               | |
-| | [Nút Primary: Đặt lịch khám (/dat-lich)]     [Nút Warm Orange: Gọi 097 355 51 05]            | |
-| +----------------------------------------------------------------------------------------------+ |
+| SECTION 1.5: KHÁM PHÁ ĐỘI NGŨ, CƠ SỞ VẬT CHẤT & DẢI CTA RÚT GỌN                                 |
+| [Thẻ Pathway 1 -> /doi-ngu]                        [Thẻ Pathway 2 -> /co-so-vat-chat]            |
+| [DEEP PLUM CTA BAND RÚT GỌN: Đặt lịch khám (/dat-lich) | Gọi Hotline 097 355 51 05]              |
 +--------------------------------------------------------------------------------------------------+
 ```
 
-#### B. Mobile (`390px` / `320px` — 1 cột xếp chồng mạch lạc)
-```text
-+----------------------------------------+
-| [Logo LÊ SƠN]          [Icon Menu >=44]|
-+----------------------------------------+
-| Breadcrumb: Trang chủ / Giới thiệu     |
-| [Eyebrow: VỀ BỆNH VIỆN THÚ Y LÊ SƠN]   |
-| H1 (Lora 600, 30px):                   |
-| "Nơi sự cẩn trọng y khoa song hành     |
-|  cùng lòng thấu cảm."                  |
-| Đoạn dẫn ngắn gọn, dễ đọc...           |
-| [Nút Full-width: Đặt lịch khám]        |
-| [Nút Full-width: Gọi 097 355 51 05]    |
-| +------------------------------------+ |
-| | Khung ảnh chính (Tỷ lệ 4:3 mobile) | |
-| | [Nhãn: Ảnh minh họa]               | |
-| +------------------------------------+ |
-| +------------------------------------+ |
-| | Dải 3 thông tin xếp dọc (1px rule) | |
-| +------------------------------------+ |
-+----------------------------------------+
-| SECTION 2: CÂU CHUYỆN LÊ SƠN           |
-| Pull-quote (Lora 600, 22px, viền trái) |
-| Nội dung tự sự + Khung chờ xác nhận    |
-| [Khung ảnh 16:10 + Nhãn minh họa]      |
-+----------------------------------------+
-| SECTION 3: 3 GIÁ TRỊ (Xếp dọc, kẻ ngang)|
-| 01. Chuyên môn & Trách nhiệm           |
-| -------------------------------------- |
-| 02. Tận tâm & Lắng nghe                |
-| -------------------------------------- |
-| 03. Theo dõi & Minh bạch               |
-+----------------------------------------+
-| SECTION 4: 4 QUAN ĐIỂM PHỤC VỤ         |
-| [Ảnh 4:3] + 4 dòng nguyên tắc kẻ chỉ   |
-+----------------------------------------+
-| SECTION 5: PATHWAYS & CTA              |
-| [Thẻ dẫn sang /doi-ngu]                |
-| [Thẻ dẫn sang /co-so-vat-chat]         |
-| [Banner Deep Plum CTA + Hotline]       |
-+----------------------------------------+
-| FOOTER (Có đệm đáy pb-24 tránh che)    |
-+----------------------------------------+
-| FIXED BOTTOM BAR: [Hotline] [Đặt lịch] |
-+----------------------------------------+
-```
+#### B. Mobile (`390px` / `360px` / `320px`)
+- Toàn bộ các khối chuyển về **1 cột xếp chồng**: Tiêu đề `h1` và 2 nút CTA full-width (`min-height: 44px`) nằm trên khung ảnh Hero để tối ưu LCP Mobile.
+- Dải 3 thông tin xác thực xếp dọc có đường kẻ ngang mảnh `1px`.
+- 3 cột Triptych (`01`, `02`, `03`) và 2 thẻ Pathway xếp dọc, giữ khoảng đệm chân trang `pb-24` tránh thanh cố định `MobileBottomBar`.
 
 ---
 
-### 3.2. Wireframe Trang `/doi-ngu` & Ma Trận Lưới Tự Cân Bằng
+### 3.2. Quy tắc Lưới Nhân Sự `/doi-ngu` Cho $N = 1, 2, 3, 5, 7$ & $N \ge 7$ (Đã sửa `3A-P2-4` & `3A-P2-5`)
 
-#### A. Giải pháp kỹ thuật cho Quyết định đặc biệt của Chủ dự án (Adaptive Zero-Orphan Grid Matrix)
-Để đảm bảo **không bao giờ xuất hiện card lẻ thiếu cân đối** dù số lượng nhân sự thực tế ($N$) của từng bộ phận là bao nhiêu sau khi Chủ dự án cung cấp danh sách, thiết kế quy định ma trận bố cục tự động theo $N$:
+#### A. Nguyên tắc Toán học & CSS của Lưới Nhân Sự Đồng Nhất (`Universal Equal-Card Centered Grid`)
+1. **Không gộp bộ phận trái thực tế (`3A-P2-4`):** Mỗi bộ phận thực tế được xác minh hiển thị trong section riêng của bộ phận đó.
+2. **100% Card đồng kích thước — Không bao giờ phóng to card lẻ (`3A-P2-5` & Directive III.7–8):**
+   - Trên mỗi breakpoint, chiều rộng của mỗi card ($W_{\text{card}}$) là **hằng số cố định**:
+     - **Desktop (`>= 1024px`):** Tối đa `3 card/hàng`. Mỗi card có chiều rộng cố định bằng đúng `1/3` container (tương đương `calc((100% - 2 * 24px) / 3)`).
+     - **Tablet (`768px – 1023px`):** Tối đa `2 card/hàng`. Mỗi card có chiều rộng cố định bằng đúng `1/2` container (tương đương `calc((100% - 24px) / 2)`), **giữ nguyên kiểu card dọc `4:5`** (không đổi sang card ngang khác biệt).
+     - **Mobile (`< 768px`):** `1 card/hàng` (`100%` chiều rộng container).
+   - Container sử dụng `display: flex; flex-wrap: wrap; justify-content: center; gap: 24px;` kết hợp quy tắc giới hạn số cột mỗi hàng (`max-width`) khi cần chia dòng cân đối để:
+     - Mọi card có kích thước **bằng nhau tuyệt đối 100%**.
+     - Hàng cuối luôn được **căn giữa đối xứng (centered)** mà không bao giờ kéo giãn (stretch) 1 card ra toàn hàng!
 
-| Sĩ số bộ phận ($N$) | Quy tắc xử lý nhóm & Bố cục Desktop (`>= 1024px`) | Bố cục Tablet (`768px - 1023px`) | Bố cục Mobile (`< 768px`) | Đánh giá độ cân đối |
+#### B. Bảng Ma Trận Chi Tiết Theo Sĩ Số $N = 1, 2, 3, 4, 5, 6, 7$ và $N \ge 7$
+
+| Số lượng thành viên trong bộ phận ($N$) | Bố cục Desktop (`>= 1024px` — Card rộng cố định `1/3` container) | Bố cục Tablet (`768px – 1023px` — Card dọc rộng cố định `1/2` container) | Bố cục Mobile (`< 768px` — 1 cột) | Cam kết không phóng to card & Cân đối hàng cuối |
 | :---: | :--- | :--- | :--- | :--- |
-| **$N = 1$** | **Gom nhóm hợp lý:** Không tạo section 1 người đơn độc; gộp với bộ phận phối hợp gần nhất (ví dụ: *Spa & Grooming và Điều dưỡng Hỗ trợ*) để đạt $N \ge 2$, phân biệt bằng badge bộ phận trên card. | Lưới 2 cột cân đối | 1 cột dọc đồng nhất | **0 card lẻ** (Tránh hoàn toàn section đơn độc) |
-| **$N = 2$** | Lưới **2 cột cân giữa** (giới hạn độ rộng khối 2 cột để kích thước mỗi card bằng hệt card trong lưới 3 cột). | Lưới **2 cột** (1 hàng x 2 card) | 1 cột dọc đồng nhất | **Chẵn 100%** (1 hàng x 2 card) |
-| **$N = 3$** | Lưới **3 cột tiêu chuẩn** (1 hàng x 3 card đồng đều). | **1 cột thẻ ngang (Horizontal Editorial Card: ảnh 4:5 bên trái + thông tin bên phải)** để cả 3 thẻ xếp chồng đồng bộ, tránh lỗi 2+1 trên Tablet! | 1 cột dọc đồng nhất | **Chẵn 100%** trên mọi thiết bị |
-| **$N = 4$** | Lưới **2x2 cân đối** (2 hàng x 2 card, giữ độ rộng card chuẩn) hoặc **4 cột đồng đều**. Ưu tiên **2x2 căn giữa** để ảnh chân dung lớn và rõ nét. | Lưới **2x2** (2 hàng x 2 card) | 1 cột dọc đồng nhất | **Chẵn 100%** (2 hàng x 2 card) |
-| **$N = 5$** | Lưới **12-column Flex/Grid đối xứng**: Hàng 1 gồm 3 card (mỗi card chiếm 4/12 cột); Hàng 2 gồm 2 card (mỗi card chiếm 4/12 cột, căn giữa bằng khoảng trống 2/12 cột hai bên). Tất cả 5 card có kích thước **bằng nhau tuyệt đối 100%**! | Lưới 2 cột cho 4 card đầu + 1 cột ngang cân đối hoặc dùng chế độ thẻ ngang đồng bộ | 1 cột dọc đồng nhất | **100% đồng kích thước**, đối xứng trục giữa |
-| **$N = 6$** | Lưới **3x2 tiêu chuẩn** (2 hàng x 3 card). | Lưới **2x3** (3 hàng x 2 card). | 1 cột dọc đồng nhất | **Chẵn 100%** trên mọi thiết bị |
+| **$N = 1$** | **1 hàng × 1 card căn giữa** (chiếm đúng `1/3` chiều rộng container ở chính tâm, 2 bên là khoảng trắng đối xứng). Không gộp với bộ phận khác. | **1 hàng × 1 card căn giữa** (chiếm đúng `1/2` chiều rộng container ở chính tâm). | **1 card** xếp dọc tiêu chuẩn. | Card giữ nguyên kích thước chuẩn 100%, căn tâm đối xứng. |
+| **$N = 2$** | **1 hàng × 2 card căn giữa** (mỗi card rộng đúng `1/3` container, tổng 2 card chiếm `2/3` ở tâm). | **1 hàng × 2 card** (`1/2` + `1/2`). | **2 hàng × 1 card**. | Chẵn hàng, 2 card bằng đúng kích thước card của lưới 3 cột. |
+| **$N = 3$** | **1 hàng × 3 card** (`1/3` + `1/3` + `1/3`). | **Hàng 1: 2 card** + **Hàng 2: 1 card căn giữa** (giữ nguyên card dọc rộng `1/2` container, không biến dạng thành thẻ ngang). | **3 hàng × 1 card**. | Cả 3 card dùng chung 1 kiểu card dọc `4:5` đồng nhất trên mọi màn hình. |
+| **$N = 4$** | **2 hàng × 2 card căn giữa** (`2 + 2`, giới hạn khung lưới ở chiều rộng 2 card chuẩn để mỗi hàng có 2 card rộng đúng `1/3` container). | **2 hàng × 2 card** (`2 + 2`). | **4 hàng × 1 card**. | Cân xứng hoàn hảo `2 + 2`, không có hàng lẻ 1 card. |
+| **$N = 5$** | **Hàng 1: 3 card** + **Hàng 2: 2 card căn giữa** (`3 + 2`). Tất cả 5 card đều rộng đúng `1/3` container. | **Hàng 1: 2 card** + **Hàng 2: 2 card** + **Hàng 3: 1 card căn giữa** (`2 + 2 + 1`, mọi card đều là card dọc rộng `1/2` container). | **5 hàng × 1 card**. | 5 card đồng kích thước 100% cả trên Desktop lẫn Tablet. |
+| **$N = 6$** | **2 hàng × 3 card** (`3 + 3`). | **3 hàng × 2 card** (`2 + 2 + 2`). | **6 hàng × 1 card**. | Chẵn tuyệt đối trên cả 3 nhóm thiết bị. |
+| **$N = 7$** | **Phân bổ cân đối `3 + 2 + 2` hoặc `3 + 3 + 1 căn giữa`:**<br>- *Chế độ mặc định ưu tiên (`3 + 2 + 2`):* Hàng 1 gồm 3 card; Hàng 2 gồm 2 card căn giữa; Hàng 3 gồm 2 card căn giữa (mọi card đều rộng đúng `1/3` container, không có card đơn độc!).<br>- *Chế độ Flex chuẩn (`3 + 3 + 1 căn giữa`):* Hàng cuối 1 card căn giữa rộng đúng `1/3` container. | **3 hàng × 2 card** + **Hàng 4: 1 card căn giữa** (`2 + 2 + 2 + 1`, mọi card rộng đúng `1/2` container). | **7 hàng × 1 card**. | Không phóng to bất kỳ card nào; hàng cuối căn tâm đối xứng. |
+| **Tổng quát $N \ge 7$** | Với mọi $N \ge 7$, mỗi card luôn khóa cứng chiều rộng `1/3` container:<br>- Nếu $N \equiv 0 \pmod 3$ ($6, 9, 12...$): Các hàng đều 3 card.<br>- Nếu $N \equiv 2 \pmod 3$ ($5, 8, 11...$): Các hàng đầu 3 card + **Hàng cuối 2 card căn giữa**.<br>- Nếu $N \equiv 1 \pmod 3$ ($4, 7, 10...$): Các hàng đầu 3 card + **2 hàng cuối mỗi hàng 2 card căn giữa** (ví dụ $N=7 \rightarrow 3+2+2$; $N=10 \rightarrow 3+3+2+2$) hoặc 1 card căn giữa đồng kích thước. | Các hàng đầu 2 card + Hàng cuối (nếu $N$ lẻ) 1 card căn giữa rộng đúng `1/2` container. | $N$ hàng × 1 card. | Giải quyết triệt để bài toán lưới cho mọi quy mô nhân sự tương lai. |
 
-#### B. Desktop Wireframe Trang `/doi-ngu` (`1440px` / `1366px`)
+#### C. Wireframe Trang `/doi-ngu` (Đã sửa `3A-P1-1`, `3A-P1-2`, `3A-P2-3`..`3A-P2-8`)
 ```text
 +--------------------------------------------------------------------------------------------------+
 | HEADER (Sticky): [Logo LÊ SƠN]   Trang chủ | Về Lê Sơn (Active) | Dịch vụ...          [Đặt lịch] |
 +--------------------------------------------------------------------------------------------------+
-| SECTION 1: TEAM INTRODUCTION HERO (bg-primary Ivory)                                             |
-| Breadcrumb: Trang chủ / Về Lê Sơn / Đội ngũ                                                      |
-| [Eyebrow: ĐỘI NGŨ NHÂN SỰ & CHUYÊN MÔN]                                                          |
-| H1 (Lora 600): "Sự tận tâm từ những người trực tiếp đồng hành cùng bé cưng."                     |
-| Lead Text: Tổ chức theo bộ phận chuyên môn thực tế, phối hợp chặt chẽ vì sự an toàn của bé.      |
+| SECTION 2.1: TEAM INTRODUCTION HERO & ACCESSIBLE DEPARTMENT FILTER                               |
+| Breadcrumb: Trang chủ (Link) / Về Lê Sơn (Text tĩnh) / Đội ngũ (Current)                         |
+| [Eyebrow: ĐỘI NGŨ BỆNH VIỆN THÚ Y LÊ SƠN]                                                        |
+| H1 (Lora 600): "Sự tận tâm từ những người trực tiếp đồng hành cùng thú cưng."                    |
 | +----------------------------------------------------------------------------------------------+ |
-| | [BANNER MINH BẠCH HỒ SƠ]: Hồ sơ chi tiết, ảnh chân dung thực tế và chứng chỉ hành nghề đang   | |
-| | ở trạng thái khung mẫu thiết kế — Chỉ công bố thông tin nhân sự sau khi Chủ dự án phê duyệt. | |
+| | [BANNER MINH BẠCH HỒ SƠ]: Trang đang hiển thị khung dữ liệu placeholder trung tính và khung  | |
+| | ảnh monogram trống. Tuyệt đối không dùng ảnh stock người khác gắn vào tên nhân sự thật.      | |
 | +----------------------------------------------------------------------------------------------+ |
-| [JUMP / FILTER BAR (Touch >= 44px)]: (Tất cả bộ phận) | (Đội ngũ Bác sĩ) | (Spa & Điều dưỡng)    |
+| [BỘ LỌC BỘ PHẬN — Ẩn/Hiện bằng thuộc tính `hidden`, KHÔNG làm mờ card, có `aria-live="polite"`]: |
+| (• Tất cả bộ phận)  ( Bộ phận Bác sĩ Thú y )  ( Bộ phận Spa & Grooming )  ( Bộ phận Hỗ trợ )     |
+| Status (`role="status" aria-live="polite"`): "Đang hiển thị tất cả các nhóm bộ phận..."          |
 +--------------------------------------------------------------------------------------------------+
-| SECTION 2: BỘ PHẬN BÁC SĨ THÚ Y (Tất cả card CÙNG KÍCH THƯỚC 100% — KHÔNG CÓ VIP SECTION)        |
-| Header: [BỘ PHẬN KHÁM & ĐIỀU TRỊ] — H2: "Đội ngũ Bác sĩ Thú y"                                   |
+| SECTION 2.2: BỘ PHẬN BÁC SĨ THÚ Y (Mọi card đồng kích thước 100% — Không tự đặt BS Sơn ở số 1)   |
+| (Bộ mô phỏng trên Mockup cho phép bấm thử trực tiếp N = 1, 2, 3, 5, 7, 8 thành viên)             |
 | +------------------------------+ +------------------------------+ +----------------------------+ |
-| | [ẢNH TỶ LỆ 4:5 ĐỒNG NHẤT]    | | [ẢNH TỶ LỆ 4:5 ĐỒNG NHẤT]    | | [ẢNH TỶ LỆ 4:5 ĐỒNG NHẤT]  | |
-| | [Nhãn: Ảnh minh họa mẫu]     | | [Nhãn: Ảnh minh họa mẫu]     | | [Nhãn: Ảnh minh họa mẫu]   | |
-| | ---------------------------- | | ---------------------------- | | -------------------------- | |
-| | [Bộ phận: Bác sĩ Thú y]      | | [Bộ phận: Bác sĩ Thú y]      | | [Bộ phận: Bác sĩ Thú y]    | |
-| | [Kiêm nhiệm: Nội trú 24/7]   | | [Kiêm nhiệm: Chẩn đoán]      | |                            | |
-| | H3: BS. Lê Thái Sơn          | | H3: [Họ tên Bác sĩ —         | | H3: [Họ tên Bác sĩ —       | |
-| | Chức danh: Bác sĩ Thú y —    | |      Chờ hồ sơ xác minh]     | |      Chờ hồ sơ xác minh]   | |
-| | Phụ trách chuyên môn         | | Chức danh: Bác sĩ Thú y —    | | Chức danh: Bác sĩ Thú y —  | |
-| | (Không làm card lớn/VIP)     | | Khám & Điều trị lâm sàng     | | Ngoại khoa & Cấp cứu       | |
-| | Mô tả: [Khung thông tin      | | Mô tả: [Khung thông tin      | | Mô tả: [Khung thông tin    | |
-| | chuyên môn chờ xác minh]     | | chuyên môn chờ xác minh]     | | chuyên môn chờ xác minh]   | |
-| | [Khám lâm sàng] [Nội trú]    | | [Nội khoa] [Chẩn đoán]       | | [Ngoại khoa] [Cấp cứu]     | |
+| | THẺ #1 (PLACEHOLDER TRUNG TÍNH)| | THẺ #2 (VỊ TRÍ TRUNG TÍNH)   | | THẺ #3 (PLACEHOLDER)       | |
+| | +--------------------------+ | | +--------------------------+ | | +------------------------+ | |
+| | |   [MONOGRAM VECTOR]      | | | |   [MONOGRAM: LTS]        | | | |   [MONOGRAM VECTOR]    | | |
+| | |   Khung ảnh trống 4:5    | | | |   Khung ảnh trống 4:5    | | | |   Khung ảnh trống 4:5  | | |
+| | |   Chờ ảnh thực tế duyệt  | | | |   Chờ ảnh thực tế duyệt  | | | |   Chờ ảnh thực tế duyệt| | |
+| | +--------------------------+ | | +--------------------------+ | | +------------------------+ | |
+| | Bộ phận: Bác sĩ Thú y        | | Bộ phận: Bác sĩ Thú y        | | Bộ phận: Bác sĩ Thú y      | |
+| | H3: [Họ và tên Bác sĩ #01 —  | | H3: BS. Lê Thái Sơn          | | H3: [Họ và tên Bác sĩ #03 —| |
+| |      Chờ danh sách xác minh] | | Chức danh: [Bác sĩ Thú y —   | |      Chờ danh sách]        | |
+| | Chức danh: [Chờ xác minh]    | |  Chờ xác nhận chức danh]     | | Chức danh: [Chờ xác minh]  | |
+| | Kiêm nhiệm: [Nếu có]         | | Kiêm nhiệm: [Chờ xác minh]   | | Kiêm nhiệm: [Nếu có]       | |
+| | Mô tả: [Phạm vi công việc    | | Mô tả: [Phạm vi công việc    | | Mô tả: [Phạm vi công việc  | |
+| |  thực tế — Chờ hồ sơ]        | |  thực tế — Chờ hồ sơ]        | |  thực tế — Chờ hồ sơ]      | |
 | +------------------------------+ +------------------------------+ +----------------------------+ |
 +--------------------------------------------------------------------------------------------------+
-| SECTION 3: SPA & GROOMING VÀ BỘ PHẬN ĐIỀU DƯỠNG / HỖ TRỢ THỰC TẾ (Gom nhóm hợp lý, lưới cân đối) |
-| Header: [CHĂM SÓC & HỖ TRỢ LÂM SÀNG] — H2: "Bộ phận Spa & Grooming và Điều dưỡng Chăm sóc"       |
-| (Căn giữa lưới 2 cột hoặc 3 cột tùy sĩ số N, kích thước mỗi card BẰNG HỆT card Bác sĩ ở trên)    |
+| SECTION 2.3A: BỘ PHẬN SPA & GROOMING (Chỉ phân nhóm theo bộ phận thực tế — Không gộp tùy tiện)   |
+| (Ví dụ khi N = 1: Hiển thị 1 card căn giữa có chiều rộng bằng hệt 1 cột của lưới 3 cột)          |
+|                                  +------------------------------+                                |
+|                                  | THẺ PLACEHOLDER (N = 1)      |                                |
+|                                  | [MONOGRAM KHUNG TRỐNG 4:5]   |                                |
+|                                  | Bộ phận: Spa & Grooming      |                                |
+|                                  | H3: [Họ và tên Nhân sự —     |                                |
+|                                  |      Chờ danh sách xác minh] |                                |
+|                                  | Chức danh: [Chờ xác minh]    |                                |
+|                                  +------------------------------+                                |
++--------------------------------------------------------------------------------------------------+
+| SECTION 2.3B: BỘ PHẬN CHĂM SÓC & HỖ TRỢ VẬN HÀNH (Trạng thái chờ xác nhận cơ cấu thực tế)        |
 |                 +------------------------------+ +------------------------------+                |
-|                 | [ẢNH TỶ LỆ 4:5 ĐỒNG NHẤT]    | | [ẢNH TỶ LỆ 4:5 ĐỒNG NHẤT]    |                |
-|                 | [Nhãn: Ảnh minh họa mẫu]     | | [Nhãn: Ảnh minh họa mẫu]     |                |
-|                 | ---------------------------- | | ---------------------------- |                |
-|                 | [Bộ phận: Spa & Grooming]    | | [Bộ phận: Điều dưỡng nội trú]|                |
-|                 | [Kiêm nhiệm: Vệ sinh y tế]   | | [Kiêm nhiệm: Tiếp nhận]      |                |
-|                 | H3: [Nhân sự Spa & Grooming  | | H3: [Nhân sự Điều dưỡng —    |                |
-|                 |      — Chờ hồ sơ xác minh]   | |      Chờ hồ sơ xác minh]     |                |
-|                 | Chức danh: Chuyên viên       | | Chức danh: Điều dưỡng chăm   |                |
-|                 | Grooming & Chăm sóc da lông  | | sóc nội trú & Hỗ trợ khám    |                |
-|                 | [Tắm dưỡng] [Cắt tỉa vệ sinh]| | [Lưu trú 24/7] [Hỗ trợ khám] |                |
+|                 | THẺ PLACEHOLDER #1 (N = 2)   | | THẺ PLACEHOLDER #2 (N = 2)   |                |
+|                 | [MONOGRAM KHUNG TRỐNG 4:5]   | | [MONOGRAM KHUNG TRỐNG 4:5]   |                |
+|                 | Bộ phận: [Chờ xác nhận]      | | Bộ phận: [Chờ xác nhận]      |                |
 |                 +------------------------------+ +------------------------------+                |
 +--------------------------------------------------------------------------------------------------+
-| SECTION 4: CÁCH ĐỘI NGŨ PHỐI HỢP (bg-secondary Lavender — Architectural 4-Step Strip)            |
-| Header: [PHỐI HỢP LIÊN BỘ PHẬN] — H2: "Quy trình phối hợp đồng bộ vì sự an tâm của chủ nuôi"     |
-| +----------------------+ +----------------------+ +----------------------+ +-------------------+ |
-| | BƯỚC 01              | | BƯỚC 02              | | BƯỚC 03              | | BƯỚC 04           | |
-| | Tiếp nhận & Phân loại| | Khám & Hội chẩn      | | Chăm sóc & Theo dõi  | | Bàn giao ca 24/24 | |
-| | Ghi nhận triệu chứng,| | Bác sĩ thăm khám,    | | Phối hợp Bác sĩ -    | | Bàn giao giữa các | |
-| | ưu tiên cấp cứu ngay | | giải thích minh bạch | | Điều dưỡng - Grooming| | ca trực & dặn dò  | |
-| +----------------------+ +----------------------+ +----------------------+ +-------------------+ |
+| SECTION 2.4: CÁCH ĐỘI NGŨ PHỐI HỢP (Đóng khung ĐỀ XUẤT CHỜ CHỦ DỰ ÁN XÁC NHẬN VẬN HÀNH)          |
+| [NHÃN TRẠNG THÁI: QUY TRÌNH PHỐI HỢP ĐỀ XUẤT — CHỜ CHỦ DỰ ÁN XÁC NHẬN THỰC TẾ]                   |
+| Bước 01 (Tiếp nhận) -> Bước 02 (Thăm khám) -> Bước 03 (Chăm sóc) -> Bước 04 (Hướng dẫn theo dõi) |
 +--------------------------------------------------------------------------------------------------+
-| SECTION 5: CTA LIÊN HỆ & ĐẶT LỊCH                                                                |
-| [Đặt lịch khám trực tuyến (/dat-lich)]  |  [Gọi Hotline tư vấn & cấp cứu 24/24: 097 355 51 05]   |
+| SECTION 2.5: CTA LIÊN HỆ & ĐẶT LỊCH KHÁM (/dat-lich | Hotline 097 355 51 05)                     |
 +--------------------------------------------------------------------------------------------------+
 ```
 
 ---
 
-### 3.3. Wireframe Trang `/co-so-vat-chat`
-
-#### A. Desktop (`1440px` / `1366px` — Clinic Tour + Photo Editorial)
+### 3.3. Wireframe Trang `/co-so-vat-chat` (Đã sửa `3A-P2-9`, `3A-P2-10`, `3A-P2-11`)
 ```text
 +--------------------------------------------------------------------------------------------------+
 | HEADER (Sticky): [Logo LÊ SƠN]   Trang chủ | Về Lê Sơn (Active) | Dịch vụ...          [Đặt lịch] |
 +--------------------------------------------------------------------------------------------------+
-| SECTION 1: EDITORIAL HERO (bg-primary Ivory)                                                     |
-| Breadcrumb: Trang chủ / Về Lê Sơn / Cơ sở vật chất                                               |
-| [Eyebrow: CƠ SỞ VẬT CHẤT & TRANG THIẾT BỊ — 101 KHUẤT DUY TIẾN]                                  |
-| H1 (Lora 600): "Không gian thăm khám sạch khuẩn, tổ chức khoa học vì sự an toàn của thú cưng."   |
+| SECTION 3.1: EDITORIAL HERO (bg-primary Ivory)                                                   |
+| Breadcrumb: Trang chủ (Link) / Về Lê Sơn (Text tĩnh) / Cơ sở vật chất (Current)                  |
+| [Eyebrow: KHÔNG GIAN THĂM KHÁM & CHĂM SÓC — 101 KHUẤT DUY TIẾN]                                  |
+| H1 (Lora 600 — Không dùng từ "sạch khuẩn"):                                                      |
+| "Không gian thăm khám sạch sẽ, bố trí rõ ràng vì sự an tâm của thú cưng."                        |
 | +----------------------------------------------------------------------------------------------+ |
-| | [BANNER QUY CHUẨN HÌNH ẢNH & THIẾT BỊ]: Hình ảnh trong bản thiết kế là ảnh minh họa bố cục,  | |
-| | KHÔNG phải ảnh thực tế tại bệnh viện. Thông tin máy móc chuyên sâu chỉ hiển thị khi xác minh.| |
+| | [BANNER CHÍNH SÁCH ẢNH & ĐIỀU KIỆN PHÁT HÀNH]: Mọi ảnh dưới đây mang nhãn "Ảnh minh họa —   | |
+| | không phải cơ sở thực tế của Lê Sơn" và không dùng để chứng minh cơ sở có phòng/thiết bị đó. | |
+| | Điều kiện trước phát hành: Cần bộ ảnh thực tế được Chủ dự án duyệt (đề xuất >= 4 ảnh thật).  | |
 | +----------------------------------------------------------------------------------------------+ |
-| [ZONE JUMP BAR]: 01. Không gian chung | 02. Khu khám & Điều trị | 03. Khu nội trú & Thiết bị     |
 +--------------------------------------------------------------------------------------------------+
-| SECTION 2: GALLERY KHÔNG GIAN BỆNH VIỆN (Asymmetric 12-Col Photo Editorial Spread)               |
+| SECTION 3.2: GALLERY KHÔNG GIAN BỆNH VIỆN (Asymmetric 12-Col Spread + Đề xuất >= 4 khung ảnh)    |
 | +----------------------------------------------------+ +---------------------------------------+ |
-| | [7 COLS, SPAN 2 ROWS] KHUNG ẢNH CHỦ ĐẠO            | | [5 COLS, ROW 1] KHUNG ẢNH PHỤ 1       | |
-| | Khu vực Tiếp đón & Không gian Chờ khám             | | Khu vực Phòng khám Lâm sàng           | |
-| | [Badge: Phân khu 01]                               | | [Nhãn bắt buộc: Ảnh minh họa bố cục — | |
-| | [Nhãn bắt buộc: Ảnh minh họa bố cục —              | |  Không phải ảnh thực tế bệnh viện]    | |
-| |  Không phải ảnh thực tế tại bệnh viện]             | +---------------------------------------+ |
-| | Chú thích: Bố trí thông thoáng, thuận tiện tiếp    | +---------------------------------------+ |
-| | nhận thăm khám hàng ngày và cấp cứu 24/24          | | [5 COLS, ROW 2] KHUNG ẢNH PHỤ 2       | |
-| |                                                    | | Khu vực Vệ sinh Y tế, Spa & Grooming  | |
-| |                                                    | | [Nhãn bắt buộc: Ảnh minh họa bố cục]  | |
+| | [7 COLS] KHUNG MINH HỌA 01                         | | [5 COLS] KHUNG MINH HỌA 02            | |
+| | Không gian Tiếp đón & Chờ khám (Slot chờ ảnh thật) | | Khu vực Khám Lâm sàng (Slot chờ ảnh)  | |
+| | [Nhãn bắt buộc: Ảnh minh họa — không phải cơ sở    | | [Nhãn bắt buộc: Ảnh minh họa — không  | |
+| |  thực tế của Lê Sơn]                               | |  phải cơ sở thực tế của Lê Sơn]       | |
+| +----------------------------------------------------+ +---------------------------------------+ |
+| +----------------------------------------------------+ +---------------------------------------+ |
+| | [6 COLS] KHUNG MINH HỌA 03                         | | [6 COLS] KHUNG MINH HỌA 04            | |
+| | Khu vực Lưu trú Nội trú (Slot chờ ảnh thật)        | | Khu vực Spa & Grooming (Slot chờ ảnh) | |
+| | [Nhãn bắt buộc: Ảnh minh họa — không phải cơ sở    | | [Nhãn bắt buộc: Ảnh minh họa — không  | |
+| |  thực tế của Lê Sơn]                               | |  phải cơ sở thực tế của Lê Sơn]       | |
 | +----------------------------------------------------+ +---------------------------------------+ |
 +--------------------------------------------------------------------------------------------------+
-| SECTION 3: KHU KHÁM VÀ ĐIỀU TRỊ (Editorial Split 5/7 + Equipment Verification Slots)             |
+| SECTION 3.3: KHU KHÁM VÀ ĐIỀU TRỊ (Slot Thiết Bị Trung Tính — Không tự nêu tên hãng Mindray)     |
 | +----------------------------------------+ +---------------------------------------------------+ |
-| | [5 COLS] KHUNG ẢNH & QUY CHUẨN VỆ SINH | | [7 COLS] ARCHITECTURAL SPECIFICATION LEDGER       | |
-| | [Ảnh minh họa khu vực khám lâm sàng]   | | 01. Khu vực Thăm khám Lâm sàng                    | |
-| | [Nhãn: Ảnh minh họa — Không phải ảnh   | |     Kiểm tra tổng quát, tư vấn phác đồ minh bạch  | |
-| |  thực tế tại bệnh viện]                | | ------------------------------------------------- | |
-| | Hộp thông tin: Vệ sinh khử khuẩn bề    | | 02. Khu vực Chẩn đoán & Xét nghiệm cận lâm sàng   | |
-| | mặt định kỳ giữa các lượt thăm khám    | |     +-------------------------------------------+ | |
-| |                                        | |     | [SLOT CHỜ XÁC MINH THIẾT BỊ]:             | | |
-| |                                        | |     | - Thiết bị xét nghiệm (VD: Mindray): Chờ  | | |
-| |                                        | |     |   xác nhận đúng mã model & chỉ số thực tế | | |
-| |                                        | |     | - Máy siêu âm / Chẩn đoán hình ảnh: Chờ   | | |
-| |                                        | |     |   xác nhận model & phạm vi khảo sát       | | |
+| | [5 COLS] Khung minh họa phân khu       | | [7 COLS] ARCHITECTURAL SPECIFICATION LEDGER       | |
+| | [Nhãn: Ảnh minh họa — không phải cơ sở | | 01. Khu vực Thăm khám Lâm sàng                    | |
+| |  thực tế của Lê Sơn]                   | | ------------------------------------------------- | |
+| |                                        | | 02. Khu vực Cận lâm sàng & Chẩn đoán              | |
+| |                                        | |     +-------------------------------------------+ | |
+| |                                        | |     | [Thiết bị xét nghiệm — chờ xác minh]      | | |
+| |                                        | |     | [Thiết bị chẩn đoán hình ảnh — chờ xác    | | |
+| |                                        | |     |  minh danh mục & công năng thực tế]       | | |
 | |                                        | |     +-------------------------------------------+ | |
 | |                                        | | ------------------------------------------------- | |
-| |                                        | | 03. Khu vực Thủ thuật & Ngoại khoa                | |
-| |                                        | |     Thực hiện thủ thuật theo chỉ định bác sĩ      | |
+| |                                        | | 03. [Phân khu Thủ thuật / Can thiệp điều trị —    | |
+| |                                        | |      Chờ Chủ dự án xác nhận cấu trúc phòng thực   | |
+| |                                        | |      tế; không tự khẳng định phòng mổ riêng]      | |
 | +----------------------------------------+ +---------------------------------------------------+ |
 +--------------------------------------------------------------------------------------------------+
-| SECTION 4: KHU NỘI TRÚ 24/7 VÀ TRANG THIẾT BỊ CHĂM SÓC (bg-secondary Lavender)                  |
-| +------------------------------------------------+ +-------------------------------------------+ |
-| | KHỐI A: KHU VỰC LƯU TRÚ & THEO DÕI 24/7        | | KHỐI B: QUY CHUẨN VỆ SINH & THIẾT BỊ      | |
-| | [Ảnh minh họa khu nội trú + Nhãn bắt buộc]     | | - Vệ sinh khử khuẩn định kỳ khu lưu chuồng| |
-| | - Chăm sóc nội trú 24/7 có theo dõi liên tục   | | - Theo dõi ăn uống, thân nhiệt & sinh hoạt| |
-| | - Cập nhật tình hình định kỳ cho chủ nuôi      | | - [SLOT CHỜ XÁC MINH]: Quy cách phân khu  | |
-| | - Chế độ dinh dưỡng phục hồi theo hướng dẫn    | |   chuồng lưu trú & thiết bị hỗ trợ thực tế| |
-| +------------------------------------------------+ +-------------------------------------------+ |
+| SECTION 3.4: KHU NỘI TRÚ 24/7 & TRANG THIẾT BỊ CHĂM SÓC (bg-secondary Lavender)                  |
+| [Khối A: Chăm sóc nội trú 24/7 + Nhãn ảnh minh họa] | [Khối B: Slot quy cách lưu chuồng chờ duyệt]|
 +--------------------------------------------------------------------------------------------------+
-| SECTION 5: CTA ĐẾN BỆNH VIỆN / LIÊN HỆ (101 Khuất Duy Tiến, Thanh Xuân, Hà Nội)                 |
-| +----------------------------------------+ +---------------------------------------------------+ |
-| | [5 COLS] THÔNG TIN CƠ SỞ XÁC THỰC      | | [7 COLS] HƯỚNG DẪN ĐẾN VIỆN & ĐẶT LỊCH            | |
-| | - Địa chỉ: 101 Khuất Duy Tiến,         | | H3: Chủ động đặt lịch hoặc liên hệ trực tiếp      | |
-| |   Thanh Xuân, Hà Nội                   | | - Đặt lịch trước qua /dat-lich để giảm chờ đợi    | |
-| | - Giờ khám: 08:00 – 21:00              | | - Cấp cứu 24/24 tiếp nhận ngay không cần hẹn trước| |
-| | - Cấp cứu: Tiếp nhận 24/24             | | [Nút Primary: Đặt lịch khám (/dat-lich)]          | |
-| | [Mở bản đồ Google Maps]                | | [Nút Warm Orange: Gọi Hotline 097 355 51 05]      | |
-| +----------------------------------------+ +---------------------------------------------------+ |
+| SECTION 3.5: CTA ĐẾN BỆNH VIỆN (101 Khuất Duy Tiến | 08:00–21:00 | Cấp cứu 24/24 | 0973555105)   |
 +--------------------------------------------------------------------------------------------------+
 ```
 
-#### B. Mobile (`390px` / `320px`)
-- Toàn bộ lưới Bento 12 cột của Gallery không gian chuyển về **1 cột xếp chồng theo thứ tự ưu tiên**: Khung tiếp đón (`aspect-ratio: 4/3`) ➔ Khung phòng khám (`aspect-ratio: 16/10`) ➔ Khung Spa & Grooming (`aspect-ratio: 16/10`).
-- Nhãn `Ảnh minh họa — Không phải ảnh bệnh viện` luôn nằm gọn góc dưới phải với cỡ chữ `11px`, không che khuất chủ thể chính và không tràn ngang ở màn hình `320px`.
-- Thanh điều hướng phân khu (`Zone Jump Bar`) hỗ trợ cuộn ngang mượt (`overflow-x: auto`) với chiều cao nút chạm `44px`.
-
 ---
 
-## 4. DELIVERABLE 3: ĐẶC TẢ MOCKUP TRỰC QUAN (VISUAL DESIGN SPECIFICATION)
+## 4. MỤC 4: DANH MỤC TÁI SỬ DỤNG COMPONENT (COMPONENT REUSE & CODEBASE ALIGNMENT)
 
-Bản thiết kế trực quan có thể xem và tương tác trực tiếp đã được đóng gói độc lập tại file artifact:
-- **Đường dẫn Artifact:** `phase-3a-interactive-mockups.html` (trong thư mục Artifacts của phiên làm việc).
-- **Các tính năng trực quan được tích hợp sẵn trong Mockup Studio:**
-  1. **Chuyển đổi trực tiếp giữa 3 trang:**
-     - Tab 1: `/gioi-thieu` (5 khu vực chuẩn Editorial Storytelling + Clinical Credibility).
-     - Tab 2: `/doi-ngu` (5 khu vực chuẩn bình đẳng nhân sự theo bộ phận thực tế, không VIP hierarchy).
-     - Tab 3: `/co-so-vat-chat` (5 khu vực chuẩn Clinic Tour + Photo Editorial kèm Slot xác minh thiết bị Mindray/siêu âm).
-  2. **Bộ mô phỏng trực tiếp Ma trận lưới `/doi-ngu` (Interactive Team Count & Filter Simulator):**
-     - Cho phép bấm thử nghiệm thay đổi sĩ số nhóm Bác sĩ ($N = 2, 3, 4, 5, 6$) và lọc theo bộ phận để kiểm chứng trực quan: mọi card luôn giữ kích thước bằng nhau 100%, nhân sự kiêm nhiệm hiển thị bằng badge không bị lặp thẻ, và hàng cuối luôn cân đối.
-  3. **Chuyển đổi chế độ Wireframe / High-Fidelity Mockup:**
-     - Cho phép bật/tắt chế độ xem khung xương kiến trúc (`Wireframe Blueprint Mode`) và chế độ giao diện hoàn thiện (`Editorial Luxury Mockup Mode`).
-  4. **Chuyển đổi 5 kích thước Viewport:**
-     - `1440px` (Desktop) | `1366px` (Laptop) | `768px` (Tablet) | `390px` (Mobile) | `320px` (Small Mobile).
-  5. **Tuân thủ tuyệt đối Font & Asset nội bộ:**
-     - Nạp trực tiếp 6 file WOFF2 từ `public/fonts/` (không gọi Google Fonts bên ngoài, không dùng Lora italic giả) và ảnh WebP minh họa có gắn nhãn cảnh báo rõ ràng.
-
----
-
-## 5. DELIVERABLE 4: DANH MỤC COMPONENT HIỆN CÓ & QUY CHUẨN MỞ RỘNG
-
-Đối chiếu trực tiếp với mã nguồn hiện tại của repository tại commit `d3c32dd`:
-
-### 5.1. Các Component & Hook hiện có tái sử dụng nguyên trạng (100% Reuse)
-| Thành phần | File trong Repo | Cách tái sử dụng ở Giai đoạn 3A |
+### 4.1. Component & Hook hiện có tái sử dụng nguyên trạng (100% Reuse)
+| Thành phần | Đường dẫn trong Repo | Vai trò khi triển khai Giai đoạn 3A |
 | :--- | :--- | :--- |
-| **`RootLayout`** | `src/components/layout/RootLayout.tsx` | Bao bọc cả 3 trang `/gioi-thieu`, `/doi-ngu`, `/co-so-vat-chat`. Tự động cuộn lên đầu trang, chuyển focus vào `#main-content` và phát thông báo vào `#sr-announcer`. |
-| **`Header`** | `src/components/layout/Header.tsx` | Menu nhóm `Về Lê Sơn` (`id: 'about'`, `matchPrefixes: ['/gioi-thieu', '/doi-ngu', '/co-so-vat-chat']`) đã hỗ trợ sẵn trạng thái active cho cả 3 trang và `aria-current="page"` cho từng mục con. |
-| **`MobileNav` & `MobileBottomBar`** | `src/components/layout/MobileNav.tsx` | Accordion `Về Lê Sơn` trên di động đã nối sẵn 3 link `/gioi-thieu`, `/doi-ngu`, `/co-so-vat-chat` kèm thanh cố định chân màn hình (`Gọi 24/24` + `Đặt lịch khám`). |
-| **`Footer`** | `src/components/layout/Footer.tsx` | Giữ nguyên 100% thông tin địa chỉ `101 Khuất Duy Tiến`, hotline `097 355 51 05`, giờ khám `08:00 – 21:00` và đệm đáy `pb-24 lg:pb-12`. |
-| **`useRouteSeo`** | `src/hooks/useRouteSeo.ts` | Gắn tiêu đề, meta description, canonical URL và `meta name="robots"` (`noindex, nofollow` khi còn nội dung mẫu, chuyển sang `index, follow` khi Chủ dự án nghiệm thu nội dung thật). |
-| **`HOSPITAL_CONTACT`** | `src/config/contact.ts` | Nguồn dữ liệu duy nhất cho tên bệnh viện, địa chỉ, hotline, link `tel:` và link Google Maps trên cả 3 trang. |
+| **`RootLayout`** | `src/components/layout/RootLayout.tsx` | Bọc cả 3 trang `/gioi-thieu`, `/doi-ngu`, `/co-so-vat-chat`; quản lý focus `#main-content` và thông báo `#sr-announcer`. |
+| **`Header` & `MobileNav`** | `src/components/layout/Header.tsx`<br>`src/components/layout/MobileNav.tsx` | Đã tích hợp sẵn nhóm menu `Về Lê Sơn` với `matchPrefixes: ['/gioi-thieu', '/doi-ngu', '/co-so-vat-chat']` và `MobileBottomBar`. |
+| **`Footer`** | `src/components/layout/Footer.tsx` | Hiển thị thông tin xác thực của bệnh viện và đệm đáy `pb-24 lg:pb-12`. |
+| **`useRouteSeo`** | `src/hooks/useRouteSeo.ts` | Quản lý title, description, canonical URL và giữ `isIndexable: false` (`noindex, nofollow`) cho tới khi Chủ dự án nghiệm thu dữ liệu thật. |
+| **`HOSPITAL_CONTACT`** | `src/config/contact.ts` | Nguồn hằng số duy nhất cho địa chỉ `101 Khuất Duy Tiến, Thanh Xuân, Hà Nội`, hotline `097 355 51 05` và Google Maps URL. |
 
-### 5.2. Các Pattern CSS Modules hiện có có thể kế thừa
-| Pattern thiết kế | Nguồn tham chiếu hiện tại | Ứng dụng vào Giai đoạn 3A |
-| :--- | :--- | :--- |
-| **Khung ảnh cắt góc Editorial (`frameLeft`, `frameRight`)** | `src/components/sections/HeroSection.module.css` | Tái sử dụng kiểu bo góc bất đối xứng (`2.25rem 0.75rem 2.25rem 0.75rem`) cho cụm ảnh Hero của `/gioi-thieu` và `/co-so-vat-chat`. |
-| **Thẻ thông tin & Banner Cấp cứu (`bentoCard`, `emergencyBanner`)** | `src/components/sections/WhyChooseUs.module.css` | Tái sử dụng cho khối thông tin liên hệ và dải CTA cuối trang của cả 3 trang. |
-| **Nhãn ảnh minh họa tương phản cao (`IllustrationBadge`)** | `src/components/sections/FeaturedServices.tsx` & `EditorialKnowledge.tsx` | Áp dụng thống nhất cho mọi ảnh placeholder trên 3 trang (nền tối mờ, chữ trắng `12px`, tương phản > 10:1). |
-| **Breadcrumb & Header Pattern** | `src/pages/BookingPage.tsx` & `BookingPage.module.css` | Kế thừa cấu trúc `<nav aria-label="Breadcrumb">` giúp đồng bộ trải nghiệm điều hướng trang con. |
+### 4.2. Kiểm kê toàn bộ vị trí trong Repo còn chứa cụm từ phân cấp chức vụ (`3A-P2-7` Đã kiểm kê đầy đủ)
+Theo kết quả rà soát toàn bộ mã nguồn và tài liệu trên nhánh `fix/milestone-2a-qa`, dưới đây là **danh sách đầy đủ 6 vị trí** còn chứa cụm từ *"Bác sĩ trưởng Lê Thái Sơn"*, *"Nổi bật BST Lê Thái Sơn"* hoặc trường `isDirector` cần được cập nhật đồng loạt khi bước sang pha triển khai code (sau khi Chủ dự án chốt Quyết định 1 ở Mục 9.2):
 
-### 5.3. Phát hiện kỹ thuật & Đề xuất chuẩn hóa khi bước sang pha Implementation (Sau khi duyệt)
-1. **Chuẩn hóa `src/components/ui/Button.tsx`:**
-   - *Hiện trạng:* File `src/components/ui/Button.tsx` hiện tại là file khởi tạo ban đầu (đang chứa màu `bg-blue-600`, `bg-slate-900` không thuộc bảng màu thương hiệu) và chưa được các section 2B sử dụng.
-   - *Đề xuất cho pha code:* Khi được phép triển khai code Giai đoạn 3A, cập nhật `Button.tsx` sang sử dụng đúng biến trong `tokens.css` (`--btn-primary-bg`, `--btn-emergency-bg`, `--btn-outline-border`) hoặc dùng component `EditorialCTA` đồng nhất.
-2. **Cập nhật kiểu dữ liệu nhân sự trong `src/types/index.ts`:**
-   - *Hiện trạng:* `interface Doctor` trong `src/types/index.ts` (dòng 30–39) đang có trường `isDirector?: boolean`.
-   - *Đề xuất cho pha code:* Để tuân thủ triệt để quyết định của Chủ dự án (*"Tổ chức nhân sự theo bộ phận thực tế, không theo cấp bậc; không tạo visual hierarchy chỉ vì chức vụ; hỗ trợ nhân sự kiêm nhiệm"*), khi triển khai code sẽ định nghĩa cấu trúc dữ liệu `TeamMember`:
-     - `id: string` (Định danh duy nhất — chống lặp thẻ)
-     - `name: string`
-     - `roleTitle: string` (Chức danh hiển thị bên dưới tên)
-     - `primaryDepartment: 'veterinary' | 'care_support'` (Bộ phận chính để phân nhóm section)
-     - `departmentLabel: string` (Nhãn bộ phận thực tế: *Bác sĩ Thú y*, *Spa & Grooming*, *Điều dưỡng nội trú*...)
-     - `concurrentRoles?: string[]` (Danh sách vai trò kiêm nhiệm hiển thị dưới dạng badge phụ)
-     - `responsibilities: string[]` (Các mảng công việc thực tế)
-     - `verified: boolean` (Cờ xác minh hồ sơ từ Chủ dự án)
+| STT | File trong Repository | Dòng | Nội dung hiện tại | Phương án đồng bộ khi triển khai code |
+| :---: | :--- | :---: | :--- | :--- |
+| 1 | `src/components/layout/Header.tsx` | `27` | `desc: 'Bác sĩ trưởng Lê Thái Sơn & cộng sự'` | Đổi sang mô tả trung tính theo bộ phận (ví dụ: `'Đội ngũ bác sĩ thú y & nhân sự chăm sóc'`). |
+| 2 | `src/app/routes.tsx` | `31` | `description="Đội ngũ bác sĩ thú y giàu kinh nghiệm do Bác sĩ trưởng Lê Thái Sơn dẫn dắt..."` | Đổi sang mô tả trung tính khi thay `ComingSoonView` bằng trang `/doi-ngu`. |
+| 3 | `src/types/index.ts` | `34` | `isDirector?: boolean;` trong `interface Doctor` | Loại bỏ logic dùng `isDirector` để tạo hierarchy; thay bằng `TeamMember` đồng nhất. |
+| 4 | `docs/seo-strategy.md` | `18` | `"Đội ngũ bác sĩ thú y giàu kinh nghiệm do Bác sĩ trưởng Lê Thái Sơn dẫn dắt..."` | Đồng bộ meta description theo đúng quyết định của Chủ dự án. |
+| 5 | `docs/sitemap.md` | `11` | `Grid danh sách bác sĩ & điều dưỡng (nổi bật BST Lê Thái Sơn)` | Cập nhật mô tả sitemap thành `Lưới nhân sự đồng đều theo bộ phận thực tế (không tạo khu VIP riêng)`. |
+| 6 | `docs/implementation-plan.md` | `70` | `Grid bác sĩ & kỹ thuật viên (Nổi bật BST Lê Thái Sơn)` | Cập nhật kế hoạch triển khai theo đúng quy tắc bình đẳng kích thước card. |
+
+*Lưu ý theo CEO Directive 018-A Mục III:* Nếu cụm từ `"Bác sĩ trưởng"` là thông tin chức danh thực tế và được Chủ dự án duyệt sử dụng, chỉ hiển thị nó như **dữ liệu văn bản tại dòng chức danh bên dưới tên** của BS. Lê Thái Sơn, tuyệt đối không dùng làm nguyên tắc sắp xếp vị trí hay làm nổi bật kích thước card.
 
 ---
 
-## 6. DELIVERABLE 5: ĐỀ XUẤT ANIMATION & TƯƠNG TÁC CHO TỪNG SECTION
+## 5. MỤC 5: ĐẶC TẢ CHUYỂN ĐỘNG & TƯƠNG TÁC (ANIMATION & ACCESSIBILITY INTERACTION SPECS)
 
-Toàn bộ hiệu ứng chuyển động tuân thủ nghiêm ngặt quy định: **100% CSS Transitions / Keyframes thuần kết hợp các biến trong `src/styles/tokens.css`, không cài đặt thư viện JS animation bên ngoài, chỉ tác động lên `transform` và `opacity` để đạt 60fps và CLS = 0.000.**
+### 5.1. Quy tắc Animation cho từng Section
+- **100% CSS Transitions thuần** với các biến trong `src/styles/tokens.css`, chỉ tác động lên `transform` và `opacity` (`CLS = 0.000`).
 
-| Trang / Khu vực | Hiệu ứng đề xuất | Thuộc tính & Token sử dụng (`tokens.css`) | Xử lý `prefers-reduced-motion: reduce` |
+| Khu vực | Hiệu ứng chuyển động | Token sử dụng (`tokens.css`) | Chế độ `prefers-reduced-motion: reduce` |
 | :--- | :--- | :--- | :--- |
-| **1. Hero của cả 3 trang** | Fade-up nhẹ cho khối chữ và khung ảnh khi trang vừa hiển thị (không làm trễ ảnh LCP). | - Khung ảnh LCP: **Hiển thị tức thì (`opacity: 1`)** để tối ưu chỉ số LCP.<br>- Khối phụ đề & CTA: `transform: translateY(10px) -> 0`, thời lượng `--motion-duration-normal` (`300ms`), đường cong `--motion-ease-default` (`cubic-bezier(0.16, 1, 0.3, 1)`). | Tắt hoàn toàn dịch chuyển `translateY`, hiển thị tĩnh ngay lập tức (`transition: none`). |
-| **2. Khối Câu chuyện & Triết lý (`/gioi-thieu`)** | Hiệu ứng nổi nhẹ đường viền và số thứ tự `01, 02, 03` khi di chuột qua từng cột giá trị. | - Đổi màu đường kẻ chỉ từ `--color-border-subtle` sang `--color-border-medium` trong `--motion-duration-fast` (`200ms`). | Giữ đổi màu viền tĩnh khi focus/hover, không có thời gian trễ. |
-| **3. Lưới Thẻ Nhân Sự (`/doi-ngu`)** | - **Hover card:** Nâng nhẹ đồng đều cho mọi thành viên (không phân biệt chức vụ).<br>- **Chuyển bộ phận (Filter):** Làm mờ nhẹ các thẻ không thuộc bộ phận đang lọc hoặc cuộn mượt đến nhóm tương ứng. | - Card hover: `transform: translateY(var(--hover-lift-y))` (`-2px`), `box-shadow: var(--shadow-card-hover)`, thời lượng `--motion-duration-normal` (`300ms`).<br>- Ảnh trong card: `transform: scale(1.02)` trong `--motion-duration-slow` (`450ms`). | Không nâng card, không phóng ảnh khi hover; chuyển đổi bộ lọc hoặc cuộn trang diễn ra tức thì (`behavior: 'auto'`). |
-| **4. Gallery & Phân khu (`/co-so-vat-chat`)** | Zoom nhẹ khung ảnh (`scale(1.03)`) khi hover tương tự `HeroSection.module.css` và làm rõ thanh chú thích. | - Ảnh: `transition: transform var(--motion-duration-slow) var(--motion-ease-default)`.<br>- Nút chuyển phân khu: `--motion-duration-fast` (`200ms`). | Giữ nguyên khung ảnh tĩnh 100%, không scale. |
-| **5. Dải Quy trình & CTA cuối trang** | Phản hồi xúc giác khi nhấn nút CTA (`active` press state) và vòng focus rõ nét khi điều hướng bằng bàn phím (`Tab`). | - Nút bấm: Hover `--motion-duration-fast` (`200ms`), khi nhấn giữ hạ nhẹ độ cao.<br>- Focus ring: `outline: 2px solid var(--color-focus-ring)`, `outline-offset: var(--focus-ring-offset)`. | Giữ nguyên vòng focus `2px` rõ nét phục vụ người dùng bàn phím. |
+| **Hero (Cả 3 trang)** | Khung ảnh Hero hiển thị tức thì (`opacity: 1`); khối chữ phụ & CTA fade-up nhẹ `8px`. | `--motion-duration-normal` (`300ms`), `--motion-ease-default` (`cubic-bezier(0.16, 1, 0.3, 1)`). | Tắt hoàn toàn `translateY`, hiển thị tĩnh ngay lập tức. |
+| **Numbered Triptych & Hairline Ledger** | Đổi màu đường kẻ chỉ từ `--color-border-subtle` sang `--color-border-medium` khi hover/focus. | `--motion-duration-fast` (`200ms`). | Đổi màu viền tức thì không có độ trễ. |
+| **Card Nhân sự (`/doi-ngu`)** | Mọi card nâng nhẹ đồng đều `translateY(-2px)` và đổ bóng `--shadow-card-hover` (không phân biệt chức vụ). | `--hover-lift-y` (`-2px`), `--motion-duration-normal` (`300ms`). | Giữ nguyên vị trí card tĩnh. |
+| **Bộ lọc Bộ phận (`/doi-ngu` — Đã sửa `3A-P2-6`)** | **Không dùng hiệu ứng làm mờ (`opacity`) card không thuộc nhóm chọn.** Khi bấm nút lọc, các section không thuộc bộ phận được chọn sẽ được ẩn hoàn toàn khỏi cây hiển thị và cây trợ năng bằng thuộc tính `hidden` (`display: none`), đồng thời cập nhật vùng `<p role="status" aria-live="polite">`. | Nút lọc dùng `aria-pressed="true/false"`, viền focus `2px solid var(--color-focus-ring)`. | Ẩn/hiện tức thì bằng thuộc tính `hidden`. |
+| **Gallery (`/co-so-vat-chat`)** | Phóng nhẹ ảnh minh họa `scale(1.02)` bên trong khung `overflow: hidden` khi hover trên Desktop. | `--motion-duration-slow` (`450ms`), `--motion-ease-default`. | Không scale ảnh. |
+
+### 5.2. Bảng Độ Tương Phản Màu Sắc WCAG 2.1 Chính Xác (`3A-P3-6` Đã sửa theo `contrast-check.txt`)
+Các tỷ lệ tương phản dưới đây được tính chính xác theo công thức Relative Luminance của WCAG 2.1 từ mã màu trong `src/styles/tokens.css`:
+
+| Cặp màu (Foreground / Background) | Mã Hex | Tỷ lệ tương phản chính xác | Chuẩn đạt được & Quy tắc áp dụng |
+| :--- | :--- | :---: | :--- |
+| `--color-fg-primary` trên nền Ivory `--color-bg-primary` | `#1A0A1C` / `#FBF7F1` | **17.82 : 1** | **WCAG AAA** (Văn bản chính) |
+| `--color-fg-secondary` trên nền Ivory `--color-bg-primary` | `#421247` / `#FBF7F1` | **13.96 : 1** | **WCAG AAA** (Tiêu đề lớn & vừa) |
+| `--color-fg-muted` trên nền Ivory `--color-bg-primary` | `#554157` / `#FBF7F1` | **8.63 : 1** | **WCAG AAA** (Đoạn văn mô tả) |
+| `--color-fg-subtle` trên nền Ivory `--color-bg-primary` | `#5A3E5E` / `#FBF7F1` | **8.61 : 1** | **WCAG AAA** (Metadata, chú thích) |
+| `--color-fg-muted` trên nền Lavender `--color-bg-secondary` | `#554157` / `#F8F2F9` | **8.36 : 1** | **WCAG AAA** (Văn bản trên nền Lavender) |
+| `--color-plum-orchid` trên nền Lavender `--color-bg-secondary` | `#824787` / `#F8F2F9` | **5.96 : 1** | **WCAG AA** (Số thứ tự `01–03` cỡ lớn `>= 32px`) |
+| `--color-warm-orange-dark` trên nền Ivory `--color-bg-primary` | `#9A3412` / `#FBF7F1` | **6.85 : 1** | **WCAG AA** (Nhãn nhấn trên nền sáng) |
+| Chữ trắng `#FFFFFF` trên nút Plum `--color-plum-primary` | `#FFFFFF` / `#5A1E5E` | **11.78 : 1** | **WCAG AAA** (Nút CTA chính) |
+| Chữ trắng `#FFFFFF` trên nút Cam `--color-warm-orange` | `#FFFFFF` / `#C2560C` | **4.54 : 1** | **WCAG AA** *(Sát ngưỡng 4.5:1 — Quy tắc bắt buộc: chữ trên nền `#C2560C` không nhỏ hơn `14px` SemiBold/Bold `600/700` hoặc `16px` Regular)* |
+| Nhãn `Ảnh minh họa` (Chữ trắng trên nền tối `rgba(26,10,28,0.88)`) | `#FFFFFF` / `#1A0A1C` | **> 15.0 : 1** | **WCAG AAA** |
+
+### 5.3. Quy chuẩn `alt` Text tinh gọn cho Screen Reader (`3A-P3-8` Đã sửa)
+- Không lặp lại câu cảnh báo dài dòng trong mọi thuộc tính `alt`.
+- Quy chuẩn mới:
+  - Mỗi trang có 1 khối thông báo chính sách ảnh minh họa rõ ràng ở phần đầu trang.
+  - Thuộc tính `alt` của từng ảnh minh họa chỉ ghi mô tả ngắn gọn kèm hậu tố **`(ảnh minh họa)`**, ví dụ: `alt="Không gian chờ thăm khám thoáng sáng (ảnh minh họa)"`.
+  - Với khung Monogram trống trên trang `/doi-ngu`: biểu tượng SVG trang trí đặt `aria-hidden="true"`, nhãn văn bản hiển thị rõ `Chưa có ảnh thực tế — Khung chân dung chờ duyệt`.
 
 ---
 
-## 7. DELIVERABLE 6: DANH SÁCH THÔNG TIN, ẢNH & HỒ SƠ CẦN CHỦ DỰ ÁN CUNG CẤP
+## 6. MỤC 6: DANH MỤC DỮ LIỆU PLACEHOLDER & HỒ SƠ THẬT CÒN THIẾU (DATA PLACEHOLDERS & MISSING REAL DATA)
 
-Để chuyển các khung placeholder sang nội dung chính thức được phép lập chỉ mục (index) trên công cụ tìm kiếm, kính đề nghị Chủ dự án cung cấp hoặc xác nhận các hạng mục sau:
+Bảng dưới đây phân tách minh bạch giữa **Dữ liệu đã xác minh**, **Dữ liệu Placeholder trung tính đang hiển thị trên Mockup v2.1**, và **Danh sách dữ liệu thật còn thiếu cần Chủ dự án cung cấp**:
 
-### A. Danh mục cần cung cấp cho trang `/gioi-thieu`
-1. **Câu chuyện hình thành & Định hướng thực tế:**
-   - [ ] Đoạn giới thiệu chính thức về quá trình hình thành Bệnh viện Thú y Lê Sơn (nếu Chủ dự án muốn nêu năm bắt đầu hoạt động hoặc cột mốc cụ thể; nếu không, giữ mạch văn tập trung vào triết lý chăm sóc hiện tại).
-   - [ ] Xác nhận 4 nguyên tắc phục vụ thực tế tại cơ sở `101 Khuất Duy Tiến` (quy trình đón tiếp, cách thức thông báo tình hình thú cưng nội trú cho chủ nuôi).
-2. **Hình ảnh cho `/gioi-thieu`:**
-   - [ ] **02 ảnh chụp thực tế tại bệnh viện** (hoặc xác nhận tiếp tục dùng ảnh minh họa có gắn nhãn trong giai đoạn Preview): (1) Ảnh bác sĩ đang thăm khám/chăm sóc thú cưng, (2) Ảnh tổng quan không gian tiếp đón của bệnh viện.
-
-### B. Danh mục cần cung cấp cho trang `/doi-ngu`
-1. **Danh sách nhân sự theo bộ phận thực tế:**
-   - [ ] Danh sách họ tên, chức danh hiển thị bên dưới tên, bộ phận chính (`Bác sĩ thú y`, `Spa & Grooming`, `Điều dưỡng / Hỗ trợ...`) và **các vai trò kiêm nhiệm** (nếu một người phụ trách nhiều mảng).
-   - [ ] Mô tả ngắn (2–3 câu) về mảng công việc phụ trách thực tế của từng thành viên (bao gồm thông tin xác thực cho `BS. Lê Thái Sơn` và các cộng sự).
-   - [ ] Thông tin bằng cấp / trường đào tạo / chứng chỉ hành nghề (chỉ ghi những thông tin Chủ dự án muốn công bố và đã xác minh).
-2. **Ảnh chân dung đồng bộ:**
-   - [ ] Ảnh chân dung của từng thành viên theo **cùng một quy cách chụp** (khuyến nghị tỷ lệ dọc `4:5`, trang phục làm việc thực tế tại viện, ánh sáng đồng đều) để đảm bảo khi ghép lên lưới các card có sự hài hòa tuyệt đối.
-
-### C. Danh mục cần cung cấp cho trang `/co-so-vat-chat`
-1. **Bộ ảnh chụp thực tế tại `101 Khuất Duy Tiến, Thanh Xuân, Hà Nội`:**
-   - [ ] Tối thiểu **04 – 06 ảnh thật** chụp các phân khu: (1) Mặt tiền & Sảnh tiếp đón, (2) Phòng khám lâm sàng, (3) Khu vực máy móc chẩn đoán/xét nghiệm, (4) Phòng thủ thuật/phẫu thuật, (5) Khu vực chuồng lưu trú nội trú 24/7, (6) Khu vực Spa & Grooming.
-2. **Xác nhận danh mục & model trang thiết bị y tế thực tế:**
-   - [ ] **Thiết bị xét nghiệm (Mindray / hãng khác):** Xác nhận tên thiết bị, mã model chính xác (ví dụ model máy xét nghiệm huyết học, máy sinh hóa) và các loại xét nghiệm thực tế đang thực hiện tại viện.
-   - [ ] **Máy siêu âm & Chẩn đoán hình ảnh:** Xác nhận loại máy siêu âm (đen trắng hay Doppler màu, model cụ thể) và có trang bị máy X-quang tại cơ sở hay không.
-   - [ ] **Trang thiết bị khu phẫu thuật & nội trú:** Xác nhận các thiết bị hiện có (monitor theo dõi, máy gây mê, đèn mổ, quy cách chuồng lưu trú, khu cách ly) để mô tả đúng 100% khả năng thực tế.
+| Tuyến trang | Hạng mục nội dung | Trạng thái trên Blueprint v2.1 & Mockup v2.1 | Dữ liệu thật còn thiếu cần Chủ dự án cung cấp / xác nhận |
+| :--- | :--- | :--- | :--- |
+| **`/gioi-thieu`** | Thông tin liên hệ, địa chỉ, giờ khám, cấp cứu 24/24 | **Đã xác minh** (`101 Khuất Duy Tiến, Thanh Xuân, Hà Nội` • `08:00 – 21:00` • Cấp cứu `24/24` • `097 355 51 05`). | Không thiếu (đã chốt ở Mốc 2A). |
+| **`/gioi-thieu`** | Câu chuyện hình thành & cột mốc hoạt động (Section 1.2) | **Placeholder Slot trung tính:** `[SLOT CHỜ CHỦ DỰ ÁN CUNG CẤP: Lịch sử hình thành & câu chuyện sáng lập thực tế]`. | - [ ] Nội dung câu chuyện sáng lập / năm hoạt động thực tế (nếu muốn công bố). |
+| **`/gioi-thieu`** | 4 Nguyên tắc phục vụ thú cưng (Section 1.4) | **Đề xuất chờ duyệt (`3A-P2-1`):** Ghi rõ nhãn `[ĐỀ XUẤT NỘI DUNG — CHỜ CHỦ DỰ ÁN XÁC NHẬN]`. | - [ ] Xác nhận hoặc hiệu chỉnh 4 nguyên tắc phục vụ thực tế tại bệnh viện. |
+| **`/gioi-thieu`** | Ảnh Hero & Ảnh minh họa câu chuyện | **Ảnh minh họa không có người mặc áo blouse (`3A-P2-2`)** + Nhãn `Ảnh minh họa — không phải cơ sở thực tế của Lê Sơn`. | - [ ] 02 ảnh chụp thực tế tại bệnh viện (không gian tiếp đón / hoạt động chăm sóc đã được duyệt). |
+| **`/doi-ngu`** | Ảnh chân dung nhân sự (Toàn bộ các thẻ — `3A-P1-1`) | **Monogram / Khung trống trung tính `4:5`:** Nhãn `Chưa có ảnh thực tế — Khung chân dung chờ duyệt`. **0% ảnh stock/AI người thật.** | - [ ] Ảnh chân dung thật của `BS. Lê Thái Sơn` và từng nhân sự thực tế (cùng tỷ lệ `4:5`). |
+| **`/doi-ngu`** | Cơ cấu bộ phận, số lượng nhân sự, chức danh & kiêm nhiệm (`3A-P1-2`) | **Placeholder trung tính:** `[Họ và tên nhân sự — Chờ danh sách xác minh]`, `[Chức danh chuyên môn — Chờ xác minh]`, `[Vai trò kiêm nhiệm — Nếu có]`. | - [ ] Danh sách bộ phận thực tế tại viện.<br>- [ ] Họ tên, chức danh chuyên môn, các vai trò kiêm nhiệm thực tế và mô tả công việc của từng người.<br>- [ ] Quy tắc sắp xếp thứ tự nhân sự trong từng bộ phận (`A–Z` hay theo thứ tự danh sách). |
+| **`/doi-ngu`** | Quy trình phối hợp liên bộ phận (Section 2.4 — `3A-P2-8`) | **Đề xuất chờ duyệt:** Ghi rõ nhãn `[QUY TRÌNH PHỐI HỢP ĐỀ XUẤT — CHỜ CHỦ DỰ ÁN XÁC NHẬN]`. | - [ ] Xác nhận các bước phối hợp thực tế giữa các bộ phận khi tiếp nhận ca khám/nội trú/spa. |
+| **`/co-so-vat-chat`** | Bộ ảnh Gallery không gian bệnh viện (Section 3.2 — `3A-P2-9`) | **Ảnh minh họa / Sơ đồ kiến trúc có gắn nhãn trực tiếp:** `Ảnh minh họa — không phải cơ sở thực tế của Lê Sơn`. | - [ ] Bộ ảnh chụp thực tế các phân khu tại `101 Khuất Duy Tiến` (đề xuất thiết kế tối thiểu 04 ảnh thật được duyệt trước khi mở index công khai; không lọt khách hàng/hồ sơ bệnh án `3A-P3-5`). |
+| **`/co-so-vat-chat`** | Thiết bị xét nghiệm & chẩn đoán hình ảnh (Section 3.3 — `3A-P2-11`) | **Slot trung tính không nêu tên hãng:** `[Thiết bị xét nghiệm — chờ xác minh]`, `[Thiết bị chẩn đoán hình ảnh — chờ xác minh]`. | - [ ] Xác nhận danh mục, tên hãng (ví dụ có sử dụng thiết bị Mindray hay không), mã model và công năng thực tế được phép công bố. |
+| **`/co-so-vat-chat`** | Cấu trúc phòng thủ thuật / phẫu thuật & khu lưu trú nội trú (`3A-P2-11`) | **Slot trung tính:** `[Phân khu chức năng — Chờ Chủ dự án xác nhận cấu trúc phòng thực tế]`. | - [ ] Xác nhận cơ sở có phòng thủ thuật/phẫu thuật riêng hay khu vực chức năng như thế nào, và quy cách chuồng lưu trú nội trú 24/7 thực tế. |
 
 ---
 
-## 8. DELIVERABLE 7: TIÊU CHÍ RESPONSIVE & KHẢ NĂNG TIẾP CẬN (WCAG 2.1 AA)
+## 7. MỤC 7: HỒ SƠ NGUỒN GỐC & QUYỀN SỬ DỤNG TÀI SẢN HÌNH ẢNH / PHÔNG CHỮ (ASSET PROVENANCE INVENTORY)
 
-### 8.1. Tiêu chí Responsive trên 7 kích thước màn hình chuẩn
-Thiết kế của cả 3 trang được kiểm soát chặt chẽ trên đúng 7 mốc viewport trong quy trình QA của dự án:
-- **`320px` & `360px` (Mobile nhỏ):**
-  - Toàn bộ lưới chuyển về 1 cột; padding ngang `16px`; tiêu đề `h1` thu gọn về `28px–30px` (`1.75rem–1.875rem`), không đứt chữ tiếng Việt, **không tràn ngang (`scrollWidth <= clientWidth`)**.
-  - Các nút bấm CTA xếp dọc chiếm 100% chiều rộng, chiều cao tối thiểu `44px`.
-  - Nhãn `Ảnh minh họa` co chữ linh hoạt, không đè lên tiêu đề phụ.
-- **`390px` (Mobile tiêu chuẩn):**
-  - Thanh nhảy phân khu (`Department / Zone Jump Bar`) cho phép cuộn ngang mượt mà với vùng chạm `44px`.
-  - Đệm chân trang (`Footer`) luôn giữ khoảng cách an toàn cho thanh cố định `MobileBottomBar`.
-- **`768px` (Tablet dọc):**
-  - Áp dụng ma trận lưới tự cân bằng trên `/doi-ngu`: Nhóm 2 hoặc 4 người hiển thị 2 cột (`2x1`, `2x2`); nhóm 3 người hiển thị dạng thẻ ngang toàn chiều rộng (Horizontal Card) để không bị lẻ 1 card ở hàng cuối.
-- **`1366px`, `1440px` & `1920px` (Laptop & Desktop):**
-  - Khung nội dung chính giới hạn ở container chuẩn của hệ thống (`1280px`), căn giữa màn hình với khoảng trắng biên rộng rãi.
-  - Hình ảnh luôn có thuộc tính `width`, `height` và `aspect-ratio` tường minh để khóa cứng khung hình trước khi tải xong, giữ `CLS = 0.000`.
+Toàn bộ tài sản được tham chiếu trong Mockup v2.1 (`docs/design/phase-3a-interactive-mockups.html`) nằm sẵn trong repository, **không tải bất kỳ tài nguyên nào từ bên ngoài** để Claude và Chủ dự án đều mở kiểm tra offline/online được ngay:
 
-### 8.2. Tiêu chí Khả năng Tiếp cận (Accessibility — WCAG 2.1 AA/AAA)
-1. **Độ tương phản màu sắc đã kiểm chứng (Verified Color Contrast):**
-   - Chữ chính `#1A0A1C` trên nền Ivory `#FBF7F1`: **17.4 : 1** (Đạt chuẩn AAA).
-   - Chữ tiêu đề `#421247` trên nền Ivory `#FBF7F1`: **11.8 : 1** (Đạt chuẩn AAA).
-   - Chữ mô tả `--color-fg-muted` (`#554157`) trên nền Ivory `#FBF7F1`: **8.2 : 1** (Đạt chuẩn AAA).
-   - Chữ phụ `--color-fg-subtle` (`#5A3E5E`) trên nền Ivory `#FBF7F1`: **7.6 : 1** (Đạt chuẩn AAA).
-   - Chữ nhấn cam đậm `--color-warm-orange-dark` (`#9A3412`) trên nền Ivory `#FBF7F1`: **6.7 : 1** (Đạt chuẩn AA/AAA).
-   - Chữ trắng `#FFFFFF` trên nút Plum `#5A1E5E`: **9.9 : 1** (Đạt chuẩn AAA).
-   - Chữ trắng `#FFFFFF` trên nút Cam `#C2560C`: **4.65 : 1** (Đạt chuẩn AA).
-   - Nhãn `Ảnh minh họa` (chữ trắng `#FFFFFF` trên nền đen mờ `rgba(0,0,0,0.78)`): **> 12 : 1** (Đạt chuẩn AAA).
-2. **Cấu trúc ngữ nghĩa & Hỗ trợ trình đọc màn hình (Screen Reader & Keyboard):**
-   - Mỗi trang có duy nhất một thẻ `<h1>`; các khu vực con tuân thủ đúng thứ bậc `<h2>` ➔ `<h3>`, không nhảy bậc heading.
-   - Mọi hình ảnh placeholder đều có thuộc tính `alt` mô tả rõ nội dung kèm hậu tố `(Hình ảnh minh họa — Không phải ảnh thực tế tại bệnh viện)`.
-   - Các nút lọc bộ phận trên `/doi-ngu` sử dụng `<button type="button">` với thuộc tính `aria-pressed="true/false"`, hỗ trợ điều hướng đầy đủ bằng phím `Tab`, `Enter` và `Space`.
+| STT | Đường dẫn trong Repo | Loại tài sản | Nguồn gốc & Giấy phép (`docs/assets-credits.md`) | Cách sử dụng trong Mockup v2.1 & Điều kiện phát hành |
+| :---: | :--- | :--- | :--- | :--- |
+| 1 | `public/images/logo.png` | PNG Thương hiệu | Chủ dự án cung cấp — Sở hữu nội bộ Bệnh viện Thú y Lê Sơn (**Đã xác minh**). | Hiển thị trên Header & Footer của cả 3 trang. |
+| 2 | `public/fonts/lora-600.woff2`<br>`public/fonts/be-vietnam-pro-*.woff2` (6 file) | WOFF2 Fonts | SIL Open Font License 1.1 (`docs/licenses/OFL-Lora.txt`, `OFL-BeVietnamPro.txt` — **Đã xác minh**). | Nạp trực tiếp qua `@font-face` nội bộ theo đúng Phương án C (`230.2 KB`, 0 render-blocking, 0 Lora italic). |
+| 3 | **Inline Architectural SVG & Monogram Placeholders** | SVG nội tuyến | Do Antigravity thiết kế trực tiếp trong mã HTML của Mockup v2.1 (**100% Bản quyền nội bộ dự án**). | Dùng cho **100% khung chân dung nhân sự trên `/doi-ngu`** (`3A-P1-1`) và các khung sơ đồ phân khu, đảm bảo không mạo danh bất kỳ khuôn mặt người thật nào. |
+| 4 | `public/images/article-prevention.webp` | WebP Minh họa | Ảnh tạo bởi AI nội bộ dự án (Google Imagen 3 — chú chó lông vàng ấm áp trong phòng, không có người mặc áo blouse, không có logo bên thứ ba). | Dùng làm ảnh minh họa bố cục trên Preview/Mockup kèm nhãn trực tiếp `Ảnh minh họa — không phải cơ sở thực tế của Lê Sơn`. **Bắt buộc thay bằng ảnh thật trước khi phát hành (`2B-06`).** |
+| 5 | `public/images/article-nutrition.webp` | WebP Minh họa | Ảnh stock tĩnh vật bát thức ăn chăm sóc dinh dưỡng (không có người, không có nhãn hiệu). | Dùng làm ảnh minh họa góc chăm sóc nội trú trên Preview/Mockup kèm nhãn trực tiếp `Ảnh minh họa — không phải cơ sở thực tế của Lê Sơn`. **Bắt buộc thay bằng ảnh thật trước khi phát hành (`2B-06`).** |
+| 6 | `public/images/why-pet-companion.webp` | WebP Minh họa | Ảnh stock thú cưng thân thiện (không có người mặc áo blouse y tế). | Dùng làm ảnh minh họa trên `/gioi-thieu` kèm nhãn trực tiếp `Ảnh minh họa — không phải cơ sở thực tế của Lê Sơn`. **Bắt buộc thay bằng ảnh thật trước khi phát hành (`2B-06`).** |
+
+*Lưu ý tuân thủ `3A-P1-1` & `3A-P2-2`:* Các file ảnh trong `public/images/` có hình người mặc áo blouse hoặc đồng phục y tế (`hero-vet-care.webp`, `hero-clinic-cuddle.webp`, `service-exam.webp`, `service-spa.webp`) **đã được loại bỏ hoàn toàn khỏi Mockup v2.1 của cả 3 trang Giai đoạn 3A**.
 
 ---
 
-## 9. DELIVERABLE 8: RỦI RO TRIỂN KHAI & CÁC ĐIỂM CẦN QUYẾT ĐỊNH
+## 8. MỤC 8: BẢNG ĐỐI CHIẾU GIẢI QUYẾT TOÀN BỘ PHÁT HIỆN QA (MAPPING 2 P1, 11 P2 & 9 P3)
 
-### 9.1. Bảng Phân Tích Rủi Ro Kỹ Thuật & Biện Pháp Kiểm Soát
+Chúng tôi không tự ý đóng các vấn đề phụ thuộc vào quyết định hoặc dữ liệu thật của Chủ dự án. Dưới đây là bảng đối chiếu trung thực từng phát hiện trong `docs/qa/3a-design-qa-01.md`:
 
-| Mã rủi ro | Mô tả rủi ro kỹ thuật | Mức độ | Giải pháp kiểm soát trong thiết kế & khi triển khai |
-| :---: | :--- | :---: | :--- |
-| **R-3A-01** | **Suy giảm LCP trên Mobile khi thêm trang nhiều ảnh (`/co-so-vat-chat`, `/doi-ngu`):** Hiện tại LCP mobile trang chủ trên Vercel Preview đang ở mức `2.86s–2.88s` (mục tiêu `<= 2.5s`, vấn đề `2B-08` đang mở). Nếu các trang 3A đặt ảnh Hero quá nặng hoặc không lazy-load gallery dưới fold sẽ làm tăng LCP. | **Cao (P2)** | - **Hero của `/doi-ngu` và `/co-so-vat-chat` ưu tiên Typography-first:** Phần đầu trang (Above the fold trên mobile `390px`) hiển thị ngay tiêu đề `h1` (`Lora 600` đã được preload sẵn) và đoạn dẫn, giúp phần tử LCP trên mobile là **khối văn bản `h1`** (hiển thị gần như tức thì mà không phải chờ tải ảnh mạng 4G chậm).<br>- Mọi ảnh dưới fold bắt buộc dùng `loading="lazy"`, `decoding="async"`, định dạng WebP đa kích thước (`400w`, `800w`, `1200w`). |
-| **R-3A-02** | **Tailwind v4 Oxide quét nhầm từ khóa trong tài liệu Markdown (`docs/*.md`):** Trình biên dịch `@tailwindcss/vite` mặc định quét mọi file văn bản trong repo; nếu tài liệu thiết kế chứa các chuỗi giống tên class mới sẽ làm thay đổi file CSS build. | **Trung bình (P2)** | - Trong tài liệu thiết kế này, không viết các chuỗi utility lạ chưa có trong `src/`.<br>- Khi được phép chạm vào code ở giai đoạn triển khai, khai báo giới hạn phạm vi quét của Tailwind v4 chỉ nằm trong thư mục `src/` và `index.html`. |
-| **R-3A-03** | **Tăng kích thước JS Bundle tải ban đầu của Trang chủ:** Nếu import tĩnh 3 trang mới vào `src/app/routes.tsx`, người dùng vào trang chủ `/` cũng phải tải thêm code của 3 trang 3A, làm tăng Total Blocking Time (TBT). | **Cao (P2)** | - Áp dụng `React.lazy()` và `<Suspense>` cho cả 3 route `/gioi-thieu`, `/doi-ngu`, `/co-so-vat-chat` theo đúng định hướng của Architecture Baseline V1, giữ nguyên dung lượng bundle trang chủ. |
-| **R-3A-04** | **Lệch bố cục khi danh sách nhân sự thực tế thay đổi số lượng:** Nếu dùng cứng 1 kiểu lưới 3 cột, khi bộ phận có 2 hoặc 4 người sẽ bị trống cột. | **Trung bình (P2)** | - Áp dụng hàm tính lớp lưới tự động theo số lượng phần tử `getBalancedGridClass(count)` dựa trên Ma trận Mục 3.2 (tự động chọn lưới 2 cột căn giữa cho $N=2,4$; 3 cột cho $N=3,6$; lưới 12 cột đối xứng 3+2 cho $N=5$). |
-| **R-3A-05** | **Rủi ro công bố nhầm thông số thiết bị hoặc ảnh mẫu:** Nếu triển khai khi Chủ dự án mới cung cấp một phần thông tin (ví dụ: có ảnh phòng khám nhưng chưa xác nhận xong model máy xét nghiệm Mindray). | **Cao (P1/P2)** | - Thiết kế theo cơ chế **Data-Driven Conditional Rendering**: Phần tử nào có `verified: false` sẽ chỉ hiển thị mô tả chung hoặc nhãn minh họa rõ ràng; chỉ khi `verified: true` mới hiển thị tên model và tháo nhãn placeholder. Giữ `noindex, nofollow` cho đến khi toàn trang được duyệt. |
+### 8.1. Hai Lỗi P1 (Bắt buộc sửa trong thiết kế)
+| Mã QA | Mô tả phát hiện của Claude | Giải pháp đã thực hiện trong Blueprint v2.1 & Mockup v2.1 | Bằng chứng vị trí | Trạng thái |
+| :---: | :--- | :--- | :--- | :---: |
+| **3A-P1-1** | Card mang tên thật `"BS. Lê Thái Sơn"` (và các card nhân sự) dùng ảnh stock có mặt người thật là trình bày sai danh tính. | Đã gỡ bỏ 100% ảnh người (stock/AI) khỏi toàn bộ các card nhân sự trên `/doi-ngu`. Thay hoàn toàn bằng **Monogram & Khung chân dung trống `4:5`** trên nền Lavender nhạt kèm nhãn `Chưa có ảnh thực tế — Khung chân dung chờ duyệt`. | Blueprint Mục 2.2, 3.2.C, 6, 7; Mockup `#page-doi-ngu` (tất cả card). | **FIXED (Trong Thiết kế & Mockup)** |
+| **3A-P1-2** | Wireframe tự ấn định cơ cấu nhân sự chưa xác minh (3 bác sĩ, chuyên khoa Ngoại khoa & Cấp cứu, kiêm nhiệm Nội trú 24/7, lễ tân/điều dưỡng). | Đã xóa toàn bộ số lượng mặc định, chuyên khoa tự đặt, lịch trực và thông tin kiêm nhiệm chưa xác minh. Thay bằng các **Slot trung tính** (`[Chức danh chuyên môn — Chờ xác minh]`, `[Vai trò kiêm nhiệm — Chỉ hiển thị nếu có dữ liệu xác minh]`, `[Phạm vi công việc — Chờ hồ sơ]`). | Blueprint Mục 2.2, 3.2.C, 6; Mockup `#page-doi-ngu`. | **FIXED (Trong Thiết kế & Mockup)** |
 
-### 9.2. Các Điểm Cần Chủ Dự Án & CEO Quyết Định Trước Khi Triển Khai Code
+### 8.2. Mười Một Lỗi P2 (`3A-P2-1` đến `3A-P2-11`)
+| Mã QA | Mô tả phát hiện của Claude | Giải pháp đã thực hiện trong Blueprint v2.1 & Mockup v2.1 | Bằng chứng vị trí | Trạng thái |
+| :---: | :--- | :--- | :--- | :---: |
+| **3A-P2-1** | Bốn "nguyên tắc phục vụ" trên `/gioi-thieu` là cam kết vận hành chưa xác minh nhưng viết như sự thật đang áp dụng. | Đã chuyển cả khối Section 1.4 về dạng **Đề xuất chờ duyệt**, gắn nhãn nổi bật `[ĐỀ XUẤT NỘI DUNG — CHỜ CHỦ DỰ ÁN XÁC NHẬN QUY TRÌNH PHỤC VỤ THỰC TẾ]` và viết lại từng dòng theo văn phong đề xuất trung tính. | Blueprint Mục 2.1 (Section 1.4), 3.1.A; Mockup `#page-gioi-thieu`. | **FIXED (Trong Thiết kế — Chờ Chủ dự án duyệt nội dung)** |
+| **3A-P2-2** | Ảnh Hero `/gioi-thieu` dùng ảnh stock có người mặc áo blouse dễ bị hiểu nhầm là bác sĩ của Lê Sơn. | Đã loại bỏ hoàn toàn mọi ảnh có người mặc áo blouse khỏi cả 3 trang trong Mockup v2.1; chỉ dùng ảnh thú cưng thuần túy / đồ họa kiến trúc kèm nhãn `Ảnh minh họa — không phải cơ sở thực tế của Lê Sơn`. | Blueprint Mục 2.1, 7; Mockup `#page-gioi-thieu`. | **FIXED** |
+| **3A-P2-3** | Luôn đặt `BS. Lê Thái Sơn` ở Thẻ 1 vẫn tạo ra thứ bậc ngầm theo chức vụ. | Đã bỏ quy tắc xếp đầu theo chức vụ. Quy định rõ thứ tự hiển thị trung tính (`A–Z` hoặc theo danh sách phẳng của Chủ dự án); trong Wireframe & Mockup v2.1, thẻ `BS. Lê Thái Sơn` được đặt ở vị trí trung tính (Thẻ #2) và có nút chuyển đổi chế độ sắp xếp. | Blueprint Mục 2.2 (Quy tắc 5), 3.2.C; Mockup `#page-doi-ngu`. | **FIXED** |
+| **3A-P2-4** | Gộp `"Spa & Grooming và Điều dưỡng"` thành 1 section để cân đối lưới có thể sai cơ cấu thực tế; quy tắc $N=1$ đặt thẩm mỹ lên trên tính chính xác. | Đã bãi bỏ quy tắc gộp bộ phận khi $N=1$. Chỉ phân nhóm theo bộ phận thực tế; khi bộ phận có $N=1$ thành viên thì hiển thị **1 card căn giữa có cùng kích thước chuẩn** (`1/3` container trên Desktop), không gộp nhãn bộ phận. | Blueprint Mục 2.2 (Quy tắc 8), 3.2.A–B; Mockup `#page-doi-ngu` (nút thử `N = 1`). | **FIXED** |
+| **3A-P2-5** | Ma trận lưới ở Tablet khi $N=5$ dùng thẻ ngang khác dạng card; chưa định nghĩa quy tắc cho $N \ge 7$. | Đã thiết lập **Universal 12-Column Centered Grid Rule** cho $N = 1, 2, 3, 4, 5, 6, 7$ và $N \ge 7$: mọi card trên cả Desktop lẫn Tablet đều giữ nguyên kiểu card dọc `4:5` đồng kích thước 100%, hàng cuối căn giữa đối xứng (hỗ trợ cả chế độ `3+2+2` cho $N=7$), không bao giờ phóng to card lẻ. | Blueprint Mục 3.2.A–B; Mockup `#page-doi-ngu` (nút thử `N = 1, 2, 3, 5, 7, 8`). | **FIXED** |
+| **3A-P2-6** | Bộ lọc bộ phận làm mờ (`opacity`) các card không thuộc nhóm đang lọc, vẫn đọc và `Tab` tới được gây nhiễu cho Screen Reader. | Đã bỏ hoàn toàn hiệu ứng làm mờ. Bộ lọc trong Mockup v2.1 và đặc tả Blueprint v2.1 sử dụng thuộc tính **`hidden` (`display: none`)** để ẩn thực sự các nhóm không được chọn, kèm `aria-pressed="true/false"` và thông báo kết quả qua `role="status" aria-live="polite"`. | Blueprint Mục 2.2, 5.1; Mockup `#page-doi-ngu`. | **FIXED** |
+| **3A-P2-7** | Cụm từ `"Bác sĩ trưởng Lê Thái Sơn"` / `"nổi bật BST Lê Thái Sơn"` còn sót ở `Header.tsx:27`, `routes.tsx:31`, `types/index.ts:34`, `seo-strategy.md:18`, `sitemap.md:11`, `implementation-plan.md:70`. | Đã lập bảng kiểm kê đầy đủ cả 6 file và số dòng tại Mục 4.2 kèm phương án đồng bộ. Vì Chỉ đạo 018-A cấm sửa source code ứng dụng trong lượt này, việc sửa `src/` được giữ ở trạng thái **PARTIAL (Đã kiểm kê đủ trong Blueprint — Chờ pha Implementation)**. | Blueprint Mục 4.2, 9.2 (Quyết định 1). | **PARTIAL (Đã đặc tả đủ 6 vị trí — Chờ phép sửa code)** |
+| **3A-P2-8** | Quy trình phối hợp 4 bước trên `/doi-ngu` chứa cam kết vận hành chưa xác minh ("ưu tiên ngay ca cấp cứu", "bàn giao ca trực 24/24", "hội chẩn"). | Đã đóng khung toàn bộ Section 2.4 bằng nhãn `[QUY TRÌNH PHỐI HỢP ĐỀ XUẤT — CHỜ CHỦ DỰ ÁN XÁC NHẬN VẬN HÀNH THỰC TẾ]` và lược bỏ các khẳng định chưa có nguồn. | Blueprint Mục 2.2 (Section 2.4), 3.2.C; Mockup `#page-doi-ngu`. | **FIXED (Trong Thiết kế — Chờ Chủ dự án duyệt nội dung)** |
+| **3A-P2-9** | Trang `/co-so-vat-chat` nếu toàn ảnh stock gắn nhãn "không phải ảnh bệnh viện" khi phát hành sẽ làm giảm niềm tin. | Đã bổ sung quy tắc **Pre-release Gate** theo đúng Directive 018-A Mục IV.C: Preview/Mockup được dùng ảnh minh họa gắn nhãn `"Ảnh minh họa — không phải cơ sở thực tế của Lê Sơn"`; nhưng trước khi phát hành / mở index công khai bắt buộc phải có bộ ảnh cơ sở thực tế được Chủ dự án duyệt (đề xuất thiết kế $\ge 4$ ảnh thật). | Blueprint Mục 2.3, 3.3, 6, 9.2. | **FIXED (Trong Quy tắc Thiết kế & Pre-release Gate)** |
+| **3A-P2-10** | Tiêu đề H1 trang `/co-so-vat-chat` dùng cụm từ `"sạch khuẩn"` là tuyên bố mạnh chưa được xác minh. | Đã xóa hoàn toàn cụm từ `"sạch khuẩn"` trong cả Blueprint v2.1 lẫn Mockup v2.1; đổi H1 thành *"Không gian thăm khám sạch sẽ, bố trí rõ ràng vì sự an tâm của thú cưng"*. | Blueprint Mục 2.3 (Section 3.1), 3.3; Mockup `#page-co-so-vat-chat`. | **FIXED** |
+| **3A-P2-11** | Slot thiết bị vẫn hiển thị thương hiệu `"(VD: Mindray)"` và tự khẳng định có `"Khu vực Thủ thuật & Phẫu thuật ngoại khoa"` riêng. | Đã đổi toàn bộ hiển thị trên Wireframe & Mockup thành slot trung tính `[Thiết bị xét nghiệm — chờ xác minh]`, `[Thiết bị chẩn đoán hình ảnh — chờ xác minh]` (không nêu tên hãng trên giao diện mẫu) và chuyển khu thủ thuật/ngoại khoa thành `[Phân khu chức năng — Chờ Chủ dự án xác nhận cấu trúc phòng thực tế]`. | Blueprint Mục 2.3 (Section 3.3), 3.3; Mockup `#page-co-so-vat-chat`. | **FIXED** |
 
-1. **Quyết định 1 — Đồng bộ câu mô tả phụ của mục `/doi-ngu` trên Header & SEO Metadata:**
-   - *Hiện trạng trong mã nguồn Mốc 2A:* Tại `src/components/layout/Header.tsx` (dòng 27), `src/app/routes.tsx` (dòng 31) và `docs/seo-strategy.md` (dòng 18), mô tả ngắn của đường dẫn `/doi-ngu` đang ghi: *"Bác sĩ trưởng Lê Thái Sơn & cộng sự"*.
-   - *Câu hỏi xin ý kiến:* Để nhất quán 100% với quyết định đặc biệt của Chủ dự án tại Directive 017-A (*"Tổ chức nhân sự theo bộ phận thực tế, không theo cấp bậc; không tạo visual hierarchy chỉ vì chức vụ"*), Chủ dự án có muốn giữ nguyên câu mô tả ngắn trên menu dropdown hiện tại hay đổi sang *"Đội ngũ bác sĩ thú y, chăm sóc & điều dưỡng"* khi bước vào pha triển khai code?
-2. **Quyết định 2 — Cách thức tổ chức các bộ phận ngoài Bác sĩ trên `/doi-ngu`:**
-   - Trong bản thiết kế, các bộ phận `Spa & Grooming` và `Điều dưỡng / Hỗ trợ chăm sóc nội trú` đang được gom thành một khu vực cân đối (**Section 3: Bộ phận Spa & Grooming và Điều dưỡng Chăm sóc**). Khi Chủ dự án cung cấp danh sách nhân sự thực tế, nếu mỗi bộ phận có từ 2–3 người trở lên, Chủ dự án muốn tách thành 2 section riêng hay giữ chung trong 1 section có tab lọc nhanh?
-3. **Quyết định 3 — Phương án nội dung khi triển khai code Giai đoạn 3A:**
-   - Chủ dự án muốn cung cấp ngay bộ hồ sơ nhân sự thật, ảnh cơ sở vật chất thật tại `101 Khuất Duy Tiến` và model máy Mindray/siêu âm trước khi Antigravity viết code Giai đoạn 3A, hay cho phép triển khai trước khung giao diện với các Slot minh họa có gắn nhãn rõ ràng (giữ `noindex, nofollow`) rồi thay dữ liệu thật sau?
+### 8.3. Chín Phát Hiện P3 (`3A-P3-1` đến `3A-P3-9` — Đã xử lý đầy đủ)
+| Mã QA | Mô tả phát hiện P3 | Giải pháp đã thực hiện | Trạng thái |
+| :---: | :--- | :--- | :---: |
+| **3A-P3-1** | Dải thông tin (địa chỉ, giờ khám, cấp cứu) lặp lại ở cả Hero và CTA cuối trang `/gioi-thieu`. | Đã giữ dải thông tin 3 cột ở Hero và rút gọn dải CTA cuối trang `/gioi-thieu`. | **FIXED** |
+| **3A-P3-2** | Breadcrumb `"Về Lê Sơn"` là nhóm menu, không có trang riêng. | Đã quy định render `"Về Lê Sơn"` bằng thẻ `<span>` text tĩnh, không đặt link `<a>`. | **FIXED** |
+| **3A-P3-3** | Yêu cầu "cùng số dòng mô tả" dễ dẫn tới `line-clamp` cắt chữ. | Đã bỏ yêu cầu cắt dòng; dùng CSS Grid stretch để cân bằng chiều cao tự nhiên. | **FIXED** |
+| **3A-P3-4** | Dòng `[Bằng cấp / Chứng chỉ: Chờ xác minh]` không nên hiển thị khi publish. | Đã quy định rõ: ẩn hoàn toàn trường này khi xuất bản nếu `verified === false`. | **FIXED** |
+| **3A-P3-5** | Ảnh thật chụp cơ sở có thể lọt khách hàng, thú cưng hoặc màn hình bệnh án. | Đã bổ sung quy tắc bảo mật hình ảnh và `Owner Consent Form` vào Mục 6 & Mục 9. | **FIXED** |
+| **3A-P3-6** | Sai số bảng độ tương phản ở mục 8.2 (ví dụ `#FFFFFF` / `#C2560C` là `4.54:1`). | Đã cập nhật chính xác toàn bộ con số tương phản theo `contrast-check.txt` tại Mục 5.2 và đặt quy tắc cỡ chữ tối thiểu cho nút cam. | **FIXED** |
+| **3A-P3-7** | Mockup thiếu nút chọn viewport `360px` và `1920px`. | Đã bổ sung đủ **7 mốc viewport** (`1920`, `1440`, `1366`, `768`, `390`, `360`, `320`) trên thanh công cụ của Mockup v2.1. | **FIXED** |
+| **3A-P3-8** | Hậu tố `alt` quá dài lặp lại ở mọi ảnh. | Đã rút gọn hậu tố `alt` thành `"(ảnh minh họa)"` kèm 1 banner giải thích chung ở đầu trang. | **FIXED** |
+| **3A-P3-9** | Trạng thái ghi `"APPROVED FOR DESIGN"` dễ gây nhầm là thiết kế đã được duyệt. | Đã đổi thành `"PHASE 3A — PENDING OWNER DESIGN APPROVAL (DESIGN ONLY — NO WEBSITE IMPLEMENTATION)"`. | **FIXED** |
 
 ---
 
-**PHASE 3A DESIGN READY FOR INDEPENDENT REVIEW**
+## 9. MỤC 9: RỦI RO KỸ THUẬT & DANH SÁCH QUYẾT ĐỊNH CẦN CHỦ DỰ ÁN XÁC NHẬN
+
+### 9.1. Bảng Kiểm Soát Rủi Ro Kỹ Thuật
+- **R-3A-01 (Hiệu năng LCP Mobile — Vấn đề `2B-08` đang mở):** Các trang 3A đặt tiêu đề `h1` (`Lora 600` đã preload) lên trước ảnh trên mobile để phần tử LCP là văn bản hiển thị tức thì; toàn bộ ảnh dưới fold dùng `loading="lazy"`.
+- **R-3A-02 (Tailwind v4 Oxide quét file trong Repo):** Toàn bộ class trong `docs/design/phase-3a-interactive-mockups.html` được đặt tiền tố riêng `p3a-` và viết bằng CSS độc lập. Đã chạy `npm run build` kiểm chứng: SHA-256 của `dist/assets/index-vrX09Urw.css` (`ca6de747195a5550d80dc7ea59cc7ea8a43c51a9b77c07d596e79ffbefe66d87`) và `dist/assets/index-CvVwFN8Z.js` (`10f187c6990780a5a4417928e9ab313db068caffce0e988233b07cadba8be234`) **giữ nguyên 100% không đổi một byte**.
+- **R-3A-03 (Bảo toàn Bundle Trang chủ):** Khi triển khai code sẽ dùng `React.lazy()` cho cả 3 route Giai đoạn 3A theo Architecture Baseline V1.
+- **R-3A-04 (Bảo mật & Quyền riêng tư trong ảnh chụp thực tế — `3A-P3-5`):** Khi chụp ảnh thực tế cơ sở vật chất tại `101 Khuất Duy Tiến`, bắt buộc kiểm duyệt không để lọt thông tin cá nhân trên màn hình máy tính, bảng theo dõi nội trú hoặc hình ảnh khách hàng/thú cưng chưa có phiếu đồng ý (`Owner Consent Form`).
+
+### 9.2. Năm Điểm Cần Chủ Dự Án Xác Nhận Trước Khi Chuyển Sang Triển Khai Code
+1. **Quyết định 1 — Đồng bộ 6 vị trí mô tả `"Bác sĩ trưởng Lê Thái Sơn"` trong Repo (`3A-P2-7`):**
+   - Chủ dự án xác nhận: (a) giữ danh xưng `"Bác sĩ trưởng"` như một dữ liệu chức danh thực tế hiển thị ở dòng chữ nhỏ dưới tên BS. Lê Thái Sơn (nhưng gỡ bỏ các câu *"do Bác sĩ trưởng dẫn dắt / nổi bật BST"* trên menu/SEO để không tạo phân cấp), hay (b) đổi thống nhất sang chức danh chuyên môn khác trên toàn bộ 6 vị trí tại Mục 4.2?
+2. **Quyết định 2 — Quy tắc sắp xếp thứ tự nhân sự trong từng bộ phận (`3A-P2-3`):**
+   - Chủ dự án muốn sắp xếp các thành viên trong cùng một bộ phận theo **thứ tự bảng chữ cái tên gọi (`A–Z`)** hay theo **thứ tự danh sách phẳng do Chủ dự án gửi**?
+3. **Quyết định 3 — Xác nhận cơ cấu bộ phận & dữ liệu thật cho `/doi-ngu` (`3A-P1-1`, `3A-P1-2`, `3A-P2-4`):**
+   - Chủ dự án cung cấp danh sách các bộ phận thực tế đang hoạt động, danh sách nhân sự, chức danh, vai trò kiêm nhiệm và ảnh chân dung thật (hoặc xác nhận dùng khung Monogram trung tính cho các vị trí chưa chụp ảnh xong).
+4. **Quyết định 4 — Phê duyệt nội dung đề xuất trên `/gioi-thieu` và `/doi-ngu` (`3A-P2-1`, `3A-P2-8`):**
+   - Chủ dự án duyệt hoặc hiệu chỉnh 4 nguyên tắc phục vụ tại Section 1.4 (`/gioi-thieu`), câu chuyện hình thành tại Section 1.2 (`/gioi-thieu`) và các bước phối hợp tại Section 2.4 (`/doi-ngu`).
+5. **Quyết định 5 — Xác nhận danh mục thiết bị, cấu trúc phòng & điều kiện phát hành `/co-so-vat-chat` (`3A-P2-9`, `3A-P2-11`):**
+   - Chủ dự án xác nhận danh mục thiết bị thực tế được phép công bố (có nêu tên hãng Mindray / model máy siêu âm hay không, có phòng thủ thuật/phẫu thuật riêng hay không) và cung cấp bộ ảnh chụp thực tế tại `101 Khuất Duy Tiến` trước khi mở lập chỉ mục công khai.
+
+---
+
+## 10. MỤC 10: ĐƯỜNG DẪN CHÍNH XÁC ĐẾN MOCKUP TRỰC QUAN & HƯỚNG DẪN MỞ XEM TRÊN WINDOWS / TRÌNH DUYỆT
+
+### 10.1. Đường dẫn chính xác của Mockup Trực Quan v2.1
+Để đảm bảo cả **Claude (Independent QA)** trên mọi nhánh/worktree lẫn **Chủ dự án** trên máy Windows đều mở và kiểm tra được ngay lập tức (khắc phục triệt để trạng thái `BLOCKED` của vòng trước), file Mockup HTML độc lập được lưu đồng thời tại 2 vị trí:
+
+1. **Đường dẫn trong Git Repository (Đã commit trên nhánh `fix/milestone-2a-qa`):**
+   - Đường dẫn tương đối: `docs/design/phase-3a-interactive-mockups.html`
+   - Đường dẫn tuyệt đối trên Windows: `d:\webbvct\docs\design\phase-3a-interactive-mockups.html`
+   - URL `file:///`: `file:///d:/webbvct/docs/design/phase-3a-interactive-mockups.html`
+2. **Đường dẫn trong thư mục Artifacts của phiên làm việc:**
+   - Đường dẫn tuyệt đối: `C:\Users\Admin\.gemini\antigravity\brain\6f5020a8-5310-41e1-a151-7821d0315e27\phase-3a-interactive-mockups.html`
+   - URL `file:///`: `file:///C:/Users/Admin/.gemini/antigravity/brain/6f5020a8-5310-41e1-a151-7821d0315e27/phase-3a-interactive-mockups.html`
+
+### 10.2. Hướng dẫn mở và kiểm tra Mockup trên Windows & Trình duyệt
+- **Cách 1 — Mở trực tiếp từ Windows Explorer hoặc PowerShell (Không cần chạy server):**
+  ```powershell
+  Start-Process "d:\webbvct\docs\design\phase-3a-interactive-mockups.html"
+  ```
+  *(File sử dụng đường dẫn tương đối `../../public/fonts/` và `../../public/images/` kèm fallback `file:///d:/webbvct/public/...` và SVG nội tuyến, nên mở trực tiếp bằng Chrome, Edge hoặc Playwright đều hiển thị đầy đủ 100% phông chữ và hình ảnh).*
+- **Cách 2 — Mở qua máy chủ tĩnh cục bộ (Phục vụ Claude QA tự động bằng Playwright / Headless Browser):**
+  ```powershell
+  npx serve d:\webbvct -l 4173
+  # Sau đó mở trình duyệt tại:
+  # http://localhost:4173/docs/design/phase-3a-interactive-mockups.html
+  ```
+- **Các bộ điều khiển tương tác có sẵn trên thanh công cụ đầu trang Mockup v2.1:**
+  1. **Chuyển trang:** `1. /gioi-thieu` | `2. /doi-ngu` | `3. /co-so-vat-chat`.
+  2. **Chuyển chế độ hiển thị:** `Mockup Trực quan` | `Wireframe Blueprint`.
+  3. **Chuyển đổi đủ 7 mốc Viewport QA (`3A-P3-7`):** `1920px` | `1440px` | `1366px` | `768px` | `390px` | `360px` | `320px`.
+  4. **Bộ mô phỏng sĩ số nhân sự trên `/doi-ngu` (`3A-P2-4`, `3A-P2-5`):** Cho phép bấm thử trực tiếp **`N = 1`**, **`N = 2`**, **`N = 3`**, **`N = 5`**, **`N = 7 (3+2+2)`**, **`N = 7 (3+3+1)`**, **`N = 8 (3+3+2)`** để kiểm tra trực quan quy tắc lưới cân bằng không bao giờ phóng to card lẻ trên cả Desktop, Tablet và Mobile.
+  5. **Bộ lọc bộ phận chuẩn Accessibility (`3A-P2-6`):** Ẩn/hiện bằng thuộc tính `hidden` thực sự (không làm mờ card) và phát thông báo vào vùng `aria-live="polite"`.
+
+---
+
+**PHASE 3A DESIGN V2.1 READY FOR CLAUDE QA 3A-02**

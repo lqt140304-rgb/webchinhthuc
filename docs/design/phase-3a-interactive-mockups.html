@@ -1,0 +1,1973 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phase 3A Interactive Design Studio v2.1 â€” Bá»‡nh viá»‡n ThÃº y LÃª SÆ¡n</title>
+  <style>
+    /* ==========================================================================
+       1. SELF-HOSTED FONTS (Exact 6 WOFF2 files from src/styles/fonts.css â€” PhÆ°Æ¡ng Ã¡n C)
+       Supports both relative path from docs/design/ and absolute Windows path.
+       Zero external Google Fonts. Zero Lora italic (prevents synthetic oblique).
+       ========================================================================== */
+    @font-face {
+      font-family: 'Be Vietnam Pro';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('../../public/fonts/be-vietnam-pro-400.woff2') format('woff2'),
+           url('file:///d:/webbvct/public/fonts/be-vietnam-pro-400.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Be Vietnam Pro';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url('../../public/fonts/be-vietnam-pro-500.woff2') format('woff2'),
+           url('file:///d:/webbvct/public/fonts/be-vietnam-pro-500.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Be Vietnam Pro';
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url('../../public/fonts/be-vietnam-pro-600.woff2') format('woff2'),
+           url('file:///d:/webbvct/public/fonts/be-vietnam-pro-600.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Be Vietnam Pro';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: url('../../public/fonts/be-vietnam-pro-700.woff2') format('woff2'),
+           url('file:///d:/webbvct/public/fonts/be-vietnam-pro-700.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Be Vietnam Pro';
+      font-style: italic;
+      font-weight: 400;
+      font-display: swap;
+      src: url('../../public/fonts/be-vietnam-pro-italic-400.woff2') format('woff2'),
+           url('file:///d:/webbvct/public/fonts/be-vietnam-pro-italic-400.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Lora';
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url('../../public/fonts/lora-600.woff2') format('woff2'),
+           url('file:///d:/webbvct/public/fonts/lora-600.woff2') format('woff2');
+    }
+
+    /* ==========================================================================
+       2. BRAND DESIGN TOKENS (100% Match with src/styles/tokens.css)
+       ========================================================================== */
+    :root {
+      --color-plum-deep: #421247;
+      --color-plum-primary: #5A1E5E;
+      --color-plum-orchid: #824787;
+      --color-plum-orchid-light: #D8B4E2;
+      --color-warm-orange: #C2560C;
+      --color-warm-orange-hover: #A34507;
+      --color-warm-orange-dark: #9A3412;
+      --color-warm-orange-light: #FB923C;
+      --color-ivory: #FBF7F1;
+      --color-lavender: #F8F2F9;
+
+      --color-bg-primary: #FBF7F1;
+      --color-bg-secondary: #F8F2F9;
+      --color-bg-card: #FFFFFF;
+      --color-bg-card-hover: #FCFAFD;
+      --color-bg-dark: #421247;
+      --color-bg-dark-secondary: #310D35;
+
+      --color-fg-primary: #1A0A1C;
+      --color-fg-secondary: #421247;
+      --color-fg-muted: #554157;
+      --color-fg-subtle: #5A3E5E;
+      --color-fg-inverse: #FFFFFF;
+      --color-fg-accent: #9A3412;
+
+      --color-border-subtle: rgba(90, 30, 94, 0.12);
+      --p3a-border-medium: rgba(90, 30, 94, 0.24);
+      --p3a-border-strong: rgba(90, 30, 94, 0.42);
+
+      --font-sans: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-serif: 'Lora', Georgia, 'Times New Roman', serif;
+
+      --shadow-subtle: 0 2px 8px -2px rgba(66, 18, 71, 0.05), 0 1px 4px -1px rgba(66, 18, 71, 0.03);
+      --shadow-card: 0 10px 30px -5px rgba(66, 18, 71, 0.07), 0 4px 10px -2px rgba(66, 18, 71, 0.03);
+      --shadow-card-hover: 0 18px 36px -6px rgba(66, 18, 71, 0.11), 0 6px 14px -2px rgba(66, 18, 71, 0.05);
+
+      --motion-duration-fast: 200ms;
+      --motion-duration-normal: 300ms;
+      --motion-duration-slow: 450ms;
+      --motion-ease-default: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: #1D0B20;
+      color: var(--color-fg-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    /* ==========================================================================
+       3. REVIEWER STUDIO CONTROL DECK (Sticky Top Toolbar)
+       ========================================================================== */
+    .p3a-deck {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: rgba(49, 13, 53, 0.97);
+      border-bottom: 1px solid rgba(216, 180, 226, 0.28);
+      padding: 0.65rem 1rem;
+      color: #FFFFFF;
+    }
+
+    .p3a-deck-inner {
+      max-width: 1560px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.65rem;
+    }
+
+    .p3a-deck-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .p3a-deck-badge {
+      background: var(--color-warm-orange);
+      color: #FFFFFF;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.22rem 0.6rem;
+      border-radius: 9999px;
+    }
+
+    .p3a-deck-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #FBF7F1;
+    }
+
+    .p3a-deck-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .p3a-ctrl-group {
+      display: inline-flex;
+      flex-wrap: wrap;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 0.2rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .p3a-ctrl-btn {
+      appearance: none;
+      border: none;
+      background: transparent;
+      color: rgba(251, 247, 241, 0.82);
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.35rem 0.72rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: background var(--motion-duration-fast) ease, color var(--motion-duration-fast) ease;
+      min-height: 32px;
+    }
+
+    .p3a-ctrl-btn:hover {
+      color: #FFFFFF;
+    }
+
+    .p3a-ctrl-btn:focus {
+      outline: 2px solid var(--color-plum-orchid-light);
+      outline-offset: 2px;
+    }
+
+    .p3a-ctrl-btn.p3a-is-active {
+      background: var(--color-plum-primary);
+      color: #FFFFFF;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .p3a-ctrl-btn.p3a-mode-btn.p3a-is-active {
+      background: var(--color-plum-orchid-light);
+      color: #1A0A1C;
+    }
+
+    /* ==========================================================================
+       4. VIEWPORT SIMULATOR STAGE (All 7 QA Viewports: 1920..320 â€” Fix 3A-P3-7)
+       ========================================================================== */
+    .p3a-stage {
+      margin: 1rem auto 3rem;
+      background: var(--color-bg-primary);
+      color: var(--color-fg-primary);
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.55);
+      border-radius: 12px;
+      overflow: hidden;
+      width: 100%;
+      max-width: 1440px;
+      transition: max-width var(--motion-duration-normal) var(--motion-ease-default);
+    }
+
+    .p3a-stage[data-vp="1920"] { max-width: 1920px; }
+    .p3a-stage[data-vp="1440"] { max-width: 1440px; }
+    .p3a-stage[data-vp="1366"] { max-width: 1366px; }
+    .p3a-stage[data-vp="768"]  { max-width: 768px; }
+    .p3a-stage[data-vp="390"]  { max-width: 390px; }
+    .p3a-stage[data-vp="360"]  { max-width: 360px; }
+    .p3a-stage[data-vp="320"]  { max-width: 320px; }
+
+    /* Wireframe Blueprint Mode */
+    .p3a-stage.p3a-wireframe {
+      --color-bg-primary: #F7F5F8;
+      --color-bg-secondary: #EFEBF2;
+      --color-bg-card: #FFFFFF;
+    }
+
+    .p3a-stage.p3a-wireframe .p3a-photo-img {
+      filter: grayscale(100%) contrast(0.85) opacity(0.32);
+    }
+
+    .p3a-wf-note {
+      display: none;
+      font-family: monospace;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--color-plum-deep);
+      background: #EFE4F2;
+      border: 1px dashed var(--color-plum-primary);
+      padding: 0.18rem 0.5rem;
+      border-radius: 4px;
+      margin-bottom: 0.45rem;
+    }
+
+    .p3a-stage.p3a-wireframe .p3a-wf-note {
+      display: inline-block;
+    }
+
+    /* ==========================================================================
+       5. SHARED ROOTLAYOUT (Header, Breadcrumb, Footer, MobileBottomBar)
+       ========================================================================== */
+    .p3a-header {
+      background: rgba(251, 247, 241, 0.96);
+      border-bottom: 1px solid var(--color-border-subtle);
+      padding: 0.85rem 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 40;
+    }
+
+    .p3a-header-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .p3a-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--color-fg-primary);
+    }
+
+    .p3a-brand-logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: contain;
+      background: #FFFFFF;
+      border: 1px solid var(--color-border-subtle);
+    }
+
+    .p3a-brand-title {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--color-plum-deep);
+      line-height: 1.15;
+      display: block;
+    }
+
+    .p3a-brand-sub {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-fg-subtle);
+      display: block;
+    }
+
+    .p3a-nav {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .p3a-nav-link {
+      appearance: none;
+      border: none;
+      background: transparent;
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--color-fg-secondary);
+      padding: 0.4rem 0.2rem;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+    }
+
+    .p3a-nav-link.p3a-is-active {
+      color: var(--color-plum-primary);
+      font-weight: 600;
+      border-bottom-color: var(--color-plum-primary);
+    }
+
+    /* Buttons (Exact Token Compliance & WCAG AA Contrast Fix 3A-P3-6) */
+    .p3a-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      min-height: 44px;
+      padding: 0.65rem 1.35rem;
+      border-radius: 9999px;
+      font-family: var(--font-sans);
+      font-size: 0.9rem; /* >= 14.4px Semibold for WCAG AA on #C2560C */
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: background var(--motion-duration-fast) ease, transform var(--motion-duration-fast) ease;
+    }
+
+    .p3a-btn:focus {
+      outline: 2px solid var(--color-plum-primary);
+      outline-offset: 2px;
+    }
+
+    .p3a-btn-primary {
+      background: var(--color-plum-primary);
+      color: #FFFFFF;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .p3a-btn-primary:hover {
+      background: var(--color-plum-deep);
+    }
+
+    .p3a-btn-emergency {
+      background: var(--color-warm-orange);
+      color: #FFFFFF;
+      font-weight: 700;
+    }
+
+    .p3a-btn-emergency:hover {
+      background: var(--color-warm-orange-hover);
+    }
+
+    .p3a-btn-outline {
+      background: transparent;
+      color: var(--color-plum-deep);
+      border-color: var(--p3a-border-strong);
+    }
+
+    .p3a-btn-outline:hover {
+      background: rgba(90, 30, 94, 0.06);
+    }
+
+    .p3a-btn-outline-light {
+      background: rgba(255, 255, 255, 0.08);
+      color: #FFFFFF;
+      border-color: rgba(255, 255, 255, 0.35);
+    }
+
+    /* Breadcrumb (Fix 3A-P3-2: "Vá» LÃª SÆ¡n" is static text, NOT a link) */
+    .p3a-breadcrumb {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--color-fg-subtle);
+      margin-bottom: 1.25rem;
+    }
+
+    .p3a-breadcrumb a {
+      color: var(--color-plum-primary);
+      text-decoration: none;
+    }
+
+    .p3a-breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .p3a-bc-static {
+      color: var(--color-fg-muted);
+    }
+
+    .p3a-bc-current {
+      color: var(--color-fg-primary);
+      font-weight: 600;
+    }
+
+    /* Typography & Layout Primitives */
+    .p3a-page {
+      display: none;
+    }
+
+    .p3a-page.p3a-is-active {
+      display: block;
+    }
+
+    .p3a-section {
+      padding: 4.5rem 1.5rem;
+    }
+
+    .p3a-container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .p3a-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-plum-primary);
+      background: var(--color-lavender);
+      border: 1px solid var(--color-border-subtle);
+      padding: 0.3rem 0.85rem;
+      border-radius: 9999px;
+      margin-bottom: 1rem;
+    }
+
+    .p3a-h1 {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      font-style: normal;
+      font-size: clamp(1.85rem, 3.5vw, 3.15rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--color-fg-primary);
+      margin-bottom: 1.1rem;
+    }
+
+    .p3a-h2 {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      font-style: normal;
+      font-size: clamp(1.5rem, 2.6vw, 2.35rem);
+      line-height: 1.2;
+      letter-spacing: -0.015em;
+      color: var(--color-fg-secondary);
+      margin-bottom: 0.85rem;
+    }
+
+    .p3a-h3 {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      font-style: normal;
+      font-size: clamp(1.15rem, 1.6vw, 1.38rem);
+      line-height: 1.3;
+      color: var(--color-fg-primary);
+      margin-bottom: 0.45rem;
+    }
+
+    .p3a-lead {
+      font-size: clamp(0.98rem, 1.1vw, 1.1rem);
+      color: var(--color-fg-muted);
+      line-height: 1.7;
+      max-width: 64ch;
+    }
+
+    /* Policy Banner & Verification Slots */
+    .p3a-policy-banner {
+      background: var(--color-bg-secondary);
+      border: 1px solid var(--p3a-border-medium);
+      border-left: 4px solid var(--color-plum-primary);
+      border-radius: 12px;
+      padding: 0.9rem 1.15rem;
+      margin: 1.25rem 0;
+      font-size: 0.84rem;
+      color: var(--color-fg-primary);
+    }
+
+    .p3a-slot-box {
+      margin-top: 0.75rem;
+      padding: 0.7rem 0.9rem;
+      background: #FFFBEB;
+      border: 1px dashed #D97706;
+      border-left: 3px solid var(--color-warm-orange);
+      border-radius: 8px;
+      font-size: 0.78rem;
+      color: #78350F;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    .p3a-proposal-badge {
+      display: inline-block;
+      background: #FFFBEB;
+      color: #92400E;
+      border: 1px solid #FCD34D;
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 0.25rem 0.7rem;
+      border-radius: 9999px;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* Media Frames & Mandatory Illustration Badge (Fix 3A-P2-9) */
+    .p3a-media-frame {
+      position: relative;
+      overflow: hidden;
+      background: var(--color-bg-secondary);
+      border: 1px solid var(--color-border-subtle);
+    }
+
+    .p3a-aura-frame {
+      border-radius: 2.25rem 0.75rem 2.25rem 0.75rem;
+      box-shadow: var(--shadow-card);
+    }
+
+    .p3a-rounded-frame {
+      border-radius: 20px;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .p3a-photo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform var(--motion-duration-slow) var(--motion-ease-default);
+    }
+
+    .p3a-media-frame:hover .p3a-photo-img {
+      transform: scale(1.02);
+    }
+
+    .p3a-illus-label {
+      position: absolute;
+      bottom: 0.65rem;
+      left: 0.65rem;
+      right: 0.65rem;
+      background: rgba(26, 10, 28, 0.88);
+      color: #FFFFFF;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.35rem 0.7rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      width: fit-content;
+      max-width: calc(100% - 1.3rem);
+      line-height: 1.35;
+    }
+
+    /* Editorial Grids & Architectural Structures */
+    .p3a-split-12 {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .p3a-span-7 { grid-column: span 7; }
+    .p3a-span-6 { grid-column: span 6; }
+    .p3a-span-5 { grid-column: span 5; }
+    .p3a-span-12 { grid-column: span 12; }
+
+    .p3a-meta-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--p3a-border-medium);
+      gap: 1.25rem;
+    }
+
+    .p3a-meta-item {
+      border-right: 1px solid var(--color-border-subtle);
+      padding-right: 1rem;
+    }
+
+    .p3a-meta-item:last-child {
+      border-right: none;
+    }
+
+    .p3a-triptych {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--p3a-border-strong);
+      border-bottom: 1px solid var(--p3a-border-strong);
+      margin-top: 2rem;
+    }
+
+    .p3a-triptych-col {
+      padding: 2rem 1.5rem;
+      border-right: 1px solid var(--color-border-subtle);
+    }
+
+    .p3a-triptych-col:last-child {
+      border-right: none;
+    }
+
+    .p3a-triptych-num {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      font-size: 2.25rem;
+      color: var(--color-plum-orchid);
+      line-height: 1;
+      margin-bottom: 0.85rem;
+      display: block;
+    }
+
+    .p3a-ledger {
+      border-top: 1px solid var(--p3a-border-strong);
+      margin-top: 1.25rem;
+    }
+
+    .p3a-ledger-row {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 1rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--color-border-subtle);
+    }
+
+    .p3a-ledger-idx {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      font-size: 1.15rem;
+      color: var(--color-plum-primary);
+    }
+
+    /* ==========================================================================
+       6. UNIVERSAL EQUAL-CARD CENTERED GRID FOR /doi-ngu
+       Fixes: 3A-P1-1 (Monogram only, zero fake faces), 3A-P1-2 (Neutral slots),
+              3A-P2-3 (No rank-1 priority), 3A-P2-4 (No forced dept merging),
+              3A-P2-5 (N = 1, 2, 3, 5, 7, >=7 equal vertical cards on Desktop & Tablet),
+              3A-P2-6 (Accessible filter using real hidden attribute + aria-live).
+       ========================================================================== */
+    .p3a-sim-toolbar {
+      background: var(--color-bg-card);
+      border: 1px solid var(--p3a-border-medium);
+      border-radius: 16px;
+      padding: 1.1rem 1.25rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .p3a-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0 0.5rem;
+    }
+
+    .p3a-filter-btn {
+      appearance: none;
+      border: 1px solid var(--p3a-border-medium);
+      background: var(--color-bg-card);
+      color: var(--color-fg-secondary);
+      font-family: var(--font-sans);
+      font-size: 0.84rem;
+      font-weight: 600;
+      min-height: 44px;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      cursor: pointer;
+    }
+
+    .p3a-filter-btn[aria-pressed="true"] {
+      background: var(--color-plum-primary);
+      color: #FFFFFF;
+      border-color: var(--color-plum-primary);
+    }
+
+    .p3a-sr-status {
+      font-size: 0.8rem;
+      font-style: italic;
+      color: var(--color-fg-subtle);
+      margin-top: 0.35rem;
+    }
+
+    /* Universal Centered Flex Grid: Every card has identical fixed width per breakpoint,
+       never stretches to fill empty space, and automatically centers the last row! */
+    .p3a-team-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: stretch;
+      gap: 24px;
+      margin: 1.5rem auto 0;
+    }
+
+    /* When N=4 or when N=7 in balanced 3+2+2 mode, we constrain row 2 & 3 breaks cleanly */
+    .p3a-team-grid[data-count="4"] {
+      max-width: 848px; /* Fits 2 standard 400px cards per row -> 2 + 2 centered */
+    }
+
+    .p3a-team-card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-card);
+      /* Desktop default: exact 1/3 width of 1280px container minus 2 gaps */
+      width: calc((100% - 48px) / 3);
+      max-width: 410px;
+      transition: transform var(--motion-duration-normal) var(--motion-ease-default),
+                  box-shadow var(--motion-duration-normal) var(--motion-ease-default);
+    }
+
+    .p3a-team-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-card-hover);
+    }
+
+    /* Line break helper for N=7 (3 + 2 + 2 balanced mode) */
+    .p3a-row-break {
+      flex-basis: 100%;
+      height: 0;
+      margin: -12px 0;
+      display: none;
+    }
+
+    .p3a-team-grid[data-layout="7-balanced"] .p3a-row-break-after-3,
+    .p3a-team-grid[data-layout="7-balanced"] .p3a-row-break-after-5 {
+      display: block;
+    }
+
+    /* Neutral Monogram Portrait Box (4:5 Aspect Ratio â€” Fix 3A-P1-1: ZERO stock faces) */
+    .p3a-monogram-box {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      background: linear-gradient(160deg, #F8F2F9 0%, #EFE4F2 100%);
+      border-bottom: 1px solid var(--color-border-subtle);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .p3a-monogram-circle {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      background: var(--color-bg-card);
+      border: 2px solid var(--p3a-border-medium);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-weight: 600;
+      font-size: 1.55rem;
+      color: var(--color-plum-primary);
+      margin-bottom: 0.9rem;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .p3a-monogram-caption {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--color-fg-secondary);
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px dashed var(--p3a-border-strong);
+      padding: 0.35rem 0.7rem;
+      border-radius: 8px;
+    }
+
+    .p3a-card-body {
+      padding: 1.35rem 1.4rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .p3a-dept-pill {
+      display: inline-block;
+      width: fit-content;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--color-plum-primary);
+      background: var(--color-lavender);
+      border: 1px solid var(--color-border-subtle);
+      padding: 0.2rem 0.65rem;
+      border-radius: 9999px;
+      margin-bottom: 0.6rem;
+    }
+
+    .p3a-role-line {
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--color-plum-primary);
+      margin-bottom: 0.55rem;
+    }
+
+    .p3a-meta-list {
+      list-style: none;
+      margin-top: auto;
+      padding-top: 0.85rem;
+      border-top: 1px solid var(--color-border-subtle);
+      font-size: 0.82rem;
+      color: var(--color-fg-muted);
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    /* Footer & Mobile Bottom Bar */
+    .p3a-footer {
+      background: var(--color-bg-dark-secondary);
+      color: #FBF7F1;
+      padding: 3rem 1.5rem 2.5rem;
+    }
+
+    .p3a-footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+      color: rgba(251, 247, 241, 0.82);
+    }
+
+    .p3a-mobile-bar {
+      display: none;
+      background: var(--color-bg-card);
+      border-top: 1px solid var(--p3a-border-medium);
+      padding: 0.65rem 1rem;
+      gap: 0.65rem;
+    }
+
+    /* ==========================================================================
+       7. RESPONSIVE RULES FOR TABLET (768px) & MOBILE (390px / 360px / 320px)
+       ========================================================================== */
+    .p3a-stage[data-vp="768"] .p3a-nav,
+    .p3a-stage[data-vp="390"] .p3a-nav,
+    .p3a-stage[data-vp="360"] .p3a-nav,
+    .p3a-stage[data-vp="320"] .p3a-nav { display: none; }
+
+    .p3a-stage[data-vp="768"] .p3a-split-12,
+    .p3a-stage[data-vp="390"] .p3a-split-12,
+    .p3a-stage[data-vp="360"] .p3a-split-12,
+    .p3a-stage[data-vp="320"] .p3a-split-12 { grid-template-columns: 1fr; }
+
+    .p3a-stage[data-vp="768"] .p3a-span-7, .p3a-stage[data-vp="768"] .p3a-span-6, .p3a-stage[data-vp="768"] .p3a-span-5, .p3a-stage[data-vp="768"] .p3a-span-12,
+    .p3a-stage[data-vp="390"] .p3a-span-7, .p3a-stage[data-vp="390"] .p3a-span-6, .p3a-stage[data-vp="390"] .p3a-span-5, .p3a-stage[data-vp="390"] .p3a-span-12,
+    .p3a-stage[data-vp="360"] .p3a-span-7, .p3a-stage[data-vp="360"] .p3a-span-6, .p3a-stage[data-vp="360"] .p3a-span-5, .p3a-stage[data-vp="360"] .p3a-span-12,
+    .p3a-stage[data-vp="320"] .p3a-span-7, .p3a-stage[data-vp="320"] .p3a-span-6, .p3a-stage[data-vp="320"] .p3a-span-5, .p3a-stage[data-vp="320"] .p3a-span-12 { grid-column: 1 / -1; }
+
+    .p3a-stage[data-vp="768"] .p3a-meta-strip,
+    .p3a-stage[data-vp="390"] .p3a-meta-strip,
+    .p3a-stage[data-vp="360"] .p3a-meta-strip,
+    .p3a-stage[data-vp="320"] .p3a-meta-strip { grid-template-columns: 1fr; gap: 0.85rem; }
+
+    .p3a-stage[data-vp="768"] .p3a-meta-item,
+    .p3a-stage[data-vp="390"] .p3a-meta-item,
+    .p3a-stage[data-vp="360"] .p3a-meta-item,
+    .p3a-stage[data-vp="320"] .p3a-meta-item { border-right: none; border-bottom: 1px solid var(--color-border-subtle); padding-bottom: 0.75rem; }
+
+    .p3a-stage[data-vp="768"] .p3a-triptych,
+    .p3a-stage[data-vp="390"] .p3a-triptych,
+    .p3a-stage[data-vp="360"] .p3a-triptych,
+    .p3a-stage[data-vp="320"] .p3a-triptych { grid-template-columns: 1fr; }
+
+    .p3a-stage[data-vp="768"] .p3a-triptych-col,
+    .p3a-stage[data-vp="390"] .p3a-triptych-col,
+    .p3a-stage[data-vp="360"] .p3a-triptych-col,
+    .p3a-stage[data-vp="320"] .p3a-triptych-col { border-right: none; border-bottom: 1px solid var(--color-border-subtle); padding: 1.5rem 0.25rem; }
+
+    /* Fix 3A-P2-5 on Tablet (768px): Every card stays vertical 4:5 with exact 1/2 width,
+       and the final row (when N is odd: 1, 3, 5, 7) is centered with identical card width! */
+    .p3a-stage[data-vp="768"] .p3a-team-card {
+      width: calc((100% - 24px) / 2);
+      max-width: 360px;
+    }
+
+    .p3a-stage[data-vp="768"] .p3a-row-break,
+    .p3a-stage[data-vp="390"] .p3a-row-break,
+    .p3a-stage[data-vp="360"] .p3a-row-break,
+    .p3a-stage[data-vp="320"] .p3a-row-break {
+      display: none !important;
+    }
+
+    .p3a-stage[data-vp="390"] .p3a-section,
+    .p3a-stage[data-vp="360"] .p3a-section,
+    .p3a-stage[data-vp="320"] .p3a-section { padding: 2.75rem 1rem; }
+
+    .p3a-stage[data-vp="390"] .p3a-team-card,
+    .p3a-stage[data-vp="360"] .p3a-team-card,
+    .p3a-stage[data-vp="320"] .p3a-team-card {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .p3a-stage[data-vp="390"] .p3a-btn,
+    .p3a-stage[data-vp="360"] .p3a-btn,
+    .p3a-stage[data-vp="320"] .p3a-btn { width: 100%; }
+
+    .p3a-stage[data-vp="390"] .p3a-header .p3a-btn,
+    .p3a-stage[data-vp="360"] .p3a-header .p3a-btn,
+    .p3a-stage[data-vp="320"] .p3a-header .p3a-btn { width: auto; padding: 0.45rem 0.85rem; font-size: 0.78rem; }
+
+    .p3a-stage[data-vp="390"] .p3a-mobile-bar,
+    .p3a-stage[data-vp="360"] .p3a-mobile-bar,
+    .p3a-stage[data-vp="320"] .p3a-mobile-bar { display: grid; grid-template-columns: 1fr 1fr; }
+
+    @media (max-width: 960px) {
+      .p3a-nav { display: none; }
+      .p3a-split-12 { grid-template-columns: 1fr; }
+      .p3a-span-7, .p3a-span-6, .p3a-span-5, .p3a-span-12 { grid-column: 1 / -1; }
+      .p3a-meta-strip { grid-template-columns: 1fr; gap: 0.85rem; }
+      .p3a-meta-item { border-right: none; border-bottom: 1px solid var(--color-border-subtle); padding-bottom: 0.75rem; }
+      .p3a-triptych { grid-template-columns: 1fr; }
+      .p3a-triptych-col { border-right: none; border-bottom: 1px solid var(--color-border-subtle); padding: 1.5rem 0.25rem; }
+      .p3a-team-card { width: calc((100% - 24px) / 2); max-width: 360px; }
+      .p3a-row-break { display: none !important; }
+    }
+
+    @media (max-width: 560px) {
+      .p3a-section { padding: 2.75rem 1rem; }
+      .p3a-team-card { width: 100%; max-width: 100%; }
+      .p3a-btn { width: 100%; }
+      .p3a-header .p3a-btn { width: auto; padding: 0.45rem 0.85rem; font-size: 0.78rem; }
+      .p3a-mobile-bar { display: grid; grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       STICKY REVIEWER CONTROL DECK (Supports all 7 QA Viewports: 1920..320)
+       ======================================================================== -->
+  <header class="p3a-deck" aria-label="Thanh cÃ´ng cá»¥ kiá»ƒm duyá»‡t Mockup Phase 3A v2.1">
+    <div class="p3a-deck-inner">
+      <div class="p3a-deck-brand">
+        <span class="p3a-deck-badge">Blueprint &amp; Mockup v2.1</span>
+        <span class="p3a-deck-title">Bá»‡nh viá»‡n ThÃº y LÃª SÆ¡n â€” Phase 3A Interactive Review Studio</span>
+      </div>
+
+      <div class="p3a-deck-controls">
+        <!-- Page Switcher -->
+        <div class="p3a-ctrl-group" role="tablist" aria-label="Chá»n trang Giai Ä‘oáº¡n 3A">
+          <button type="button" class="p3a-ctrl-btn p3a-is-active" onclick="switchPage('gioi-thieu', this)">1. /gioi-thieu</button>
+          <button type="button" class="p3a-ctrl-btn" onclick="switchPage('doi-ngu', this)">2. /doi-ngu</button>
+          <button type="button" class="p3a-ctrl-btn" onclick="switchPage('co-so-vat-chat', this)">3. /co-so-vat-chat</button>
+        </div>
+
+        <!-- Mode Switcher -->
+        <div class="p3a-ctrl-group" aria-label="Cháº¿ Ä‘á»™ xem">
+          <button type="button" class="p3a-ctrl-btn p3a-mode-btn p3a-is-active" onclick="setMode('mockup', this)">Mockup Trá»±c quan</button>
+          <button type="button" class="p3a-ctrl-btn p3a-mode-btn" onclick="setMode('wireframe', this)">Wireframe Blueprint</button>
+        </div>
+
+        <!-- All 7 QA Viewports (Fix 3A-P3-7: 1920, 1440, 1366, 768, 390, 360, 320) -->
+        <div class="p3a-ctrl-group" aria-label="Chá»n kÃ­ch thÆ°á»›c mÃ n hÃ¬nh kiá»ƒm thá»­">
+          <button type="button" class="p3a-ctrl-btn" onclick="setViewport('1920', this)">1920px</button>
+          <button type="button" class="p3a-ctrl-btn p3a-is-active" onclick="setViewport('1440', this)">1440px</button>
+          <button type="button" class="p3a-ctrl-btn" onclick="setViewport('1366', this)">1366px</button>
+          <button type="button" class="p3a-ctrl-btn" onclick="setViewport('768', this)">768px</button>
+          <button type="button" class="p3a-ctrl-btn" onclick="setViewport('390', this)">390px</button>
+          <button type="button" class="p3a-ctrl-btn" onclick="setViewport('360', this)">360px</button>
+          <button type="button" class="p3a-ctrl-btn" onclick="setViewport('320', this)">320px</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       SIMULATED VIEWPORT STAGE (Public Website RootLayout)
+       ======================================================================== -->
+  <div id="p3a-stage" class="p3a-stage" data-vp="1440">
+
+    <!-- Shared Header (No Header Hotline per AGENTS.md) -->
+    <header class="p3a-header">
+      <div class="p3a-header-inner">
+        <a class="p3a-brand" href="#top" onclick="return false;">
+          <img class="p3a-brand-logo" src="../../public/images/logo.png" onerror="this.onerror=null;this.src='file:///d:/webbvct/public/images/logo.png';" alt="Logo Bá»‡nh viá»‡n ThÃº y LÃª SÆ¡n" />
+          <div>
+            <span class="p3a-brand-title">LÃŠ SÆ N</span>
+            <span class="p3a-brand-sub">Bá»‡nh viá»‡n ThÃº y</span>
+          </div>
+        </a>
+        <nav class="p3a-nav" aria-label="Äiá»u hÆ°á»›ng chÃ­nh">
+          <button type="button" class="p3a-nav-link p3a-is-active" data-nav="gioi-thieu" onclick="switchPageByNav('gioi-thieu')">Giá»›i thiá»‡u</button>
+          <button type="button" class="p3a-nav-link" data-nav="doi-ngu" onclick="switchPageByNav('doi-ngu')">Äá»™i ngÅ©</button>
+          <button type="button" class="p3a-nav-link" data-nav="co-so-vat-chat" onclick="switchPageByNav('co-so-vat-chat')">CÆ¡ sá»Ÿ váº­t cháº¥t</button>
+          <button type="button" class="p3a-nav-link" onclick="return false;">Dá»‹ch vá»¥</button>
+          <button type="button" class="p3a-nav-link" onclick="return false;">GÃ³c kiáº¿n thá»©c</button>
+          <button type="button" class="p3a-nav-link" onclick="return false;">LiÃªn há»‡</button>
+        </nav>
+        <div>
+          <a class="p3a-btn p3a-btn-primary" href="#dat-lich" onclick="return false;">Äáº·t lá»‹ch khÃ¡m</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ======================================================================
+         PAGE 1: /gioi-thieu â€” GIá»šI THIá»†U Bá»†NH VIá»†N (5 Sections)
+         Fixes: 3A-P2-1 (Service principles marked as proposal awaiting approval),
+                3A-P2-2 (No stock photo with white coat/blouse),
+                3A-P3-1 (Metadata strip only in Hero, concise footer CTA),
+                3A-P3-2 ("Vá» LÃª SÆ¡n" breadcrumb is static text).
+         ====================================================================== -->
+    <main id="page-gioi-thieu" class="p3a-page p3a-is-active">
+
+      <!-- Section 1.1: Editorial Hero -->
+      <section class="p3a-section" style="background: var(--color-bg-primary);">
+        <div class="p3a-container">
+          <span class="p3a-wf-note">[SECTION 1.1: EDITORIAL HERO â€” 7/5 ASYMMETRIC SPLIT | NO WHITE-COAT STOCK PHOTO (3A-P2-2)]</span>
+
+          <nav class="p3a-breadcrumb" aria-label="Breadcrumb">
+            <a href="#top" onclick="return false;">Trang chá»§</a>
+            <span aria-hidden="true">/</span>
+            <span class="p3a-bc-static">Vá» LÃª SÆ¡n</span>
+            <span aria-hidden="true">/</span>
+            <span class="p3a-bc-current" aria-current="page">Giá»›i thiá»‡u bá»‡nh viá»‡n</span>
+          </nav>
+
+          <div class="p3a-split-12">
+            <div class="p3a-span-7">
+              <span class="p3a-eyebrow">Vá» Bá»‡nh viá»‡n ThÃº y LÃª SÆ¡n</span>
+              <h1 class="p3a-h1">NÆ¡i sá»± cáº©n trá»ng y khoa song hÃ nh cÃ¹ng lÃ²ng tháº¥u cáº£m.</h1>
+              <p class="p3a-lead" style="margin-bottom: 1.75rem;">
+                Táº¡i 101 Khuáº¥t Duy Tiáº¿n, Thanh XuÃ¢n, HÃ  Ná»™i, Bá»‡nh viá»‡n ThÃº y LÃª SÆ¡n hÆ°á»›ng tá»›i viá»‡c xÃ¢y dá»±ng má»™t Ä‘iá»ƒm tá»±a y táº¿ Ä‘Ã¡ng tin cáº­y cho chá»§ nuÃ´i â€” nÆ¡i má»—i bÃ© cÆ°ng Ä‘Æ°á»£c thÄƒm khÃ¡m ká»¹ lÆ°á»¡ng, giáº£i thÃ­ch rÃµ rÃ ng vÃ  chÄƒm sÃ³c báº±ng sá»± tÃ´n trá»ng sá»± sá»‘ng.
+              </p>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.85rem;">
+                <a class="p3a-btn p3a-btn-primary" href="#dat-lich" onclick="return false;">Äáº·t lá»‹ch khÃ¡m</a>
+                <a class="p3a-btn p3a-btn-emergency" href="tel:0973555105">Gá»i Hotline: 097 355 51 05</a>
+              </div>
+            </div>
+
+            <div class="p3a-span-5">
+              <!-- Uses pet-only illustration without anyone in a medical blouse (Fix 3A-P2-2) -->
+              <div class="p3a-media-frame p3a-aura-frame" style="aspect-ratio: 4 / 5;">
+                <img class="p3a-photo-img" src="../../public/images/article-prevention.webp" onerror="this.onerror=null;this.src='file:///d:/webbvct/public/images/article-prevention.webp';" alt="ThÃº cÆ°ng nghá»‰ ngÆ¡i trong khÃ´ng gian áº¥m Ã¡p (áº£nh minh há»a)" />
+                <span class="p3a-illus-label">áº¢nh minh há»a â€” khÃ´ng pháº£i cÆ¡ sá»Ÿ thá»±c táº¿ cá»§a LÃª SÆ¡n</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Architectural Metadata Strip (Verified Facts Only) -->
+          <div class="p3a-meta-strip">
+            <div class="p3a-meta-item">
+              <strong style="font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-plum-primary); display: block;">01 â€¢ Äá»‹a chá»‰ cÆ¡ sá»Ÿ</strong>
+              <span style="font-weight: 600; color: var(--color-fg-primary);">101 Khuáº¥t Duy Tiáº¿n, Thanh XuÃ¢n, HÃ  Ná»™i</span>
+            </div>
+            <div class="p3a-meta-item">
+              <strong style="font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-plum-primary); display: block;">02 â€¢ Khung giá» khÃ¡m tham chiáº¿u</strong>
+              <span style="font-weight: 600; color: var(--color-fg-primary);">08:00 â€“ 21:00 (Táº¥t cáº£ cÃ¡c ngÃ y)</span>
+            </div>
+            <div class="p3a-meta-item">
+              <strong style="font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-warm-orange-dark); display: block;">03 â€¢ Trá»±c cáº¥p cá»©u</strong>
+              <span style="font-weight: 600; color: var(--color-fg-primary);">Tiáº¿p nháº­n cáº¥p cá»©u 24/24 â€” 097 355 51 05</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 1.2: CÃ¢u chuyá»‡n LÃª SÆ¡n (Open Magazine Spread) -->
+      <section class="p3a-section" style="background: var(--color-bg-card); border-top: 1px solid var(--color-border-subtle);">
+        <div class="p3a-container">
+          <span class="p3a-wf-note">[SECTION 1.2: CÃ‚U CHUYá»†N LÃŠ SÆ N â€” OPEN MAGAZINE SPREAD &amp; OWNER STORY SLOT]</span>
+          <div class="p3a-split-12">
+            <div class="p3a-span-5">
+              <span class="p3a-eyebrow">01 â€¢ CÃ¢u chuyá»‡n LÃª SÆ¡n</span>
+              <!-- Lora 600 normal style only â€” never synthetic italic -->
+              <h2 class="p3a-h2" style="border-left: 3px solid var(--color-plum-primary); padding-left: 1.15rem;">
+                â€œMá»—i bÃ© cÆ°ng Ä‘áº¿n viá»‡n Ä‘á»u mang theo niá»m thÆ°Æ¡ng yÃªu vÃ  sá»± gá»­i gáº¯m cá»§a cáº£ má»™t gia Ä‘Ã¬nh.â€
+              </h2>
+            </div>
+            <div class="p3a-span-7">
+              <p class="p3a-lead" style="margin-bottom: 1rem;">
+                Khi thÃº cÆ°ng cÃ³ biá»ƒu hiá»‡n báº¥t thÆ°á»ng, Ä‘iá»u ngÆ°á»i nuÃ´i cáº§n nháº¥t lÃ  sá»± láº¯ng nghe ká»¹ lÆ°á»¡ng vÃ  nhá»¯ng giáº£i thÃ­ch rÃµ rÃ ng. Äá»‹nh hÆ°á»›ng hoáº¡t Ä‘á»™ng táº¡i LÃª SÆ¡n Ä‘áº·t trá»ng tÃ¢m vÃ o viá»‡c quan sÃ¡t lÃ¢m sÃ ng cáº©n trá»ng vÃ  Ä‘á»“ng hÃ nh minh báº¡ch cÃ¹ng chá»§ nuÃ´i trong suá»‘t quÃ¡ trÃ¬nh chÄƒm sÃ³c.
+              </p>
+              <div class="p3a-slot-box">
+                <strong>[SLOT Dá»® LIá»†U CHá»œ CHá»¦ Dá»° ÃN CUNG Cáº¤P]:</strong> Lá»‹ch sá»­ hÃ¬nh thÃ nh, cá»™t má»‘c hoáº¡t Ä‘á»™ng thá»±c táº¿ vÃ  cÃ¢u chuyá»‡n sÃ¡ng láº­p cá»§a Bá»‡nh viá»‡n ThÃº y LÃª SÆ¡n. <em>(Tuyá»‡t Ä‘á»‘i khÃ´ng tá»± suy diá»…n nÄƒm thÃ nh láº­p, chá»©ng nháº­n hay sá»‘ liá»‡u ca khÃ¡m khi chÆ°a xÃ¡c minh).</em>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 1.3: GiÃ¡ trá»‹ vÃ  Triáº¿t lÃ½ chÄƒm sÃ³c (Architectural Numbered Triptych) -->
+      <section class="p3a-section" style="background: var(--color-bg-secondary);">
+        <div class="p3a-container">
+          <span class="p3a-wf-note">[SECTION 1.3: ARCHITECTURAL NUMBERED TRIPTYCH â€” ALIGNED WITH MILESTONE 2B]</span>
+          <span class="p3a-eyebrow">02 â€¢ Triáº¿t lÃ½ hoáº¡t Ä‘á»™ng</span>
+          <h2 class="p3a-h2">Ba giÃ¡ trá»‹ lÃ m nÃªn chuáº©n má»±c chÄƒm sÃ³c táº¡i LÃª SÆ¡n</h2>
+
+          <div class="p3a-triptych">
+            <article class="p3a-triptych-col">
+              <span class="p3a-triptych-num">01</span>
+              <h3 class="p3a-h3">ChuyÃªn mÃ´n vÃ  trÃ¡ch nhiá»‡m</h3>
+              <p style="font-size: 0.92rem; color: var(--color-fg-muted);">
+                Tiáº¿p cáº­n tá»«ng ca bá»‡nh cáº©n trá»ng, cháº©n Ä‘oÃ¡n dá»±a trÃªn biá»ƒu hiá»‡n lÃ¢m sÃ ng vÃ  cÃ¡c bÆ°á»›c kiá»ƒm tra cáº§n thiáº¿t; Ä‘áº·t sá»± an toÃ n cá»§a thÃº cÆ°ng lÃ m trá»ng tÃ¢m.
+              </p>
+            </article>
+            <article class="p3a-triptych-col">
+              <span class="p3a-triptych-num">02</span>
+              <h3 class="p3a-h3">Táº­n tÃ¢m vÃ  láº¯ng nghe</h3>
+              <p style="font-size: 0.92rem; color: var(--color-fg-muted);">
+                Láº¯ng nghe ká»¹ lÆ°á»¡ng nhá»¯ng thay Ä‘á»•i nhá» trong thÃ³i quen sinh hoáº¡t cá»§a bÃ© do chá»§ nuÃ´i chia sáº»; giao tiáº¿p nháº¹ nhÃ ng, giáº£m bá»›t Ã¡p lá»±c tÃ¢m lÃ½ cho cáº£ bÃ© vÃ  gia Ä‘Ã¬nh.
+              </p>
+            </article>
+            <article class="p3a-triptych-col">
+              <span class="p3a-triptych-num">03</span>
+              <h3 class="p3a-h3">Theo dÃµi vÃ  minh báº¡ch</h3>
+              <p style="font-size: 0.92rem; color: var(--color-fg-muted);">
+                Giáº£i thÃ­ch rÃµ rÃ ng tÃ¬nh tráº¡ng sá»©c khá»e, hÆ°á»›ng xá»­ trÃ­ vÃ  chi phÃ­ dá»± kiáº¿n trÆ°á»›c khi thá»±c hiá»‡n; thÃ´ng tin trung thá»±c trong suá»‘t quÃ¡ trÃ¬nh theo dÃµi.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 1.4: Quan Ä‘iá»ƒm phá»¥c vá»¥, chÄƒm sÃ³c thÃº cÆ°ng (Fix 3A-P2-1: Framed as Proposal Awaiting Approval) -->
+      <section class="p3a-section" style="background: var(--color-bg-primary);">
+        <div class="p3a-container">
+          <span class="p3a-wf-note">[SECTION 1.4: QUAN ÄIá»‚M PHá»¤C Vá»¤ â€” Äá»€ XUáº¤T CHá»œ CHá»¦ Dá»° ÃN DUYá»†T (FIX 3A-P2-1)]</span>
+          <div class="p3a-split-12">
+            <div class="p3a-span-5">
+              <div class="p3a-media-frame p3a-rounded-frame" style="aspect-ratio: 4 / 5;">
+                <img class="p3a-photo-img" src="../../public/images/why-pet-companion.webp" onerror="this.onerror=null;this.src='file:///d:/webbvct/public/images/why-pet-companion.webp';" alt="ChÄƒm sÃ³c thÃº cÆ°ng thÃ¢n thiá»‡n (áº£nh minh há»a)" />
+                <span class="p3a-illus-label">áº¢nh minh há»a â€” khÃ´ng pháº£i cÆ¡ sá»Ÿ thá»±c táº¿ cá»§a LÃª SÆ¡n</span>
+              </div>
+            </div>
+
+            <div class="p3a-span-7">
+              <span class="p3a-proposal-badge">Äá» xuáº¥t ná»™i dung â€” Chá» Chá»§ dá»± Ã¡n xÃ¡c nháº­n quy trÃ¬nh thá»±c táº¿</span>
+              <h2 class="p3a-h2">Quan Ä‘iá»ƒm phá»¥c vá»¥ &amp; chÄƒm sÃ³c thÃº cÆ°ng (Khung Ä‘á» xuáº¥t)</h2>
+              <p style="font-size: 0.9rem; color: var(--color-fg-muted); margin-bottom: 0.5rem;">
+                <em>LÆ°u Ã½: Bá»‘n nguyÃªn táº¯c dÆ°á»›i Ä‘Ã¢y Ä‘ang á»Ÿ tráº¡ng thÃ¡i báº£n tháº£o Ä‘á» xuáº¥t thiáº¿t káº¿, chÆ°a trÃ¬nh bÃ y nhÆ° cam káº¿t váº­n hÃ nh chÃ­nh thá»©c cho tá»›i khi Chá»§ dá»± Ã¡n phÃª duyá»‡t.</em>
+              </p>
+
+              <div class="p3a-ledger">
+                <div class="p3a-ledger-row">
+                  <span class="p3a-ledger-idx">I.</span>
+                  <div>
+                    <h3 class="p3a-h3" style="font-size: 1.08rem;">Äá» xuáº¥t 1: Tiáº¿p nháº­n Ä‘iá»m tÄ©nh, thao tÃ¡c nháº¹ nhÃ ng</h3>
+                    <p style="font-size: 0.9rem; color: var(--color-fg-muted);">Äá»‹nh hÆ°á»›ng háº¡n cháº¿ tiáº¿ng á»“n vÃ  giáº£m cÄƒng tháº³ng khi thÃº cÆ°ng má»›i Ä‘áº¿n phÃ²ng khÃ¡m <em>[Chá» Chá»§ dá»± Ã¡n xÃ¡c nháº­n]</em>.</p>
+                  </div>
+                </div>
+                <div class="p3a-ledger-row">
+                  <span class="p3a-ledger-idx">II.</span>
+                  <div>
+                    <h3 class="p3a-h3" style="font-size: 1.08rem;">Äá» xuáº¥t 2: Giáº£i thÃ­ch dá»… hiá»ƒu cho chá»§ nuÃ´i</h3>
+                    <p style="font-size: 0.9rem; color: var(--color-fg-muted);">Äá»‹nh hÆ°á»›ng trÃ¬nh bÃ y tÃ¬nh tráº¡ng vÃ  hÆ°á»›ng chÄƒm sÃ³c báº±ng ngÃ´n ngá»¯ rÃµ rÃ ng trÆ°á»›c khi thá»±c hiá»‡n <em>[Chá» Chá»§ dá»± Ã¡n xÃ¡c nháº­n]</em>.</p>
+                  </div>
+                </div>
+                <div class="p3a-ledger-row">
+                  <span class="p3a-ledger-idx">III.</span>
+                  <div>
+                    <h3 class="p3a-h3" style="font-size: 1.08rem;">Äá» xuáº¥t 3: Quy trÃ¬nh theo dÃµi khi lÆ°u trÃº ná»™i trÃº</h3>
+                    <p style="font-size: 0.9rem; color: var(--color-fg-muted);">Khung mÃ´ táº£ quy trÃ¬nh vá»‡ sinh khu lÆ°u trÃº vÃ  cÃ¡ch thá»©c cáº­p nháº­t tÃ¬nh hÃ¬nh cho gia Ä‘Ã¬nh <em>[Chá» Chá»§ dá»± Ã¡n xÃ¡c nháº­n quy trÃ¬nh thá»±c táº¿]</em>.</p>
+                  </div>
+                </div>
+                <div class="p3a-ledger-row">
+                  <span class="p3a-ledger-idx">IV.</span>
+                  <div>
+                    <h3 class="p3a-h3" style="font-size: 1.08rem;">Äá» xuáº¥t 4: TÃ´n trá»ng vÃ  báº£o máº­t thÃ´ng tin</h3>
+                    <p style="font-size: 0.9rem; color: var(--color-fg-muted);">Khung nguyÃªn táº¯c chia sáº» thÃ´ng tin chÄƒm sÃ³c cho Ä‘Ãºng chá»§ nuÃ´i cá»§a bÃ© <em>[Chá» Chá»§ dá»± Ã¡n xÃ¡c nháº­n]</em>.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 1.5: KhÃ¡m phÃ¡ Äá»™i ngÅ©, CÆ¡ sá»Ÿ váº­t cháº¥t & CTA rÃºt gá»n (Fix 3A-P3-1) -->
+      <section class="p3a-section" style="background: var(--color-bg-secondary);">
+        <div class="p3a-container">
+          <span class="p3a-wf-note">[SECTION 1.5: CROSS-NAVIGATION PATHWAYS &amp; CONCISE CTA BAND (FIX 3A-P3-1)]</span>
+          <div class="p3a-split-12" style="margin-bottom: 2.25rem;">
+            <div class="p3a-span-6" style="background: var(--color-bg-card); padding: 2rem; border-radius: 20px; border: 1px solid var(--color-border-subtle);">
+              <span class="p3a-eyebrow">KhÃ¡m phÃ¡ nhÃ¢n sá»±</span>
+              <h3 class="p3a-h3">Äá»™i ngÅ© BÃ¡c sÄ© &amp; NhÃ¢n sá»± ChÄƒm sÃ³c</h3>
+              <p style="font-size: 0.92rem; color: var(--color-fg-muted); margin-bottom: 1.25rem;">
+                TÃ¬m hiá»ƒu cáº¥u trÃºc cÃ¡c bá»™ pháº­n chuyÃªn mÃ´n vÃ  nguyÃªn táº¯c phá»‘i há»£p chÄƒm sÃ³c thÃº cÆ°ng táº¡i LÃª SÆ¡n.
+              </p>
+              <button type="button" class="p3a-btn p3a-btn-outline" onclick="switchPageByNav('doi-ngu')">Xem trang Äá»™i ngÅ© â†’</button>
+            </div>
+            <div class="p3a-span-6" style="background: var(--color-bg-card); padding: 2rem; border-radius: 20px; border: 1px solid var(--color-border-subtle);">
+              <span class="p3a-eyebrow">KhÃ´ng gian phÃ²ng khÃ¡m</span>
+              <h3 class="p3a-h3">CÆ¡ sá»Ÿ váº­t cháº¥t &amp; Khu ná»™i trÃº</h3>
+              <p style="font-size: 0.92rem; color: var(--color-fg-muted); margin-bottom: 1.25rem;">
+                Tham quan cÃ¡ch bá»‘ trÃ­ phÃ¢n khu tiáº¿p Ä‘Ã³n, thÄƒm khÃ¡m, chÄƒm sÃ³c ná»™i trÃº 24/7 vÃ  Spa &amp; Grooming.
+              </p>
+              <button type="button" class="p3a-btn p3a-btn-outline" onclick="switchPageByNav('co-so-vat-chat')">Xem CÆ¡ sá»Ÿ váº­t cháº¥t â†’</button>
+            </div>
+          </div>
+
+          <!-- Concise CTA Band (Does not repeat full 3-column metadata strip per 3A-P3-1) -->
+          <div style="background: var(--color-bg-dark); color: #FFFFFF; padding: 2.25rem 2.5rem; border-radius: 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.25rem;">
+            <div>
+              <h2 class="p3a-h2" style="color: #FFFFFF; margin-bottom: 0.25rem;">Chá»§ Ä‘á»™ng Ä‘áº·t lá»‹ch háº¹n cho bÃ© cÆ°ng</h2>
+              <p style="color: var(--color-plum-orchid-light); font-size: 0.92rem;">
+                Äáº·t lá»‹ch trá»±c tuyáº¿n hoáº·c liÃªn há»‡ ngay khi cáº§n há»— trá»£ cáº¥p cá»©u 24/24.
+              </p>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+              <a class="p3a-btn p3a-btn-primary" style="background: #FFFFFF; color: var(--color-plum-deep);" href="#dat-lich" onclick="return false;">Äáº·t lá»‹ch khÃ¡m trá»±c tuyáº¿n</a>
+              <a class="p3a-btn p3a-btn-emergency" href="tel:0973555105">Gá»i 097 355 51 05</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ======================================================================
+         PAGE 2: /doi-ngu â€” Äá»˜I NGÅ¨ NHÃ‚N Sá»° (5 Sections)
+         Fixes:
+         - 3A-P1-1: Zero stock/AI faces; 100% neutral Monogram portrait placeholders.
+         - 3A-P1-2: Zero unverified staff counts, specialties, or schedules; neutral slots.
+         - 3A-P2-3: BS. LÃª ThÃ¡i SÆ¡n placed at neutral position (Card #2), not #1 by rank.
+         - 3A-P2-4: Separate actual departments; N=1 renders 1 centered equal-width card.
+         - 3A-P2-5: Grid simulator for N = 1, 2, 3, 5, 7 (3+2+2 & 3+3+1), 8 on Desktop & Tablet.
+         - 3A-P2-6: Department filter hides inactive sections via `hidden` + `aria-live="polite"`.
+         - 3A-P2-8: 4-step workflow marked as proposal awaiting owner verification.
+         ====================================================================== -->
+    <main id="page-doi-ngu" class="p3a-page">
+
+      <!-- Section 2.1: Team Introduction Hero & Accessible Department Filter -->
+      <section class="p3a-section" style="background: var(--color-bg-primary);">
+        <div class="p3a-container">
+          <span class="p3a-wf-note">[SECTION 2.1: TEAM HERO + DATA AUTHENTICITY BANNER + ACCESSIBLE FILTER (3A-P2-6)]</span>
+
+          <nav class="p3a-breadcrumb" aria-label="Breadcrumb">
+            <a href="#top" onclick="return false;">Trang chá»§</a>
+            <span aria-hidden="true">/</span>
+            <span class="p3a-bc-static">Vá» LÃª SÆ¡n</span>
+            <span aria-hidden="true">/</span>
+            <span class="p3a-bc-current" aria-current="page">Äá»™i ngÅ©</span>
+          </nav>
+
+          <span class="p3a-eyebrow">Äá»™i ngÅ© Bá»‡nh viá»‡n ThÃº y LÃª SÆ¡n</span>
+          <h1 class="p3a-h1">Sá»± táº­n tÃ¢m tá»« nhá»¯ng ngÆ°á»i trá»±c tiáº¿p Ä‘á»“ng hÃ nh cÃ¹ng thÃº cÆ°ng.</h1>
+          <p class="p3a-lead">
+            Hoáº¡t Ä‘á»™ng thÄƒm khÃ¡m vÃ  chÄƒm sÃ³c táº¡i LÃª SÆ¡n Ä‘Æ°á»£c tá»• chá»©c theo tá»«ng bá»™ pháº­n thá»±c táº¿. Má»i thÃ nh viÃªn Ä‘Æ°á»£c giá»›i thiá»‡u trÃªn cÃ¹ng má»™t quy chuáº©n tháº» Ä‘á»“ng Ä‘á»u, khÃ´ng phÃ¢n biá»‡t kÃ­ch thÆ°á»›c hay vá»‹ trÃ­ theo chá»©c vá»¥.
+          </p>
+
+          <div class="p3a-policy-banner" role="region" aria-label="ThÃ´ng bÃ¡o minh báº¡ch há»“ sÆ¡ nhÃ¢n sá»±">
+            <strong>NguyÃªn táº¯c minh báº¡ch há»“ sÆ¡ nhÃ¢n sá»± (ÄÃ£ kháº¯c phá»¥c 3A-P1-1 &amp; 3A-P1-2):</strong>
+            ToÃ n bá»™ cÃ¡c tháº» dÆ°á»›i Ä‘Ã¢y sá»­ dá»¥ng <strong>khung Monogram trung tÃ­nh (khÃ´ng gáº¯n áº£nh stock/AI cá»§a ngÆ°á»i khÃ¡c vÃ o tÃªn ngÆ°á»i tháº­t)</strong> vÃ  <strong>slot dá»¯ liá»‡u trung tÃ­nh</strong> cho tá»›i khi Chá»§ dá»± Ã¡n phÃª duyá»‡t danh sÃ¡ch nhÃ¢n sá»±, chá»©c danh, kiÃªm nhiá»‡m vÃ  áº£nh chÃ¢n dung thá»±c táº¿.
+          </div>
+
+          <!-- Interactive Grid & Filter Simulator for Claude QA & Owner Review -->
+          <div class="p3a-sim-toolbar" aria-label="Bá»™ mÃ´ phá»ng quy táº¯c lÆ°á»›i Äá»™i ngÅ©">
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.75rem;">
+              <div>
+                <strong style="color: var(--color-plum-deep); font-size: 0.9rem; display: block;">
+                  1. Bá»™ mÃ´ phá»ng Quy táº¯c LÆ°á»›i Äá»“ng Nháº¥t cho N = 1, 2, 3, 5, 7 vÃ  nhiá»u thÃ nh viÃªn (Fix 3A-P2-4 &amp; 3A-P2-5)
+                </strong>
+                <span style="font-size: 0.8rem; color: var(--color-fg-muted);">
+                  Má»i card giá»¯ cá»‘ Ä‘á»‹nh cÃ¹ng tá»· lá»‡ 4:5 vÃ  cÃ¹ng chiá»u rá»™ng trÃªn cáº£ Desktop láº«n Tablet (khÃ´ng phÃ³ng to card láº» á»Ÿ hÃ ng cuá»‘i, khÃ´ng Ä‘á»•i sang tháº» ngang).
+                </span>
+              </div>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.35rem;">
+                <button type="button" class="p3a-filter-btn" style="min-height: 36px; padding: 0.3rem 0.75rem; font-size: 0.76rem;" onclick="setTeamCount(1, 'standard', this)">N = 1 (1 cÄƒn giá»¯a)</button>
+                <button type="button" class="p3a-filter-btn" style="min-height: 36px; padding: 0.3rem 0.75rem; font-size: 0.76rem;" onclick="setTeamCount(2, 'standard', this)">N = 2 (2 cÄƒn giá»¯a)</button>
+                <button type="button" class="p3a-filter-btn" aria-pressed="true" style="min-height: 36px; padding: 0.3rem 0.75rem; font-size: 0.76rem;" onclick="setTeamCount(3, 'standard', this)">N = 3 (3 chuáº©n)</button>
+                <button type="button" class="p3a-filter-btn" style="min-height: 36px; padding: 0.3rem 0.75rem; font-size: 0.76rem;" onclick="setTeamCount(5, 'standard', this)">N = 5 (3 + 2 cÄƒn giá»¯a)</button>
+                <button type="button" class="p3a-filter-btn" style="min-height: 36px; padding: 0.3rem 0.75rem; font-size: 0.76rem;" onclick="setTeamCount(7, '7-balanced', this)">N = 7 (3 + 2 + 2 cÃ¢n Ä‘á»‘i)</button>
+                <button type="button" class="p3a-filter-btn" style="min-height: 36px; padding: 0.3rem 0.75rem; font-size: 0.76rem;" onclick="setTeamCount(7, 'standard', this)">N = 7 (3 + 3 + 1 cÄƒn giá»¯a)</button>
+                <button type="button" class="p3a-filter-btn" style="min-height: 36px; padding: 0.3rem 0.75rem; font-size: 0.76rem;" onclick="setTeamCount(8, 'standard', this)">N = 8 (3 + 3 + 2 cÄƒn giá»¯a)</button>
+              </div>
+            </div>
+
+            <div style="margin-top: 1rem; padding-top: 0.85rem; border-top: 1px solid var(--color-border-subtle);">
+              <strong style="color: var(--color-plum-deep); font-size: 0.9rem; display: block;">
+                2. Bá»™ lá»c Bá»™ pháº­n chuáº©n Accessibility (Fix 3A-P2-6: áº¨n/Hiá»‡n báº±ng thuá»™c tÃ­nh `hidden`, KHÃ”NG lÃ m má» card)
+              </strong>
+              <div class="p3a-filter-bar" role="toolbar" aria-label="Lá»c nhÃ¢n sá»± theo bá»™ pháº­n thá»±c táº¿">
+                <button type="button" class="p3a-filter-btn" aria-pressed="true" onclick="filterDept('all', this)">Táº¥t cáº£ bá»™ pháº­n</button>
+                <button type="button" class="p3a-filter-btn" aria-pressed="false" onclick="filterDept('vet', this)">Bá»™ pháº­n BÃ¡c sÄ© ThÃº y</button>
+                <button type="button" class="p3a-filter-btn" aria-pressed="false" onclick="filterDept('grooming', this)">Bá»™ pháº­n Spa &amp; Grooming (Chá» xÃ¡c nháº­n)</button>
+                <button type="button" class="p3a-filter-btn" aria-pressed="false" onclick="filterDept('support', this)">Bá»™ pháº­n ChÄƒm sÃ³c &amp; Há»— trá»£ (Chá» xÃ¡c nháº­n)</button>
+              </div>
+              <p id="p3a-filter-status" class="p3a-sr-status" role="status" aria-live="polite">
+                Äang hiá»ƒn thá»‹ táº¥t cáº£ 3 nhÃ³m bá»™ pháº­n. Sá»‘ lÆ°á»£ng tháº» mÃ´ phá»ng trong nhÃ³m BÃ¡c sÄ©: N = 3.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2.2: Bá»™ pháº­n BÃ¡c sÄ© ThÃº y -->
+      <section id="dept-vet" class="p3a-section" style="background: var(--color-bg-card); padding-top: 2rem;">
+        <div class="p3a-container">
+          <span class="p3a-wf-note">[SECTION 2.2: VETERINARY DEPARTMENT â€” MONOGRAM PLACEHOLDERS (3A-P1-1) &amp; NEUTRAL ORDER (3A-P2-3)]</span>
+          <span class="p3a-eyebrow">NhÃ³m Bá»™ pháº­n 01</span>
+          <h2 class="p3a-h2">Bá»™ pháº­n BÃ¡c sÄ© ThÃº y (Khá»‘i LÃ¢m sÃ ng)</h2>
+          <p class="p3a-lead">
+            Má»—i bÃ¡c sÄ© chá»‰ cÃ³ duy nháº¥t má»™t há»“ sÆ¡ trÃªn trang. Tháº» <strong>BS. LÃª ThÃ¡i SÆ¡n</strong> Ä‘Æ°á»£c Ä‘áº·t á»Ÿ vá»‹ trÃ­ trung tÃ­nh (Tháº» #2 khi N &ge; 2) vá»›i kÃ­ch thÆ°á»›c, tá»· lá»‡ áº£nh 4:5 vÃ  kiá»ƒu chá»¯ Ä‘á»“ng nháº¥t 100% vá»›i má»i tháº» khÃ¡c.
+          </p>
+
+          <div id="p3a-vet-grid" class="p3a-team-grid" data-count="3" data-layout="standard">
+            <!-- Card #1: Neutral Placeholder (Placed before BS. LÃª ThÃ¡i SÆ¡n to prove no rank-1 hierarchy per 3A-P2-3) -->
+            <article class="p3a-team-card">
+              <div class="p3a-monogram-box">
+                <div class="p3a-monogram-circle" aria-hidden="true">BS</div>
+                <span class="p3a-monogram-caption">ChÆ°a cÃ³ áº£nh thá»±c táº¿ â€” Khung chÃ¢n dung 4:5 chá» duyá»‡t</span>
+              </div>
+              <div class="p3a-card-body">
+                <span class="p3a-dept-pill">Bá»™ pháº­n: BÃ¡c sÄ© ThÃº y</span>
+                <h3 class="p3a-h3">[Há» vÃ  tÃªn BÃ¡c sÄ© #01 â€” Chá» danh sÃ¡ch xÃ¡c minh]</h3>
+                <p class="p3a-role-line">[Chá»©c danh chuyÃªn mÃ´n â€” Chá» xÃ¡c minh]</p>
+                <p style="font-size: 0.88rem; color: var(--color-fg-muted); margin-bottom: 0.75rem;">
+                  [MÃ´ táº£ pháº¡m vi cÃ´ng viá»‡c thá»±c táº¿ táº¡i bá»‡nh viá»‡n â€” Chá»‰ hiá»ƒn thá»‹ ná»™i dung Ä‘Ã£ Ä‘Æ°á»£c Chá»§ dá»± Ã¡n xÃ¡c nháº­n, khÃ´ng cáº¯t dÃ²ng báº±ng line-clamp].
+                </p>
+                <ul class="p3a-meta-list">
+                  <li><strong>Vai trÃ² kiÃªm nhiá»‡m:</strong> [Chá»‰ hiá»ƒn thá»‹ náº¿u cÃ³ dá»¯ liá»‡u xÃ¡c minh]</li>
+                  <li><strong>Báº±ng cáº¥p / Chá»©ng chá»‰:</strong> <em>[áº¨n hoÃ n toÃ n khi publish náº¿u verified = false]</em></li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- Card #2: BS. LÃª ThÃ¡i SÆ¡n (Verified Name in Repo, Neutral Position #2, Zero Stock Photo per 3A-P1-1) -->
+            <article class="p3a-team-card">
+              <div class="p3a-monogram-box">
+                <div class="p3a-monogram-circle" aria-hidden="true">LTS</div>
+                <span class="p3a-monogram-caption">ChÆ°a cÃ³ áº£nh thá»±c táº¿ â€” Khung chÃ¢n dung 4:5 chá» duyá»‡t</span>
+              </div>
+              <div class="p3a-card-body">
+                <span class="p3a-dept-pill">Bá»™ pháº­n: BÃ¡c sÄ© ThÃº y</span>
+                <h3 class="p3a-h3">BS. LÃª ThÃ¡i SÆ¡n</h3>
+                <p class="p3a-role-line">[Chá»©c danh chuyÃªn mÃ´n â€” Chá» Chá»§ dá»± Ã¡n xÃ¡c nháº­n cÃ¡ch ghi]</p>
+                <p style="font-size: 0.88rem; color: var(--color-fg-muted); margin-bottom: 0.75rem;">
+                  Há»“ sÆ¡ cÃ³ tÃªn tháº­t trong tÃ i liá»‡u dá»± Ã¡n. Tuyá»‡t Ä‘á»‘i khÃ´ng dÃ¹ng áº£nh stock cá»§a ngÆ°á»i khÃ¡c; khÃ´ng tÃ¡ch section riÃªng vÃ  khÃ´ng tá»± Ä‘á»™ng xáº¿p Ä‘áº§u vÃ¬ chá»©c vá»¥.
+                </p>
+                <ul class="p3a-meta-list">
+                  <li><strong>Vai trÃ² kiÃªm nhiá»‡m:</strong> [Chá» xÃ¡c nháº­n thá»±c táº¿ â€” Hiá»ƒn thá»‹ trong cÃ¹ng 1 há»“ sÆ¡]</li>
+                  <li><strong>Báº±ng cáº¥p / Chá»©ng chá»‰:</strong> <em>[Chá» Chá»§ dá»± Ã¡n cung cáº¥p há»“ sÆ¡ xÃ¡c thá»±c]</em></li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- Card #3: Neutral Placeholder -->
+            <article class="p3a-team-card">
+              <div class="p3a-monogram-box">
+                <div class="p3a-monogram-circle" aria-hidden="true">BS</div>
+                <span class="p3a-monogram-caption">ChÆ°a cÃ³ áº£nh thá»±c táº¿ â€” Khung chÃ¢n dung 4:5 chá» duyá»‡t</span>
+              </div>
+              <div class="p3a-card-body">
+                <span class="p3a-dept-pill">Bá»™ pháº­n: BÃ¡c sÄ© ThÃº y</span>
+                <h3 class="p3a-h3">[Há» vÃ  tÃªn BÃ¡c sÄ© #03 â€” Chá» danh sÃ¡ch xÃ¡c minh]</h3>
+                <p class="p3a-role-line">[Chá»©c danh chuyÃªn mÃ´n â€” Chá» xÃ¡c minh]</p>
+                <p style="font-size: 0.88rem; color: var(--color-fg-muted); margin-bottom: 0.75rem;">
+                  [MÃ´ táº£ pháº¡m vi cÃ´ng viá»‡c thá»±c táº¿ táº¡i bá»‡nh viá»‡n â€” KhÃ´ng tá»± Ä‘áº·t chuyÃªn khoa Ngoáº¡i khoa hay lá»‹ch trá»±c khi chÆ°a cÃ³ nguá»“n xÃ¡c nháº­n].
+                </p>
+                <ul class="p3a-meta-list">
+                  <li><strong>Vai trÃ² kiÃªm nhiá»‡m:</strong> [Chá»‰ hiá»ƒn thá»‹ náº¿u cÃ³ dá»¯ liá»‡u xÃ¡c minh]</li>
+                  <li><strong>Báº±ng cáº¥p / Chá»©ng chá»‰:</strong> <em>[áº¨n hoÃ n toÃ n khi publish náº¿u verified = false]</em></li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- Row break helper after Card 3 for N=7 balanced (3 + 2 + 2) mode -->
+            <div class="p3a-row-break p3a-row-break-after-3" aria-hidden="true"></div>
+
+            <!-- Card #4 (Simulated when N >= 4) -->
+            <article class="p3a-team-card" hidden>
+              <div class="p3a-monogram-box">
+                <div class="p3a-monogram-circle" aria-hidden="true">BS</div>
+                <span class="p3a-monogram-caption">Khung mÃ´ phá»ng #04 â€” Chá» áº£nh thá»±c táº¿</span>
+              </div>
+              <div class="p3a-card-body">
+                <span class="p3a-dept-pill">Bá»™ pháº­n: BÃ¡c sÄ© ThÃº y</span>
+                <h3 class="p3a-h3">[Há»“ sÆ¡ Placeholder #04 â€” Kiá»ƒm thá»­ lÆ°á»›i]</h3>
+                <p class="p3a-role-line">[Chá»©c danh chuyÃªn mÃ´n â€” Chá» xÃ¡c minh]</p>
+                <p style="font-size: 0.88rem; color: var(--color-fg-muted); margin-bottom: 0.75rem;">
+                  Tháº» mÃ´ phá»ng phá»¥c vá»¥ kiá»ƒm tra Ä‘á»™ cÃ¢n Ä‘á»‘i cá»§a lÆ°á»›i khi bá»™ pháº­n cÃ³ nhiá»u thÃ nh viÃªn (N = 5, 7, 8).
+                </p>
+                <ul class="p3a-meta-list">
+                  <li><strong>KÃ­ch thÆ°á»›c:</strong> Äá»“ng nháº¥t 100% vá»›i má»i tháº» khÃ¡c</li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- Card #5 (Simulated when N >= 5) -->
+            <article class="p3a-team-card" hidden>
+              <div class="p3a-monogram-box">
+                <div class="p3a-monogram-circle" aria-hidden="true">BS</div>
+                <span class="p3a-monogram-caption">Khung mÃ´ phá»ng #05 â€” Chá» áº£nh thá»±c táº¿</span>
+              </div>
+              <div class="p3a-card-body">
+                <span class="p3a-dept-pill">Bá»™ pháº­n: BÃ¡c sÄ© ThÃº y</span>
+                <h3 class="p3a-h3">[Há»“ sÆ¡ Placeholder #05 â€” Kiá»ƒm thá»­ lÆ°á»›i]</h3>
+                <p class="p3a-role-line">[Chá»©c danh chuyÃªn mÃ´n â€” Chá» xÃ¡c minh]</p>
+                <p style="font-size: 0.88rem; color: var(--color-fg-muted); margin-bottom: 0.75rem;">
+                  Khi N = 5: HÃ ng cuá»‘i gá»“m 2 card cÄƒn giá»¯a trÃªn Desktop vÃ  1 card dá»c cÄƒn giá»¯a trÃªn Tablet (khÃ´ng Ä‘á»•i sang tháº» ngang).
+                </p>
+                <ul class="p3a-meta-list">
+                  <li><strong>KÃ­ch thÆ°á»›c:</strong> Äá»“ng nháº¥t 100% vá»›i má»i tháº» khÃ¡c</li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- Row break helper after Card 5 for N=7 balanced (3 + 2 + 2) mode -->
+            <div class="p3a-row-break p3a-row-break-after-5" aria-hidden="true"></div>
+
+            <!-- Card #6 (Simulated when N >= 6) -->
+            <article class="p3a-team-card" hidden>
+              <div class="p3a-monogram-box">
+                <div class="p3a-monogram-circle" aria-hidden="true">BS</div>
+                <span class="p3a-monogram-caption">Khung mÃ´ phá»ng #06 â€” Chá» áº£nh thá»±c táº¿</span>
+              </div>
+              <div class="p3a-card-body">
+                <span class="p3a-dept-pill">Bá»™ pháº­n: BÃ¡c sÄ© ThÃº y</span>
+                <h3 class="p3a-h3">[Há»“ sÆ¡ Placeholder #06 â€” Kiá»ƒm thá»­ lÆ°á»›i]</h3>
+                <p class="p3a-role-line">[Chá»©c danh chuyÃªn mÃ´n â€” Chá» xÃ¡c minh]</p>
+                <p style="font-size: 0.88rem; color: var(--color-fg-muted); margin-bottom: 0.75rem;">
+                  Tháº» mÃ´ phá»ng phá»¥c vá»¥ kiá»ƒm tra quy táº¯c lÆ°á»›i cho N = 7 vÃ  N = 8 thÃ nh viÃªn.
+                </p>
+                <ul class="p3a-meta-list">
+                  <li><strong>KÃ­ch thÆ°á»›c:</strong> Äá»“ng nháº¥t 100% vá»›i má»i tháº» khÃ¡c</li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- Card #7 (Simulated when N >= 7) -->
+            <article class="p3a-team-card" hidden>
+              <div class="p3a-monogram-box">
+                <div class="p3a-monogram-circle" aria-hidden="true">BS</div>
+                <span class="p3a-monogram-caption">Khung mÃ´ phá»ng #07 â€” Chá» áº£nh thá»±c táº¿</span>
+              </div>
+              <div class="p3a-card-body">
+                <span class="p3a-dept-pill">Bá»™ pháº­n: BÃ¡c sÄ© ThÃº y</span>
+                <h3 class="p3a-h3">[Há»“ sÆ¡ Placeholder #07 â€” Kiá»ƒm thá»­ N = 7]</h3>
+                <p class="p3a-role-line">[Chá»©c danh chuyÃªn mÃ´n â€” Chá» xÃ¡c minh]</p>
+                <p style="font-size: 0.88rem; color: var(--color-fg-muted); margin-bottom: 0.75rem;">
+                  Khi N = 7: Há»— trá»£ cáº£ bá»‘ cá»¥c cÃ¢n Ä‘á»‘i 3 + 2 + 2 láº«n 3 + 3 + 1 cÄƒn giá»¯a mÃ  khÃ´ng bao giá» phÃ³ng to card cuá»‘i.
+                </p>
+                <ul class="p3a-meta-list">
+                  <li><strong>KÃ­ch thÆ°á»›c:</strong> Äá»“ng nháº¥t 100% vá»›i má»i tháº» khÃ¡c</li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- Card #8 (Simulated when N == 8) -->
+            <article class="p3a-team-card" hidden>
+              <div class="p3a-monogram-box">
+                <div class="p3a-monogram-circle" aria-hidden="true">BS</div>
+                <span class="p3a-monogram-caption">Khung mÃ´ phá»ng #08 â€” Kiá»ƒm thá»­ N &ge; 7</span>
+              </div>
+              <div class="p3a-card-body">
+                <span class="p3a-dept-pill">Bá»™ pháº­n: BÃ¡c sÄ© ThÃº y</span>
+                <h3 class="p3a-h3">[Há»“ sÆ¡ Placeholder #08 â€” Kiá»ƒm thá»­ N = 8]</h3>
+                <p class="p3a-role-line">[Chá»©c danh chuyÃªn mÃ´n â€” Chá» xÃ¡c minh]</p>
+                <p style="font-size: 0.88rem; color: var(--color-fg-muted); margin-bottom: 0.75rem;">
+                  Khi N = 8: Hiá»ƒn thá»‹ 3 + 3 + 2 cÄƒn giá»¯a Ä‘á»‘i xá»©ng.
+                </p>
+                <ul class="p3a-meta-list">
+                  <li><strong>KÃ­ch thÆ°á»›c:</strong> Äá»“ng nháº¥t 100% vá»›i má»i tháº» khÃ¡c</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2.3A: Bá»™ pháº­n Spa & Grooming (Separate Department â€” Demonstrates N=1 Centered Rule per 3A-P2-4) -->
+      <section id="dept-grooming" class="p3a-section" style="background: var(--color-bg-secondary);">
+        <div class="p3a-container">
+          <span class="p3a-wf-note">[SECTION 2.3A: SPA &amp; GROOMING DEPARTMENT â€” SEPARATE SECTION, NO FORCED MERGING (FIX 3A-P2-4)]</span>
+          <span class="p3a-eyebrow">NhÃ³m Bá»™ pháº­n 02 (Placeholder chá» xÃ¡c nháº­n cÆ¡ cáº¥u)</span>
+          <h2 class="p3a-h2">Bá»™ pháº­n Spa &amp; Grooming</h2>
+          <p class="p3a-lead">
+            Thá»±c thi quy táº¯c <strong>khÃ´ng gá»™p bá»™ pháº­n khÃ´ng liÃªn quan chá»‰ Ä‘á»ƒ lÃ m cháºµn lÆ°á»›i (3A-P2-4)</strong>: Ngay cáº£ khi má»™t bá»™ pháº­n thá»±c táº¿ chá»‰ cÃ³ 1 nhÃ¢n sá»± (N = 1), section váº«n Ä‘á»©ng Ä‘á»™c láº­p vá»›i <strong>1 card cÄƒn giá»¯a giá»¯ Ä‘Ãºng chiá»u rá»™ng chuáº©n</strong> (khÃ´ng kÃ©o giÃ£n).
+          </p>
+
+          <div class="p3a-team-grid" data-count="1">
+            <article class="p3a-team-card">
+              <div class="p3a-monogram-box">
+                <div class="p3a-monogram-circle" aria-hidden="true">SG</div>
+                <span class="p3a-monogram-caption">ChÆ°a cÃ³ áº£nh thá»±c táº¿ â€” Khung chÃ¢n dung 4:5 chá» duyá»‡t</span>
+              </div>
+              <div class="p3a-card-body">
+                <span class="p3a-dept-pill">Bá»™ pháº­n: Spa &amp; Grooming</span>
+                <h3 class="p3a-h3">[Há» vÃ  tÃªn NhÃ¢n sá»± â€” Chá» danh sÃ¡ch xÃ¡c minh]</h3>
+                <p class="p3a-role-line">[Chá»©c danh chuyÃªn mÃ´n â€” Chá» xÃ¡c minh]</p>
+                <p style="font-size: 0.88rem; color: var(--color-fg-muted); margin-bottom: 0.75rem;">
+                  Minh há»a tráº¡ng thÃ¡i N = 1: Tháº» Ä‘Æ°á»£c cÄƒn giá»¯a trá»¥c ngang vá»›i kÃ­ch thÆ°á»›c báº±ng há»‡t tháº» á»Ÿ lÆ°á»›i 3 cá»™t.
+                </p>
+                <ul class="p3a-meta-list">
+                  <li><strong>Vai trÃ² kiÃªm nhiá»‡m:</strong> [Chá»‰ hiá»ƒn thá»‹ náº¿u cÃ³ dá»¯ liá»‡u xÃ¡c minh]</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2.3B: Bá»™ pháº­n ChÄƒm sÃ³c & Há»— trá»£ (Demonstrates N=2 Centered Rule) -->
+      <section id="dept-support" class="p3a-section" style="background: var(--color-bg-primary);">
+        <div class="p3a-container">
+          <span class="p3a-wf-note">[SECTION 2.3B: CARE &amp; SUPPORT DEPARTMENT â€” PLACEHOLDER AWAITING REAL ORG STRUCTURE (3A-P1-2)]</span>
+          <span class="p3a-eyebrow">NhÃ³m Bá»™ pháº­n 03 (Placeholder chá» xÃ¡c nháº­n cÆ¡ cáº¥u)</span>
+          <h2 class="p3a-h2">Bá»™ pháº­n ChÄƒm sÃ³c &amp; Há»— trá»£ váº­n hÃ nh (Khung chá» xÃ¡c nháº­n)</h2>
+          <p class="p3a-lead">
+            KhÃ´ng máº·c Ä‘á»‹nh cÃ³ vá»‹ trÃ­ lá»… tÃ¢n Ä‘á»™c láº­p hay ngÆ°á»i phá»¥ trÃ¡ch ná»™i trÃº 24/7 riÃªng khi chÆ°a cÃ³ xÃ¡c nháº­n tá»« Chá»§ dá»± Ã¡n. DÆ°á»›i Ä‘Ã¢y lÃ  khung placeholder trung tÃ­nh (minh há»a tráº¡ng thÃ¡i N = 2 cÄƒn giá»¯a):
+          </p>
+
+          <div class="p3a-team-grid" data-count="2">
+            <article class="p3a-team-card">
+              <div class="p3a-monogram-box">
+                <div class="p3a-monogram-circle" aria-hidden="true">CS</div>
+                <span class="p3a-monogram-caption">ChÆ°a cÃ³ áº£nh thá»±c táº¿ â€” Khung chÃ¢n dung 4:5 chá» duyá»‡t</span>
+              </div>
+              <div class="p3a-card-body">
+                <span class="p3a-dept-pill">Bá»™ pháº­n: [Chá» xÃ¡c nháº­n tÃªn bá»™ pháº­n]</span>
+                <h3 class="p3a-h3">[Há» vÃ  tÃªn NhÃ¢n sá»± #01 â€” Chá» danh sÃ¡ch xÃ¡c minh]</h3>
+                <p class="p3a-role-line">[Chá»©c danh â€” Chá» xÃ¡c minh]</p>
+                <p style="font-size: 0.88rem; color: var(--color-fg-muted);">
+                  [Pháº¡m vi cÃ´ng viá»‡c há»— trá»£ chÄƒm sÃ³c thÃº cÆ°ng thá»±c táº¿ â€” Chá» Chá»§ dá»± Ã¡n cung cáº¥p].
+                </p>
+              </div>
+            </article>
+
+            <article class="p3a-team-card">
+              <div class="p3a-monogram-box">
+                <div class="p3a-monogram-circle" aria-hidden="true">CS</div>
+                <span class="p3a-monogram-caption">ChÆ°a cÃ³ áº£nh thá»±c táº¿ â€” Khung chÃ¢n dung 4:5 chá» duyá»‡t</span>
+              </div>
+              <div class="p3a-card-body">
+                <span class="p3a-dept-pill">Bá»™ pháº­n: [Chá» xÃ¡c nháº­n tÃªn bá»™ pháº­n]</span>
+                <h3 class="p3a-h3">[Há» vÃ  tÃªn NhÃ¢n sá»± #02 â€” Chá» danh sÃ¡ch xÃ¡c minh]</h3>
+                <p class="p3a-role-line">[Chá»©c danh â€” Chá» xÃ¡c minh]</p>
+                <p style="font-size: 0.88rem; color: var(--color-fg-muted);">
+                  [Pháº¡m vi cÃ´ng viá»‡c há»— trá»£ chÄƒm sÃ³c thÃº cÆ°ng thá»±c táº¿ â€” Chá» Chá»§ dá»± Ã¡n cung cáº¥p].
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2.4: CÃ¡ch Ä‘á»™i ngÅ© phá»‘i há»£p (Fix 3A-P2-8: Framed as Proposal Awaiting Verification) -->
+      <section class="p3a-section" style="background: var(--color-bg-secondary);">
+        <div class="p3a-container">
+          <span class="p3a-wf-note">[SECTION 2.4: COLLABORATIVE WORKFLOW â€” FRAMED AS PROPOSAL AWAITING APPROVAL (FIX 3A-P2-8)]</span>
+          <span class="p3a-proposal-badge">Quy trÃ¬nh phá»‘i há»£p Ä‘á» xuáº¥t â€” Chá» Chá»§ dá»± Ã¡n xÃ¡c nháº­n váº­n hÃ nh thá»±c táº¿</span>
+          <h2 class="p3a-h2">CÃ¡ch Ä‘á»™i ngÅ© phá»‘i há»£p chÄƒm sÃ³c thÃº cÆ°ng (Khung Ä‘á» xuáº¥t)</h2>
+          <p class="p3a-lead">
+            <em>LÆ°u Ã½: CÃ¡c bÆ°á»›c phá»‘i há»£p dÆ°á»›i Ä‘Ã¢y lÃ  khung thiáº¿t káº¿ Ä‘á» xuáº¥t, chá»‰ cÃ´ng bá»‘ chÃ­nh thá»©c sau khi Chá»§ dá»± Ã¡n xÃ¡c nháº­n Ä‘Ãºng quy trÃ¬nh thá»±c táº¿ táº¡i cÆ¡ sá»Ÿ 101 Khuáº¥t Duy Tiáº¿n.</em>
+          </p>
+
+          <div class="p3a-triptych">
+            <article class="p3a-triptych-col">
+              <span class="p3a-triptych-num">01</span>
+              <h3 class="p3a-h3">Tiáº¿p nháº­n &amp; Ghi nháº­n thÃ´ng tin</h3>
+              <p style="font-size: 0.9rem; color: var(--color-fg-muted);">
+                ÄÃ³n tiáº¿p thÃº cÆ°ng táº¡i 101 Khuáº¥t Duy Tiáº¿n (khung giá» khÃ¡m tham chiáº¿u 08:00 â€“ 21:00; tiáº¿p nháº­n cáº¥p cá»©u 24/24 qua Hotline 097 355 51 05) <em>[ÄÃ£ cÃ³ nguá»“n xÃ¡c minh]</em>.
+              </p>
+            </article>
+            <article class="p3a-triptych-col">
+              <span class="p3a-triptych-num">02</span>
+              <h3 class="p3a-h3">ThÄƒm khÃ¡m &amp; TÆ° váº¥n hÆ°á»›ng xá»­ trÃ­</h3>
+              <p style="font-size: 0.9rem; color: var(--color-fg-muted);">
+                Khung mÃ´ táº£ sá»± phá»‘i há»£p giá»¯a bÃ¡c sÄ© thÄƒm khÃ¡m lÃ¢m sÃ ng vÃ  bá»™ pháº­n há»— trá»£ cáº­n lÃ¢m sÃ ng <em>[Äá» xuáº¥t â€” Chá» Chá»§ dá»± Ã¡n xÃ¡c nháº­n]</em>.
+              </p>
+            </article>
+            <article class="p3a-triptych-col">
+              <span class="p3a-triptych-num">03</span>
+              <h3 class="p3a-h3">ChÄƒm sÃ³c, LÆ°u trÃº &amp; HÆ°á»›ng dáº«n vá» nhÃ </h3>
+              <p style="font-size: 0.9rem; color: var(--color-fg-muted);">
+                Khung mÃ´ táº£ cÃ¡ch bÃ n giao thÃ´ng tin chÄƒm sÃ³c ná»™i trÃº / Spa vÃ  dáº·n dÃ² chá»§ nuÃ´i khi Ä‘Ã³n bÃ© vá» <em>[Äá» xuáº¥t â€” Chá» Chá»§ dá»± Ã¡n xÃ¡c nháº­n]</em>.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2.5: CTA LiÃªn há»‡ -->
+      <section class="p3a-section" style="background: var(--color-bg-dark); color: #FFFFFF;">
+        <div class="p3a-container" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.25rem;">
+          <div>
+            <span class="p3a-wf-note">[SECTION 2.5: TEAM CTA BANNER]</span>
+            <h2 class="p3a-h2" style="color: #FFFFFF; margin-bottom: 0.3rem;">Äáº·t lá»‹ch háº¹n khÃ¡m cÃ¹ng Ä‘á»™i ngÅ© LÃª SÆ¡n</h2>
+            <p style="color: var(--color-plum-orchid-light); font-size: 0.92rem;">
+              101 Khuáº¥t Duy Tiáº¿n, Thanh XuÃ¢n, HÃ  Ná»™i â€¢ KhÃ¡m 08:00 â€“ 21:00 â€¢ Cáº¥p cá»©u 24/24
+            </p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            <a class="p3a-btn p3a-btn-primary" style="background: #FFFFFF; color: var(--color-plum-deep);" href="#dat-lich" onclick="return false;">Äáº·t lá»‹ch khÃ¡m</a>
+            <a class="p3a-btn p3a-btn-emergency" href="tel:0973555105">Gá»i 097 355 51 05</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ======================================================================
+         PAGE 3: /co-so-vat-chat â€” CÆ  Sá»ž Váº¬T CHáº¤T (5 Sections)
+         Fixes:
+         - 3A-P2-9: Exact label "áº¢nh minh há»a â€” khÃ´ng pháº£i cÆ¡ sá»Ÿ thá»±c táº¿ cá»§a LÃª SÆ¡n" + Pre-release gate banner.
+         - 3A-P2-10: Removed "sáº¡ch khuáº©n" claim completely.
+         - 3A-P2-11: Neutral equipment slots (no unverified Mindray brand display, no unverified separate surgery room).
+         ====================================================================== -->
+    <main id="page-co-so-vat-chat" class="p3a-page">
+
+      <!-- Section 3.1: Editorial Hero -->
+      <section class="p3a-section" style="background: var(--color-bg-primary);">
+        <div class="p3a-container">
+          <span class="p3a-wf-note">[SECTION 3.1: FACILITY HERO â€” REMOVED "Sáº CH KHUáº¨N" (3A-P2-10) &amp; ADDED PRE-RELEASE GATE (3A-P2-9)]</span>
+
+          <nav class="p3a-breadcrumb" aria-label="Breadcrumb">
+            <a href="#top" onclick="return false;">Trang chá»§</a>
+            <span aria-hidden="true">/</span>
+            <span class="p3a-bc-static">Vá» LÃª SÆ¡n</span>
+            <span aria-hidden="true">/</span>
+            <span class="p3a-bc-current" aria-current="page">CÆ¡ sá»Ÿ váº­t cháº¥t</span>
+          </nav>
+
+          <span class="p3a-eyebrow">KhÃ´ng gian thÄƒm khÃ¡m &amp; chÄƒm sÃ³c â€¢ 101 Khuáº¥t Duy Tiáº¿n</span>
+          <h1 class="p3a-h1">KhÃ´ng gian thÄƒm khÃ¡m sáº¡ch sáº½, bá»‘ trÃ­ rÃµ rÃ ng vÃ¬ sá»± an tÃ¢m cá»§a thÃº cÆ°ng.</h1>
+          <p class="p3a-lead">
+            CÆ¡ sá»Ÿ Bá»‡nh viá»‡n ThÃº y LÃª SÆ¡n táº¡i 101 Khuáº¥t Duy Tiáº¿n, Thanh XuÃ¢n, HÃ  Ná»™i phá»¥c vá»¥ cÃ¡c hoáº¡t Ä‘á»™ng tiáº¿p Ä‘Ã³n, khÃ¡m &amp; Ä‘iá»u trá»‹, chÄƒm sÃ³c ná»™i trÃº 24/7 vÃ  Spa &amp; Grooming.
+          </p>
+
+          <div class="p3a-policy-banner" role="region" aria-label="ChÃ­nh sÃ¡ch áº£nh minh há»a vÃ  Ä‘iá»u kiá»‡n phÃ¡t hÃ nh">
+            <strong>Quy Ä‘á»‹nh áº£nh minh há»a &amp; Äiá»u kiá»‡n trÆ°á»›c phÃ¡t hÃ nh (3A-P2-9, 3A-P2-11):</strong>
+            ToÃ n bá»™ hÃ¬nh áº£nh trong báº£n thiáº¿t káº¿/preview dÆ°á»›i Ä‘Ã¢y Ä‘á»u gáº¯n nhÃ£n trá»±c tiáº¿p <strong>â€œáº¢nh minh há»a â€” khÃ´ng pháº£i cÆ¡ sá»Ÿ thá»±c táº¿ cá»§a LÃª SÆ¡nâ€</strong> vÃ  <strong>khÃ´ng dÃ¹ng Ä‘á»ƒ chá»©ng minh cÆ¡ sá»Ÿ cÃ³ phÃ²ng, khu vá»±c hay thiáº¿t bá»‹ Ä‘Ã³</strong>. Äiá»u kiá»‡n báº¯t buá»™c trÆ°á»›c khi phÃ¡t hÃ nh cÃ´ng khai: thay tháº¿ báº±ng bá»™ áº£nh chá»¥p thá»±c táº¿ táº¡i 101 Khuáº¥t Duy Tiáº¿n Ä‘Æ°á»£c Chá»§ dá»± Ã¡n duyá»‡t (tiÃªu chuáº©n thiáº¿t káº¿ Ä‘á» xuáº¥t tá»‘i thiá»ƒu 4 áº£nh tháº­t).
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3.2: Gallery khÃ´ng gian bá»‡nh viá»‡n (4 Illustration Slots with Exact Label) -->
+      <section class="p3a-section" style="background: var(--color-bg-card); padding-top: 2rem;">
+        <div class="p3a-container">
+          <span class="p3a-wf-note">[SECTION 3.2: ASYMMETRIC GALLERY â€” 4 DESIGN SLOTS WITH EXACT MANDATORY LABEL]</span>
+          <span class="p3a-eyebrow">01 â€¢ Gallery khÃ´ng gian (Äá» xuáº¥t thiáº¿t káº¿ &ge; 4 khung áº£nh tháº­t)</span>
+          <h2 class="p3a-h2">Bá»‘ cá»¥c trÃ¬nh bÃ y cÃ¡c phÃ¢n khu táº¡i cÆ¡ sá»Ÿ</h2>
+
+          <div class="p3a-split-12" style="margin-top: 1.5rem; align-items: stretch;">
+            <!-- Frame 1 (7 cols) -->
+            <figure class="p3a-span-7" style="background: var(--color-bg-primary); border-radius: 20px; border: 1px solid var(--color-border-subtle); overflow: hidden; display: flex; flex-direction: column;">
+              <div class="p3a-media-frame" style="aspect-ratio: 16 / 10; border: none;">
+                <img class="p3a-photo-img" src="../../public/images/why-pet-companion.webp" onerror="this.onerror=null;this.src='file:///d:/webbvct/public/images/why-pet-companion.webp';" alt="Khung minh há»a khu vá»±c tiáº¿p Ä‘Ã³n (áº£nh minh há»a)" />
+                <span class="p3a-illus-label">áº¢nh minh há»a â€” khÃ´ng pháº£i cÆ¡ sá»Ÿ thá»±c táº¿ cá»§a LÃª SÆ¡n</span>
+              </div>
+              <figcaption style="padding: 1.15rem 1.35rem;">
+                <h3 class="p3a-h3">Khung 01: Khu vá»±c Tiáº¿p Ä‘Ã³n &amp; Chá» thÄƒm khÃ¡m (Slot chá» áº£nh tháº­t)</h3>
+                <p style="font-size: 0.88rem; color: var(--color-fg-muted);">Vá»‹ trÃ­ dÃ nh cho áº£nh chá»¥p thá»±c táº¿ máº·t tiá»n vÃ  sáº£nh tiáº¿p Ä‘Ã³n táº¡i 101 Khuáº¥t Duy Tiáº¿n.</p>
+              </figcaption>
+            </figure>
+
+            <!-- Frame 2 (5 cols) -->
+            <figure class="p3a-span-5" style="background: var(--color-bg-primary); border-radius: 20px; border: 1px solid var(--color-border-subtle); overflow: hidden; display: flex; flex-direction: column;">
+              <div class="p3a-media-frame" style="aspect-ratio: 4 / 3; border: none;">
+                <img class="p3a-photo-img" src="../../public/images/article-prevention.webp" onerror="this.onerror=null;this.src='file:///d:/webbvct/public/images/article-prevention.webp';" alt="Khung minh há»a khu vá»±c khÃ¡m lÃ¢m sÃ ng (áº£nh minh há»a)" />
+                <span class="p3a-illus-label">áº¢nh minh há»a â€” khÃ´ng pháº£i cÆ¡ sá»Ÿ thá»±c táº¿ cá»§a LÃª SÆ¡n</span>
+              </div>
+              <figcaption style="padding: 1.15rem 1.35rem;">
+                <h3 class="p3a-h3">Khung 02: Khu vá»±c ThÄƒm khÃ¡m LÃ¢m sÃ ng (Slot chá» áº£nh tháº­t)</h3>
+                <p style="font-size: 0.88rem; color: var(--color-fg-muted);">Vá»‹ trÃ­ dÃ nh cho áº£nh chá»¥p thá»±c táº¿ bÃ n khÃ¡m vÃ  khÃ´ng gian tÆ° váº¥n chá»§ nuÃ´i.</p>
+              </figcaption>
+            </figure>
+
+            <!-- Frame 3 (6 cols) -->
+            <figure class="p3a-span-6" style="background: var(--color-bg-primary); border-radius: 20px; border: 1px solid var(--color-border-subtle); overflow: hidden; display: flex; flex-direction: column;">
+              <div class="p3a-media-frame" style="aspect-ratio: 16 / 10; border: none;">
+                <img class="p3a-photo-img" src="../../public/images/article-nutrition.webp" onerror="this.onerror=null;this.src='file:///d:/webbvct/public/images/article-nutrition.webp';" alt="Khung minh há»a khu vá»±c chÄƒm sÃ³c ná»™i trÃº (áº£nh minh há»a)" />
+                <span class="p3a-illus-label">áº¢nh minh há»a â€” khÃ´ng pháº£i cÆ¡ sá»Ÿ thá»±c táº¿ cá»§a LÃª SÆ¡n</span>
+              </div>
+              <figcaption style="padding: 1.15rem 1.35rem;">
+                <h3 class="p3a-h3">Khung 03: Khu vá»±c ChÄƒm sÃ³c Ná»™i trÃº 24/7 (Slot chá» áº£nh tháº­t)</h3>
+                <p style="font-size: 0.88rem; color: var(--color-fg-muted);">Vá»‹ trÃ­ dÃ nh cho áº£nh chá»¥p thá»±c táº¿ khu lÆ°u chuá»“ng ná»™i trÃº Ä‘Æ°á»£c Chá»§ dá»± Ã¡n duyá»‡t.</p>
+              </figcaption>
+            </figure>
+
+            <!-- Frame 4 (6 cols â€” Architectural Vector Illustration Placeholder) -->
+            <figure class="p3a-span-6" style="background: var(--color-bg-primary); border-radius: 20px; border: 1px solid var(--color-border-subtle); overflow: hidden; display: flex; flex-direction: column;">
+              <div class="p3a-media-frame" style="aspect-ratio: 16 / 10; border: none; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #F8F2F9 0%, #EFE4F2 100%);">
+                <div style="text-align: center; padding: 1.5rem;">
+                  <strong style="font-family: var(--font-serif); font-size: 1.2rem; color: var(--color-plum-primary); display: block; margin-bottom: 0.35rem;">[Khung áº£nh thá»±c táº¿ #04 â€” Khu vá»±c Spa &amp; Grooming]</strong>
+                  <span style="font-size: 0.8rem; color: var(--color-fg-muted);">Äá» xuáº¥t thiáº¿t káº¿ tá»‘i thiá»ƒu 4 áº£nh tháº­t cho Gallery trÆ°á»›c khi phÃ¡t hÃ nh</span>
+                </div>
+                <span class="p3a-illus-label">áº¢nh minh há»a â€” khÃ´ng pháº£i cÆ¡ sá»Ÿ thá»±c táº¿ cá»§a LÃª SÆ¡n</span>
+              </div>
+              <figcaption style="padding: 1.15rem 1.35rem;">
+                <h3 class="p3a-h3">Khung 04: Khu vá»±c Vá»‡ sinh, Spa &amp; Grooming (Slot chá» áº£nh tháº­t)</h3>
+                <p style="font-size: 0.88rem; color: var(--color-fg-muted);">Vá»‹ trÃ­ dÃ nh cho áº£nh chá»¥p thá»±c táº¿ khu vá»±c táº¯m vá»‡ sinh vÃ  cáº¯t tá»‰a lÃ´ng.</p>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3.3: Khu khÃ¡m vÃ  Ä‘iá»u trá»‹ (Fix 3A-P2-11: Neutral Equipment & Zone Slots) -->
+      <section class="p3a-section" style="background: var(--color-bg-primary);">
+        <div class="p3a-container">
+          <span class="p3a-wf-note">[SECTION 3.3: CLINICAL EXAMINATION ZONE â€” NEUTRAL EQUIPMENT SLOTS, NO BRAND OR SURGERY ROOM ASSUMPTION (3A-P2-11)]</span>
+          <span class="p3a-eyebrow">02 â€¢ Khu khÃ¡m vÃ  Ä‘iá»u trá»‹</span>
+          <h2 class="p3a-h2">Tá»• chá»©c khÃ´ng gian thÄƒm khÃ¡m &amp; cáº­n lÃ¢m sÃ ng</h2>
+
+          <div class="p3a-ledger">
+            <div class="p3a-ledger-row">
+              <span class="p3a-ledger-idx">01</span>
+              <div>
+                <h3 class="p3a-h3">Khu vá»±c ThÄƒm khÃ¡m LÃ¢m sÃ ng &amp; TÆ° váº¥n</h3>
+                <p style="font-size: 0.92rem; color: var(--color-fg-muted);">
+                  Phá»¥c vá»¥ kiá»ƒm tra thá»ƒ tráº¡ng tá»•ng quÃ¡t, Ä‘Ã¡nh giÃ¡ triá»‡u chá»©ng lÃ¢m sÃ ng vÃ  trao Ä‘á»•i hÆ°á»›ng chÄƒm sÃ³c trá»±c tiáº¿p cÃ¹ng chá»§ nuÃ´i.
+                </p>
+              </div>
+            </div>
+
+            <div class="p3a-ledger-row">
+              <span class="p3a-ledger-idx">02</span>
+              <div>
+                <h3 class="p3a-h3">Háº¡ng má»¥c Thiáº¿t bá»‹ XÃ©t nghiá»‡m &amp; Cháº©n Ä‘oÃ¡n (Slot trung tÃ­nh)</h3>
+                <div class="p3a-slot-box">
+                  <strong>[Thiáº¿t bá»‹ xÃ©t nghiá»‡m â€” chá» xÃ¡c minh]:</strong> Chá» Chá»§ dá»± Ã¡n xÃ¡c nháº­n danh má»¥c thiáº¿t bá»‹, hÃ£ng sáº£n xuáº¥t, model vÃ  pháº¡m vi xÃ©t nghiá»‡m thá»±c táº¿ trÆ°á»›c khi cÃ´ng bá»‘.<br />
+                  <strong>[Thiáº¿t bá»‹ cháº©n Ä‘oÃ¡n hÃ¬nh áº£nh â€” chá» xÃ¡c minh]:</strong> Chá» Chá»§ dá»± Ã¡n xÃ¡c nháº­n danh má»¥c thiáº¿t bá»‹ siÃªu Ã¢m / cháº©n Ä‘oÃ¡n hÃ¬nh áº£nh thá»±c táº¿ táº¡i cÆ¡ sá»Ÿ.
+                </div>
+              </div>
+            </div>
+
+            <div class="p3a-ledger-row">
+              <span class="p3a-ledger-idx">03</span>
+              <div>
+                <h3 class="p3a-h3">KhÃ´ng gian thá»±c hiá»‡n Thá»§ thuáº­t / Can thiá»‡p Ä‘iá»u trá»‹</h3>
+                <div class="p3a-slot-box">
+                  <strong>[PhÃ¢n khu chá»©c nÄƒng â€” chá» Chá»§ dá»± Ã¡n xÃ¡c nháº­n]:</strong> KhÃ´ng tá»± kháº³ng Ä‘á»‹nh cÆ¡ sá»Ÿ cÃ³ phÃ²ng pháº«u thuáº­t tÃ¡ch biá»‡t khi chÆ°a xÃ¡c minh sÆ¡ Ä‘á»“ phÃ²ng thá»±c táº¿ táº¡i 101 Khuáº¥t Duy Tiáº¿n.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3.4: Khu ná»™i trÃº vÃ  trang thiáº¿t bá»‹ chÄƒm sÃ³c -->
+      <section class="p3a-section" style="background: var(--color-bg-secondary);">
+        <div class="p3a-container">
+          <span class="p3a-wf-note">[SECTION 3.4: INPATIENT CARE &amp; SUPPORT EQUIPMENT SLOTS]</span>
+          <span class="p3a-eyebrow">03 â€¢ Khu ná»™i trÃº 24/7 &amp; Thiáº¿t bá»‹ chÄƒm sÃ³c</span>
+          <h2 class="p3a-h2">Khu vá»±c lÆ°u trÃº vÃ  theo dÃµi thÃº cÆ°ng</h2>
+
+          <div class="p3a-split-12" style="margin-top: 1.5rem;">
+            <div class="p3a-span-6" style="background: var(--color-bg-card); padding: 1.75rem; border-radius: 20px; border: 1px solid var(--color-border-subtle);">
+              <h3 class="p3a-h3">ChÄƒm sÃ³c &amp; LÆ°u trÃº Ná»™i trÃº 24/7</h3>
+              <p style="font-size: 0.92rem; color: var(--color-fg-muted); margin-bottom: 0.85rem;">
+                Phá»¥c vá»¥ cÃ¡c bÃ© cáº§n theo dÃµi sá»©c khá»e hoáº·c chÄƒm sÃ³c lÆ°u trÃº theo dá»‹ch vá»¥ Ná»™i trÃº 24/7 Ä‘Ã£ xÃ¡c nháº­n cá»§a bá»‡nh viá»‡n.
+              </p>
+              <div class="p3a-slot-box">
+                <strong>[Slot quy cÃ¡ch khu ná»™i trÃº â€” chá» xÃ¡c minh]:</strong> Chá» Chá»§ dá»± Ã¡n xÃ¡c nháº­n sá»‘ lÆ°á»£ng/loáº¡i chuá»“ng lÆ°u trÃº vÃ  quy trÃ¬nh vá»‡ sinh Ä‘á»‹nh ká»³ thá»±c táº¿.
+              </div>
+            </div>
+
+            <div class="p3a-span-6" style="background: var(--color-bg-card); padding: 1.75rem; border-radius: 20px; border: 1px solid var(--color-border-subtle);">
+              <h3 class="p3a-h3">Thiáº¿t bá»‹ há»— trá»£ theo dÃµi &amp; chÄƒm sÃ³c</h3>
+              <p style="font-size: 0.92rem; color: var(--color-fg-muted); margin-bottom: 0.85rem;">
+                KhÃ´ng cÃ´ng bá»‘ thÃ´ng sá»‘ ká»¹ thuáº­t hay danh má»¥c mÃ¡y mÃ³c há»— trá»£ ná»™i trÃº khi chÆ°a Ä‘Æ°á»£c Chá»§ dá»± Ã¡n kiá»ƒm tra vÃ  phÃª duyá»‡t.
+              </p>
+              <div class="p3a-slot-box">
+                <strong>[Thiáº¿t bá»‹ há»— trá»£ ná»™i trÃº â€” chá» xÃ¡c minh]:</strong> Chá» Chá»§ dá»± Ã¡n cung cáº¥p danh sÃ¡ch thiáº¿t bá»‹ há»— trá»£ sÆ°á»Ÿi áº¥m, theo dÃµi thá»±c táº¿ táº¡i viá»‡n.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3.5: CTA Ä‘áº¿n bá»‡nh viá»‡n hoáº·c liÃªn há»‡ -->
+      <section class="p3a-section" style="background: var(--color-bg-dark); color: #FFFFFF;">
+        <div class="p3a-container">
+          <span class="p3a-wf-note">[SECTION 3.5: VISIT HOSPITAL &amp; CONTACT CTA]</span>
+          <div class="p3a-split-12">
+            <div class="p3a-span-7">
+              <h2 class="p3a-h2" style="color: #FFFFFF;">Äáº¿n thÄƒm khÃ¡m táº¡i 101 Khuáº¥t Duy Tiáº¿n</h2>
+              <p style="color: var(--color-plum-orchid-light); font-size: 0.95rem; margin-bottom: 1.25rem;">
+                Äá»‹a chá»‰: <strong>101 Khuáº¥t Duy Tiáº¿n, Thanh XuÃ¢n, HÃ  Ná»™i</strong><br />
+                Khung giá» khÃ¡m tham chiáº¿u: <strong>08:00 â€“ 21:00 (Táº¥t cáº£ cÃ¡c ngÃ y)</strong><br />
+                Trá»±c cáº¥p cá»©u: <strong>Tiáº¿p nháº­n cáº¥p cá»©u 24/24 â€” Hotline 097 355 51 05</strong>
+              </p>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+                <a class="p3a-btn p3a-btn-primary" style="background: #FFFFFF; color: var(--color-plum-deep);" href="#dat-lich" onclick="return false;">Äáº·t lá»‹ch khÃ¡m trá»±c tuyáº¿n</a>
+                <a class="p3a-btn p3a-btn-emergency" href="tel:0973555105">Gá»i Cáº¥p cá»©u: 097 355 51 05</a>
+                <a class="p3a-btn p3a-btn-outline-light" href="https://maps.google.com/?q=101+Khuáº¥t+Duy+Tiáº¿n,+Thanh+XuÃ¢n,+HÃ +Ná»™i" target="_blank" rel="noopener noreferrer">Má»Ÿ báº£n Ä‘á»“ Google Maps</a>
+              </div>
+            </div>
+            <div class="p3a-span-5">
+              <div style="background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 16px; padding: 1.4rem;">
+                <h3 class="p3a-h3" style="color: #FFFFFF; font-size: 1.1rem;">HÆ°á»›ng dáº«n khi Ä‘Æ°a bÃ© Ä‘áº¿n viá»‡n</h3>
+                <p style="font-size: 0.88rem; color: rgba(251, 247, 241, 0.86);">
+                  QuÃ½ khÃ¡ch cÃ³ thá»ƒ Ä‘áº·t lá»‹ch háº¹n trÆ°á»›c qua website Ä‘á»ƒ giáº£m thá»i gian chá» Ä‘á»£i. TrÆ°á»ng há»£p cáº¥p cá»©u 24/24, vui lÃ²ng gá»i trá»±c tiáº¿p Hotline <strong>097 355 51 05</strong> Ä‘á»ƒ Ä‘Æ°á»£c tiáº¿p nháº­n ngay.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Shared Footer -->
+    <footer class="p3a-footer">
+      <div class="p3a-footer-inner">
+        <div>
+          <strong style="color: #FFFFFF; font-family: var(--font-serif); font-size: 1.05rem; display: block; margin-bottom: 0.3rem;">
+            Bá»‡nh viá»‡n ThÃº y LÃª SÆ¡n
+          </strong>
+          <p>Äá»‹a chá»‰: 101 Khuáº¥t Duy Tiáº¿n, Thanh XuÃ¢n, HÃ  Ná»™i</p>
+          <p>Giá» khÃ¡m tham chiáº¿u: 08:00 â€“ 21:00 (Táº¥t cáº£ cÃ¡c ngÃ y) â€¢ Tiáº¿p nháº­n cáº¥p cá»©u 24/24</p>
+        </div>
+        <div>
+          <strong style="color: #FFFFFF; display: block; margin-bottom: 0.3rem;">LiÃªn há»‡ &amp; Äáº·t lá»‹ch</strong>
+          <p>Hotline / Cáº¥p cá»©u 24/24: <strong>097 355 51 05</strong></p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Mobile Sticky Bottom Bar (Mobile Viewports 390px / 360px / 320px) -->
+    <div class="p3a-mobile-bar" aria-label="Thanh hÃ nh Ä‘á»™ng nhanh trÃªn di Ä‘á»™ng">
+      <a class="p3a-btn p3a-btn-emergency" style="font-size: 0.82rem; padding: 0.5rem;" href="tel:0973555105">Gá»i 24/24</a>
+      <a class="p3a-btn p3a-btn-primary" style="font-size: 0.82rem; padding: 0.5rem;" href="#dat-lich" onclick="return false;">Äáº·t lá»‹ch khÃ¡m</a>
+    </div>
+
+  </div>
+
+  <script>
+    let currentTeamCount = 3;
+    let currentTeamLayout = 'standard';
+
+    function switchPage(pageId, btnEl) {
+      document.querySelectorAll('.p3a-page').forEach(el => el.classList.remove('p3a-is-active'));
+      const target = document.getElementById('page-' + pageId);
+      if (target) target.classList.add('p3a-is-active');
+
+      if (btnEl) {
+        btnEl.parentElement.querySelectorAll('.p3a-ctrl-btn').forEach(b => b.classList.remove('p3a-is-active'));
+        btnEl.classList.add('p3a-is-active');
+      }
+
+      document.querySelectorAll('.p3a-nav .p3a-nav-link').forEach(nav => {
+        nav.classList.toggle('p3a-is-active', nav.getAttribute('data-nav') === pageId);
+      });
+    }
+
+    function switchPageByNav(pageId) {
+      const buttons = document.querySelectorAll('.p3a-deck-controls .p3a-ctrl-group:first-child .p3a-ctrl-btn');
+      const idxMap = { 'gioi-thieu': 0, 'doi-ngu': 1, 'co-so-vat-chat': 2 };
+      switchPage(pageId, buttons[idxMap[pageId]]);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function setMode(mode, btnEl) {
+      const stage = document.getElementById('p3a-stage');
+      stage.classList.toggle('p3a-wireframe', mode === 'wireframe');
+      btnEl.parentElement.querySelectorAll('.p3a-ctrl-btn').forEach(b => b.classList.remove('p3a-is-active'));
+      btnEl.classList.add('p3a-is-active');
+    }
+
+    function setViewport(vp, btnEl) {
+      const stage = document.getElementById('p3a-stage');
+      stage.setAttribute('data-vp', vp);
+      btnEl.parentElement.querySelectorAll('.p3a-ctrl-btn').forEach(b => b.classList.remove('p3a-is-active'));
+      btnEl.classList.add('p3a-is-active');
+    }
+
+    function setTeamCount(count, layoutMode, btnEl) {
+      currentTeamCount = count;
+      currentTeamLayout = layoutMode || 'standard';
+      const grid = document.getElementById('p3a-vet-grid');
+      grid.setAttribute('data-count', String(count));
+      grid.setAttribute('data-layout', currentTeamLayout);
+
+      const cards = grid.querySelectorAll('.p3a-team-card');
+      cards.forEach((card, idx) => {
+        card.hidden = idx >= count;
+      });
+
+      if (btnEl) {
+        btnEl.parentElement.querySelectorAll('.p3a-filter-btn').forEach(b => b.setAttribute('aria-pressed', 'false'));
+        btnEl.setAttribute('aria-pressed', 'true');
+      }
+
+      updateFilterStatus();
+    }
+
+    function filterDept(deptKey, btnEl) {
+      const map = {
+        vet: document.getElementById('dept-vet'),
+        grooming: document.getElementById('dept-grooming'),
+        support: document.getElementById('dept-support')
+      };
+
+      Object.keys(map).forEach(key => {
+        if (map[key]) {
+          map[key].hidden = (deptKey !== 'all' && deptKey !== key);
+        }
+      });
+
+      if (btnEl) {
+        btnEl.parentElement.querySelectorAll('.p3a-filter-btn').forEach(b => b.setAttribute('aria-pressed', 'false'));
+        btnEl.setAttribute('aria-pressed', 'true');
+      }
+
+      updateFilterStatus(deptKey);
+    }
+
+    function updateFilterStatus(deptKey) {
+      const statusEl = document.getElementById('p3a-filter-status');
+      if (!statusEl) return;
+      const labels = {
+        all: 'Äang hiá»ƒn thá»‹ táº¥t cáº£ 3 nhÃ³m bá»™ pháº­n.',
+        vet: 'Äang lá»c: Chá»‰ hiá»ƒn thá»‹ Bá»™ pháº­n BÃ¡c sÄ© ThÃº y (cÃ¡c bá»™ pháº­n khÃ¡c Ä‘Ã£ áº©n báº±ng thuá»™c tÃ­nh hidden).',
+        grooming: 'Äang lá»c: Chá»‰ hiá»ƒn thá»‹ Bá»™ pháº­n Spa & Grooming (1 tháº» cÄƒn giá»¯a Ä‘á»“ng kÃ­ch thÆ°á»›c).',
+        support: 'Äang lá»c: Chá»‰ hiá»ƒn thá»‹ Bá»™ pháº­n ChÄƒm sÃ³c & Há»— trá»£ (2 tháº» cÄƒn giá»¯a Ä‘á»“ng kÃ­ch thÆ°á»›c).'
+      };
+      const prefix = labels[deptKey] || labels.all;
+      statusEl.textContent = prefix + ' SÄ© sá»‘ mÃ´ phá»ng nhÃ³m BÃ¡c sÄ©: N = ' + currentTeamCount + ' (' + (currentTeamLayout === '7-balanced' ? 'bá»‘ cá»¥c 3+2+2' : 'bá»‘ cá»¥c cÄƒn tÃ¢m chuáº©n') + ').';
+    }
+  </script>
+</body>
+</html>
