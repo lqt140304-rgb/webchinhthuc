@@ -1,5 +1,8 @@
 # BÁO CÁO BÀN GIAO THIẾT KẾ GIAI ĐOẠN 3A — VÒNG SỬA 04 (PHASE 3A DESIGN HANDOFF 04)
 
+> [!NOTE]
+> **Ghi chú đính chính tham chiếu lịch sử:** Báo cáo này là ghi nhận lịch sử của Vòng 04. Các phát hiện `3A04-P2-1` (Header mobile $\le 390\text{px}$) và `3A04-P2-2` (Bộ mô phỏng $N=1..8$) đã được cập nhật và đính chính chính thức tại `docs/qa/3a-design-handoff-05.md` (`3A04-P2-1` giữ trạng thái OPEN chuyển Implementation Backlog; `3A04-P2-2` gỡ khỏi markup giao diện người dùng, duy trì API script `setTeamCount`).
+
 | Hạng mục | Chi tiết |
 | :--- | :--- |
 | **Dự án** | Website Bệnh viện Thú y Lê Sơn 2026 (`lqt140304-rgb/webchinhthuc`) |
