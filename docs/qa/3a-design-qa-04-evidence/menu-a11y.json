@@ -1,0 +1,94 @@
+{
+ "toggle": {
+  "exists": true,
+  "visible": true,
+  "box": [
+   40,
+   44
+  ],
+  "attrs": {
+   "expanded": "false",
+   "controls": "p3a-mobile-drawer",
+   "label": "Menu điều hướng"
+  }
+ },
+ "toggleFocusRing": "solid 2px rgb(90, 30, 94) off 2px",
+ "afterOpen": {
+  "expanded": "true",
+  "drawerVisible": true,
+  "links": [
+   "Giới thiệu",
+   "Đội ngũ",
+   "Cơ sở vật chất",
+   "Dịch vụ",
+   "Góc kiến thức",
+   "Liên hệ"
+  ],
+  "linkHeights": []
+ },
+ "afterEsc": {
+  "expanded": "false",
+  "drawerVisible": false,
+  "focusOnToggle": true
+ },
+ "navViaDrawer": true,
+ "breadcrumb": [
+  [
+   "Trang chủ",
+   44
+  ]
+ ],
+ "ctaFocusRing": "solid 2px off 2px",
+ "tabRings": [
+  "Gọi Hotline: 097 3: solid 2px",
+  "Xem trang Đội ngũ : solid 2px",
+  "Xem Cơ sở vật chất: solid 2px",
+  "Đặt lịch khám trực: solid 2px",
+  "Gọi 097 355 51 05: solid 2px",
+  "Studio v2.1\n      : none 3px",
+  "1. /gioi-thieu: solid 2px",
+  "2. /doi-ngu: solid 2px"
+ ],
+ "reducedMotion": "0s",
+ "simulatorPanel": {
+  "simText": null,
+  "present": false
+ },
+ "filter": {
+  "vet": false,
+  "groom": true,
+  "support": true,
+  "status": "Đang hiển thị: Bộ phận Bác sĩ Thú y.",
+  "live": "polite"
+ },
+ "vipCheck": [
+  [
+   "[Bác sĩ Thú y — Dữ l",
+   "rgb(255, 255, 255)",
+   "rgba(90, 30, 94, 0.12)",
+   "rgba(66, 18, 71, 0.07) 0px 10p",
+   "410x780",
+   "22.08px",
+   "rgb(26, 10, 28)"
+  ],
+  [
+   "BS. Lê Thái Sơn",
+   "rgb(255, 255, 255)",
+   "rgba(90, 30, 94, 0.12)",
+   "rgba(66, 18, 71, 0.07) 0px 10p",
+   "410x780",
+   "22.08px",
+   "rgb(26, 10, 28)"
+  ],
+  [
+   "[Bác sĩ Thú y — Dữ l",
+   "rgb(255, 255, 255)",
+   "rgba(90, 30, 94, 0.12)",
+   "rgba(66, 18, 71, 0.07) 0px 10p",
+   "410x780",
+   "22.08px",
+   "rgb(26, 10, 28)"
+  ]
+ ],
+ "teamImgs": 0
+}
