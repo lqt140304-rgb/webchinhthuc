@@ -1,0 +1,4 @@
+ docs/phase-3a-design-blueprint.md | 13 +++++++------
+ docs/qa/3a-design-handoff-04.md   |  3 +++
+ docs/qa/3a-design-handoff-05.md   |  5 +++--
+ 3 files changed, 13 insertions(+), 8 deletions(-)

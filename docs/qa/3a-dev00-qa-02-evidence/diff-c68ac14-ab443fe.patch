@@ -1,0 +1,98 @@
+diff --git a/docs/phase-3a-design-blueprint.md b/docs/phase-3a-design-blueprint.md
+index 1099d9e..155df96 100644
+--- a/docs/phase-3a-design-blueprint.md
++++ b/docs/phase-3a-design-blueprint.md
+@@ -10,7 +10,7 @@
+ | **Đơn vị thẩm định độc lập** | Claude — Independent QA Lead |
+ | **Phạm vi 3 tuyến trang** | 1. `/gioi-thieu` (Giới thiệu bệnh viện)<br>2. `/doi-ngu` (Đội ngũ)<br>3. `/co-so-vat-chat` (Cơ sở vật chất) |
+ | **Trạng thái phê duyệt** | **PHASE 3A — PENDING OWNER DESIGN APPROVAL (DESIGN ONLY — NO WEBSITE IMPLEMENTATION)** |
+-| **Đường dẫn Mockup trực quan** | - Trong Repository (độc lập với `src/`): `docs/design/phase-3a-interactive-mockups.html`<br>- Trong thư mục Artifact phiên làm việc: `C:/Users/Admin/.gemini/antigravity/brain/6f5020a8-5310-41e1-a151-7821d0315e27/phase-3a-interactive-mockups.html` |
++| **Đường dẫn Mockup trực quan** | - Trong Repository (độc lập với `src/`): `docs/design/phase-3a-interactive-mockups.html`<br>- Trong thư mục Artifact phiên làm việc: `phase-3a-interactive-mockups.html` |
+ | **Báo cáo giải quyết QA** | `docs/qa/3a-design-handoff-05.md` |
+ 
+ ---
+@@ -148,7 +148,7 @@ Public Website (RootLayout: Header + main#main-content + Footer + MobileBottomBa
+    - Breadcrumb: `Trang chủ` (`/`) `/` `Về Lê Sơn` (`<span>` tĩnh) `/` `Đội ngũ` (`aria-current="page"`).
+    - Eyebrow: `ĐỘI NGŨ BỆNH VIỆN THÚ Y LÊ SƠN`
+    - `h1` (`Lora 600`): *“Sự tận tâm từ những người trực tiếp đồng hành cùng thú cưng.”*
+-   - Đoạn dẫn trung tính: *“Tại Bệnh viện Thú y Lê Sơn, hoạt động thăm khám và chăm sóc được tổ chức theo từng bộ phận chuyên môn thực tế. Mỗi thành viên đều có vai trò rõ ràng và phối hợp chặt chẽ vì sự an toàn của từng bé cưng.”*
++   - Đoạn dẫn trung tính: *“Tại Bệnh viện Thú y Lê Sơn, hoạt động thăm khám và chăm sóc được tổ chức theo từng bộ phận chuyên môn. Các bộ phận và thẻ nhân sự dưới đây hiện là khung mô phỏng giao diện, chờ Chủ dự án xác nhận cơ cấu thực tế.”*
+    - **Banner minh bạch hồ sơ nhân sự:** Nêu rõ các hồ sơ trên bản thiết kế hiện sử dụng khung dữ liệu placeholder trung tính và khung ảnh monogram trống; chỉ hiển thị tên, ảnh chân dung, chức danh và bằng cấp sau khi Chủ dự án xác nhận từng hồ sơ thực tế.
+    - **Thanh lọc bộ phận chuẩn Accessibility (`role="toolbar"`, nút `<button type="button" aria-pressed="...">`):**
+      - `Tất cả bộ phận` | `Bộ phận Bác sĩ Thú y (Lâm sàng)` | `Bộ phận Spa & Grooming (Chờ xác nhận)` | `Bộ phận Hỗ trợ & Chăm sóc (Chờ xác nhận)`
+@@ -372,7 +372,7 @@ Public Website (RootLayout: Header + main#main-content + Footer + MobileBottomBa
+ +--------------------------------------------------------------------------------------------------+
+ | SECTION 2.4: CÁCH ĐỘI NGŨ PHỐI HỢP (Đóng khung ĐỀ XUẤT CHỜ CHỦ DỰ ÁN XÁC NHẬN VẬN HÀNH)          |
+ | [NHÃN TRẠNG THÁI: QUY TRÌNH PHỐI HỢP ĐỀ XUẤT — CHỜ CHỦ DỰ ÁN XÁC NHẬN THỰC TẾ]                   |
+-| Bước 01 (Tiếp nhận) -> Bước 02 (Thăm khám) -> Bước 03 (Chăm sóc) -> Bước 04 (Hướng dẫn theo dõi) |
++| Bước 01 (Tiếp nhận) -> Bước 02 (Thăm khám & Trao đổi) -> Bước 03 (Chăm sóc & Hướng dẫn theo dõi) |
+ +--------------------------------------------------------------------------------------------------+
+ | SECTION 2.5: CTA LIÊN HỆ & ĐẶT LỊCH KHÁM (/dat-lich | Hotline 097 355 51 05)                     |
+ +--------------------------------------------------------------------------------------------------+
+@@ -575,10 +575,11 @@ Nhằm tuân thủ tuyệt đối **Chính sách hình ảnh đã phê duyệt (
+ 
+ | Mã QA | Mức | Mô tả phát hiện của Claude | Giải pháp đã thực hiện trong Blueprint v2.4 & Mockup DEV-00 | Bằng chứng kiểm chứng | Kết luận |
+ | :---: | :--- :| :--- | :--- | :--- | :---: |
+-| **3A04-P2-1** | **P2** | Nút CTA Header tại mobile $\le 390\text{px}$ bị rớt dòng ("Đặt lịch hẹn / khám"); handoff 04 báo đã sửa nhưng CSS mockup chưa cập nhật. | Tuân thủ tuyệt đối **Quy chế DEV-00 Freeze** (CEO Directive 024-A): **Giữ nguyên trạng thái OPEN, không sửa CSS mockup trong DEV-00**, ghi nhận chính xác vào tồn đọng triển khai (Implementation Backlog) để xử lý dứt điểm khi bước vào giai đoạn code website chính thức. | Mockup Header CSS; Handoff 05 ghi rõ trạng thái OPEN. | **OPEN (Chuyển sang Implementation Backlog)** |
++| **3A04-P2-1** | **P2** | Nút CTA Header tại mobile $\le 390\text{px}$ bị rớt dòng ("Đặt lịch khám"); handoff 04 báo đã sửa nhưng CSS mockup chưa cập nhật. | Tuân thủ tuyệt đối **Quy chế DEV-00 Freeze** (CEO Directive 024-A): **Giữ nguyên trạng thái OPEN, không sửa CSS mockup trong DEV-00**, ghi nhận chính xác vào tồn đọng triển khai (Implementation Backlog) để xử lý dứt điểm khi bước vào giai đoạn code website chính thức. | Mockup Header CSS; Handoff 05 ghi rõ trạng thái OPEN. | **OPEN (Chuyển sang Implementation Backlog)** |
+ | **3A04-P2-2** | **P2** | Handoff 04 báo đã chuyển các nút mô phỏng $N=1..8$ lên thanh công cụ trên cùng, nhưng thực tế các nút này đã bị xóa khỏi markup. | Báo cáo trung thực và chính xác: **Các nút bấm mô phỏng $N=1..8$ đã được chủ động gỡ bỏ hoàn toàn khỏi giao diện người dùng** (cả trang và thanh công cụ) từ Vòng 04 để tránh làm rối mắt người dùng. Khả năng kiểm thử lưới $N=1..8$ vẫn được bảo toàn trọn vẹn thông qua hàm script/console `setTeamCount(n, layout)`. | Mockup HTML markup; hàm `setTeamCount` trong thẻ `<script>`. | **FIXED IN REPORT (Gỡ khỏi UI — Giữ API kiểm thử)** |
+ | **3A04-P2-3** | **P2** | Handoff 04 gộp chung Tên và Chức danh BS. Sơn thành `VERIFIED`; trong khi chức danh chưa có văn bản xác nhận chính thức từ Chủ dự án. | **Phân tách minh bạch từng trường dữ liệu:**<br>- Họ tên: **VERIFIED** (`BS. Lê Thái Sơn`).<br>- Chức danh: **PENDING VERIFICATION** (`[Chức danh: Bác sĩ Thú y — Chờ xác nhận]`).<br>- Lịch thăm khám: **PENDING VERIFICATION** (`[Chờ cập nhật]`).<br>Đã cập nhật đồng bộ trong Mockup HTML card BS. Sơn và Bảng đối chiếu nội dung. | Mockup card BS. Lê Thái Sơn; Bảng đối chiếu Mục 6 & Handoff 05. | **FIXED** |
+ | **3A04-P2-4** | **P2** | Cơ cấu bộ phận Spa & Grooming và Chăm sóc & Hỗ trợ chưa được xác nhận nhưng nút lọc và tiêu đề mục chưa gắn nhãn chờ xác minh; đoạn dẫn Hero khẳng định phân chia bộ phận thực tế. | **Bổ sung nhãn chờ xác nhận toàn diện:**<br>1. Nút lọc: `Bộ phận Bác sĩ Thú y (Lâm sàng)`, `Bộ phận Spa & Grooming (Chờ xác nhận)`, `Bộ phận Chăm sóc & Hỗ trợ (Chờ xác nhận)`.<br>2. Tiêu đề mục: thêm `(Chờ xác nhận cơ cấu)` tại Section 2.3A và 2.3B.<br>3. Card badge: đổi thành `[Spa & Grooming — Đề xuất]`, `[Chăm sóc Nội trú — Chờ xác nhận]`, `[Tiếp đón & Hỗ trợ — Chờ xác nhận]`.<br>4. Đoạn dẫn Hero: viết lại trung tính, khẳng định đây là khung mô phỏng chờ Chủ dự án duyệt cơ cấu. | Mockup Section 2.1, 2.3A, 2.3B; Bảng đối chiếu Handoff 05. | **FIXED** |
++| **DEV00-P2-1** | **P2** | Đoạn dẫn Section 2.1 trang `/doi-ngu` trong Blueprint v2.4 chưa đồng bộ với mockup, khẳng định cơ cấu chuyên môn thực tế và vai trò phối hợp. | Đã cập nhật đồng bộ 100% nguyên văn theo mockup HTML: *"Tại Bệnh viện Thú y Lê Sơn, hoạt động thăm khám và chăm sóc được tổ chức theo từng bộ phận chuyên môn. Các bộ phận và thẻ nhân sự dưới đây hiện là khung mô phỏng giao diện, chờ Chủ dự án xác nhận cơ cấu thực tế."* | Blueprint Mục 2.2 Section 2.1; Mockup dòng 1428; Handoff 05. | **READY FOR QA** |
+ 
+ ---
+ 
+@@ -690,12 +691,12 @@ Dưới đây là bảng đối chiếu trung thực từng phát hiện trong `
+ ### 10.2. Hướng dẫn mở và kiểm tra Mockup trên Windows & Trình duyệt
+ - **Cách 1 — Mở trực tiếp từ Windows Explorer hoặc PowerShell (Không cần chạy server):**
+   ```powershell
+-  Start-Process "d:\webbvct\docs\design\phase-3a-interactive-mockups.html"
++  Start-Process "docs\design\phase-3a-interactive-mockups.html"
+   ```
+   *(File sử dụng đường dẫn tương đối `../../public/fonts/` và `../../public/images/` kèm SVG nội tuyến độc lập, mở trực tiếp bằng Chrome, Edge hoặc Playwright đều hiển thị đầy đủ 100% phông chữ và hình ảnh).*
+ - **Cách 2 — Mở qua máy chủ tĩnh cục bộ (Phục vụ Claude QA tự động bằng Playwright / Headless Browser):**
+   ```powershell
+-  npx serve d:\webbvct -l 4173
++  npx serve . -l 4173
+   # Sau đó mở trình duyệt tại:
+   # http://localhost:4173/docs/design/phase-3a-interactive-mockups.html
+   ```
+diff --git a/docs/qa/3a-design-handoff-04.md b/docs/qa/3a-design-handoff-04.md
+index 8fae0c7..7552a89 100644
+--- a/docs/qa/3a-design-handoff-04.md
++++ b/docs/qa/3a-design-handoff-04.md
+@@ -1,5 +1,8 @@
+ # BÁO CÁO BÀN GIAO THIẾT KẾ GIAI ĐOẠN 3A — VÒNG SỬA 04 (PHASE 3A DESIGN HANDOFF 04)
+ 
++> [!NOTE]
++> **Ghi chú đính chính tham chiếu lịch sử:** Báo cáo này là ghi nhận lịch sử của Vòng 04. Các phát hiện `3A04-P2-1` (Header mobile $\le 390\text{px}$) và `3A04-P2-2` (Bộ mô phỏng $N=1..8$) đã được cập nhật và đính chính chính thức tại `docs/qa/3a-design-handoff-05.md` (`3A04-P2-1` giữ trạng thái OPEN chuyển Implementation Backlog; `3A04-P2-2` gỡ khỏi markup giao diện người dùng, duy trì API script `setTeamCount`).
++
+ | Hạng mục | Chi tiết |
+ | :--- | :--- |
+ | **Dự án** | Website Bệnh viện Thú y Lê Sơn 2026 (`lqt140304-rgb/webchinhthuc`) |
+diff --git a/docs/qa/3a-design-handoff-05.md b/docs/qa/3a-design-handoff-05.md
+index 1ff7d0a..26b39fe 100644
+--- a/docs/qa/3a-design-handoff-05.md
++++ b/docs/qa/3a-design-handoff-05.md
+@@ -19,10 +19,11 @@ Thực hiện nghiêm ngặt chỉ đạo **CEO DIRECTIVE 024-A**, Antigravity 
+ ### 1.1. Bảng đối chiếu giải quyết 4 phát hiện P2 của QA 3A-04
+ | Mã QA | Mức | Mô tả phát hiện của Claude | Hành động xử lý trong DEV-00 | Trạng thái ghi nhận |
+ | :---: | :---: | :--- | :--- | :---: |
+-| **3A04-P2-1** | **P2** | Nút CTA Header tại mobile $\le 390\text{px}$ bị rớt dòng ("Đặt lịch hẹn / khám"); handoff 04 báo đã sửa nhưng CSS mockup chưa cập nhật. | **Báo cáo trung thực:** Theo quy chế đóng băng tài liệu DEV-00, Antigravity **không sửa CSS mockup** để tránh can thiệp ngoài phạm vi. Mục này được chuyển chính thức vào **Implementation Backlog** để xử lý dứt điểm khi bắt đầu viết code website. | **OPEN (Đã đưa vào Implementation Backlog)** |
++| **3A04-P2-1** | **P2** | Nút CTA Header tại mobile $\le 390\text{px}$ bị rớt dòng ("Đặt lịch khám"); handoff 04 báo đã sửa nhưng CSS mockup chưa cập nhật. | **Báo cáo trung thực:** Theo quy chế đóng băng tài liệu DEV-00, Antigravity **không sửa CSS mockup** để tránh can thiệp ngoài phạm vi. Mục này được chuyển chính thức vào **Implementation Backlog** để xử lý dứt điểm khi bắt đầu viết code website. | **OPEN (Đã đưa vào Implementation Backlog)** |
+ | **3A04-P2-2** | **P2** | Handoff 04 báo đã chuyển các nút mô phỏng $N=1..8$ lên thanh công cụ trên cùng, nhưng thực tế các nút này đã bị xóa khỏi markup. | **Hiệu chỉnh báo cáo chính xác:** Các nút bấm $N=1..8$ đã được **chủ động gỡ bỏ khỏi giao diện người dùng** từ Vòng 04 để tránh làm rối mắt khách hàng. Khả năng kiểm thử lưới $N=1..8$ được giữ nguyên qua hàm script `setTeamCount(n, layout)` trong thẻ `<script>`. | **FIXED IN REPORT (Gỡ khỏi UI — Giữ API kiểm thử)** |
+ | **3A04-P2-3** | **P2** | Handoff 04 gộp chung Tên và Chức danh BS. Sơn thành `VERIFIED`; trong khi chức danh chưa có văn bản xác nhận chính thức từ Chủ dự án. | **Phân tách minh bạch từng trường dữ liệu:**<br>- Họ tên: **VERIFIED** (`BS. Lê Thái Sơn`).<br>- Chức danh: **PENDING VERIFICATION** (`[Chức danh: Bác sĩ Thú y — Chờ xác nhận]`).<br>- Lịch khám: **PENDING VERIFICATION** (`[Chờ cập nhật]`).<br>Đã cập nhật đồng bộ trong Mockup HTML và Bảng đối chiếu nội dung. | **FIXED** |
+ | **3A04-P2-4** | **P2** | Cơ cấu bộ phận Spa & Grooming và Chăm sóc & Hỗ trợ chưa được xác nhận nhưng nút lọc và tiêu đề mục chưa gắn nhãn chờ xác minh; đoạn dẫn Hero khẳng định phân chia bộ phận thực tế. | **Bổ sung nhãn chờ xác nhận toàn diện:**<br>1. Nút lọc: `Bộ phận Bác sĩ Thú y (Lâm sàng)`, `Bộ phận Spa & Grooming (Chờ xác nhận)`, `Bộ phận Chăm sóc & Hỗ trợ (Chờ xác nhận)`.<br>2. Tiêu đề mục: thêm `(Chờ xác nhận cơ cấu)` tại Section 2.3A và 2.3B.<br>3. Card badge: đổi thành `[Spa & Grooming — Đề xuất]`, `[Chăm sóc Nội trú — Chờ xác nhận]`, `[Tiếp đón & Hỗ trợ — Chờ xác nhận]`.<br>4. Đoạn dẫn Hero: viết lại trung tính, khẳng định các bộ phận là khung mô phỏng chờ duyệt. | **FIXED** |
++| **DEV00-P2-1** | **P2** | Đoạn dẫn Section 2.1 trang `/doi-ngu` trong Blueprint chưa đồng bộ với mockup, khẳng định cơ cấu bộ phận chuyên môn thực tế và vai trò phối hợp. | **Cập nhật đồng bộ nguyên văn theo mockup HTML:** *"Tại Bệnh viện Thú y Lê Sơn, hoạt động thăm khám và chăm sóc được tổ chức theo từng bộ phận chuyên môn. Các bộ phận và thẻ nhân sự dưới đây hiện là khung mô phỏng giao diện, chờ Chủ dự án xác nhận cơ cấu thực tế."* | **READY FOR QA** |
+ 
+ ---
+ 
+@@ -56,7 +57,7 @@ Tuân thủ nghiêm ngặt 3 trạng thái xác minh:
+ | `/gioi-thieu` | Section 1.2 (Câu chuyện) | Đóng khung `[CÂU CHUYỆN HÌNH THÀNH — ĐỀ XUẤT CHỜ CHỦ DỰ ÁN PHÊ DUYỆT]`, câu chuyện về sự tận tâm chăm sóc tại cơ sở 101 Khuất Duy Tiến. | Có nhãn đề xuất, nội dung hướng nghiệp trung tính, không mạo danh tiểu sử hay khẳng định quy mô vận hành chưa xác minh. | **PENDING VERIFICATION** | **KHỚP 100%** |
+ | `/gioi-thieu` | Section 1.3 (Giá trị) | 3 giá trị định hướng: Chuyên môn & Trách nhiệm; Tận tâm & Lắng nghe; Theo dõi & Minh bạch. | 3 khối triptych đánh số 01–03 với ngôn từ chuẩn mực y khoa, không cam kết thiết bị hay số liệu chưa xác minh. | **PENDING VERIFICATION** (Đề xuất định hướng) | **KHỚP 100%** |
+ | `/gioi-thieu` | Section 1.4 (Nguyên tắc) | Đóng khung `[ĐỀ XUẤT NỘI DUNG — CHỜ CHỦ DỰ ÁN XÁC NHẬN NGUYÊN TẮC THỰC TẾ]`. Bốn đề xuất định hướng, không dùng từ "được vệ sinh định kỳ", "chỉ chia sẻ trực tiếp". | Có banner đề xuất. 4 hàng ledger đều mở đầu bằng `[Đề xuất 01]..[Đề xuất 04]` và `[Đề xuất định hướng]:...`, loại bỏ hoàn toàn câu từ khẳng định vận hành. | **PENDING VERIFICATION** | **KHỚP 100%** |
+-| `/doi-ngu` | Section 2.1 (Hero & Lọc) | Hero định vị đội ngũ; Banner minh bạch: hồ sơ dùng dữ liệu placeholder và monogram trống. Bộ lọc bộ phận gắn nhãn `(Lâm sàng)`, `(Chờ xác nhận)`. | Breadcrumb tĩnh, Eyebrow, H1, Lead paragraph trung tính, Banner thông báo hồ sơ sơ bộ, Toolbar lọc 3 nhóm (đã gắn nhãn chờ xác nhận). | **VERIFIED** (Nhận diện) / **PENDING VERIFICATION** (Cơ cấu & Hồ sơ) | **KHỚP 100%** |
++| `/doi-ngu` | Section 2.1 (Hero & Lọc) | Hero định vị đội ngũ; Lead paragraph: *"Tại Bệnh viện Thú y Lê Sơn, hoạt động thăm khám và chăm sóc được tổ chức theo từng bộ phận chuyên môn. Các bộ phận và thẻ nhân sự dưới đây hiện là khung mô phỏng giao diện, chờ Chủ dự án xác nhận cơ cấu thực tế."* Banner minh bạch: hồ sơ placeholder & monogram trống. Toolbar 4 nút lọc: Tất cả & 3 nhóm gắn nhãn chờ xác nhận. | Breadcrumb tĩnh, Eyebrow, H1, Lead paragraph trung tính (nêu rõ khung mô phỏng chờ duyệt cơ cấu thực tế), Banner thông báo hồ sơ sơ bộ, Toolbar 4 nút lọc. | **VERIFIED** (Nhận diện) / **PENDING VERIFICATION** (Cơ cấu & Hồ sơ) | **KHỚP 100%** |
+ | `/doi-ngu` | Section 2.2 (Khối Bác sĩ — Card BS. Sơn) | Phân tách trường: Họ tên đã xác minh; Chức danh chờ xác nhận; Lịch khám chờ cập nhật. | Tên: `BS. Lê Thái Sơn`. Dòng vai trò: `[Chức danh: Bác sĩ Thú y — Chờ xác nhận]`. Mô tả: `[Phạm vi chuyên môn & phụ trách — Chờ cập nhật hồ sơ thực tế]`. Lịch khám: `[Chờ cập nhật]`. | **VERIFIED** (Họ tên) / **PENDING VERIFICATION** (Chức danh & Lịch khám) | **KHỚP 100%** |
+ | `/doi-ngu` | Section 2.2 (Khối Bác sĩ — Card mô phỏng) | Khung Monogram trống `4:5`, Tên: `[Bác sĩ Thú y — Dữ liệu mô phỏng]`, Chức danh: `[Chức danh: Chờ xác minh]`, Phạm vi: `[Chờ cập nhật]`. | Các card BS #1, #3 100% sử dụng đúng mẫu placeholder trung tính, không tự nhận sĩ số 3 bác sĩ thật. | **ILLUSTRATIVE** (Mô phỏng lưới) | **KHỚP 100%** |
+ | `/doi-ngu` | Section 2.3A (Spa & Grooming) | Bộ phận Spa & Grooming (Chờ xác nhận cơ cấu). Card chuyên viên: monogram `SG`, `[Spa & Grooming — Đề xuất]`. | Tiêu đề: `Bộ phận Spa & Grooming (Chờ xác nhận cơ cấu)`. Card pill: `[Spa & Grooming — Đề xuất]`. Nội dung placeholder trung tính. | **PENDING VERIFICATION** | **KHỚP 100%** |
