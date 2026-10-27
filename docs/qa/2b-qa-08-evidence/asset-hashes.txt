@@ -1,0 +1,15 @@
+local build db78738 (npm ci && npm run build, Linux, LF):
+10f187c6990780a5a4417928e9ab313db068caffce0e988233b07cadba8be234  index-CvVwFN8Z.js
+ca6de747195a5550d80dc7ea59cc7ea8a43c51a9b77c07d596e79ffbefe66d87  index-vrX09Urw.css
+
+build CRLF-simulated copy (dist/assets):
+09ad344851af77f1c24d874919977b618bfedfb7072b54181e4086cf481958ff  index-B-GTln-y.js
+17972a7332fb55d678619d610406c6b9370aefe5f34452f2aef2ad4019fd8682  index-By3Z6gpb.css
+
+Preview /assets (HTML tham chiếu index-BXf100Jr.js, index-Czcu7kTu.css):
+09ad344851af77f1c24d874919977b618bfedfb7072b54181e4086cf481958ff  pv.js
+f98674371966dda5c3edc2adf0c5171f3f1fd2883a60f9f8bef0a49efd93b291  pv.css
+
+Preview trả HTML (SPA fallback) cho tên asset mong đợi:
+2150734e79441822ff5c0b30eb5c02c4e5a7a3d7e8508c09a257a2c9da12aff6  p.js
+2150734e79441822ff5c0b30eb5c02c4e5a7a3d7e8508c09a257a2c9da12aff6  p.css

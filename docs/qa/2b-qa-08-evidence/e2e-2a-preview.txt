@@ -1,0 +1,405 @@
+TAP version 13
+# Subtest: P1-1 Header 320px
+    # Subtest: viewport đúng 320px, Menu nằm trọn và mở được Drawer (isMobile=false)
+    ok 1 - viewport đúng 320px, Menu nằm trọn và mở được Drawer (isMobile=false)
+      ---
+      duration_ms: 3106.118151
+      type: 'test'
+      ...
+    # Subtest: viewport đúng 320px, Menu nằm trọn và mở được Drawer (isMobile=true)
+    ok 2 - viewport đúng 320px, Menu nằm trọn và mở được Drawer (isMobile=true)
+      ---
+      duration_ms: 2211.990863
+      type: 'test'
+      ...
+    1..2
+ok 1 - P1-1 Header 320px
+  ---
+  duration_ms: 6599.919801
+  type: 'suite'
+  ...
+# Subtest: Responsive: không tràn ngang ở 5 viewport
+    # Subtest: home @ 320px
+    ok 1 - home @ 320px
+      ---
+      duration_ms: 2792.369856
+      type: 'test'
+      ...
+    # Subtest: comingSoon @ 320px
+    ok 2 - comingSoon @ 320px
+      ---
+      duration_ms: 1591.54082
+      type: 'test'
+      ...
+    # Subtest: notFound @ 320px
+    ok 3 - notFound @ 320px
+      ---
+      duration_ms: 1687.173677
+      type: 'test'
+      ...
+    # Subtest: home @ 390px
+    ok 4 - home @ 390px
+      ---
+      duration_ms: 2673.814122
+      type: 'test'
+      ...
+    # Subtest: comingSoon @ 390px
+    ok 5 - comingSoon @ 390px
+      ---
+      duration_ms: 1576.042855
+      type: 'test'
+      ...
+    # Subtest: notFound @ 390px
+    ok 6 - notFound @ 390px
+      ---
+      duration_ms: 1577.14863
+      type: 'test'
+      ...
+    # Subtest: home @ 768px
+    ok 7 - home @ 768px
+      ---
+      duration_ms: 2103.975714
+      type: 'test'
+      ...
+    # Subtest: comingSoon @ 768px
+    ok 8 - comingSoon @ 768px
+      ---
+      duration_ms: 1549.426792
+      type: 'test'
+      ...
+    # Subtest: notFound @ 768px
+    ok 9 - notFound @ 768px
+      ---
+      duration_ms: 1678.968859
+      type: 'test'
+      ...
+    # Subtest: home @ 1366px
+    ok 10 - home @ 1366px
+      ---
+      duration_ms: 2116.714797
+      type: 'test'
+      ...
+    # Subtest: comingSoon @ 1366px
+    ok 11 - comingSoon @ 1366px
+      ---
+      duration_ms: 1805.257374
+      type: 'test'
+      ...
+    # Subtest: notFound @ 1366px
+    ok 12 - notFound @ 1366px
+      ---
+      duration_ms: 1796.840481
+      type: 'test'
+      ...
+    # Subtest: home @ 1440px
+    ok 13 - home @ 1440px
+      ---
+      duration_ms: 2471.355571
+      type: 'test'
+      ...
+    # Subtest: comingSoon @ 1440px
+    ok 14 - comingSoon @ 1440px
+      ---
+      duration_ms: 1861.515239
+      type: 'test'
+      ...
+    # Subtest: notFound @ 1440px
+    ok 15 - notFound @ 1440px
+      ---
+      duration_ms: 1779.515557
+      type: 'test'
+      ...
+    1..15
+ok 2 - Responsive: không tràn ngang ở 5 viewport
+  ---
+  duration_ms: 29063.595683
+  type: 'suite'
+  ...
+# Subtest: P1-2 Kích thước khung sau khi sửa token
+    # Subtest: ComingSoon và 404 ở 1440px có độ rộng chữ dễ đọc (≤ 800px)
+    ok 1 - ComingSoon và 404 ở 1440px có độ rộng chữ dễ đọc (≤ 800px)
+      ---
+      duration_ms: 3078.131998
+      type: 'test'
+      ...
+    # Subtest: Drawer ở 768px không phủ gần hết màn hình (≤ 480px)
+    ok 2 - Drawer ở 768px không phủ gần hết màn hình (≤ 480px)
+      ---
+      duration_ms: 2188.218077
+      type: 'test'
+      ...
+    1..2
+ok 3 - P1-2 Kích thước khung sau khi sửa token
+  ---
+  duration_ms: 5266.909436
+  type: 'suite'
+  ...
+# Subtest: Drawer: focus, Escape, cuộn
+    # Subtest: mở: focus vào trong, trigger có aria-expanded/aria-controls
+    ok 1 - mở: focus vào trong, trigger có aria-expanded/aria-controls
+      ---
+      duration_ms: 2100.191438
+      type: 'test'
+      ...
+    # Subtest: Tab/Shift+Tab không thoát dialog; Escape đóng, trả focus, khôi phục cuộn
+    ok 2 - Tab/Shift+Tab không thoát dialog; Escape đóng, trả focus, khôi phục cuộn
+      ---
+      duration_ms: 2968.406929
+      type: 'test'
+      ...
+    # Subtest: chọn link trong Drawer: đóng, đổi route, khôi phục cuộn
+    ok 3 - chọn link trong Drawer: đóng, đổi route, khôi phục cuộn
+      ---
+      duration_ms: 2184.689407
+      type: 'test'
+      ...
+    1..3
+ok 4 - Drawer: focus, Escape, cuộn
+  ---
+  duration_ms: 7253.619262
+  type: 'suite'
+  ...
+# Subtest: P1-5 Resize qua breakpoint desktop
+    # Subtest: mở ở 900px, resize 1180px: gỡ khóa cuộn; quay lại mobile vẫn mở được
+    ok 1 - mở ở 900px, resize 1180px: gỡ khóa cuộn; quay lại mobile vẫn mở được
+      ---
+      duration_ms: 2587.030573
+      type: 'test'
+      ...
+    1..1
+ok 5 - P1-5 Resize qua breakpoint desktop
+  ---
+  duration_ms: 2587.626327
+  type: 'suite'
+  ...
+# Subtest: P1-4 và P2-2 Dropdown desktop
+    # Subtest: rê chuột rồi bấm vẫn truy cập được submenu
+    ok 1 - rê chuột rồi bấm vẫn truy cập được submenu
+      ---
+      duration_ms: 2238.378442
+      type: 'test'
+      ...
+    # Subtest: bàn phím: mở, focus mục đầu, Escape đóng và trả focus
+    ok 2 - bàn phím: mở, focus mục đầu, Escape đóng và trả focus
+      ---
+      duration_ms: 1920.357979
+      type: 'test'
+      ...
+    # Subtest: P2-2: Tab rời nhóm thì submenu đóng
+    ok 3 - P2-2: Tab rời nhóm thì submenu đóng
+      ---
+      duration_ms: 2126.483902
+      type: 'test'
+      ...
+    1..3
+ok 6 - P1-4 và P2-2 Dropdown desktop
+  ---
+  duration_ms: 6285.695372
+  type: 'suite'
+  ...
+# Subtest: P1-3 Trạng thái trang hiện tại
+    # Subtest: "/" : Trang chủ có aria-current="page", không có mục nào khác
+    ok 1 - "/" : Trang chủ có aria-current="page", không có mục nào khác
+      ---
+      duration_ms: 1851.078024
+      type: 'test'
+      ...
+    # Subtest: "/dich-vu/spa": nhóm "Dịch vụ" được tô, tối đa 1 aria-current
+    ok 2 - "/dich-vu/spa": nhóm "Dịch vụ" được tô, tối đa 1 aria-current
+      ---
+      duration_ms: 1518.007441
+      type: 'test'
+      ...
+    # Subtest: "/cau-chuyen/abc": nhóm "Câu chuyện" được tô, tối đa 1 aria-current
+    ok 3 - "/cau-chuyen/abc": nhóm "Câu chuyện" được tô, tối đa 1 aria-current
+      ---
+      duration_ms: 1451.490266
+      type: 'test'
+      ...
+    # Subtest: dropdown desktop "/dich-vu/spa": đúng một mục aria-current (/dich-vu/spa)
+    ok 4 - dropdown desktop "/dich-vu/spa": đúng một mục aria-current (/dich-vu/spa)
+      ---
+      duration_ms: 1619.122445
+      type: 'test'
+      ...
+    # Subtest: dropdown desktop "/dich-vu": đúng một mục aria-current (/dich-vu)
+    ok 5 - dropdown desktop "/dich-vu": đúng một mục aria-current (/dich-vu)
+      ---
+      duration_ms: 1560.164469
+      type: 'test'
+      ...
+    # Subtest: dropdown desktop "/goc-thu-cung?cat=news": đúng một mục aria-current (/goc-thu-cung?cat=news)
+    ok 6 - dropdown desktop "/goc-thu-cung?cat=news": đúng một mục aria-current (/goc-thu-cung?cat=news)
+      ---
+      duration_ms: 1508.226959
+      type: 'test'
+      ...
+    # Subtest: dropdown desktop "/goc-thu-cung": đúng một mục aria-current (/goc-thu-cung)
+    ok 7 - dropdown desktop "/goc-thu-cung": đúng một mục aria-current (/goc-thu-cung)
+      ---
+      duration_ms: 1555.360163
+      type: 'test'
+      ...
+    # Subtest: ranh giới route: "/dich-vu-khong-ton-tai" (404) không làm nhóm nào là hiện tại
+    ok 8 - ranh giới route: "/dich-vu-khong-ton-tai" (404) không làm nhóm nào là hiện tại
+      ---
+      duration_ms: 1561.950095
+      type: 'test'
+      ...
+    # Subtest: ranh giới route: "/cau-chuyenxyz" (404) không làm nhóm nào là hiện tại
+    ok 9 - ranh giới route: "/cau-chuyenxyz" (404) không làm nhóm nào là hiện tại
+      ---
+      duration_ms: 1562.719363
+      type: 'test'
+      ...
+    # Subtest: ranh giới route: "/gioi-thieu-abc" (404) không làm nhóm nào là hiện tại
+    ok 10 - ranh giới route: "/gioi-thieu-abc" (404) không làm nhóm nào là hiện tại
+      ---
+      duration_ms: 1522.344101
+      type: 'test'
+      ...
+    # Subtest: Drawer "/dich-vu/spa": link Spa có aria-current="page"
+    ok 11 - Drawer "/dich-vu/spa": link Spa có aria-current="page"
+      ---
+      duration_ms: 1598.00101
+      type: 'test'
+      ...
+    1..11
+ok 7 - P1-3 Trạng thái trang hiện tại
+  ---
+  duration_ms: 17309.877539
+  type: 'suite'
+  ...
+# Subtest: P1-6 Lối vào và tham số
+    # Subtest: desktop: có link /lien-he và /dich-vu trong header hoặc footer, vào đúng route
+    ok 1 - desktop: có link /lien-he và /dich-vu trong header hoặc footer, vào đúng route
+      ---
+      duration_ms: 1979.792837
+      type: 'test'
+      ...
+    # Subtest: Drawer: có link /lien-he và /dich-vu
+    ok 2 - Drawer: có link /lien-he và /dich-vu
+      ---
+      duration_ms: 2029.415056
+      type: 'test'
+      ...
+    # Subtest: tin tức dùng ?cat=news, không còn ?tab=
+    ok 3 - tin tức dùng ?cat=news, không còn ?tab=
+      ---
+      duration_ms: 1754.347276
+      type: 'test'
+      ...
+    # Subtest: ComingSoon có CTA liên hệ/đặt lịch ngoài hotline và nút về trang chủ
+    ok 4 - ComingSoon có CTA liên hệ/đặt lịch ngoài hotline và nút về trang chủ
+      ---
+      duration_ms: 1350.532422
+      type: 'test'
+      ...
+    # Subtest: mobile 390px: hotline dễ thấy ở header hoặc thanh dưới đáy
+    ok 5 - mobile 390px: hotline dễ thấy ở header hoặc thanh dưới đáy
+      ---
+      duration_ms: 1807.924551
+      type: 'test'
+      ...
+    1..5
+ok 8 - P1-6 Lối vào và tham số
+  ---
+  duration_ms: 8923.026753
+  type: 'suite'
+  ...
+# Subtest: P1-7 Meta, lịch sử và tệp SEO
+    # Subtest: title riêng, noindex đúng qua navigation, Back/Forward và 404
+    ok 1 - title riêng, noindex đúng qua navigation, Back/Forward và 404
+      ---
+      duration_ms: 3417.036793
+      type: 'test'
+      ...
+    # Subtest: robots.txt là text/plain, chặn /tai-khoan/, /dang-nhap, /dang-ky
+    ok 2 - robots.txt là text/plain, chặn /tai-khoan/, /dang-nhap, /dang-ky
+      ---
+      duration_ms: 2477.483458
+      type: 'test'
+      ...
+    # Subtest: sitemap.xml là XML hợp lệ, chỉ chứa trang chủ
+    ok 3 - sitemap.xml là XML hợp lệ, chỉ chứa trang chủ
+      ---
+      duration_ms: 2032.123575
+      type: 'test'
+      ...
+    # Subtest: [thông tin] HTML gốc của trang chờ chưa có noindex (giới hạn client rendering)
+    ok 4 - [thông tin] HTML gốc của trang chờ chưa có noindex (giới hạn client rendering) # SKIP BLOCKED: noindex trong HTML gốc cần phương án host/prerender được duyệt
+      ---
+      duration_ms: 2198.227779
+      type: 'test'
+      ...
+    1..4
+ok 9 - P1-7 Meta, lịch sử và tệp SEO
+  ---
+  duration_ms: 10125.538762
+  type: 'suite'
+  ...
+# Subtest: P1-8 Host đích
+    # Subtest: mở thẳng/F5 route con, asset và URL sai trên host đích
+    ok 1 - mở thẳng/F5 route con, asset và URL sai trên host đích # SKIP BLOCKED: chưa chốt host đích (đặt HOST_URL để chạy)
+      ---
+      duration_ms: 0.338455
+      type: 'test'
+      ...
+    1..1
+ok 10 - P1-8 Host đích
+  ---
+  duration_ms: 0.495908
+  type: 'suite'
+  ...
+# Subtest: P2 Khả năng truy cập và CSS
+    # Subtest: P2-1 tương phản các điểm đã nêu đạt WCAG AA
+    ok 1 - P2-1 tương phản các điểm đã nêu đạt WCAG AA
+      ---
+      duration_ms: 1838.684335
+      type: 'test'
+      ...
+    # Subtest: P2-3 chuyển trang: focus vào main/h1 hoặc có thông báo aria-live
+    ok 2 - P2-3 chuyển trang: focus vào main/h1 hoặc có thông báo aria-live
+      ---
+      duration_ms: 1912.570472
+      type: 'test'
+      ...
+    # Subtest: P2-4 không còn lớp animate-in/fade-in/slide-in-* và py-0.2
+    ok 3 - P2-4 không còn lớp animate-in/fade-in/slide-in-* và py-0.2
+      ---
+      duration_ms: 2962.677185
+      type: 'test'
+      ...
+    # Subtest: P2-5 thanh dưới đáy có padding theo safe-area
+    ok 4 - P2-5 thanh dưới đáy có padding theo safe-area
+      ---
+      duration_ms: 1866.415534
+      type: 'test'
+      ...
+    # Subtest: giảm chuyển động được tôn trọng
+    ok 5 - giảm chuyển động được tôn trọng
+      ---
+      duration_ms: 1944.764998
+      type: 'test'
+      ...
+    1..5
+ok 11 - P2 Khả năng truy cập và CSS
+  ---
+  duration_ms: 10525.628899
+  type: 'suite'
+  ...
+# Subtest: không có console error / pageerror trong toàn bộ lượt chạy
+ok 12 - không có console error / pageerror trong toàn bộ lượt chạy
+  ---
+  duration_ms: 0.166606
+  type: 'test'
+  ...
+1..12
+# tests 53
+# suites 11
+# pass 51
+# fail 0
+# cancelled 0
+# skipped 2
+# todo 0
+# duration_ms 104401.668377

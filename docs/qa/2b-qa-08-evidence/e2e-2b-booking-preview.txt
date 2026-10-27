@@ -1,0 +1,120 @@
+TAP version 13
+# Subtest: B01 /dat-lich: form
+    # Subtest: mọi trường có nhãn; trường bắt buộc được đánh dấu
+    ok 1 - mọi trường có nhãn; trường bắt buộc được đánh dấu
+      ---
+      duration_ms: 1767.06017
+      type: 'test'
+      ...
+    # Subtest: gửi form rỗng: không gửi, có thông báo lỗi gắn với trường và focus vào lỗi đầu tiên
+    ok 2 - gửi form rỗng: không gửi, có thông báo lỗi gắn với trường và focus vào lỗi đầu tiên
+      ---
+      duration_ms: 1548.239308
+      type: 'test'
+      ...
+    # Subtest: số điện thoại sai định dạng bị chặn
+    ok 3 - số điện thoại sai định dạng bị chặn
+      ---
+      duration_ms: 2281.901075
+      type: 'test'
+      ...
+    # Subtest: ngày hẹn không cho chọn ngày trong quá khứ
+    ok 4 - ngày hẹn không cho chọn ngày trong quá khứ
+      ---
+      duration_ms: 1508.78604
+      type: 'test'
+      ...
+    # Subtest: gửi dữ liệu hợp lệ: KHÔNG báo đặt lịch/tiếp nhận thành công; nói rõ chưa gửi và dẫn tới hotline
+    ok 5 - gửi dữ liệu hợp lệ: KHÔNG báo đặt lịch/tiếp nhận thành công; nói rõ chưa gửi và dẫn tới hotline
+      ---
+      duration_ms: 2802.522972
+      type: 'test'
+      ...
+    # Subtest: focus nhìn thấy trên mọi trường và nút của form (outline/box-shadow, hoặc viền đổi màu ≥ 3:1)
+    ok 6 - focus nhìn thấy trên mọi trường và nút của form (outline/box-shadow, hoặc viền đổi màu ≥ 3:1)
+      ---
+      duration_ms: 1864.971893
+      type: 'test'
+      ...
+    # Subtest: /dat-lich: title riêng, noindex (meta), một h1
+    ok 7 - /dat-lich: title riêng, noindex (meta), một h1
+      ---
+      duration_ms: 1495.743908
+      type: 'test'
+      ...
+    1..7
+ok 1 - B01 /dat-lich: form
+  ---
+  duration_ms: 13350.494026
+  type: 'suite'
+  ...
+# Subtest: B01 /dat-lich: responsive 7 kích thước
+    # Subtest: @320px không tràn, nút gửi nằm trong màn hình
+    ok 1 - @320px không tràn, nút gửi nằm trong màn hình
+      ---
+      duration_ms: 1798.971178
+      type: 'test'
+      ...
+    # Subtest: @360px không tràn, nút gửi nằm trong màn hình
+    ok 2 - @360px không tràn, nút gửi nằm trong màn hình
+      ---
+      duration_ms: 1726.192577
+      type: 'test'
+      ...
+    # Subtest: @390px không tràn, nút gửi nằm trong màn hình
+    ok 3 - @390px không tràn, nút gửi nằm trong màn hình
+      ---
+      duration_ms: 1584.271515
+      type: 'test'
+      ...
+    # Subtest: @768px không tràn, nút gửi nằm trong màn hình
+    ok 4 - @768px không tràn, nút gửi nằm trong màn hình
+      ---
+      duration_ms: 1799.639765
+      type: 'test'
+      ...
+    # Subtest: @1366px không tràn, nút gửi nằm trong màn hình
+    ok 5 - @1366px không tràn, nút gửi nằm trong màn hình
+      ---
+      duration_ms: 1732.173929
+      type: 'test'
+      ...
+    # Subtest: @1440px không tràn, nút gửi nằm trong màn hình
+    ok 6 - @1440px không tràn, nút gửi nằm trong màn hình
+      ---
+      duration_ms: 1879.290963
+      type: 'test'
+      ...
+    # Subtest: @1920px không tràn, nút gửi nằm trong màn hình
+    ok 7 - @1920px không tràn, nút gửi nằm trong màn hình
+      ---
+      duration_ms: 1822.812556
+      type: 'test'
+      ...
+    1..7
+ok 2 - B01 /dat-lich: responsive 7 kích thước
+  ---
+  duration_ms: 12344.987588
+  type: 'suite'
+  ...
+# Subtest: /dat-lich: tương phản chữ đạt AA
+ok 3 - /dat-lich: tương phản chữ đạt AA
+  ---
+  duration_ms: 1494.824972
+  type: 'test'
+  ...
+# Subtest: 2b-booking: không có console error / pageerror
+ok 4 - 2b-booking: không có console error / pageerror
+  ---
+  duration_ms: 1.381713
+  type: 'test'
+  ...
+1..4
+# tests 16
+# suites 2
+# pass 16
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 27648.869212

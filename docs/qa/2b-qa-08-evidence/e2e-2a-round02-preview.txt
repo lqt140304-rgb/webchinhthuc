@@ -1,0 +1,209 @@
+TAP version 13
+# Subtest: R2 P1-3 Drawer: ranh giới route và đúng một mục hiện tại
+    # Subtest: Drawer "/": aria-current đúng /
+    ok 1 - Drawer "/": aria-current đúng /
+      ---
+      duration_ms: 2187.001582
+      type: 'test'
+      ...
+    # Subtest: Drawer "/dich-vu": aria-current đúng /dich-vu
+    ok 2 - Drawer "/dich-vu": aria-current đúng /dich-vu
+      ---
+      duration_ms: 1737.649526
+      type: 'test'
+      ...
+    # Subtest: Drawer "/dich-vu/spa": aria-current đúng /dich-vu/spa
+    ok 3 - Drawer "/dich-vu/spa": aria-current đúng /dich-vu/spa
+      ---
+      duration_ms: 1770.805514
+      type: 'test'
+      ...
+    # Subtest: Drawer "/goc-thu-cung": aria-current đúng /goc-thu-cung
+    ok 4 - Drawer "/goc-thu-cung": aria-current đúng /goc-thu-cung
+      ---
+      duration_ms: 1613.470961
+      type: 'test'
+      ...
+    # Subtest: Drawer "/goc-thu-cung?cat=news": aria-current đúng /goc-thu-cung?cat=news
+    ok 5 - Drawer "/goc-thu-cung?cat=news": aria-current đúng /goc-thu-cung?cat=news
+      ---
+      duration_ms: 1779.977383
+      type: 'test'
+      ...
+    # Subtest: Drawer "/cau-chuyen": aria-current đúng /cau-chuyen
+    ok 6 - Drawer "/cau-chuyen": aria-current đúng /cau-chuyen
+      ---
+      duration_ms: 1609.0009
+      type: 'test'
+      ...
+    # Subtest: Drawer "/cau-chuyen/abc": nhất quán với desktop (Câu chuyện là mục hiện tại)
+    ok 7 - Drawer "/cau-chuyen/abc": nhất quán với desktop (Câu chuyện là mục hiện tại)
+      ---
+      duration_ms: 1764.681666
+      type: 'test'
+      ...
+    # Subtest: Drawer ranh giới: "/dich-vu-khong-ton-tai" (404) không có mục/nhóm hiện tại
+    ok 8 - Drawer ranh giới: "/dich-vu-khong-ton-tai" (404) không có mục/nhóm hiện tại
+      ---
+      duration_ms: 1684.327636
+      type: 'test'
+      ...
+    # Subtest: Drawer ranh giới: "/cau-chuyenxyz" (404) không có mục/nhóm hiện tại
+    ok 9 - Drawer ranh giới: "/cau-chuyenxyz" (404) không có mục/nhóm hiện tại
+      ---
+      duration_ms: 1676.659285
+      type: 'test'
+      ...
+    # Subtest: Drawer ranh giới: "/gioi-thieu-abc" (404) không có mục/nhóm hiện tại
+    ok 10 - Drawer ranh giới: "/gioi-thieu-abc" (404) không có mục/nhóm hiện tại
+      ---
+      duration_ms: 1765.471767
+      type: 'test'
+      ...
+    # Subtest: Drawer ranh giới: "/goc-thu-cung-abc" (404) không có mục/nhóm hiện tại
+    ok 11 - Drawer ranh giới: "/goc-thu-cung-abc" (404) không có mục/nhóm hiện tại
+      ---
+      duration_ms: 1586.607469
+      type: 'test'
+      ...
+    1..11
+ok 1 - R2 P1-3 Drawer: ranh giới route và đúng một mục hiện tại
+  ---
+  duration_ms: 19266.015122
+  type: 'suite'
+  ...
+# Subtest: R2 P1-4 Dropdown: luồng chuột thật
+    # Subtest: rê → bấm → di chuột vào submenu → bấm "Spa" thì tới /dich-vu/spa
+    ok 1 - rê → bấm → di chuột vào submenu → bấm "Spa" thì tới /dich-vu/spa
+      ---
+      duration_ms: 1896.58496
+      type: 'test'
+      ...
+    # Subtest: bấm lần hai (sau khi đã giữ mở) thì đóng; rời chuột thì đóng
+    ok 2 - bấm lần hai (sau khi đã giữ mở) thì đóng; rời chuột thì đóng
+      ---
+      duration_ms: 1980.847369
+      type: 'test'
+      ...
+    1..2
+ok 2 - R2 P1-4 Dropdown: luồng chuột thật
+  ---
+  duration_ms: 3877.965086
+  type: 'suite'
+  ...
+# Subtest: R2 Quyết định 3: bỏ hotline Header, vẫn có lối gọi
+    # Subtest: Header @320px không có tel:, vẫn có lối gọi trong màn hình đầu hoặc Drawer
+    ok 1 - Header @320px không có tel:, vẫn có lối gọi trong màn hình đầu hoặc Drawer
+      ---
+      duration_ms: 1912.29431
+      type: 'test'
+      ...
+    # Subtest: Header @768px không có tel:, vẫn có lối gọi trong màn hình đầu hoặc Drawer
+    ok 2 - Header @768px không có tel:, vẫn có lối gọi trong màn hình đầu hoặc Drawer
+      ---
+      duration_ms: 1750.681189
+      type: 'test'
+      ...
+    # Subtest: Header @1366px không có tel:, vẫn có lối gọi trong màn hình đầu hoặc Drawer
+    ok 3 - Header @1366px không có tel:, vẫn có lối gọi trong màn hình đầu hoặc Drawer
+      ---
+      duration_ms: 2460.244144
+      type: 'test'
+      ...
+    # Subtest: Header @1536px không có tel:, vẫn có lối gọi trong màn hình đầu hoặc Drawer
+    ok 4 - Header @1536px không có tel:, vẫn có lối gọi trong màn hình đầu hoặc Drawer
+      ---
+      duration_ms: 2220.210471
+      type: 'test'
+      ...
+    1..4
+ok 3 - R2 Quyết định 3: bỏ hotline Header, vẫn có lối gọi
+  ---
+  duration_ms: 8343.874776
+  type: 'suite'
+  ...
+# Subtest: R2 R1-1 JSON-LD chỉ ở trang chủ, đúng dữ liệu đã xác nhận
+    # Subtest: trang chủ có đúng một VeterinaryCare khớp địa chỉ/giờ đã xác nhận
+    ok 1 - trang chủ có đúng một VeterinaryCare khớp địa chỉ/giờ đã xác nhận
+      ---
+      duration_ms: 1865.008456
+      type: 'test'
+      ...
+    # Subtest: HTML gốc không còn JSON-LD tĩnh (không phát trên mọi route)
+    ok 2 - HTML gốc không còn JSON-LD tĩnh (không phát trên mọi route)
+      ---
+      duration_ms: 1869.268007
+      type: 'test'
+      ...
+    # Subtest: JSON-LD bị gỡ khi rời trang chủ, không nhân đôi khi quay lại, đúng qua Back/Forward
+    ok 3 - JSON-LD bị gỡ khi rời trang chủ, không nhân đôi khi quay lại, đúng qua Back/Forward
+      ---
+      duration_ms: 4559.223343
+      type: 'test'
+      ...
+    1..3
+ok 4 - R2 R1-1 JSON-LD chỉ ở trang chủ, đúng dữ liệu đã xác nhận
+  ---
+  duration_ms: 8293.958805
+  type: 'suite'
+  ...
+# Subtest: R2 P3 canonical
+    # Subtest: 404 không có canonical, kể cả khi đi từ trang có canonical; trang chủ có canonical gốc
+    ok 1 - 404 không có canonical, kể cả khi đi từ trang có canonical; trang chủ có canonical gốc
+      ---
+      duration_ms: 4376.502384
+      type: 'test'
+      ...
+    1..1
+ok 5 - R2 P3 canonical
+  ---
+  duration_ms: 4376.823461
+  type: 'suite'
+  ...
+# Subtest: R2 Quyết định 1: chỉ cấu hình Vercel
+    # Subtest: dist/ không còn 404.html, _redirects; vercel.json hợp lệ cho SPA
+    ok 1 - dist/ không còn 404.html, _redirects; vercel.json hợp lệ cho SPA
+      ---
+      duration_ms: 0.795345
+      type: 'test'
+      ...
+    # Subtest: preview không phục vụ trang chuyển hướng 404.html cũ
+    ok 2 - preview không phục vụ trang chuyển hướng 404.html cũ
+      ---
+      duration_ms: 2976.06277
+      type: 'test'
+      ...
+    1..2
+ok 6 - R2 Quyết định 1: chỉ cấu hình Vercel
+  ---
+  duration_ms: 2977.141247
+  type: 'suite'
+  ...
+# Subtest: R2 P3 tối ưu logo và favicon (brief vòng 02 mục 5)
+    # Subtest: logo hiển thị và favicon không dùng ảnh gốc 377KB
+    ok 1 - logo hiển thị và favicon không dùng ảnh gốc 377KB
+      ---
+      duration_ms: 1911.29691
+      type: 'test'
+      ...
+    1..1
+ok 7 - R2 P3 tối ưu logo và favicon (brief vòng 02 mục 5)
+  ---
+  duration_ms: 1911.478028
+  type: 'suite'
+  ...
+# Subtest: round02: không có console error / pageerror
+ok 8 - round02: không có console error / pageerror
+  ---
+  duration_ms: 0.221654
+  type: 'test'
+  ...
+1..8
+# tests 25
+# suites 7
+# pass 25
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 49537.919205

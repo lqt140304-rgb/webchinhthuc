@@ -1,0 +1,24 @@
+#|path|status|content-type|x-robots-tag|cache|x-vercel-cache
+1|/|200|text/html; charset=utf-8|noindex|public, max-age=0, must-revalidate|HIT
+2|/gioi-thieu|200|text/html; charset=utf-8|noindex, nofollow|public, max-age=0, must-revalidate|HIT
+3|/gioi-thieu/|200|text/html; charset=utf-8|noindex|public, max-age=0, must-revalidate|HIT
+4|/doi-ngu|200|text/html; charset=utf-8|noindex, nofollow|public, max-age=0, must-revalidate|HIT
+5|/co-so-vat-chat|200|text/html; charset=utf-8|noindex, nofollow|public, max-age=0, must-revalidate|HIT
+6|/dich-vu|200|text/html; charset=utf-8|noindex, nofollow|public, max-age=0, must-revalidate|HIT
+7|/dich-vu/kham-dieu-tri|200|text/html; charset=utf-8|noindex, nofollow|public, max-age=0, must-revalidate|HIT
+8|/dich-vu/spa/|200|text/html; charset=utf-8|noindex|public, max-age=0, must-revalidate|HIT
+9|/bang-gia|200|text/html; charset=utf-8|noindex, nofollow|public, max-age=0, must-revalidate|HIT
+10|/cau-chuyen|200|text/html; charset=utf-8|noindex, nofollow|public, max-age=0, must-revalidate|HIT
+11|/cau-chuyen/mot-ca-bat-ky|200|text/html; charset=utf-8|noindex, nofollow|public, max-age=0, must-revalidate|HIT
+12|/goc-thu-cung|200|text/html; charset=utf-8|noindex, nofollow|public, max-age=0, must-revalidate|HIT
+13|/bai-viet/mot-bai-bat-ky|200|text/html; charset=utf-8|noindex, nofollow|public, max-age=0, must-revalidate|HIT
+14|/san-pham|200|text/html; charset=utf-8|noindex, nofollow|public, max-age=0, must-revalidate|HIT
+15|/dat-lich|200|text/html; charset=utf-8|noindex, nofollow|public, max-age=0, must-revalidate|HIT
+16|/lien-he|200|text/html; charset=utf-8|noindex, nofollow|public, max-age=0, must-revalidate|HIT
+17|/dang-nhap|200|text/html; charset=utf-8|noindex, nofollow|public, max-age=0, must-revalidate|HIT
+18|/dang-ky|200|text/html; charset=utf-8|noindex, nofollow|public, max-age=0, must-revalidate|HIT
+19|/tai-khoan|200|text/html; charset=utf-8|noindex, nofollow|public, max-age=0, must-revalidate|HIT
+20|/tai-khoan/ho-so|200|text/html; charset=utf-8|noindex, nofollow|public, max-age=0, must-revalidate|HIT
+21|/quan-ly|200|text/html; charset=utf-8|noindex, nofollow|public, max-age=0, must-revalidate|HIT
+22|/quan-ly/lich-hen|200|text/html; charset=utf-8|noindex, nofollow|public, max-age=0, must-revalidate|HIT
+23|/khong-ton-tai|200|text/html; charset=utf-8|noindex|public, max-age=0, must-revalidate|HIT
