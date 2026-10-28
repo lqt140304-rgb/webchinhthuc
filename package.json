@@ -5,16 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "react-router dev",
-    "build": "react-router build",
+    "build": "react-router build && node scripts/postbuild.cjs",
     "typecheck": "react-router typegen && tsc -b",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview --outDir build/client"
   },
   "dependencies": {
-    "@react-router/dev": "^7.18.5",
     "@react-router/node": "^7.18.5",
     "clsx": "^2.1.1",
-    "isbot": "^5",
+    "isbot": "^5.1.28",
     "lucide-react": "^1.61.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
@@ -23,12 +22,11 @@
     "tailwind-merge": "^3.7.0"
   },
   "devDependencies": {
-    "@react-router/node": "^7.18.5",
+    "@react-router/dev": "^7.18.5",
     "@tailwindcss/vite": "^4.3.3",
     "@types/node": "^24.19.2",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
-    "@vitejs/plugin-react": "^6.1.2",
     "oxlint": "^1.88.0",
     "tailwindcss": "^4.3.3",
     "typescript": "~6.0.3",

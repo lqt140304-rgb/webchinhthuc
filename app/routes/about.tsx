@@ -1,23 +1,22 @@
+import type { Route } from './+types/about'
 import AboutPage from '@/pages/AboutPage'
 
-export function meta() {
+export function meta(): Route.MetaDescriptors {
   return [
-    { title: 'Về Bệnh Viện Thú Y Lê Sơn — Lịch Sử & Tôn Chỉ Y Khoa' },
+    { title: 'Về Bệnh Viện Thú Y Lê Sơn — Chăm Sóc Y Tế Chuẩn Mực' },
     {
       name: 'description',
       content:
-        'Tìm hiểu hành trình thành lập, đội ngũ chuyên môn và tôn chỉ phụng sự sự sống của Bệnh viện Thú y Lê Sơn tại 101 Khuất Duy Tiến, Hà Nội.',
+        'Giới thiệu về tầm nhìn, sứ mệnh y khoa và cam kết đồng hành chăm sóc sức khỏe thú cưng tại Bệnh Viện Thú Y Lê Sơn.',
     },
-    { property: 'og:title', content: 'Về Bệnh Viện Thú Y Lê Sơn — Lịch Sử & Tôn Chỉ Y Khoa' },
+    { name: 'robots', content: 'noindex, nofollow' },
+    { property: 'og:title', content: 'Về Bệnh Viện Thú Y Lê Sơn — Chăm Sóc Y Tế Chuẩn Mực' },
     {
       property: 'og:description',
       content:
-        'Tìm hiểu hành trình thành lập, đội ngũ chuyên môn và tôn chỉ phụng sự sự sống của Bệnh viện Thú y Lê Sơn tại 101 Khuất Duy Tiến, Hà Nội.',
+        'Giới thiệu về tầm nhìn, sứ mệnh y khoa và cam kết đồng hành chăm sóc sức khỏe thú cưng tại Bệnh Viện Thú Y Lê Sơn.',
     },
     { property: 'og:type', content: 'website' },
-    { property: 'og:url', content: 'https://lesonpet.vn/gioi-thieu' },
-    { property: 'og:image', content: 'https://lesonpet.vn/images/og-about.webp' },
-    { tagName: 'link', rel: 'canonical', href: 'https://lesonpet.vn/gioi-thieu' },
   ]
 }
 

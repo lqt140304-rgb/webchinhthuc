@@ -1,25 +1,22 @@
+import type { Route } from './+types/booking'
 import { BookingPage } from '@/pages/BookingPage'
 
-export function meta() {
+export function meta(): Route.MetaDescriptors {
   return [
-    { title: 'Đặt Lịch Khám & Tư Vấn Y Tế Thú Cưng — Bệnh Viện Thú Y Lê Sơn' },
+    { title: 'Đặt Lịch Hẹn Khám | Bệnh Viện Thú Y Lê Sơn' },
     {
       name: 'description',
       content:
-        'Đăng ký lịch khám trực tuyến tại Bệnh viện Thú y Lê Sơn 101 Khuất Duy Tiến để được đón tiếp chu đáo và chủ động thời gian.',
+        'Đặt lịch thăm khám thú cưng trực tuyến nhanh chóng và thuận tiện tại Bệnh Viện Thú Y Lê Sơn, 101 Khuất Duy Tiến, Hà Nội.',
     },
-    {
-      property: 'og:title',
-      content: 'Đặt Lịch Khám & Tư Vấn Y Tế Thú Cưng — Bệnh Viện Thú Y Lê Sơn',
-    },
+    { name: 'robots', content: 'noindex, nofollow' },
+    { property: 'og:title', content: 'Đặt Lịch Hẹn Khám | Bệnh Viện Thú Y Lê Sơn' },
     {
       property: 'og:description',
       content:
-        'Đăng ký lịch khám trực tuyến tại Bệnh viện Thú y Lê Sơn 101 Khuất Duy Tiến để được đón tiếp chu đáo và chủ động thời gian.',
+        'Đặt lịch thăm khám thú cưng trực tuyến nhanh chóng và thuận tiện tại Bệnh Viện Thú Y Lê Sơn, 101 Khuất Duy Tiến, Hà Nội.',
     },
     { property: 'og:type', content: 'website' },
-    { property: 'og:url', content: 'https://lesonpet.vn/dat-lich' },
-    { tagName: 'link', rel: 'canonical', href: 'https://lesonpet.vn/dat-lich' },
   ]
 }
 

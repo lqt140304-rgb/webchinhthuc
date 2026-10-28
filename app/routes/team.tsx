@@ -1,23 +1,22 @@
+import type { Route } from './+types/team'
 import TeamPage from '@/pages/TeamPage'
 
-export function meta() {
+export function meta(): Route.MetaDescriptors {
   return [
-    { title: 'Đội Ngũ Bác Sĩ & Chuyên Gia Y Tế — Bệnh Viện Thú Y Lê Sơn' },
+    { title: 'Đội Ngũ Bác Sĩ & Chuyên Gia Y Tế | Bệnh Viện Thú Y Lê Sơn' },
     {
       name: 'description',
       content:
-        'Gặp gỡ đội ngũ bác sĩ thú y giàu kinh nghiệm, tận tâm và chuyên môn vững vàng tại Bệnh viện Thú y Lê Sơn 101 Khuất Duy Tiến.',
+        'Thông tin đội ngũ bác sĩ và nhân sự y tế phụ trách chuyên môn thăm khám tại Bệnh Viện Thú Y Lê Sơn.',
     },
-    { property: 'og:title', content: 'Đội Ngũ Bác Sĩ & Chuyên Gia Y Tế — Bệnh Viện Thú Y Lê Sơn' },
+    { name: 'robots', content: 'noindex, nofollow' },
+    { property: 'og:title', content: 'Đội Ngũ Bác Sĩ & Chuyên Gia Y Tế | Bệnh Viện Thú Y Lê Sơn' },
     {
       property: 'og:description',
       content:
-        'Gặp gỡ đội ngũ bác sĩ thú y giàu kinh nghiệm, tận tâm và chuyên môn vững vàng tại Bệnh viện Thú y Lê Sơn 101 Khuất Duy Tiến.',
+        'Thông tin đội ngũ bác sĩ và nhân sự y tế phụ trách chuyên môn thăm khám tại Bệnh Viện Thú Y Lê Sơn.',
     },
     { property: 'og:type', content: 'website' },
-    { property: 'og:url', content: 'https://lesonpet.vn/doi-ngu' },
-    { property: 'og:image', content: 'https://lesonpet.vn/images/og-team.webp' },
-    { tagName: 'link', rel: 'canonical', href: 'https://lesonpet.vn/doi-ngu' },
   ]
 }
 

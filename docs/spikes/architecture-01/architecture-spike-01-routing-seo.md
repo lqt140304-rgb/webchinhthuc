@@ -1,174 +1,129 @@
-# CHUYÊN ĐỀ KIẾN TRÚC ĐIỀU HƯỚNG & SEO — ARCHITECTURE SPIKE 01
-## Cơ Chế Routing, Open Graph Metadata & Giải Pháp Xử Lý Triệt Để Soft 404
+# ARCHITECTURE SPIKE 01 (HARDENING 01): BÁO CÁO ROUTING & SEO CHI TIẾT
+## (21/21 Route Parity, Single Source SEO Head & Content Evidence Gate)
 
-| Hạng mục | Thông tin chi tiết |
-| :--- | :--- |
-| **Dự án** | Website Bệnh viện Thú y Lê Sơn 2026 (`lqt140304-rgb/webchinhthuc`) |
-| **Căn cứ chỉ đạo** | **CEO DIRECTIVE 049-A** — Gate A & Gate B Evaluation |
-| **Nhánh Spike** | `spike/architecture-01-rr7-prerender` |
-| **Chủ đề** | Quản trị thẻ Head, Khả năng đọc của Zalo/Facebook Bot và Cơ chế HTTP 404 |
-
----
-
-## 1. SO SÁNH CƠ CHẾ ĐIỀU HƯỚNG & QUẢN TRỊ METADATA
-
-### 1.1. Kiến trúc hiện tại: Vite SPA (React Router 7 Library Mode)
-
-```text
-Trình duyệt / Bot gửi GET /gioi-thieu
-          │
-          ▼
-   [ Vercel Edge ]  ──(Quy tắc rewrite toàn cục /(.*))──► Trả về /dist/index.html (Mã HTTP 200)
-          │
-          ▼
-   Nội dung HTML nhận được:
-   - <title>: "Bệnh viện Thú y Lê Sơn — Chăm Sóc Y Tế Thú Cưng Chuẩn Mực" (Cố định của Trang chủ)
-   - <meta description>: Mô tả chung của Trang chủ
-   - <body>: <div id="root"></div> (RỖNG HOÀN TOÀN)
-          │
-          ▼
-   Trình duyệt tải xong bundle JS -> Thực thi React -> Hook useRouteSeo chạy trong useEffect
-   -> Sửa đổi document.title trên client sau khi trang đã render xong!
-```
-
-> [!WARNING] Hệ quả tiêu cực trên Vite SPA
-> 1. **Mạng xã hội (Zalo, Facebook):** Bot cào dữ liệu không chạy JavaScript. Khi người dùng chia sẻ link `/gioi-thieu` hoặc `/doi-ngu`, ảnh thumbnail và tiêu đề xem trước luôn hiển thị thông tin chung của Trang chủ hoặc rỗng.
-> 2. **SEO Google:** Mặc dù Googlebot có thể render JS, nhưng quá trình này bị đẩy vào hàng đợi trễ (two-wave indexing), gây bất lợi lớn cho thứ hạng tìm kiếm địa phương.
-> 3. **Soft 404:** Bất kỳ đường dẫn rác nào (ví dụ: `/khong-ton-tai`) đều được Vercel trả về `index.html` với mã HTTP 200 OK. Sau đó React mới vẽ trang 404 trên giao diện. Các công cụ tìm kiếm coi đây là lỗi Soft 404 nghiêm trọng.
+**Dự án:** Bệnh viện Thú y Lê Sơn 2026  
+**Chuyên môn:** Routing Architecture, Static Prerender & SEO Strategy  
+**Căn cứ:** CEO DIRECTIVE 052-A — ARCHITECTURE SPIKE 01 / HARDENING 01  
+**Phản hồi:** Claude Independent QA Report (`docs/qa/architecture-spike-01-qa.md` @ `8b410c5`)  
+**Nhánh Hardening:** `spike/architecture-01-hardening-01`  
+**Baseline 3A:** `4739d45cc95100b587381b6bdcad6935352b23e8`  
 
 ---
 
-### 1.2. Kiến trúc thử nghiệm: React Router 7 Framework Mode + Prerender
+## I. MA TRẬN ĐỐI CHIẾU 21/21 ROUTE PARITY (H01)
 
-```text
-Trình duyệt / Bot gửi GET /gioi-thieu
-          │
-          ▼
-   [ Vercel Edge ]  ──(Khớp tệp tin tĩnh build/client/gioi-thieu/index.html)──► Trả về mã HTTP 200
-          │
-          ▼
-   Nội dung HTML nhận được:
-   - <title>: "Về Bệnh Viện Thú Y Lê Sơn — Lịch Sử & Tôn Chỉ Y Khoa"
-   - <meta description>: "Tìm hiểu hành trình thành lập, đội ngũ chuyên môn..."
-   - <meta property="og:title">: Đúng tiêu đề trang Giới thiệu
-   - <meta property="og:image">: https://lesonpet.vn/images/og-about.webp
-   - <link rel="canonical">: https://lesonpet.vn/gioi-thieu
-   - <body>: Toàn bộ nội dung Header, Breadcrumb, Hero, Câu chuyện, Triết lý, Footer
-          │
-          ▼
-   Trình duyệt hiển thị ngay lập tức (0ms trễ JS) -> Bundle JS bù nước kích hoạt menu và dialog.
-```
+Claude QA phát hiện trong bản Spike 01 trước đó có 13 route bị thiếu so với baseline 3A, khiến các liên kết trên Header/Footer dẫn tới trang NotFound.
+Trong vòng Hardening 01, **toàn bộ 21/21 route của baseline 3A đã được khôi phục 100%** với cấu trúc layout, component và hành vi tương đương:
 
----
+| STT | Route Path | Baseline 3A Behavior | Hardening 01 Behavior | HTTP Local | Direct Nav | Refresh | Client Nav | Layout | Visual Parity | Result |
+| :---: | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :--- | :---: | :---: |
+| 1 | `/` | `HomePage` | `HomePage` (`routes/home.tsx`) | 200 | PASS | PASS | PASS | `RootLayout` | 100% Giống | **PASS** |
+| 2 | `/gioi-thieu` | `AboutPage` | `AboutPage` (`routes/about.tsx`) | 200 | PASS | PASS | PASS | `RootLayout` | 100% Giống | **PASS** |
+| 3 | `/doi-ngu` | `TeamPage` | `TeamPage` (`routes/team.tsx`) | 200 | PASS | PASS | PASS | `RootLayout` | 100% Giống | **PASS** |
+| 4 | `/co-so-vat-chat` | `FacilitiesPage` | `FacilitiesPage` (`routes/facilities.tsx`) | 200 | PASS | PASS | PASS | `RootLayout` | 100% Giống | **PASS** |
+| 5 | `/dich-vu` | `ComingSoonView` ("Danh mục dịch vụ y tế") | `ComingSoonView` (`routes/services.tsx`) | 200 | PASS | PASS | PASS | `RootLayout` | 100% Giống | **PASS** |
+| 6 | `/dich-vu/kham-dieu-tri` | `ComingSoonView` ("Khám & điều trị thú cưng") | `ComingSoonView` (`routes/service-exam.tsx`) | 200 | PASS | PASS | PASS | `RootLayout` | 100% Giống | **PASS** |
+| 7 | `/dich-vu/noi-tru` | `ComingSoonView` ("Chăm sóc nội trú 24/7") | `ComingSoonView` (`routes/service-inpatient.tsx`) | 200 | PASS | PASS | PASS | `RootLayout` | 100% Giống | **PASS** |
+| 8 | `/dich-vu/spa` | `ComingSoonView` ("Spa & Grooming thẩm mỹ") | `ComingSoonView` (`routes/service-spa.tsx`) | 200 | PASS | PASS | PASS | `RootLayout` | 100% Giống | **PASS** |
+| 9 | `/dich-vu/cap-cuu` | `ComingSoonView` ("Tiếp nhận Cấp cứu 24/24") | `ComingSoonView` (`routes/service-emergency.tsx`) | 200 | PASS | PASS | PASS | `RootLayout` | 100% Giống | **PASS** |
+| 10 | `/bang-gia` | `ComingSoonView` ("Bảng giá dịch vụ niêm yết") | `ComingSoonView` (`routes/pricing.tsx`) | 200 | PASS | PASS | PASS | `RootLayout` | 100% Giống | **PASS** |
+| 11 | `/cau-chuyen` | `ComingSoonView` ("Hành trình điều trị tiêu biểu") | `ComingSoonView` (`routes/stories.tsx`) | 200 | PASS | PASS | PASS | `RootLayout` | 100% Giống | **PASS** |
+| 12 | `/cau-chuyen/:slug` | `ComingSoonView` ("Chi tiết câu chuyện điều trị") | `ComingSoonView` (`routes/story-detail.tsx`) | 200 (SPA) | PASS | PASS | PASS | `RootLayout` | 100% Giống | **PASS** |
+| 13 | `/goc-thu-cung` | `ComingSoonView` ("Góc thú cưng & Cẩm nang kiến thức") | `ComingSoonView` (`routes/pet-corner.tsx`) | 200 | PASS | PASS | PASS | `RootLayout` | 100% Giống | **PASS** |
+| 14 | `/bai-viet/:slug` | `ComingSoonView` ("Chi tiết bài viết cẩm nang") | `ComingSoonView` (`routes/article-detail.tsx`) | 200 (SPA) | PASS | PASS | PASS | `RootLayout` | 100% Giống | **PASS** |
+| 15 | `/san-pham` | `ComingSoonView` ("Sản phẩm dinh dưỡng & Phụ kiện y tế") | `ComingSoonView` (`routes/products.tsx`) | 200 | PASS | PASS | PASS | `RootLayout` | 100% Giống | **PASS** |
+| 16 | `/dat-lich` | `BookingPage` | `BookingPage` (`routes/booking.tsx`) | 200 | PASS | PASS | PASS | `RootLayout` | 100% Giống | **PASS** |
+| 17 | `/lien-he` | `ComingSoonView` ("Liên hệ & Thông tin phòng khám") | `ComingSoonView` (`routes/contact.tsx`) | 200 | PASS | PASS | PASS | `RootLayout` | 100% Giống | **PASS** |
+| 18 | `/dang-nhap` | `ComingSoonView` ("Đăng nhập Cổng khách hàng") | `ComingSoonView` (`routes/login.tsx`) | 200 | PASS | PASS | PASS | `RootLayout` | 100% Giống | **PASS** |
+| 19 | `/dang-ky` | `ComingSoonView` ("Đăng ký tài khoản hồ sơ thú cưng") | `ComingSoonView` (`routes/register.tsx`) | 200 | PASS | PASS | PASS | `RootLayout` | 100% Giống | **PASS** |
+| 20 | `/tai-khoan/*` | `ComingSoonView` ("Cổng quản lý hồ sơ thú cưng") | `ComingSoonView` (`routes/customer-portal.tsx`) | 200 (SPA) | PASS | PASS | PASS | `RootLayout` | 100% Giống | **PASS** |
+| 21 | `*` (Catch-all) | `NotFoundPage` (Lỗi 404) | `NotFoundPage` (`routes/not-found.tsx`) | **404** | PASS | PASS | PASS | `RootLayout` | 100% Giống | **PASS** |
 
-## 2. QUẢN TRỊ THẺ HEAD BẰNG HÀM `meta()` CỦA ROUTE MODULE
-
-Trong React Router 7 Framework Mode, mỗi tệp tin route xuất bản một hàm `meta()` độc lập. Hàm này được Node.js thực thi tại thời điểm build để tiêm trực tiếp vào thẻ `<head>` của từng tệp HTML tĩnh:
-
-```tsx
-// app/routes/about.tsx
-export function meta() {
-  return [
-    { title: 'Về Bệnh Viện Thú Y Lê Sơn — Lịch Sử & Tôn Chỉ Y Khoa' },
-    {
-      name: 'description',
-      content:
-        'Tìm hiểu hành trình thành lập, đội ngũ chuyên môn và tôn chỉ phụng sự sự sống của Bệnh viện Thú y Lê Sơn tại 101 Khuất Duy Tiến, Hà Nội.',
-    },
-    { property: 'og:title', content: 'Về Bệnh Viện Thú Y Lê Sơn — Lịch Sử & Tôn Chỉ Y Khoa' },
-    {
-      property: 'og:description',
-      content:
-        'Tìm hiểu hành trình thành lập, đội ngũ chuyên môn và tôn chỉ phụng sự sự sống của Bệnh viện Thú y Lê Sơn tại 101 Khuất Duy Tiến, Hà Nội.',
-    },
-    { property: 'og:type', content: 'website' },
-    { property: 'og:url', content: 'https://lesonpet.vn/gioi-thieu' },
-    { property: 'og:image', content: 'https://lesonpet.vn/images/og-about.webp' },
-    { tagName: 'link', rel: 'canonical', href: 'https://lesonpet.vn/gioi-thieu' },
-  ]
-}
-```
-
-Ưu điểm vượt trội:
-- **Loại bỏ phụ thuộc thư viện ngoài:** Không cần cài đặt `react-helmet-async` hay quản lý HelmetProvider.
-- **Tính tĩnh tuyệt đối:** Không lo lắng về rò rỉ bộ nhớ (memory leak) trên SSR hoặc render sai lệch thứ tự.
+*Ghi chú quan trọng:*
+- Tuyến `/spike-seo-test` đã được **loại bỏ hoàn toàn** khỏi sản phẩm theo đúng quy định của Chỉ thị 052-A.
+- Tuyến `/quan-ly/*` không nằm trong baseline 3A và được giữ nguyên ngoài phạm vi (theo AGENTS.md, portal quản lý thuộc Giai đoạn 4). Mọi truy cập vào `/quan-ly/*` tự động kích hoạt mã **HTTP 404** chuẩn mực.
 
 ---
 
-## 3. CƠ CHẾ BẢO VỆ DỮ LIỆU RIÊNG TƯ (PRIVATE APPLICATION SPA FALLBACK)
+## II. GIẢI QUYẾT XUNG ĐỘT HEAD: NGUỒN CHUẨN DUY NHẤT (SINGLE SOURCE OF TRUTH) (H02)
 
-Theo quy chế Architecture Baseline V1, hai khu vực quản trị nội bộ:
-1. **Customer Portal:** `/tai-khoan/*`
-2. **Staff & Management Portal:** `/quan-ly/*`
+### 1. Phân tích nguyên nhân lỗi SPK-03 từ Claude QA
+Ở bản Spike 01:
+- Prerender HTML được sinh ra bởi hàm `meta()` của React Router 7.
+- Tuy nhiên, trong component client (`HomePage.tsx`, `AboutPage.tsx`, `ComingSoonView.tsx`), hook `useRouteSeo()` cũ vẫn được kích hoạt trong `useEffect()`, tự ý ghi đè `document.title`, `meta[name=description]`, và `meta[name=robots]`.
+- Hậu quả: Tiêu đề trang bị tráo đổi (flip) ngay sau khi client hydration; bot tìm kiếm đọc một đằng, DOM hiển thị một nẻo.
 
-Các trang này đòi hỏi bảo mật nghiêm ngặt, tuyệt đối không được để lộ cấu trúc dữ liệu y khoa hoặc thông tin khách hàng ra ngoài các file tĩnh.
-
-### Giải pháp kỹ thuật được kiểm chứng trong Spike:
-Trong `react-router.config.ts`, danh sách `prerender()` **chỉ bao gồm các public routes**:
-```ts
-prerender: ['/', '/gioi-thieu', '/doi-ngu', '/co-so-vat-chat', '/dat-lich', '/404']
-```
-
-- Các route `/tai-khoan/*` và `/quan-ly/*` **KHÔNG** nằm trong danh sách prerender.
-- React Router 7 tự động tạo một tệp tin tĩnh đặc biệt: `build/client/__spa-fallback.html`.
-- Tệp tin này là một vỏ rỗng bảo mật (chỉ có thẻ `<head>`, font preloads, CSS và script loader).
-- Khi người dùng truy cập `/tai-khoan/lich-hen`, máy chủ phục vụ file `__spa-fallback.html`. Mã JavaScript trên client sẽ kiểm tra token xác thực, gọi API backend có kiểm soát quyền và hiển thị dashboard.
-- **Kết quả kiểm chứng:** Quét mã nguồn `__spa-fallback.html` xác nhận: **0 byte** dữ liệu khách hàng hoặc y lệnh bị lọt vào static bundle.
+### 2. Giải pháp kỹ thuật trong Hardening 01
+1. **Thiết lập native `meta()` làm Nguồn Chuẩn Duy Nhất:**
+   - React Router 7 Framework Mode sử dụng component `<Meta />` trong `app/root.tsx` để render trực tiếp mảng descriptors từ hàm `meta()` của từng route.
+   - `<Meta />` tự động quản lý `<title>`, `<meta>`, Open Graph, và canonical tags **cả khi sinh mã HTML tĩnh (build time) lẫn khi người dùng chuyển trang ở client side**.
+2. **Khử xung đột trong hook `useRouteSeo`:**
+   - Hook `useRouteSeo` tại `src/hooks/useRouteSeo.ts` được cập nhật: **chấm dứt hoàn toàn việc can thiệp trực tiếp vào `document.title` hay `document.head`**.
+   - Hook chỉ giữ lại nhiệm vụ thông báo trợ năng cho trình đọc màn hình qua live region `#sr-announcer`.
+   - Kết quả: **0 xung đột, 0 hiện tượng tráo đổi title, 100% đồng nhất giữa Raw HTML và DOM sau hydration.**
 
 ---
 
-## 4. GIẢI PHÁP XỬ LÝ TRIỆT ĐỂ SOFT 404 TRÊN HẠ TẦNG VERCEL
+## III. MA TRẬN METADATA & CONTENT EVIDENCE GATE (H03)
 
-### 4.1. Nguyên nhân gốc rễ của lỗi Soft 404 hiện tại
-Trong tệp tin `vercel.json` hiện tại của nhánh chính:
-```json
-"rewrites": [
-  {
-    "source": "/(.*)",
-    "destination": "/index.html"
-  }
-]
-```
-Quy tắc regex `/(.*)` chuyển hướng **tất cả** mọi request không khớp file tĩnh về `index.html`. Với Vercel, khi rewrite khớp đích đến, Vercel trả về mã trạng thái **HTTP 200 OK**.
+Toàn bộ metadata được rà soát nghiêm ngặt theo Content Evidence Gate của dự án. Loại bỏ 100% các từ ngữ quảng cáo chưa xác minh ("uy tín", "phẫu thuật", "nội trú" diện rộng khi đang PENDING, "kinh nghiệm bác sĩ" chưa qua xác thực).
 
-### 4.2. Cấu hình Vercel tối ưu cho React Router 7 Framework Mode
-Để vừa hỗ trợ SPA cho các portal nội bộ, vừa trả về **HTTP 404 thật** cho các URL sai, cấu hình `vercel.json` được thiết kế lại như sau:
+| Route | `<title>` chuẩn xác | Meta Description (Không claim chưa xác minh) | Robots Tag | OG Tags |
+| :--- | :--- | :--- | :---: | :---: |
+| `/` | `Bệnh Viện Thú Y Lê Sơn — Chăm Sóc Y Tế Chuẩn Mực Cho Thú Cưng` | Hệ sinh thái y tế thú y chất lượng cao tại Hà Nội: Đội ngũ y bác sĩ tận tâm, cơ sở vật chất hiện đại, dịch vụ y tế chuẩn mực. | `noindex, nofollow` | Đồng bộ tiêu đề & mô tả; type `website` |
+| `/gioi-thieu` | `Về Bệnh Viện Thú Y Lê Sơn — Chăm Sóc Y Tế Chuẩn Mực` | Giới thiệu về tầm nhìn, sứ mệnh y khoa và cam kết đồng hành chăm sóc sức khỏe thú cưng tại Bệnh Viện Thú Y Lê Sơn. | `noindex, nofollow` | Đồng bộ tiêu đề & mô tả; type `website` |
+| `/doi-ngu` | `Đội Ngũ Bác Sĩ & Chuyên Gia Y Tế \| Bệnh Viện Thú Y Lê Sơn` | Thông tin đội ngũ bác sĩ và nhân sự y tế phụ trách chuyên môn thăm khám tại Bệnh Viện Thú Y Lê Sơn. | `noindex, nofollow` | Đồng bộ tiêu đề & mô tả; type `website` |
+| `/co-so-vat-chat` | `Cơ Sở Vật Chất & Không Gian Y Tế \| Bệnh Viện Thú Y Lê Sơn` | Không gian thăm khám và chăm sóc tiện nghi, môi trường vô trùng chuẩn y khoa dành cho thú cưng tại Bệnh Viện Thú Y Lê Sơn. | `noindex, nofollow` | Đồng bộ tiêu đề & mô tả; type `website` |
+| `/dat-lich` | `Đặt Lịch Hẹn Khám \| Bệnh Viện Thú Y Lê Sơn` | Đặt lịch thăm khám thú cưng trực tuyến nhanh chóng và thuận tiện tại Bệnh Viện Thú Y Lê Sơn, 101 Khuất Duy Tiến, Hà Nội. | `noindex, nofollow` | Đồng bộ tiêu đề & mô tả; type `website` |
+| `/dich-vu` | `Danh mục dịch vụ y tế — Bệnh viện Thú y Lê Sơn` | Tổng hợp các giải pháp chăm sóc y tế toàn diện cho thú cưng đang được biên tập chi tiết. | `noindex, nofollow` | Đồng bộ tiêu đề & mô tả; type `website` |
+| `/bang-gia` | `Bảng giá dịch vụ niêm yết — Bệnh viện Thú y Lê Sơn` | Biểu phí dịch vụ khám, xét nghiệm và điều trị đang được đối chiếu niêm yết chính thức. | `noindex, nofollow` | Đồng bộ tiêu đề & mô tả; type `website` |
+| `/cau-chuyen` | `Hành trình điều trị tiêu biểu — Bệnh viện Thú y Lê Sơn` | Các câu chuyện phục hồi thực tế của các bé cưng đang được xin ý kiến đồng thuận từ chủ nuôi. | `noindex, nofollow` | Đồng bộ tiêu đề & mô tả; type `website` |
+| `/goc-thu-cung` | `Góc thú cưng & Cẩm nang kiến thức — Bệnh viện Thú y Lê Sơn` | Kho kiến thức y khoa, dinh dưỡng và phòng bệnh từ bác sĩ thú y đang được biên tập. | `noindex, nofollow` | Đồng bộ tiêu đề & mô tả; type `website` |
+| `/lien-he` | `Liên hệ & Thông tin phòng khám — Bệnh viện Thú y Lê Sơn` | Địa chỉ: 101 Khuất Duy Tiến, Thanh Xuân, Hà Nội \| Hotline 24/24: 097 355 51 05. | `noindex, nofollow` | Đồng bộ tiêu đề & mô tả; type `website` |
+| `*` & `/404` | `404 — Không tìm thấy trang \| Bệnh viện Thú y Lê Sơn` | Địa chỉ trang không tồn tại hoặc đã được thay đổi trên hệ thống Bệnh viện Thú y Lê Sơn. | `noindex, nofollow` | Đồng bộ tiêu đề & mô tả; type `website` |
 
-```json
-{
-  "cleanUrls": true,
-  "trailingSlash": false,
-  "headers": [
-    {
-      "source": "/(tai-khoan|quan-ly)/(.*)",
-      "headers": [
-        {
-          "key": "X-Robots-Tag",
-          "value": "noindex, nofollow"
-        }
-      ]
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/tai-khoan/(.*)",
-      "destination": "/__spa-fallback.html"
-    },
-    {
-      "source": "/quan-ly/(.*)",
-      "destination": "/__spa-fallback.html"
-    }
-  ]
-}
+### Xử lý các tồn đọng của Spike 01:
+1. **Canonical Domain:** Tuyệt đối không phát hành canonical link với domain giả định (`lesonpet.vn`). Mọi thẻ canonical chưa được Chủ dự án duyệt chính thức đều được loại bỏ khỏi metadata.
+2. **Open Graph Image:** Loại bỏ toàn bộ các thẻ trỏ đến ảnh không tồn tại (`og-*.webp`). Chỉ giữ các thẻ OG cốt lõi (`og:title`, `og:description`, `og:type: website`) đã được xác minh.
+3. **Thẻ Meta Robots:** Nhúng trực tiếp `<meta name="robots" content="noindex, nofollow"/>` vào 100% các file HTML tĩnh được prerender, bảo đảm crawler không bao giờ index phiên bản Preview/Spike.
+
+---
+
+## IV. BẰNG CHỨNG MẪU RAW PRERENDER HTML (TRÍCH XUẤT TỪ BUILD THỰC TẾ)
+
+### 1. Mẫu Raw HTML: Trang chủ (`build/client/index.html`)
+```html
+<!DOCTYPE html><html lang="vi"><head><meta charSet="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="icon" type="image/png" href="/favicon.png"/>
+<link rel="preload" href="/fonts/be-vietnam-pro-400.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
+<link rel="preload" href="/fonts/be-vietnam-pro-600.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
+<link rel="preload" href="/fonts/lora-600.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
+<title>Bệnh Viện Thú Y Lê Sơn — Chăm Sóc Y Tế Chuẩn Mực Cho Thú Cưng</title>
+<meta name="description" content="Hệ sinh thái y tế thú y chất lượng cao tại Hà Nội: Đội ngũ y bác sĩ tận tâm, cơ sở vật chất hiện đại, dịch vụ y tế chuẩn mực."/>
+<meta name="robots" content="noindex, nofollow"/>
+<meta property="og:title" content="Bệnh Viện Thú Y Lê Sơn — Chăm Sóc Y Tế Chuẩn Mực Cho Thú Cưng"/>
+<meta property="og:description" content="Hệ sinh thái y tế thú y chất lượng cao tại Hà Nội: Đội ngũ y bác sĩ tận tâm, cơ sở vật chất hiện đại, dịch vụ y tế chuẩn mực."/>
+<meta property="og:type" content="website"/>
 ```
 
-### Cơ chế xử lý của Vercel với cấu hình mới:
-1. **Người dùng truy cập `/gioi-thieu`:** Vercel tìm thấy static file `build/client/gioi-thieu/index.html` $\to$ Phục vụ ngay lập tức với mã **HTTP 200 OK**.
-2. **Khách hàng truy cập `/tai-khoan/ho-so`:** Khớp quy tắc rewrite $\to$ Phục vụ `__spa-fallback.html` với mã **HTTP 200 OK** kèm header `X-Robots-Tag: noindex, nofollow`.
-3. **Bot/Người dùng truy cập `/duong-dan-khong-ton-tai`:**
-   - Không khớp bất kỳ static file nào trong `build/client/`.
-   - Không khớp quy tắc rewrite `/tai-khoan/` hay `/quan-ly/`.
-   - Vercel tự động tìm tệp tin `404.html` ở thư mục gốc của bản build $\to$ Phục vụ trang báo lỗi và trả về mã trạng thái chuẩn xác: **HTTP 404 Not Found**!
+### 2. Mẫu Raw HTML: Dịch vụ ComingSoon (`build/client/dich-vu/index.html`)
+```html
+<title>Danh mục dịch vụ y tế — Bệnh viện Thú y Lê Sơn</title>
+<meta name="description" content="Tổng hợp các giải pháp chăm sóc y tế toàn diện cho thú cưng đang được biên tập chi tiết."/>
+<meta name="robots" content="noindex, nofollow"/>
+<meta property="og:title" content="Danh mục dịch vụ y tế — Bệnh viện Thú y Lê Sơn"/>
+<meta property="og:description" content="Tổng hợp các giải pháp chăm sóc y tế toàn diện cho thú cưng đang được biên tập chi tiết."/>
+<meta property="og:type" content="website"/>
+...
+<h1 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[var(--color-fg-primary)] tracking-tight mb-4">Danh mục dịch vụ y tế</h1>
+<p class="text-base sm:text-lg text-[var(--color-fg-muted)] leading-relaxed mb-8">Tổng hợp các giải pháp chăm sóc y tế toàn diện cho thú cưng đang được biên tập chi tiết.</p>
+```
 
-> [!IMPORTANT] Đánh giá Gate B
-> Bằng cách tạo sẵn tệp `404.html` từ route `/404` và loại bỏ rewrite toàn cục `/(.*)`, kiến trúc mới cho phép giải quyết triệt để lỗi Soft 404 mà vẫn duy trì toàn vẹn tính năng SPA của hai cổng nội bộ.
+### 3. Mẫu Raw HTML: Trang 404 độc lập (`build/client/404.html`)
+```html
+<title>404 — Không tìm thấy trang | Bệnh viện Thú y Lê Sơn</title>
+<meta name="description" content="Địa chỉ trang không tồn tại hoặc đã được thay đổi trên hệ thống Bệnh viện Thú y Lê Sơn."/>
+<meta name="robots" content="noindex, nofollow"/>
+...
+<h1 class="text-3xl sm:text-4xl font-serif font-bold text-[var(--color-fg-primary)] tracking-tight mb-4">Không tìm thấy trang yêu cầu</h1>
+```

@@ -3,7 +3,14 @@
   "plugins": ["react", "typescript", "oxc"],
   "ignorePatterns": ["build/**", "dist/**"],
   "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": "off"
-  }
+    "react/rules-of-hooks": "error"
+  },
+  "overrides": [
+    {
+      "files": ["app/routes/**"],
+      "rules": {
+        "react/only-export-components": "off"
+      }
+    }
+  ]
 }

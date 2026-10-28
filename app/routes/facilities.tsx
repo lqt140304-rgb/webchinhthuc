@@ -1,26 +1,22 @@
+import type { Route } from './+types/facilities'
 import FacilitiesPage from '@/pages/FacilitiesPage'
 
-export function meta() {
+export function meta(): Route.MetaDescriptors {
   return [
-    { title: 'Cơ Sở Vật Chất & Không Gian Khám Chữa — Bệnh Viện Thú Y Lê Sơn' },
+    { title: 'Cơ Sở Vật Chất & Không Gian Y Tế | Bệnh Viện Thú Y Lê Sơn' },
     {
       name: 'description',
       content:
-        'Hệ thống cơ sở vật chất, phòng khám, phòng chẩn đoán hình ảnh và khu vực lưu trú y tế tiện nghi tại 101 Khuất Duy Tiến, Hà Nội.',
+        'Không gian thăm khám và chăm sóc tiện nghi, môi trường vô trùng chuẩn y khoa dành cho thú cưng tại Bệnh Viện Thú Y Lê Sơn.',
     },
-    {
-      property: 'og:title',
-      content: 'Cơ Sở Vật Chất & Không Gian Khám Chữa — Bệnh Viện Thú Y Lê Sơn',
-    },
+    { name: 'robots', content: 'noindex, nofollow' },
+    { property: 'og:title', content: 'Cơ Sở Vật Chất & Không Gian Y Tế | Bệnh Viện Thú Y Lê Sơn' },
     {
       property: 'og:description',
       content:
-        'Hệ thống cơ sở vật chất, phòng khám, phòng chẩn đoán hình ảnh và khu vực lưu trú y tế tiện nghi tại 101 Khuất Duy Tiến, Hà Nội.',
+        'Không gian thăm khám và chăm sóc tiện nghi, môi trường vô trùng chuẩn y khoa dành cho thú cưng tại Bệnh Viện Thú Y Lê Sơn.',
     },
     { property: 'og:type', content: 'website' },
-    { property: 'og:url', content: 'https://lesonpet.vn/co-so-vat-chat' },
-    { property: 'og:image', content: 'https://lesonpet.vn/images/og-facilities.webp' },
-    { tagName: 'link', rel: 'canonical', href: 'https://lesonpet.vn/co-so-vat-chat' },
   ]
 }
 

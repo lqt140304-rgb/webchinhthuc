@@ -1,7 +1,7 @@
 {
   "headers": [
     {
-      "source": "/(gioi-thieu|doi-ngu|co-so-vat-chat|bang-gia|san-pham|dat-lich|lien-he|dang-nhap|dang-ky)",
+      "source": "/(.*)",
       "headers": [
         {
           "key": "X-Robots-Tag",
@@ -10,37 +10,19 @@
       ]
     },
     {
-      "source": "/(gioi-thieu|doi-ngu|co-so-vat-chat|bang-gia|san-pham|dat-lich|lien-he|dang-nhap|dang-ky)/(.*)",
+      "source": "/assets/(.*)",
       "headers": [
         {
-          "key": "X-Robots-Tag",
-          "value": "noindex, nofollow"
-        }
-      ]
-    },
-    {
-      "source": "/(dich-vu|cau-chuyen|goc-thu-cung|bai-viet|tai-khoan|quan-ly)",
-      "headers": [
-        {
-          "key": "X-Robots-Tag",
-          "value": "noindex, nofollow"
-        }
-      ]
-    },
-    {
-      "source": "/(dich-vu|cau-chuyen|goc-thu-cung|bai-viet|tai-khoan|quan-ly)/(.*)",
-      "headers": [
-        {
-          "key": "X-Robots-Tag",
-          "value": "noindex, nofollow"
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
         }
       ]
     }
   ],
   "rewrites": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "source": "/tai-khoan/(.*)",
+      "destination": "/__spa-fallback.html"
     }
   ]
 }
