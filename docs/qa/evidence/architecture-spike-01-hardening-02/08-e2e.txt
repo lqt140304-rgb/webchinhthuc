@@ -1,0 +1,14 @@
+adapted-tests(H02 tests) 2a on base: # pass 50 # fail 1 # skipped 2 
+adapted-tests(H02 tests) 2a-round02 on base: # pass 24 # fail 0 # skipped 1 
+adapted-tests(H02 tests) 2a-round03 on base: # pass 21 # fail 0 # skipped 1 
+adapted-tests(H02 tests) 2b on base: # pass 26 # fail 1 # skipped 0 
+adapted-tests(H02 tests) 2a on h2: # pass 52 # fail 0 # skipped 1 
+adapted-tests(H02 tests) 2a-round02 on h2: # pass 24 # fail 0 # skipped 1 
+adapted-tests(H02 tests) 2a-round03 on h2: # pass 21 # fail 0 # skipped 1 
+adapted-tests(H02 tests) 2b on h2: # pass 27 # fail 0 # skipped 0 
+
+ORIGINAL assertions 2a vs H02 preview/local build: # pass 51 # fail 1 
+ORIGINAL assertions 2a-round02 vs H02 preview/local build: # pass 23 # fail 1 
+ORIGINAL assertions 2b vs H02 preview/local build: # pass 26 # fail 1 
+ORIGINAL assertions 2a vs VERCEL_ENV=production build: # pass 51 # fail 1 
+ORIGINAL assertions 2b vs VERCEL_ENV=production build: # pass 26 # fail 1 

@@ -1,0 +1,41 @@
+== 404.html | title ['404 — Không tìm thấy trang | Bệnh viện Thú y Lê Sơn'] | robots noindex, nofollow | canonical 0 | og img/url []
+    desc: Địa chỉ trang không tồn tại hoặc đã được thay đổi trên hệ thống Bệnh viện Thú y Lê Sơn.
+== 404/index.html | title ['404 — Không tìm thấy trang | Bệnh viện Thú y Lê Sơn'] | robots noindex, nofollow | canonical 0 | og img/url []
+    desc: Địa chỉ trang không tồn tại hoặc đã được thay đổi trên hệ thống Bệnh viện Thú y Lê Sơn.
+== __spa-fallback.html | title [] | robots None | canonical 0 | og img/url []
+== bang-gia/index.html | title ['Bảng giá dịch vụ niêm yết — Bệnh viện Thú y Lê Sơn'] | robots noindex, nofollow | canonical 0 | og img/url []
+    desc: Biểu phí dịch vụ khám, xét nghiệm và điều trị đang được đối chiếu niêm yết chính thức.
+== cau-chuyen/index.html | title ['Hành trình điều trị tiêu biểu — Bệnh viện Thú y Lê Sơn'] | robots noindex, nofollow | canonical 0 | og img/url []
+    desc: Các câu chuyện phục hồi thực tế của các bé cưng đang được xin ý kiến đồng thuận từ chủ nuôi.
+== co-so-vat-chat/index.html | title ['Cơ Sở Vật Chất | Bệnh viện Thú y Lê Sơn'] | robots noindex, nofollow | canonical 0 | og img/url []
+    desc: Thông tin cơ sở vật chất và không gian thăm khám tại Bệnh viện Thú y Lê Sơn, 101 Khuất Duy Tiến, Thanh Xuân, Hà Nội. Hotline: 097 355 51 05.
+== dang-ky/index.html | title ['Đăng ký tài khoản hồ sơ thú cưng — Bệnh viện Thú y Lê Sơn'] | robots noindex, nofollow | canonical 0 | og img/url []
+    desc: Chức năng tạo tài khoản sẽ được tích hợp theo đúng lộ trình Giai đoạn 4.
+== dang-nhap/index.html | title ['Đăng nhập Cổng khách hàng — Bệnh viện Thú y Lê Sơn'] | robots noindex, nofollow | canonical 0 | og img/url []
+    desc: Chức năng đăng nhập an toàn sẽ được tích hợp theo đúng lộ trình Giai đoạn 4.
+== dat-lich/index.html | title ['Đặt Lịch Hẹn Khám | Bệnh viện Thú y Lê Sơn'] | robots noindex, nofollow | canonical 0 | og img/url []
+    desc: Đặt lịch thăm khám thú cưng tại Bệnh viện Thú y Lê Sơn, 101 Khuất Duy Tiến, Thanh Xuân, Hà Nội. Hotline: 097 355 51 05.
+== dich-vu/cap-cuu/index.html | title ['Tiếp nhận Cấp cứu 24/24 — Bệnh viện Thú y Lê Sơn'] | robots noindex, nofollow | canonical 0 | og img/url []
+    desc: Quy trình hướng dẫn sơ cứu khẩn cấp và đường dây nóng 097 355 51 05 luôn sẵn sàng phục vụ tại Hà Nội.
+== dich-vu/index.html | title ['Danh mục dịch vụ y tế — Bệnh viện Thú y Lê Sơn'] | robots noindex, nofollow | canonical 0 | og img/url []
+    desc: Tổng hợp các giải pháp chăm sóc y tế toàn diện cho thú cưng đang được biên tập chi tiết.
+== dich-vu/kham-dieu-tri/index.html | title ['Khám & điều trị thú cưng — Bệnh viện Thú y Lê Sơn'] | robots noindex, nofollow | canonical 0 | og img/url []
+    desc: Quy trình khám lâm sàng, chẩn đoán cận lâm sàng và phác đồ điều trị đang được chuẩn hóa.
+== dich-vu/noi-tru/index.html | title ['Chăm sóc nội trú 24/7 — Bệnh viện Thú y Lê Sơn'] | robots noindex, nofollow | canonical 0 | og img/url []
+    desc: Quy trình chăm sóc lưu chuồng và chính sách cập nhật tình hình bé nội trú đang được xác nhận.
+== dich-vu/spa/index.html | title ['Spa & Grooming thẩm mỹ — Bệnh viện Thú y Lê Sơn'] | robots noindex, nofollow | canonical 0 | og img/url []
+    desc: Các gói vệ sinh, tắm trị liệu và tạo hình thú cưng đang được biên tập bảng thông số.
+== doi-ngu/index.html | title ['Đội Ngũ Bác Sĩ | Bệnh viện Thú y Lê Sơn'] | robots noindex, nofollow | canonical 0 | og img/url []
+    desc: Thông tin đội ngũ bác sĩ thú y làm việc tại Bệnh viện Thú y Lê Sơn, 101 Khuất Duy Tiến, Thanh Xuân, Hà Nội. Hotline: 097 355 51 05.
+== gioi-thieu/index.html | title ['Giới Thiệu | Bệnh viện Thú y Lê Sơn'] | robots noindex, nofollow | canonical 0 | og img/url []
+    desc: Thông tin giới thiệu về Bệnh viện Thú y Lê Sơn tại 101 Khuất Duy Tiến, Thanh Xuân, Hà Nội. Hotline: 097 355 51 05.
+== goc-thu-cung/index.html | title ['Góc thú cưng & Cẩm nang kiến thức — Bệnh viện Thú y Lê Sơn'] | robots noindex, nofollow | canonical 0 | og img/url []
+    desc: Kho kiến thức y khoa, dinh dưỡng và phòng bệnh từ bác sĩ thú y đang được biên tập.
+== index.html | title ['Bệnh viện Thú y Lê Sơn — Dịch Vụ Thú Y Tại Hà Nội'] | robots noindex, nofollow | canonical 0 | og img/url []
+    desc: Bệnh viện Thú y Lê Sơn tại 101 Khuất Duy Tiến, Thanh Xuân, Hà Nội. Tiếp nhận thăm khám thú cưng, hotline: 097 355 51 05.
+== lien-he/index.html | title ['Liên hệ & Thông tin phòng khám — Bệnh viện Thú y Lê Sơn'] | robots noindex, nofollow | canonical 0 | og img/url []
+    desc: Địa chỉ: 101 Khuất Duy Tiến, Thanh Xuân, Hà Nội | Hotline 24/24: 097 355 51 05.
+== san-pham/index.html | title ['Sản phẩm dinh dưỡng & Phụ kiện y tế — Bệnh viện Thú y Lê Sơn'] | robots noindex, nofollow | canonical 0 | og img/url []
+    desc: Danh mục sản phẩm chính hãng chọn lọc đang được cập nhật tồn kho và mô tả công dụng.
+== tai-khoan/index.html | title ['Cổng quản lý hồ sơ thú cưng — Bệnh viện Thú y Lê Sơn'] | robots noindex, nofollow | canonical 0 | og img/url []
+    desc: Khu vực dành riêng cho khách hàng theo dõi lịch hẹn và báo cáo sức khỏe được bác sĩ ký duyệt.

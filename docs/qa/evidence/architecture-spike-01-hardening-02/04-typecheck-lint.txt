@@ -1,0 +1,9 @@
+
+> webbvct@0.0.0 typecheck
+> react-router typegen && tsc -b
+
+The `envFile` option is deprecated, please use `envDir: false` instead.
+The `envFile` option is deprecated, please use `envDir: false` instead.
+The `envFile` option is deprecated, please use `envDir: false` instead.
+typecheck exit 0
+oxlint exit 0

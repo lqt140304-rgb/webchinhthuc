@@ -1,0 +1,15 @@
+# Register claims vs actual 3A source (grep in 4739d45 src)
+vô trùng: 
+cách ly: 
+khử khuẩn: src/components/sections/FeaturedServices.tsx 
+trực đêm: src/components/sections/FeaturedServices.tsx 
+Theo dõi 24h: 
+phòng mổ: 
+08:00 - 20:00: 
+08:00 – 21:00: src/components/editorial/EditorialDarkCTA.tsx src/config/contact.ts src/pages/AboutPage.tsx src/pages/FacilitiesPage.tsx src/pages/TeamPage.tsx 
+
+# 24/7 still in Header/Footer/MobileNav (register says removed)
+4739d45:src/components/layout/Footer.tsx:30:              Đơn vị y tế thú cưng chuyên nghiệp tại Hà Nội, cung cấp dịch v
+4739d45:src/components/layout/Footer.tsx:105:                  Chăm sóc nội trú 24/7
+4739d45:src/components/layout/Header.tsx:38:      { label: 'Chăm sóc nội trú 24/7', href: '/dich-vu/noi-tru', description: 'Chăm sóc 
+4739d45:src/components/layout/MobileNav.tsx:272:                  Chăm sóc nội trú 24/7

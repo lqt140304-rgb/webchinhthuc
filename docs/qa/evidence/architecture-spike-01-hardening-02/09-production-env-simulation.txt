@@ -1,0 +1,2 @@
+/ RAW robots: index, follow | HYDRATED robots: ["index, follow","noindex, nofollow"]
+/gioi-thieu RAW robots: noindex, nofollow | HYDRATED robots: ["noindex, nofollow"]

@@ -1,0 +1,49 @@
+# vercel.json at H02 (actual file)
+{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/tai-khoan/(.*)",
+      "destination": "/__spa-fallback.html"
+    },
+    {
+      "source": "/cau-chuyen/(.*)",
+      "destination": "/__spa-fallback.html"
+    },
+    {
+      "source": "/bai-viet/(.*)",
+      "destination": "/__spa-fallback.html"
+    }
+  ]
+}
+
+# keys outputDirectory/cleanUrls/trailingSlash present in actual vercel.json: 0
+# documents claiming it:
+bacc62a:docs/spikes/architecture-01/hardening-02/handoff.md:26:5. **Finding H11 (P2 Vercel Readiness & Rollback):** Tinh chỉnh `vercel.json` với `outputDirectory: "bu
+bacc62a:docs/spikes/architecture-01/hardening-02/hardening-02-summary.md:43:   - Thiết lập cấu hình chuẩn trong `vercel.json` với `outputDirectory: "build/clie
+bacc62a:docs/spikes/architecture-01/hardening-02/vercel-readiness.md:19:  "outputDirectory": "build/client",
+bacc62a:docs/spikes/architecture-01/hardening-02/vercel-readiness.md:40:1. **`outputDirectory: "build/client"`**:
+
+# Hardcoded local paths in H02 tests/scripts
+bacc62a:tests/e2e/2b-verification.cjs:5:  playwright = require('C:/Users/Admin/AppData/Roaming/npm/node_modules/playwright');
+bacc62a:tests/measure-cls.cjs:7:const DIST = path.resolve('D:/webbvct/dist');
+bacc62a:tests/spike/test-hydration-404.cjs:1:const { chromium } = require('C:/Users/Admin/AppData/Roaming/npm/node_modules/playwright');

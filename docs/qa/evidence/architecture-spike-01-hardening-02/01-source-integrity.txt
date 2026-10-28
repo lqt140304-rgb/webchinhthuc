@@ -1,0 +1,46 @@
+bacc62afebcd531a23a1fc6f52724f1799557000 parent=5e00b9ae5dadf41ef7026fac37beb0e7a34ad263 2026-10-28 15:28:56 +0700 docs(spike): record implementation commit SHA in handoff.md
+5e00b9ae5dadf41ef7026fac37beb0e7a34ad263 parent=0be427862fe78961f1ce6ab29db49eb86ac6cc75 2026-10-28 15:28:43 +0700 feat(spike): Hardening 02 — eliminate P1 metadata claims, fix 404 hydration error #418, dynamic routes parity, and SEO policy
+H01 (0be4278) ancestor: YES
+baseline 4739d45 ancestor: YES
+main d2a19c5
+docs/phase-3b-00 32b8a0a
+spike/architecture-01-hardening-01 0be4278
+main contains H02? NO
+
+# diff stat H01..H02
+ app/routes.ts                                      |   3 +-
+ app/routes/about.tsx                               |  15 +-
+ app/routes/booking.tsx                             |  15 +-
+ app/routes/facilities.tsx                          |  15 +-
+ app/routes/home.tsx                                |  15 +-
+ app/routes/static-404.tsx                          |  24 ---
+ app/routes/story-detail.tsx                        |  10 +-
+ app/routes/team.tsx                                |  15 +-
+ .../spikes/architecture-01/hardening-02/handoff.md | 122 +++++++++++++++
+ .../hardening-02/hardening-02-summary.md           | 105 +++++++++++++
+ .../hardening-02/hydration-404-analysis.md         | 170 +++++++++++++++++++++
+ .../hardening-02/metadata-content-audit.md         |  97 ++++++++++++
+ .../hardening-02/regression-performance.md         | 102 +++++++++++++
+ .../hardening-02/route-parity-matrix.md            | 139 +++++++++++++++++
+ .../hardening-02/seo-environment-policy.md         | 138 +++++++++++++++++
+ .../hardening-02/vercel-readiness.md               | 115 ++++++++++++++
+ package.json                                       |   5 +-
+ react-router.config.ts                             |   1 +
+ src/config/seo-policy.ts                           |  88 +++++++++++
+ tests/e2e/2a-round02.e2e.test.cjs                  |  10 +-
+ tests/e2e/2a.e2e.test.cjs                          |  16 +-
+ tests/e2e/2b.e2e.test.cjs                          |  11 +-
+ tests/spike/test-hydration-404.cjs                 | 106 +++++++++++++
+ tests/spike/test-routing-spike.cjs                 |  39 ++++-
+ tests/spike/test-seo-policy.cjs                    |  50 ++++++
+ tests/spike/verify-html-head.cjs                   |  27 ++++
+ vercel.json                                        |   8 +
+ 27 files changed, 1379 insertions(+), 82 deletions(-)
+
+# src/public/index.html/AGENTS.md changed vs 4739d45
+ src/config/seo-policy.ts | 88 ++++++++++++++++++++++++++++++++++++++++++++++++
+ src/hooks/useRouteSeo.ts | 59 +++++++-------------------------
+ 2 files changed, 100 insertions(+), 47 deletions(-)
+
+# docs/phase-3b or other docs outside spikes changed vs H01?
+(none)

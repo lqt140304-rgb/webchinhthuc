@@ -1,0 +1,16 @@
+/                      h2-vercel-like:200
+/gioi-thieu            h2-vercel-like:200
+/dich-vu               h2-vercel-like:200
+/dich-vu/noi-tru       h2-vercel-like:200
+/bang-gia              h2-vercel-like:200
+/cau-chuyen            h2-vercel-like:200
+/cau-chuyen/abc        h2-vercel-like:200
+/bai-viet/xyz          h2-vercel-like:200
+/lien-he               h2-vercel-like:200
+/dang-nhap             h2-vercel-like:200
+/tai-khoan             h2-vercel-like:200
+/tai-khoan/            h2-vercel-like:200
+/tai-khoan/x           h2-vercel-like:200
+/quan-ly/x             h2-vercel-like:404
+/khong-ton-tai         h2-vercel-like:404
+/a/b/c                 h2-vercel-like:404
