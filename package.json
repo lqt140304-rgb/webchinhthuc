@@ -12,7 +12,8 @@
     "test:routing": "node tests/spike/test-routing-spike.cjs",
     "test:hydration": "node tests/spike/test-hydration-404.cjs",
     "test:seo": "node tests/spike/test-seo-policy.cjs",
-    "test:seo-consistency": "node tests/spike/test-seo-consistency.cjs"
+    "test:seo-consistency": "node tests/spike/test-seo-consistency.cjs",
+    "test:install-browsers": "playwright install chromium"
   },
   "dependencies": {
     "@react-router/node": "^7.18.5",

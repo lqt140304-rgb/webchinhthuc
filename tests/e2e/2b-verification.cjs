@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const assert = require('assert');
 
-const EVIDENCE_DIR = path.join(__dirname, '..', '..', 'docs', 'qa', '2b-verification-evidence');
+const EVIDENCE_DIR = process.env.TEST_OUTPUT_DIR || path.join(__dirname, '..', '..', 'e2e-evidence', '2b-run');
 if (!fs.existsSync(EVIDENCE_DIR)) {
   fs.mkdirSync(EVIDENCE_DIR, { recursive: true });
 }
