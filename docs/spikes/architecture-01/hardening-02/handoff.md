@@ -7,7 +7,7 @@
 **Worktree:** `D:\webbvct-hardening-02`  
 **Nhánh:** `spike/architecture-01-hardening-02`  
 **Base Commit (Hardening 01):** `0be427862fe78961f1ce6ab29db49eb86ac6cc75`  
-**Commit SHA Bàn giao:** *(Cập nhật theo commit mới)*  
+**Commit SHA Bàn giao:** `5e00b9ae5dadf41ef7026fac37beb0e7a34ad263`  
 **Quyền hạn:** LOCAL SPIKE CODE ONLY — DEPLOYMENT STRICTLY PROHIBITED  
 
 ---
