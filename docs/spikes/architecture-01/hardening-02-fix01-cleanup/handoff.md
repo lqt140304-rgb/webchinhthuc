@@ -7,7 +7,7 @@
 **Worktree:** `D:\webbvct-cleanup-060`  
 **Nhánh Git:** `spike/architecture-01-h02-fix01-cleanup`  
 **Base Commit (Fix 01):** `535f803808dcfb27f06b3303a5e32070c88a5aa6`  
-**Commit SHA Bàn giao:** *(Sẽ cập nhật SHA chính thức khi commit)*  
+**Commit SHA Bàn giao:** `b5858f3720202377a3273dea9fcb7fbb01dfcf7e`  
 **Quyền hạn:** LOCAL EXPERIMENTAL BRANCH ONLY — **DEPLOYMENT STRICTLY PROHIBITED**  
 
 ---
