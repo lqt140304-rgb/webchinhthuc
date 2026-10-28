@@ -1,0 +1,2 @@
+# Vercel read-only
+GET /v6/deployments?projectId=prj_wZg6o5vvbDe6UTT52vaqvGTNC4e3 -> HTTP 403 (this round). NOT VERIFIED.

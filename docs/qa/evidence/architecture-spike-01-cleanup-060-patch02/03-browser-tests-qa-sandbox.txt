@@ -1,0 +1,15 @@
+# clean install and browser tests with repo dependency, QA sandbox (Linux), unmodified
+OS Linux 6.18; node v22.22.0; npm 10.9.4; playwright (repo devDependency) 1.64.1
+npm ci exit 0; build exit 0 (20 Prerender lines); typecheck exit 0; oxlint exit 0
+
+npm run test:install-browsers -> exit 1
+Error: Download failed: server returned code 403 body 'request blocked: no rule or allowlist entry allows host "cdn.playwright.dev"'. URL: https://cdn.playwright.dev/builds/cft/156.0.8078.4/linux64/chrome-linux64.zip
+cdn.playwright.dev / playwright.download.prss.microsoft.com -> no response / 403 (sandbox allowlist)
+
+npm run test:hydration -> exit 1: browserType.launch: Executable doesn't exist (chromium_headless_shell-1248 required by Playwright 1.64.1; sandbox has 1243)
+npm run test:seo-consistency -> exit 1: same
+node tests/e2e/2b-verification.cjs -> exit 1: same (server started and cleaned up first)
+
+after runs: port 4173 free; no node preview-server process; git status clean (outputs in ignored e2e-evidence/)
+2B evidence identical to 3A after runs: 15/15
+No manual browser provisioning attempted; no global/copied Playwright used.

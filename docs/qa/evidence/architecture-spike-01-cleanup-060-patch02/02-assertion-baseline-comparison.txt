@@ -1,0 +1,47 @@
+# Assertion comparison: 3A BookingPage.tsx (4739d45) vs tightened script (Patch 02)
+## baseline source lines
+Thông Báo Minh Bạch — Giao Diện Đang Trong Giai Đoạn Thử Nghiệm
+Biểu mẫu dưới đây đang trong giai đoạn thử nghiệm giao diện. Bệnh viện chưa tiếp nhận thông tin đăng ký tự động qua website.
+&bull; Để đặt hẹn khám có hiệu lực ngay, xin quý khách vui lòng liên hệ trực tiếp hotline:{' '}
+Thông tin bạn nhập chưa được gửi đến bệnh viện.
+Để đặt lịch khám, vui lòng gọi <strong className="text-[var(--color-plum-deep)] font-bold">{HOSPITAL_CONTACT.hotlineDisplay}</strong>.
+<span>Gọi hotline: {HOSPITAL_CONTACT.hotlineDisplay}</span>
+<option value="kham-dieu-tri">Khám & điều trị</option>
+<option value="khac">Dịch vụ khác (trao đổi trực tiếp)</option>
+
+## verbatim string presence (3A src / Patch02 script)
+3A:1 script:1 | Thông Báo Minh Bạch — Giao Diện Đang Trong Giai Đoạn Thử Nghiệm
+3A:1 script:1 | Biểu mẫu dưới đây đang trong giai đoạn thử nghiệm giao diện. Bệnh viện chưa tiếp nhận thông tin đăng k�
+3A:1 script:1 | Để đặt hẹn khám có hiệu lực ngay, xin quý khách vui lòng liên hệ trực tiếp hotline:
+3A:1 script:2 | Thông tin bạn nhập chưa được gửi đến bệnh viện.
+3A:1 script:1 | Để đặt lịch khám, vui lòng gọi
+3A:1 script:1 | Gọi hotline:
+3A:2 script:3 | Giao Diện Thử Nghiệm
+3A:1 script:5 | Thử lại biểu mẫu
+3A:1 script:1 | Khám & điều trị
+
+## hotline: HOSPITAL_CONTACT
+11:  hotlineDisplay: '097 355 51 05',
+13:  hotlineTel: 'tel:0973555105',
+
+## assert counts: Fix01=28 Patch01=27 Patch02=48
+mock/route-intercept/skip in Patch02 script: 0
+
+## error ids / aria-invalid / min in 3A
+354:                          aria-invalid={!!errors.ownerName}
+358:                          <p id="owner-name-error" className="mt-1 text-xs text-rose-600 font-medium">
+380:                          aria-invalid={!!errors.phone}
+384:                          <p id="owner-phone-error" className="mt-1 text-xs text-rose-600 font-medium">
+415:                          aria-invalid={!!errors.petName}
+419:                          <p id="pet-name-error" className="mt-1 text-xs text-rose-600 font-medium">
+486:                          aria-invalid={!!errors.preferredDate}
+490:                          <p id="preferred-date-error" className="mt-1 text-xs text-rose-600 font-medium">
+
+## weak spots remaining
+201:      const bannerTitle = page.locator('strong:has-text("Thông Báo Minh Bạch — Giao Diện Đang Trong Giai Đoạn Thử Nghiệm")');
+204:      const bannerDesc = page.locator('text=Biểu mẫu dưới đây đang trong giai đoạn thử nghiệm giao diện. Bệnh viện chưa tiếp nhận thông tin đăng ký tự động qua
+207:      const bannerCallout = page.locator('text=Để đặt hẹn khám có hiệu lực ngay, xin quý khách vui lòng liên hệ trực tiếp hotline:');
+210:      const bannerHotlineLink = page.locator('div.rounded-2xl.bg-amber-50 a[href="tel:0973555105"]');
+274:      const badge = statusPanel.locator('span:has-text("Giao Diện Thử Nghiệm")');
+282:      const panelDesc = statusPanel.locator('p:has-text("Để đặt lịch khám, vui lòng gọi")');
+292:      const retryBtn = statusPanel.locator('button:has-text("Thử lại biểu mẫu")');

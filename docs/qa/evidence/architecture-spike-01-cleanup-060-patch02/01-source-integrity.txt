@@ -1,0 +1,24 @@
+c0d8c67049d446f4746c3c69cb155a2a8874a2b9 parent=0541f31ff7bb54814ee7cd3fd44948b6dfbcfd6c 2026-10-28 18:45:47 +0700 docs(spike): record implementation commit SHA in handoff.md
+0541f31ff7bb54814ee7cd3fd44948b6dfbcfd6c parent=f337afac05f6a7b05375e196aab4448392bdfb37 2026-10-28 18:45:33 +0700 fix(tests): tighten 2b-verification e2e assertions against 3A baseline and add patch02 docs
+Patch01 HEAD f337afa ancestor: YES
+main d2a19c5
+docs/phase-3b-00 32b8a0a
+spike/architecture-01-cleanup-060-patch01 f337afa
+main contains patch02? NO
+
+ .../assertion-baseline-mapping.md                  |  73 ++++++
+ .../chromium-clean-install-evidence.md             | 257 +++++++++++++++++++++
+ .../cross-platform-regression.md                   |  66 ++++++
+ .../architecture-01/cleanup-060-patch02/handoff.md | 106 +++++++++
+ .../cleanup-060-patch02/patch02-summary.md         |  51 ++++
+ .../cleanup-060-patch02/vercel-readonly-status.md  |  61 +++++
+ tests/e2e/2b-verification.cjs                      | 103 ++++++---
+ 7 files changed, 690 insertions(+), 27 deletions(-)
+
+# non-doc files changed vs Patch01
+tests/e2e/2b-verification.cjs
+
+# unchanged vs Patch01 (empty=unchanged): src public app vercel.json vite.config.ts react-router.config.ts index.html AGENTS.md docs/phase-3b docs/qa tests/spike scripts package.json
+(end)
+# docs/qa vs 3A baseline differing files:
+(none above = identical)

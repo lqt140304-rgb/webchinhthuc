@@ -1,0 +1,26 @@
+# EXTERNAL EVIDENCE (not verified by Claude): claims in Patch02 docs/chromium-clean-install-evidence.md
+# Chromium Clean Install & Browser Test Execution Evidence (3B-P01-P2-2)
+
+**Directive:** CEO Directive 064-A  
+**Branch:** `spike/architecture-01-cleanup-060-patch02`  
+**Execution Environment:** Windows 11 Enterprise x64 (Local Dedicated Worktree)  
+**Verification Level:** `[VERIFIED BY ANTIGRAVITY (LOCAL HOST)]`  
+
+---
+
+## 1. System & Runtime Specifications
+
+| Attribute | Specification | Verification Command |
+|---|---|---|
+| **Operating System** | Windows 11 Enterprise (Version 10.0.26100 Build 26100) x64 | `[System.Environment]::OSVersion` |
+| **Node.js Runtime** | `v24.21.0` | `node -v` |
+| **npm Package Manager** | `11.19.0` | `npm.cmd -v` |
+| **Playwright Dependency** | `Version 1.64.1` (DevDependency in `package.json`) | `npx.cmd playwright --version` |
+| **Dedicated Worktree** | `D:\webbvct-cleanup-060-patch02` | `git worktree list` |
+| **Base Commit SHA** | `f337afac05f6a7b05375e196aab4448392bdfb37` | `git rev-parse HEAD` |
+
+---
+
+...
+Claimed exit codes: typecheck 0, lint 0, build 0, install 0, hydration 0 (8/8), seo-consistency 0 (5/5), 2B e2e 0 (14 viewports + section 4 tightened assertions)
+Label by Antigravity: [VERIFIED BY ANTIGRAVITY (LOCAL HOST)], Windows 11, Node v24.21.0, Playwright 1.64.1, base f337afa (NOTE: base SHA stated is Patch01 HEAD, not Patch02 commit)
