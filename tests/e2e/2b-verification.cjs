@@ -197,14 +197,22 @@ async function run() {
       const page = await context.newPage();
       await page.goto('http://localhost:4173/dat-lich', { waitUntil: 'networkidle' });
 
-      // Kiểm tra banner minh bạch
-      const noticeBanner = page.locator('text=Thông Báo Minh Bạch');
-      await assert.doesNotReject(noticeBanner.first().waitFor({ state: 'visible' }), 'Thiếu banner thông báo minh bạch trên /dat-lich');
-      const noticeText = await noticeBanner.first().textContent();
-      assert.ok(noticeText.includes('Thông Báo Minh Bạch'), 'Thiếu banner thông báo minh bạch trên /dat-lich');
-      log('  ✓ B01: Có banner thông báo minh bạch giao diện thử nghiệm, chưa kết nối DB.');
+      // A. Banner đặt lịch (khớp chính xác 100% baseline 3A BookingPage.tsx)
+      const bannerTitle = page.locator('strong:has-text("Thông Báo Minh Bạch — Giao Diện Đang Trong Giai Đoạn Thử Nghiệm")');
+      await assert.doesNotReject(bannerTitle.waitFor({ state: 'visible' }), 'Thiếu tiêu đề banner thông báo minh bạch trên /dat-lich');
 
-      // Kiểm tra các trường BookingFormData
+      const bannerDesc = page.locator('text=Biểu mẫu dưới đây đang trong giai đoạn thử nghiệm giao diện. Bệnh viện chưa tiếp nhận thông tin đăng ký tự động qua website.');
+      assert.ok(await bannerDesc.isVisible(), 'Thiếu nội dung mô tả banner thử nghiệm');
+
+      const bannerCallout = page.locator('text=Để đặt hẹn khám có hiệu lực ngay, xin quý khách vui lòng liên hệ trực tiếp hotline:');
+      assert.ok(await bannerCallout.isVisible(), 'Thiếu thông tin hướng dẫn hotline trong banner');
+
+      const bannerHotlineLink = page.locator('div.rounded-2xl.bg-amber-50 a[href="tel:0973555105"]');
+      assert.ok(await bannerHotlineLink.isVisible(), 'Thiếu liên kết hotline tel:0973555105 trong banner');
+      assert.strictEqual((await bannerHotlineLink.textContent()).trim(), '097 355 51 05', 'Số hotline hiển thị trong banner không khớp');
+      log('  ✓ B01: Banner thông báo minh bạch khớp 100% baseline 3A (tiêu đề, nội dung, hotline và href tel).');
+
+      // B. Kiểm tra các trường BookingFormData
       assert.ok(await page.locator('#owner-name').isVisible(), 'Thiếu input #owner-name');
       assert.ok(await page.locator('#owner-phone').isVisible(), 'Thiếu input #owner-phone');
       assert.ok(await page.locator('#pet-name').isVisible(), 'Thiếu input #pet-name');
@@ -215,41 +223,82 @@ async function run() {
       assert.ok(await page.locator('#symptoms-note').isVisible(), 'Thiếu textarea #symptoms-note');
       log('  ✓ B01: Đầy đủ 8 trường dữ liệu theo đặc tả BookingFormData.');
 
-      // Thử submit form rỗng để kiểm tra client validation
+      // C. Submit form rỗng để kiểm tra client validation
       await page.locator('button[type="submit"]').click();
-      const hasErrors = await page.locator('#owner-name-error, #owner-phone-error, #pet-name-error, #preferred-date-error').count();
-      assert.ok(hasErrors >= 3, 'Client validation không bắt lỗi khi form rỗng');
-      log(`  ✓ Client validation hoạt động chuẩn: bắt lỗi khi bỏ trống các trường bắt buộc (${hasErrors} thông báo lỗi).`);
+      const errorCount = await page.locator('#owner-name-error, #owner-phone-error, #pet-name-error, #preferred-date-error').count();
+      assert.strictEqual(errorCount, 4, 'Client validation phải hiển thị đầy đủ 4 thông báo lỗi bắt buộc');
+      assert.strictEqual(await page.locator('#owner-name').getAttribute('aria-invalid'), 'true', 'Trường lỗi đầu tiên phải có aria-invalid="true"');
+      log(`  ✓ Client validation hoạt động chuẩn: bắt lỗi và hiển thị đầy đủ ${errorCount}/4 thông báo lỗi bắt buộc.`);
 
-      // Điền thông tin kiểm thử hợp lệ
-      const futureDate = new Date(Date.now() + 864e5 * 3).toISOString().slice(0, 10);
+      // D. Điền thông tin kiểm thử hợp lệ (ngày động tương lai, chọn option kham-dieu-tri)
+      const d = new Date(Date.now() + 864e5 * 3);
+      const futureDate = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+
       await page.fill('#owner-name', 'Nguyễn Hoàng Nam');
-      await page.fill('#owner-phone', '0987654321');
-      await page.fill('#pet-name', 'Bông');
-      await page.selectOption('#pet-type', 'chó');
-      await page.selectOption('#service-type', 'kham-dieu-tri');
-      await page.fill('#preferred-date', futureDate);
-      await page.selectOption('#preferred-timeslot', 'sang');
-      await page.fill('#symptoms-note', 'Kiểm tra tổng quát và tư vấn tiêm phòng định kỳ.');
+      assert.strictEqual(await page.locator('#owner-name').inputValue(), 'Nguyễn Hoàng Nam');
 
-      // Submit form
+      await page.fill('#owner-phone', '0987654321');
+      assert.strictEqual(await page.locator('#owner-phone').inputValue(), '0987654321');
+
+      await page.fill('#pet-name', 'Bông');
+      assert.strictEqual(await page.locator('#pet-name').inputValue(), 'Bông');
+
+      await page.selectOption('#pet-type', 'chó');
+      assert.strictEqual(await page.locator('#pet-type').inputValue(), 'chó');
+
+      // Xác minh option kham-dieu-tri tồn tại trong baseline 3A
+      const optKhamDieuTri = page.locator('#service-type option[value="kham-dieu-tri"]');
+      assert.strictEqual(await optKhamDieuTri.count(), 1, 'Thiếu option kham-dieu-tri trong select #service-type');
+      assert.strictEqual((await optKhamDieuTri.textContent()).trim(), 'Khám & điều trị', 'Nội dung option kham-dieu-tri không khớp');
+      await page.selectOption('#service-type', 'kham-dieu-tri');
+      assert.strictEqual(await page.locator('#service-type').inputValue(), 'kham-dieu-tri', 'Chưa chọn đúng option kham-dieu-tri');
+
+      await page.fill('#preferred-date', futureDate);
+      assert.strictEqual(await page.locator('#preferred-date').inputValue(), futureDate, 'Giá trị ngày hẹn #preferred-date không khớp');
+
+      await page.selectOption('#preferred-timeslot', 'sang');
+      assert.strictEqual(await page.locator('#preferred-timeslot').inputValue(), 'sang');
+
+      await page.fill('#symptoms-note', 'Kiểm tra tổng quát và tư vấn tiêm phòng định kỳ.');
+      assert.strictEqual(await page.locator('#symptoms-note').inputValue(), 'Kiểm tra tổng quát và tư vấn tiêm phòng định kỳ.');
+      log('  ✓ B01: Đã điền và xác minh giá trị 8 trường hợp lệ (ngày tương lai động, option kham-dieu-tri).');
+
+      // E. Submit form và xác minh panel kết quả thử nghiệm minh bạch
       await page.locator('button[type="submit"]').click();
 
-      // Chờ panel kết quả thử nghiệm
-      await page.waitForSelector('[role="status"]', { timeout: 5000 });
-      const completedPanel = page.locator('[role="status"]');
-      assert.ok(await completedPanel.isVisible(), 'Thiếu panel thông báo kết quả');
+      // Chờ panel role="status"
+      const statusPanel = page.locator('div[role="status"][aria-live="polite"]');
+      await assert.doesNotReject(statusPanel.waitFor({ state: 'visible', timeout: 5000 }), 'Thiếu panel role="status" sau khi submit');
 
-      // Xác nhận tính minh bạch: KHÔNG báo tạo lịch hẹn thật thành công
-      const panelContent = await completedPanel.textContent();
-      assert.ok(panelContent.includes('chưa được gửi'), 'Thiếu thông báo chưa gửi dữ liệu');
-      assert.ok(panelContent.includes('097 355 51 05'), 'Thiếu số hotline liên hệ');
-      log('  ✓ B01: Panel kết quả hoàn toàn minh bạch, không gửi dữ liệu thật, không tạo thành công giả, có CTA gọi hotline.');
+      // 1. Badge Giao Diện Thử Nghiệm
+      const badge = statusPanel.locator('span:has-text("Giao Diện Thử Nghiệm")');
+      assert.ok(await badge.isVisible(), 'Thiếu badge Giao Diện Thử Nghiệm');
 
-      // Thử bấm "Thử lại biểu mẫu"
-      await page.locator('button:has-text("Thử lại biểu mẫu")').click();
+      // 2. Tiêu đề nguyên văn baseline 3A: "Thông tin bạn nhập chưa được gửi đến bệnh viện."
+      const panelTitle = statusPanel.locator('h2');
+      assert.strictEqual((await panelTitle.textContent()).trim(), 'Thông tin bạn nhập chưa được gửi đến bệnh viện.', 'Tiêu đề thông báo sau gửi không khớp');
+
+      // 3. Nội dung hướng dẫn nguyên văn baseline 3A
+      const panelDesc = statusPanel.locator('p:has-text("Để đặt lịch khám, vui lòng gọi")');
+      assert.ok(await panelDesc.isVisible(), 'Thiếu đoạn hướng dẫn gọi hotline');
+      assert.ok((await panelDesc.textContent()).includes('097 355 51 05'), 'Thiếu hotline 097 355 51 05 trong đoạn hướng dẫn');
+
+      // 4. CTA nút gọi hotline nguyên văn baseline 3A
+      const hotlineBtn = statusPanel.locator('a[href="tel:0973555105"]');
+      assert.ok(await hotlineBtn.isVisible(), 'Thiếu CTA hotline tel:0973555105');
+      assert.strictEqual((await hotlineBtn.textContent()).trim(), 'Gọi hotline: 097 355 51 05', 'Nội dung CTA hotline không khớp');
+
+      // 5. Nút "Thử lại biểu mẫu"
+      const retryBtn = statusPanel.locator('button:has-text("Thử lại biểu mẫu")');
+      assert.ok(await retryBtn.isVisible(), 'Thiếu nút Thử lại biểu mẫu');
+      log('  ✓ B01: Panel kết quả minh bạch 100% khớp baseline 3A (tiêu đề, badge, hotline 097 355 51 05, href tel:0973555105).');
+
+      // F. Thử bấm "Thử lại biểu mẫu" và xác minh quay lại form
+      await retryBtn.click();
       assert.ok(await page.locator('#owner-name').isVisible(), 'Không quay lại được form khi bấm thử lại');
-      log('  ✓ B01: Nút "Thử lại biểu mẫu" hoạt động chính xác, cho phép thử lại.');
+      assert.ok(await page.locator('button[type="submit"]').isVisible(), 'Nút submit không hiển thị sau khi thử lại');
+      assert.strictEqual(await statusPanel.count(), 0, 'Panel trạng thái vẫn còn hiển thị sau khi bấm thử lại');
+      log('  ✓ B01: Nút "Thử lại biểu mẫu" hoạt động chính xác, đóng panel kết quả và quay lại form.');
 
       await context.close();
     }
