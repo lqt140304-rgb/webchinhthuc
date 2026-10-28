@@ -1,0 +1,84 @@
+===  404/index.html 23428 bytes
+ title: ['404 — Không Tìm Thấy Trang | Bệnh Viện Thú Y Lê Sơn']
+ meta viewport = width=device-width, initial-scale=1.0
+ meta robots = noindex, nofollow
+ canonical: []
+ h1: ['Không tìm thấy trang yêu cầu']
+ visible text chars (no JS): 1120 | sample: > Nhảy đến nội dung chính LÊ SƠN Bệnh viện Thú y Trang chủ Về Lê Sơn Dịch vụ Góc thú cưng Câu chuyện Liên hệ Đăng nhập / Đăng ký Đặt lịch khám Đặt lịch Lỗi 404 
+===  __spa-fallback.html 2274 bytes
+ title: []
+ meta viewport = width=device-width, initial-scale=1.0
+ canonical: []
+ h1: []
+ visible text chars (no JS): 1 | sample: >
+===  co-so-vat-chat/index.html 39153 bytes
+ title: ['Cơ Sở Vật Chất &amp; Không Gian Khám Chữa — Bệnh Viện Thú Y Lê Sơn']
+ meta viewport = width=device-width, initial-scale=1.0
+ meta description = Hệ thống cơ sở vật chất, phòng khám, phòng chẩn đoán hình ảnh và khu vực lưu trú y tế tiện nghi tại 101 Khuất Duy Tiến, Hà Nội.
+ meta og:title = Cơ Sở Vật Chất &amp; Không Gian Khám Chữa — Bệnh Viện Thú Y Lê Sơn
+ meta og:description = Hệ thống cơ sở vật chất, phòng khám, phòng chẩn đoán hình ảnh và khu vực lưu trú y tế tiện nghi tại 101 Khuất Duy Tiến, Hà Nội.
+ meta og:type = website
+ meta og:url = https://lesonpet.vn/co-so-vat-chat
+ meta og:image = https://lesonpet.vn/images/og-facilities.webp
+ canonical: ['https://lesonpet.vn/co-so-vat-chat']
+ h1: ['Không gian thăm khám và quy hoạch các phân khu chức năng.']
+ visible text chars (no JS): 4164 | sample: > Nhảy đến nội dung chính LÊ SƠN Bệnh viện Thú y Trang chủ Về Lê Sơn Dịch vụ Góc thú cưng Câu chuyện Liên hệ Đăng nhập / Đăng ký Đặt lịch khám Đặt lịch Trang ch
+===  dat-lich/index.html 37569 bytes
+ title: ['Đặt Lịch Khám &amp; Tư Vấn Y Tế Thú Cưng — Bệnh Viện Thú Y Lê Sơn']
+ meta viewport = width=device-width, initial-scale=1.0
+ meta description = Đăng ký lịch khám trực tuyến tại Bệnh viện Thú y Lê Sơn 101 Khuất Duy Tiến để được đón tiếp chu đáo và chủ động thời gian.
+ meta og:title = Đặt Lịch Khám &amp; Tư Vấn Y Tế Thú Cưng — Bệnh Viện Thú Y Lê Sơn
+ meta og:description = Đăng ký lịch khám trực tuyến tại Bệnh viện Thú y Lê Sơn 101 Khuất Duy Tiến để được đón tiếp chu đáo và chủ động thời gian.
+ meta og:type = website
+ meta og:url = https://lesonpet.vn/dat-lich
+ canonical: ['https://lesonpet.vn/dat-lich']
+ h1: ['Đăng ký lịch khám cho bé cưng']
+ visible text chars (no JS): 3150 | sample: > Nhảy đến nội dung chính LÊ SƠN Bệnh viện Thú y Trang chủ Về Lê Sơn Dịch vụ Góc thú cưng Câu chuyện Liên hệ Đăng nhập / Đăng ký Đặt lịch khám Đặt lịch Trang ch
+===  doi-ngu/index.html 45589 bytes
+ title: ['Đội Ngũ Bác Sĩ &amp; Chuyên Gia Y Tế — Bệnh Viện Thú Y Lê Sơn']
+ meta viewport = width=device-width, initial-scale=1.0
+ meta description = Gặp gỡ đội ngũ bác sĩ thú y giàu kinh nghiệm, tận tâm và chuyên môn vững vàng tại Bệnh viện Thú y Lê Sơn 101 Khuất Duy Tiến.
+ meta og:title = Đội Ngũ Bác Sĩ &amp; Chuyên Gia Y Tế — Bệnh Viện Thú Y Lê Sơn
+ meta og:description = Gặp gỡ đội ngũ bác sĩ thú y giàu kinh nghiệm, tận tâm và chuyên môn vững vàng tại Bệnh viện Thú y Lê Sơn 101 Khuất Duy Tiến.
+ meta og:type = website
+ meta og:url = https://lesonpet.vn/doi-ngu
+ meta og:image = https://lesonpet.vn/images/og-team.webp
+ canonical: ['https://lesonpet.vn/doi-ngu']
+ h1: ['Sự tận tâm từ những người trực tiếp đồng hành cùng thú cưng.']
+ visible text chars (no JS): 4907 | sample: > Nhảy đến nội dung chính LÊ SƠN Bệnh viện Thú y Trang chủ Về Lê Sơn Dịch vụ Góc thú cưng Câu chuyện Liên hệ Đăng nhập / Đăng ký Đặt lịch khám Đặt lịch Trang ch
+===  gioi-thieu/index.html 39964 bytes
+ title: ['Về Bệnh Viện Thú Y Lê Sơn — Lịch Sử &amp; Tôn Chỉ Y Khoa']
+ meta viewport = width=device-width, initial-scale=1.0
+ meta description = Tìm hiểu hành trình thành lập, đội ngũ chuyên môn và tôn chỉ phụng sự sự sống của Bệnh viện Thú y Lê Sơn tại 101 Khuất Duy Tiến, Hà Nội.
+ meta og:title = Về Bệnh Viện Thú Y Lê Sơn — Lịch Sử &amp; Tôn Chỉ Y Khoa
+ meta og:description = Tìm hiểu hành trình thành lập, đội ngũ chuyên môn và tôn chỉ phụng sự sự sống của Bệnh viện Thú y Lê Sơn tại 101 Khuất Duy Tiến, Hà Nội.
+ meta og:type = website
+ meta og:url = https://lesonpet.vn/gioi-thieu
+ meta og:image = https://lesonpet.vn/images/og-about.webp
+ canonical: ['https://lesonpet.vn/gioi-thieu']
+ h1: ['Nơi sự cẩn trọng y khoa song hành cùng lòng thấu cảm.']
+ visible text chars (no JS): 4213 | sample: > Nhảy đến nội dung chính LÊ SƠN Bệnh viện Thú y Trang chủ Về Lê Sơn Dịch vụ Góc thú cưng Câu chuyện Liên hệ Đăng nhập / Đăng ký Đặt lịch khám Đặt lịch Trang ch
+===  index.html 71779 bytes
+ title: ['Bệnh viện Thú y Lê Sơn — Chăm Sóc Y Tế Thú Cưng Chuẩn Mực']
+ meta viewport = width=device-width, initial-scale=1.0
+ meta description = Bệnh viện Thú y Lê Sơn - Địa chỉ khám, điều trị, phẫu thuật, nội trú và cấp cứu thú cưng 24/24 uy tín tại 101 Khuất Duy Tiến, Thanh Xuân, Hà Nội.
+ meta og:title = Bệnh viện Thú y Lê Sơn — Chăm Sóc Y Tế Thú Cưng Chuẩn Mực
+ meta og:description = Bệnh viện Thú y Lê Sơn - Địa chỉ khám, điều trị, phẫu thuật, nội trú và cấp cứu thú cưng 24/24 uy tín tại 101 Khuất Duy Tiến, Thanh Xuân, Hà Nội.
+ meta og:type = website
+ meta og:url = https://lesonpet.vn/
+ meta og:image = https://lesonpet.vn/images/og-home.webp
+ canonical: ['https://lesonpet.vn/']
+ h1: ['“Khi bé không khỏe, bạn không phải lo một mình.”']
+ visible text chars (no JS): 7002 | sample: > Nhảy đến nội dung chính LÊ SƠN Bệnh viện Thú y Trang chủ Về Lê Sơn Dịch vụ Góc thú cưng Câu chuyện Liên hệ Đăng nhập / Đăng ký Đặt lịch khám Đặt lịch Chăm Sóc
+===  spike-seo-test/index.html 22759 bytes
+ title: ['Thử Nghiệm Kiến Trúc SEO — Architecture Spike 01']
+ meta viewport = width=device-width, initial-scale=1.0
+ meta description = Trang thử nghiệm kỹ thuật đánh giá khả năng sinh mã HTML tĩnh và SEO metadata độc lập của React Router 7 Framework Mode.
+ meta og:title = Thử Nghiệm Kiến Trúc SEO — Architecture Spike 01
+ meta og:description = Trang thử nghiệm kỹ thuật đánh giá khả năng sinh mã HTML tĩnh và SEO metadata độc lập của React Router 7 Framework Mode.
+ meta og:type = article
+ meta og:url = https://lesonpet.vn/spike-seo-test
+ meta og:image = https://lesonpet.vn/images/og-spike.webp
+ canonical: ['https://lesonpet.vn/spike-seo-test']
+ h1: ['Xác Minh Hiển Thị SEO HTML Tĩnh Không Cần JavaScript']
+ visible text chars (no JS): 1832 | sample: > Nhảy đến nội dung chính LÊ SƠN Bệnh viện Thú y Trang chủ Về Lê Sơn Dịch vụ Góc thú cưng Câu chuyện Liên hệ Đăng nhập / Đăng ký Đặt lịch khám Đặt lịch SPIKE-01

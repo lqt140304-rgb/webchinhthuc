@@ -1,0 +1,17 @@
+# JS/CSS weight, home route (gzip -9 of files referenced by index.html)
+spike home JS gzip: 131527 bytes in 16 files
+base home JS gzip: 105364 bytes in 1 file(s)
+spike HTML / bytes: 74374
+base HTML / bytes: 1577
+
+# useRouteSeo (client head writer) still active in spike
+17:    // 1. Set document title
+18:    document.title = title
+21:    let metaDescription = document.querySelector('meta[name="description"]')
+30:    let metaRobots = document.querySelector('meta[name="robots"]')
+src/pages/BookingPage.tsx
+src/pages/TeamPage.tsx
+src/pages/AboutPage.tsx
+src/pages/NotFoundPage.tsx
+src/pages/HomePage.tsx
+src/pages/FacilitiesPage.tsx

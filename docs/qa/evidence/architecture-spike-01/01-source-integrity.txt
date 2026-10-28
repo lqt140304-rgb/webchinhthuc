@@ -1,0 +1,45 @@
+# Spike commit
+0dba2f3983513ee549521a961fbdfd8c7445fae4 parent=4739d45cc95100b587381b6bdcad6935352b23e8 2026-10-28 13:13:49 +0700 lqt140304-rgb feat(spike): Architecture Spike 01 — RR7 Framework Mode + Prerender experiment and evaluation
+commits 4739d45..spike: 1
+merge-base with 4739d45: 4739d45cc95100b587381b6bdcad6935352b23e8
+
+# Branch heads (git ls-remote / fetch)
+main d2a19c5
+docs/phase-3b-00 32b8a0a
+feat/phase-3a-dev01 72efb92
+spike/architecture-01-rr7-prerender 0dba2f3
+main contains spike? NO
+docs/phase-3b-00 still 32b8a0a: 32b8a0a
+
+# Diff stat 4739d45..0dba2f3
+ .gitignore                                         |    3 +
+ .oxlintrc.json                                     |    3 +-
+ app/layouts/public-layout.tsx                      |    5 +
+ app/root.tsx                                       |   74 +
+ app/routes.ts                                      |   19 +
+ app/routes/about.tsx                               |   26 +
+ app/routes/booking.tsx                             |   28 +
+ app/routes/customer-portal.tsx                     |   25 +
+ app/routes/facilities.tsx                          |   29 +
+ app/routes/home.tsx                                |   26 +
+ app/routes/not-found.tsx                           |   12 +
+ app/routes/spike-seo-test.tsx                      |   76 +
+ app/routes/staff-portal.tsx                        |   25 +
+ app/routes/static-404.tsx                          |    1 +
+ app/routes/team.tsx                                |   26 +
+ .../architecture-spike-01-handoff.md               |  155 ++
+ .../architecture-spike-01-migration-assessment.md  |  243 ++
+ .../architecture-spike-01-performance.md           |   69 +
+ .../architecture-01/architecture-spike-01-plan.md  |   88 +
+ .../architecture-spike-01-results.md               |  132 +
+ .../architecture-spike-01-routing-seo.md           |  174 ++
+ package-lock.json                                  | 2563 +++++++++++++++++---
+ package.json                                       |   12 +-
+ react-router.config.ts                             |   17 +
+ tests/spike/test-routing-spike.cjs                 |   70 +
+ tsconfig.app.json                                  |    6 +-
+ vite.config.ts                                     |    7 +-
+ 27 files changed, 3583 insertions(+), 331 deletions(-)
+
+# src/ changed?
+(empty = unchanged)

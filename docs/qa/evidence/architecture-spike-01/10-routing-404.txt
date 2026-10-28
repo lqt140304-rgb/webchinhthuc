@@ -1,0 +1,26 @@
+# HTTP status, curl (local static servers): base SPA / spike SPA-fallback / spike strict (404 for unknown)
+/                        base:200 spike-spa:200 spike-strict:200
+/gioi-thieu              base:200 spike-spa:200 spike-strict:200
+/dich-vu                 base:200 spike-spa:200 spike-strict:404
+/dich-vu/kham-dieu-tri   base:200 spike-spa:200 spike-strict:404
+/bang-gia                base:200 spike-spa:200 spike-strict:404
+/lien-he                 base:200 spike-spa:200 spike-strict:404
+/tai-khoan/x             base:200 spike-spa:200 spike-strict:404
+/quan-ly/x               base:200 spike-spa:200 spike-strict:404
+/khong-ton-tai           base:200 spike-spa:200 spike-strict:404
+
+# build output has 404.html at root?
+NO (only 404/index.html). tests/spike/test-routing-spike.cjs copies it to 404.html at test time and hardcodes D:/webbvct-spike
+
+# Baseline routes (4739d45 src/app/routes.tsx)
+path="/" path="/gioi-thieu" path="/doi-ngu" path="/co-so-vat-chat" path="/dich-vu" path="/dich-vu/kham-dieu-tri" path="/dich-vu/noi-tru" path="/dich-vu/spa" path="/dich-vu/cap-cuu" path="/bang-gia" path="/cau-chuyen" path="/cau-chuyen/:slug" path="/goc-thu-cung" path="/bai-viet/:slug" path="/san-pham" path="/dat-lich" path="/lien-he" path="/dang-nhap" path="/dang-ky" path="/tai-khoan/*" path="*" 
+# Spike app/routes.ts
+index('routes/home.tsx' route('gioi-thieu' route('doi-ngu' route('co-so-vat-chat' route('spike-seo-test' route('dat-lich' route('tai-khoan/*' route('quan-ly/*' route('404' route('*' 
+
+# robots/sitemap domain vs canonical
+Sitemap: https://bvthuyleson.vn/sitemap.xml
+<loc>https://bvthuyleson.vn/
+canonical" href="https://lesonpet.vn/
+
+# og:image targets present in public/images?
+0
