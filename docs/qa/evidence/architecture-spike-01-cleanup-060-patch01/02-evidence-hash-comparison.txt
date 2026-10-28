@@ -1,0 +1,19 @@
+# 2B evidence: blob SHA vs baseline 3A at Patch01 HEAD
+2b-verification-results.txt | 46d1c52d697e | 46d1c52d697e | ed3a42b034815ce8 | IDENTICAL
+booking-1366px.png | 1eb1d8283eeb | 1eb1d8283eeb | ae991cb1f8f0b930 | IDENTICAL
+booking-1440px.png | 18917b9f8a8a | 18917b9f8a8a | 4aca9ac4562b72b6 | IDENTICAL
+booking-1920px.png | b598a91d7ce9 | b598a91d7ce9 | 5a3bd7aac07669d3 | IDENTICAL
+booking-320px.png | 036cf974b186 | 036cf974b186 | cd54a33d5161f65b | IDENTICAL
+booking-360px.png | 9e137d78e128 | 9e137d78e128 | 51fbc991d7a93c68 | IDENTICAL
+booking-390px.png | 70a053c69bd5 | 70a053c69bd5 | 38c39c7980f332d6 | IDENTICAL
+booking-768px.png | 5f42a0cc3c02 | 5f42a0cc3c02 | 1684ab1623ec8917 | IDENTICAL
+home-1366px.png | 908e1a4c3cd2 | 908e1a4c3cd2 | a3aa16157bfb1a40 | IDENTICAL
+home-1440px.png | eb9dfbe58abc | eb9dfbe58abc | c65de3e0cc2a8084 | IDENTICAL
+home-1920px.png | 148ebfe4a871 | 148ebfe4a871 | c1b6af4d721e6fa9 | IDENTICAL
+home-320px.png | bed934581464 | bed934581464 | 6d582de9fe1b5c22 | IDENTICAL
+home-360px.png | 50f4e9f055de | 50f4e9f055de | b381796a3ee00b7a | IDENTICAL
+home-390px.png | bd20d9d76895 | bd20d9d76895 | 997787654cf60f75 | IDENTICAL
+home-768px.png | de780a7b936c | de780a7b936c | 2060813e7ed006b9 | IDENTICAL
+identical: 15/15
+
+# After running the script verbatim in clean Linux worktree: identical 15/15 (see 03)

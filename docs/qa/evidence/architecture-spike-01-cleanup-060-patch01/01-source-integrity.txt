@@ -1,0 +1,25 @@
+f337afac05f6a7b05375e196aab4448392bdfb37 parent=4e76f20b4465baf54cef6b96b20a17b41ff8d380 2026-10-28 18:29:06 +0700 docs(spike): record implementation commit SHA in handoff.md
+4e76f20b4465baf54cef6b96b20a17b41ff8d380 parent=2489439d3848b390b888101133ec0a3366075999 2026-10-28 18:28:45 +0700 fix(tests): make 2b-verification e2e script cross-platform and add patch01 docs
+Cleanup 060 HEAD 2489439 ancestor: YES
+main d2a19c5
+docs/phase-3b-00 32b8a0a
+spike/architecture-01-h02-fix01-cleanup 2489439
+main contains patch01? NO
+
+ .../cross-platform-test-evidence.md                | 180 +++++++++++++++++++++
+ .../architecture-01/cleanup-060-patch01/handoff.md |  88 ++++++++++
+ .../cleanup-060-patch01/patch01-summary.md         |  42 +++++
+ .../playwright-clean-install-results.md            | 100 ++++++++++++
+ .../cleanup-060-patch01/regression-results.md      |  69 ++++++++
+ .../vercel-readonly-checklist.md                   | 105 ++++++++++++
+ tests/e2e/2b-verification.cjs                      |  79 ++++++---
+ 7 files changed, 645 insertions(+), 18 deletions(-)
+
+# non-doc files changed vs Cleanup 060
+tests/e2e/2b-verification.cjs
+
+# unchanged (empty=unchanged): src public app vercel.json vite.config.ts react-router.config.ts index.html AGENTS.md docs/phase-3b tests/spike package.json scripts docs/qa
+(end)
+
+# docs/qa vs 3A baseline (empty = identical)
+(end)

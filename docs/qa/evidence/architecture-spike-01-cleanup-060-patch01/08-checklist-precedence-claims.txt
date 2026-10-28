@@ -1,0 +1,6 @@
+32:- [ ] **Build Command:** Overridden to `npm run build` (or left empty if relying on `vercel.json`).
+33:  *Note: `vercel.json` in repository already specifies `"buildCommand": "npm run build"`.*
+34:- [ ] **Output Directory:** Overridden to `build/client` (or left empty if relying on `vercel.json`).
+35:  *Note: `vercel.json` specifies `"outputDirectory": "build/client"`. This is critical: Vite + React Router Prerender outputs to `build/client`, NOT `dist`.*
+39:### C. Repository `vercel.json` Compliance
+40:Check that repository root `vercel.json` contains:

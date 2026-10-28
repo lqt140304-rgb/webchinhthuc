@@ -1,0 +1,154 @@
+# git diff of tests/e2e/2b-verification.cjs (Cleanup 060 -> Patch 01)
+diff --git a/tests/e2e/2b-verification.cjs b/tests/e2e/2b-verification.cjs
+index 4149dbb..c103f71 100644
+--- a/tests/e2e/2b-verification.cjs
++++ b/tests/e2e/2b-verification.cjs
+@@ -38,6 +38,44 @@ const VIEWPORTS = [
+   { width: 1920, height: 1080, name: '1920' },
+ ];
+ 
++let previewProcess = null;
++
++function killProcess(proc) {
++  if (!proc || proc.killed) return;
++  try {
++    if (process.platform === 'win32') {
++      try {
++        const { execSync } = require('child_process');
++        execSync(`taskkill /pid ${proc.pid} /T /F`, { stdio: 'ignore' });
++      } catch {
++        proc.kill('SIGKILL');
++      }
++    } else {
++      proc.kill('SIGTERM');
++      setTimeout(() => {
++        try {
++          if (!proc.killed) proc.kill('SIGKILL');
++        } catch {}
++      }, 500);
++    }
++  } catch {
++    try {
++      proc.kill();
++    } catch {}
++  }
++}
++
++function cleanup() {
++  if (previewProcess) {
++    killProcess(previewProcess);
++    previewProcess = null;
++  }
++}
++
++process.on('SIGINT', () => { cleanup(); process.exit(130); });
++process.on('SIGTERM', () => { cleanup(); process.exit(143); });
++process.on('exit', () => { cleanup(); });
++
+ async function run() {
+   const logEntries = [];
+   function log(msg) {
+@@ -48,15 +86,17 @@ async function run() {
+   log('=== BẮT ĐẦU KIỂM TRA TOÀN DIỆN MỐC 2B (B01, B02, B04) ===');
+   log(`Thời gian: ${new Date().toISOString()}`);
+ 
+-  const preview = spawn('cmd.exe', ['/c', 'npm.cmd run preview -- --port 4173'], {
++  const previewScript = path.join(__dirname, '..', '..', 'scripts', 'preview-server.cjs');
++  const preview = spawn(process.execPath, [previewScript, '--port', '4173'], {
+     cwd: path.join(__dirname, '..', '..'),
+     stdio: 'ignore',
+   });
++  previewProcess = preview;
+ 
+   let browser;
+   try {
+     await waitServer('http://localhost:4173');
+-    log('Server Vite preview đã sẵn sàng trên cổng 4173.');
++    log('Server preview đã sẵn sàng trên cổng 4173.');
+ 
+     browser = await chromium.launch({ headless: true });
+ 
+@@ -158,8 +198,10 @@ async function run() {
+       await page.goto('http://localhost:4173/dat-lich', { waitUntil: 'networkidle' });
+ 
+       // Kiểm tra banner minh bạch
+-      const noticeText = await page.locator('text=Thông Báo Minh Bạch — Giao Diện Thử Nghiệm').textContent();
+-      assert.ok(noticeText, 'Thiếu banner thông báo minh bạch trên /dat-lich');
++      const noticeBanner = page.locator('text=Thông Báo Minh Bạch');
++      await assert.doesNotReject(noticeBanner.first().waitFor({ state: 'visible' }), 'Thiếu banner thông báo minh bạch trên /dat-lich');
++      const noticeText = await noticeBanner.first().textContent();
++      assert.ok(noticeText.includes('Thông Báo Minh Bạch'), 'Thiếu banner thông báo minh bạch trên /dat-lich');
+       log('  ✓ B01: Có banner thông báo minh bạch giao diện thử nghiệm, chưa kết nối DB.');
+ 
+       // Kiểm tra các trường BookingFormData
+@@ -180,12 +222,13 @@ async function run() {
+       log(`  ✓ Client validation hoạt động chuẩn: bắt lỗi khi bỏ trống các trường bắt buộc (${hasErrors} thông báo lỗi).`);
+ 
+       // Điền thông tin kiểm thử hợp lệ
++      const futureDate = new Date(Date.now() + 864e5 * 3).toISOString().slice(0, 10);
+       await page.fill('#owner-name', 'Nguyễn Hoàng Nam');
+       await page.fill('#owner-phone', '0987654321');
+       await page.fill('#pet-name', 'Bông');
+       await page.selectOption('#pet-type', 'chó');
+-      await page.selectOption('#service-type', 'kham-tong-quat');
+-      await page.fill('#preferred-date', '2026-11-01');
++      await page.selectOption('#service-type', 'kham-dieu-tri');
++      await page.fill('#preferred-date', futureDate);
+       await page.selectOption('#preferred-timeslot', 'sang');
+       await page.fill('#symptoms-note', 'Kiểm tra tổng quát và tư vấn tiêm phòng định kỳ.');
+ 
+@@ -193,16 +236,14 @@ async function run() {
+       await page.locator('button[type="submit"]').click();
+ 
+       // Chờ panel kết quả thử nghiệm
+-      await page.waitForSelector('text=Kiểm Thử Giao Diện Thành Công', { timeout: 5000 });
+-      const completedPanel = page.locator('text=Đã kiểm tra hợp lệ dữ liệu mẫu!');
+-      assert.ok(await completedPanel.isVisible(), 'Thiếu thông báo hoàn tất kiểm thử giao diện');
++      await page.waitForSelector('[role="status"]', { timeout: 5000 });
++      const completedPanel = page.locator('[role="status"]');
++      assert.ok(await completedPanel.isVisible(), 'Thiếu panel thông báo kết quả');
+ 
+       // Xác nhận tính minh bạch: KHÔNG báo tạo lịch hẹn thật thành công
+-      const panelContent = await page.locator('#main-content').textContent();
+-      assert.ok(panelContent.includes('Chưa kết nối máy chủ'), 'Thiếu cảnh báo chưa kết nối máy chủ');
+-      assert.ok(panelContent.includes('chưa được gửi vào cơ sở dữ liệu thật'), 'Thiếu thông báo chưa gửi vào DB');
+-      assert.ok(panelContent.includes('chưa hình thành lịch hẹn có hiệu lực'), 'Thiếu thông báo chưa tạo lịch hẹn');
+-      assert.ok(panelContent.includes('Gọi hotline đặt thật: 097 355 51 05'), 'Thiếu CTA gọi hotline');
++      const panelContent = await completedPanel.textContent();
++      assert.ok(panelContent.includes('chưa được gửi'), 'Thiếu thông báo chưa gửi dữ liệu');
++      assert.ok(panelContent.includes('097 355 51 05'), 'Thiếu số hotline liên hệ');
+       log('  ✓ B01: Panel kết quả hoàn toàn minh bạch, không gửi dữ liệu thật, không tạo thành công giả, có CTA gọi hotline.');
+ 
+       // Thử bấm "Thử lại biểu mẫu"
+@@ -217,10 +258,12 @@ async function run() {
+     fs.writeFileSync(path.join(EVIDENCE_DIR, '2b-verification-results.txt'), logEntries.join('\n'), 'utf8');
+ 
+   } finally {
+-    if (browser) await browser.close();
+-    try {
+-      spawn('taskkill', ['/pid', preview.pid, '/f', '/t']);
+-    } catch {}
++    if (browser) {
++      try {
++        await browser.close();
++      } catch {}
++    }
++    cleanup();
+   }
+ }
+ 
+
+# remaining cmd.exe/npm.cmd/taskkill/user-path constructs in tests/scripts at Patch01 HEAD
+tests/measure-cls.cjs:7:const DIST = path.resolve('D:/webbvct/dist');
+
+# taskkill (Windows branch only, numeric pid, no user input):
+tests/e2e/2b-verification.cjs:49:        execSync(`taskkill /pid ${proc.pid} /T /F`, { stdio: 'ignore' });
+
+# assertions: where do the OLD strings exist?
+[Thông Báo Minh Bạch — Giao Diện Thử Nghiệm] in 3A src: 0
+[Kiểm Thử Giao Diện Thành Công] in 3A src: 0
+[Chưa kết nối máy chủ] in 3A src: 0
+[kham-tong-quat] in 3A src: 0
+[3A BookingPage banner/panel actual text]
+              Thông Báo Minh Bạch — Giao Diện Đang Trong Giai Đoạn Thử Nghiệm
+                      Thông tin bạn nhập chưa được gửi đến bệnh viện.

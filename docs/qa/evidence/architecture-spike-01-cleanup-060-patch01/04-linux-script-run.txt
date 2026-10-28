@@ -1,0 +1,14 @@
+# Linux run, verbatim: node tests/e2e/2b-verification.cjs (repo dependency playwright 1.64.1; no matching browser available)
+OS: Linux 6.18.44-fc-v180; node v22.22.0; npm 10.9.4
+=== BẮT ĐẦU KIỂM TRA TOÀN DIỆN MỐC 2B (B01, B02, B04) ===
+Thời gian: 2026-10-28T11:31:46.896Z
+Server preview đã sẵn sàng trên cổng 4173.
+LỖI KIỂM TRA: browserType.launch: Executable doesn't exist at /opt/pw-browsers/chromium_headless_shell-1248/chrome-headless-shell-linux64/chrome-headless-shell
+    at run (<scratch>/p1/tests/e2e/2b-verification.cjs:101:30) {
+  log: [],
+  name: 'Error'
+}
+exit: 1
+port 4173 after run: free (ss); node preview-server processes after run: none (ps)
+git status after run: clean except ignored e2e-evidence/2b-run
+2B evidence vs 3A after run: 15/15 identical

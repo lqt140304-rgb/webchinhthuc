@@ -1,0 +1,4 @@
+# Vercel read-only (no secrets recorded)
+GET /v6/deployments?projectId=prj_wZg6o5vvbDe6UTT52vaqvGTNC4e3 -> curl error (35) SSL_ERROR_SYSCALL, HTTP 000 (no response)
+GET /v9/projects/prj_wZg6o5vvbDe6UTT52vaqvGTNC4e3 -> same
+Previous round: HTTP 403 (scope authorization). Infra state NOT VERIFIED in this round.
