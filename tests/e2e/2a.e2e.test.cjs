@@ -500,7 +500,12 @@ describe('P1-7 Meta, lịch sử và tệp SEO', () => {
     try {
       const homeTitle = await page.title()
       const log = { home: { title: homeTitle, robots: await robots(page) } }
-      assert.ok(!/noindex/.test(log.home.robots ?? ''), 'trang chủ không được có noindex')
+      const isProduction = process.env.VERCEL_ENV === 'production' || process.env.APP_ENV === 'production'
+      if (isProduction) {
+        assert.ok(!/noindex/.test(log.home.robots ?? ''), 'trang chủ không được có noindex')
+      } else {
+        assert.match(log.home.robots ?? '', /noindex/, 'trang chủ môi trường test/preview phải có noindex')
+      }
 
       await page.locator('footer a[href="/gioi-thieu"]').click()
       await page.waitForURL('**/gioi-thieu')
@@ -529,10 +534,15 @@ describe('P1-7 Meta, lịch sử và tệp SEO', () => {
       assert.notEqual(log.gioiThieu.title, homeTitle, 'trang chờ dùng chung title với trang chủ')
       assert.notEqual(log.bangGia.title, log.gioiThieu.title, 'hai trang chờ dùng chung title')
       assert.match(log.bangGia.robots ?? '', /noindex/)
-      assert.ok(!/noindex/.test(log.backHome.robots ?? ''), 'meta noindex còn sót khi về trang chủ')
+      if (isProduction) {
+        assert.ok(!/noindex/.test(log.backHome.robots ?? ''), 'meta noindex còn sót khi về trang chủ')
+        assert.ok(!/noindex/.test(log.historyForward.robots ?? ''), 'Forward về trang chủ còn noindex')
+      } else {
+        assert.match(log.backHome.robots ?? '', /noindex/)
+        assert.match(log.historyForward.robots ?? '', /noindex/)
+      }
       assert.equal(log.backHome.title, homeTitle, 'title trang chủ không được khôi phục')
       assert.match(log.historyBack.robots ?? '', /noindex/, 'Back về trang chờ mất noindex')
-      assert.ok(!/noindex/.test(log.historyForward.robots ?? ''), 'Forward về trang chủ còn noindex')
       assert.match(log.notFound.robots ?? '', /noindex/, '404 thiếu noindex')
       assert.notEqual(log.notFound.title, homeTitle, '404 dùng chung title với trang chủ')
     } finally {

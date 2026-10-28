@@ -21,18 +21,37 @@ if (!fs.existsSync(root404Path)) {
 const server = http.createServer((req, res) => {
   const urlPath = req.url.split('?')[0].replace(/\/$/, '') || '/';
   
-  // 1. Check exact static prerendered HTML file
-  const filePath = path.join(clientDir, urlPath === '/' ? 'index.html' : urlPath + '/index.html');
-  if (fs.existsSync(filePath)) {
+  // 1. Static file check (exact file or directory index.html)
+  const exactFilePath = path.join(clientDir, req.url.split('?')[0]);
+  if (fs.existsSync(exactFilePath) && fs.statSync(exactFilePath).isFile()) {
+    const ext = path.extname(exactFilePath);
+    const contentType = ext === '.js' ? 'application/javascript' : ext === '.css' ? 'text/css' : 'text/html';
+    res.writeHead(200, {
+      'Content-Type': `${contentType}; charset=utf-8`,
+      'X-Robots-Tag': 'noindex, nofollow'
+    });
+    return res.end(fs.readFileSync(exactFilePath));
+  }
+
+  const dirIndexPath = path.join(clientDir, urlPath === '/' ? 'index.html' : urlPath + '/index.html');
+  if (fs.existsSync(dirIndexPath) && fs.statSync(dirIndexPath).isFile()) {
     res.writeHead(200, {
       'Content-Type': 'text/html; charset=utf-8',
       'X-Robots-Tag': 'noindex, nofollow'
     });
-    return res.end(fs.readFileSync(filePath));
+    return res.end(fs.readFileSync(dirIndexPath));
   }
 
-  // 2. Check private SPA routes matching rewrite rule (/tai-khoan/*)
-  if (urlPath.startsWith('/tai-khoan')) {
+  // 2. SPA Rewrites matching vercel.json:
+  // - /tai-khoan/(.*)
+  // - /cau-chuyen/(.*)
+  // - /bai-viet/(.*)
+  const isSpaRoute =
+    urlPath.startsWith('/tai-khoan/') ||
+    urlPath.startsWith('/cau-chuyen/') ||
+    urlPath.startsWith('/bai-viet/');
+
+  if (isSpaRoute) {
     const spaFallback = path.join(clientDir, '__spa-fallback.html');
     if (fs.existsSync(spaFallback)) {
       res.writeHead(200, {
@@ -56,7 +75,7 @@ server.listen(4173, async () => {
   
   const testUrls = [
     { url: '/', expectStatus: 200, expectText: 'LÊ SƠN' },
-    { url: '/gioi-thieu', expectStatus: 200, expectText: 'Về Bệnh Viện Thú Y Lê Sơn' },
+    { url: '/gioi-thieu', expectStatus: 200, expectText: 'Bệnh viện Thú y Lê Sơn' },
     { url: '/doi-ngu', expectStatus: 200, expectText: 'Đội Ngũ Bác Sĩ' },
     { url: '/co-so-vat-chat', expectStatus: 200, expectText: 'Cơ Sở Vật Chất' },
     { url: '/dat-lich', expectStatus: 200, expectText: 'Đặt Lịch Hẹn Khám' },
@@ -67,7 +86,11 @@ server.listen(4173, async () => {
     { url: '/lien-he', expectStatus: 200, expectText: 'Liên hệ &amp; Thông tin phòng khám' },
     { url: '/dang-nhap', expectStatus: 200, expectText: 'Đăng nhập Cổng khách hàng' },
     { url: '/dang-ky', expectStatus: 200, expectText: 'Đăng ký tài khoản hồ sơ thú cưng' },
+    { url: '/tai-khoan', expectStatus: 200, expectText: 'Cổng quản lý hồ sơ thú cưng' },
+    { url: '/tai-khoan/', expectStatus: 200, expectText: 'Cổng quản lý hồ sơ thú cưng' },
     { url: '/tai-khoan/lich-hen', expectStatus: 200, expectText: '__reactRouterContext' },
+    { url: '/cau-chuyen/ca-dieu-tri-01', expectStatus: 200, expectText: '__reactRouterContext' },
+    { url: '/bai-viet/cham-soc-mua-mua', expectStatus: 200, expectText: '__reactRouterContext' },
     { url: '/duong-dan-khong-ton-tai', expectStatus: 404, expectText: 'Không tìm thấy trang yêu cầu' },
     { url: '/dich-vu/slug-khong-ton-tai', expectStatus: 404, expectText: 'Không tìm thấy trang yêu cầu' },
     { url: '/quan-ly/lich-truc', expectStatus: 404, expectText: 'Không tìm thấy trang yêu cầu' },
@@ -85,7 +108,7 @@ server.listen(4173, async () => {
           const textPass = data.includes(test.expectText);
           const pass = statusPass && textPass;
           if (!pass) allPassed = false;
-          console.log(`URL: ${test.url.padEnd(30)} | Status: ${res.statusCode} (Expected ${test.expectStatus}: ${statusPass ? 'PASS' : 'FAIL'}) | Content: ${textPass ? 'PASS' : 'FAIL'}`);
+          console.log(`URL: ${test.url.padEnd(32)} | Status: ${res.statusCode} (Expected ${test.expectStatus}: ${statusPass ? 'PASS' : 'FAIL'}) | Content: ${textPass ? 'PASS' : 'FAIL'}`);
           resolve();
         });
       });

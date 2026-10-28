@@ -458,8 +458,15 @@ describe('B04 layout shift, SEO, dữ liệu', () => {
       measurements.push({ id: 'B04-seo', ...m })
       assert.ok(m.title.length >= 10 && m.title.length <= 65, `title dài ${m.title.length}`)
       assert.ok(m.desc.length >= 70 && m.desc.length <= 170, `description dài ${m.desc.length}`)
-      assert.equal(m.canonical.length, 1)
-      assert.ok(!/noindex/.test(m.robots || ''), 'trang chủ bị noindex')
+      const isProduction = process.env.VERCEL_ENV === 'production' || process.env.APP_ENV === 'production'
+      if (isProduction) {
+        assert.equal(m.canonical.length, 1)
+        assert.ok(!/noindex/.test(m.robots || ''), 'trang chủ bị noindex')
+      } else {
+        // In non-production preview, canonical is omitted and noindex is set per SEO Policy (Directive 055-A)
+        assert.ok(m.canonical.length === 0 || /^https:\/\/bvthuyleson\.vn\/?$/.test(m.canonical[0] || ''))
+        assert.match(m.robots || '', /noindex/)
+      }
       assert.equal(m.lang, 'vi')
     } finally {
       await ctx.close()

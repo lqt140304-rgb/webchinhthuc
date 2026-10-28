@@ -8,7 +8,10 @@
     "build": "react-router build && node scripts/postbuild.cjs",
     "typecheck": "react-router typegen && tsc -b",
     "lint": "oxlint",
-    "preview": "vite preview --outDir build/client"
+    "preview": "vite preview --outDir build/client",
+    "test:routing": "node tests/spike/test-routing-spike.cjs",
+    "test:hydration": "node tests/spike/test-hydration-404.cjs",
+    "test:seo": "node tests/spike/test-seo-policy.cjs"
   },
   "dependencies": {
     "@react-router/node": "^7.18.5",

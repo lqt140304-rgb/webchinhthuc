@@ -1,20 +1,21 @@
 import type { Route } from './+types/facilities'
 import FacilitiesPage from '@/pages/FacilitiesPage'
+import { getRouteSeoPolicy } from '@/config/seo-policy'
+import { HOSPITAL_CONTACT } from '@/config/contact'
 
 export function meta(): Route.MetaDescriptors {
+  const policy = getRouteSeoPolicy('/co-so-vat-chat')
   return [
-    { title: 'Cơ Sở Vật Chất & Không Gian Y Tế | Bệnh Viện Thú Y Lê Sơn' },
+    { title: `Cơ Sở Vật Chất | ${HOSPITAL_CONTACT.name}` },
     {
       name: 'description',
-      content:
-        'Không gian thăm khám và chăm sóc tiện nghi, môi trường vô trùng chuẩn y khoa dành cho thú cưng tại Bệnh Viện Thú Y Lê Sơn.',
+      content: `Thông tin cơ sở vật chất và không gian thăm khám tại ${HOSPITAL_CONTACT.name}, ${HOSPITAL_CONTACT.address}. Hotline: ${HOSPITAL_CONTACT.hotlineDisplay}.`,
     },
-    { name: 'robots', content: 'noindex, nofollow' },
-    { property: 'og:title', content: 'Cơ Sở Vật Chất & Không Gian Y Tế | Bệnh Viện Thú Y Lê Sơn' },
+    { name: 'robots', content: policy.robots },
+    { property: 'og:title', content: `Cơ Sở Vật Chất | ${HOSPITAL_CONTACT.name}` },
     {
       property: 'og:description',
-      content:
-        'Không gian thăm khám và chăm sóc tiện nghi, môi trường vô trùng chuẩn y khoa dành cho thú cưng tại Bệnh Viện Thú Y Lê Sơn.',
+      content: `Thông tin cơ sở vật chất và không gian thăm khám tại ${HOSPITAL_CONTACT.name}, ${HOSPITAL_CONTACT.address}. Hotline: ${HOSPITAL_CONTACT.hotlineDisplay}.`,
     },
     { property: 'og:type', content: 'website' },
   ]

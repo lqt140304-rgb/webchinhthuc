@@ -1,20 +1,21 @@
 import type { Route } from './+types/home'
 import { HomePage } from '@/pages/HomePage'
+import { getRouteSeoPolicy } from '@/config/seo-policy'
+import { HOSPITAL_CONTACT } from '@/config/contact'
 
 export function meta(): Route.MetaDescriptors {
+  const policy = getRouteSeoPolicy('/')
   return [
-    { title: 'Bệnh Viện Thú Y Lê Sơn — Chăm Sóc Y Tế Chuẩn Mực Cho Thú Cưng' },
+    { title: `${HOSPITAL_CONTACT.name} — Dịch Vụ Thú Y Tại Hà Nội` },
     {
       name: 'description',
-      content:
-        'Hệ sinh thái y tế thú y chất lượng cao tại Hà Nội: Đội ngũ y bác sĩ tận tâm, cơ sở vật chất hiện đại, dịch vụ y tế chuẩn mực.',
+      content: `${HOSPITAL_CONTACT.name} tại ${HOSPITAL_CONTACT.address}. Tiếp nhận thăm khám thú cưng, hotline: ${HOSPITAL_CONTACT.hotlineDisplay}.`,
     },
-    { name: 'robots', content: 'noindex, nofollow' },
-    { property: 'og:title', content: 'Bệnh Viện Thú Y Lê Sơn — Chăm Sóc Y Tế Chuẩn Mực Cho Thú Cưng' },
+    { name: 'robots', content: policy.robots },
+    { property: 'og:title', content: `${HOSPITAL_CONTACT.name} — Dịch Vụ Thú Y Tại Hà Nội` },
     {
       property: 'og:description',
-      content:
-        'Hệ sinh thái y tế thú y chất lượng cao tại Hà Nội: Đội ngũ y bác sĩ tận tâm, cơ sở vật chất hiện đại, dịch vụ y tế chuẩn mực.',
+      content: `${HOSPITAL_CONTACT.name} tại ${HOSPITAL_CONTACT.address}. Tiếp nhận thăm khám thú cưng, hotline: ${HOSPITAL_CONTACT.hotlineDisplay}.`,
     },
     { property: 'og:type', content: 'website' },
   ]

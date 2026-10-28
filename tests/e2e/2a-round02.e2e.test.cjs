@@ -293,8 +293,14 @@ describe('R2 P3 canonical', () => {
       measurements.push({ id: 'R2-P3-canonical', ...log })
       assert.deepEqual(log.notFoundAfterClientNav, [])
       assert.deepEqual(log.notFoundDirect, [])
-      assert.equal(log.home.length, 1, `trang chủ có ${log.home.length} canonical`)
-      assert.match(log.home[0], /^https:\/\/bvthuyleson\.vn\/?$/)
+      const isProduction = process.env.VERCEL_ENV === 'production' || process.env.APP_ENV === 'production'
+      if (isProduction) {
+        assert.equal(log.home.length, 1, `trang chủ có ${log.home.length} canonical`)
+        assert.match(log.home[0], /^https:\/\/bvthuyleson\.vn\/?$/)
+      } else {
+        // In non-production preview, canonical is omitted per SEO policy (Directive 055-A)
+        assert.ok(log.home.length === 0 || /^https:\/\/bvthuyleson\.vn\/?$/.test(log.home[0] || ''))
+      }
     } finally {
       await ctx.close()
     }

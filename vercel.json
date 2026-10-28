@@ -23,6 +23,14 @@
     {
       "source": "/tai-khoan/(.*)",
       "destination": "/__spa-fallback.html"
+    },
+    {
+      "source": "/cau-chuyen/(.*)",
+      "destination": "/__spa-fallback.html"
+    },
+    {
+      "source": "/bai-viet/(.*)",
+      "destination": "/__spa-fallback.html"
     }
   ]
 }

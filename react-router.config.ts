@@ -24,6 +24,7 @@ export default {
       '/lien-he',
       '/dang-nhap',
       '/dang-ky',
+      '/tai-khoan',
       '/404',
     ]
   },

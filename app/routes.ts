@@ -38,8 +38,7 @@ export default [
     route('dang-ky', 'routes/register.tsx'),
     route('tai-khoan/*', 'routes/customer-portal.tsx'),
 
-    // 404 cho static prerender và catch-all
-    route('404', 'routes/static-404.tsx'),
+    // 404 & catch-all
     route('*', 'routes/not-found.tsx'),
   ]),
 ] satisfies RouteConfig

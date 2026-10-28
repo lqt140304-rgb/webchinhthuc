@@ -1,20 +1,21 @@
 import type { Route } from './+types/about'
 import AboutPage from '@/pages/AboutPage'
+import { getRouteSeoPolicy } from '@/config/seo-policy'
+import { HOSPITAL_CONTACT } from '@/config/contact'
 
 export function meta(): Route.MetaDescriptors {
+  const policy = getRouteSeoPolicy('/gioi-thieu')
   return [
-    { title: 'Về Bệnh Viện Thú Y Lê Sơn — Chăm Sóc Y Tế Chuẩn Mực' },
+    { title: `Giới Thiệu | ${HOSPITAL_CONTACT.name}` },
     {
       name: 'description',
-      content:
-        'Giới thiệu về tầm nhìn, sứ mệnh y khoa và cam kết đồng hành chăm sóc sức khỏe thú cưng tại Bệnh Viện Thú Y Lê Sơn.',
+      content: `Thông tin giới thiệu về ${HOSPITAL_CONTACT.name} tại ${HOSPITAL_CONTACT.address}. Hotline: ${HOSPITAL_CONTACT.hotlineDisplay}.`,
     },
-    { name: 'robots', content: 'noindex, nofollow' },
-    { property: 'og:title', content: 'Về Bệnh Viện Thú Y Lê Sơn — Chăm Sóc Y Tế Chuẩn Mực' },
+    { name: 'robots', content: policy.robots },
+    { property: 'og:title', content: `Giới Thiệu | ${HOSPITAL_CONTACT.name}` },
     {
       property: 'og:description',
-      content:
-        'Giới thiệu về tầm nhìn, sứ mệnh y khoa và cam kết đồng hành chăm sóc sức khỏe thú cưng tại Bệnh Viện Thú Y Lê Sơn.',
+      content: `Thông tin giới thiệu về ${HOSPITAL_CONTACT.name} tại ${HOSPITAL_CONTACT.address}. Hotline: ${HOSPITAL_CONTACT.hotlineDisplay}.`,
     },
     { property: 'og:type', content: 'website' },
   ]
