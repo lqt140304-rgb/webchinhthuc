@@ -1,0 +1,26 @@
+2a base: # pass 51 # fail 0 # skipped 2 
+2a-round02 base: # pass 24 # fail 0 # skipped 1 
+2a-round03 base: # pass 21 # fail 0 # skipped 1 
+2b base: # pass 27 # fail 0 # skipped 0 
+2a hard: # pass 51 # fail 1 # skipped 1 
+2a-round02 hard: # pass 23 # fail 1 # skipped 1 
+2a-round03 hard: # pass 21 # fail 0 # skipped 1 
+2b hard: # pass 26 # fail 1 # skipped 0 
+
+# hardening failures (BASE_URL = hardening build, SPA-fallback server)
+-- 2a
+    not ok 1 - title riêng, noindex đúng qua navigation, Back/Forward và 404
+      ---
+      location: '/tmp/claude-0/-home-user-webchinhthuc/1900487a-6900-57f5-abbe-3137ea7f2a0f/scratchpad/hard/tests/e2e/2a.e2e.test.cjs:498:3'
+      error: 'trang chủ không được có noindex'
+      expected: true
+-- 2a-round02
+    not ok 1 - 404 không có canonical, kể cả khi đi từ trang có canonical; trang chủ có canonical gốc
+      ---
+      location: '/tmp/claude-0/-home-user-webchinhthuc/1900487a-6900-57f5-abbe-3137ea7f2a0f/scratchpad/hard/tests/e2e/2a-round02.e2e.test.cjs:278:3'
+      error: |-
+-- 2b
+    not ok 3 - metadata trang chủ: title, description, canonical, robots index
+      ---
+      location: '/tmp/claude-0/-home-user-webchinhthuc/1900487a-6900-57f5-abbe-3137ea7f2a0f/scratchpad/hard/tests/e2e/2b.e2e.test.cjs:448:3'
+      error: |-

@@ -1,0 +1,30 @@
+# forbidden-term scan of hardening prerender (visible + meta) vs baseline src
+vô trùng | build meta+html: co-so-vat-chat/index.html | baseline src: 
+cách ly | build meta+html: | baseline src: 
+hồi sức | build meta+html: index.html | baseline src: src/components/sections/HighlightStory.tsx 
+trực đêm | build meta+html: index.html | baseline src: src/components/sections/FeaturedServices.tsx 
+sinh hiệu | build meta+html: | baseline src: 
+khử khuẩn | build meta+html: index.html | baseline src: src/components/sections/FeaturedServices.tsx 
+phòng mổ | build meta+html: | baseline src: 
+X-quang | build meta+html: | baseline src: 
+siêu âm | build meta+html: | baseline src: 
+hiện đại | build meta+html: index.html | baseline src: 
+uy tín | build meta+html: | baseline src: 
+giàu kinh nghiệm | build meta+html: | baseline src: 
+tận gốc | build meta+html: | baseline src: 
+chẩn đoán hình ảnh | build meta+html: index.html co-so-vat-chat/index.html | baseline src: src/components/sections/FeaturedServices.tsx src/pages/FacilitiesPage.tsx 
+24/7 | build meta+html: dich-vu/noi-tru/index.html dich-vu/cap-cuu/index.html dich-vu/kham-dieu-tri/index.html dich-vu/index.html dich-vu/spa/index.html goc-thu-cung/index.html lien-he/index.html dat-lich/index.html doi-ngu/index.html bang-gia/index.html 404.html index.html dang-nhap/index.html dang-ky/index.html 404/index.html san-pham/index.html cau-chuyen/index.html gioi-thieu/index.html co-so-vat-chat/index.html | baseline src: src/components/sections/FeaturedServices.tsx src/components/layout/Footer.tsx src/components/layout/Header.tsx src/components/layout/MobileNav.tsx src/app/routes.tsx src/pages/BookingPage.tsx src/pages/AboutPage.tsx src/pages/FacilitiesPage.tsx 
+
+# new meta description claims (grep in app/routes)
+hard/app/routes/home.tsx:10:        'Hệ sinh thái y tế thú y chất lượng cao tại Hà Nội: Đội ngũ y bác sĩ tận tâm, cơ sở vật chất hiện đại, dịch vụ y tế chuẩn mực.',
+hard/app/routes/home.tsx:17:        'Hệ sinh thái y tế thú y chất lượng cao tại Hà Nội: Đội ngũ y bác sĩ tận tâm, cơ sở vật chất hiện đại, dịch vụ y tế chuẩn mực.',
+hard/app/routes/facilities.tsx:10:        'Không gian thăm khám và chăm sóc tiện nghi, môi trường vô trùng chuẩn y khoa dành cho thú cưng tại Bệnh Viện Thú Y Lê Sơn.',
+hard/app/routes/facilities.tsx:17:        'Không gian thăm khám và chăm sóc tiện nghi, môi trường vô trùng chuẩn y khoa dành cho thú cưng tại Bệnh Viện Thú Y Lê Sơn.',
+
+# domains/OG/canonical in build
+lesonpet: none
+build/client/assets/home-CO-Th7yu.js:1:import{A as e,M as t,O as n,r,t as i}from"./jsx-runtime-BXgx2aR-.js";import{n as 
+build/client/sitemap.xml:4:    <loc>https://bvthuyleson.vn/</loc>
+build/client/robots.txt:7:Sitemap: https://bvthuyleson.vn/sitemap.xml
+0
+og-* files in public/images: 0

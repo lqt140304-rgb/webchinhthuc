@@ -1,0 +1,86 @@
+0be427862fe78961f1ce6ab29db49eb86ac6cc75 parent=0dba2f3983513ee549521a961fbdfd8c7445fae4 2026-10-28 14:25:31 +0700 lqt140304-rgb feat(spike): Hardening 01 — restore 21 routes, single source of head SEO, 404 automation and hosting readiness
+commits 0dba2f3..hardening: 1
+0dba2f3 is ancestor: YES
+4739d45 is ancestor: YES
+
+main d2a19c5
+docs/phase-3b-00 32b8a0a
+feat/phase-3a-dev01 72efb92
+spike/architecture-01-rr7-prerender 0dba2f3
+main contains hardening? NO
+
+# changed vs baseline 4739d45 outside app/ docs/ tests/ config
+.gitignore
+.oxlintrc.json
+package-lock.json
+package.json
+react-router.config.ts
+scripts/postbuild.cjs
+src/hooks/useRouteSeo.ts
+tsconfig.app.json
+vercel.json
+vite.config.ts
+
+# src/ files changed vs 4739d45
+ src/hooks/useRouteSeo.ts | 59 ++++++++++--------------------------------------
+ 1 file changed, 12 insertions(+), 47 deletions(-)
+# public/, index.html, AGENTS.md
+(empty = unchanged)
+
+# Baseline vercel.json vs hardening
+diff --git a/vercel.json b/vercel.json
+index 343c919..e6bb054 100644
+--- a/vercel.json
++++ b/vercel.json
+@@ -1,25 +1,7 @@
+ {
+   "headers": [
+     {
+-      "source": "/(gioi-thieu|doi-ngu|co-so-vat-chat|bang-gia|san-pham|dat-lich|lien-he|dang-nhap|dang-ky)",
+-      "headers": [
+-        {
+-          "key": "X-Robots-Tag",
+-          "value": "noindex, nofollow"
+-        }
+-      ]
+-    },
+-    {
+-      "source": "/(gioi-thieu|doi-ngu|co-so-vat-chat|bang-gia|san-pham|dat-lich|lien-he|dang-nhap|dang-ky)/(.*)",
+-      "headers": [
+-        {
+-          "key": "X-Robots-Tag",
+-          "value": "noindex, nofollow"
+-        }
+-      ]
+-    },
+-    {
+-      "source": "/(dich-vu|cau-chuyen|goc-thu-cung|bai-viet|tai-khoan|quan-ly)",
++      "source": "/(.*)",
+       "headers": [
+         {
+           "key": "X-Robots-Tag",
+@@ -28,19 +10,19 @@
+       ]
+     },
+     {
+-      "source": "/(dich-vu|cau-chuyen|goc-thu-cung|bai-viet|tai-khoan|quan-ly)/(.*)",
++      "source": "/assets/(.*)",
+       "headers": [
+         {
+-          "key": "X-Robots-Tag",
+-          "value": "noindex, nofollow"
++          "key": "Cache-Control",
++          "value": "public, max-age=31536000, immutable"
+         }
+       ]
+     }
+   ],
+   "rewrites": [
+     {
+-      "source": "/(.*)",
+-      "destination": "/index.html"
++      "source": "/tai-khoan/(.*)",
++      "destination": "/__spa-fallback.html"
+     }
+   ]
+ }

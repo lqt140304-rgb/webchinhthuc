@@ -1,0 +1,10 @@
+# Vercel read-only GET /v6/deployments (no secrets recorded)
+dpl_8XZEtH3csgeHa5cmzf5aw9hNR4EE READY 4739d45 2026-10-27T17:05:01.403000+00:00
+dpl_FysMST4wMKmGLPAFKBZvvT6H6zLZ READY bbd7846 2026-10-27T16:13:44.129000+00:00
+dpl_HvyLw6bGTrDuNxJV3xeSSt6yimyC READY d3c32dd 2026-10-27T09:24:25.032000+00:00
+dpl_62NFAPXdtN8bfwZN8xsgo6SMg1Lx READY d3c32dd 2026-10-27T09:20:08.557000+00:00
+{'framework': 'vite', 'outputDirectory': 'dist', 'buildCommand': 'npm run build'}
+ssoProtection {'deploymentType': 'all'}
+Git Integration: none
+production dpl_BAz378AxMw59nUafGCMDM8Hws84s db78738
+hardening commit time: 2026-10-28T07:25:31Z

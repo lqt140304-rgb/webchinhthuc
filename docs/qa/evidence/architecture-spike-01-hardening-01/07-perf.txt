@@ -1,0 +1,11 @@
+method: Chromium (Playwright) local static server, mobile 412x823 DPR2.625, CPU 4x, 150ms RTT / 1.6 Mbps down, cache disabled, 3 runs, median; CLS via layout-shift observer, LCP/FCP via PerformanceObserver, 4s settle after load
+base /                   FCP 4176 ms | LCP 4176 ms | CLS 0.0000 | max CLS 0.0000 | KB 845 | runs LCP 4160,4252,4176
+base /gioi-thieu         FCP 3812 ms | LCP 4976 ms | CLS 0.0000 | max CLS 0.0000 | KB 853 | runs LCP 4976,5004,4952
+base /doi-ngu            FCP 3772 ms | LCP 4140 ms | CLS 0.0000 | max CLS 0.0000 | KB 788 | runs LCP 4140,4136,4184
+base /co-so-vat-chat     FCP 3792 ms | LCP 4172 ms | CLS 0.0000 | max CLS 0.0000 | KB 915 | runs LCP 4172,4156,4312
+base /dat-lich           FCP 4020 ms | LCP 4020 ms | CLS 0.0010 | max CLS 0.0010 | KB 733 | runs LCP 4020,4044,3844
+hard /                   FCP 2904 ms | LCP 2904 ms | CLS 0.0000 | max CLS 0.0000 | KB 986 | runs LCP 3000,2904,2828
+hard /gioi-thieu         FCP 2116 ms | LCP 4236 ms | CLS 0.0000 | max CLS 0.0000 | KB 837 | runs LCP 4236,4236,4232
+hard /doi-ngu            FCP 2268 ms | LCP 2268 ms | CLS 0.0000 | max CLS 0.0000 | KB 777 | runs LCP 2216,2324,2268
+hard /co-so-vat-chat     FCP 2120 ms | LCP 2120 ms | CLS 0.0000 | max CLS 0.0000 | KB 897 | runs LCP 2164,2120,2092
+hard /dat-lich           FCP 2076 ms | LCP 2076 ms | CLS 0.0010 | max CLS 0.0010 | KB 739 | runs LCP 2076,2116,2048
