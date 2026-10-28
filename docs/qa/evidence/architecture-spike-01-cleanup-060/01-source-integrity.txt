@@ -1,0 +1,22 @@
+# commit chain
+2489439d3848b390b888101133ec0a3366075999 parent=b5858f3720202377a3273dea9fcb7fbb01dfcf7e 2026-10-28 18:00:18 +0700 docs(spike): record implementation commit SHA in handoff.md
+b5858f3720202377a3273dea9fcb7fbb01dfcf7e parent=535f803808dcfb27f06b3303a5e32070c88a5aa6 2026-10-28 17:59:58 +0700 fix(spike): Cleanup 060 — restore 14 QA 2B evidence images from baseline 3A, isolate test output, and add test:install-browsers
+Fix01 HEAD 535f803 ancestor: YES
+main d2a19c5
+docs/phase-3b-00 32b8a0a
+spike/architecture-01-hardening-02-fix01 535f803
+main contains cleanup? NO
+
+# changed files vs Fix01 (535f803), excluding docs/spikes cleanup docs and the 14 PNG
+package.json
+tests/e2e/2b-verification.cjs
+
+# unchanged vs Fix01 (empty = unchanged): src public app vercel.json vite.config.ts react-router.config.ts index.html AGENTS.md docs/phase-3b tests/spike
+(end)
+
+# changed vs 3A baseline 4739d45 inside docs/qa (empty = identical)
+(end)
+
+ package.json                                       |   3 +-
+ tests/e2e/2b-verification.cjs                      |   2 +-
+ 21 files changed, 455 insertions(+), 2 deletions(-)

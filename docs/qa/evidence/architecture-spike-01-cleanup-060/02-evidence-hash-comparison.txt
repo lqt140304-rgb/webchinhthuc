@@ -1,0 +1,20 @@
+# 14 PNG + results.txt : blob SHA and SHA-256, baseline 3A vs Fix01 vs Cleanup
+file | blob(3A) | blob(Fix01) | blob(Cleanup) | sha256(3A) | sha256(Cleanup) | verdict
+2b-verification-results.txt | 46d1c52d697e | 46d1c52d697e | 46d1c52d697e | ed3a42b034815ce8 | ed3a42b034815ce8 | IDENTICAL
+booking-1366px.png | 1eb1d8283eeb | ed649774d742 | 1eb1d8283eeb | ae991cb1f8f0b930 | ae991cb1f8f0b930 | IDENTICAL
+booking-1440px.png | 18917b9f8a8a | e750df3afda4 | 18917b9f8a8a | 4aca9ac4562b72b6 | 4aca9ac4562b72b6 | IDENTICAL
+booking-1920px.png | b598a91d7ce9 | 7d24d41d854b | b598a91d7ce9 | 5a3bd7aac07669d3 | 5a3bd7aac07669d3 | IDENTICAL
+booking-320px.png | 036cf974b186 | 82b21f0ec818 | 036cf974b186 | cd54a33d5161f65b | cd54a33d5161f65b | IDENTICAL
+booking-360px.png | 9e137d78e128 | 67a597dd3f78 | 9e137d78e128 | 51fbc991d7a93c68 | 51fbc991d7a93c68 | IDENTICAL
+booking-390px.png | 70a053c69bd5 | 03b266ef61c3 | 70a053c69bd5 | 38c39c7980f332d6 | 38c39c7980f332d6 | IDENTICAL
+booking-768px.png | 5f42a0cc3c02 | b5f8341c3730 | 5f42a0cc3c02 | 1684ab1623ec8917 | 1684ab1623ec8917 | IDENTICAL
+home-1366px.png | 908e1a4c3cd2 | 581520d03bd1 | 908e1a4c3cd2 | a3aa16157bfb1a40 | a3aa16157bfb1a40 | IDENTICAL
+home-1440px.png | eb9dfbe58abc | 56c598bb869c | eb9dfbe58abc | c65de3e0cc2a8084 | c65de3e0cc2a8084 | IDENTICAL
+home-1920px.png | 148ebfe4a871 | fd213170f9f3 | 148ebfe4a871 | c1b6af4d721e6fa9 | c1b6af4d721e6fa9 | IDENTICAL
+home-320px.png | bed934581464 | 6a310843ca94 | bed934581464 | 6d582de9fe1b5c22 | 6d582de9fe1b5c22 | IDENTICAL
+home-360px.png | 50f4e9f055de | 6995a9928721 | 50f4e9f055de | b381796a3ee00b7a | b381796a3ee00b7a | IDENTICAL
+home-390px.png | bd20d9d76895 | de594acd1072 | bd20d9d76895 | 997787654cf60f75 | 997787654cf60f75 | IDENTICAL
+home-768px.png | de780a7b936c | 0242655e80c1 | de780a7b936c | 2060813e7ed006b9 | 2060813e7ed006b9 | IDENTICAL
+
+# files in 3A evidence dir: 15; in cleanup: 15; extra/missing: 0
+# other evidence dirs under docs/qa identical to baseline: 0 differing files

@@ -1,0 +1,2 @@
+# Vercel read-only API
+GET /v6/deployments?projectId=prj_wZg6o5vvbDe6UTT52vaqvGTNC4e3 -> HTTP 403 (scope authorization; same as previous round). Infra state NOT VERIFIED.
