@@ -1,6 +1,10 @@
-# Vercel read-only GET /v6/deployments (no secrets recorded)
-{'framework': None, 'outputDirectory': None, 'buildCommand': None, 'installCommand': None}
-ssoProtection None
-Git Integration: none
-production None 
-Fix01 commit time: 2026-10-28T10:10:17Z
+# Vercel read-only API check (no secrets recorded)
+GET /v6/deployments?projectId=prj_wZg6o5vvbDe6UTT52vaqvGTNC4e3  -> HTTP 403
+  error.code = forbidden: "Not authorized: Trying to access resource under scope ... You must re-authenticate to this scope or use a token with access to this scope." (saml: true)
+GET /v9/projects/prj_wZg6o5vvbDe6UTT52vaqvGTNC4e3 -> same authorization failure (empty result)
+
+RESULT: Claude could NOT read Vercel state in this QA round.
+Not verified this round via infrastructure: latest deployment, Production deployment, Git Integration, Deployment Protection, project settings (framework/outputDirectory).
+Last successful read-only check (previous QA, Hardening 02, 2026-10-28 ~08:45Z): latest dpl_8XZEtH3csgeHa5cmzf5aw9hNR4EE / 4739d45; Production dpl_BAz378AxMw59nUafGCMDM8Hws84s / db78738; project.link none; ssoProtection all; framework vite / outputDirectory dist.
+Fix 01 commits were pushed 2026-10-28T10:10Z, i.e. AFTER that last check.
+Git-side evidence only: no commit in Fix01 touches deployment configuration other than vercel.json; project.link was empty at last check.

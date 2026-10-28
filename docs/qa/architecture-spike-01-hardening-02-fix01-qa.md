@@ -14,12 +14,14 @@
 - Chính sách SEO đã nhất quán: không còn hai thẻ robots mâu thuẫn ở cả ba môi trường (local, preview, production mô phỏng).
 - Content Audit Register đã sửa đúng vị trí, giờ mở cửa và trạng thái "24/7".
 
+**Giới hạn của lần QA này:** API Vercel trả HTTP 403 nên Claude **không xác minh được** trạng thái deployment, Production, Git Integration và Deployment Protection (ghi NOT VERIFIED ở mục 2). Cần cấp lại quyền token hoặc để chủ dự án xác nhận.
+
 Hồi quy: giao diện 0 pixel khác 3A, E2E 3A đạt toàn bộ (kèm bản chỉnh), axe bằng baseline, LCP mobile tốt hơn baseline.
 
 **Điều kiện và giới hạn, cần chủ dự án biết trước khi cho phép Preview:**
 
 1. **Nhánh làm ghi đè 14 ảnh bằng chứng QA của Mốc 2B** (`docs/qa/2b-verification-evidence/*.png`, từ commit `b53e259`). Đây là hệ quả khi chạy `tests/e2e/2b-verification.cjs`. Không ảnh hưởng mã hay hosting, nhưng **nên hoàn nguyên trước khi tạo Preview** (3B-H2F-P2-1).
-2. **Ưu tiên cấu hình Vercel (Dashboard hay `vercel.json`) chưa được kiểm chứng.** Tài liệu của Antigravity khẳng định Dashboard thắng. Claude không xác nhận được và không thể kiểm trên Vercel thật: **NOT VERIFIED**. Project hiện đang là `vite` / `dist`. Cách xác định duy nhất là Preview đầu tiên. Nếu Dashboard thắng, build sẽ lỗi hoặc ra sai thư mục và **cần chủ dự án phê duyệt riêng** việc đổi project settings. Kết quả xấu nhất là một deployment lỗi, không ảnh hưởng Production.
+2. **Ưu tiên cấu hình Vercel (Dashboard hay `vercel.json`) chưa được kiểm chứng.** Tài liệu của Antigravity khẳng định Dashboard thắng. Claude không xác nhận được và không thể kiểm trên Vercel thật: **NOT VERIFIED**. Project ở lần kiểm cuối là `vite` / `dist` (lần này không đọc lại được). Cách xác định duy nhất là Preview đầu tiên. Nếu Dashboard thắng, build sẽ lỗi hoặc ra sai thư mục và **cần chủ dự án phê duyệt riêng** việc đổi project settings. Kết quả xấu nhất là một deployment lỗi, không ảnh hưởng Production.
 3. **Test dựa trên Playwright không chạy ngay sau `npm ci` trên môi trường mới**: Playwright 1.64.1 mới thêm vào `devDependencies` cần tải trình duyệt (`npx playwright install`), việc này chưa có trong hướng dẫn (3B-H2F-P2-2).
 
 Claude không tự phê duyệt migration, deployment hay 3B-01.
@@ -36,9 +38,9 @@ Claude không tự phê duyệt migration, deployment hay 3B-01.
 | Parent | `bacc62afebcd531a23a1fc6f52724f1799557000` (Hardening 02) ✔ |
 | Diff vs Hardening 02 | 31 file, +1125 / −15 (gồm 14 ảnh nhị phân của 2B) |
 
-## 2. Source integrity: **PASS** (kèm 1 ngoại lệ P2)
+## 2. Source integrity: **PASS về Git; NOT VERIFIED về hạ tầng Vercel** (kèm 1 ngoại lệ P2)
 
-`01-source-integrity.txt`, `02-vercel-readonly.txt`
+`01-source-integrity.txt`, `02-vercel-readonly.txt` (ghi nhận lỗi 403)
 
 | Kiểm tra | Kết quả |
 |---|---|
@@ -46,10 +48,8 @@ Claude không tự phê duyệt migration, deployment hay 3B-01.
 | Không merge `main` | ✔ `main` = `d2a19c5`, không chứa Fix 01 |
 | Không sửa baseline 3A (`src/`, `public/`, `index.html`, `AGENTS.md`) | ✔ Chỉ có `src/config/seo-policy.ts` (đã tồn tại từ H02) và `src/hooks/useRouteSeo.ts` (từ H01) khác baseline |
 | Không sửa 3B-00 | ✔ `docs/phase-3b-00` vẫn `32b8a0a`; Fix 01 không đụng `docs/phase-3b*` |
-| Deployment mới | ✔ Không có: mới nhất vẫn `dpl_8XZEtH3…` / `4739d45` |
-| Production, domain, Git Integration | ✔ Production `dpl_BAz378…` / `db78738`; `project.link` trống |
-| Deployment Protection | ✔ Vẫn bật (`ssoProtection: all`) |
-| Project settings Vercel | Không đổi: `vite` / `dist` |
+| Deployment mới | **NOT VERIFIED** ở lần này: API Vercel trả HTTP 403 (token không còn quyền vào scope, yêu cầu xác thực lại), nên Claude không đọc được danh sách deployment. Lần kiểm cuối (QA Hardening 02, trước commit Fix 01) mới nhất là `dpl_8XZEtH3…` / `4739d45`. Bằng chứng từ Git: Fix 01 không có thay đổi nào về deployment ngoài `vercel.json` |
+| Production, domain, Git Integration, Deployment Protection, project settings | **NOT VERIFIED** ở lần này (cùng lý do). Lần kiểm cuối: Production `dpl_BAz378…` / `db78738`; `project.link` trống; `ssoProtection: all`; `vite` / `dist` |
 | **Bằng chứng QA Mốc 2B bị ghi đè** | ✘ **3B-H2F-P2-1:** 14 ảnh trong `docs/qa/2b-verification-evidence/` thay đổi (ví dụ `home-1366px.png` 2,72 MB → 1,95 MB). Nguyên nhân: script `2b-verification.cjs` ghi thẳng vào thư mục này. Không sửa mã baseline nhưng làm hỏng hồ sơ bằng chứng đã nghiệm thu |
 
 ## 3. F01 — Vercel output: **PARTIAL** (nguồn đạt; hosting NOT TESTED)
@@ -182,7 +182,7 @@ Phân loại: (1) lỗi metadata mới của Spike: đã sạch; (2) nội dung 
 | B — Routing/Privacy (local) | **PASS** |
 | C — Regression | **PASS** |
 | D — Hosting/Social | **READY** (chỉ có nghĩa đủ điều kiện xin phép Preview; **chưa** kiểm Vercel thật; ưu tiên cấu hình NOT VERIFIED) |
-| Source Integrity | **PASS** (1 ngoại lệ P2: ảnh bằng chứng 2B bị ghi đè) |
+| Source Integrity | **PASS về Git** (1 ngoại lệ P2: ảnh bằng chứng 2B bị ghi đè); **NOT VERIFIED về hạ tầng Vercel** (API trả 403) |
 
 ## 10. P0/P1/P2/P3
 
