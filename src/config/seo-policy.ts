@@ -5,22 +5,32 @@
  * Distinguishes Local/Spike vs Vercel Preview vs Production environments.
  */
 
+declare const __APP_ENV__: string | undefined
 declare const process: { env?: Record<string, string | undefined> } | undefined
 
 export type AppEnvironment = 'local' | 'preview' | 'production'
 
 export function getAppEnvironment(): AppEnvironment {
-  // In Node.js / build time: check process.env
+  // 1. Statically injected build-time constant (injected by Vite define, identical in SSR prerender & client bundle)
+  if (typeof __APP_ENV__ !== 'undefined' && __APP_ENV__) {
+    if (__APP_ENV__ === 'production' || __APP_ENV__ === 'preview') {
+      return __APP_ENV__ as AppEnvironment
+    }
+    return 'local'
+  }
+
+  // 2. Node.js runtime fallback (for standalone unit tests or scripts running outside Vite)
   if (typeof process !== 'undefined' && process?.env) {
-    if (process.env.VERCEL_ENV === 'production' || process.env.APP_ENV === 'production') {
+    const envVal = process.env.VERCEL_ENV || process.env.VITE_APP_ENV || process.env.APP_ENV
+    if (envVal === 'production') {
       return 'production'
     }
-    if (process.env.VERCEL_ENV === 'preview' || process.env.APP_ENV === 'preview') {
+    if (envVal === 'preview') {
       return 'preview'
     }
   }
 
-  // In browser / client runtime: check Vite env if available
+  // 3. Browser meta.env fallback if present
   try {
     const metaEnv = (import.meta as unknown as { env?: Record<string, string> })?.env
     if (metaEnv?.VITE_VERCEL_ENV === 'production' || metaEnv?.VITE_APP_ENV === 'production') {

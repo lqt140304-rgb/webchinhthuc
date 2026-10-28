@@ -1,4 +1,4 @@
-const { chromium } = require('C:/Users/Admin/AppData/Roaming/npm/node_modules/playwright');
+const { chromium } = require('playwright');
 const http = require('http');
 const fs = require('fs');
 const path = require('path');

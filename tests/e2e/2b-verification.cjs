@@ -1,10 +1,4 @@
-let playwright;
-try {
-  playwright = require('playwright');
-} catch {
-  playwright = require('C:/Users/Admin/AppData/Roaming/npm/node_modules/playwright');
-}
-const { chromium } = playwright;
+const { chromium } = require('playwright');
 const { spawn } = require('child_process');
 const http = require('http');
 const fs = require('fs');
