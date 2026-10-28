@@ -10,8 +10,10 @@
 
     /* Bundler mode */
     "moduleResolution": "bundler",
+    "rootDirs": [".", "./.react-router/types"],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "~/*": ["./app/*"]
     },
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
@@ -25,5 +27,5 @@
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"]
+  "include": ["src", "app", ".react-router/types/**/*"]
 }

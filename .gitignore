@@ -33,3 +33,6 @@ lh-summary.json
 
 .vercel
 .env*
+build/
+.react-router/
+
