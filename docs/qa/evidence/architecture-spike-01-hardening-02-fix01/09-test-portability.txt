@@ -1,0 +1,22 @@
+# npm run test:hydration / seo-consistency in CLEAN worktree, unmodified
+playwright resolved: 1.64.1 (new devDependency ^1.64.1)
+result: 'Executable doesn't exist at /opt/pw-browsers/chromium_headless_shell-1248' -> requires npx playwright install (download blocked by sandbox proxy)
+
+# verbatim copies of the same tests run with the sandbox's preinstalled playwright (NODE_PATH): hydration
+Testing Hydration & Console Errors with Playwright Chromium...
+URL: /khong-ton-tai               | HTTP: 404 | H1: Không tìm thấy trang yêu cầu   | Hydration 418: CLEAN | Result: PASS
+URL: /quan-ly/lich-truc           | HTTP: 404 | H1: Không tìm thấy trang yêu cầu   | Hydration 418: CLEAN | Result: PASS
+URL: /dich-vu/slug-khong-ton-tai  | HTTP: 404 | H1: Không tìm thấy trang yêu cầu   | Hydration 418: CLEAN | Result: PASS
+URL: /cau-chuyen/ca-dieu-tri-01   | HTTP: 200 | H1: Chi tiết câu chuyện điều trị   | Hydration 418: CLEAN | Result: PASS
+URL: /bai-viet/cham-soc-mua-mua   | HTTP: 200 | H1: Chi tiết bài viết cẩm nang     | Hydration 418: CLEAN | Result: PASS
+URL: /tai-khoan                   | HTTP: 200 | H1: Cổng quản lý hồ sơ thú cưng    | Hydration 418: CLEAN | Result: PASS
+URL: /tai-khoan/                  | HTTP: 200 | H1: Cổng quản lý hồ sơ thú cưng    | Hydration 418: CLEAN | Result: PASS
+URL: /tai-khoan/lich-hen          | HTTP: 200 | H1: Cổng quản lý hồ sơ thú cưng    | Hydration 418: CLEAN | Result: PASS
+
+[PASS] All 404 and Dynamic Route hydration tests PASSED with 0 errors.
+
+# hardcoded machine paths remaining in tests/scripts
+origin/spike/architecture-01-hardening-02-fix01:tests/measure-cls.cjs:7:const DIST = path.resolve('D:/webbvct/dist');
+
+# playwright installation instructions in Fix01 docs/handoff
+(none)

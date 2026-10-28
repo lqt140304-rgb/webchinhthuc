@@ -1,0 +1,27 @@
+# Register line references checked against Fix01 tree
+src/components/sections/FeaturedServices.tsx:22 -> description: 'Thăm khám kỹ lưỡng, xét nghiệm sinh hóa, chẩn đoán hình ảnh kỹ thuật số và phẫu
+src/components/sections/FeaturedServices.tsx:29 -> title: 'Chăm Sóc Nội Trú 24/7',
+src/components/sections/FeaturedServices.tsx:31 -> description: 'Khu vực nội trú chuyên biệt được vệ sinh khử khuẩn định kỳ, theo dõi chỉ số s�
+src/components/sections/FeaturedServices.tsx:61 -> Chúng tôi tập trung vào 3 dịch vụ cốt lõi, đảm bảo tiêu chuẩn y khoa nghiêm ngặt và trải nghi�
+src/components/sections/FeaturedServices.tsx:141 -> Bé có dấu hiệu khó thở, co giật, ngộ độc, xuất huyết hoặc tai nạn? Đội ngũ y tế trực đ�
+src/components/layout/Footer.tsx:30 -> Đơn vị y tế thú cưng chuyên nghiệp tại Hà Nội, cung cấp dịch vụ thăm khám lâm sàng, phẫu thu
+src/components/layout/Footer.tsx:105 -> Chăm sóc nội trú 24/7
+src/components/layout/Header.tsx:38 -> { label: 'Chăm sóc nội trú 24/7', href: '/dich-vu/noi-tru', description: 'Chăm sóc nội trú 24/7 theo dõi liê
+src/components/layout/MobileNav.tsx:272 -> Chăm sóc nội trú 24/7
+src/pages/AboutPage.tsx:276 -> Tham quan quy hoạch các phân khu tiếp đón, thăm khám, chăm sóc nội trú 24/7 và Spa &amp; Grooming.
+src/pages/BookingPage.tsx:202 -> <span>Khám tham chiếu: {HOSPITAL_CONTACT.workingHours}</span>
+src/pages/BookingPage.tsx:455 -> <option value="noi-tru">Chăm sóc nội trú 24/7</option>
+src/pages/FacilitiesPage.tsx:15 -> 'Quy hoạch không gian tiếp đón, thăm khám, chăm sóc nội trú 24/7 và dịch vụ tại Bệnh viện Thú 
+src/pages/FacilitiesPage.tsx:34 -> Cơ sở Bệnh viện Thú y Lê Sơn tại 101 Khuất Duy Tiến, Thanh Xuân, Hà Nội được quy hoạch phục 
+src/pages/FacilitiesPage.tsx:101 -> title="Khu vực Chăm sóc Nội trú 24/7"
+src/pages/FacilitiesPage.tsx:204 -> 03 • Khu nội trú 24/7 &amp; Thiết bị chăm sóc
+src/pages/FacilitiesPage.tsx:216 -> Chăm sóc &amp; Lưu trú Nội trú 24/7
+src/app/routes.tsx:159 -> subtitle="Danh mục sản phẩm chính hãng chọn lọc đang được cập nhật tồn kho và mô tả công d�
+
+# omitted from register: FeaturedServices.tsx:61 'đảm bảo tiêu chuẩn y khoa nghiêm ngặt'
+# Register marks 'Tiếp nhận cấp cứu 24/24' PENDING; 3B-00 Content Mapping marks DV-EMG-01 VERIFIED (inconsistent)
+# VERIFIED hours cites 'User 26/10' - evidence in repo = comment in src/config/contact.ts only
+/**
+ * Centralized Hospital Contact Information
+ * Sourced from direct user confirmation on 26/10/2026.
+ */

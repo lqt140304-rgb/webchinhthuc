@@ -1,0 +1,59 @@
+# vercel.json at Fix01 (actual file)
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npm run build",
+  "outputDirectory": "build/client",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/tai-khoan/(.*)",
+      "destination": "/__spa-fallback.html"
+    },
+    {
+      "source": "/cau-chuyen/(.*)",
+      "destination": "/__spa-fallback.html"
+    },
+    {
+      "source": "/bai-viet/(.*)",
+      "destination": "/__spa-fallback.html"
+    }
+  ]
+}
+
+# keys present: 4 of 4 expected
+
+# Antigravity precedence claim (vercel-output-verification.md): Dashboard override > vercel.json
+
+Trên nền tảng Vercel:
+1. **Mức ưu tiên 1 (Cao nhất):** Thiết lập thủ công trong Dashboard Vercel (Project Settings -> Build & Development Settings). Nếu tại Dashboard, mục "Output Directory" đang được bật nút "Override" và gán giá trị cứng là `dis
+2. **Mức ưu tiên 2:** File cấu hình `vercel.json` trong repository.
+3. **Mức ưu tiên 3 (Thấp nhất):** Cấu hình mặc định của Framework Preset (Preset "Vite" mặc định output là `dist`, Preset "Other" hoặc "React Router" mặc định theo framework).
+
+### Yêu cầu bắt buộc trước khi tạo Preview:
+Để đảm bảo bản Preview hoạt động chính xác mà không phá vỡ cấu hình của nhánh chính:
+- **Khuyến nghị 1:** Khi chạy lệnh tạo Preview qua Vercel CLI (nếu được chủ dự án phê duyệt), không thay đổi cấu hình chung của toàn bộ project trên Dashboard để tránh ảnh hưởng đến các bản deploy khác của
+- **Khuyến nghị 2:** Nếu Vercel Project Dashboard có thiết lập override cứng cho `dist`, Chủ dự án hoặc Operator cần kiểm tra bằng lệnh:
+  `npx vercel project inspect`
+  hoặc gỡ bỏ override trong dashboard để Vercel đọc theo `vercel.json` của nhánh hiện tại.
+

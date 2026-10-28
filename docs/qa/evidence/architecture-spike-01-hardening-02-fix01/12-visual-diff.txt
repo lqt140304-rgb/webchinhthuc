@@ -1,0 +1,11 @@
+method: Playwright full-page screenshots after scroll-through, animations off; threshold 16/255; base=dist(4739d45) vs fix01=build/client (local env build)
+1440-_.png (1440, 7293) diff px: 0 bbox None
+1440-_co-so-vat-chat.png (1440, 4304) diff px: 0 bbox None
+1440-_dat-lich.png (1440, 2014) diff px: 0 bbox None
+1440-_doi-ngu.png (1440, 5509) diff px: 0 bbox None
+1440-_gioi-thieu.png (1440, 3995) diff px: 0 bbox None
+412-_.png (412, 12496) diff px: 0 bbox None
+412-_co-so-vat-chat.png (412, 5973) diff px: 0 bbox None
+412-_dat-lich.png (412, 3852) diff px: 0 bbox None
+412-_doi-ngu.png (412, 8817) diff px: 0 bbox None
+412-_gioi-thieu.png (412, 6464) diff px: 0 bbox None

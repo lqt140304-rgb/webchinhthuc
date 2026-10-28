@@ -1,0 +1,6 @@
+# Vercel read-only GET /v6/deployments (no secrets recorded)
+{'framework': None, 'outputDirectory': None, 'buildCommand': None, 'installCommand': None}
+ssoProtection None
+Git Integration: none
+production None 
+Fix01 commit time: 2026-10-28T10:10:17Z

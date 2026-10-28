@@ -1,0 +1,92 @@
+535f803808dcfb27f06b3303a5e32070c88a5aa6 parent=f46feeb8d4eacbb3a653ef079a0b7d3db317ada9 2026-10-28 17:10:36 +0700 docs(spike): record implementation commit SHA in handoff.md
+f46feeb8d4eacbb3a653ef079a0b7d3db317ada9 parent=bacc62afebcd531a23a1fc6f52724f1799557000 2026-10-28 17:10:17 +0700 feat(spike): Hardening 02 Fix 01 — Vercel output config, SEO environment consistency, portable tests, and Content Audit Register corrections
+H02 HEAD bacc62a ancestor: YES
+main d2a19c5
+docs/phase-3b-00 32b8a0a
+spike/architecture-01-hardening-02 bacc62a
+main contains Fix01? NO
+
+ .../qa/2b-verification-evidence/booking-1366px.png | Bin 499596 -> 492695 bytes
+ .../qa/2b-verification-evidence/booking-1440px.png | Bin 504777 -> 497303 bytes
+ .../qa/2b-verification-evidence/booking-1920px.png | Bin 536928 -> 528712 bytes
+ docs/qa/2b-verification-evidence/booking-320px.png | Bin 365336 -> 361621 bytes
+ docs/qa/2b-verification-evidence/booking-360px.png | Bin 372797 -> 364090 bytes
+ docs/qa/2b-verification-evidence/booking-390px.png | Bin 380843 -> 367096 bytes
+ docs/qa/2b-verification-evidence/booking-768px.png | Bin 451684 -> 444761 bytes
+ docs/qa/2b-verification-evidence/home-1366px.png   | Bin 2718823 -> 1947821 bytes
+ docs/qa/2b-verification-evidence/home-1440px.png   | Bin 3190579 -> 2361322 bytes
+ docs/qa/2b-verification-evidence/home-1920px.png   | Bin 3273182 -> 2426451 bytes
+ docs/qa/2b-verification-evidence/home-320px.png    | Bin 1528436 -> 1396611 bytes
+ docs/qa/2b-verification-evidence/home-360px.png    | Bin 1602655 -> 1454883 bytes
+ docs/qa/2b-verification-evidence/home-390px.png    | Bin 1641300 -> 1349252 bytes
+ docs/qa/2b-verification-evidence/home-768px.png    | Bin 2117698 -> 1697472 bytes
+ .../content-audit-corrections.md                   |  86 +++++++++++
+ .../hardening-02-fix01/fix01-summary.md            |  66 ++++++++
+ .../architecture-01/hardening-02-fix01/handoff.md  | 136 +++++++++++++++++
+ .../hardening-02-fix01/portable-test-results.md    | 166 +++++++++++++++++++++
+ .../hardening-02-fix01/preview-readiness.md        |  70 +++++++++
+ .../hardening-02-fix01/regression-results.md       |  82 ++++++++++
+ .../seo-environment-verification.md                | 131 ++++++++++++++++
+ .../vercel-output-verification.md                  | 136 +++++++++++++++++
+ package-lock.json                                  |  32 +++-
+ package.json                                       |   6 +-
+ scripts/preview-server.cjs                         |  70 +++++++++
+ src/config/seo-policy.ts                           |  18 ++-
+ tests/e2e/2b-verification.cjs                      |   8 +-
+ tests/spike/test-hydration-404.cjs                 |   2 +-
+ tests/spike/test-seo-consistency.cjs               | 116 ++++++++++++++
+ vercel.json                                        |   5 +
+ vite.config.ts                                     |  10 ++
+ 31 files changed, 1125 insertions(+), 15 deletions(-)
+
+# files changed outside docs/spikes (vs H02)
+docs/qa/2b-verification-evidence/booking-1366px.png
+docs/qa/2b-verification-evidence/booking-1440px.png
+docs/qa/2b-verification-evidence/booking-1920px.png
+docs/qa/2b-verification-evidence/booking-320px.png
+docs/qa/2b-verification-evidence/booking-360px.png
+docs/qa/2b-verification-evidence/booking-390px.png
+docs/qa/2b-verification-evidence/booking-768px.png
+docs/qa/2b-verification-evidence/home-1366px.png
+docs/qa/2b-verification-evidence/home-1440px.png
+docs/qa/2b-verification-evidence/home-1920px.png
+docs/qa/2b-verification-evidence/home-320px.png
+docs/qa/2b-verification-evidence/home-360px.png
+docs/qa/2b-verification-evidence/home-390px.png
+docs/qa/2b-verification-evidence/home-768px.png
+package-lock.json
+package.json
+scripts/preview-server.cjs
+src/config/seo-policy.ts
+tests/e2e/2b-verification.cjs
+tests/spike/test-hydration-404.cjs
+tests/spike/test-seo-consistency.cjs
+vercel.json
+vite.config.ts
+
+# docs/phase-3b or other non-spike docs changed vs H02 (excluding 2b evidence PNG)
+(none)
+
+# 2B baseline evidence overwritten (vs 4739d45 baseline)
+ .../qa/2b-verification-evidence/booking-1366px.png | Bin 499596 -> 492695 bytes
+ .../qa/2b-verification-evidence/booking-1440px.png | Bin 504777 -> 497303 bytes
+ .../qa/2b-verification-evidence/booking-1920px.png | Bin 536928 -> 528712 bytes
+ docs/qa/2b-verification-evidence/booking-320px.png | Bin 365336 -> 361621 bytes
+ docs/qa/2b-verification-evidence/booking-360px.png | Bin 372797 -> 364090 bytes
+ docs/qa/2b-verification-evidence/booking-390px.png | Bin 380843 -> 367096 bytes
+ docs/qa/2b-verification-evidence/booking-768px.png | Bin 451684 -> 444761 bytes
+ docs/qa/2b-verification-evidence/home-1366px.png   | Bin 2718823 -> 1947821 bytes
+ docs/qa/2b-verification-evidence/home-1440px.png   | Bin 3190579 -> 2361322 bytes
+ docs/qa/2b-verification-evidence/home-1920px.png   | Bin 3273182 -> 2426451 bytes
+ docs/qa/2b-verification-evidence/home-320px.png    | Bin 1528436 -> 1396611 bytes
+ docs/qa/2b-verification-evidence/home-360px.png    | Bin 1602655 -> 1454883 bytes
+ docs/qa/2b-verification-evidence/home-390px.png    | Bin 1641300 -> 1349252 bytes
+ docs/qa/2b-verification-evidence/home-768px.png    | Bin 2117698 -> 1697472 bytes
+ 14 files changed, 0 insertions(+), 0 deletions(-)
+baseline commit of those files: b53e259 2026-10-26
+writer: tests/e2e/2b-verification.cjs EVIDENCE_DIR=docs/qa/2b-verification-evidence
+
+# src/ changes vs 4739d45
+ src/config/seo-policy.ts | 98 ++++++++++++++++++++++++++++++++++++++++++++++++
+ src/hooks/useRouteSeo.ts | 59 ++++++-----------------------
+ 2 files changed, 110 insertions(+), 47 deletions(-)

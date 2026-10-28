@@ -1,0 +1,6 @@
+base 320 violation-rules: 3 | /gioi-thieu ["color-contrast:3"] ; /doi-ngu ["color-contrast:3"] ; /co-so-vat-chat ["color-contrast:3"]
+base 412 violation-rules: 3 | /gioi-thieu ["color-contrast:3"] ; /doi-ngu ["color-contrast:3"] ; /co-so-vat-chat ["color-contrast:3"]
+base 1440 violation-rules: 3 | /gioi-thieu ["color-contrast:3"] ; /doi-ngu ["color-contrast:3"] ; /co-so-vat-chat ["color-contrast:3"]
+h2 320 violation-rules: 3 | /gioi-thieu ["color-contrast:3"] ; /doi-ngu ["color-contrast:3"] ; /co-so-vat-chat ["color-contrast:3"]
+h2 412 violation-rules: 3 | /gioi-thieu ["color-contrast:3"] ; /doi-ngu ["color-contrast:3"] ; /co-so-vat-chat ["color-contrast:3"]
+h2 1440 violation-rules: 3 | /gioi-thieu ["color-contrast:3"] ; /doi-ngu ["color-contrast:3"] ; /co-so-vat-chat ["color-contrast:3"]

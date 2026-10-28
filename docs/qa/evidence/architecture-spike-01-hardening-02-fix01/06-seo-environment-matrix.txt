@@ -1,0 +1,66 @@
+# SEO environment matrix: raw HTML robots by build env (grep on build output)
+== local
+  index.html: <meta name="robots" content="noindex, nofollow"
+  gioi-thieu/index.html: <meta name="robots" content="noindex, nofollow"
+  tai-khoan/index.html: <meta name="robots" content="noindex, nofollow"
+  dich-vu/index.html: <meta name="robots" content="noindex, nofollow"
+  404.html: <meta name="robots" content="noindex, nofollow"
+  canonical tags in index.html: 0
+  og:image/og:url in index.html: 0
+== preview
+  index.html: <meta name="robots" content="noindex, nofollow"
+  gioi-thieu/index.html: <meta name="robots" content="noindex, nofollow"
+  tai-khoan/index.html: <meta name="robots" content="noindex, nofollow"
+  dich-vu/index.html: <meta name="robots" content="noindex, nofollow"
+  404.html: <meta name="robots" content="noindex, nofollow"
+  canonical tags in index.html: 0
+  og:image/og:url in index.html: 0
+== production
+  index.html: <meta name="robots" content="index, follow"
+  gioi-thieu/index.html: <meta name="robots" content="noindex, nofollow"
+  tai-khoan/index.html: <meta name="robots" content="noindex, nofollow"
+  dich-vu/index.html: <meta name="robots" content="noindex, nofollow"
+  404.html: <meta name="robots" content="noindex, nofollow"
+  canonical tags in index.html: 0
+  og:image/og:url in index.html: 0
+
+# hydrated vs raw (npm run test:seo-consistency verbatim copy, 3 builds)
+=== seo-consistency (verbatim copy, system playwright) vs local build
+  Raw index.html robots directive: "noindex, nofollow"
+  Raw gioi-thieu/index.html robots directive: "noindex, nofollow"
+  Hydrated index.html robots tags count: 1
+  Hydrated index.html robots content: ["noindex, nofollow"]
+  Refreshed index.html robots content: ["noindex, nofollow"] (PASS)
+  Hydrated /gioi-thieu robots content: ["noindex, nofollow"] (PASS)
+  Hydrated /tai-khoan robots content: ["noindex, nofollow"] (PASS)
+=== ALL SEO ENVIRONMENT CONSISTENCY TESTS PASSED! ===
+=== seo-consistency (verbatim copy, system playwright) vs preview build
+  Raw index.html robots directive: "noindex, nofollow"
+  Raw gioi-thieu/index.html robots directive: "noindex, nofollow"
+  Hydrated index.html robots tags count: 1
+  Hydrated index.html robots content: ["noindex, nofollow"]
+  Refreshed index.html robots content: ["noindex, nofollow"] (PASS)
+  Hydrated /gioi-thieu robots content: ["noindex, nofollow"] (PASS)
+  Hydrated /tai-khoan robots content: ["noindex, nofollow"] (PASS)
+=== ALL SEO ENVIRONMENT CONSISTENCY TESTS PASSED! ===
+=== seo-consistency (verbatim copy, system playwright) vs production build
+  Raw index.html robots directive: "index, follow"
+  Raw gioi-thieu/index.html robots directive: "noindex, nofollow"
+  Hydrated index.html robots tags count: 1
+  Hydrated index.html robots content: ["index, follow"]
+  Refreshed index.html robots content: ["index, follow"] (PASS)
+  Hydrated /gioi-thieu robots content: ["noindex, nofollow"] (PASS)
+  Hydrated /tai-khoan robots content: ["noindex, nofollow"] (PASS)
+=== ALL SEO ENVIRONMENT CONSISTENCY TESTS PASSED! ===
+
+# E2E vs production build with VERCEL_ENV=production
+2a: # pass 52 # fail 0 
+2a-round02: # pass 23 # fail 1 
+2b: # pass 26 # fail 1 
+    not ok 3 - metadata trang chủ: title, description, canonical, robots index
+      error: |-
+
+# vercel.json header (static): X-Robots-Tag noindex on /(.*)
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"

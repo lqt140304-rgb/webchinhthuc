@@ -1,0 +1,15 @@
+path | vercel-json-mirror(my sim) | antigravity preview-server
+/                  200 | 200
+/404               200 | 200
+/404.html          200 | 200
+/tai-khoan         200 | 200
+/tai-khoan/        200 | 200
+/tai-khoan/x       200 | 200
+/tai-khoanabc      404 | 200
+/cau-chuyen/abc    200 | 200
+/cau-chuyenabc     404 | 200
+/bai-viet/xyz      200 | 200
+/dich-vu/zzz       404 | 404
+/quan-ly/x         404 | 404
+/khong-ton-tai     404 | 404
+/a/b/c             404 | 404

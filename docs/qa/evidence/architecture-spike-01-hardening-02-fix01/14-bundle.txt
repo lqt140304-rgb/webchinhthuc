@@ -1,0 +1,2 @@
+fix01 home JS gzip: 132133 bytes / 19 files
+baseline home JS gzip: 105364 bytes / 1 file(s)
