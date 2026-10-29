@@ -10,6 +10,7 @@
     "lint": "oxlint",
     "preview": "node scripts/preview-server.cjs",
     "test:routing": "node tests/spike/test-routing-spike.cjs",
+    "test:vercel-routing": "node --test tests/spike/test-vercel-routing-support.cjs && node tests/spike/test-vercel-routing.cjs",
     "test:hydration": "node tests/spike/test-hydration-404.cjs",
     "test:seo": "node tests/spike/test-seo-policy.cjs",
     "test:seo-consistency": "node tests/spike/test-seo-consistency.cjs",

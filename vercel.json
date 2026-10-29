@@ -27,15 +27,15 @@
   "rewrites": [
     {
       "source": "/tai-khoan/(.*)",
-      "destination": "/__spa-fallback.html"
+      "destination": "/__spa-fallback"
     },
     {
       "source": "/cau-chuyen/(.*)",
-      "destination": "/__spa-fallback.html"
+      "destination": "/__spa-fallback"
     },
     {
       "source": "/bai-viet/(.*)",
-      "destination": "/__spa-fallback.html"
+      "destination": "/__spa-fallback"
     }
   ]
 }
