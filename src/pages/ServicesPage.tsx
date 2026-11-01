@@ -49,15 +49,15 @@ const serviceGroups: ServiceGroupItem[] = [
   },
   {
     id: 'noi-tru',
-    title: 'Chăm Sóc Nội Trú 24/7',
-    category: 'Lưu Trú Y Tế & Hồi Sức',
-    tagline: 'Không gian lưu trú chuyên biệt, khử khuẩn định kỳ và theo dõi y tế liên tục',
+    title: 'Chăm Sóc Nội Trú',
+    category: 'Lưu Trú Y Tế & Phục Hồi',
+    tagline: 'Không gian lưu trú và theo dõi y tế cho thú cưng theo chỉ định',
     description:
-      'Phân khu lưu trú riêng biệt cho từng bé nhằm hạn chế tối đa căng thẳng và nguy cơ lây nhiễm chéo. Đội ngũ y tá theo dõi chỉ số sinh tồn, hỗ trợ dinh dưỡng và vệ sinh êm ái suốt thời gian lưu trú.',
+      'Khu vực lưu trú hỗ trợ thú cưng trong quá trình điều trị hoặc phục hồi sức khỏe theo phác đồ chuyên môn của bác sĩ.',
     points: [
-      'Phân khu chuồng riêng biệt được vệ sinh khử khuẩn thường xuyên',
-      'Theo dõi thân nhiệt, hô hấp và phản xạ lâm sàng 24/24',
-      'Chế độ ăn phục hồi và hỗ trợ dùng thuốc đúng y lệnh',
+      'Khu lưu trú được vệ sinh và chăm sóc thường xuyên',
+      'Theo dõi lâm sàng và thể trạng theo chỉ định điều trị',
+      'Chế độ dinh dưỡng và hỗ trợ dùng thuốc theo hướng dẫn',
       'Cập nhật tình hình sức khỏe định kỳ cho gia đình',
     ],
     href: '/dich-vu/noi-tru',
@@ -85,14 +85,14 @@ const serviceGroups: ServiceGroupItem[] = [
     id: 'cap-cuu',
     title: 'Tiếp Nhận Cấp Cứu 24/24',
     category: 'Cấp Cứu Khẩn Cấp',
-    tagline: 'Trực đêm liên tục tại 101 Khuất Duy Tiến, ưu tiên xử lý khẩn cấp',
+    tagline: 'Tiếp nhận cấp cứu 24/24 tại 101 Khuất Duy Tiến',
     description:
-      'Sẵn sàng tiếp nhận các trường hợp khẩn cấp: khó thở, co giật, ngộ độc, chấn thương hoặc sốt cao li bì. Xin vui lòng liên hệ hotline trước khi di chuyển để bác sĩ kịp thời chuẩn bị phòng cấp cứu.',
+      'Sẵn sàng tiếp nhận các trường hợp khẩn cấp: khó thở, co giật, ngộ độc, chấn thương hoặc sốt cao li bì. Xin vui lòng liên hệ hotline trước khi di chuyển để được hướng dẫn và hỗ trợ tiếp nhận kịp thời.',
     points: [
       'Tiếp nhận cấp cứu 24/24 tất cả các ngày trong tuần',
-      'Ưu tiên xử trí sốc, suy hô hấp, co giật và chấn thương',
-      'Đường dây nóng kết nối trực tiếp bác sĩ trực đêm',
-      'Hướng dẫn ổn định ban đầu qua điện thoại khi đang di chuyển',
+      'Ưu tiên tiếp nhận xử lý ca cấp cứu khẩn cấp',
+      'Đường dây nóng hỗ trợ 24/24: 097 355 51 05',
+      'Tư vấn hướng dẫn di chuyển an toàn tới cơ sở',
     ],
     href: '/dich-vu/cap-cuu',
     icon: ShieldAlert,
@@ -104,7 +104,7 @@ export const ServicesPage: React.FC = () => {
   useRouteSeo({
     title: `Danh Mục Dịch Vụ Y Tế — ${HOSPITAL_CONTACT.name}`,
     description:
-      'Tổng hợp 4 nhóm dịch vụ y tế toàn diện tại Bệnh viện Thú y Lê Sơn: Khám & Điều trị, Chăm sóc nội trú 24/7, Spa & Grooming, Tiếp nhận cấp cứu 24/24.',
+      'Tổng hợp 4 nhóm dịch vụ y tế toàn diện tại Bệnh viện Thú y Lê Sơn: Khám & Điều trị, Chăm sóc nội trú, Spa & Grooming, Tiếp nhận cấp cứu 24/24.',
     isIndexable: false,
   })
 

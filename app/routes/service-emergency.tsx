@@ -9,13 +9,13 @@ export function meta(): Route.MetaDescriptors {
     { title: `Tiếp Nhận Cấp Cứu 24/24 | ${HOSPITAL_CONTACT.name}` },
     {
       name: 'description',
-      content: `Đường dây nóng cấp cứu thú cưng 24/24 tại Hà Nội: ${HOSPITAL_CONTACT.hotlineDisplay}. Địa chỉ tiếp nhận: ${HOSPITAL_CONTACT.address}. Bác sĩ trực đêm sẵn sàng xử trí khẩn cấp.`,
+      content: `Đường dây nóng cấp cứu thú cưng 24/24 tại Hà Nội: ${HOSPITAL_CONTACT.hotlineDisplay}. Địa chỉ tiếp nhận: ${HOSPITAL_CONTACT.address}. Bác sĩ trực sẵn sàng hỗ trợ khẩn cấp.`,
     },
     { name: 'robots', content: policy.robots },
     { property: 'og:title', content: `Tiếp Nhận Cấp Cứu 24/24 | ${HOSPITAL_CONTACT.name}` },
     {
       property: 'og:description',
-      content: `Đường dây nóng cấp cứu thú cưng 24/24 tại Hà Nội: ${HOSPITAL_CONTACT.hotlineDisplay}. Địa chỉ tiếp nhận: ${HOSPITAL_CONTACT.address}. Bác sĩ trực đêm sẵn sàng xử trí khẩn cấp.`,
+      content: `Đường dây nóng cấp cứu thú cưng 24/24 tại Hà Nội: ${HOSPITAL_CONTACT.hotlineDisplay}. Địa chỉ tiếp nhận: ${HOSPITAL_CONTACT.address}. Bác sĩ trực sẵn sàng hỗ trợ khẩn cấp.`,
     },
     { property: 'og:type', content: 'website' },
   ]

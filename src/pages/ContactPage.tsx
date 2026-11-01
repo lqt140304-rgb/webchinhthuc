@@ -26,7 +26,7 @@ export function ContactPage(): React.ReactElement {
   })
 
   return (
-    <main id="main-content" className="min-h-screen bg-[var(--color-bg-primary)] text-[var(--color-fg-primary)] pb-20">
+    <div className="min-h-screen bg-[var(--color-bg-primary)] text-[var(--color-fg-primary)] pb-20">
       {/* Editorial Breadcrumb */}
       <EditorialBreadcrumb
         currentPage="Liên hệ & Thông tin phòng khám"
@@ -174,7 +174,7 @@ export function ContactPage(): React.ReactElement {
                 </div>
                 <div className="p-2.5 rounded-[6px] bg-amber-500/10 border border-amber-600/20">
                   <span className="font-semibold text-amber-800 block text-xs">
-                    Cấp cứu &amp; Nội trú:
+                    Tiếp nhận cấp cứu:
                   </span>
                   <span className="text-amber-900 font-semibold">
                     {HOSPITAL_CONTACT.emergencyHours}
@@ -185,7 +185,7 @@ export function ContactPage(): React.ReactElement {
             <div className="mt-6 pt-5 border-t border-[var(--color-border-subtle)]">
               <div className="flex items-center gap-2 text-xs text-[var(--color-fg-muted)]">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" aria-hidden="true" />
-                <span>Bác sĩ trực tiếp nhận liên tục 24/7</span>
+                <span>Đường dây nóng cấp cứu sẵn sàng hỗ trợ 24/24</span>
               </div>
             </div>
           </div>
@@ -201,11 +201,11 @@ export function ContactPage(): React.ReactElement {
               <span>Hướng Dẫn Di Chuyển</span>
             </div>
             <h2 id="arrival-guidance-heading" className="text-xl sm:text-2xl font-serif font-bold text-[var(--color-plum-deep)]">
-              Chỉ dẫn ghé thăm &amp; Đỗ xe tại cơ sở 101 Khuất Duy Tiến
+              Chỉ dẫn ghé thăm cơ sở 101 Khuất Duy Tiến
             </h2>
             <p className="mt-2 text-sm text-[var(--color-fg-muted)] leading-relaxed">
-              Nhằm giúp chủ nuôi đưa thú cưng tới viện một cách an toàn và thuận lợi nhất, chúng tôi bố trí khu vực đỗ xe
-              và lối đón tiếp riêng biệt.
+              Cơ sở tọa lạc trên mặt đường Khuất Duy Tiến, gần các nút giao thông trọng điểm tại quận Thanh Xuân. Quý khách
+              có thể liên hệ hotline trước khi đến nếu cần hướng dẫn lộ trình hoặc dừng đỗ phương tiện.
             </p>
           </div>
 
@@ -215,11 +215,11 @@ export function ContactPage(): React.ReactElement {
                 <Car className="w-5 h-5" aria-hidden="true" />
               </div>
               <h3 className="font-semibold text-sm text-[var(--color-plum-deep)]">
-                Chỗ đỗ xe ô tô &amp; xe máy
+                Vị trí giao thông thuận tiện
               </h3>
               <p className="text-xs text-[var(--color-fg-muted)] mt-2 leading-relaxed">
-                Khu vực đỗ xe máy rộng rãi ngay trước sảnh viện. Ô tô có vị trí dừng đón trả thú cưng an toàn và nhân viên
-                bảo vệ hướng dẫn điểm dừng thuận tiện.
+                Tọa lạc trên trục đường lớn Khuất Duy Tiến, thuận tiện di chuyển từ đường Vành Đai 3, Nguyễn Trãi và Lê Văn Lương.
+                Quý khách đi ô tô có thể gọi trước để được hướng dẫn vị trí dừng phù hợp.
               </p>
             </div>
 
@@ -228,11 +228,11 @@ export function ContactPage(): React.ReactElement {
                 <ShieldAlert className="w-5 h-5 text-amber-600" aria-hidden="true" />
               </div>
               <h3 className="font-semibold text-sm text-[var(--color-plum-deep)]">
-                Lối tiếp nhận ca cấp cứu ưu tiên
+                Hỗ trợ tiếp nhận khẩn cấp
               </h3>
               <p className="text-xs text-[var(--color-fg-muted)] mt-2 leading-relaxed">
-                Đối với ca chấn thương hoặc thú cưng mất ý thức, xe có thể dừng sát lối sảnh cấp cứu. Kỹ thuật viên sẵn
-                sàng cáng vận chuyển chuyên dụng hỗ trợ đưa vào ngay.
+                Đối với các trường hợp thú cưng nguy kịch, quý khách vui lòng gọi điện báo trước để nhân viên chuẩn bị
+                tiếp đón nhanh nhất ngay khi xe đưa bé tới cơ sở.
               </p>
             </div>
 
@@ -241,11 +241,11 @@ export function ContactPage(): React.ReactElement {
                 <HeartHandshake className="w-5 h-5 text-[var(--color-plum-primary)]" aria-hidden="true" />
               </div>
               <h3 className="font-semibold text-sm text-[var(--color-plum-deep)]">
-                An toàn khi mang thú cưng tới viện
+                An toàn khi vận chuyển thú cưng
               </h3>
               <p className="text-xs text-[var(--color-fg-muted)] mt-2 leading-relaxed">
-                Vui lòng dùng lồng vận chuyển (cat carrier) cho mèo và dây dắt/rọ mõm phù hợp cho chó để tránh tình trạng
-                thú cưng hoảng sợ khi tiếp xúc với môi trường lạ.
+                Khuyến khích dùng lồng vận chuyển cho mèo và dây dắt/rọ mõm phù hợp cho chó để giữ an toàn cho thú cưng
+                và tránh trường hợp bé hoảng sợ khi di chuyển ngoài đường.
               </p>
             </div>
           </div>
@@ -320,11 +320,11 @@ export function ContactPage(): React.ReactElement {
                 <Info className="w-5 h-5" aria-hidden="true" />
               </div>
               <h2 className="text-lg sm:text-xl font-serif font-bold text-[var(--color-plum-deep)]">
-                Chính sách tiếp nhận tin nhắn
+                Kênh liên hệ trực tiếp qua điện thoại
               </h2>
               <p className="text-sm text-[var(--color-fg-muted)] mt-2 leading-relaxed">
-                Để bảo vệ an toàn y tế và tránh chậm trễ trong các ca bệnh thú cưng, Lê Sơn chủ trương không duy trì biểu mẫu
-                liên hệ tự động trên website khi chưa có bộ phận tổng đài số đồng bộ.
+                Hiện tại website chưa mở cổng tiếp nhận thông tin hoặc đặt lịch trực tuyến tự động. Để đảm bảo tình trạng
+                sức khỏe của thú cưng được nhân viên y tế nắm bắt và tư vấn kịp thời, quý khách vui lòng liên hệ trực tiếp qua số hotline.
               </p>
               <div className="mt-4 p-3.5 rounded-[6px] bg-slate-50 border border-slate-200 text-xs text-slate-700 space-y-1.5">
                 <p className="font-semibold text-slate-900">Tại sao chúng tôi ưu tiên hotline trực tiếp?</p>
@@ -353,16 +353,16 @@ export function ContactPage(): React.ReactElement {
       {/* Editorial Policy Banner */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 sm:mt-16">
         <EditorialPolicyBanner
-          label="Chính sách thông tin liên hệ và tính minh bạch kênh tiếp nhận"
-          title="Minh bạch kênh thông tin & tiếp nhận:"
+          label="Thông tin liên hệ xác thực và hướng dẫn tiếp nhận"
+          title="Minh bạch thông tin liên hệ:"
           className="rounded-[6px]"
         >
-          Mọi thông tin liên hệ, địa chỉ và số điện thoại công bố trên trang này đều đã được xác thực trực tiếp tại cơ sở
-          101 Khuất Duy Tiến. Để đảm bảo an toàn tối đa cho thú cưng, bệnh viện ưu tiên liên lạc trực tiếp qua đường dây
-          nóng trong các trường hợp khẩn cấp thay cho các hình thức tin nhắn hoặc đặt lịch tự động.
+          Thông tin địa chỉ 101 Khuất Duy Tiến, hotline 097 355 51 05, giờ khám 08:00 – 21:00 và tiếp nhận cấp cứu 24/24 là các
+          thông tin chính thức đã được xác nhận. Mọi hướng dẫn chuyên môn và quy trình tiếp đón cụ thể sẽ do bác sĩ tư vấn trực
+          tiếp theo từng trường hợp.
         </EditorialPolicyBanner>
       </div>
-    </main>
+    </div>
   )
 }
 export default ContactPage

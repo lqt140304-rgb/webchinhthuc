@@ -44,26 +44,26 @@ const emergencySigns = [
 const intakeSteps = [
   {
     step: '01',
-    title: 'Gọi điện báo trước cho bác sĩ trực',
-    description: `Liên hệ ngay hotline ${HOSPITAL_CONTACT.hotlineDisplay} để thông báo ngắn gọn tình trạng bé và thời gian dự kiến đến viện. Điều này giúp kíp trực chuẩn bị sẵn phòng cấp cứu, oxy và dụng cụ chuyên dụng.`,
+    title: 'Gọi điện báo trước cho bệnh viện',
+    description: `Liên hệ ngay hotline ${HOSPITAL_CONTACT.hotlineDisplay} để thông báo ngắn gọn tình trạng bé và thời gian dự kiến đến viện. Bác sĩ trực sẽ hướng dẫn các lưu ý phù hợp và chuẩn bị tiếp nhận khi bạn tới nơi.`,
   },
   {
     step: '02',
-    title: 'Giữ an toàn trong quá trình di chuyển',
+    title: 'Làm theo chỉ dẫn của bác sĩ khi di chuyển',
     description:
-      'Đặt bé nằm trên mặt phẳng êm (khăn dày, khay hoặc lồng vận chuyển). Giữ ấm cơ thể, giữ đường thở thông thoáng, hạn chế cử động mạnh. Tuyệt đối không tự cho bé uống thuốc của người.',
+      'Đặt thú cưng ở tư thế thoải mái trên mặt phẳng hoặc lồng vận chuyển, hạn chế cử động mạnh và giữ đường thở thông thoáng. Làm theo hướng dẫn sơ cứu cụ thể của bác sĩ qua điện thoại cho từng trường hợp. Tuyệt đối không tự ý cho bé uống thuốc của người hay tự ý can thiệp.',
   },
   {
     step: '03',
     title: 'Đến trực tiếp 101 Khuất Duy Tiến',
-    description: `Đưa bé tới cổng phòng khám tại ${HOSPITAL_CONTACT.shortAddress}. Kíp trực đêm túc trực 24/24 sẽ tiếp nhận và tiến hành đánh giá chỉ số sinh tồn ngay khi tới nơi.`,
+    description: `Đưa bé tới cơ sở tại ${HOSPITAL_CONTACT.shortAddress} để bác sĩ thăm khám lâm sàng và đánh giá trực tiếp tình trạng của bé.`,
   },
 ]
 
 export const EmergencyPage: React.FC = () => {
   useRouteSeo({
     title: `Tiếp Nhận Cấp Cứu 24/24 — ${HOSPITAL_CONTACT.name}`,
-    description: `Đường dây nóng cấp cứu thú cưng 24/24 tại Hà Nội: ${HOSPITAL_CONTACT.hotlineDisplay}. Địa chỉ tiếp nhận: ${HOSPITAL_CONTACT.address}. Bác sĩ trực đêm sẵn sàng xử trí khẩn cấp.`,
+    description: `Đường dây nóng cấp cứu thú cưng 24/24 tại Hà Nội: ${HOSPITAL_CONTACT.hotlineDisplay}. Địa chỉ tiếp nhận: ${HOSPITAL_CONTACT.address}. Bác sĩ trực sẵn sàng hỗ trợ khẩn cấp.`,
     isIndexable: false,
   })
 
@@ -91,7 +91,7 @@ export const EmergencyPage: React.FC = () => {
               </h1>
 
               <p className="text-sm sm:text-base lg:text-lg text-slate-700 leading-relaxed mb-6 font-sans">
-                Trong tình huống nguy cấp, từng phút đều quan trọng. Đội ngũ y tế trực đêm tại <strong>{HOSPITAL_CONTACT.address}</strong> luôn túc trực để hỗ trợ bạn và bé cưng 24 giờ mỗi ngày, tất cả các ngày trong tuần.
+                Trong tình huống nguy cấp, từng phút đều quan trọng. Đội ngũ y tế tại <strong>{HOSPITAL_CONTACT.address}</strong> luôn sẵn sàng tiếp nhận và hỗ trợ bạn cùng bé cưng 24 giờ mỗi ngày, tất cả các ngày trong tuần.
               </p>
 
               {/* Big Direct Call-to-Action Bar for Mobile & Desktop */}
@@ -118,7 +118,7 @@ export const EmergencyPage: React.FC = () => {
 
                 <p className="mt-3 text-xs text-slate-600 flex items-center gap-1.5">
                   <Clock className="w-3.5 h-3.5 text-[var(--color-warm-orange)] shrink-0" />
-                  <span>Đường dây nóng hoạt động 24/24. Vui lòng gọi trước để kíp trực chuẩn bị sẵn sàng.</span>
+                  <span>Đường dây nóng hoạt động 24/24. Vui lòng gọi trước để được hướng dẫn và hỗ trợ tiếp nhận kịp thời.</span>
                 </p>
               </div>
             </div>
@@ -140,7 +140,7 @@ export const EmergencyPage: React.FC = () => {
                       <strong className="text-white block font-medium">Địa chỉ cơ sở:</strong>
                       <span>{HOSPITAL_CONTACT.address}</span>
                       <p className="text-xs text-[var(--color-plum-orchid-light)] mt-0.5">
-                        (Mặt đường lớn, thuận tiện đỗ xe và chuyển bé vào phòng cấp cứu)
+                        (Vị trí mặt đường lớn trên trục Khuất Duy Tiến, thuận tiện di chuyển)
                       </p>
                     </div>
                   </li>
@@ -161,7 +161,7 @@ export const EmergencyPage: React.FC = () => {
                   <li className="flex items-start gap-3">
                     <Phone className="w-4 h-4 text-[var(--color-warm-orange-light)] shrink-0 mt-0.5" />
                     <div>
-                      <strong className="text-white block font-medium">Hotline kết nối trực đêm:</strong>
+                      <strong className="text-white block font-medium">Hotline tiếp nhận cấp cứu 24/24:</strong>
                       <a
                         href={HOSPITAL_CONTACT.hotlineTel}
                         className="text-base font-bold text-[var(--color-warm-orange-light)] hover:underline block mt-0.5"
@@ -176,7 +176,7 @@ export const EmergencyPage: React.FC = () => {
                   <span className="text-slate-300">Cần đặt lịch hẹn không khẩn cấp?</span>
                   <Link
                     to="/dat-lich"
-                    className="text-amber-300 hover:text-white underline font-semibold focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white rounded-[2px]"
+                    className="text-amber-300 hover:text-white underline font-semibold focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white rounded-[4px] inline-flex items-center min-h-[44px] py-2 px-1"
                   >
                     Đặt lịch khám
                   </Link>
@@ -275,7 +275,7 @@ export const EmergencyPage: React.FC = () => {
             <div className="flex items-center gap-3">
               <Info className="w-5 h-5 text-[var(--color-plum-primary)] shrink-0" />
               <p className="text-xs sm:text-sm text-[var(--color-fg-muted)]">
-                Bạn đang trên đường di chuyển hoặc cần trợ giúp khẩn? Gọi ngay hotline kíp trực:
+                Bạn đang trên đường di chuyển hoặc cần trợ giúp khẩn? Gọi ngay đường dây nóng cấp cứu 24/24:
               </p>
             </div>
             <a
@@ -294,7 +294,7 @@ export const EmergencyPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-4 text-xs sm:text-sm">
           <Link
             to="/dich-vu"
-            className="inline-flex items-center gap-1.5 text-[var(--color-plum-primary)] hover:text-[var(--color-plum-deep)] font-semibold py-2 px-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-plum-primary)] rounded-[4px]"
+            className="inline-flex items-center gap-1.5 text-[var(--color-plum-primary)] hover:text-[var(--color-plum-deep)] font-semibold py-2.5 px-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-plum-primary)] rounded-[4px] min-h-[44px]"
           >
             <span>← Quay lại Danh mục Dịch vụ</span>
           </Link>
@@ -302,14 +302,14 @@ export const EmergencyPage: React.FC = () => {
           <div className="flex items-center gap-4">
             <Link
               to="/lien-he"
-              className="text-[var(--color-fg-muted)] hover:text-[var(--color-plum-primary)] font-medium py-2 px-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-plum-primary)] rounded-[4px]"
+              className="inline-flex items-center text-[var(--color-fg-muted)] hover:text-[var(--color-plum-primary)] font-medium py-2.5 px-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-plum-primary)] rounded-[4px] min-h-[44px]"
             >
               <span>Thông tin phòng khám</span>
             </Link>
             <span className="text-[var(--color-border-medium)]">•</span>
             <Link
               to="/dat-lich"
-              className="text-[var(--color-fg-muted)] hover:text-[var(--color-plum-primary)] font-medium py-2 px-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-plum-primary)] rounded-[4px]"
+              className="inline-flex items-center text-[var(--color-fg-muted)] hover:text-[var(--color-plum-primary)] font-medium py-2.5 px-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-plum-primary)] rounded-[4px] min-h-[44px]"
             >
               <span>Đặt lịch khám thường</span>
             </Link>

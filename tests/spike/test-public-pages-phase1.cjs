@@ -105,14 +105,18 @@ server.listen(PORT, async () => {
       const page = await context.newPage();
 
       const pageErrors = [];
+      const failedRequests = [];
+
       page.on('pageerror', (err) => pageErrors.push(err.message));
       page.on('console', (msg) => {
         if (msg.type() === 'error') {
-          const text = msg.text();
-          // Filter out benign font/favicon resource warnings if any
-          if (!text.includes('favicon') && !text.includes('Failed to load resource')) {
-            pageErrors.push(text);
-          }
+          pageErrors.push(msg.text());
+        }
+      });
+      page.on('requestfailed', (req) => {
+        const failure = req.failure();
+        if (!req.url().endsWith('/favicon.ico')) {
+          failedRequests.push(`${req.url()} (${failure ? failure.errorText : 'failed'})`);
         }
       });
 
@@ -134,10 +138,25 @@ server.listen(PORT, async () => {
       assert((await telLink.count()) > 0, `No clickable tel:0973555105 link found on ${route.path}`);
       console.log(`  [PASS] Verified hotline tel:0973555105 link`);
 
-      // Verify no hydration or unhandled console errors
-      const hydrationErrors = pageErrors.filter((e) => e.includes('Hydration') || e.includes('Minified React error #418'));
-      assert.strictEqual(hydrationErrors.length, 0, `Hydration errors detected on ${route.path}: ${hydrationErrors.join(', ')}`);
-      console.log(`  [PASS] Zero React hydration errors`);
+      // Verify Landmark Integrity (Single <main> and single #main-content) - P2-3
+      const mainCount = await page.locator('main').count();
+      assert.strictEqual(mainCount, 1, `Landmark error: expected exactly 1 <main> element on ${route.path}, found ${mainCount}`);
+      const mainContentIdCount = await page.locator('#main-content').count();
+      assert.strictEqual(mainContentIdCount, 1, `Landmark error: expected exactly 1 #main-content ID on ${route.path}, found ${mainContentIdCount}`);
+      console.log(`  [PASS] Landmark integrity: exactly 1 <main> element and 1 #main-content ID`);
+
+      // Verify Hydrated DOM Meta Robots - P3-2
+      const robotsMeta = await page.locator('meta[name="robots"]').getAttribute('content');
+      assert.strictEqual(robotsMeta, 'noindex, nofollow', `Robots meta in hydrated DOM mismatch on ${route.path}: got "${robotsMeta}"`);
+      console.log(`  [PASS] Hydrated DOM meta robots: "${robotsMeta}"`);
+
+      // Verify zero resource request failures (no 404 images/chunks) - P3-2
+      assert.strictEqual(failedRequests.length, 0, `Resource request failures on ${route.path}: ${failedRequests.join(', ')}`);
+      console.log(`  [PASS] Zero resource request failures`);
+
+      // Verify zero console/runtime/hydration errors - P3-2
+      assert.strictEqual(pageErrors.length, 0, `Errors detected on ${route.path}: ${pageErrors.join(', ')}`);
+      console.log(`  [PASS] Zero console/runtime/hydration errors`);
 
       // Test horizontal overflow on all standard viewports
       for (const vp of TEST_VIEWPORTS) {
