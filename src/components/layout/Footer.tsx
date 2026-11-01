@@ -5,9 +5,9 @@ import { HOSPITAL_CONTACT } from '@/config/contact'
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-[var(--color-plum-deep)] text-slate-300 pt-16 pb-24 lg:pb-12 border-t border-[var(--color-border-subtle)]">
+    <footer className="bg-[var(--color-plum-deep)] text-slate-300 pt-12 pb-20 sm:pb-12 border-t border-[var(--color-border-subtle)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-10">
           {/* Brand Info (2 cols on lg) */}
           <div className="lg:col-span-2 space-y-4">
             <Link to="/" className="inline-flex items-center gap-3 min-h-[44px] min-w-[44px]">
@@ -27,7 +27,7 @@ export const Footer: React.FC = () => {
             </Link>
 
             <p className="text-sm text-slate-300 leading-relaxed max-w-sm">
-              Đơn vị y tế thú cưng chuyên nghiệp tại Hà Nội, cung cấp dịch vụ thăm khám lâm sàng, phẫu thuật ngoại khoa, chăm sóc nội trú 24/7 và cấp cứu 24/24 với tinh thần trách nhiệm.
+              Đơn vị y tế thú cưng chuyên nghiệp tại Hà Nội, cung cấp dịch vụ thăm khám lâm sàng, phẫu thuật ngoại khoa, chăm sóc nội trú và cấp cứu 24/24 với tinh thần trách nhiệm.
             </p>
 
             <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 flex items-center gap-3 max-w-sm">
@@ -44,87 +44,90 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div className="space-y-3">
-            <h4 className="text-white font-serif font-bold text-sm tracking-wide uppercase">
-              Về Lê Sơn
-            </h4>
-            <ul className="space-y-1 text-xs">
-              <li>
-                <Link to="/gioi-thieu" className="inline-flex items-center min-h-[44px] min-w-[44px] py-1.5 hover:text-white transition-colors">
-                  Giới thiệu bệnh viện
-                </Link>
-              </li>
-              <li>
-                <Link to="/doi-ngu" className="inline-flex items-center min-h-[44px] min-w-[44px] py-1.5 hover:text-white transition-colors">
-                  Đội ngũ bác sĩ
-                </Link>
-              </li>
-              <li>
-                <Link to="/co-so-vat-chat" className="inline-flex items-center min-h-[44px] min-w-[44px] py-1.5 hover:text-white transition-colors">
-                  Cơ sở vật chất
-                </Link>
-              </li>
-              <li>
-                <Link to="/bang-gia" className="inline-flex items-center min-h-[44px] min-w-[44px] py-1.5 hover:text-white transition-colors">
-                  Bảng giá niêm yết
-                </Link>
-              </li>
-              <li>
-                <Link to="/cau-chuyen" className="inline-flex items-center min-h-[44px] min-w-[44px] py-1.5 hover:text-white transition-colors">
-                  Câu chuyện điều trị
-                </Link>
-              </li>
-              <li>
-                <Link to="/lien-he" className="inline-flex items-center gap-1 min-h-[44px] min-w-[44px] py-1.5 hover:text-white transition-colors text-[var(--color-plum-orchid-light)]">
-                  <MessageSquare className="w-3.5 h-3.5" />
-                  <span>Liên hệ & Chỉ đường</span>
-                </Link>
-              </li>
-            </ul>
-          </div>
+          {/* Grouped Links for mobile: side-by-side 2-col grid on mobile, contents on lg */}
+          <div className="grid grid-cols-2 gap-6 lg:contents">
+            {/* Quick Links */}
+            <div className="space-y-3">
+              <h4 className="text-white font-serif font-bold text-sm tracking-wide uppercase">
+                Về Lê Sơn
+              </h4>
+              <ul className="space-y-2 text-xs">
+                <li>
+                  <Link to="/gioi-thieu" className="inline-block py-1 hover:text-white transition-colors">
+                    Giới thiệu bệnh viện
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/doi-ngu" className="inline-block py-1 hover:text-white transition-colors">
+                    Đội ngũ bác sĩ
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/co-so-vat-chat" className="inline-block py-1 hover:text-white transition-colors">
+                    Cơ sở vật chất
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/bang-gia" className="inline-block py-1 hover:text-white transition-colors">
+                    Bảng giá niêm yết
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/cau-chuyen" className="inline-block py-1 hover:text-white transition-colors">
+                    Câu chuyện điều trị
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/lien-he" className="inline-flex items-center gap-1 py-1 hover:text-white transition-colors text-[var(--color-plum-orchid-light)]">
+                    <MessageSquare className="w-3.5 h-3.5" />
+                    <span>Liên hệ & Chỉ đường</span>
+                  </Link>
+                </li>
+              </ul>
+            </div>
 
-          {/* Services */}
-          <div className="space-y-3">
-            <h4 className="text-white font-serif font-bold text-sm tracking-wide uppercase">
-              Dịch Vụ Y Tế
-            </h4>
-            <ul className="space-y-1 text-xs">
-              <li>
-                <Link to="/dich-vu" className="inline-flex items-center min-h-[44px] min-w-[44px] py-1.5 hover:text-white transition-colors">
-                  Tất cả dịch vụ
-                </Link>
-              </li>
-              <li>
-                <Link to="/dich-vu/kham-dieu-tri" className="inline-flex items-center min-h-[44px] min-w-[44px] py-1.5 hover:text-white transition-colors">
-                  Khám & điều trị
-                </Link>
-              </li>
-              <li>
-                <Link to="/dich-vu/noi-tru" className="inline-flex items-center min-h-[44px] min-w-[44px] py-1.5 hover:text-white transition-colors">
-                  Chăm sóc nội trú 24/7
-                </Link>
-              </li>
-              <li>
-                <Link to="/dich-vu/spa" className="inline-flex items-center min-h-[44px] min-w-[44px] py-1.5 hover:text-white transition-colors">
-                  Spa & Grooming
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/dich-vu/cap-cuu"
-                  className="inline-flex items-center gap-1 min-h-[44px] min-w-[44px] py-1.5 text-[var(--color-warm-orange-light)] hover:underline font-semibold"
-                >
-                  <ShieldAlert className="w-3.5 h-3.5" />
-                  <span>Cấp cứu 24/24</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/goc-thu-cung" className="inline-flex items-center min-h-[44px] min-w-[44px] py-1.5 hover:text-white transition-colors">
-                  Cẩm nang & Góc thú cưng
-                </Link>
-              </li>
-            </ul>
+            {/* Services */}
+            <div className="space-y-3">
+              <h4 className="text-white font-serif font-bold text-sm tracking-wide uppercase">
+                Dịch Vụ Y Tế
+              </h4>
+              <ul className="space-y-2 text-xs">
+                <li>
+                  <Link to="/dich-vu" className="inline-block py-1 hover:text-white transition-colors">
+                    Tất cả dịch vụ
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/dich-vu/kham-dieu-tri" className="inline-block py-1 hover:text-white transition-colors">
+                    Khám & điều trị
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/dich-vu/noi-tru" className="inline-block py-1 hover:text-white transition-colors">
+                    Chăm sóc nội trú
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/dich-vu/spa" className="inline-block py-1 hover:text-white transition-colors">
+                    Spa & Grooming
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/dich-vu/cap-cuu"
+                    className="inline-flex items-center gap-1 min-h-[44px] min-w-[44px] py-1 text-[var(--color-warm-orange-light)] hover:underline font-semibold"
+                  >
+                    <ShieldAlert className="w-3.5 h-3.5" />
+                    <span>Cấp cứu 24/24</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/goc-thu-cung" className="inline-block py-1 hover:text-white transition-colors">
+                    Cẩm nang & Góc thú cưng
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
 
           {/* Contact Details (100% verified) */}
@@ -141,7 +144,10 @@ export const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-[var(--color-plum-orchid-light)] shrink-0" />
-                <a href={HOSPITAL_CONTACT.hotlineTel} className="inline-flex items-center min-h-[44px] min-w-[44px] py-1 hover:text-white font-semibold">
+                <a
+                  href={HOSPITAL_CONTACT.hotlineTel}
+                  className="inline-flex items-center min-h-[44px] min-w-[44px] py-1 hover:text-white font-semibold"
+                >
                   {HOSPITAL_CONTACT.hotlineDisplay}
                 </a>
               </li>
@@ -160,7 +166,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Sub-footer */}
-        <div className="mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <div className="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <p>© 2026 {HOSPITAL_CONTACT.name}. Bảo lưu mọi quyền.</p>
           <div className="flex items-center gap-1 text-[11px]">
             <span>Đồng hành cùng thú cưng với tinh thần trách nhiệm</span>
@@ -171,3 +177,5 @@ export const Footer: React.FC = () => {
     </footer>
   )
 }
+
+export default Footer

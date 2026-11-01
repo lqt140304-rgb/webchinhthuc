@@ -273,7 +273,7 @@ export const AboutPage: React.FC = () => {
                   Cơ sở vật chất &amp; Khu nội trú
                 </h3>
                 <p className="text-xs sm:text-sm text-[var(--color-fg-muted)] leading-relaxed mb-6">
-                  Tham quan quy hoạch các phân khu tiếp đón, thăm khám, chăm sóc nội trú 24/7 và Spa &amp; Grooming.
+                  Tham quan quy hoạch các phân khu tiếp đón, thăm khám, chăm sóc nội trú và Spa &amp; Grooming.
                 </p>
               </div>
               <div>

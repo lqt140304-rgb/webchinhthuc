@@ -7,14 +7,14 @@ export function meta(): Route.MetaDescriptors {
     {
       name: 'description',
       content:
-        'Quy trình chăm sóc lưu chuồng và chính sách cập nhật tình hình bé nội trú đang chờ xác nhận.',
+        'Dịch vụ lưu trú và chăm sóc theo dõi sức khỏe cho thú cưng tại cơ sở 101 Khuất Duy Tiến. Vui lòng liên hệ hotline để được tư vấn chi tiết.',
     },
     { name: 'robots', content: 'noindex, nofollow' },
     { property: 'og:title', content: 'Chăm sóc nội trú — Bệnh viện Thú y Lê Sơn' },
     {
       property: 'og:description',
       content:
-        'Quy trình chăm sóc lưu chuồng và chính sách cập nhật tình hình bé nội trú đang chờ xác nhận.',
+        'Dịch vụ lưu trú và chăm sóc theo dõi sức khỏe cho thú cưng tại cơ sở 101 Khuất Duy Tiến. Vui lòng liên hệ hotline để được tư vấn chi tiết.',
     },
     { property: 'og:type', content: 'website' },
   ]
@@ -24,7 +24,7 @@ export default function ServiceInpatientRoute() {
   return (
     <ComingSoonView
       title="Chăm sóc nội trú"
-      subtitle="Quy trình chăm sóc lưu chuồng và chính sách cập nhật tình hình bé nội trú đang chờ xác nhận."
+      subtitle="Dịch vụ lưu trú và chăm sóc theo dõi sức khỏe cho thú cưng tại cơ sở 101 Khuất Duy Tiến. Vui lòng liên hệ hotline để được tư vấn chi tiết."
     />
   )
 }

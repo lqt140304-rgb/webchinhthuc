@@ -12,7 +12,7 @@ export const FacilitiesPage: React.FC = () => {
   useRouteSeo({
     title: 'Cơ sở vật chất & Không gian Thăm khám — Bệnh viện Thú y Lê Sơn',
     description:
-      'Quy hoạch không gian tiếp đón, thăm khám, chăm sóc nội trú 24/7 và dịch vụ tại Bệnh viện Thú y Lê Sơn, 101 Khuất Duy Tiến, Hà Nội.',
+      'Quy hoạch không gian tiếp đón, thăm khám, chăm sóc nội trú và dịch vụ tại Bệnh viện Thú y Lê Sơn, 101 Khuất Duy Tiến, Hà Nội.',
     isIndexable: false,
   })
 
@@ -31,7 +31,7 @@ export const FacilitiesPage: React.FC = () => {
               Không gian thăm khám và quy hoạch các phân khu chức năng.
             </h1>
             <p className="text-sm sm:text-base lg:text-lg text-[var(--color-fg-muted)] leading-relaxed mb-6">
-              Cơ sở Bệnh viện Thú y Lê Sơn tại 101 Khuất Duy Tiến, Thanh Xuân, Hà Nội được quy hoạch phục vụ các hoạt động tiếp đón, khám &amp; điều trị, chăm sóc nội trú 24/7 và Spa &amp; Grooming.
+              Cơ sở Bệnh viện Thú y Lê Sơn tại 101 Khuất Duy Tiến, Thanh Xuân, Hà Nội được quy hoạch phục vụ các hoạt động tiếp đón, khám &amp; điều trị, chăm sóc nội trú và Spa &amp; Grooming.
             </p>
           </div>
 
@@ -98,17 +98,17 @@ export const FacilitiesPage: React.FC = () => {
             <figure className="lg:col-span-6 rounded-2xl bg-[var(--color-bg-primary)] border border-[var(--color-border-subtle)] overflow-hidden flex flex-col shadow-xs">
               <EditorialPhotoFrame
                 isArchitecturalSvg
-                title="Khu vực Chăm sóc Nội trú 24/7"
+                title="Khu vực Chăm sóc Nội trú"
                 subtitle="Khu vực lưu trú và theo dõi thú cưng"
                 aspectRatio="16/10"
                 label="Khung sơ đồ kiến trúc — Chờ ảnh thực tế"
               />
               <figcaption className="p-5 sm:p-6 flex-1 flex flex-col justify-center">
                 <h3 className="font-serif font-bold text-lg sm:text-xl text-[var(--color-plum-deep)] mb-1.5">
-                  Khu vực Lưu trú &amp; Chăm sóc Nội trú 24/7
+                  Khu vực Lưu trú &amp; Chăm sóc Nội trú
                 </h3>
                 <p className="text-xs sm:text-sm text-[var(--color-fg-muted)] leading-relaxed">
-                  Khu vực phục vụ nhu cầu lưu trú và chăm sóc thú cưng theo dịch vụ Nội trú 24/7 của bệnh viện.
+                  Khu vực phục vụ nhu cầu lưu trú và chăm sóc thú cưng theo dịch vụ Nội trú của bệnh viện.
                 </p>
               </figcaption>
             </figure>
@@ -201,7 +201,7 @@ export const FacilitiesPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-10 sm:mb-12">
             <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-plum-primary)] mb-2 block">
-              03 • Khu nội trú 24/7 &amp; Thiết bị chăm sóc
+              03 • Khu nội trú &amp; Thiết bị chăm sóc
             </span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[var(--color-plum-deep)] tracking-tight">
               Khu vực lưu trú và theo dõi thú cưng
@@ -213,10 +213,10 @@ export const FacilitiesPage: React.FC = () => {
             <div className="p-6 sm:p-8 rounded-2xl bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] shadow-xs flex flex-col justify-between">
               <div>
                 <h3 className="font-serif font-bold text-lg sm:text-xl text-[var(--color-plum-deep)] mb-2">
-                  Chăm sóc &amp; Lưu trú Nội trú 24/7
+                  Chăm sóc &amp; Lưu trú Nội trú
                 </h3>
                 <p className="text-xs sm:text-sm text-[var(--color-fg-muted)] leading-relaxed mb-4">
-                  Phục vụ các bé cần theo dõi sức khỏe hoặc chăm sóc lưu trú theo dịch vụ Nội trú 24/7 của bệnh viện.
+                  Phục vụ các bé cần theo dõi sức khỏe hoặc chăm sóc lưu trú theo dịch vụ Nội trú của bệnh viện.
                 </p>
               </div>
               <EditorialSlotBox label="Quy chuẩn khu nội trú">

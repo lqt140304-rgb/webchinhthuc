@@ -26,9 +26,9 @@ const services: ServiceItem[] = [
   },
   {
     id: 'noi-tru',
-    title: 'Chăm Sóc Nội Trú 24/7',
+    title: 'Chăm Sóc Nội Trú',
     category: 'Lưu Trú Y Tế',
-    description: 'Khu vực nội trú chuyên biệt được vệ sinh khử khuẩn định kỳ, theo dõi chỉ số sức khỏe liên tục và chế độ dinh dưỡng phục hồi.',
+    description: 'Khu vực nội trú chuyên biệt được vệ sinh khử khuẩn định kỳ, theo dõi chỉ số sức khỏe và chế độ dinh dưỡng phục hồi chu đáo.',
     image: '/images/service-inpatient.webp',
     href: '/dich-vu/noi-tru',
     icon: Home,

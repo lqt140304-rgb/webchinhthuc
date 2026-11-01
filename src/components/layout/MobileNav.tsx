@@ -269,7 +269,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
                   aria-current={checkActive('/dich-vu/noi-tru') ? 'page' : undefined}
                   className={`flex items-center min-h-[44px] px-3 py-2 text-xs font-medium hover:text-[var(--color-plum-primary)] ${checkActive('/dich-vu/noi-tru') ? 'text-[var(--color-plum-primary)] font-semibold bg-[var(--color-bg-primary)]/50 rounded-md' : 'text-[var(--color-fg-muted)]'}`}
                 >
-                  Chăm sóc nội trú 24/7
+                  Chăm sóc nội trú
                 </Link>
                 <Link
                   to="/dich-vu/spa"

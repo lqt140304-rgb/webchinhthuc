@@ -79,7 +79,7 @@ export const AppRoutes = () => {
           element={
             <ComingSoonView
               title="Chăm sóc nội trú"
-              subtitle="Quy trình chăm sóc lưu chuồng và chính sách cập nhật tình hình bé nội trú đang chờ xác nhận."
+              subtitle="Dịch vụ lưu trú và chăm sóc theo dõi sức khỏe cho thú cưng tại cơ sở 101 Khuất Duy Tiến. Vui lòng liên hệ hotline để được tư vấn chi tiết."
             />
           }
         />

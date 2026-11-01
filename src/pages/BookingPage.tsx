@@ -452,7 +452,7 @@ export const BookingPage: React.FC = () => {
                         className={`w-full px-3.5 py-2.5 rounded-xl border border-[var(--color-border-medium)] focus:outline-none focus:ring-2 focus:ring-[var(--color-plum-primary)] focus:border-[var(--color-plum-primary)] text-sm bg-white cursor-pointer ${styles.fieldSelect}`}
                       >
                         <option value="kham-dieu-tri">Khám & điều trị</option>
-                        <option value="noi-tru">Chăm sóc nội trú 24/7</option>
+                        <option value="noi-tru">Chăm sóc nội trú</option>
                         <option value="spa">Spa & Grooming</option>
                         <option value="cap-cuu">Cấp cứu 24/24</option>
                         <option value="khac">Dịch vụ khác (trao đổi trực tiếp)</option>
