@@ -61,7 +61,7 @@ export const ComingSoonView: React.FC<ComingSoonViewProps> = ({
           </div>
           <div className="mt-4 pt-3 border-t border-[var(--color-border-subtle)] flex items-center justify-start sm:justify-center gap-2 text-xs text-[var(--color-fg-subtle)]">
             <AlertCircle className="w-3.5 h-3.5 text-[var(--color-warm-orange)] shrink-0" />
-            <span>Hệ thống đặt lịch trực tuyến sẽ chính thức vận hành ở Giai đoạn 4.</span>
+            <span>Hệ thống đặt lịch trực tuyến đang được hoàn thiện và sẽ ra mắt trong thời gian tới.</span>
           </div>
         </div>
 
