@@ -10,14 +10,14 @@ export function meta(): Route.MetaDescriptors {
     {
       name: 'description',
       content:
-        'Tổng hợp 4 nhóm dịch vụ tại Bệnh viện Thú y Lê Sơn (101 Khuất Duy Tiến): Khám & Điều trị, Chăm sóc nội trú, Spa & Grooming, Tiếp nhận cấp cứu 24/24.',
+        'Tổng hợp dịch vụ tại Bệnh viện Thú y Lê Sơn (101 Khuất Duy Tiến): Khám & Điều trị (X-quang, Siêu âm, Phẫu thuật, Xét nghiệm), Chăm sóc nội trú, Spa & Grooming, Tiếp nhận cấp cứu 24/24.',
     },
     { name: 'robots', content: policy.robots },
     { property: 'og:title', content: `Danh Mục Dịch Vụ Y Tế | ${HOSPITAL_CONTACT.name}` },
     {
       property: 'og:description',
       content:
-        'Tổng hợp 4 nhóm dịch vụ tại Bệnh viện Thú y Lê Sơn (101 Khuất Duy Tiến): Khám & Điều trị, Chăm sóc nội trú, Spa & Grooming, Tiếp nhận cấp cứu 24/24.',
+        'Tổng hợp dịch vụ tại Bệnh viện Thú y Lê Sơn (101 Khuất Duy Tiến): Khám & Điều trị (X-quang, Siêu âm, Phẫu thuật, Xét nghiệm), Chăm sóc nội trú, Spa & Grooming, Tiếp nhận cấp cứu 24/24.',
     },
     { property: 'og:type', content: 'website' },
   ]

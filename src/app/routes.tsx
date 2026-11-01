@@ -70,7 +70,7 @@ export const AppRoutes = () => {
           element={
             <ComingSoonView
               title="Khám & điều trị thú cưng"
-              subtitle="Quy trình khám lâm sàng, chẩn đoán cận lâm sàng và phác đồ điều trị đang được chuẩn hóa."
+              subtitle="Bệnh viện cung cấp dịch vụ khám lâm sàng, xét nghiệm, siêu âm, chụp X-quang và phẫu thuật tại cơ sở 101 Khuất Duy Tiến; trang chi tiết từng danh mục kỹ thuật đang được biên tập."
             />
           }
         />

@@ -19,7 +19,7 @@ const services: ServiceItem[] = [
     id: 'kham-dieu-tri',
     title: 'Khám & Điều Trị',
     category: 'Y Khoa Lâm Sàng',
-    description: 'Thăm khám kỹ lưỡng, xét nghiệm sinh hóa, chẩn đoán hình ảnh kỹ thuật số và phẫu thuật ngoại khoa an toàn.',
+    description: 'Thăm khám lâm sàng, xét nghiệm, siêu âm, chụp X-quang và phẫu thuật cho thú cưng tại cơ sở 101 Khuất Duy Tiến.',
     image: '/images/service-exam.webp',
     href: '/dich-vu/kham-dieu-tri',
     icon: Stethoscope,

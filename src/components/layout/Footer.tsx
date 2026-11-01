@@ -27,7 +27,7 @@ export const Footer: React.FC = () => {
             </Link>
 
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-sm">
-              Đơn vị y tế thú cưng chuyên nghiệp tại Hà Nội, cung cấp dịch vụ thăm khám lâm sàng, phẫu thuật ngoại khoa, chăm sóc nội trú và cấp cứu 24/24 với tinh thần trách nhiệm.
+              Đơn vị y tế thú cưng tại Hà Nội, cung cấp dịch vụ thăm khám lâm sàng, xét nghiệm, siêu âm, chụp X-quang, phẫu thuật, chăm sóc nội trú, Spa &amp; Grooming và tiếp nhận cấp cứu 24/24.
             </p>
 
             <div className="p-3 rounded-xl bg-white/5 border border-white/10 flex items-center gap-3 max-w-sm">

@@ -1,47 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { BookOpen, ArrowRight, Clock, AlertCircle } from 'lucide-react'
+import { MOCK_KNOWLEDGE_ARTICLES, MOCK_KNOWLEDGE_EDITORIAL_NOTICE } from '@/data/mockPublicContent'
 import styles from './EditorialKnowledge.module.css'
-
-interface ArticleItem {
-  id: string
-  title: string
-  category: 'Dinh dưỡng' | 'Phòng bệnh' | 'Chăm sóc'
-  excerpt: string
-  readTime: string
-  image: string
-  slug: string
-}
-
-const articles: ArticleItem[] = [
-  {
-    id: 'art-1',
-    title: 'Xây dựng khẩu phần dinh dưỡng an toàn cho thú cưng theo từng lứa tuổi',
-    category: 'Dinh dưỡng',
-    excerpt: 'Hướng dẫn lựa chọn thành phần thức ăn, tỷ lệ đạm, khoáng chất phù hợp cho chó mèo con và giai đoạn trưởng thành.',
-    readTime: '5 phút đọc',
-    image: '/images/article-nutrition.webp',
-    slug: 'dinh-duong-an-toan-cho-thu-cung',
-  },
-  {
-    id: 'art-2',
-    title: 'Những dấu hiệu cảnh báo bệnh đường hô hấp ở chó mèo khi thời tiết giao mùa',
-    category: 'Phòng bệnh',
-    excerpt: 'Nhận biết sớm triệu chứng hắt hơi, sốt nhẹ, chảy nước mũi và cách giữ ấm, phòng ngừa biến chứng viêm phổi nguy hiểm.',
-    readTime: '4 phút đọc',
-    image: '/images/article-prevention.webp',
-    slug: 'phong-ngua-benh-duong-ho-hap',
-  },
-  {
-    id: 'art-3',
-    title: 'Các bước xử trí sơ cứu ban đầu tại nhà khi thú cưng có dấu hiệu hóc dị vật',
-    category: 'Chăm sóc',
-    excerpt: 'Kỹ năng giữ bình tĩnh, kiểm tra khoang miệng an toàn và liên hệ hỗ trợ cấp cứu y tế kịp thời.',
-    readTime: '6 phút đọc',
-    image: '/images/article-firstaid.webp',
-    slug: 'xu-tri-so-cuu-hoc-di-vat',
-  },
-]
 
 export const EditorialKnowledge: React.FC = () => {
   return (
@@ -77,13 +38,13 @@ export const EditorialKnowledge: React.FC = () => {
         <div className="mb-8 p-3.5 rounded-xl bg-purple-50/70 border border-purple-200/80 flex items-center gap-2.5 text-xs text-[var(--color-plum-deep)]">
           <AlertCircle className="w-4 h-4 text-[var(--color-plum-primary)] shrink-0" />
           <span>
-            <strong>Lưu ý biên tập:</strong> Các bài viết dưới đây là bản mẫu cấu trúc chuyên đề y khoa — Đang hoàn thiện thẩm định nội dung trước khi xuất bản chính thức.
+            <strong>Lưu ý biên tập:</strong> {MOCK_KNOWLEDGE_EDITORIAL_NOTICE}
           </span>
         </div>
 
         {/* 3 Editorial Magazine Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {articles.map((art) => (
+          {MOCK_KNOWLEDGE_ARTICLES.map((art) => (
             <article key={art.id} className={styles.articleCard}>
               <div className={styles.imageWrapper}>
                 <img
@@ -97,7 +58,7 @@ export const EditorialKnowledge: React.FC = () => {
                 />
                 <span className={styles.categoryBadge}>{art.category}</span>
                 <span className="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-md text-xs font-medium bg-black/75 text-white shadow-xs backdrop-blur-xs">
-                  Ảnh minh họa
+                  {art.imageBadgeLabel}
                 </span>
               </div>
 
@@ -107,7 +68,7 @@ export const EditorialKnowledge: React.FC = () => {
                     <Clock className="w-3.5 h-3.5" />
                     <span>{art.readTime}</span>
                     <span>&bull;</span>
-                    <span className="italic">Chuyên đề tham khảo</span>
+                    <span className="italic">{art.referenceLabel}</span>
                   </div>
 
                   <h3 className="font-serif font-bold text-lg sm:text-xl text-[var(--color-plum-deep)] mb-3 leading-snug line-clamp-2">
@@ -134,3 +95,4 @@ export const EditorialKnowledge: React.FC = () => {
     </section>
   )
 }
+

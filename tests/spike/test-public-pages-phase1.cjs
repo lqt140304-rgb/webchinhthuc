@@ -67,6 +67,21 @@ assert(!inpatientHtml.includes('<title>Chăm sóc nội trú 24/7'), 'Inpatient 
 assert(inpatientHtml.includes('content="noindex, nofollow"'), 'Inpatient robots meta missing');
 console.log('[PASS] Static prerender HTML verified for: /dich-vu/noi-tru (neutral title/meta without unverified 24/7)');
 
+// Verify /dich-vu and /dich-vu/kham-dieu-tri prerendered HTML include the 4 confirmed clinical services (X-quang, Siêu âm, Phẫu thuật, Xét nghiệm)
+const servicesHtml = fs.readFileSync(path.join(clientDir, 'dich-vu', 'index.html'), 'utf-8');
+for (const confirmedSvc of ['X-quang', 'Siêu âm', 'Phẫu thuật', 'Xét nghiệm']) {
+  assert(
+    servicesHtml.includes(confirmedSvc),
+    `Confirmed clinical service "${confirmedSvc}" missing in /dich-vu prerendered HTML`
+  );
+}
+const examFilePath = path.join(clientDir, 'dich-vu', 'kham-dieu-tri', 'index.html');
+assert(fs.existsSync(examFilePath), 'Prerendered index.html missing for /dich-vu/kham-dieu-tri');
+const examHtml = fs.readFileSync(examFilePath, 'utf-8');
+assert(examHtml.includes('xét nghiệm') && examHtml.includes('siêu âm') && examHtml.includes('X-quang') && examHtml.includes('phẫu thuật'), 'Confirmed services missing in /dich-vu/kham-dieu-tri prerendered HTML');
+assert(examHtml.includes('content="noindex, nofollow"'), 'Exam route robots meta missing');
+console.log('[PASS] Static prerender HTML verified for confirmed clinical services (X-quang, Siêu âm, Phẫu thuật, Xét nghiệm)');
+
 console.log('\n=== STEP 2: RUNNING PLAYWRIGHT DOM, HYDRATION & RESPONSIVENESS AUDIT ===');
 
 const server = http.createServer((req, res) => {

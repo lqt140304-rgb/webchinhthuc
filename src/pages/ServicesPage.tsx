@@ -12,7 +12,8 @@ import {
   CheckCircle2,
 } from 'lucide-react'
 import { useRouteSeo } from '@/hooks/useRouteSeo'
-import { HOSPITAL_CONTACT } from '@/config/contact'
+import { HOSPITAL_CONTACT, CONFIRMED_CLINICAL_SERVICES } from '@/config/contact'
+import { MOCK_SERVICE_SUPPLEMENT_NOTES } from '@/data/mockPublicContent'
 import { EditorialBreadcrumb } from '@/components/editorial/EditorialBreadcrumb'
 import { EditorialPolicyBanner } from '@/components/editorial/EditorialPolicyBanner'
 
@@ -34,14 +35,14 @@ const serviceGroups: ServiceGroupItem[] = [
     id: 'kham-dieu-tri',
     title: 'Khám & Điều Trị',
     category: 'Y Khoa Lâm Sàng',
-    tagline: 'Thăm khám lâm sàng và tư vấn chăm sóc sức khỏe thú cưng',
+    tagline: 'Thăm khám lâm sàng, xét nghiệm, siêu âm, chụp X-quang và phẫu thuật',
     description:
-      'Tiếp nhận thăm khám lâm sàng và tư vấn hướng theo dõi sức khỏe cho thú cưng tại cơ sở 101 Khuất Duy Tiến.',
+      'Tiếp nhận thăm khám lâm sàng, thực hiện xét nghiệm, siêu âm, chụp X-quang và phẫu thuật cho thú cưng tại cơ sở 101 Khuất Duy Tiến.',
     points: [
-      'Tiếp nhận thăm khám lâm sàng và kiểm tra thể trạng ban đầu',
-      'Tư vấn hướng theo dõi sức khỏe trực tiếp cùng chủ nuôi',
-      `Thời gian khám bệnh: ${HOSPITAL_CONTACT.workingHours}`,
-      `Hotline liên hệ: ${HOSPITAL_CONTACT.hotlineDisplay}`,
+      'Xét nghiệm cận lâm sàng phục vụ chẩn đoán và theo dõi sức khỏe',
+      'Chẩn đoán hình ảnh: chụp X-quang và siêu âm theo chỉ định bác sĩ',
+      'Thực hiện phẫu thuật thú y sau khi thăm khám và tư vấn trực tiếp',
+      `Thời gian khám: ${HOSPITAL_CONTACT.workingHours} • Hotline: ${HOSPITAL_CONTACT.hotlineDisplay}`,
     ],
     href: '/dich-vu/kham-dieu-tri',
     image: '/images/service-exam.webp',
@@ -104,7 +105,7 @@ export const ServicesPage: React.FC = () => {
   useRouteSeo({
     title: `Danh Mục Dịch Vụ Y Tế — ${HOSPITAL_CONTACT.name}`,
     description:
-      'Tổng hợp 4 nhóm dịch vụ tại Bệnh viện Thú y Lê Sơn (101 Khuất Duy Tiến): Khám & Điều trị, Chăm sóc nội trú, Spa & Grooming, Tiếp nhận cấp cứu 24/24.',
+      'Tổng hợp dịch vụ tại Bệnh viện Thú y Lê Sơn (101 Khuất Duy Tiến): Khám & Điều trị (X-quang, Siêu âm, Phẫu thuật, Xét nghiệm), Chăm sóc nội trú, Spa & Grooming, Tiếp nhận cấp cứu 24/24.',
     isIndexable: false,
   })
 
@@ -126,8 +127,28 @@ export const ServicesPage: React.FC = () => {
             </h1>
 
             <p className="text-sm sm:text-base lg:text-lg text-[var(--color-fg-muted)] leading-relaxed mb-6 font-sans">
-              Tại {HOSPITAL_CONTACT.address}, Bệnh viện Thú y Lê Sơn giới thiệu 4 nhóm dịch vụ chính: Khám &amp; Điều trị, Chăm sóc nội trú, Spa &amp; Grooming và Tiếp nhận cấp cứu 24/24.
+              Tại {HOSPITAL_CONTACT.address}, Bệnh viện Thú y Lê Sơn cung cấp 4 nhóm dịch vụ chính: Khám &amp; Điều trị (bao gồm X-quang, Siêu âm, Phẫu thuật, Xét nghiệm), Chăm sóc nội trú, Spa &amp; Grooming và Tiếp nhận cấp cứu 24/24.
             </p>
+
+            {/* 4 Confirmed Clinical Services Strip */}
+            <div className="mb-6 p-4 rounded-[6px] bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] shadow-2xs">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--color-plum-primary)] block mb-2.5">
+                Năng lực Khám &amp; Điều trị đã xác nhận tại cơ sở:
+              </span>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                {CONFIRMED_CLINICAL_SERVICES.map((svc) => (
+                  <div
+                    key={svc.id}
+                    className="px-3 py-2 rounded-[6px] bg-purple-50/70 border border-purple-200/80 flex items-center gap-2"
+                  >
+                    <CheckCircle2 className="w-4 h-4 text-[var(--color-plum-primary)] shrink-0" />
+                    <span className="text-xs sm:text-sm font-semibold text-[var(--color-plum-deep)]">
+                      {svc.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
 
             <div className="flex flex-wrap items-center gap-3">
               <Link
@@ -150,10 +171,10 @@ export const ServicesPage: React.FC = () => {
           {/* Policy Banner */}
           <EditorialPolicyBanner
             label="Chính sách dịch vụ và minh bạch thông tin"
-            title="Minh bạch dịch vụ & y tế:"
+            title="Minh bạch dịch vụ & dữ liệu hiển thị:"
             className="rounded-[6px]"
           >
-            Thông tin trên trang phản ánh 4 nhóm dịch vụ tại cơ sở ({HOSPITAL_CONTACT.address}; giờ khám {HOSPITAL_CONTACT.workingHours}; {HOSPITAL_CONTACT.emergencyHours.toLowerCase()} qua hotline {HOSPITAL_CONTACT.hotlineDisplay}). Các quy trình chuyên môn và danh mục kỹ thuật chi tiết chỉ được áp dụng khi bác sĩ thăm khám và tư vấn trực tiếp tại viện.
+            Bệnh viện Thú y Lê Sơn xác nhận cung cấp 4 nhóm dịch vụ chính tại {HOSPITAL_CONTACT.address} (giờ khám {HOSPITAL_CONTACT.workingHours}; {HOSPITAL_CONTACT.emergencyHours.toLowerCase()} qua hotline {HOSPITAL_CONTACT.hotlineDisplay}), bao gồm đầy đủ <strong>X-quang, Siêu âm, Phẫu thuật và Xét nghiệm</strong>. Các mô tả danh mục phụ gắn nhãn <em>[Dữ liệu mẫu]</em> và hình ảnh gắn nhãn <em>Ảnh minh họa</em> chỉ phục vụ hoàn thiện bố cục giao diện trong khi chờ cập nhật danh mục chi tiết.
           </EditorialPolicyBanner>
         </div>
       </section>
@@ -213,7 +234,7 @@ export const ServicesPage: React.FC = () => {
 
                         <div className="mb-6">
                           <h3 className="text-xs font-bold uppercase tracking-wider text-[var(--color-fg-secondary)] mb-3">
-                            Nội dung chính trong dịch vụ:
+                            Nội dung dịch vụ đã xác nhận:
                           </h3>
                           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-[var(--color-fg-muted)]">
                             {group.points.map((pt, i) => (
@@ -230,6 +251,21 @@ export const ServicesPage: React.FC = () => {
                             ))}
                           </ul>
                         </div>
+
+                        {MOCK_SERVICE_SUPPLEMENT_NOTES[group.id] && (
+                          <div className="mb-6 p-3.5 rounded-[6px] bg-[var(--color-bg-secondary)] border border-[var(--color-border-subtle)]">
+                            <span className="inline-block px-2 py-0.5 rounded-[4px] bg-purple-100/80 text-[var(--color-plum-primary)] text-[11px] font-bold uppercase tracking-wider mb-2">
+                              {MOCK_SERVICE_SUPPLEMENT_NOTES[group.id].mockLabel}
+                            </span>
+                            <ul className="space-y-1 text-xs text-[var(--color-fg-muted)]">
+                              {MOCK_SERVICE_SUPPLEMENT_NOTES[group.id].items.map((mockPt, idx) => (
+                                <li key={idx} className="leading-relaxed">
+                                  &bull; {mockPt}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
                       </div>
 
                       {/* Action Links */}
