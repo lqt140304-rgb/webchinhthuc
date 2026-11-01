@@ -202,6 +202,28 @@ server.listen(PORT, async () => {
       assert.strictEqual(pageErrors.length, 0, `Errors detected on ${route.path}: ${pageErrors.join(', ')}`);
       console.log(`  [PASS] Zero console/runtime/hydration errors`);
 
+      // Verify FAQ Accessibility (P3-1) if FAQ buttons present
+      const faqButtons = page.locator('button[id^="faq-btn-"]');
+      const faqCount = await faqButtons.count();
+      if (faqCount > 0) {
+        for (let i = 0; i < faqCount; i++) {
+          const btn = faqButtons.nth(i);
+          const btnId = await btn.getAttribute('id');
+          const ariaControls = await btn.getAttribute('aria-controls');
+          const ariaExpanded = await btn.getAttribute('aria-expanded');
+
+          assert(btnId && btnId.startsWith('faq-btn-'), `FAQ button missing valid ID on ${route.path}`);
+          assert(ariaControls && ariaControls.startsWith('faq-panel-'), `FAQ button missing valid aria-controls on ${route.path}`);
+          assert(ariaExpanded === 'true' || ariaExpanded === 'false', `FAQ button missing boolean aria-expanded on ${route.path}`);
+
+          const panel = page.locator(`#${ariaControls}`);
+          assert((await panel.count()) === 1, `Controlled FAQ panel #${ariaControls} missing in DOM on ${route.path}`);
+          assert.strictEqual(await panel.getAttribute('role'), 'region', `FAQ panel #${ariaControls} missing role="region" on ${route.path}`);
+          assert.strictEqual(await panel.getAttribute('aria-labelledby'), btnId, `FAQ panel #${ariaControls} aria-labelledby mismatch on ${route.path}`);
+        }
+        console.log(`  [PASS] FAQ Accessibility: verified ${faqCount} FAQ items with stable IDs, aria-controls, aria-expanded & role="region"`);
+      }
+
       // Test horizontal overflow on all standard viewports
       for (const vp of TEST_VIEWPORTS) {
         await page.setViewportSize({ width: vp.width, height: vp.height });

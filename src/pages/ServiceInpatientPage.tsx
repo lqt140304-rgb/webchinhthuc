@@ -243,7 +243,7 @@ export const ServiceInpatientPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
             <span className="inline-block px-2.5 py-1 rounded-[4px] bg-purple-100 text-[var(--color-plum-primary)] text-[11px] font-bold uppercase tracking-wider mb-2.5">
-              Timeline trải nghiệm • Dữ liệu mẫu
+              Timeline tham khảo • Dữ liệu minh họa
             </span>
             <h2
               id="inpatient-timeline-heading"
@@ -252,7 +252,7 @@ export const ServiceInpatientPage: React.FC = () => {
               Một ngày lưu trú tham khảo của thú cưng diễn ra như thế nào?
             </h2>
             <p className="text-xs sm:text-sm text-[var(--color-fg-muted)] leading-relaxed">
-              Lịch trình mẫu dưới đây minh họa nhịp sinh hoạt trong khung giờ hoạt động tiêu chuẩn (08:00 – 21:00). Thời gian thực tế được điều chỉnh linh hoạt theo thói quen của từng bé.
+              Lịch trình dưới đây là nội dung minh họa các nhịp chăm sóc tham khảo trong ngày lưu trú. Chế độ chăm sóc thực tế được điều chỉnh linh hoạt theo thể trạng và thói quen sinh hoạt của từng bé.
             </p>
           </div>
 
@@ -264,12 +264,15 @@ export const ServiceInpatientPage: React.FC = () => {
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-3">
-                    <span className="px-2 py-0.5 rounded-[4px] bg-purple-100 text-[var(--color-plum-primary)] text-[10px] font-bold uppercase tracking-wider">
+                    <span
+                      className="px-2 py-0.5 rounded-[4px] bg-purple-100 text-[var(--color-plum-deep)] text-[10px] font-bold uppercase tracking-wider"
+                      aria-hidden="true"
+                    >
                       0{index + 1} • {slot.phaseCode}
                     </span>
                     {slot.isMock && (
                       <span className="text-[10px] font-medium text-[var(--color-fg-subtle)]">
-                        [Mẫu]
+                        [Tham khảo]
                       </span>
                     )}
                   </div>
@@ -279,7 +282,7 @@ export const ServiceInpatientPage: React.FC = () => {
                   </p>
 
                   <h3 className="text-base sm:text-lg font-serif font-bold text-[var(--color-plum-deep)] mb-2.5 leading-snug">
-                    {slot.title}
+                    <span className="sr-only">Giai đoạn 0{index + 1}: </span>{slot.title}
                   </h3>
 
                   <p className="text-xs sm:text-sm text-[var(--color-fg-muted)] leading-relaxed mb-4">
@@ -328,7 +331,7 @@ export const ServiceInpatientPage: React.FC = () => {
               {/* Shared Owner-Facing Updates (7 cols) */}
               <div className="lg:col-span-7 space-y-3.5">
                 <h3 className="text-xs font-bold uppercase tracking-wider text-[var(--color-plum-primary)] mb-2">
-                  Thông tin sinh hoạt dự kiến chia sẻ cho chủ nuôi (Dữ liệu mẫu):
+                  Thông tin sinh hoạt dự kiến chia sẻ cho chủ nuôi (Dữ liệu tham khảo):
                 </h3>
                 {MOCK_INPATIENT_FUTURE_PORTAL_PREVIEW.sharedItems.map((item) => (
                   <div
@@ -340,7 +343,7 @@ export const ServiceInpatientPage: React.FC = () => {
                         {item.label}
                       </span>
                       <span className="px-2 py-0.5 rounded-[4px] bg-white border border-[var(--color-border-subtle)] text-[10px] font-semibold text-[var(--color-plum-primary)]">
-                        Bản tin mẫu
+                        Bản tin tham khảo
                       </span>
                     </div>
                     <p className="text-xs sm:text-sm font-medium text-[var(--color-plum-primary)] mb-1">
@@ -373,15 +376,17 @@ export const ServiceInpatientPage: React.FC = () => {
                   </ul>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-[var(--color-border-subtle)] text-xs text-[var(--color-fg-muted)]">
-                  Hiện tại, để nhận cập nhật về thú cưng đang lưu trú, quý khách vui lòng liên hệ trực tiếp hotline{' '}
+                <div className="mt-6 pt-4 border-t border-[var(--color-border-subtle)]">
+                  <p className="text-xs text-[var(--color-fg-muted)] leading-relaxed mb-3">
+                    Hiện tại, để nhận cập nhật thông tin về thú cưng đang lưu trú, quý khách vui lòng liên hệ trực tiếp qua hotline:
+                  </p>
                   <a
                     href={HOSPITAL_CONTACT.hotlineTel}
-                    className="font-bold text-[var(--color-plum-primary)] underline underline-offset-2"
+                    className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-[6px] bg-[var(--color-plum-primary)] hover:bg-[var(--color-plum-deep)] text-white font-semibold text-xs transition-colors min-h-[44px] w-full sm:w-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-plum-primary)]"
                   >
-                    {HOSPITAL_CONTACT.hotlineDisplay}
+                    <Phone className="w-3.5 h-3.5 shrink-0" />
+                    <span>Gọi cập nhật: {HOSPITAL_CONTACT.hotlineDisplay}</span>
                   </a>
-                  .
                 </div>
               </div>
             </div>
@@ -398,7 +403,7 @@ export const ServiceInpatientPage: React.FC = () => {
           <div className="text-center mb-8 sm:mb-10">
             <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-[4px] bg-purple-100 text-[var(--color-plum-primary)] text-[11px] font-bold uppercase tracking-wider mb-2.5">
               <HelpCircle className="w-3.5 h-3.5" />
-              <span>Câu hỏi thường gặp • Dữ liệu mẫu</span>
+              <span>Câu hỏi thường gặp • Dữ liệu minh họa</span>
             </span>
             <h2
               id="inpatient-faq-heading"
@@ -407,13 +412,15 @@ export const ServiceInpatientPage: React.FC = () => {
               Những câu hỏi thường gặp về dịch vụ lưu trú nội trú
             </h2>
             <p className="text-xs sm:text-sm text-[var(--color-fg-muted)]">
-              Nội dung dưới đây là dữ liệu mẫu minh họa giao diện giải đáp thông tin lưu trú.
+              Nội dung dưới đây là dữ liệu minh họa giao diện giải đáp thông tin lưu trú.
             </p>
           </div>
 
           <div className="space-y-3">
             {MOCK_INPATIENT_FAQS.map((faq) => {
               const isOpen = openFaqId === faq.id
+              const buttonId = `faq-btn-${faq.id}`
+              const panelId = `faq-panel-${faq.id}`
               return (
                 <div
                   key={faq.id}
@@ -421,14 +428,16 @@ export const ServiceInpatientPage: React.FC = () => {
                 >
                   <button
                     type="button"
-                    onClick={() => setOpenFaqId(isOpen ? null : faq.id)}
+                    id={buttonId}
+                    aria-controls={panelId}
                     aria-expanded={isOpen}
+                    onClick={() => setOpenFaqId(isOpen ? null : faq.id)}
                     className="w-full px-5 py-4 text-left flex items-center justify-between gap-4 hover:bg-[var(--color-bg-secondary)]/50 transition-colors min-h-[48px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--color-plum-primary)]"
                   >
                     <div className="flex flex-wrap items-center gap-2">
                       {faq.isMock && (
                         <span className="px-2 py-0.5 rounded-[4px] bg-purple-100 text-[var(--color-plum-primary)] text-[10px] font-bold uppercase tracking-wider">
-                          FAQ mẫu
+                          FAQ tham khảo
                         </span>
                       )}
                       <span className="text-sm sm:text-base font-semibold text-[var(--color-plum-deep)]">
@@ -441,11 +450,17 @@ export const ServiceInpatientPage: React.FC = () => {
                       }`}
                     />
                   </button>
-                  {isOpen && (
-                    <div className="px-5 pb-4 pt-1 text-xs sm:text-sm text-[var(--color-fg-muted)] leading-relaxed border-t border-[var(--color-border-subtle)]/60">
-                      {faq.answer}
-                    </div>
-                  )}
+                  <div
+                    id={panelId}
+                    role="region"
+                    aria-labelledby={buttonId}
+                    hidden={!isOpen}
+                    className={`px-5 pb-4 pt-1 text-xs sm:text-sm text-[var(--color-fg-muted)] leading-relaxed border-t border-[var(--color-border-subtle)]/60 ${
+                      isOpen ? 'block' : 'hidden'
+                    }`}
+                  >
+                    {faq.answer}
+                  </div>
                 </div>
               )
             })}

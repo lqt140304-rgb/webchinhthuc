@@ -207,7 +207,10 @@ export const ServiceExamPage: React.FC = () => {
               >
                 <div>
                   <div className="flex items-center justify-between gap-3 mb-4 pb-3 border-b border-[var(--color-border-subtle)]">
-                    <span className="font-serif font-bold text-2xl sm:text-3xl text-[var(--color-plum-primary)]/40 leading-none select-none">
+                    <span
+                      className="font-serif font-bold text-2xl sm:text-3xl text-[var(--color-plum-primary)] leading-none select-none"
+                      aria-hidden="true"
+                    >
                       0{idx + 1}
                     </span>
                     <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-[4px] bg-purple-50 border border-purple-200/80 text-[11px] font-bold uppercase tracking-wider text-[var(--color-plum-primary)]">
@@ -217,7 +220,7 @@ export const ServiceExamPage: React.FC = () => {
                   </div>
 
                   <h3 className="text-xl sm:text-2xl font-serif font-bold text-[var(--color-plum-deep)] mb-2.5 tracking-tight">
-                    Dịch vụ {service.name}
+                    <span className="sr-only">Hạng mục 0{idx + 1}: </span>Dịch vụ {service.name}
                   </h3>
 
                   <p className="text-sm sm:text-base text-[var(--color-fg-muted)] leading-relaxed mb-4">
@@ -269,7 +272,7 @@ export const ServiceExamPage: React.FC = () => {
             {/* Left Sticky/Intro Column (4 cols) */}
             <div className="lg:col-span-4">
               <span className="inline-block px-2.5 py-1 rounded-[4px] bg-purple-100 text-[var(--color-plum-primary)] text-[11px] font-bold uppercase tracking-wider mb-3">
-                Quy trình minh họa • Dữ liệu mẫu
+                Quy trình tham khảo • Dữ liệu minh họa
               </span>
               <h2
                 id="exam-process-heading"
@@ -281,18 +284,29 @@ export const ServiceExamPage: React.FC = () => {
                 {MOCK_EXAM_EDITORIAL_NOTICE}
               </p>
 
-              <div className="p-4 rounded-[8px] bg-amber-50/70 border border-amber-200/80 text-xs text-slate-700 leading-relaxed">
-                <strong className="text-[var(--color-warm-orange-dark)] font-semibold block mb-1">
+              <div className="p-4 sm:p-5 rounded-[8px] bg-amber-50/70 border border-amber-200/80 text-xs text-slate-700 leading-relaxed">
+                <strong className="text-[var(--color-warm-orange-dark)] font-semibold block mb-1.5 text-xs sm:text-sm">
                   Lưu ý trường hợp khẩn cấp:
                 </strong>
-                Nếu thú cưng có biểu hiện khó thở, co giật, chấn thương nặng hoặc nghi ngờ ngộ độc, vui lòng chuyển sang hướng dẫn{' '}
-                <Link
-                  to="/dich-vu/cap-cuu"
-                  className="font-semibold text-[var(--color-warm-orange-dark)] underline underline-offset-2 hover:text-[var(--color-plum-deep)]"
-                >
-                  Tiếp nhận cấp cứu 24/24
-                </Link>{' '}
-                và gọi ngay {HOSPITAL_CONTACT.hotlineDisplay}.
+                <p className="mb-3 text-xs leading-relaxed text-slate-700">
+                  Nếu thú cưng có biểu hiện khó thở, co giật, chấn thương nặng hoặc nghi ngờ ngộ độc, vui lòng chuyển sang hướng dẫn cấp cứu và liên hệ hotline ngay lập tức.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <Link
+                    to="/dich-vu/cap-cuu"
+                    className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-[6px] bg-[var(--color-warm-orange)] hover:bg-[var(--color-warm-orange-hover)] text-white font-semibold text-xs transition-colors min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-warm-orange)]"
+                  >
+                    <ShieldAlert className="w-3.5 h-3.5 shrink-0" />
+                    <span>Hướng dẫn Cấp cứu 24/24</span>
+                  </Link>
+                  <a
+                    href={HOSPITAL_CONTACT.hotlineTel}
+                    className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-[6px] border border-orange-300 bg-white hover:bg-orange-50 text-[var(--color-warm-orange-dark)] font-semibold text-xs transition-colors min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-warm-orange)]"
+                  >
+                    <Phone className="w-3.5 h-3.5 shrink-0" />
+                    <span>Gọi {HOSPITAL_CONTACT.hotlineDisplay}</span>
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -304,7 +318,7 @@ export const ServiceExamPage: React.FC = () => {
                   className="p-5 sm:p-6 rounded-[10px] bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] shadow-2xs flex flex-col sm:flex-row sm:items-start gap-4"
                 >
                   <div className="w-11 h-11 rounded-[8px] bg-[var(--color-bg-secondary)] border border-[var(--color-border-subtle)] flex items-center justify-center shrink-0">
-                    <span className="font-serif font-bold text-lg text-[var(--color-plum-primary)]">
+                    <span className="font-serif font-bold text-lg text-[var(--color-plum-deep)]" aria-hidden="true">
                       {step.stepNumber}
                     </span>
                   </div>
@@ -312,7 +326,7 @@ export const ServiceExamPage: React.FC = () => {
                   <div className="flex-1">
                     <div className="flex flex-wrap items-center justify-between gap-2 mb-1.5">
                       <h3 className="text-base sm:text-lg font-serif font-bold text-[var(--color-plum-deep)]">
-                        {step.title}
+                        <span className="sr-only">Bước {step.stepNumber}: </span>{step.title}
                       </h3>
                       {step.isMock && (
                         <span className="px-2 py-0.5 rounded-[4px] bg-purple-50 border border-purple-200/70 text-[10px] font-semibold text-[var(--color-plum-primary)]">
@@ -356,6 +370,8 @@ export const ServiceExamPage: React.FC = () => {
           <div className="space-y-3">
             {MOCK_EXAM_FAQS.map((faq) => {
               const isOpen = openFaqId === faq.id
+              const buttonId = `faq-btn-${faq.id}`
+              const panelId = `faq-panel-${faq.id}`
               return (
                 <div
                   key={faq.id}
@@ -363,14 +379,16 @@ export const ServiceExamPage: React.FC = () => {
                 >
                   <button
                     type="button"
-                    onClick={() => setOpenFaqId(isOpen ? null : faq.id)}
+                    id={buttonId}
+                    aria-controls={panelId}
                     aria-expanded={isOpen}
+                    onClick={() => setOpenFaqId(isOpen ? null : faq.id)}
                     className="w-full px-5 py-4 text-left flex items-center justify-between gap-4 hover:bg-[var(--color-bg-secondary)]/50 transition-colors min-h-[48px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--color-plum-primary)]"
                   >
                     <div className="flex flex-wrap items-center gap-2">
                       {faq.isMock && (
                         <span className="px-2 py-0.5 rounded-[4px] bg-purple-100 text-[var(--color-plum-primary)] text-[10px] font-bold uppercase tracking-wider">
-                          FAQ mẫu
+                          FAQ tham khảo
                         </span>
                       )}
                       <span className="text-sm sm:text-base font-semibold text-[var(--color-plum-deep)]">
@@ -383,11 +401,17 @@ export const ServiceExamPage: React.FC = () => {
                       }`}
                     />
                   </button>
-                  {isOpen && (
-                    <div className="px-5 pb-4 pt-1 text-xs sm:text-sm text-[var(--color-fg-muted)] leading-relaxed border-t border-[var(--color-border-subtle)]/60">
-                      {faq.answer}
-                    </div>
-                  )}
+                  <div
+                    id={panelId}
+                    role="region"
+                    aria-labelledby={buttonId}
+                    hidden={!isOpen}
+                    className={`px-5 pb-4 pt-1 text-xs sm:text-sm text-[var(--color-fg-muted)] leading-relaxed border-t border-[var(--color-border-subtle)]/60 ${
+                      isOpen ? 'block' : 'hidden'
+                    }`}
+                  >
+                    {faq.answer}
+                  </div>
                 </div>
               )
             })}

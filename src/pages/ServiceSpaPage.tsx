@@ -224,7 +224,7 @@ export const ServiceSpaPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
             <span className="inline-block px-2.5 py-1 rounded-[4px] bg-purple-100 text-[var(--color-plum-primary)] text-[11px] font-bold uppercase tracking-wider mb-2.5">
-              Quy trình Spa mẫu • 4 bước
+              Quy trình Spa tham khảo • 4 bước
             </span>
             <h2
               id="spa-workflow-heading"
@@ -233,7 +233,7 @@ export const ServiceSpaPage: React.FC = () => {
               Quy trình chăm sóc nhẹ nhàng từ lúc đón bé đến khi bàn giao
             </h2>
             <p className="text-xs sm:text-sm text-[var(--color-fg-muted)] leading-relaxed">
-              Quy trình 4 bước dưới đây là dữ liệu mẫu minh họa trình tự tiếp nhận và chăm sóc vệ sinh cho thú cưng tại phòng Spa.
+              Quy trình 4 bước dưới đây là dữ liệu minh họa trình tự tiếp nhận và chăm sóc vệ sinh cho thú cưng tại phòng Spa.
             </p>
           </div>
 
@@ -245,7 +245,10 @@ export const ServiceSpaPage: React.FC = () => {
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-4">
-                    <span className="font-serif font-bold text-3xl text-[var(--color-plum-primary)]/35 leading-none">
+                    <span
+                      className="font-serif font-bold text-2xl sm:text-3xl text-[var(--color-plum-primary)] leading-none select-none"
+                      aria-hidden="true"
+                    >
                       {step.stepNumber}
                     </span>
                     {step.isMock && (
@@ -255,7 +258,7 @@ export const ServiceSpaPage: React.FC = () => {
                     )}
                   </div>
                   <h3 className="text-base sm:text-lg font-serif font-bold text-[var(--color-plum-deep)] mb-2 leading-snug">
-                    {step.title}
+                    <span className="sr-only">Bước {step.stepNumber}: </span>{step.title}
                   </h3>
                   <p className="text-xs sm:text-sm text-[var(--color-fg-muted)] leading-relaxed">
                     {step.summary}
@@ -334,13 +337,13 @@ export const ServiceSpaPage: React.FC = () => {
           <div className="max-w-3xl mb-8">
             <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-[4px] bg-amber-100 text-[var(--color-warm-orange-dark)] text-[11px] font-bold uppercase tracking-wider mb-2.5">
               <Tag className="w-3.5 h-3.5" />
-              <span>Bảng giá tham khảo mẫu • Dữ liệu mẫu (Mock Data)</span>
+              <span>Bảng giá tham khảo • Dữ liệu minh họa (Mock Data)</span>
             </span>
             <h2
               id="spa-pricing-heading"
               className="text-2xl sm:text-3xl font-serif font-bold text-[var(--color-plum-deep)] tracking-tight mb-2.5"
             >
-              Khung bảng giá mẫu minh họa cấu trúc gói dịch vụ
+              Khung bảng giá tham khảo cấu trúc gói dịch vụ
             </h2>
             <p className="text-xs sm:text-sm text-[var(--color-fg-muted)] leading-relaxed">
               Bảng dưới đây được thiết kế để kiểm thử giao diện hiển thị gói dịch vụ theo phân nhóm cân nặng và hạng mục; <strong>không phải bảng báo giá niêm yết chính thức</strong>. Vui lòng liên hệ hotline {HOSPITAL_CONTACT.hotlineDisplay} để được báo giá chính xác.
@@ -360,7 +363,7 @@ export const ServiceSpaPage: React.FC = () => {
                     </span>
                     {row.isMock && (
                       <span className="px-2 py-0.5 rounded-[4px] bg-amber-50 border border-amber-200 text-[10px] font-bold uppercase tracking-wider text-[var(--color-warm-orange-dark)]">
-                        Dữ liệu mẫu
+                        Dữ liệu tham khảo
                       </span>
                     )}
                   </div>
@@ -395,7 +398,7 @@ export const ServiceSpaPage: React.FC = () => {
           <div className="text-center mb-8 sm:mb-10">
             <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-[4px] bg-purple-100 text-[var(--color-plum-primary)] text-[11px] font-bold uppercase tracking-wider mb-2.5">
               <HelpCircle className="w-3.5 h-3.5" />
-              <span>Câu hỏi thường gặp • Dữ liệu mẫu</span>
+              <span>Câu hỏi thường gặp • Dữ liệu minh họa</span>
             </span>
             <h2
               id="spa-faq-heading"
@@ -404,13 +407,15 @@ export const ServiceSpaPage: React.FC = () => {
               Lưu ý khi đặt lịch Spa &amp; Grooming cho thú cưng
             </h2>
             <p className="text-xs sm:text-sm text-[var(--color-fg-muted)]">
-              Các câu hỏi và giải đáp dưới đây là nội dung mẫu minh họa giao diện.
+              Các câu hỏi và giải đáp dưới đây là nội dung minh họa giao diện.
             </p>
           </div>
 
           <div className="space-y-3">
             {MOCK_SPA_FAQS.map((faq) => {
               const isOpen = openFaqId === faq.id
+              const buttonId = `faq-btn-${faq.id}`
+              const panelId = `faq-panel-${faq.id}`
               return (
                 <div
                   key={faq.id}
@@ -418,14 +423,16 @@ export const ServiceSpaPage: React.FC = () => {
                 >
                   <button
                     type="button"
-                    onClick={() => setOpenFaqId(isOpen ? null : faq.id)}
+                    id={buttonId}
+                    aria-controls={panelId}
                     aria-expanded={isOpen}
+                    onClick={() => setOpenFaqId(isOpen ? null : faq.id)}
                     className="w-full px-5 py-4 text-left flex items-center justify-between gap-4 hover:bg-[var(--color-bg-secondary)]/50 transition-colors min-h-[48px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--color-plum-primary)]"
                   >
                     <div className="flex flex-wrap items-center gap-2">
                       {faq.isMock && (
                         <span className="px-2 py-0.5 rounded-[4px] bg-purple-100 text-[var(--color-plum-primary)] text-[10px] font-bold uppercase tracking-wider">
-                          FAQ mẫu
+                          FAQ tham khảo
                         </span>
                       )}
                       <span className="text-sm sm:text-base font-semibold text-[var(--color-plum-deep)]">
@@ -438,11 +445,17 @@ export const ServiceSpaPage: React.FC = () => {
                       }`}
                     />
                   </button>
-                  {isOpen && (
-                    <div className="px-5 pb-4 pt-1 text-xs sm:text-sm text-[var(--color-fg-muted)] leading-relaxed border-t border-[var(--color-border-subtle)]/60">
-                      {faq.answer}
-                    </div>
-                  )}
+                  <div
+                    id={panelId}
+                    role="region"
+                    aria-labelledby={buttonId}
+                    hidden={!isOpen}
+                    className={`px-5 pb-4 pt-1 text-xs sm:text-sm text-[var(--color-fg-muted)] leading-relaxed border-t border-[var(--color-border-subtle)]/60 ${
+                      isOpen ? 'block' : 'hidden'
+                    }`}
+                  >
+                    {faq.answer}
+                  </div>
                 </div>
               )
             })}
