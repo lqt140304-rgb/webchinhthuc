@@ -10,6 +10,7 @@ import { HOSPITAL_CONTACT } from '@/config/contact'
 const AboutPage = lazy(() => import('@/pages/AboutPage'))
 const TeamPage = lazy(() => import('@/pages/TeamPage'))
 const FacilitiesPage = lazy(() => import('@/pages/FacilitiesPage'))
+const ServicesPage = lazy(() => import('@/pages/ServicesPage'))
 
 const PageLoadingFallback = () => (
   <div
@@ -58,10 +59,9 @@ export const AppRoutes = () => {
         <Route
           path="/dich-vu"
           element={
-            <ComingSoonView
-              title="Danh mục dịch vụ y tế"
-              subtitle="Tổng hợp các giải pháp chăm sóc y tế toàn diện cho thú cưng đang được biên tập chi tiết."
-            />
+            <Suspense fallback={<PageLoadingFallback />}>
+              <ServicesPage />
+            </Suspense>
           }
         />
         <Route

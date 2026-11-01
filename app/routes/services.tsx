@@ -1,30 +1,28 @@
 import type { Route } from './+types/services'
-import { ComingSoonView } from '@/components/layout/ComingSoonView'
+import ServicesPage from '@/pages/ServicesPage'
+import { getRouteSeoPolicy } from '@/config/seo-policy'
+import { HOSPITAL_CONTACT } from '@/config/contact'
 
 export function meta(): Route.MetaDescriptors {
+  const policy = getRouteSeoPolicy('/dich-vu')
   return [
-    { title: 'Danh mục dịch vụ y tế — Bệnh viện Thú y Lê Sơn' },
+    { title: `Danh Mục Dịch Vụ Y Tế | ${HOSPITAL_CONTACT.name}` },
     {
       name: 'description',
       content:
-        'Tổng hợp các giải pháp chăm sóc y tế toàn diện cho thú cưng đang được biên tập chi tiết.',
+        'Tổng hợp các giải pháp chăm sóc y tế toàn diện cho thú cưng tại Bệnh viện Thú y Lê Sơn: Khám & Điều trị, Nội trú 24/7, Spa & Grooming, Cấp cứu 24/24.',
     },
-    { name: 'robots', content: 'noindex, nofollow' },
-    { property: 'og:title', content: 'Danh mục dịch vụ y tế — Bệnh viện Thú y Lê Sơn' },
+    { name: 'robots', content: policy.robots },
+    { property: 'og:title', content: `Danh Mục Dịch Vụ Y Tế | ${HOSPITAL_CONTACT.name}` },
     {
       property: 'og:description',
       content:
-        'Tổng hợp các giải pháp chăm sóc y tế toàn diện cho thú cưng đang được biên tập chi tiết.',
+        'Tổng hợp các giải pháp chăm sóc y tế toàn diện cho thú cưng tại Bệnh viện Thú y Lê Sơn: Khám & Điều trị, Nội trú 24/7, Spa & Grooming, Cấp cứu 24/24.',
     },
     { property: 'og:type', content: 'website' },
   ]
 }
 
 export default function ServicesRoute() {
-  return (
-    <ComingSoonView
-      title="Danh mục dịch vụ y tế"
-      subtitle="Tổng hợp các giải pháp chăm sóc y tế toàn diện cho thú cưng đang được biên tập chi tiết."
-    />
-  )
+  return <ServicesPage />
 }
