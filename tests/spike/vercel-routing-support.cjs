@@ -24,7 +24,13 @@ function remoteOptions(env, evidence) {
     assert.equal(evidence.project?.name, 'le-son-website-qa', 'Deployment project mismatch');
     assert.equal(evidence.project?.id, 'prj_wZg6o5vvbDe6UTT52vaqvGTNC4e3', 'Deployment project ID mismatch');
     assert.equal(evidence.readyState, 'READY');
-    assert.equal(evidence.target, 'preview', 'Only explicit Preview deployments allowed');
+    // REST v13 documents null as Preview; absence/string "null" is not that value.
+    // https://vercel.com/docs/rest-api/deployments/get-a-deployment-by-id-or-url
+    assert(evidence.target === 'preview' || (evidence.target === null
+      && evidence.customEnvironment === null && Array.isArray(evidence.alias)
+      && evidence.alias.length === 0), 'Preview environment evidence incomplete');
+    assert(!evidence.customEnvironment && !evidence.customEnvironmentId,
+      'Custom environments are not eligible Preview evidence');
     assert.match(env.EXPECTED_DEPLOYMENT_ID || '', /^dpl_[A-Za-z0-9]+$/, 'Explicit EXPECTED_DEPLOYMENT_ID required');
     assert.equal(evidence.id, env.EXPECTED_DEPLOYMENT_ID, 'Deployment ID scope mismatch');
     assert.match(evidence.id, /^dpl_/);
