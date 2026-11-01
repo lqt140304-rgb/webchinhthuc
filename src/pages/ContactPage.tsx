@@ -354,7 +354,7 @@ export function ContactPage(): React.ReactElement {
           className="rounded-[6px]"
         >
           Thông tin địa chỉ 101 Khuất Duy Tiến, hotline 097 355 51 05, giờ khám 08:00 – 21:00 và tiếp nhận cấp cứu 24/24 là các
-          thông tin chính thức đã được xác nhận. Mọi quy trình thăm khám và điều trị sẽ do bác sĩ phụ trách thực hiện trực tiếp
+          thông tin chính thức từ bệnh viện. Mọi quy trình thăm khám và điều trị sẽ do bác sĩ phụ trách thực hiện trực tiếp
           khi tiếp nhận thú cưng tại cơ sở.
         </EditorialPolicyBanner>
       </div>

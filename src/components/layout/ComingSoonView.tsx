@@ -46,14 +46,14 @@ export const ComingSoonView: React.FC<ComingSoonViewProps> = ({
           <div className="flex flex-wrap items-center justify-start sm:justify-center gap-3">
             <a
               href={HOSPITAL_CONTACT.hotlineTel}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--color-warm-orange)] hover:bg-[var(--color-warm-orange-hover)] text-white font-semibold text-sm transition-all shadow-[var(--shadow-warm-orange)] active:scale-[0.98]"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--color-warm-orange)] hover:bg-[var(--color-warm-orange-hover)] text-white font-semibold text-sm transition-all shadow-[var(--shadow-warm-orange)] active:scale-[0.98] min-h-[44px]"
             >
               <Phone className="w-4 h-4" />
               <span>Gọi Hotline 24/24: {HOSPITAL_CONTACT.hotlineDisplay}</span>
             </a>
             <Link
               to="/lien-he"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-[var(--color-border-medium)] text-[var(--color-fg-primary)] hover:bg-[var(--color-bg-secondary)] font-semibold text-sm transition-all active:scale-[0.98]"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-[var(--color-border-medium)] text-[var(--color-fg-primary)] hover:bg-[var(--color-bg-secondary)] font-semibold text-sm transition-all active:scale-[0.98] min-h-[44px]"
             >
               <MessageSquare className="w-4 h-4 text-[var(--color-plum-primary)]" />
               <span>Xem thông tin Liên hệ</span>
@@ -69,7 +69,7 @@ export const ComingSoonView: React.FC<ComingSoonViewProps> = ({
         <div className="flex items-center justify-center gap-4">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-plum-primary)] hover:text-[var(--color-plum-deep)] transition-colors py-2 px-3 rounded-lg hover:bg-[var(--color-bg-secondary)]"
+            className="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-plum-primary)] hover:text-[var(--color-plum-deep)] transition-colors min-h-[44px] min-w-[44px] px-4 py-2.5 rounded-lg hover:bg-[var(--color-bg-secondary)]"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Quay lại Trang chủ</span>

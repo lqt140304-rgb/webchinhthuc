@@ -108,7 +108,7 @@ export const MOCK_KNOWLEDGE_ARTICLES: readonly MockKnowledgeArticleItem[] = [
     image: '/images/article-prevention.webp',
     imageBadgeLabel: 'Ảnh minh họa',
     referenceLabel: 'Bài viết mẫu',
-    slug: 'phong-ngua-benh-duong-ho-hap',
+    slug: 'cham-soc-suc-khoe-thoi-tiet-giao-mua',
   },
   {
     id: 'art-3',
@@ -121,7 +121,7 @@ export const MOCK_KNOWLEDGE_ARTICLES: readonly MockKnowledgeArticleItem[] = [
     image: '/images/article-firstaid.webp',
     imageBadgeLabel: 'Ảnh minh họa',
     referenceLabel: 'Bài viết mẫu',
-    slug: 'xu-tri-so-cuu-hoc-di-vat',
+    slug: 'chuan-bi-truoc-khi-dua-thu-cung-di-kham',
   },
 ]
 

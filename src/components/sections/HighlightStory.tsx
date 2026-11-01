@@ -40,22 +40,26 @@ export const HighlightStory: React.FC = () => {
                   loading="lazy"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-[var(--color-plum-deep)] text-xs font-bold border border-slate-200 shadow-xs">
-                    {story.badgeLabel}
-                  </span>
-                </div>
+                {story.isMock && (
+                  <div className="absolute top-4 left-4">
+                    <span className="px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-[var(--color-plum-deep)] text-xs font-bold border border-slate-200 shadow-xs">
+                      {story.badgeLabel || 'Câu chuyện minh họa'}
+                    </span>
+                  </div>
+                )}
               </div>
             </div>
 
             {/* Right: Story details with clinical timeline */}
             <div className="lg:col-span-7 p-8 sm:p-10 md:p-12 flex flex-col justify-between">
               <div>
-                {/* Clear Illustrated / Sample Tag (Strict Requirement) */}
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-amber-50 border border-amber-200 text-amber-900 text-xs font-medium mb-5">
-                  <AlertCircle className="w-3.5 h-3.5 text-[var(--color-warm-orange-dark)] shrink-0" />
-                  <span>{story.editorialNotice}</span>
-                </div>
+                {/* Clear Illustrated / Sample Tag (Strict Requirement - rendered when isMock is true) */}
+                {story.isMock && story.editorialNotice && (
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-amber-50 border border-amber-200 text-amber-900 text-xs font-medium mb-5">
+                    <AlertCircle className="w-3.5 h-3.5 text-[var(--color-warm-orange-dark)] shrink-0" />
+                    <span>{story.editorialNotice}</span>
+                  </div>
+                )}
 
                 <div className="flex items-center gap-3 text-xs text-[var(--color-fg-subtle)] mb-2 font-medium">
                   <span>{story.petMeta}</span>
@@ -110,9 +114,11 @@ export const HighlightStory: React.FC = () => {
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </Link>
 
-                <span className="text-xs text-[var(--color-fg-subtle)] italic">
-                  {story.footnote}
-                </span>
+                {story.isMock && story.footnote && (
+                  <span className="text-xs text-[var(--color-fg-subtle)] italic">
+                    {story.footnote}
+                  </span>
+                )}
               </div>
             </div>
           </div>

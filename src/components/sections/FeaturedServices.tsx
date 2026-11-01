@@ -10,6 +10,7 @@ interface ServiceItem {
   category: string
   description: string
   image: string
+  isMockImage?: boolean
   href: string
   icon: React.ElementType
 }
@@ -21,6 +22,7 @@ const services: ServiceItem[] = [
     category: 'Y Khoa Lâm Sàng',
     description: 'Thăm khám lâm sàng, xét nghiệm, siêu âm, chụp X-quang và phẫu thuật cho thú cưng tại cơ sở 101 Khuất Duy Tiến.',
     image: '/images/service-exam.webp',
+    isMockImage: true,
     href: '/dich-vu/kham-dieu-tri',
     icon: Stethoscope,
   },
@@ -28,8 +30,9 @@ const services: ServiceItem[] = [
     id: 'noi-tru',
     title: 'Chăm Sóc Nội Trú',
     category: 'Lưu Trú Y Tế',
-    description: 'Khu vực nội trú chuyên biệt được vệ sinh khử khuẩn định kỳ, theo dõi chỉ số sức khỏe và chế độ dinh dưỡng phục hồi chu đáo.',
+    description: 'Dịch vụ lưu trú và theo dõi sức khỏe cho thú cưng tại cơ sở 101 Khuất Duy Tiến; liên hệ hotline để được tư vấn chi tiết.',
     image: '/images/service-inpatient.webp',
+    isMockImage: true,
     href: '/dich-vu/noi-tru',
     icon: Home,
   },
@@ -39,6 +42,7 @@ const services: ServiceItem[] = [
     category: 'Vệ Sinh Y Tế & Chăm Sóc',
     description: 'Quy trình tắm dưỡng da lông, cắt tỉa tạo hình vệ sinh và chăm sóc móng, tai dịu nhẹ bởi chuyên viên tận tâm.',
     image: '/images/service-spa.webp',
+    isMockImage: true,
     href: '/dich-vu/spa',
     icon: Sparkles,
   },
@@ -90,9 +94,11 @@ export const FeaturedServices: React.FC = () => {
                     className={styles.serviceImage}
                   />
                   <span className={styles.badge}>{item.category}</span>
-                  <span className="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-md text-xs font-medium bg-black/75 text-white shadow-xs backdrop-blur-xs">
-                    Ảnh minh họa
-                  </span>
+                  {item.isMockImage && (
+                    <span className="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-md text-xs font-medium bg-black/75 text-white shadow-xs backdrop-blur-xs">
+                      Ảnh minh họa
+                    </span>
+                  )}
                 </div>
 
                 <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">

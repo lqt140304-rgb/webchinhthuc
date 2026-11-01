@@ -170,13 +170,13 @@ export const FacilitiesPage: React.FC = () => {
               </span>
               <div className="flex-1">
                 <h3 className="font-serif font-bold text-base sm:text-lg text-[var(--color-plum-deep)] mb-1.5">
-                  Khu vực Xét nghiệm, Chẩn đoán hình ảnh (X-quang, Siêu âm) &amp; Phẫu thuật
+                  Không gian hỗ trợ kỹ thuật y tế: X-quang, Siêu âm, Xét nghiệm &amp; Phẫu thuật
                 </h3>
                 <p className="text-xs sm:text-sm text-[var(--color-fg-muted)] leading-relaxed mb-3">
-                  Phục vụ các hoạt động xét nghiệm cận lâm sàng, chụp X-quang, siêu âm và phẫu thuật thú y tại cơ sở 101 Khuất Duy Tiến.
+                  Phục vụ bốn dịch vụ chuyên môn tại cơ sở: chụp X-quang, siêu âm, xét nghiệm cận lâm sàng và thực hiện phẫu thuật thú y tại 101 Khuất Duy Tiến.
                 </p>
                 <EditorialSlotBox label="Thông tin thông số thiết bị">
-                  Thông số kỹ thuật cụ thể của từng thiết bị xét nghiệm, máy X-quang, siêu âm và phòng phẫu thuật sẽ được cập nhật theo hồ sơ kỹ thuật được Chủ dự án duyệt trước khi công bố.
+                  Thông số kỹ thuật cụ thể của trang thiết bị X-quang, siêu âm, xét nghiệm và danh mục phẫu thuật sẽ được cập nhật theo hồ sơ chuyên môn được Chủ dự án duyệt trước khi công bố.
                 </EditorialSlotBox>
               </div>
             </div>

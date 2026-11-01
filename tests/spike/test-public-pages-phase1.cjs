@@ -277,6 +277,17 @@ server.listen(PORT, async () => {
       await page.close();
     }
 
+    // Verify ComingSoonView "Quay lại Trang chủ" button touch target >= 44x44px
+    console.log('\n--- Testing ComingSoonView Touch Targets (/dich-vu/kham-dieu-tri) ---');
+    const comingSoonPage = await context.newPage();
+    await comingSoonPage.setViewportSize({ width: 390, height: 844 });
+    await comingSoonPage.goto(`http://localhost:${PORT}/dich-vu/kham-dieu-tri`, { waitUntil: 'networkidle' });
+    const backBtnBox = await comingSoonPage.locator('a:has-text("Quay lại Trang chủ")').boundingBox();
+    assert(backBtnBox, 'Back to home button not found on ComingSoonView');
+    assert(backBtnBox.width >= 43.5 && backBtnBox.height >= 43.5, `ComingSoon back button touch target too small: ${backBtnBox.width}x${backBtnBox.height}px`);
+    console.log(`  [PASS] ComingSoon back button touch target: ${Math.round(backBtnBox.width)}x${Math.round(backBtnBox.height)}px (>= 44x44px)`);
+    await comingSoonPage.close();
+
     console.log('\n=== ALL PHASE 1 PUBLIC PAGES TESTS PASSED SUCCESSFULLY! ===');
   } catch (err) {
     console.error('\n[FAIL] Test assertion failure:', err);

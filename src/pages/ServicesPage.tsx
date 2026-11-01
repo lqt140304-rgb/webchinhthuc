@@ -26,6 +26,7 @@ interface ServiceGroupItem {
   points: string[]
   href: string
   image?: string
+  isMockImage?: boolean
   icon: React.ElementType
   isEmergency?: boolean
 }
@@ -46,6 +47,7 @@ const serviceGroups: ServiceGroupItem[] = [
     ],
     href: '/dich-vu/kham-dieu-tri',
     image: '/images/service-exam.webp',
+    isMockImage: true,
     icon: Stethoscope,
   },
   {
@@ -63,6 +65,7 @@ const serviceGroups: ServiceGroupItem[] = [
     ],
     href: '/dich-vu/noi-tru',
     image: '/images/service-inpatient.webp',
+    isMockImage: true,
     icon: HomeIcon,
   },
   {
@@ -80,6 +83,7 @@ const serviceGroups: ServiceGroupItem[] = [
     ],
     href: '/dich-vu/spa',
     image: '/images/service-spa.webp',
+    isMockImage: true,
     icon: Sparkles,
   },
   {
@@ -133,7 +137,7 @@ export const ServicesPage: React.FC = () => {
             {/* 4 Confirmed Clinical Services Strip */}
             <div className="mb-6 p-4 rounded-[6px] bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] shadow-2xs">
               <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--color-plum-primary)] block mb-2.5">
-                Năng lực Khám &amp; Điều trị đã xác nhận tại cơ sở:
+                Năng lực chuyên môn tiếp nhận tại cơ sở:
               </span>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
                 {CONFIRMED_CLINICAL_SERVICES.map((svc) => (
@@ -174,7 +178,7 @@ export const ServicesPage: React.FC = () => {
             title="Minh bạch dịch vụ & dữ liệu hiển thị:"
             className="rounded-[6px]"
           >
-            Bệnh viện Thú y Lê Sơn xác nhận cung cấp 4 nhóm dịch vụ chính tại {HOSPITAL_CONTACT.address} (giờ khám {HOSPITAL_CONTACT.workingHours}; {HOSPITAL_CONTACT.emergencyHours.toLowerCase()} qua hotline {HOSPITAL_CONTACT.hotlineDisplay}), bao gồm đầy đủ <strong>X-quang, Siêu âm, Phẫu thuật và Xét nghiệm</strong>. Các mô tả danh mục phụ gắn nhãn <em>[Dữ liệu mẫu]</em> và hình ảnh gắn nhãn <em>Ảnh minh họa</em> chỉ phục vụ hoàn thiện bố cục giao diện trong khi chờ cập nhật danh mục chi tiết.
+            Bệnh viện Thú y Lê Sơn phục vụ 4 nhóm dịch vụ chính tại {HOSPITAL_CONTACT.address} (giờ khám {HOSPITAL_CONTACT.workingHours}; {HOSPITAL_CONTACT.emergencyHours.toLowerCase()} qua hotline {HOSPITAL_CONTACT.hotlineDisplay}), bao gồm <strong>X-quang, Siêu âm, Phẫu thuật và Xét nghiệm</strong>. Các mô tả danh mục phụ gắn nhãn <em>[Dữ liệu mẫu]</em> và hình ảnh gắn nhãn <em>Ảnh minh họa</em> phục vụ hoàn thiện bố cục giao diện trong khi chờ cập nhật danh mục chi tiết.
           </EditorialPolicyBanner>
         </div>
       </section>
@@ -234,7 +238,7 @@ export const ServicesPage: React.FC = () => {
 
                         <div className="mb-6">
                           <h3 className="text-xs font-bold uppercase tracking-wider text-[var(--color-fg-secondary)] mb-3">
-                            Nội dung dịch vụ đã xác nhận:
+                            Hạng mục phục vụ tại cơ sở:
                           </h3>
                           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-[var(--color-fg-muted)]">
                             {group.points.map((pt, i) => (
@@ -252,7 +256,7 @@ export const ServicesPage: React.FC = () => {
                           </ul>
                         </div>
 
-                        {MOCK_SERVICE_SUPPLEMENT_NOTES[group.id] && (
+                        {MOCK_SERVICE_SUPPLEMENT_NOTES[group.id]?.isMock && (
                           <div className="mb-6 p-3.5 rounded-[6px] bg-[var(--color-bg-secondary)] border border-[var(--color-border-subtle)]">
                             <span className="inline-block px-2 py-0.5 rounded-[4px] bg-purple-100/80 text-[var(--color-plum-primary)] text-[11px] font-bold uppercase tracking-wider mb-2">
                               {MOCK_SERVICE_SUPPLEMENT_NOTES[group.id].mockLabel}
@@ -317,9 +321,11 @@ export const ServicesPage: React.FC = () => {
                             decoding="async"
                             className="w-full h-full object-cover"
                           />
-                          <span className="absolute bottom-2.5 right-2.5 px-2 py-0.5 rounded-[4px] text-[11px] font-medium bg-black/75 text-white backdrop-blur-xs">
-                            Ảnh minh họa
-                          </span>
+                          {group.isMockImage && (
+                            <span className="absolute bottom-2.5 right-2.5 px-2 py-0.5 rounded-[4px] text-[11px] font-medium bg-black/75 text-white backdrop-blur-xs">
+                              Ảnh minh họa
+                            </span>
+                          )}
                         </div>
                       ) : (
                         <div className="rounded-[6px] border border-orange-200 bg-white p-6 sm:p-8 flex flex-col justify-center text-center">

@@ -34,13 +34,15 @@ export const EditorialKnowledge: React.FC = () => {
           </div>
         </div>
 
-        {/* Notice: Bản mẫu biên tập */}
-        <div className="mb-8 p-3.5 rounded-xl bg-purple-50/70 border border-purple-200/80 flex items-center gap-2.5 text-xs text-[var(--color-plum-deep)]">
-          <AlertCircle className="w-4 h-4 text-[var(--color-plum-primary)] shrink-0" />
-          <span>
-            <strong>Lưu ý biên tập:</strong> {MOCK_KNOWLEDGE_EDITORIAL_NOTICE}
-          </span>
-        </div>
+        {/* Notice: Bản mẫu biên tập - tự động hiển thị nếu có bài viết là mock */}
+        {MOCK_KNOWLEDGE_ARTICLES.some((art) => art.isMock) && (
+          <div className="mb-8 p-3.5 rounded-xl bg-purple-50/70 border border-purple-200/80 flex items-center gap-2.5 text-xs text-[var(--color-plum-deep)]">
+            <AlertCircle className="w-4 h-4 text-[var(--color-plum-primary)] shrink-0" />
+            <span>
+              <strong>Lưu ý biên tập:</strong> {MOCK_KNOWLEDGE_EDITORIAL_NOTICE}
+            </span>
+          </div>
+        )}
 
         {/* 3 Editorial Magazine Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -57,9 +59,11 @@ export const EditorialKnowledge: React.FC = () => {
                   className={styles.articleImage}
                 />
                 <span className={styles.categoryBadge}>{art.category}</span>
-                <span className="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-md text-xs font-medium bg-black/75 text-white shadow-xs backdrop-blur-xs">
-                  {art.imageBadgeLabel}
-                </span>
+                {art.isMock && (
+                  <span className="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-md text-xs font-medium bg-black/75 text-white shadow-xs backdrop-blur-xs">
+                    {art.imageBadgeLabel || 'Ảnh minh họa'}
+                  </span>
+                )}
               </div>
 
               <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
@@ -67,8 +71,12 @@ export const EditorialKnowledge: React.FC = () => {
                   <div className="flex items-center gap-2 text-xs text-[var(--color-fg-subtle)] mb-3">
                     <Clock className="w-3.5 h-3.5" />
                     <span>{art.readTime}</span>
-                    <span>&bull;</span>
-                    <span className="italic">{art.referenceLabel}</span>
+                    {art.isMock && (
+                      <>
+                        <span>&bull;</span>
+                        <span className="italic">{art.referenceLabel || 'Bài viết mẫu'}</span>
+                      </>
+                    )}
                   </div>
 
                   <h3 className="font-serif font-bold text-lg sm:text-xl text-[var(--color-plum-deep)] mb-3 leading-snug line-clamp-2">
