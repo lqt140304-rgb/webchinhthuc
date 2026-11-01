@@ -19,6 +19,24 @@ const targetRoutes = [
     titleFragment: 'Danh Mục Dịch Vụ Y Tế',
   },
   {
+    path: '/dich-vu/kham-dieu-tri',
+    filePath: path.join(clientDir, 'dich-vu', 'kham-dieu-tri', 'index.html'),
+    expectedH1: 'Khám & điều trị thú cưng tại 101 Khuất Duy Tiến',
+    titleFragment: 'Khám & điều trị thú cưng',
+  },
+  {
+    path: '/dich-vu/noi-tru',
+    filePath: path.join(clientDir, 'dich-vu', 'noi-tru', 'index.html'),
+    expectedH1: 'Chăm sóc nội trú & lưu trú thú cưng tại 101 Khuất Duy Tiến',
+    titleFragment: 'Chăm sóc nội trú',
+  },
+  {
+    path: '/dich-vu/spa',
+    filePath: path.join(clientDir, 'dich-vu', 'spa', 'index.html'),
+    expectedH1: 'Spa & Grooming thẩm mỹ cho thú cưng tại Lê Sơn',
+    titleFragment: 'Spa & Grooming thẩm mỹ',
+  },
+  {
     path: '/dich-vu/cap-cuu',
     filePath: path.join(clientDir, 'dich-vu', 'cap-cuu', 'index.html'),
     expectedH1: 'Cấp cứu thú cưng khẩn cấp tại Hà Nội',
@@ -230,7 +248,7 @@ server.listen(PORT, async () => {
           `Horizontal overflow detected on ${route.path} at ${vp.name} (${vp.width}x${vp.height}): scrollWidth ${overflow.scrollWidth} > clientWidth ${overflow.clientWidth} (delta: ${overflow.delta}px)`
         );
 
-        // On mobile viewports (< 1024px), verify Header primary controls and ALL Footer links have touch targets >= 44x44px
+        // On mobile viewports (< 1024px), verify Header primary controls, ALL Footer links, and primary main CTAs/FAQ buttons have touch targets >= 44x44px
         if (vp.width < 1024) {
           const touchTargets = await page.evaluate(() => {
             const headerSelectors = [
@@ -247,6 +265,18 @@ server.listen(PORT, async () => {
                   if (rect.width < 43.5 || rect.height < 43.5) {
                     undersized.push(`${sel} (${Math.round(rect.width)}x${Math.round(rect.height)}px)`);
                   }
+                }
+              }
+            }
+
+            // Check main interactive buttons and CTA links (excluding inline paragraph text links)
+            const mainButtonsAndCtas = document.querySelectorAll('main button, main nav a, main a.inline-flex');
+            for (const el of mainButtonsAndCtas) {
+              const rect = el.getBoundingClientRect();
+              if (rect.width > 0 && rect.height > 0) {
+                if (rect.width < 43.5 || rect.height < 43.5) {
+                  const label = (el.getAttribute('href') || el.textContent || '').trim().slice(0, 28);
+                  undersized.push(`main interactive "${label}" (${Math.round(rect.width)}x${Math.round(rect.height)}px)`);
                 }
               }
             }
@@ -277,11 +307,11 @@ server.listen(PORT, async () => {
       await page.close();
     }
 
-    // Verify ComingSoonView "Quay lại Trang chủ" button touch target >= 44x44px
-    console.log('\n--- Testing ComingSoonView Touch Targets (/dich-vu/kham-dieu-tri) ---');
+    // Verify ComingSoonView "Quay lại Trang chủ" button touch target >= 44x44px on remaining ComingSoon route (/bang-gia)
+    console.log('\n--- Testing ComingSoonView Touch Targets (/bang-gia) ---');
     const comingSoonPage = await context.newPage();
     await comingSoonPage.setViewportSize({ width: 390, height: 844 });
-    await comingSoonPage.goto(`http://localhost:${PORT}/dich-vu/kham-dieu-tri`, { waitUntil: 'networkidle' });
+    await comingSoonPage.goto(`http://localhost:${PORT}/bang-gia`, { waitUntil: 'networkidle' });
     const backBtnBox = await comingSoonPage.locator('a:has-text("Quay lại Trang chủ")').boundingBox();
     assert(backBtnBox, 'Back to home button not found on ComingSoonView');
     assert(backBtnBox.width >= 43.5 && backBtnBox.height >= 43.5, `ComingSoon back button touch target too small: ${backBtnBox.width}x${backBtnBox.height}px`);

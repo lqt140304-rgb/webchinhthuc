@@ -10,6 +10,9 @@ const AboutPage = lazy(() => import('@/pages/AboutPage'))
 const TeamPage = lazy(() => import('@/pages/TeamPage'))
 const FacilitiesPage = lazy(() => import('@/pages/FacilitiesPage'))
 const ServicesPage = lazy(() => import('@/pages/ServicesPage'))
+const ServiceExamPage = lazy(() => import('@/pages/ServiceExamPage'))
+const ServiceInpatientPage = lazy(() => import('@/pages/ServiceInpatientPage'))
+const ServiceSpaPage = lazy(() => import('@/pages/ServiceSpaPage'))
 const EmergencyPage = lazy(() => import('@/pages/EmergencyPage'))
 const ContactPage = lazy(() => import('@/pages/ContactPage'))
 
@@ -68,28 +71,25 @@ export const AppRoutes = () => {
         <Route
           path="/dich-vu/kham-dieu-tri"
           element={
-            <ComingSoonView
-              title="Khám & điều trị thú cưng"
-              subtitle="Bệnh viện cung cấp dịch vụ khám lâm sàng, xét nghiệm, siêu âm, chụp X-quang và phẫu thuật tại cơ sở 101 Khuất Duy Tiến; trang chi tiết từng danh mục kỹ thuật đang được biên tập."
-            />
+            <Suspense fallback={<PageLoadingFallback />}>
+              <ServiceExamPage />
+            </Suspense>
           }
         />
         <Route
           path="/dich-vu/noi-tru"
           element={
-            <ComingSoonView
-              title="Chăm sóc nội trú"
-              subtitle="Dịch vụ lưu trú và chăm sóc theo dõi sức khỏe cho thú cưng tại cơ sở 101 Khuất Duy Tiến. Vui lòng liên hệ hotline để được tư vấn chi tiết."
-            />
+            <Suspense fallback={<PageLoadingFallback />}>
+              <ServiceInpatientPage />
+            </Suspense>
           }
         />
         <Route
           path="/dich-vu/spa"
           element={
-            <ComingSoonView
-              title="Spa & Grooming thẩm mỹ"
-              subtitle="Các gói vệ sinh, tắm trị liệu và tạo hình thú cưng đang được biên tập bảng thông số."
-            />
+            <Suspense fallback={<PageLoadingFallback />}>
+              <ServiceSpaPage />
+            </Suspense>
           }
         />
         <Route

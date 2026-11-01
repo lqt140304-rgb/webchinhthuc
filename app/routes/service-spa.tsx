@@ -1,5 +1,5 @@
 import type { Route } from './+types/service-spa'
-import { ComingSoonView } from '@/components/layout/ComingSoonView'
+import { ServiceSpaPage } from '@/pages/ServiceSpaPage'
 
 export function meta(): Route.MetaDescriptors {
   return [
@@ -7,24 +7,19 @@ export function meta(): Route.MetaDescriptors {
     {
       name: 'description',
       content:
-        'Các gói vệ sinh, tắm trị liệu và tạo hình thú cưng đang được biên tập bảng thông số.',
+        'Dịch vụ vệ sinh, tắm sấy và cắt tỉa thẩm mỹ cho thú cưng tại Bệnh viện Thú y Lê Sơn (101 Khuất Duy Tiến). Xem quy trình mẫu và đặt lịch hẹn trực tuyến.',
     },
     { name: 'robots', content: 'noindex, nofollow' },
     { property: 'og:title', content: 'Spa & Grooming thẩm mỹ — Bệnh viện Thú y Lê Sơn' },
     {
       property: 'og:description',
       content:
-        'Các gói vệ sinh, tắm trị liệu và tạo hình thú cưng đang được biên tập bảng thông số.',
+        'Dịch vụ vệ sinh, tắm sấy và cắt tỉa thẩm mỹ cho thú cưng tại Bệnh viện Thú y Lê Sơn (101 Khuất Duy Tiến). Xem quy trình mẫu và đặt lịch hẹn trực tuyến.',
     },
     { property: 'og:type', content: 'website' },
   ]
 }
 
 export default function ServiceSpaRoute() {
-  return (
-    <ComingSoonView
-      title="Spa & Grooming thẩm mỹ"
-      subtitle="Các gói vệ sinh, tắm trị liệu và tạo hình thú cưng đang được biên tập bảng thông số."
-    />
-  )
+  return <ServiceSpaPage />
 }

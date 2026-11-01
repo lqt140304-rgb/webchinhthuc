@@ -1,5 +1,5 @@
 import type { Route } from './+types/service-inpatient'
-import { ComingSoonView } from '@/components/layout/ComingSoonView'
+import { ServiceInpatientPage } from '@/pages/ServiceInpatientPage'
 
 export function meta(): Route.MetaDescriptors {
   return [
@@ -21,10 +21,5 @@ export function meta(): Route.MetaDescriptors {
 }
 
 export default function ServiceInpatientRoute() {
-  return (
-    <ComingSoonView
-      title="Chăm sóc nội trú"
-      subtitle="Dịch vụ lưu trú và chăm sóc theo dõi sức khỏe cho thú cưng tại cơ sở 101 Khuất Duy Tiến. Vui lòng liên hệ hotline để được tư vấn chi tiết."
-    />
-  )
+  return <ServiceInpatientPage />
 }
