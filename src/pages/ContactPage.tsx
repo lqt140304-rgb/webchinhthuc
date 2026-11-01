@@ -74,8 +74,8 @@ export function ContactPage(): React.ReactElement {
                 Thú cưng gặp tình huống nguy hiểm đến tính mạng?
               </h2>
               <p className="text-sm text-[var(--color-fg-muted)] mt-1 max-w-2xl">
-                Xin không gửi tin nhắn hay chờ biểu mẫu. Vui lòng gọi trực tiếp hotline cấp cứu để bác sĩ trực tiếp nhận
-                thông tin và hướng dẫn sơ cứu trong lúc di chuyển đến viện.
+                Xin không gửi tin nhắn hay chờ biểu mẫu trực tuyến. Vui lòng gọi trực tiếp hotline cấp cứu{' '}
+                {HOSPITAL_CONTACT.hotlineDisplay} để thông báo ca khẩn cấp và đưa thú cưng đến viện kịp thời.
               </p>
             </div>
           </div>
@@ -109,8 +109,7 @@ export function ContactPage(): React.ReactElement {
                 {HOSPITAL_CONTACT.address}
               </p>
               <p className="text-xs text-[var(--color-fg-muted)] mt-2 leading-normal">
-                Vị trí mặt đường lớn trên trục Khuất Duy Tiến (gần nút giao Nguyễn Trãi – Vành Đai 3), thuận tiện tiếp cận
-                từ các quận Thanh Xuân, Cầu Giấy, Hà Đông và Đống Đa.
+                Địa chỉ cơ sở chính thức tại {HOSPITAL_CONTACT.address}. Quý khách vui lòng tra cứu bản đồ chỉ đường để đến đúng địa chỉ.
               </p>
             </div>
             <div className="mt-6 pt-5 border-t border-[var(--color-border-subtle)]">
@@ -204,8 +203,8 @@ export function ContactPage(): React.ReactElement {
               Chỉ dẫn ghé thăm cơ sở 101 Khuất Duy Tiến
             </h2>
             <p className="mt-2 text-sm text-[var(--color-fg-muted)] leading-relaxed">
-              Cơ sở tọa lạc trên mặt đường Khuất Duy Tiến, gần các nút giao thông trọng điểm tại quận Thanh Xuân. Quý khách
-              có thể liên hệ hotline trước khi đến nếu cần hướng dẫn lộ trình hoặc dừng đỗ phương tiện.
+              Cơ sở tiếp nhận tại địa chỉ {HOSPITAL_CONTACT.address}. Quý khách vui lòng tra cứu bản đồ chỉ đường hoặc liên hệ hotline{' '}
+              {HOSPITAL_CONTACT.hotlineDisplay} khi cần hỗ trợ thông tin trước khi đến.
             </p>
           </div>
 
@@ -215,11 +214,10 @@ export function ContactPage(): React.ReactElement {
                 <Car className="w-5 h-5" aria-hidden="true" />
               </div>
               <h3 className="font-semibold text-sm text-[var(--color-plum-deep)]">
-                Vị trí giao thông thuận tiện
+                Địa chỉ cơ sở tiếp nhận
               </h3>
               <p className="text-xs text-[var(--color-fg-muted)] mt-2 leading-relaxed">
-                Tọa lạc trên trục đường lớn Khuất Duy Tiến, thuận tiện di chuyển từ đường Vành Đai 3, Nguyễn Trãi và Lê Văn Lương.
-                Quý khách đi ô tô có thể gọi trước để được hướng dẫn vị trí dừng phù hợp.
+                Cơ sở đặt tại {HOSPITAL_CONTACT.address}. Quý khách có thể sử dụng ứng dụng bản đồ chỉ đường trực tiếp tới số 101 Khuất Duy Tiến.
               </p>
             </div>
 
@@ -228,11 +226,10 @@ export function ContactPage(): React.ReactElement {
                 <ShieldAlert className="w-5 h-5 text-amber-600" aria-hidden="true" />
               </div>
               <h3 className="font-semibold text-sm text-[var(--color-plum-deep)]">
-                Hỗ trợ tiếp nhận khẩn cấp
+                Thông báo trước ca khẩn cấp
               </h3>
               <p className="text-xs text-[var(--color-fg-muted)] mt-2 leading-relaxed">
-                Đối với các trường hợp thú cưng nguy kịch, quý khách vui lòng gọi điện báo trước để nhân viên chuẩn bị
-                tiếp đón nhanh nhất ngay khi xe đưa bé tới cơ sở.
+                Đối với các trường hợp cấp cứu, quý khách vui lòng gọi trực tiếp hotline {HOSPITAL_CONTACT.hotlineDisplay} trên đường di chuyển tới 101 Khuất Duy Tiến.
               </p>
             </div>
 
@@ -329,9 +326,8 @@ export function ContactPage(): React.ReactElement {
               <div className="mt-4 p-3.5 rounded-[6px] bg-slate-50 border border-slate-200 text-xs text-slate-700 space-y-1.5">
                 <p className="font-semibold text-slate-900">Tại sao chúng tôi ưu tiên hotline trực tiếp?</p>
                 <p>
-                  Triệu chứng thú y có thể diễn tiến nhanh chóng trong vài giờ. Tiếp nhận trực tiếp qua điện thoại cho phép
-                  đội ngũ y tế đánh giá sơ bộ mức độ ưu tiên, hướng dẫn xử lý sơ cứu tức thì và chuẩn bị phòng tiếp đón
-                  ngay khi chủ nuôi đưa bé đến viện.
+                  Triệu chứng bệnh ở thú cưng có thể diễn tiến nhanh chóng. Việc liên hệ trực tiếp qua số điện thoại giúp
+                  tiếp nhận thông tin kịp thời, tránh độ trễ so với việc gửi biểu mẫu trực tuyến.
                 </p>
               </div>
             </div>
@@ -358,8 +354,8 @@ export function ContactPage(): React.ReactElement {
           className="rounded-[6px]"
         >
           Thông tin địa chỉ 101 Khuất Duy Tiến, hotline 097 355 51 05, giờ khám 08:00 – 21:00 và tiếp nhận cấp cứu 24/24 là các
-          thông tin chính thức đã được xác nhận. Mọi hướng dẫn chuyên môn và quy trình tiếp đón cụ thể sẽ do bác sĩ tư vấn trực
-          tiếp theo từng trường hợp.
+          thông tin chính thức đã được xác nhận. Mọi quy trình thăm khám và điều trị sẽ do bác sĩ phụ trách thực hiện trực tiếp
+          khi tiếp nhận thú cưng tại cơ sở.
         </EditorialPolicyBanner>
       </div>
     </div>

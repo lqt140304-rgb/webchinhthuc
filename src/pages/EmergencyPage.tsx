@@ -44,26 +44,26 @@ const emergencySigns = [
 const intakeSteps = [
   {
     step: '01',
-    title: 'Gọi điện báo trước cho bệnh viện',
-    description: `Liên hệ ngay hotline ${HOSPITAL_CONTACT.hotlineDisplay} để thông báo ngắn gọn tình trạng bé và thời gian dự kiến đến viện. Bác sĩ trực sẽ hướng dẫn các lưu ý phù hợp và chuẩn bị tiếp nhận khi bạn tới nơi.`,
+    title: 'Gọi điện thông báo ca cấp cứu',
+    description: `Liên hệ hotline ${HOSPITAL_CONTACT.hotlineDisplay} để thông báo ca cấp cứu và thời gian dự kiến đưa bé đến cơ sở tại 101 Khuất Duy Tiến.`,
   },
   {
     step: '02',
-    title: 'Làm theo chỉ dẫn của bác sĩ khi di chuyển',
+    title: 'Di chuyển an toàn đến cơ sở',
     description:
-      'Đặt thú cưng ở tư thế thoải mái trên mặt phẳng hoặc lồng vận chuyển, hạn chế cử động mạnh và giữ đường thở thông thoáng. Làm theo hướng dẫn sơ cứu cụ thể của bác sĩ qua điện thoại cho từng trường hợp. Tuyệt đối không tự ý cho bé uống thuốc của người hay tự ý can thiệp.',
+      'Đặt thú cưng ở tư thế an toàn trong lồng vận chuyển hoặc trên bề mặt phẳng, hạn chế va chạm rung lắc trên đường di chuyển. Tuyệt đối không tự ý cho thú cưng uống thuốc của người hay can thiệp y tế khi chưa có chỉ định của bác sĩ thú y. (Các hướng dẫn sơ cứu chi tiết đang chờ bác sĩ chuyên môn phê duyệt).',
   },
   {
     step: '03',
     title: 'Đến trực tiếp 101 Khuất Duy Tiến',
-    description: `Đưa bé tới cơ sở tại ${HOSPITAL_CONTACT.shortAddress} để bác sĩ thăm khám lâm sàng và đánh giá trực tiếp tình trạng của bé.`,
+    description: `Đưa bé tới cơ sở tại ${HOSPITAL_CONTACT.shortAddress} để bác sĩ thăm khám lâm sàng trực tiếp cho bé.`,
   },
 ]
 
 export const EmergencyPage: React.FC = () => {
   useRouteSeo({
     title: `Tiếp Nhận Cấp Cứu 24/24 — ${HOSPITAL_CONTACT.name}`,
-    description: `Đường dây nóng cấp cứu thú cưng 24/24 tại Hà Nội: ${HOSPITAL_CONTACT.hotlineDisplay}. Địa chỉ tiếp nhận: ${HOSPITAL_CONTACT.address}. Bác sĩ trực sẵn sàng hỗ trợ khẩn cấp.`,
+    description: `Đường dây nóng cấp cứu thú cưng 24/24: ${HOSPITAL_CONTACT.hotlineDisplay}. Địa chỉ tiếp nhận: ${HOSPITAL_CONTACT.address}.`,
     isIndexable: false,
   })
 
@@ -91,7 +91,7 @@ export const EmergencyPage: React.FC = () => {
               </h1>
 
               <p className="text-sm sm:text-base lg:text-lg text-slate-700 leading-relaxed mb-6 font-sans">
-                Trong tình huống nguy cấp, từng phút đều quan trọng. Đội ngũ y tế tại <strong>{HOSPITAL_CONTACT.address}</strong> luôn sẵn sàng tiếp nhận và hỗ trợ bạn cùng bé cưng 24 giờ mỗi ngày, tất cả các ngày trong tuần.
+                Trong tình huống nguy cấp, từng phút đều quan trọng. Cơ sở tiếp nhận cấp cứu tại <strong>{HOSPITAL_CONTACT.address}</strong> hoạt động 24/24 tất cả các ngày trong tuần.
               </p>
 
               {/* Big Direct Call-to-Action Bar for Mobile & Desktop */}
@@ -118,7 +118,7 @@ export const EmergencyPage: React.FC = () => {
 
                 <p className="mt-3 text-xs text-slate-600 flex items-center gap-1.5">
                   <Clock className="w-3.5 h-3.5 text-[var(--color-warm-orange)] shrink-0" />
-                  <span>Đường dây nóng hoạt động 24/24. Vui lòng gọi trước để được hướng dẫn và hỗ trợ tiếp nhận kịp thời.</span>
+                  <span>Đường dây nóng hoạt động 24/24. Vui lòng gọi điện để thông báo ca cấp cứu trước khi đến cơ sở.</span>
                 </p>
               </div>
             </div>
@@ -139,9 +139,6 @@ export const EmergencyPage: React.FC = () => {
                     <div>
                       <strong className="text-white block font-medium">Địa chỉ cơ sở:</strong>
                       <span>{HOSPITAL_CONTACT.address}</span>
-                      <p className="text-xs text-[var(--color-plum-orchid-light)] mt-0.5">
-                        (Vị trí mặt đường lớn trên trục Khuất Duy Tiến, thuận tiện di chuyển)
-                      </p>
                     </div>
                   </li>
 
@@ -159,12 +156,12 @@ export const EmergencyPage: React.FC = () => {
                   </li>
 
                   <li className="flex items-start gap-3">
-                    <Phone className="w-4 h-4 text-[var(--color-warm-orange-light)] shrink-0 mt-0.5" />
+                    <Phone className="w-4 h-4 text-[var(--color-warm-orange-light)] shrink-0 mt-1" />
                     <div>
                       <strong className="text-white block font-medium">Hotline tiếp nhận cấp cứu 24/24:</strong>
                       <a
                         href={HOSPITAL_CONTACT.hotlineTel}
-                        className="text-base font-bold text-[var(--color-warm-orange-light)] hover:underline block mt-0.5"
+                        className="inline-flex items-center min-h-[44px] py-1 text-base font-bold text-[var(--color-warm-orange-light)] hover:underline"
                       >
                         {HOSPITAL_CONTACT.hotlineDisplay}
                       </a>
@@ -198,7 +195,7 @@ export const EmergencyPage: React.FC = () => {
               Các dấu hiệu cần đưa thú cưng đến bệnh viện ngay
             </h2>
             <p className="mt-2 text-sm sm:text-base text-[var(--color-fg-muted)] leading-relaxed font-sans">
-              Nếu bạn quan sát thấy một trong các biểu hiện dưới đây, hãy liên hệ hotline và đưa bé đến viện càng sớm càng tốt:
+              Nếu bạn quan sát thấy một trong các biểu hiện dưới đây, hãy liên hệ hotline và đưa bé đến cơ sở 101 Khuất Duy Tiến:
             </p>
           </div>
 
@@ -229,7 +226,7 @@ export const EmergencyPage: React.FC = () => {
             title="Lưu ý chuyên môn:"
             className="rounded-[6px] mt-8"
           >
-            Thông tin nhận biết trên mang tính chất hỗ trợ chủ nuôi nhận diện nguy cơ khẩn cấp. Quy trình tiếp nhận lâm sàng thực tế và các can thiệp y khoa sẽ do bác sĩ trực khám, đánh giá trực tiếp dựa trên thể trạng của từng ca bệnh. Bệnh viện không tư vấn dùng thuốc qua điện thoại khi chưa có thăm khám trực tiếp.
+            Các dấu hiệu nhận biết mang tính tham khảo giúp chủ nuôi nhận diện tình huống khẩn cấp (nội dung chi tiết đang chờ bác sĩ chuyên môn hoàn thiện và phê duyệt chính thức). Mọi chẩn đoán, đánh giá và can thiệp y khoa chỉ được thực hiện khi bác sĩ thăm khám lâm sàng trực tiếp cho thú cưng tại cơ sở.
           </EditorialPolicyBanner>
         </div>
       </section>

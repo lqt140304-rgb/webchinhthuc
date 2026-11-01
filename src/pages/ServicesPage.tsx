@@ -87,12 +87,12 @@ const serviceGroups: ServiceGroupItem[] = [
     category: 'Cấp Cứu Khẩn Cấp',
     tagline: 'Tiếp nhận cấp cứu 24/24 tại 101 Khuất Duy Tiến',
     description:
-      'Sẵn sàng tiếp nhận các trường hợp khẩn cấp: khó thở, co giật, ngộ độc, chấn thương hoặc sốt cao li bì. Xin vui lòng liên hệ hotline trước khi di chuyển để được hướng dẫn và hỗ trợ tiếp nhận kịp thời.',
+      'Sẵn sàng tiếp nhận các trường hợp khẩn cấp tại cơ sở. Xin vui lòng liên hệ hotline 097 355 51 05 trước khi đưa thú cưng đến viện.',
     points: [
       'Tiếp nhận cấp cứu 24/24 tất cả các ngày trong tuần',
       'Ưu tiên tiếp nhận xử lý ca cấp cứu khẩn cấp',
       'Đường dây nóng hỗ trợ 24/24: 097 355 51 05',
-      'Tư vấn hướng dẫn di chuyển an toàn tới cơ sở',
+      'Tiếp nhận trực tiếp tại 101 Khuất Duy Tiến, Thanh Xuân',
     ],
     href: '/dich-vu/cap-cuu',
     icon: ShieldAlert,
