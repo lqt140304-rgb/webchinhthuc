@@ -74,7 +74,7 @@ Không tự chuyển giai đoạn khi chưa được cho phép.
 
 Checkout chính được ghi nhận:
 
-`D:/webbvct`
+`<REPO_ROOT>`
 
 ## Mốc QA cần bảo toàn
 
@@ -94,7 +94,7 @@ Tree:
 
 Worktree đã được Work ghi nhận:
 
-`C:/Users/Admin/Documents/Codex/2026-11-01/referenced-chatgpt-conversation-this-is-an-9/work/antigravity-ui`
+`<WORKTREE_ROOT>/work/antigravity-ui`
 
 Commit đợt thiết kế công khai đầu tiên:
 
@@ -106,7 +106,7 @@ Commit đợt thiết kế công khai đầu tiên:
 
 Worktree đã được Work ghi nhận:
 
-`C:/Users/Admin/Documents/Codex/2026-11-01/referenced-chatgpt-conversation-this-is-an-9/work/claude-qa`
+`<WORKTREE_ROOT>/work/claude-qa`
 
 Claude còn có commit sửa kiểm thử riêng `e8fa36f` trong môi trường scratch Linux. Không mặc định commit này đã tồn tại trong repository Windows.
 

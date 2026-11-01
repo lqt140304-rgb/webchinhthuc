@@ -21,7 +21,7 @@ Thực hiện chỉ thị **CEO DIRECTIVE 058-A**, Antigravity đã triển khai
 1. **F01 (`3B-H2-P2-1`): Cấu hình Output Vercel:** Thêm đầy đủ `outputDirectory: "build/client"`, `cleanUrls: true`, `trailingSlash: false`, `buildCommand: "npm run build"` vào `vercel.json`; kiểm toán thư mục build và phân tích thứ tự ưu tiên cấu hình Vercel Dashboard vs file repo.
 2. **F02 (`3B-H2-P2-2`): Nhất quán chính sách SEO theo môi trường:** Đưa biến môi trường `__APP_ENV__` vào `define` của Vite tại `vite.config.ts`, tạo nguồn giá trị môi trường build-time duy nhất và đồng nhất giữa SSR prerender và Client bundle; giải quyết triệt để lỗi xung đột thẻ robots khi build Production mô phỏng.
 3. **F03 (`3B-H2-P2-3`, `3B-H2-P2-4`): Sửa đổi toàn diện Content Audit Register:** Tách bạch claim thử nghiệm của Spike ("vô trùng") khỏi claim gốc của Baseline 3A; đính chính chính xác vị trí các claim trong mã nguồn; chuẩn hóa giờ hoạt động theo `src/config/contact.ts` (`08:00 - 21:00`); bổ sung vai trò thẩm quyền xác minh và trạng thái `VERIFIED` / `PENDING` / `REJECTED`.
-4. **F04 (`3B-H2-P2-5`): Xóa bỏ Hardcoded Test Paths:** Thêm `playwright` vào `devDependencies` của `package.json`; thay thế toàn bộ đường dẫn máy cá nhân `C:/Users/Admin/...` bằng chuẩn `require('playwright')`.
+4. **F04 (`3B-H2-P2-5`): Xóa bỏ Hardcoded Test Paths:** Thêm `playwright` vào `devDependencies` của `package.json`; thay thế toàn bộ đường dẫn máy cá nhân `<USER_HOME>/...` bằng chuẩn `require('playwright')`.
 5. **F05: Bằng chứng kiểm thử hồi quy & QA Evidence:** Xây dựng script kiểm thử DOM tự động `test:seo-consistency`, chạy lại toàn bộ test suite (Typecheck, Lint, Build, Routing, Hydration, SEO Local, SEO Production).
 
 ---

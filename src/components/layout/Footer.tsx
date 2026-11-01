@@ -10,7 +10,7 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand Info (2 cols on lg) */}
           <div className="lg:col-span-2 space-y-4">
-            <Link to="/" className="inline-flex items-center gap-3">
+            <Link to="/" className="inline-flex items-center gap-3 min-h-[44px] min-w-[44px]">
               <img
                 src="/images/logo.png"
                 alt="Logo Bệnh viện Thú y Lê Sơn"
@@ -36,7 +36,7 @@ export const Footer: React.FC = () => {
                 <p className="text-xs font-semibold text-white">Đường dây nóng Cấp cứu 24/24</p>
                 <a
                   href={HOSPITAL_CONTACT.hotlineTel}
-                  className="text-sm font-bold text-[var(--color-warm-orange-light)] hover:underline"
+                  className="inline-flex items-center min-h-[44px] min-w-[44px] py-1 text-sm font-bold text-[var(--color-warm-orange-light)] hover:underline"
                 >
                   {HOSPITAL_CONTACT.hotlineDisplay}
                 </a>
@@ -49,34 +49,34 @@ export const Footer: React.FC = () => {
             <h4 className="text-white font-serif font-bold text-sm tracking-wide uppercase">
               Về Lê Sơn
             </h4>
-            <ul className="space-y-2 text-xs">
+            <ul className="space-y-1 text-xs">
               <li>
-                <Link to="/gioi-thieu" className="hover:text-white transition-colors">
+                <Link to="/gioi-thieu" className="inline-flex items-center min-h-[44px] min-w-[44px] py-1.5 hover:text-white transition-colors">
                   Giới thiệu bệnh viện
                 </Link>
               </li>
               <li>
-                <Link to="/doi-ngu" className="hover:text-white transition-colors">
+                <Link to="/doi-ngu" className="inline-flex items-center min-h-[44px] min-w-[44px] py-1.5 hover:text-white transition-colors">
                   Đội ngũ bác sĩ
                 </Link>
               </li>
               <li>
-                <Link to="/co-so-vat-chat" className="hover:text-white transition-colors">
+                <Link to="/co-so-vat-chat" className="inline-flex items-center min-h-[44px] min-w-[44px] py-1.5 hover:text-white transition-colors">
                   Cơ sở vật chất
                 </Link>
               </li>
               <li>
-                <Link to="/bang-gia" className="hover:text-white transition-colors">
+                <Link to="/bang-gia" className="inline-flex items-center min-h-[44px] min-w-[44px] py-1.5 hover:text-white transition-colors">
                   Bảng giá niêm yết
                 </Link>
               </li>
               <li>
-                <Link to="/cau-chuyen" className="hover:text-white transition-colors">
+                <Link to="/cau-chuyen" className="inline-flex items-center min-h-[44px] min-w-[44px] py-1.5 hover:text-white transition-colors">
                   Câu chuyện điều trị
                 </Link>
               </li>
               <li>
-                <Link to="/lien-he" className="hover:text-white transition-colors flex items-center gap-1 text-[var(--color-plum-orchid-light)]">
+                <Link to="/lien-he" className="inline-flex items-center gap-1 min-h-[44px] min-w-[44px] py-1.5 hover:text-white transition-colors text-[var(--color-plum-orchid-light)]">
                   <MessageSquare className="w-3.5 h-3.5" />
                   <span>Liên hệ & Chỉ đường</span>
                 </Link>
@@ -89,38 +89,38 @@ export const Footer: React.FC = () => {
             <h4 className="text-white font-serif font-bold text-sm tracking-wide uppercase">
               Dịch Vụ Y Tế
             </h4>
-            <ul className="space-y-2 text-xs">
+            <ul className="space-y-1 text-xs">
               <li>
-                <Link to="/dich-vu" className="hover:text-white transition-colors">
+                <Link to="/dich-vu" className="inline-flex items-center min-h-[44px] min-w-[44px] py-1.5 hover:text-white transition-colors">
                   Tất cả dịch vụ
                 </Link>
               </li>
               <li>
-                <Link to="/dich-vu/kham-dieu-tri" className="hover:text-white transition-colors">
+                <Link to="/dich-vu/kham-dieu-tri" className="inline-flex items-center min-h-[44px] min-w-[44px] py-1.5 hover:text-white transition-colors">
                   Khám & điều trị
                 </Link>
               </li>
               <li>
-                <Link to="/dich-vu/noi-tru" className="hover:text-white transition-colors">
+                <Link to="/dich-vu/noi-tru" className="inline-flex items-center min-h-[44px] min-w-[44px] py-1.5 hover:text-white transition-colors">
                   Chăm sóc nội trú 24/7
                 </Link>
               </li>
               <li>
-                <Link to="/dich-vu/spa" className="hover:text-white transition-colors">
+                <Link to="/dich-vu/spa" className="inline-flex items-center min-h-[44px] min-w-[44px] py-1.5 hover:text-white transition-colors">
                   Spa & Grooming
                 </Link>
               </li>
               <li>
                 <Link
                   to="/dich-vu/cap-cuu"
-                  className="text-[var(--color-warm-orange-light)] hover:underline font-semibold flex items-center gap-1"
+                  className="inline-flex items-center gap-1 min-h-[44px] min-w-[44px] py-1.5 text-[var(--color-warm-orange-light)] hover:underline font-semibold"
                 >
                   <ShieldAlert className="w-3.5 h-3.5" />
                   <span>Cấp cứu 24/24</span>
                 </Link>
               </li>
               <li>
-                <Link to="/goc-thu-cung" className="hover:text-white transition-colors">
+                <Link to="/goc-thu-cung" className="inline-flex items-center min-h-[44px] min-w-[44px] py-1.5 hover:text-white transition-colors">
                   Cẩm nang & Góc thú cưng
                 </Link>
               </li>
@@ -141,7 +141,7 @@ export const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-[var(--color-plum-orchid-light)] shrink-0" />
-                <a href={HOSPITAL_CONTACT.hotlineTel} className="hover:text-white font-semibold">
+                <a href={HOSPITAL_CONTACT.hotlineTel} className="inline-flex items-center min-h-[44px] min-w-[44px] py-1 hover:text-white font-semibold">
                   {HOSPITAL_CONTACT.hotlineDisplay}
                 </a>
               </li>

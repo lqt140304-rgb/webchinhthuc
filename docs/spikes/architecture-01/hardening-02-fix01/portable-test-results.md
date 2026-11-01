@@ -13,7 +13,7 @@
 ### 1. Hiện trạng do Claude phát hiện
 Trong Hardening 02, Claude QA phát hiện tập tin `tests/spike/test-hydration-404.cjs` và `tests/e2e/2b-verification.cjs` có chứa đường dẫn tuyệt đối phụ thuộc vào máy cá nhân của kỹ sư:
 ```js
-require('C:/Users/Admin/AppData/Roaming/npm/node_modules/playwright');
+require('<USER_HOME>/AppData/Roaming/npm/node_modules/playwright');
 ```
 Đồng thời, thư viện `playwright` chưa từng được khai báo trong `devDependencies` của `package.json`. Nếu chạy trên máy của Claude hoặc máy chủ CI/CD, script sẽ bị crash ngay lập tức vì không tìm thấy đường dẫn trên.
 
@@ -38,7 +38,7 @@ require('C:/Users/Admin/AppData/Roaming/npm/node_modules/playwright');
      const { chromium } = require('playwright');
      ```
 3. **Quét kiểm toán toàn bộ repository:**
-   Lệnh tìm kiếm chuỗi `Users/Admin` và `AppData` trên toàn bộ thư mục `tests/` trả về **0 kết quả**.
+   Lệnh tìm kiếm chuỗi `<USER_HOME>` và `AppData` trên toàn bộ thư mục `tests/` trả về **0 kết quả**.
 
 ---
 

@@ -34,7 +34,7 @@ Thực hiện nghiêm túc chỉ thị **CEO DIRECTIVE 058-A**, Antigravity đã
    - Bổ sung vai trò thẩm quyền phê duyệt (Chủ dự án, Giám đốc chuyên môn / Bác sĩ có thẩm quyền, Pháp chế) và gắn nhãn PENDING cho toàn bộ các claim y khoa cần xử lý trước khi lên Production.
 4. **F04 (`3B-H2-P2-5`) — Bộ kiểm thử tự chứa và khả chuyển (Portable):**
    - Đã thêm `playwright` vào `devDependencies` của `package.json`.
-   - Loại bỏ 100% các đường dẫn tuyệt đối máy cá nhân `C:/Users/Admin/...` trong `tests/spike/test-hydration-404.cjs` và `tests/e2e/2b-verification.cjs`.
+   - Loại bỏ 100% các đường dẫn tuyệt đối máy cá nhân `<USER_HOME>/...` trong `tests/spike/test-hydration-404.cjs` và `tests/e2e/2b-verification.cjs`.
    - Xây dựng preview server nội bộ `scripts/preview-server.cjs` khớp với `vercel.json`, cho phép chạy kiểm thử E2E độc lập, chuẩn xác mà không bị crash do Vite SPA fallback.
 5. **F05 — Bằng chứng kiểm thử hồi quy & QA Evidence:**
    - Typecheck: 0 lỗi.

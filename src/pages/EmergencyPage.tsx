@@ -17,27 +17,39 @@ import { EditorialPolicyBanner } from '@/components/editorial/EditorialPolicyBan
 const emergencySigns = [
   {
     title: 'Khó thở hoặc tím tái',
-    description: 'Thở dốc, thở há miệng, ngực bụng co bóp bất thường, nướu răng nhợt nhạt hoặc tím tái.',
+    status: 'Chờ bác sĩ duyệt',
+    description:
+      'Nội dung mô tả biểu hiện lâm sàng và lưu ý nhận biết chi tiết cho nhóm dấu hiệu hô hấp đang chờ bác sĩ chuyên môn phê duyệt.',
   },
   {
     title: 'Co giật & Mất ý thức',
-    description: 'Co giật toàn thân hoặc từng cơn, li bì bất tỉnh, mất thăng bằng hoặc không phản xạ với tiếng gọi.',
+    status: 'Chờ bác sĩ duyệt',
+    description:
+      'Nội dung mô tả biểu hiện lâm sàng và lưu ý nhận biết chi tiết cho nhóm dấu hiệu thần kinh đang chờ bác sĩ chuyên môn phê duyệt.',
   },
   {
     title: 'Chấn thương & Xuất huyết',
-    description: 'Va chạm tai nạn, té ngã từ trên cao, gãy xương, vết thương hở chảy máu khó cầm.',
+    status: 'Chờ bác sĩ duyệt',
+    description:
+      'Nội dung mô tả biểu hiện lâm sàng và lưu ý nhận biết chi tiết cho nhóm chấn thương ngoại khoa đang chờ bác sĩ chuyên môn phê duyệt.',
   },
   {
     title: 'Nghi ngờ nuốt dị vật & Ngộ độc',
-    description: 'Nuốt xương, đồ chơi, dị vật đường thở, hoặc tiếp xúc/ăn phải hóa chất, bả độc, sùi bọt mép.',
+    status: 'Chờ bác sĩ duyệt',
+    description:
+      'Nội dung mô tả biểu hiện lâm sàng và lưu ý nhận biết chi tiết cho nhóm dị vật và độc chất đang chờ bác sĩ chuyên môn phê duyệt.',
   },
   {
     title: 'Bí tiểu & Nôn mửa dữ dội',
-    description: 'Rặn tiểu liên tục nhưng không ra nước, nôn khan kéo dài hoặc nôn mửa kèm tiêu chảy ra máu.',
+    status: 'Chờ bác sĩ duyệt',
+    description:
+      'Nội dung mô tả biểu hiện lâm sàng và lưu ý nhận biết chi tiết cho nhóm tiêu hóa – tiết niệu cấp tính đang chờ bác sĩ chuyên môn phê duyệt.',
   },
   {
-    title: 'Hạ thân nhiệt hoặc sốt cao',
-    description: 'Cơ thể lạnh ngắt rũ rượi, hoặc run rẩy kèm thân nhiệt tăng cao nguy hiểm.',
+    title: 'Bất thường thân nhiệt cấp tính',
+    status: 'Chờ bác sĩ duyệt',
+    description:
+      'Nội dung mô tả biểu hiện lâm sàng và lưu ý nhận biết chi tiết cho nhóm rối loạn thân nhiệt đang chờ bác sĩ chuyên môn phê duyệt.',
   },
 ]
 
@@ -45,18 +57,18 @@ const intakeSteps = [
   {
     step: '01',
     title: 'Gọi điện thông báo ca cấp cứu',
-    description: `Liên hệ hotline ${HOSPITAL_CONTACT.hotlineDisplay} để thông báo ca cấp cứu và thời gian dự kiến đưa bé đến cơ sở tại 101 Khuất Duy Tiến.`,
+    description: `Liên hệ hotline ${HOSPITAL_CONTACT.hotlineDisplay} để thông báo tình trạng khẩn cấp trước khi đưa thú cưng đến cơ sở tại ${HOSPITAL_CONTACT.shortAddress}.`,
   },
   {
     step: '02',
-    title: 'Di chuyển an toàn đến cơ sở',
+    title: 'Hướng dẫn trước khi đến viện (Chờ bác sĩ duyệt)',
     description:
-      'Đặt thú cưng ở tư thế an toàn trong lồng vận chuyển hoặc trên bề mặt phẳng, hạn chế va chạm rung lắc trên đường di chuyển. Tuyệt đối không tự ý cho thú cưng uống thuốc của người hay can thiệp y tế khi chưa có chỉ định của bác sĩ thú y. (Các hướng dẫn sơ cứu chi tiết đang chờ bác sĩ chuyên môn phê duyệt).',
+      'Nội dung hướng dẫn xử trí và lưu ý an toàn trước khi đến viện đang chờ bác sĩ chuyên môn phê duyệt. Vui lòng trao đổi trực tiếp qua hotline và không tự ý cho thú cưng dùng thuốc khi chưa có chỉ định của bác sĩ thú y.',
   },
   {
     step: '03',
     title: 'Đến trực tiếp 101 Khuất Duy Tiến',
-    description: `Đưa bé tới cơ sở tại ${HOSPITAL_CONTACT.shortAddress} để bác sĩ thăm khám lâm sàng trực tiếp cho bé.`,
+    description: `Đưa thú cưng tới cơ sở tại ${HOSPITAL_CONTACT.address} (${HOSPITAL_CONTACT.emergencyHours}).`,
   },
 ]
 
@@ -83,7 +95,7 @@ export const EmergencyPage: React.FC = () => {
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-[4px] bg-[var(--color-warm-orange)] text-white text-xs font-bold uppercase tracking-wider mb-4 shadow-xs">
                 <ShieldAlert className="w-4 h-4" />
-                <span>Tiếp Nhận Cấp Cứu 24/24 • Ưu Tiên Xử Trí</span>
+                <span>Tiếp Nhận Cấp Cứu 24/24 • {HOSPITAL_CONTACT.shortAddress}</span>
               </div>
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[var(--color-plum-deep)] tracking-tight leading-tight mb-4">
@@ -189,13 +201,13 @@ export const EmergencyPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
             <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-warm-orange-dark)] mb-2 block">
-              Nhận Biết Nguy Cấp
+              Danh Mục Dấu Hiệu Cấp Cứu (Chờ Bác Sĩ Duyệt)
             </span>
             <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[var(--color-plum-deep)] tracking-tight">
-              Các dấu hiệu cần đưa thú cưng đến bệnh viện ngay
+              Các nhóm dấu hiệu cần liên hệ cấp cứu (đang chờ duyệt nội dung chi tiết)
             </h2>
             <p className="mt-2 text-sm sm:text-base text-[var(--color-fg-muted)] leading-relaxed font-sans">
-              Nếu bạn quan sát thấy một trong các biểu hiện dưới đây, hãy liên hệ hotline và đưa bé đến cơ sở 101 Khuất Duy Tiến:
+              Danh sách các nhóm dấu hiệu và hướng dẫn liên quan dưới đây đã được đưa vào danh mục chờ bác sĩ chuyên môn phê duyệt. Khi thú cưng có biểu hiện bất thường khẩn cấp, vui lòng gọi ngay hotline {HOSPITAL_CONTACT.hotlineDisplay} và đưa bé tới cơ sở {HOSPITAL_CONTACT.shortAddress}:
             </p>
           </div>
 
@@ -206,11 +218,16 @@ export const EmergencyPage: React.FC = () => {
                 className="p-5 sm:p-6 rounded-[6px] bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] shadow-xs flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-center gap-2 mb-2.5">
-                    <AlertTriangle className="w-4 h-4 text-[var(--color-warm-orange)] shrink-0" />
-                    <h3 className="font-serif font-bold text-base text-[var(--color-plum-deep)]">
-                      {item.title}
-                    </h3>
+                  <div className="flex items-center justify-between gap-2 mb-2.5">
+                    <div className="flex items-center gap-2">
+                      <AlertTriangle className="w-4 h-4 text-[var(--color-warm-orange)] shrink-0" />
+                      <h3 className="font-serif font-bold text-base text-[var(--color-plum-deep)]">
+                        {item.title}
+                      </h3>
+                    </div>
+                    <span className="shrink-0 px-2 py-0.5 rounded-[4px] bg-amber-100 text-[var(--color-warm-orange-dark)] text-[11px] font-semibold">
+                      {item.status}
+                    </span>
                   </div>
                   <p className="text-xs sm:text-sm text-[var(--color-fg-muted)] leading-relaxed font-sans">
                     {item.description}
@@ -226,7 +243,7 @@ export const EmergencyPage: React.FC = () => {
             title="Lưu ý chuyên môn:"
             className="rounded-[6px] mt-8"
           >
-            Các dấu hiệu nhận biết mang tính tham khảo giúp chủ nuôi nhận diện tình huống khẩn cấp (nội dung chi tiết đang chờ bác sĩ chuyên môn hoàn thiện và phê duyệt chính thức). Mọi chẩn đoán, đánh giá và can thiệp y khoa chỉ được thực hiện khi bác sĩ thăm khám lâm sàng trực tiếp cho thú cưng tại cơ sở.
+            Danh sách dấu hiệu cấp cứu và các hướng dẫn xử trí ban đầu hiện đang nằm trong danh mục chờ bác sĩ chuyên môn của Bệnh viện Thú y Lê Sơn kiểm duyệt chính thức; website không tự công bố hướng dẫn sơ cứu khi chưa có phê duyệt y khoa. Mọi chẩn đoán và can thiệp chỉ được thực hiện khi bác sĩ thăm khám trực tiếp tại {HOSPITAL_CONTACT.address}.
           </EditorialPolicyBanner>
         </div>
       </section>
@@ -236,13 +253,13 @@ export const EmergencyPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
             <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-plum-primary)] mb-2 block">
-              Hướng Dẫn Thao Tác
+              Thông Tin Tiếp Nhận
             </span>
             <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[var(--color-plum-deep)] tracking-tight">
-              3 bước quan trọng khi đưa bé đi cấp cứu
+              3 bước liên hệ và đưa thú cưng tới cơ sở cấp cứu
             </h2>
             <p className="mt-2 text-sm sm:text-base text-[var(--color-fg-muted)] leading-relaxed font-sans">
-              Giữ bình tĩnh và thực hiện đúng các bước sau để việc cấp cứu đạt hiệu quả tốt nhất:
+              Thông tin tiếp nhận cấp cứu 24/24 tại {HOSPITAL_CONTACT.address} (nội dung hướng dẫn chuyên môn trước khi đến viện đang chờ bác sĩ duyệt):
             </p>
           </div>
 

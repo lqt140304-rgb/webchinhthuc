@@ -7,7 +7,7 @@ async function run() {
     fs.mkdirSync(outputDir, { recursive: true })
   }
 
-  const brainDir = 'C:\\Users\\Admin\\.gemini\\antigravity\\brain\\6f5020a8-5310-41e1-a151-7821d0315e27'
+  const brainDir = process.env.ARTIFACT_DIR || ''
 
   const targetsRes = await fetch('http://localhost:9222/json/list')
   const targets = await targetsRes.json()
@@ -215,10 +215,12 @@ async function run() {
     const { data } = await send('Page.captureScreenshot', { format: 'png' })
     const buf = Buffer.from(data, 'base64')
     fs.writeFileSync(path.join(outputDir, filename), buf)
-    try {
-      fs.writeFileSync(path.join(brainDir, filename), buf)
-    } catch {
-      // Ignore if brainDir write fails
+    if (brainDir) {
+      try {
+        fs.writeFileSync(path.join(brainDir, filename), buf)
+      } catch {
+        // Ignore if brainDir write fails
+      }
     }
     console.log(`Đã lưu ảnh chụp: ${filename}`)
   }

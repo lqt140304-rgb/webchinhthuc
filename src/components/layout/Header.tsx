@@ -146,7 +146,7 @@ export const Header: React.FC<HeaderProps> = ({
         {/* BRAND LOGO (Không gắn aria-current theo chuẩn P1-3) */}
         <Link
           to="/"
-          className="flex items-center gap-2 sm:gap-3 shrink-0 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-plum-primary)] rounded-xl"
+          className="flex items-center gap-2 sm:gap-3 min-h-[44px] min-w-[44px] py-1 shrink-0 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-plum-primary)] rounded-xl"
           aria-label="Về Trang chủ Bệnh viện Thú y Lê Sơn"
         >
           <img
@@ -354,7 +354,7 @@ export const Header: React.FC<HeaderProps> = ({
           <Link
             to="/dat-lich"
             aria-current={location.pathname === '/dat-lich' ? 'page' : undefined}
-            className="inline-flex items-center justify-center gap-1 sm:gap-1.5 px-2.5 py-2 sm:px-3.5 sm:py-2.5 xl:px-5 xl:py-2.5 min-h-[44px] rounded-xl bg-[var(--color-plum-primary)] hover:bg-[var(--color-plum-deep)] text-white text-xs xl:text-sm font-semibold transition-all shadow-xs active:scale-[0.98] whitespace-nowrap shrink-0"
+            className="inline-flex items-center justify-center gap-1 sm:gap-1.5 px-2.5 py-2 sm:px-3.5 sm:py-2.5 xl:px-5 xl:py-2.5 min-w-[44px] min-h-[44px] rounded-xl bg-[var(--color-plum-primary)] hover:bg-[var(--color-plum-deep)] text-white text-xs xl:text-sm font-semibold transition-all shadow-xs active:scale-[0.98] whitespace-nowrap shrink-0"
           >
             <Calendar className="w-3.5 h-3.5 xl:w-4 xl:h-4 shrink-0" />
             <span className="hidden min-[420px]:inline">Đặt lịch khám</span>

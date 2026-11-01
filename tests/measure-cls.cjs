@@ -4,7 +4,7 @@ const path = require('path');
 const { chromium } = require('playwright');
 
 const PORT = 4303;
-const DIST = path.resolve('D:/webbvct/dist');
+const DIST = path.resolve(process.env.DIST_DIR || path.join(__dirname, '..', 'build', 'client'));
 
 function startServer() {
   const mimeTypes = {

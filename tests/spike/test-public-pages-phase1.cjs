@@ -58,6 +58,15 @@ for (const route of targetRoutes) {
   console.log(`[PASS] Static prerender HTML verified for: ${route.path}`);
 }
 
+// Also verify /dich-vu/noi-tru prerendered HTML does not claim 24/7 in title/meta/ComingSoon H1
+const inpatientFilePath = path.join(clientDir, 'dich-vu', 'noi-tru', 'index.html');
+assert(fs.existsSync(inpatientFilePath), `Prerendered index.html missing for /dich-vu/noi-tru`);
+const inpatientHtml = fs.readFileSync(inpatientFilePath, 'utf-8');
+assert(inpatientHtml.includes('<title>Chăm sóc nội trú — Bệnh viện Thú y Lê Sơn</title>'), 'Inpatient title mismatch');
+assert(!inpatientHtml.includes('<title>Chăm sóc nội trú 24/7'), 'Inpatient title must not claim 24/7');
+assert(inpatientHtml.includes('content="noindex, nofollow"'), 'Inpatient robots meta missing');
+console.log('[PASS] Static prerender HTML verified for: /dich-vu/noi-tru (neutral title/meta without unverified 24/7)');
+
 console.log('\n=== STEP 2: RUNNING PLAYWRIGHT DOM, HYDRATION & RESPONSIVENESS AUDIT ===');
 
 const server = http.createServer((req, res) => {
@@ -205,7 +214,40 @@ server.listen(PORT, async () => {
           !overflow.hasOverflow,
           `Horizontal overflow detected on ${route.path} at ${vp.name} (${vp.width}x${vp.height}): scrollWidth ${overflow.scrollWidth} > clientWidth ${overflow.clientWidth} (delta: ${overflow.delta}px)`
         );
-        console.log(`  [PASS] Viewport ${vp.name} (${vp.width}px): No horizontal overflow`);
+
+        // On mobile viewports (< 1024px), verify primary Header & Footer interactive touch targets >= 44x44px
+        if (vp.width < 1024) {
+          const touchTargets = await page.evaluate(() => {
+            const selectors = [
+              'header a[href="/"]',
+              'header a[href="/dat-lich"]',
+              'header button[aria-haspopup="dialog"]',
+              'footer a[href="/"]',
+              'footer a[href^="tel:"]',
+              'footer a[href="/dich-vu/cap-cuu"]',
+            ];
+            const undersized = [];
+            for (const sel of selectors) {
+              const els = document.querySelectorAll(sel);
+              for (const el of els) {
+                const rect = el.getBoundingClientRect();
+                if (rect.width > 0 && rect.height > 0) {
+                  if (rect.width < 43.5 || rect.height < 43.5) {
+                    undersized.push(`${sel} (${Math.round(rect.width)}x${Math.round(rect.height)}px)`);
+                  }
+                }
+              }
+            }
+            return undersized;
+          });
+          assert.strictEqual(
+            touchTargets.length,
+            0,
+            `Undersized touch targets (<44x44px) on ${route.path} at ${vp.name}: ${touchTargets.join(', ')}`
+          );
+        }
+
+        console.log(`  [PASS] Viewport ${vp.name} (${vp.width}px): No horizontal overflow & mobile touch targets >= 44x44px`);
       }
 
       await page.close();

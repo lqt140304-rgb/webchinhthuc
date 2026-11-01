@@ -78,8 +78,8 @@ export const AppRoutes = () => {
           path="/dich-vu/noi-tru"
           element={
             <ComingSoonView
-              title="Chăm sóc nội trú 24/7"
-              subtitle="Quy trình chăm sóc lưu chuồng và chính sách cập nhật tình hình bé nội trú đang được xác nhận."
+              title="Chăm sóc nội trú"
+              subtitle="Quy trình chăm sóc lưu chuồng và chính sách cập nhật tình hình bé nội trú đang chờ xác nhận."
             />
           }
         />

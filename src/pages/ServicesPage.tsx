@@ -34,14 +34,14 @@ const serviceGroups: ServiceGroupItem[] = [
     id: 'kham-dieu-tri',
     title: 'Khám & Điều Trị',
     category: 'Y Khoa Lâm Sàng',
-    tagline: 'Chẩn đoán cẩn trọng, giải thích rõ ràng và phác đồ chuẩn mực',
+    tagline: 'Thăm khám lâm sàng và tư vấn chăm sóc sức khỏe thú cưng (danh mục kỹ thuật chi tiết đang chờ duyệt)',
     description:
-      'Thăm khám lâm sàng kỹ lưỡng, xét nghiệm sinh hóa máu, chẩn đoán hình ảnh kỹ thuật số và can thiệp ngoại khoa an toàn. Mọi phác đồ đều được giải thích minh bạch với chủ nuôi trước khi thực hiện.',
+      'Tiếp nhận thăm khám lâm sàng và tư vấn hướng theo dõi sức khỏe cho thú cưng tại cơ sở. Danh mục kỹ thuật xét nghiệm, chẩn đoán hình ảnh (X-quang, siêu âm), phẫu thuật và quy trình chuyên môn chi tiết đang chờ chủ bệnh viện và bác sĩ chuyên môn xác nhận trước khi công bố.',
     points: [
-      'Thăm khám lâm sàng tổng quát và đánh giá thể trạng',
-      'Xét nghiệm sinh hóa máu, ký sinh trùng và nước tiểu',
-      'Chẩn đoán hình ảnh kỹ thuật số (X-quang, siêu âm ổ bụng)',
-      'Phẫu thuật ngoại khoa mô mềm và thủ thuật an toàn',
+      'Tiếp nhận thăm khám lâm sàng và kiểm tra thể trạng ban đầu',
+      'Tư vấn hướng theo dõi sức khỏe trực tiếp cùng chủ nuôi',
+      'Danh mục xét nghiệm & chẩn đoán hình ảnh (đang chờ xác nhận chi tiết)',
+      'Danh mục thủ thuật & ngoại khoa (đang chờ xác nhận chi tiết)',
     ],
     href: '/dich-vu/kham-dieu-tri',
     image: '/images/service-exam.webp',
@@ -50,15 +50,15 @@ const serviceGroups: ServiceGroupItem[] = [
   {
     id: 'noi-tru',
     title: 'Chăm Sóc Nội Trú',
-    category: 'Lưu Trú Y Tế & Phục Hồi',
-    tagline: 'Không gian lưu trú và theo dõi y tế cho thú cưng theo chỉ định',
+    category: 'Lưu Trú & Theo Dõi',
+    tagline: 'Dịch vụ lưu trú và chăm sóc thú cưng tại cơ sở (quy trình chi tiết đang chờ duyệt)',
     description:
-      'Khu vực lưu trú hỗ trợ thú cưng trong quá trình điều trị hoặc phục hồi sức khỏe theo phác đồ chuyên môn của bác sĩ.',
+      'Tiếp nhận nhu cầu lưu trú cho thú cưng tại cơ sở. Quy trình chăm sóc lưu chuồng, chế độ theo dõi, dinh dưỡng và chính sách cập nhật tình hình cho chủ nuôi đang chờ chủ bệnh viện và bác sĩ chuyên môn phê duyệt.',
     points: [
-      'Khu lưu trú được vệ sinh và chăm sóc thường xuyên',
-      'Theo dõi lâm sàng và thể trạng theo chỉ định điều trị',
-      'Chế độ dinh dưỡng và hỗ trợ dùng thuốc theo hướng dẫn',
-      'Cập nhật tình hình sức khỏe định kỳ cho gia đình',
+      'Tiếp nhận đăng ký dịch vụ lưu trú cho thú cưng tại cơ sở',
+      'Trao đổi thông tin trực tiếp qua hotline hoặc tại quầy tiếp đón',
+      'Quy trình vệ sinh và chăm sóc lưu chuồng (đang chờ xác nhận)',
+      'Chính sách theo dõi và cập nhật tình hình bé nội trú (đang chờ xác nhận)',
     ],
     href: '/dich-vu/noi-tru',
     image: '/images/service-inpatient.webp',
@@ -67,15 +67,15 @@ const serviceGroups: ServiceGroupItem[] = [
   {
     id: 'spa',
     title: 'Spa & Grooming',
-    category: 'Vệ Sinh Y Tế & Chăm Sóc',
-    tagline: 'Quy trình vệ sinh dịu nhẹ, kết hợp kiểm tra da liễu cơ bản',
+    category: 'Vệ Sinh & Chăm Sóc',
+    tagline: 'Dịch vụ vệ sinh, tắm sấy và cắt tỉa cho thú cưng (thông số gói dịch vụ đang chờ duyệt)',
     description:
-      'Quy trình tắm dưỡng da lông, cắt tỉa tạo hình vệ sinh, làm sạch tai và móng cẩn trọng. Chuyên viên thao tác dịu nhẹ giúp thú cưng thoải mái, đồng thời phát hiện sớm các dấu hiệu bất thường ngoài da.',
+      'Dịch vụ tắm vệ sinh và cắt tỉa thẩm mỹ cơ bản cho thú cưng. Chi tiết quy trình chăm sóc da lông, các bước vệ sinh và bảng thông số từng gói dịch vụ đang chờ chủ bệnh viện xác nhận.',
     points: [
-      'Tắm sấy khử mùi, dưỡng ẩm phục hồi da và lông',
-      'Vệ sinh tai, tuyến mồ hôi và bấm tỉa móng êm ái',
-      'Cắt tỉa tạo hình thẩm mỹ theo yêu cầu của chủ nuôi',
-      'Quan sát, phát hiện sớm dấu hiệu nấm và ve rận ngoài da',
+      'Tiếp nhận nhu cầu tắm vệ sinh và sấy khô cơ bản',
+      'Cắt tỉa gọn gàng và tạo hình theo nhu cầu của chủ nuôi',
+      'Quy trình vệ sinh tai, móng và chăm sóc da lông chi tiết (đang chờ duyệt)',
+      'Bảng thông số các gói Spa & Grooming (đang chờ xác nhận)',
     ],
     href: '/dich-vu/spa',
     image: '/images/service-spa.webp',
@@ -87,12 +87,12 @@ const serviceGroups: ServiceGroupItem[] = [
     category: 'Cấp Cứu Khẩn Cấp',
     tagline: 'Tiếp nhận cấp cứu 24/24 tại 101 Khuất Duy Tiến',
     description:
-      'Sẵn sàng tiếp nhận các trường hợp khẩn cấp tại cơ sở. Xin vui lòng liên hệ hotline 097 355 51 05 trước khi đưa thú cưng đến viện.',
+      'Tiếp nhận cấp cứu 24/24 tại cơ sở 101 Khuất Duy Tiến, Thanh Xuân, Hà Nội. Vui lòng liên hệ hotline 097 355 51 05 trước khi đưa thú cưng đến viện.',
     points: [
-      'Tiếp nhận cấp cứu 24/24 tất cả các ngày trong tuần',
-      'Ưu tiên tiếp nhận xử lý ca cấp cứu khẩn cấp',
-      'Đường dây nóng hỗ trợ 24/24: 097 355 51 05',
-      'Tiếp nhận trực tiếp tại 101 Khuất Duy Tiến, Thanh Xuân',
+      'Thời gian tiếp nhận: Tiếp nhận cấp cứu 24/24',
+      'Đường dây nóng cấp cứu 24/24: 097 355 51 05',
+      'Địa chỉ tiếp nhận: 101 Khuất Duy Tiến, Thanh Xuân, Hà Nội',
+      'Quy trình phân loại và xử trí cấp cứu chi tiết (đang chờ bác sĩ duyệt)',
     ],
     href: '/dich-vu/cap-cuu',
     icon: ShieldAlert,
@@ -104,7 +104,7 @@ export const ServicesPage: React.FC = () => {
   useRouteSeo({
     title: `Danh Mục Dịch Vụ Y Tế — ${HOSPITAL_CONTACT.name}`,
     description:
-      'Tổng hợp 4 nhóm dịch vụ y tế toàn diện tại Bệnh viện Thú y Lê Sơn: Khám & Điều trị, Chăm sóc nội trú, Spa & Grooming, Tiếp nhận cấp cứu 24/24.',
+      'Tổng hợp 4 nhóm dịch vụ tại Bệnh viện Thú y Lê Sơn (101 Khuất Duy Tiến): Khám & Điều trị, Chăm sóc nội trú, Spa & Grooming, Tiếp nhận cấp cứu 24/24.',
     isIndexable: false,
   })
 
@@ -126,7 +126,7 @@ export const ServicesPage: React.FC = () => {
             </h1>
 
             <p className="text-sm sm:text-base lg:text-lg text-[var(--color-fg-muted)] leading-relaxed mb-6 font-sans">
-              Tại {HOSPITAL_CONTACT.address}, Bệnh viện Thú y Lê Sơn cung cấp các nhóm giải pháp y khoa và chăm sóc chuyên biệt, hướng tới sự cẩn trọng lâm sàng, giải thích rõ ràng và đồng hành tận tâm cùng chủ nuôi.
+              Tại {HOSPITAL_CONTACT.address}, Bệnh viện Thú y Lê Sơn giới thiệu 4 nhóm dịch vụ chính: Khám &amp; Điều trị, Chăm sóc nội trú, Spa &amp; Grooming và Tiếp nhận cấp cứu 24/24. Danh mục kỹ thuật và quy trình chi tiết của từng dịch vụ đang chờ phê duyệt chính thức trước khi công bố.
             </p>
 
             <div className="flex flex-wrap items-center gap-3">
@@ -153,7 +153,7 @@ export const ServicesPage: React.FC = () => {
             title="Minh bạch dịch vụ & y tế:"
             className="rounded-[6px]"
           >
-            Nội dung và quy trình chi tiết đang được chuẩn hóa theo thực tế chuyên môn tại phòng khám. Mọi chi phí khám và phác đồ điều trị được tư vấn, giải thích trực tiếp trước khi can thiệp. Trường hợp cấp cứu vui lòng gọi ngay hotline để được hướng dẫn nhanh nhất.
+            Thông tin trên trang phản ánh 4 nhóm dịch vụ tại cơ sở ({HOSPITAL_CONTACT.address}; giờ khám {HOSPITAL_CONTACT.workingHours}; {HOSPITAL_CONTACT.emergencyHours.toLowerCase()} qua hotline {HOSPITAL_CONTACT.hotlineDisplay}). Danh mục kỹ thuật cận lâm sàng (X-quang, siêu âm, xét nghiệm), phạm vi phẫu thuật, quy trình chăm sóc nội trú/Spa và quy chuẩn xử trí cấp cứu chi tiết đang chờ chủ bệnh viện và bác sĩ chuyên môn phê duyệt chính thức.
           </EditorialPolicyBanner>
         </div>
       </section>
@@ -291,10 +291,10 @@ export const ServicesPage: React.FC = () => {
                             <ShieldAlert className="w-7 h-7" />
                           </div>
                           <h3 className="font-serif font-bold text-lg text-[var(--color-warm-orange-dark)] mb-2">
-                            Phòng Trực Cấp Cứu 24/24
+                            Tiếp Nhận Cấp Cứu 24/24
                           </h3>
                           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
-                            Tiếp nhận mọi ca khẩn cấp trong đêm tại {HOSPITAL_CONTACT.shortAddress}. Vui lòng gọi trước để chuẩn bị phòng khám.
+                            Tiếp nhận cấp cứu 24/24 tại {HOSPITAL_CONTACT.shortAddress}. Vui lòng gọi hotline trước khi di chuyển đến cơ sở.
                           </p>
                           <a
                             href={HOSPITAL_CONTACT.hotlineTel}

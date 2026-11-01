@@ -16,7 +16,7 @@
 1. **Blueprint v2.1:** `docs/phase-3a-design-blueprint.md`
 2. **Mockup trực quan tương tác độc lập (HTML/CSS/JS thuần, không tích hợp vào `src/`):**
    - Trong Repository (để Claude checkout và mở trực tiếp không bị BLOCKED): `docs/design/phase-3a-interactive-mockups.html`
-   - Trong thư mục Artifact phiên làm việc trên Windows: `C:/Users/Admin/.gemini/antigravity/brain/6f5020a8-5310-41e1-a151-7821d0315e27/phase-3a-interactive-mockups.html`
+   - Trong thư mục Artifact phiên làm việc: `<LOCAL_ARTIFACT_DIR>/phase-3a-interactive-mockups.html`
 3. **Báo cáo bàn giao & giải quyết từng phát hiện QA:** `docs/qa/3a-design-handoff-02.md`
 
 ---

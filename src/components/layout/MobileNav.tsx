@@ -164,7 +164,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
             ref={closeButtonRef}
             onClick={onClose}
             aria-label="Đóng menu điều hướng"
-            className="p-2 rounded-xl text-[var(--color-fg-primary)] hover:bg-[var(--color-bg-secondary)] cursor-pointer"
+            className="min-w-[44px] min-h-[44px] inline-flex items-center justify-center p-2 rounded-xl text-[var(--color-fg-primary)] hover:bg-[var(--color-bg-secondary)] cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -176,7 +176,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
             to="/"
             onClick={onClose}
             aria-current={checkActive('/') ? 'page' : undefined}
-            className={`flex items-center justify-between px-3.5 py-3 rounded-xl font-medium text-sm transition-colors ${
+            className={`flex items-center justify-between min-h-[44px] px-3.5 py-3 rounded-xl font-medium text-sm transition-colors ${
               checkActive('/')
                 ? 'bg-[var(--color-bg-secondary)] text-[var(--color-plum-primary)] font-semibold'
                 : 'text-[var(--color-fg-primary)] hover:bg-[var(--color-bg-secondary)]'
@@ -191,7 +191,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
               type="button"
               aria-expanded={openSection === 'about'}
               onClick={() => toggleSection('about')}
-              className={`w-full flex items-center justify-between px-3.5 py-3 text-sm font-medium bg-[var(--color-bg-card)] hover:bg-[var(--color-bg-secondary)] cursor-pointer ${isAboutGroupActive ? 'text-[var(--color-plum-primary)] font-semibold' : 'text-[var(--color-fg-primary)]'}`}
+              className={`w-full flex items-center justify-between min-h-[44px] px-3.5 py-3 text-sm font-medium bg-[var(--color-bg-card)] hover:bg-[var(--color-bg-secondary)] cursor-pointer ${isAboutGroupActive ? 'text-[var(--color-plum-primary)] font-semibold' : 'text-[var(--color-fg-primary)]'}`}
             >
               <span>Về Lê Sơn</span>
               <ChevronDown
@@ -206,7 +206,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
                   to="/gioi-thieu"
                   onClick={onClose}
                   aria-current={checkActive('/gioi-thieu') ? 'page' : undefined}
-                  className={`block px-3 py-2 text-xs font-medium hover:text-[var(--color-plum-primary)] ${checkActive('/gioi-thieu') ? 'text-[var(--color-plum-primary)] font-semibold bg-[var(--color-bg-primary)]/50 rounded-md' : 'text-[var(--color-fg-muted)]'}`}
+                  className={`flex items-center min-h-[44px] px-3 py-2 text-xs font-medium hover:text-[var(--color-plum-primary)] ${checkActive('/gioi-thieu') ? 'text-[var(--color-plum-primary)] font-semibold bg-[var(--color-bg-primary)]/50 rounded-md' : 'text-[var(--color-fg-muted)]'}`}
                 >
                   Giới thiệu bệnh viện
                 </Link>
@@ -214,7 +214,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
                   to="/doi-ngu"
                   onClick={onClose}
                   aria-current={checkActive('/doi-ngu') ? 'page' : undefined}
-                  className={`block px-3 py-2 text-xs font-medium hover:text-[var(--color-plum-primary)] ${checkActive('/doi-ngu') ? 'text-[var(--color-plum-primary)] font-semibold bg-[var(--color-bg-primary)]/50 rounded-md' : 'text-[var(--color-fg-muted)]'}`}
+                  className={`flex items-center min-h-[44px] px-3 py-2 text-xs font-medium hover:text-[var(--color-plum-primary)] ${checkActive('/doi-ngu') ? 'text-[var(--color-plum-primary)] font-semibold bg-[var(--color-bg-primary)]/50 rounded-md' : 'text-[var(--color-fg-muted)]'}`}
                 >
                   Đội ngũ bác sĩ
                 </Link>
@@ -222,7 +222,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
                   to="/co-so-vat-chat"
                   onClick={onClose}
                   aria-current={checkActive('/co-so-vat-chat') ? 'page' : undefined}
-                  className={`block px-3 py-2 text-xs font-medium hover:text-[var(--color-plum-primary)] ${checkActive('/co-so-vat-chat') ? 'text-[var(--color-plum-primary)] font-semibold bg-[var(--color-bg-primary)]/50 rounded-md' : 'text-[var(--color-fg-muted)]'}`}
+                  className={`flex items-center min-h-[44px] px-3 py-2 text-xs font-medium hover:text-[var(--color-plum-primary)] ${checkActive('/co-so-vat-chat') ? 'text-[var(--color-plum-primary)] font-semibold bg-[var(--color-bg-primary)]/50 rounded-md' : 'text-[var(--color-fg-muted)]'}`}
                 >
                   Cơ sở vật chất
                 </Link>
@@ -236,7 +236,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
               type="button"
               aria-expanded={openSection === 'services'}
               onClick={() => toggleSection('services')}
-              className={`w-full flex items-center justify-between px-3.5 py-3 text-sm font-medium bg-[var(--color-bg-card)] hover:bg-[var(--color-bg-secondary)] cursor-pointer ${isServicesGroupActive ? 'text-[var(--color-plum-primary)] font-semibold' : 'text-[var(--color-fg-primary)]'}`}
+              className={`w-full flex items-center justify-between min-h-[44px] px-3.5 py-3 text-sm font-medium bg-[var(--color-bg-card)] hover:bg-[var(--color-bg-secondary)] cursor-pointer ${isServicesGroupActive ? 'text-[var(--color-plum-primary)] font-semibold' : 'text-[var(--color-fg-primary)]'}`}
             >
               <span>Dịch vụ y tế</span>
               <ChevronDown
@@ -251,7 +251,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
                   to="/dich-vu"
                   onClick={onClose}
                   aria-current={checkActive('/dich-vu') ? 'page' : undefined}
-                  className={`block px-3 py-2 text-xs font-medium hover:text-[var(--color-plum-primary)] ${checkActive('/dich-vu') ? 'text-[var(--color-plum-primary)] font-semibold bg-[var(--color-bg-primary)]/50 rounded-md' : 'text-[var(--color-fg-muted)]'}`}
+                  className={`flex items-center min-h-[44px] px-3 py-2 text-xs font-medium hover:text-[var(--color-plum-primary)] ${checkActive('/dich-vu') ? 'text-[var(--color-plum-primary)] font-semibold bg-[var(--color-bg-primary)]/50 rounded-md' : 'text-[var(--color-fg-muted)]'}`}
                 >
                   Tất cả dịch vụ
                 </Link>
@@ -259,7 +259,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
                   to="/dich-vu/kham-dieu-tri"
                   onClick={onClose}
                   aria-current={checkActive('/dich-vu/kham-dieu-tri') ? 'page' : undefined}
-                  className={`block px-3 py-2 text-xs font-medium hover:text-[var(--color-plum-primary)] ${checkActive('/dich-vu/kham-dieu-tri') ? 'text-[var(--color-plum-primary)] font-semibold bg-[var(--color-bg-primary)]/50 rounded-md' : 'text-[var(--color-fg-muted)]'}`}
+                  className={`flex items-center min-h-[44px] px-3 py-2 text-xs font-medium hover:text-[var(--color-plum-primary)] ${checkActive('/dich-vu/kham-dieu-tri') ? 'text-[var(--color-plum-primary)] font-semibold bg-[var(--color-bg-primary)]/50 rounded-md' : 'text-[var(--color-fg-muted)]'}`}
                 >
                   Khám & điều trị lâm sàng
                 </Link>
@@ -267,7 +267,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
                   to="/dich-vu/noi-tru"
                   onClick={onClose}
                   aria-current={checkActive('/dich-vu/noi-tru') ? 'page' : undefined}
-                  className={`block px-3 py-2 text-xs font-medium hover:text-[var(--color-plum-primary)] ${checkActive('/dich-vu/noi-tru') ? 'text-[var(--color-plum-primary)] font-semibold bg-[var(--color-bg-primary)]/50 rounded-md' : 'text-[var(--color-fg-muted)]'}`}
+                  className={`flex items-center min-h-[44px] px-3 py-2 text-xs font-medium hover:text-[var(--color-plum-primary)] ${checkActive('/dich-vu/noi-tru') ? 'text-[var(--color-plum-primary)] font-semibold bg-[var(--color-bg-primary)]/50 rounded-md' : 'text-[var(--color-fg-muted)]'}`}
                 >
                   Chăm sóc nội trú 24/7
                 </Link>
@@ -275,7 +275,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
                   to="/dich-vu/spa"
                   onClick={onClose}
                   aria-current={checkActive('/dich-vu/spa') ? 'page' : undefined}
-                  className={`block px-3 py-2 text-xs font-medium hover:text-[var(--color-plum-primary)] ${checkActive('/dich-vu/spa') ? 'text-[var(--color-plum-primary)] font-semibold bg-[var(--color-bg-primary)]/50 rounded-md' : 'text-[var(--color-fg-muted)]'}`}
+                  className={`flex items-center min-h-[44px] px-3 py-2 text-xs font-medium hover:text-[var(--color-plum-primary)] ${checkActive('/dich-vu/spa') ? 'text-[var(--color-plum-primary)] font-semibold bg-[var(--color-bg-primary)]/50 rounded-md' : 'text-[var(--color-fg-muted)]'}`}
                 >
                   Spa & Grooming thẩm mỹ
                 </Link>
@@ -283,7 +283,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
                   to="/dich-vu/cap-cuu"
                   onClick={onClose}
                   aria-current={checkActive('/dich-vu/cap-cuu') ? 'page' : undefined}
-                  className="flex items-center justify-between px-3 py-2 text-xs font-semibold text-[var(--color-warm-orange-dark)] bg-amber-50/80 rounded-lg"
+                  className="flex items-center justify-between min-h-[44px] px-3 py-2 text-xs font-semibold text-[var(--color-warm-orange-dark)] bg-amber-50/80 rounded-lg"
                 >
                   <span className="flex items-center gap-1.5">
                     <ShieldAlert className="w-3.5 h-3.5" />
@@ -297,7 +297,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
                   to="/bang-gia"
                   onClick={onClose}
                   aria-current={checkActive('/bang-gia') ? 'page' : undefined}
-                  className={`block px-3 py-2 text-xs font-medium hover:text-[var(--color-plum-primary)] ${checkActive('/bang-gia') ? 'text-[var(--color-plum-primary)] font-semibold bg-[var(--color-bg-primary)]/50 rounded-md' : 'text-[var(--color-fg-muted)]'}`}
+                  className={`flex items-center min-h-[44px] px-3 py-2 text-xs font-medium hover:text-[var(--color-plum-primary)] ${checkActive('/bang-gia') ? 'text-[var(--color-plum-primary)] font-semibold bg-[var(--color-bg-primary)]/50 rounded-md' : 'text-[var(--color-fg-muted)]'}`}
                 >
                   Bảng giá niêm yết
                 </Link>
@@ -309,7 +309,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
             to="/cau-chuyen"
             onClick={onClose}
             aria-current={isCauChuyenActive ? 'page' : undefined}
-            className={`flex items-center justify-between px-3.5 py-3 rounded-xl font-medium text-sm transition-colors ${
+            className={`flex items-center justify-between min-h-[44px] px-3.5 py-3 rounded-xl font-medium text-sm transition-colors ${
               isCauChuyenActive
                 ? 'bg-[var(--color-bg-secondary)] text-[var(--color-plum-primary)] font-semibold'
                 : 'text-[var(--color-fg-primary)] hover:bg-[var(--color-bg-secondary)]'
@@ -324,7 +324,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
               type="button"
               aria-expanded={openSection === 'petCorner'}
               onClick={() => toggleSection('petCorner')}
-              className={`w-full flex items-center justify-between px-3.5 py-3 text-sm font-medium bg-[var(--color-bg-card)] hover:bg-[var(--color-bg-secondary)] cursor-pointer ${isPetCornerGroupActive ? 'text-[var(--color-plum-primary)] font-semibold' : 'text-[var(--color-fg-primary)]'}`}
+              className={`w-full flex items-center justify-between min-h-[44px] px-3.5 py-3 text-sm font-medium bg-[var(--color-bg-card)] hover:bg-[var(--color-bg-secondary)] cursor-pointer ${isPetCornerGroupActive ? 'text-[var(--color-plum-primary)] font-semibold' : 'text-[var(--color-fg-primary)]'}`}
             >
               <span>Góc thú cưng</span>
               <ChevronDown
@@ -339,7 +339,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
                   to="/goc-thu-cung"
                   onClick={onClose}
                   aria-current={checkActive('/goc-thu-cung') ? 'page' : undefined}
-                  className={`block px-3 py-2 text-xs font-medium hover:text-[var(--color-plum-primary)] ${checkActive('/goc-thu-cung') ? 'text-[var(--color-plum-primary)] font-semibold bg-[var(--color-bg-primary)]/50 rounded-md' : 'text-[var(--color-fg-muted)]'}`}
+                  className={`flex items-center min-h-[44px] px-3 py-2 text-xs font-medium hover:text-[var(--color-plum-primary)] ${checkActive('/goc-thu-cung') ? 'text-[var(--color-plum-primary)] font-semibold bg-[var(--color-bg-primary)]/50 rounded-md' : 'text-[var(--color-fg-muted)]'}`}
                 >
                   Kiến thức chăm sóc
                 </Link>
@@ -347,7 +347,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
                   to="/goc-thu-cung?cat=news"
                   onClick={onClose}
                   aria-current={checkActive('/goc-thu-cung?cat=news') ? 'page' : undefined}
-                  className={`block px-3 py-2 text-xs font-medium hover:text-[var(--color-plum-primary)] ${checkActive('/goc-thu-cung?cat=news') ? 'text-[var(--color-plum-primary)] font-semibold bg-[var(--color-bg-primary)]/50 rounded-md' : 'text-[var(--color-fg-muted)]'}`}
+                  className={`flex items-center min-h-[44px] px-3 py-2 text-xs font-medium hover:text-[var(--color-plum-primary)] ${checkActive('/goc-thu-cung?cat=news') ? 'text-[var(--color-plum-primary)] font-semibold bg-[var(--color-bg-primary)]/50 rounded-md' : 'text-[var(--color-fg-muted)]'}`}
                 >
                   Tin tức & Hoạt động
                 </Link>
@@ -355,7 +355,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
                   to="/san-pham"
                   onClick={onClose}
                   aria-current={checkActive('/san-pham') ? 'page' : undefined}
-                  className={`block px-3 py-2 text-xs font-medium hover:text-[var(--color-plum-primary)] ${checkActive('/san-pham') ? 'text-[var(--color-plum-primary)] font-semibold bg-[var(--color-bg-primary)]/50 rounded-md' : 'text-[var(--color-fg-muted)]'}`}
+                  className={`flex items-center min-h-[44px] px-3 py-2 text-xs font-medium hover:text-[var(--color-plum-primary)] ${checkActive('/san-pham') ? 'text-[var(--color-plum-primary)] font-semibold bg-[var(--color-bg-primary)]/50 rounded-md' : 'text-[var(--color-fg-muted)]'}`}
                 >
                   Sản phẩm chọn lọc
                 </Link>
@@ -368,7 +368,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
             to="/lien-he"
             onClick={onClose}
             aria-current={checkActive('/lien-he') ? 'page' : undefined}
-            className={`flex items-center justify-between px-3.5 py-3 rounded-xl font-medium text-sm transition-colors ${
+            className={`flex items-center justify-between min-h-[44px] px-3.5 py-3 rounded-xl font-medium text-sm transition-colors ${
               checkActive('/lien-he')
                 ? 'bg-[var(--color-bg-secondary)] text-[var(--color-plum-primary)] font-semibold'
                 : 'text-[var(--color-fg-primary)] hover:bg-[var(--color-bg-secondary)]'
@@ -386,7 +386,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
               to="/dang-nhap"
               onClick={onClose}
               aria-current={checkActive('/dang-nhap') ? 'page' : undefined}
-              className={`flex items-center justify-center gap-1.5 py-2.5 rounded-xl border text-xs font-semibold active:scale-[0.98] ${checkActive('/dang-nhap') ? 'border-[var(--color-plum-primary)] bg-[var(--color-bg-secondary)] text-[var(--color-plum-primary)] font-semibold' : 'border-[var(--color-border-subtle)] text-[var(--color-fg-primary)] hover:bg-[var(--color-bg-secondary)]'}`}
+              className={`flex items-center justify-center gap-1.5 min-h-[44px] py-2.5 rounded-xl border text-xs font-semibold active:scale-[0.98] ${checkActive('/dang-nhap') ? 'border-[var(--color-plum-primary)] bg-[var(--color-bg-secondary)] text-[var(--color-plum-primary)] font-semibold' : 'border-[var(--color-border-subtle)] text-[var(--color-fg-primary)] hover:bg-[var(--color-bg-secondary)]'}`}
             >
               <LogIn className="w-3.5 h-3.5" />
               <span>Đăng nhập</span>
@@ -395,7 +395,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
               to="/dang-ky"
               onClick={onClose}
               aria-current={checkActive('/dang-ky') ? 'page' : undefined}
-              className={`flex items-center justify-center gap-1.5 py-2.5 rounded-xl border text-xs font-semibold active:scale-[0.98] ${checkActive('/dang-ky') ? 'border-[var(--color-plum-primary)] bg-[var(--color-bg-secondary)] text-[var(--color-plum-primary)] font-semibold' : 'border-[var(--color-border-subtle)] text-[var(--color-fg-primary)] hover:bg-[var(--color-bg-secondary)]'}`}
+              className={`flex items-center justify-center gap-1.5 min-h-[44px] py-2.5 rounded-xl border text-xs font-semibold active:scale-[0.98] ${checkActive('/dang-ky') ? 'border-[var(--color-plum-primary)] bg-[var(--color-bg-secondary)] text-[var(--color-plum-primary)] font-semibold' : 'border-[var(--color-border-subtle)] text-[var(--color-fg-primary)] hover:bg-[var(--color-bg-secondary)]'}`}
             >
               <UserPlus className="w-3.5 h-3.5" />
               <span>Đăng ký</span>
@@ -407,7 +407,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
         <div className="p-4 bg-[var(--color-bg-secondary)] border-t border-[var(--color-border-subtle)] space-y-3">
           <a
             href={HOSPITAL_CONTACT.hotlineTel}
-            className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-[var(--color-warm-orange)] hover:bg-[var(--color-warm-orange-hover)] text-white font-semibold text-xs shadow-[var(--shadow-warm-orange)] active:scale-[0.98]"
+            className="w-full flex items-center justify-center gap-2 min-h-[44px] py-3 rounded-xl bg-[var(--color-warm-orange)] hover:bg-[var(--color-warm-orange-hover)] text-white font-semibold text-xs shadow-[var(--shadow-warm-orange)] active:scale-[0.98]"
           >
             <Phone className="w-4 h-4" />
             <span>Gọi Cấp cứu 24/24: {HOSPITAL_CONTACT.hotlineDisplay}</span>
@@ -416,7 +416,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
           <Link
             to="/dat-lich"
             onClick={onClose}
-            className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[var(--color-plum-primary)] hover:bg-[var(--color-plum-deep)] text-white font-semibold text-xs shadow-xs active:scale-[0.98]"
+            className="w-full flex items-center justify-center gap-2 min-h-[44px] py-2.5 rounded-xl bg-[var(--color-plum-primary)] hover:bg-[var(--color-plum-deep)] text-white font-semibold text-xs shadow-xs active:scale-[0.98]"
           >
             <Calendar className="w-3.5 h-3.5" />
             <span>Đặt lịch hẹn</span>
@@ -447,7 +447,7 @@ export const MobileBottomBar: React.FC = () => {
     >
       <a
         href={HOSPITAL_CONTACT.hotlineTel}
-        className="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-[var(--color-warm-orange)] text-white font-semibold text-xs shadow-[var(--shadow-warm-orange)] active:scale-[0.98] transition-transform"
+        className="flex-1 flex items-center justify-center gap-1.5 min-h-[44px] py-2.5 px-3 rounded-xl bg-[var(--color-warm-orange)] text-white font-semibold text-xs shadow-[var(--shadow-warm-orange)] active:scale-[0.98] transition-transform"
       >
         <Phone className="w-3.5 h-3.5" />
         <span>Cấp cứu 24/24</span>
@@ -455,7 +455,7 @@ export const MobileBottomBar: React.FC = () => {
 
       <Link
         to="/dat-lich"
-        className="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-[var(--color-plum-primary)] text-white font-semibold text-xs shadow-xs active:scale-[0.98] transition-transform"
+        className="flex-1 flex items-center justify-center gap-1.5 min-h-[44px] py-2.5 px-3 rounded-xl bg-[var(--color-plum-primary)] text-white font-semibold text-xs shadow-xs active:scale-[0.98] transition-transform"
       >
         <Calendar className="w-3.5 h-3.5" />
         <span>Đặt lịch khám</span>

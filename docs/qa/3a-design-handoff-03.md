@@ -37,7 +37,7 @@ Theo chỉ đạo tại **CEO Directive 019-A**, Antigravity đã hoàn thành v
 1. **Hồ sơ Thiết kế Blueprint v2.2:** `docs/phase-3a-design-blueprint.md`
 2. **Mockup trực quan tương tác (HTML/CSS/JS thuần, độc lập hoàn toàn với `src/`):**
    - Trong Git Repository: `docs/design/phase-3a-interactive-mockups.html`
-   - Trong thư mục Artifact phiên làm việc: `C:\Users\Admin\.gemini\antigravity\brain\6f5020a8-5310-41e1-a151-7821d0315e27\phase-3a-interactive-mockups.html`
+   - Trong thư mục Artifact phiên làm việc: `<LOCAL_ARTIFACT_DIR>/phase-3a-interactive-mockups.html`
 3. **Báo cáo Bàn giao Thiết kế Vòng sửa 03:** `docs/qa/3a-design-handoff-03.md`
 
 ---
