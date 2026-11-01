@@ -1,29 +1,26 @@
 import type { Route } from './+types/service-emergency'
-import { ComingSoonView } from '@/components/layout/ComingSoonView'
+import EmergencyPage from '@/pages/EmergencyPage'
+import { getRouteSeoPolicy } from '@/config/seo-policy'
 import { HOSPITAL_CONTACT } from '@/config/contact'
 
 export function meta(): Route.MetaDescriptors {
+  const policy = getRouteSeoPolicy('/dich-vu/cap-cuu')
   return [
-    { title: 'Tiếp nhận Cấp cứu 24/24 — Bệnh viện Thú y Lê Sơn' },
+    { title: `Tiếp Nhận Cấp Cứu 24/24 | ${HOSPITAL_CONTACT.name}` },
     {
       name: 'description',
-      content: `Quy trình hướng dẫn sơ cứu khẩn cấp và đường dây nóng ${HOSPITAL_CONTACT.hotlineDisplay} luôn sẵn sàng phục vụ tại Hà Nội.`,
+      content: `Đường dây nóng cấp cứu thú cưng 24/24 tại Hà Nội: ${HOSPITAL_CONTACT.hotlineDisplay}. Địa chỉ tiếp nhận: ${HOSPITAL_CONTACT.address}. Bác sĩ trực đêm sẵn sàng xử trí khẩn cấp.`,
     },
-    { name: 'robots', content: 'noindex, nofollow' },
-    { property: 'og:title', content: 'Tiếp nhận Cấp cứu 24/24 — Bệnh viện Thú y Lê Sơn' },
+    { name: 'robots', content: policy.robots },
+    { property: 'og:title', content: `Tiếp Nhận Cấp Cứu 24/24 | ${HOSPITAL_CONTACT.name}` },
     {
       property: 'og:description',
-      content: `Quy trình hướng dẫn sơ cứu khẩn cấp và đường dây nóng ${HOSPITAL_CONTACT.hotlineDisplay} luôn sẵn sàng phục vụ tại Hà Nội.`,
+      content: `Đường dây nóng cấp cứu thú cưng 24/24 tại Hà Nội: ${HOSPITAL_CONTACT.hotlineDisplay}. Địa chỉ tiếp nhận: ${HOSPITAL_CONTACT.address}. Bác sĩ trực đêm sẵn sàng xử trí khẩn cấp.`,
     },
     { property: 'og:type', content: 'website' },
   ]
 }
 
 export default function ServiceEmergencyRoute() {
-  return (
-    <ComingSoonView
-      title="Tiếp nhận Cấp cứu 24/24"
-      subtitle={`Quy trình hướng dẫn sơ cứu khẩn cấp và đường dây nóng ${HOSPITAL_CONTACT.hotlineDisplay} luôn sẵn sàng phục vụ.`}
-    />
-  )
+  return <EmergencyPage />
 }

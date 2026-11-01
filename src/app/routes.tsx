@@ -11,6 +11,7 @@ const AboutPage = lazy(() => import('@/pages/AboutPage'))
 const TeamPage = lazy(() => import('@/pages/TeamPage'))
 const FacilitiesPage = lazy(() => import('@/pages/FacilitiesPage'))
 const ServicesPage = lazy(() => import('@/pages/ServicesPage'))
+const EmergencyPage = lazy(() => import('@/pages/EmergencyPage'))
 
 const PageLoadingFallback = () => (
   <div
@@ -94,10 +95,9 @@ export const AppRoutes = () => {
         <Route
           path="/dich-vu/cap-cuu"
           element={
-            <ComingSoonView
-              title="Tiếp nhận Cấp cứu 24/24"
-              subtitle={`Quy trình hướng dẫn sơ cứu khẩn cấp và đường dây nóng ${HOSPITAL_CONTACT.hotlineDisplay} luôn sẵn sàng phục vụ.`}
-            />
+            <Suspense fallback={<PageLoadingFallback />}>
+              <EmergencyPage />
+            </Suspense>
           }
         />
         <Route
