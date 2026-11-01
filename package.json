@@ -14,6 +14,7 @@
     "test:hydration": "node tests/spike/test-hydration-404.cjs",
     "test:seo": "node tests/spike/test-seo-policy.cjs",
     "test:seo-consistency": "node tests/spike/test-seo-consistency.cjs",
+    "test:public-pages": "node tests/spike/test-public-pages-phase1.cjs",
     "test:install-browsers": "playwright install chromium"
   },
   "dependencies": {

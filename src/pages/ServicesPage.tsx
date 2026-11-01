@@ -317,7 +317,7 @@ export const ServicesPage: React.FC = () => {
       {/* 3. Bottom Information & Direct Booking CTA */}
       <section className="py-12 sm:py-16 bg-[var(--color-bg-secondary)] border-t border-[var(--color-border-subtle)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-[10px] p-6 sm:p-10 bg-[var(--color-bg-dark)] text-white shadow-md flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div className="rounded-[10px] p-6 sm:p-10 bg-[var(--color-bg-dark)] text-white shadow-md flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
             <div className="max-w-xl">
               <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--color-plum-orchid-light)] block mb-1">
                 Tư Vấn & Tiếp Nhận
@@ -330,7 +330,7 @@ export const ServicesPage: React.FC = () => {
               </p>
             </div>
 
-            <div className="flex flex-wrap items-center gap-3 shrink-0">
+            <div className="flex flex-wrap items-center gap-3">
               <Link
                 to="/dat-lich"
                 className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-[6px] bg-white text-[var(--color-plum-deep)] hover:bg-[var(--color-lavender)] font-semibold text-xs sm:text-sm transition-all min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
