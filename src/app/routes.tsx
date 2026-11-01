@@ -5,13 +5,13 @@ import { ComingSoonView } from '@/components/layout/ComingSoonView'
 import { HomePage } from '@/pages/HomePage'
 import { BookingPage } from '@/pages/BookingPage'
 import { NotFoundPage } from '@/pages/NotFoundPage'
-import { HOSPITAL_CONTACT } from '@/config/contact'
 
 const AboutPage = lazy(() => import('@/pages/AboutPage'))
 const TeamPage = lazy(() => import('@/pages/TeamPage'))
 const FacilitiesPage = lazy(() => import('@/pages/FacilitiesPage'))
 const ServicesPage = lazy(() => import('@/pages/ServicesPage'))
 const EmergencyPage = lazy(() => import('@/pages/EmergencyPage'))
+const ContactPage = lazy(() => import('@/pages/ContactPage'))
 
 const PageLoadingFallback = () => (
   <div
@@ -166,10 +166,9 @@ export const AppRoutes = () => {
         <Route
           path="/lien-he"
           element={
-            <ComingSoonView
-              title="Liên hệ & Thông tin phòng khám"
-              subtitle={`Địa chỉ: ${HOSPITAL_CONTACT.address} | Hotline 24/24: ${HOSPITAL_CONTACT.hotlineDisplay}.`}
-            />
+            <Suspense fallback={<PageLoadingFallback />}>
+              <ContactPage />
+            </Suspense>
           }
         />
 
