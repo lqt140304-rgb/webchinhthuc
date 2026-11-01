@@ -86,10 +86,12 @@ const server = http.createServer((req, res) => {
 const PORT = 5198;
 const TEST_VIEWPORTS = [
   { name: 'Mobile XS', width: 320, height: 600 },
+  { name: 'Mobile Android', width: 360, height: 740 },
   { name: 'Mobile Modern', width: 390, height: 844 },
   { name: 'Tablet Portrait', width: 768, height: 1024 },
   { name: 'Laptop Standard', width: 1366, height: 768 },
   { name: 'Desktop Standard', width: 1440, height: 900 },
+  { name: 'Desktop Full HD', width: 1920, height: 1080 },
 ];
 
 server.listen(PORT, async () => {
