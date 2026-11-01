@@ -129,7 +129,7 @@ export const MOCK_SERVICE_SUPPLEMENT_NOTES: Record<string, MockServiceDetailItem
   'kham-dieu-tri': {
     id: 'kham-dieu-tri',
     isMock: true,
-    mockLabel: 'Dữ liệu minh họa danh mục chi tiết — chờ cập nhật bảng danh mục chính thức',
+    mockLabel: 'Nội dung minh họa — đang cập nhật dữ liệu thực tế',
     items: [
       'Khám lâm sàng tổng quát và tư vấn theo dõi sức khỏe định kỳ',
       'Xét nghiệm, siêu âm và chụp X-quang theo chỉ định thăm khám của bác sĩ',
@@ -139,7 +139,7 @@ export const MOCK_SERVICE_SUPPLEMENT_NOTES: Record<string, MockServiceDetailItem
   'noi-tru': {
     id: 'noi-tru',
     isMock: true,
-    mockLabel: 'Dữ liệu minh họa quy cách lưu trú — chờ cập nhật thông tin chi tiết',
+    mockLabel: 'Nội dung minh họa — đang cập nhật dữ liệu thực tế',
     items: [
       'Khu vực lưu trú phân chia theo nhu cầu theo dõi của thú cưng',
       'Trao đổi chế độ ăn uống và lịch sinh hoạt của bé khi tiếp nhận',
@@ -148,7 +148,7 @@ export const MOCK_SERVICE_SUPPLEMENT_NOTES: Record<string, MockServiceDetailItem
   spa: {
     id: 'spa',
     isMock: true,
-    mockLabel: 'Dữ liệu minh họa gói chăm sóc — chờ cập nhật bảng thông số dịch vụ',
+    mockLabel: 'Nội dung minh họa — đang cập nhật dữ liệu thực tế',
     items: [
       'Tắm vệ sinh, sấy khô và chải lông cơ bản',
       'Cắt tỉa gọn gàng và vệ sinh tai, móng theo nhu cầu chủ nuôi',
@@ -249,7 +249,7 @@ export interface MockSpaPricingRow {
 // --- 1. TRANG KHÁM & ĐIỀU TRỊ (/dich-vu/kham-dieu-tri) ---
 
 export const MOCK_EXAM_EDITORIAL_NOTICE =
-  'Trình tự các bước dưới đây là dữ liệu minh họa cấu trúc thăm khám tham khảo — không phải quy trình vận hành chính thức hoặc phác đồ điều trị cố định của bệnh viện.'
+  'Trình tự các bước dưới đây là dữ liệu minh họa cấu trúc thăm khám tổng quát — không phải quy trình vận hành chính thức hoặc phác đồ điều trị cố định. Nội dung sẽ được cập nhật sau khi chủ bệnh viện phê duyệt.'
 
 export const MOCK_EXAM_PROCESS_STEPS: readonly MockProcessStepItem[] = [
   {
@@ -259,7 +259,7 @@ export const MOCK_EXAM_PROCESS_STEPS: readonly MockProcessStepItem[] = [
     title: 'Tiếp nhận thông tin & Ghi nhận biểu hiện ban đầu',
     summary:
       'Ghi nhận thông tin cơ bản của thú cưng, lịch sử sinh hoạt, khẩu phần ăn và những dấu hiệu khiến chủ nuôi lo lắng khi đưa bé đến cơ sở 101 Khuất Duy Tiến.',
-    detailNote: 'Bước tham khảo: Tiếp đón & ghi nhận',
+    detailNote: 'Tiếp nhận & ghi nhận',
   },
   {
     id: 'exam-step-2',
@@ -268,7 +268,7 @@ export const MOCK_EXAM_PROCESS_STEPS: readonly MockProcessStepItem[] = [
     title: 'Khám lâm sàng tổng quát cùng bác sĩ',
     summary:
       'Bác sĩ kiểm tra thể trạng chung, quan sát niêm mạc, nghe tim phổi, kiểm tra vùng bụng, da lông và đánh giá các phản xạ cơ bản của bé.',
-    detailNote: 'Bước tham khảo: Thăm khám lâm sàng',
+    detailNote: 'Khám lâm sàng',
   },
   {
     id: 'exam-step-3',
@@ -277,7 +277,7 @@ export const MOCK_EXAM_PROCESS_STEPS: readonly MockProcessStepItem[] = [
     title: 'Chỉ định X-quang, Siêu âm hoặc Xét nghiệm khi cần thiết',
     summary:
       'Tùy theo biểu hiện lâm sàng, bác sĩ trao đổi với chủ nuôi trước khi thực hiện chụp X-quang, siêu âm hoặc xét nghiệm cận lâm sàng để có cơ sở đánh giá chính xác.',
-    detailNote: 'Bước tham khảo: Chỉ định cận lâm sàng',
+    detailNote: 'Chỉ định cận lâm sàng',
   },
   {
     id: 'exam-step-4',
@@ -286,7 +286,7 @@ export const MOCK_EXAM_PROCESS_STEPS: readonly MockProcessStepItem[] = [
     title: 'Tư vấn hướng điều trị, phẫu thuật hoặc chăm sóc theo dõi',
     summary:
       'Giải thích kết quả kiểm tra cho gia đình, trao đổi phương án chăm sóc ngoại trú, lưu trú theo dõi hoặc chỉ định phẫu thuật phù hợp với thể trạng của bé.',
-    detailNote: 'Bước tham khảo: Kế hoạch chăm sóc & tái khám',
+    detailNote: 'Tư vấn & theo dõi',
   },
 ]
 
@@ -317,13 +317,13 @@ export const MOCK_EXAM_FAQS: readonly MockFaqItem[] = [
 // --- 2. TRANG CHĂM SÓC NỘI TRÚ (/dich-vu/noi-tru) ---
 
 export const MOCK_INPATIENT_EDITORIAL_NOTICE =
-  'Mô tả không gian lưu trú, lịch trình sinh hoạt và khung thông tin Cổng khách hàng dưới đây là dữ liệu minh họa giao diện. Vui lòng liên hệ hotline 097 355 51 05 để được tư vấn điều kiện tiếp nhận thực tế.'
+  'Mô tả không gian lưu trú, các giai đoạn chăm sóc và trải nghiệm theo dõi dưới đây là nội dung minh họa — đang cập nhật dữ liệu thực tế. Vui lòng liên hệ hotline 097 355 51 05 để được tư vấn điều kiện tiếp nhận thực tế.'
 
 export const MOCK_INPATIENT_CARE_SPACES: readonly MockInpatientSpaceItem[] = [
   {
     id: 'inpatient-space-1',
     isMock: true,
-    badgeLabel: 'Mô tả không gian tham khảo',
+    badgeLabel: 'Không gian lưu trú minh họa',
     zoneTitle: 'Khu vực lưu trú phân tách theo loài & tính cách',
     subtitle: 'Giảm căng thẳng âm thanh và mùi hương lạ cho chó & mèo',
     description:
@@ -339,11 +339,11 @@ export const MOCK_INPATIENT_CARE_SPACES: readonly MockInpatientSpaceItem[] = [
   {
     id: 'inpatient-space-2',
     isMock: true,
-    badgeLabel: 'Mô tả chăm sóc tham khảo',
+    badgeLabel: 'Chăm sóc sinh hoạt minh họa',
     zoneTitle: 'Theo dõi sinh hoạt & Chăm sóc sau thăm khám',
     subtitle: 'Ghi nhận thói quen ăn uống, vận động và tinh thần của bé',
     description:
-      'Nội dung minh họa quy trình nhân sự chăm sóc quan sát mức độ ăn uống, đi vệ sinh và biểu hiện tinh thần của thú cưng để phối hợp cùng bác sĩ trong khung giờ làm việc.',
+      'Nội dung minh họa cách nhân sự chăm sóc quan sát mức độ ăn uống, đi vệ sinh và biểu hiện tinh thần của thú cưng để phối hợp cùng bác sĩ theo dõi thể trạng của bé.',
     points: [
       'Ghi chép bữa ăn và lượng nước uống theo khẩu phần gia đình dặn dò',
       'Quan sát biểu hiện tinh thần, mức độ thích nghi với môi trường mới',
@@ -358,78 +358,78 @@ export const MOCK_INPATIENT_TIMELINE: readonly MockInpatientTimelineItem[] = [
   {
     id: 'inpatient-tl-1',
     isMock: true,
-    phaseCode: 'BUỔI SÁNG',
-    timeSlot: 'Buổi sáng (Khung giờ tham khảo)',
-    title: 'Kiểm tra buổi sáng, vệ sinh không gian & Bữa ăn sáng',
+    phaseCode: 'GIAI ĐOẠN 01',
+    timeSlot: 'Tiếp nhận',
+    title: 'Tiếp nhận thú cưng & Trao đổi thông tin ban đầu',
     description:
-      'Quan sát tinh thần của bé khi bắt đầu ngày mới, làm sạch khu vực lưu trú và phục vụ bữa sáng theo chế độ ăn đã thống nhất lúc tiếp nhận.',
-    ownerNote: 'Ghi nhận mức độ ăn uống và vệ sinh buổi sáng',
+      'Ghi nhận thói quen ăn uống, sinh hoạt và trao đổi các lưu ý đặc biệt từ gia đình khi gửi bé lưu trú.',
+    ownerNote: 'Thống nhất nhu cầu lưu trú và thông tin liên hệ',
   },
   {
     id: 'inpatient-tl-2',
     isMock: true,
-    phaseCode: 'BUỔI TRƯA',
-    timeSlot: 'Buổi trưa (Khung giờ tham khảo)',
-    title: 'Nghỉ ngơi yên tĩnh & Theo dõi thể trạng giữa ngày',
+    phaseCode: 'GIAI ĐOẠN 02',
+    timeSlot: 'Sắp xếp lưu trú',
+    title: 'Sắp xếp ô lưu trú & Ổn định môi trường',
     description:
-      'Giữ không gian dịu nhẹ để thú cưng nghỉ trưa, hạn chế tiếng ồn lớn và kiểm tra nước uống trong từng ô lưu trú.',
-    ownerNote: 'Đảm bảo không gian yên tĩnh giúp bé giảm căng thẳng',
+      'Bố trí ô lưu trú cá nhân êm ái, yên tĩnh, chuẩn bị khay vệ sinh và nước uống để bé làm quen với không gian mới.',
+    ownerNote: 'Tạo không gian thoải mái, giúp bé thích nghi',
   },
   {
     id: 'inpatient-tl-3',
     isMock: true,
-    phaseCode: 'BUỔI CHIỀU',
-    timeSlot: 'Buổi chiều (Khung giờ tham khảo)',
-    title: 'Tương tác nhẹ nhàng, kiểm tra sức khỏe & Bữa chiều',
+    phaseCode: 'GIAI ĐOẠN 03',
+    timeSlot: 'Theo dõi theo chỉ định',
+    title: 'Theo dõi sinh hoạt & Chăm sóc theo chỉ định',
     description:
-      'Kiểm tra lại tình trạng chung, cho bé ăn bữa chiều và tổng hợp ghi chú sinh hoạt để phản hồi cho chủ nuôi khi liên hệ.',
-    ownerNote: 'Tổng hợp thông tin sinh hoạt trong ngày của bé',
+      'Quan sát mức độ ăn uống, vận động và biểu hiện tinh thần của thú cưng theo hướng dẫn chuyên môn của bác sĩ.',
+    ownerNote: 'Ghi nhận biểu hiện sinh hoạt hằng ngày',
   },
   {
     id: 'inpatient-tl-4',
     isMock: true,
-    phaseCode: 'BUỔI TỐI',
-    timeSlot: 'Buổi tối & Ban đêm (Khung giờ tham khảo)',
-    title: 'Chăm sóc buổi tối & Ổn định không gian nghỉ đêm',
+    phaseCode: 'GIAI ĐOẠN 04',
+    timeSlot: 'Trao đổi thông tin với chủ nuôi',
+    title: 'Trao đổi thông tin & Chuẩn bị đón bé',
     description:
-      'Vệ sinh khay đệm, chuẩn bị chỗ ngủ ấm cúng và duy trì môi trường yên tĩnh, thông thoáng để thú cưng an tâm nghỉ ngơi suốt đêm.',
-    ownerNote: 'Duy trì không gian an toàn, theo dõi sự thoải mái của bé qua đêm',
+      'Cập nhật tình hình sinh hoạt của bé khi gia đình liên hệ và hỗ trợ các thủ tục đón bé thuận tiện.',
+    ownerNote: 'Liên hệ qua hotline để nắm thông tin bé',
   },
 ]
 
 export const MOCK_INPATIENT_FUTURE_PORTAL_PREVIEW: MockCustomerPortalPreview = {
   isMock: true,
-  badgeLabel: 'Bản xem trước chức năng tương lai — Cổng khách hàng (Giai đoạn 4)',
+  badgeLabel: 'Minh họa trải nghiệm theo dõi thú cưng',
   editorialNotice:
-    'Khung giao diện dưới đây là bản xem trước chức năng dự kiến trên Cổng khách hàng (/tai-khoan) ở giai đoạn phát triển tiếp theo, tuân thủ nguyên tắc bảo mật dữ liệu nội bộ.',
-  title: 'Chủ nuôi sẽ nhận được thông tin gì trên hệ thống tương lai?',
+    'Khung giao diện dưới đây là nội dung minh họa trải nghiệm theo dõi trong tương lai, không phải tính năng đang vận hành.',
+  title: 'Minh họa trải nghiệm theo dõi thú cưng',
   subtitle:
-    'Thiết kế hướng tới sự an tâm cho gia đình thông qua các bản tin sinh hoạt dễ hiểu, đồng thời tách biệt nghiêm ngặt với dữ liệu y khoa nội bộ của bệnh viện.',
+    'Bản xem trước ý tưởng giao diện hỗ trợ gia đình nắm bắt thông tin sinh hoạt của thú cưng khi lưu trú, tách biệt với dữ liệu y khoa nội bộ.',
   sharedItems: [
     {
       id: 'portal-share-1',
-      label: 'Trạng thái sinh hoạt & Tinh thần hằng ngày',
-      sampleValue: 'Minh họa: Bé ăn hết khẩu phần sáng, tinh thần tỉnh táo, ngủ ngoan',
-      description: 'Tóm tắt ngắn gọn bằng ngôn ngữ thân thiện sau khi được duyệt chia sẻ cho chủ nuôi.',
+      label: 'Trạng thái sinh hoạt & Tinh thần',
+      sampleValue: 'Bé ăn hết khẩu phần, tinh thần ổn định, làm quen tốt với ô lưu trú',
+      description: 'Thông tin sinh hoạt được biên soạn bằng ngôn ngữ thân thiện dành cho chủ nuôi.',
     },
     {
       id: 'portal-share-2',
-      label: 'Ghi chú khẩu phần ăn & Chăm sóc chung',
-      sampleValue: 'Minh họa: Đã dùng bữa sáng lúc 08:30 và bữa chiều lúc 16:30 theo thức ăn gia đình gửi',
-      description: 'Giúp chủ nuôi nắm được nếp ăn uống và sinh hoạt của bé tại cơ sở.',
+      label: 'Ghi chú khẩu phần ăn & Nước uống',
+      sampleValue: 'Đã dùng bữa theo thức ăn gia đình gửi, uống đủ nước',
+      description: 'Giúp gia đình yên tâm về việc duy trì thói quen ăn uống của bé.',
     },
     {
       id: 'portal-share-3',
-      label: 'Lịch hẹn kiểm tra & Thông báo xuất viện',
-      sampleValue: 'Minh họa: Dự kiến đón bé lúc 17:30 • Lịch tái khám định kỳ sau 5 ngày',
-      description: 'Chủ động sắp xếp thời gian đón bé và theo dõi lịch hẹn tiếp theo.',
+      label: 'Dự kiến thời gian đón bé',
+      sampleValue: 'Dự kiến đón bé trong khung giờ đón tiếp của viện',
+      description: 'Hỗ trợ gia đình chủ động sắp xếp thời gian đến đón thú cưng.',
     },
   ],
-  restrictedNoticeTitle: 'Nguyên tắc bảo mật & Giới hạn hiển thị trên Cổng khách hàng:',
+  restrictedNoticeTitle: 'Ranh giới thông tin dự kiến trên Cổng khách hàng:',
   restrictedItems: [
-    'Không hiển thị tên thuốc điều trị, liều lượng tiêm truyền hoặc công thức pha chế nội bộ.',
+    'Chủ nuôi không xem tên thuốc điều trị, liều lượng, lịch tiêm hoặc công thức pha chế nội bộ.',
     'Không hiển thị y lệnh chi tiết, phác đồ chuyên môn nội bộ hoặc ghi chú nghiệp vụ riêng của bác sĩ.',
-    'Mọi tư vấn điều trị chuyên sâu đều được bác sĩ trao đổi trực tiếp với chủ nuôi tại phòng khám hoặc qua điện thoại.',
+    'Mọi trao đổi chuyên môn y khoa đều được bác sĩ tư vấn trực tiếp với gia đình tại phòng khám hoặc qua điện thoại.',
   ],
 }
 
@@ -446,7 +446,7 @@ export const MOCK_INPATIENT_FAQS: readonly MockFaqItem[] = [
     isMock: true,
     question: 'Làm thế nào để hỏi thăm tình hình của bé trong thời gian lưu trú?',
     answer:
-      'Gia đình có thể liên hệ trực tiếp qua hotline 097 355 51 05 hoặc trao đổi trong khung giờ hoạt động 08:00 – 21:00 để nhận thông tin cập nhật về bữa ăn và sinh hoạt của bé.',
+      'Gia đình có thể liên hệ trực tiếp qua hotline 097 355 51 05 để được hỗ trợ thông tin về tình hình sinh hoạt và sức khỏe của bé.',
   },
   {
     id: 'inpatient-faq-3',
@@ -460,7 +460,7 @@ export const MOCK_INPATIENT_FAQS: readonly MockFaqItem[] = [
 // --- 3. TRANG SPA & GROOMING (/dich-vu/spa) ---
 
 export const MOCK_SPA_EDITORIAL_NOTICE =
-  'Quy trình chăm sóc, bộ sưu tập hình ảnh và bảng giá dưới đây là dữ liệu minh họa bố cục giao diện — không phải biểu phí niêm yết chính thức. Vui lòng liên hệ 097 355 51 05 để được tư vấn theo cân nặng và tình trạng lông thực tế của bé.'
+  'Quy trình chăm sóc, bộ sưu tập hình ảnh và bảng giá dưới đây là nội dung minh họa — đang cập nhật dữ liệu thực tế; không phải biểu phí niêm yết chính thức. Vui lòng liên hệ hotline 097 355 51 05 để được tư vấn chi tiết.'
 
 export const MOCK_SPA_SERVICE_GROUPS: readonly MockSpaServiceGroupItem[] = [
   {
@@ -515,7 +515,7 @@ export const MOCK_SPA_WORKFLOW_STEPS: readonly MockProcessStepItem[] = [
     title: 'Đón bé & Kiểm tra tình trạng da lông ban đầu',
     summary:
       'Tiếp nhận thú cưng tại 101 Khuất Duy Tiến, quan sát độ dày lông, các điểm lông rối và lắng nghe yêu cầu của chủ nuôi.',
-    detailNote: 'Bước tham khảo 01 • Tiếp nhận & trao đổi',
+    detailNote: 'Tiếp nhận & trao đổi',
   },
   {
     id: 'spa-step-2',
@@ -524,7 +524,7 @@ export const MOCK_SPA_WORKFLOW_STEPS: readonly MockProcessStepItem[] = [
     title: 'Chải gỡ rối sơ bộ, vệ sinh tai & cắt móng',
     summary:
       'Chải tơi các vùng lông bết nhẹ, bấm gọn móng và làm sạch vùng tai, đệm chân trước khi bước vào khâu tắm ấm.',
-    detailNote: 'Bước tham khảo 02 • Vệ sinh chi tiết',
+    detailNote: 'Vệ sinh chi tiết',
   },
   {
     id: 'spa-step-3',
@@ -533,7 +533,7 @@ export const MOCK_SPA_WORKFLOW_STEPS: readonly MockProcessStepItem[] = [
     title: 'Tắm sạch dịu nhẹ & Sấy khô chải phồng',
     summary:
       'Thực hiện tắm làm sạch với thao tác nhẹ nhàng để bé không hoảng sợ, sau đó sấy khô và chải mượt toàn bộ lớp lông.',
-    detailNote: 'Bước tham khảo 03 • Tắm ấm & sấy chải',
+    detailNote: 'Tắm sạch & sấy chải',
   },
   {
     id: 'spa-step-4',
@@ -542,7 +542,7 @@ export const MOCK_SPA_WORKFLOW_STEPS: readonly MockProcessStepItem[] = [
     title: 'Cắt tỉa tạo kiểu & Bàn giao bé cho gia đình',
     summary:
       'Tỉa gọn hoặc tạo hình theo thỏa thuận ban đầu, kiểm tra lại tổng thể và mời chủ nuôi đón bé tại quầy tiếp đón.',
-    detailNote: 'Bước tham khảo 04 • Tạo kiểu & bàn giao',
+    detailNote: 'Hoàn thiện & bàn giao',
   },
 ]
 
@@ -550,7 +550,7 @@ export const MOCK_SPA_GALLERY: readonly MockSpaGalleryItem[] = [
   {
     id: 'spa-gal-1',
     isMock: true,
-    badgeLabel: 'Ảnh minh họa • Lookbook 01',
+    badgeLabel: 'Ảnh minh họa',
     title: 'Chăm sóc tắm sấy & chải mượt định kỳ',
     caption: 'Hình ảnh minh họa phong cách chăm sóc nhẹ nhàng, giữ bộ lông sạch thơm cho thú cưng.',
     image: '/images/service-spa.webp',
@@ -560,7 +560,7 @@ export const MOCK_SPA_GALLERY: readonly MockSpaGalleryItem[] = [
   {
     id: 'spa-gal-2',
     isMock: true,
-    badgeLabel: 'Ảnh minh họa • Lookbook 02',
+    badgeLabel: 'Ảnh minh họa',
     title: 'Trải nghiệm thư giãn cho mèo cưng',
     caption: 'Hình ảnh minh họa thao tác ân cần giúp các bé mèo giảm căng thẳng khi vệ sinh cá nhân.',
     image: '/images/hero-happy-cat.webp',
@@ -570,7 +570,7 @@ export const MOCK_SPA_GALLERY: readonly MockSpaGalleryItem[] = [
   {
     id: 'spa-gal-3',
     isMock: true,
-    badgeLabel: 'Ảnh minh họa • Lookbook 03',
+    badgeLabel: 'Ảnh minh họa',
     title: 'Vẻ ngoài gọn gàng sau khi cắt tỉa',
     caption: 'Hình ảnh minh họa diện mạo năng động, sạch sẽ sau buổi làm đẹp cơ bản.',
     image: '/images/why-pet-companion.webp',
@@ -584,36 +584,36 @@ export const MOCK_SPA_PRICING_TABLE: readonly MockSpaPricingRow[] = [
     id: 'spa-price-1',
     isMock: true,
     packageTitle: 'Tắm vệ sinh & Sấy chải cơ bản',
-    weightRange: 'Cỡ nhỏ (Dưới 5 kg — Tham khảo)',
-    referencePrice: 'Giá tham khảo — Liên hệ báo giá',
-    durationEstimate: 'Khoảng 45 – 60 phút (Tham khảo)',
+    weightRange: 'Cỡ nhỏ (Dưới 5 kg)',
+    referencePrice: 'Giá minh họa — Chưa niêm yết',
+    durationEstimate: 'Khoảng 45 – 60 phút',
     includesSummary: 'Tắm sạch, sấy khô, chải lông, vệ sinh tai & bấm móng cơ bản',
   },
   {
     id: 'spa-price-2',
     isMock: true,
     packageTitle: 'Tắm vệ sinh & Sấy chải cơ bản',
-    weightRange: 'Cỡ vừa (5 – 12 kg — Tham khảo)',
-    referencePrice: 'Giá tham khảo — Liên hệ báo giá',
-    durationEstimate: 'Khoảng 60 – 75 phút (Tham khảo)',
+    weightRange: 'Cỡ vừa (5 – 12 kg)',
+    referencePrice: 'Giá minh họa — Chưa niêm yết',
+    durationEstimate: 'Khoảng 60 – 75 phút',
     includesSummary: 'Tắm sạch, sấy khô, chải tơi lông dày, vệ sinh tai & bấm móng',
   },
   {
     id: 'spa-price-3',
     isMock: true,
     packageTitle: 'Combo Tắm vệ sinh & Cắt tỉa gọn gàng',
-    weightRange: 'Cỡ nhỏ – vừa (Theo độ dày lông — Tham khảo)',
-    referencePrice: 'Giá tham khảo — Liên hệ báo giá',
-    durationEstimate: 'Khoảng 90 – 120 phút (Tham khảo)',
+    weightRange: 'Cỡ nhỏ – vừa (Theo độ dày lông)',
+    referencePrice: 'Giá minh họa — Chưa niêm yết',
+    durationEstimate: 'Khoảng 90 – 120 phút',
     includesSummary: 'Trọn gói tắm vệ sinh kết hợp cắt tỉa tạo phom gọn gàng theo yêu cầu',
   },
   {
     id: 'spa-price-4',
     isMock: true,
     packageTitle: 'Vệ sinh lẻ (Tai, móng, cạo bàn chân/bụng)',
-    weightRange: 'Áp dụng chung (Tham khảo)',
-    referencePrice: 'Giá tham khảo — Liên hệ báo giá',
-    durationEstimate: 'Khoảng 15 – 25 phút (Tham khảo)',
+    weightRange: 'Áp dụng chung',
+    referencePrice: 'Giá minh họa — Chưa niêm yết',
+    durationEstimate: 'Khoảng 15 – 25 phút',
     includesSummary: 'Chăm sóc nhanh các vùng vệ sinh cơ bản không bao gồm tắm sấy',
   },
 ]

@@ -163,7 +163,7 @@ export const ServiceInpatientPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
             <span className="inline-block px-2.5 py-1 rounded-[4px] bg-purple-100 text-[var(--color-plum-primary)] text-[11px] font-bold uppercase tracking-wider mb-2.5">
-              Không gian &amp; Chăm sóc • Dữ liệu mẫu
+              Nội dung minh họa — đang cập nhật dữ liệu thực tế
             </span>
             <h2
               id="inpatient-spaces-heading"
@@ -172,7 +172,7 @@ export const ServiceInpatientPage: React.FC = () => {
               Mô tả không gian lưu trú và sự quan tâm hằng ngày
             </h2>
             <p className="text-sm sm:text-base text-[var(--color-fg-muted)] leading-relaxed">
-              Hai khối nội dung dưới đây minh họa cách tổ chức khu vực lưu trú và theo dõi sinh hoạt cho thú cưng trong thời gian lưu lại cơ sở.
+              Hai khối nội dung dưới đây minh họa cách tổ chức không gian lưu trú và chăm sóc sinh hoạt trong thời gian thú cưng lưu lại cơ sở.
             </p>
           </div>
 
@@ -243,21 +243,21 @@ export const ServiceInpatientPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
             <span className="inline-block px-2.5 py-1 rounded-[4px] bg-purple-100 text-[var(--color-plum-primary)] text-[11px] font-bold uppercase tracking-wider mb-2.5">
-              Timeline tham khảo • Dữ liệu minh họa
+              Quy trình minh họa — chờ cập nhật quy trình chính thức
             </span>
             <h2
               id="inpatient-timeline-heading"
               className="text-2xl sm:text-3xl font-serif font-bold text-[var(--color-plum-deep)] tracking-tight mb-3"
             >
-              Một ngày lưu trú tham khảo của thú cưng diễn ra như thế nào?
+              Các giai đoạn chăm sóc lưu trú minh họa
             </h2>
             <p className="text-xs sm:text-sm text-[var(--color-fg-muted)] leading-relaxed">
-              Lịch trình dưới đây là nội dung minh họa các nhịp chăm sóc tham khảo trong ngày lưu trú. Chế độ chăm sóc thực tế được điều chỉnh linh hoạt theo thể trạng và thói quen sinh hoạt của từng bé.
+              Quy trình dưới đây minh họa các giai đoạn tiếp nhận và chăm sóc khi thú cưng lưu trú tại cơ sở. Quy trình thực tế được bác sĩ và nhân sự chăm sóc điều chỉnh phù hợp với thể trạng của từng bé.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {MOCK_INPATIENT_TIMELINE.map((slot, index) => (
+            {MOCK_INPATIENT_TIMELINE.map((slot) => (
               <article
                 key={slot.id}
                 className="p-5 sm:p-6 rounded-[10px] bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] shadow-2xs flex flex-col justify-between"
@@ -268,13 +268,8 @@ export const ServiceInpatientPage: React.FC = () => {
                       className="px-2 py-0.5 rounded-[4px] bg-purple-100 text-[var(--color-plum-deep)] text-[10px] font-bold uppercase tracking-wider"
                       aria-hidden="true"
                     >
-                      0{index + 1} • {slot.phaseCode}
+                      {slot.phaseCode}
                     </span>
-                    {slot.isMock && (
-                      <span className="text-[10px] font-medium text-[var(--color-fg-subtle)]">
-                        [Tham khảo]
-                      </span>
-                    )}
                   </div>
 
                   <p className="text-xs font-semibold text-[var(--color-warm-orange-dark)] mb-2">
@@ -282,7 +277,7 @@ export const ServiceInpatientPage: React.FC = () => {
                   </p>
 
                   <h3 className="text-base sm:text-lg font-serif font-bold text-[var(--color-plum-deep)] mb-2.5 leading-snug">
-                    <span className="sr-only">Giai đoạn 0{index + 1}: </span>{slot.title}
+                    <span className="sr-only">{slot.phaseCode}: </span>{slot.title}
                   </h3>
 
                   <p className="text-xs sm:text-sm text-[var(--color-fg-muted)] leading-relaxed mb-4">
@@ -331,7 +326,7 @@ export const ServiceInpatientPage: React.FC = () => {
               {/* Shared Owner-Facing Updates (7 cols) */}
               <div className="lg:col-span-7 space-y-3.5">
                 <h3 className="text-xs font-bold uppercase tracking-wider text-[var(--color-plum-primary)] mb-2">
-                  Thông tin sinh hoạt dự kiến chia sẻ cho chủ nuôi (Dữ liệu tham khảo):
+                  Thông tin sinh hoạt dự kiến (Nội dung minh họa):
                 </h3>
                 {MOCK_INPATIENT_FUTURE_PORTAL_PREVIEW.sharedItems.map((item) => (
                   <div
@@ -343,7 +338,7 @@ export const ServiceInpatientPage: React.FC = () => {
                         {item.label}
                       </span>
                       <span className="px-2 py-0.5 rounded-[4px] bg-white border border-[var(--color-border-subtle)] text-[10px] font-semibold text-[var(--color-plum-primary)]">
-                        Bản tin tham khảo
+                        Minh họa
                       </span>
                     </div>
                     <p className="text-xs sm:text-sm font-medium text-[var(--color-plum-primary)] mb-1">
@@ -364,7 +359,7 @@ export const ServiceInpatientPage: React.FC = () => {
                     <span>{MOCK_INPATIENT_FUTURE_PORTAL_PREVIEW.restrictedNoticeTitle}</span>
                   </div>
                   <p className="text-xs text-[var(--color-fg-muted)] leading-relaxed mb-4">
-                    Để đảm bảo an toàn y khoa và tránh việc tự ý áp dụng đơn thuốc tại nhà, hệ thống Cổng khách hàng tuân thủ giới hạn dữ liệu nghiêm ngặt:
+                    Để đảm bảo an toàn y khoa và tính bảo mật thông tin, định hướng trải nghiệm Cổng khách hàng tuân thủ các giới hạn dữ liệu rõ ràng:
                   </p>
                   <ul className="space-y-2.5 text-xs text-[var(--color-fg-primary)]">
                     {MOCK_INPATIENT_FUTURE_PORTAL_PREVIEW.restrictedItems.map((rule, idx) => (
@@ -403,7 +398,7 @@ export const ServiceInpatientPage: React.FC = () => {
           <div className="text-center mb-8 sm:mb-10">
             <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-[4px] bg-purple-100 text-[var(--color-plum-primary)] text-[11px] font-bold uppercase tracking-wider mb-2.5">
               <HelpCircle className="w-3.5 h-3.5" />
-              <span>Câu hỏi thường gặp • Dữ liệu minh họa</span>
+              <span>Câu hỏi &amp; câu trả lời minh họa</span>
             </span>
             <h2
               id="inpatient-faq-heading"
@@ -412,7 +407,7 @@ export const ServiceInpatientPage: React.FC = () => {
               Những câu hỏi thường gặp về dịch vụ lưu trú nội trú
             </h2>
             <p className="text-xs sm:text-sm text-[var(--color-fg-muted)]">
-              Nội dung dưới đây là dữ liệu minh họa giao diện giải đáp thông tin lưu trú.
+              Nội dung minh họa — đang cập nhật dữ liệu thực tế.
             </p>
           </div>
 
@@ -435,11 +430,6 @@ export const ServiceInpatientPage: React.FC = () => {
                     className="w-full px-5 py-4 text-left flex items-center justify-between gap-4 hover:bg-[var(--color-bg-secondary)]/50 transition-colors min-h-[48px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--color-plum-primary)]"
                   >
                     <div className="flex flex-wrap items-center gap-2">
-                      {faq.isMock && (
-                        <span className="px-2 py-0.5 rounded-[4px] bg-purple-100 text-[var(--color-plum-primary)] text-[10px] font-bold uppercase tracking-wider">
-                          FAQ tham khảo
-                        </span>
-                      )}
                       <span className="text-sm sm:text-base font-semibold text-[var(--color-plum-deep)]">
                         {faq.question}
                       </span>

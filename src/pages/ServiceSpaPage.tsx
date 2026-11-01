@@ -160,13 +160,13 @@ export const ServiceSpaPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
             <span className="inline-block px-2.5 py-1 rounded-[4px] bg-purple-100 text-[var(--color-plum-primary)] text-[11px] font-bold uppercase tracking-wider mb-2.5">
-              Nhóm Dịch Vụ Chăm Sóc • Dữ Liệu Mẫu
+              Nội dung minh họa — đang cập nhật dữ liệu thực tế
             </span>
             <h2
               id="spa-groups-heading"
               className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[var(--color-plum-deep)] tracking-tight mb-3"
             >
-              Ba nhóm chăm sóc vệ sinh &amp; làm đẹp cơ bản
+              Ba nhóm chăm sóc vệ sinh &amp; làm đẹp minh họa
             </h2>
             <p className="text-sm sm:text-base text-[var(--color-fg-muted)] leading-relaxed">
               Các hạng mục dưới đây minh họa cấu trúc gói chăm sóc ngoại hình và vệ sinh định kỳ cho chó mèo tại cơ sở.
@@ -184,11 +184,6 @@ export const ServiceSpaPage: React.FC = () => {
                     <span className="text-xs font-bold uppercase tracking-wider text-[var(--color-plum-primary)]">
                       {group.code}
                     </span>
-                    {group.isMock && (
-                      <span className="px-2 py-0.5 rounded-[4px] bg-purple-50 border border-purple-200/80 text-[10px] font-semibold text-[var(--color-plum-primary)]">
-                        Gói mẫu minh họa
-                      </span>
-                    )}
                   </div>
 
                   <h3 className="text-xl font-serif font-bold text-[var(--color-plum-deep)] mb-2 tracking-tight">
@@ -224,7 +219,7 @@ export const ServiceSpaPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
             <span className="inline-block px-2.5 py-1 rounded-[4px] bg-purple-100 text-[var(--color-plum-primary)] text-[11px] font-bold uppercase tracking-wider mb-2.5">
-              Quy trình Spa tham khảo • 4 bước
+              Quy trình minh họa — đang cập nhật dữ liệu thực tế
             </span>
             <h2
               id="spa-workflow-heading"
@@ -337,16 +332,16 @@ export const ServiceSpaPage: React.FC = () => {
           <div className="max-w-3xl mb-8">
             <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-[4px] bg-amber-100 text-[var(--color-warm-orange-dark)] text-[11px] font-bold uppercase tracking-wider mb-2.5">
               <Tag className="w-3.5 h-3.5" />
-              <span>Bảng giá tham khảo • Dữ liệu minh họa (Mock Data)</span>
+              <span>Bảng giá minh họa — chưa phải giá niêm yết</span>
             </span>
             <h2
               id="spa-pricing-heading"
               className="text-2xl sm:text-3xl font-serif font-bold text-[var(--color-plum-deep)] tracking-tight mb-2.5"
             >
-              Khung bảng giá tham khảo cấu trúc gói dịch vụ
+              Khung bảng giá minh họa cấu trúc gói dịch vụ
             </h2>
             <p className="text-xs sm:text-sm text-[var(--color-fg-muted)] leading-relaxed">
-              Bảng dưới đây được thiết kế để kiểm thử giao diện hiển thị gói dịch vụ theo phân nhóm cân nặng và hạng mục; <strong>không phải bảng báo giá niêm yết chính thức</strong>. Vui lòng liên hệ hotline {HOSPITAL_CONTACT.hotlineDisplay} để được báo giá chính xác.
+              Bảng dưới đây là nội dung minh họa cấu trúc hiển thị theo phân nhóm cân nặng; <strong>không phải biểu phí niêm yết chính thức</strong>. Vui lòng liên hệ hotline {HOSPITAL_CONTACT.hotlineDisplay} để được báo giá thực tế theo thể trạng và bộ lông của bé.
             </p>
           </div>
 
@@ -361,11 +356,6 @@ export const ServiceSpaPage: React.FC = () => {
                     <span className="text-xs font-bold text-[var(--color-plum-primary)]">
                       {row.weightRange}
                     </span>
-                    {row.isMock && (
-                      <span className="px-2 py-0.5 rounded-[4px] bg-amber-50 border border-amber-200 text-[10px] font-bold uppercase tracking-wider text-[var(--color-warm-orange-dark)]">
-                        Dữ liệu tham khảo
-                      </span>
-                    )}
                   </div>
 
                   <h3 className="text-base sm:text-lg font-serif font-bold text-[var(--color-plum-deep)] mb-2">
@@ -398,7 +388,7 @@ export const ServiceSpaPage: React.FC = () => {
           <div className="text-center mb-8 sm:mb-10">
             <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-[4px] bg-purple-100 text-[var(--color-plum-primary)] text-[11px] font-bold uppercase tracking-wider mb-2.5">
               <HelpCircle className="w-3.5 h-3.5" />
-              <span>Câu hỏi thường gặp • Dữ liệu minh họa</span>
+              <span>Câu hỏi &amp; câu trả lời minh họa</span>
             </span>
             <h2
               id="spa-faq-heading"
@@ -407,7 +397,7 @@ export const ServiceSpaPage: React.FC = () => {
               Lưu ý khi đặt lịch Spa &amp; Grooming cho thú cưng
             </h2>
             <p className="text-xs sm:text-sm text-[var(--color-fg-muted)]">
-              Các câu hỏi và giải đáp dưới đây là nội dung minh họa giao diện.
+              Nội dung minh họa — đang cập nhật dữ liệu thực tế.
             </p>
           </div>
 
@@ -430,11 +420,6 @@ export const ServiceSpaPage: React.FC = () => {
                     className="w-full px-5 py-4 text-left flex items-center justify-between gap-4 hover:bg-[var(--color-bg-secondary)]/50 transition-colors min-h-[48px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--color-plum-primary)]"
                   >
                     <div className="flex flex-wrap items-center gap-2">
-                      {faq.isMock && (
-                        <span className="px-2 py-0.5 rounded-[4px] bg-purple-100 text-[var(--color-plum-primary)] text-[10px] font-bold uppercase tracking-wider">
-                          FAQ tham khảo
-                        </span>
-                      )}
                       <span className="text-sm sm:text-base font-semibold text-[var(--color-plum-deep)]">
                         {faq.question}
                       </span>

@@ -173,7 +173,7 @@ export const ServiceExamPage: React.FC = () => {
             title="Phạm vi dịch vụ & dữ liệu mẫu trên trang:"
             className="rounded-[8px] mb-0"
           >
-            Bốn nhóm năng lực chuyên môn <strong>X-quang, Siêu âm, Xét nghiệm và Phẫu thuật</strong> là dịch vụ thực tế tại {HOSPITAL_CONTACT.address}. Các bước quy trình tham khảo và câu hỏi thường gặp gắn nhãn <em>[Dữ liệu mẫu]</em> phục vụ minh họa cấu trúc giao diện trong khi chờ cập nhật danh mục chi tiết.
+            Bốn nhóm năng lực chuyên môn <strong>X-quang, Siêu âm, Xét nghiệm và Phẫu thuật</strong> là dịch vụ thực tế tại {HOSPITAL_CONTACT.address}. Các bước quy trình và câu hỏi thường gặp là <em>nội dung minh họa — đang cập nhật dữ liệu thực tế</em> phục vụ hoàn thiện giao diện.
           </EditorialPolicyBanner>
         </div>
       </section>
@@ -272,13 +272,13 @@ export const ServiceExamPage: React.FC = () => {
             {/* Left Sticky/Intro Column (4 cols) */}
             <div className="lg:col-span-4">
               <span className="inline-block px-2.5 py-1 rounded-[4px] bg-purple-100 text-[var(--color-plum-primary)] text-[11px] font-bold uppercase tracking-wider mb-3">
-                Quy trình tham khảo • Dữ liệu minh họa
+                Nội dung minh họa — đang cập nhật dữ liệu thực tế
               </span>
               <h2
                 id="exam-process-heading"
                 className="text-2xl sm:text-3xl font-serif font-bold text-[var(--color-plum-deep)] tracking-tight mb-3"
               >
-                Trình tự 4 bước thăm khám tham khảo tại phòng khám
+                Minh họa các bước thăm khám tổng quát
               </h2>
               <p className="text-xs sm:text-sm text-[var(--color-fg-muted)] leading-relaxed mb-5">
                 {MOCK_EXAM_EDITORIAL_NOTICE}
@@ -354,7 +354,7 @@ export const ServiceExamPage: React.FC = () => {
           <div className="text-center mb-8 sm:mb-10">
             <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-[4px] bg-purple-100 text-[var(--color-plum-primary)] text-[11px] font-bold uppercase tracking-wider mb-2.5">
               <HelpCircle className="w-3.5 h-3.5" />
-              <span>Câu hỏi thường gặp • Dữ liệu mẫu</span>
+              <span>Câu hỏi &amp; câu trả lời minh họa</span>
             </span>
             <h2
               id="exam-faq-heading"
@@ -363,7 +363,7 @@ export const ServiceExamPage: React.FC = () => {
               Giải đáp thắc mắc khi đưa bé đi khám
             </h2>
             <p className="text-xs sm:text-sm text-[var(--color-fg-muted)]">
-              Các câu hỏi và câu trả lời dưới đây là nội dung mẫu minh họa giao diện hỏi đáp.
+              Nội dung minh họa — đang cập nhật dữ liệu thực tế.
             </p>
           </div>
 
@@ -386,11 +386,6 @@ export const ServiceExamPage: React.FC = () => {
                     className="w-full px-5 py-4 text-left flex items-center justify-between gap-4 hover:bg-[var(--color-bg-secondary)]/50 transition-colors min-h-[48px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--color-plum-primary)]"
                   >
                     <div className="flex flex-wrap items-center gap-2">
-                      {faq.isMock && (
-                        <span className="px-2 py-0.5 rounded-[4px] bg-purple-100 text-[var(--color-plum-primary)] text-[10px] font-bold uppercase tracking-wider">
-                          FAQ tham khảo
-                        </span>
-                      )}
                       <span className="text-sm sm:text-base font-semibold text-[var(--color-plum-deep)]">
                         {faq.question}
                       </span>
