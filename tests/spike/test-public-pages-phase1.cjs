@@ -215,19 +215,16 @@ server.listen(PORT, async () => {
           `Horizontal overflow detected on ${route.path} at ${vp.name} (${vp.width}x${vp.height}): scrollWidth ${overflow.scrollWidth} > clientWidth ${overflow.clientWidth} (delta: ${overflow.delta}px)`
         );
 
-        // On mobile viewports (< 1024px), verify primary Header & Footer interactive touch targets >= 44x44px
+        // On mobile viewports (< 1024px), verify Header primary controls and ALL Footer links have touch targets >= 44x44px
         if (vp.width < 1024) {
           const touchTargets = await page.evaluate(() => {
-            const selectors = [
+            const headerSelectors = [
               'header a[href="/"]',
               'header a[href="/dat-lich"]',
               'header button[aria-haspopup="dialog"]',
-              'footer a[href="/"]',
-              'footer a[href^="tel:"]',
-              'footer a[href="/dich-vu/cap-cuu"]',
             ];
             const undersized = [];
-            for (const sel of selectors) {
+            for (const sel of headerSelectors) {
               const els = document.querySelectorAll(sel);
               for (const el of els) {
                 const rect = el.getBoundingClientRect();
@@ -235,6 +232,18 @@ server.listen(PORT, async () => {
                   if (rect.width < 43.5 || rect.height < 43.5) {
                     undersized.push(`${sel} (${Math.round(rect.width)}x${Math.round(rect.height)}px)`);
                   }
+                }
+              }
+            }
+
+            // Check ALL footer links
+            const footerLinks = document.querySelectorAll('footer a');
+            for (const el of footerLinks) {
+              const rect = el.getBoundingClientRect();
+              if (rect.width > 0 && rect.height > 0) {
+                if (rect.width < 43.5 || rect.height < 43.5) {
+                  const href = el.getAttribute('href') || el.textContent.trim().slice(0, 20);
+                  undersized.push(`footer a[href="${href}"] (${Math.round(rect.width)}x${Math.round(rect.height)}px)`);
                 }
               }
             }

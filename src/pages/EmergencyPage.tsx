@@ -5,7 +5,6 @@ import {
   MapPin,
   Clock,
   ShieldAlert,
-  AlertTriangle,
   Navigation,
   Info,
 } from 'lucide-react'
@@ -14,44 +13,17 @@ import { HOSPITAL_CONTACT } from '@/config/contact'
 import { EditorialBreadcrumb } from '@/components/editorial/EditorialBreadcrumb'
 import { EditorialPolicyBanner } from '@/components/editorial/EditorialPolicyBanner'
 
-const emergencySigns = [
-  {
-    title: 'Khó thở hoặc tím tái',
-    description: `Thú cưng thở gấp, thở khò khè hoặc niêm mạc tím tái. Gọi ngay hotline ${HOSPITAL_CONTACT.hotlineDisplay} để được hướng dẫn hỗ trợ khẩn cấp.`,
-  },
-  {
-    title: 'Co giật & Hôn mê',
-    description: `Thú cưng co giật liên tục, mất thăng bằng hoặc ngất xỉu. Cần liên hệ ngay hotline ${HOSPITAL_CONTACT.hotlineDisplay} để chuẩn bị tiếp nhận.`,
-  },
-  {
-    title: 'Chấn thương & Xuất huyết',
-    description: `Tai nạn va chạm, vết thương hở sâu hoặc chảy máu không cầm. Giữ thú cưng cố định và gọi ngay hotline ${HOSPITAL_CONTACT.hotlineDisplay}.`,
-  },
-  {
-    title: 'Nghi ngờ nuốt dị vật & Ngộ độc',
-    description: `Thú cưng nuốt dị vật, bả độc hoặc nôn ói liên tục kèm sùi bọt mép. Liên hệ ngay hotline ${HOSPITAL_CONTACT.hotlineDisplay} để kịp thời can thiệp.`,
-  },
-  {
-    title: 'Bí tiểu & Nôn mửa dữ dội',
-    description: `Bí tiểu cấp, rặn đau đớn dữ dội hoặc chướng bụng. Vui lòng gọi ngay hotline ${HOSPITAL_CONTACT.hotlineDisplay} trước khi đưa bé đến viện.`,
-  },
-  {
-    title: 'Bất thường thân nhiệt cấp tính',
-    description: `Thân nhiệt tăng vọt do thời tiết nắng nóng hoặc hạ nhiệt đột ngột. Liên hệ hotline ${HOSPITAL_CONTACT.hotlineDisplay} để nhận hướng dẫn hạ nhiệt an toàn.`,
-  },
-]
-
 const intakeSteps = [
   {
     step: '01',
     title: 'Gọi điện thông báo ca cấp cứu',
-    description: `Liên hệ hotline ${HOSPITAL_CONTACT.hotlineDisplay} để thông báo tình trạng khẩn cấp và nhận hướng dẫn ban đầu trước khi đưa thú cưng đến cơ sở tại ${HOSPITAL_CONTACT.shortAddress}.`,
+    description: `Liên hệ hotline ${HOSPITAL_CONTACT.hotlineDisplay} để thông báo ca cấp cứu trước khi đưa thú cưng đến cơ sở tại ${HOSPITAL_CONTACT.shortAddress}.`,
   },
   {
     step: '02',
-    title: 'Giữ an toàn khi di chuyển',
+    title: 'Chuẩn bị di chuyển an toàn',
     description:
-      'Giữ thú cưng ở tư thế thoải mái, hạn chế cử động mạnh, giữ thông thoáng đường thở và làm theo hướng dẫn của bác sĩ qua điện thoại. Tuyệt đối không tự ý cho thú cưng dùng thuốc.',
+      'Đặt thú cưng ở tư thế thoải mái, hạn chế va chạm mạnh và tuyệt đối không tự ý cho thú cưng dùng bất kỳ loại thuốc nào khi chưa có chỉ định của bác sĩ thú y.',
   },
   {
     step: '03',
@@ -184,56 +156,15 @@ export const EmergencyPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 2. Critical Warning Signs */}
-      <section className="py-12 sm:py-16 md:py-20" aria-label="Dấu hiệu thú cưng cần đi cấp cứu">
+      {/* 2. Emergency Guidance & Policy Notice */}
+      <section className="py-10 sm:py-14" aria-label="Lưu ý tiếp nhận cấp cứu">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-10">
-            <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-warm-orange-dark)] mb-2 block">
-              Tình Huống Khẩn Cấp
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[var(--color-plum-deep)] tracking-tight">
-              Các trường hợp cần liên hệ cấp cứu ngay lập tức
-            </h2>
-            <p className="mt-2 text-sm sm:text-base text-[var(--color-fg-muted)] leading-relaxed font-sans">
-              Khi thú cưng xuất hiện một trong những biểu hiện bất thường khẩn cấp dưới đây, chủ nuôi cần gọi ngay đường dây nóng {HOSPITAL_CONTACT.hotlineDisplay} để được hỗ trợ và đưa bé tới {HOSPITAL_CONTACT.shortAddress}:
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {emergencySigns.map((item, idx) => (
-              <div
-                key={idx}
-                className="p-5 sm:p-6 rounded-[6px] bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] shadow-xs flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center gap-2 mb-2.5">
-                    <AlertTriangle className="w-4 h-4 text-[var(--color-warm-orange)] shrink-0" />
-                    <h3 className="font-serif font-bold text-base text-[var(--color-plum-deep)]">
-                      {item.title}
-                    </h3>
-                  </div>
-                  <p className="text-xs sm:text-sm text-[var(--color-fg-muted)] leading-relaxed font-sans mb-4">
-                    {item.description}
-                  </p>
-                </div>
-                <a
-                  href={HOSPITAL_CONTACT.hotlineTel}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[var(--color-warm-orange-dark)] hover:underline min-h-[44px] py-2"
-                >
-                  <Phone className="w-3.5 h-3.5" />
-                  <span>Gọi {HOSPITAL_CONTACT.hotlineDisplay}</span>
-                </a>
-              </div>
-            ))}
-          </div>
-
-          {/* Clinical Transparency Banner */}
           <EditorialPolicyBanner
-            label="Lưu ý y khoa và quy trình lâm sàng"
-            title="Lưu ý chuyên môn:"
-            className="rounded-[6px] mt-8"
+            label="Lưu ý chuyên môn và an toàn"
+            title="Nguyên tắc tiếp nhận cấp cứu:"
+            className="rounded-[6px]"
           >
-            Mọi chẩn đoán y khoa, kê đơn thuốc và phác đồ điều trị chỉ được thực hiện sau khi bác sĩ thú y thăm khám lâm sàng trực tiếp tại {HOSPITAL_CONTACT.address}. Trong tình huống khẩn cấp, vui lòng liên hệ ngay đường dây nóng {HOSPITAL_CONTACT.hotlineDisplay} để được hướng dẫn di chuyển an toàn đến bệnh viện.
+            Mọi chẩn đoán y khoa và can thiệp điều trị chỉ được thực hiện khi bác sĩ thú y thăm khám trực tiếp tại {HOSPITAL_CONTACT.address}. Bệnh viện không đưa ra phác đồ điều trị hay hướng dẫn dùng thuốc từ xa khi chưa có kết quả thăm khám. Khi thú cưng gặp tình huống khẩn cấp, vui lòng gọi ngay đường dây nóng {HOSPITAL_CONTACT.hotlineDisplay} và đưa bé đến cơ sở để được tiếp nhận kịp thời 24/24.
           </EditorialPolicyBanner>
         </div>
       </section>
