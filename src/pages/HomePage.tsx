@@ -24,7 +24,6 @@ export const HomePage: React.FC = () => {
       '@context': 'https://schema.org',
       '@type': 'VeterinaryCare',
       name: HOSPITAL_CONTACT.name,
-      url: 'https://bvthuyleson.vn',
       telephone: '+84973555105',
       address: {
         '@type': 'PostalAddress',

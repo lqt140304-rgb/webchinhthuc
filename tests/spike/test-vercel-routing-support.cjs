@@ -3,8 +3,8 @@ const assert = require('node:assert/strict');
 const { configuredHeaders, remoteOptions } = require('./vercel-routing-support.cjs');
 const { checkAccess } = require('./vercel-routing-support.cjs');
 const sha = 'a'.repeat(40);
-const env = { BASE_URL: 'https://preview-unique.vercel.app/', EXPECTED_COMMIT_SHA: sha };
-const evidence = { id: 'dpl_test', url: 'preview-unique.vercel.app', readyState: 'READY', target: null,
+const env = { BASE_URL: 'https://preview-unique.vercel.app/', EXPECTED_COMMIT_SHA: sha, EXPECTED_DEPLOYMENT_ID: 'dpl_test' };
+const evidence = { id: 'dpl_test', url: 'preview-unique.vercel.app', readyState: 'READY', target: 'preview',
   project: { name: 'le-son-website-qa', id: 'prj_wZg6o5vvbDe6UTT52vaqvGTNC4e3' }, meta: { githubCommitSha: sha } };
 test('headers follow matching source rules and do not invent noindex', () => {
   const config = { headers: [
@@ -47,7 +47,10 @@ test('remote URL normalizes and evidence binds exact Preview URL, project and co
   for (const invalid of [
     { ...evidence, meta: { githubCommitSha: 'b'.repeat(40) } },
     { ...evidence, url: 'another.vercel.app' },
+    { ...evidence, target: null },
+    { ...evidence, target: undefined },
     { ...evidence, target: 'production' },
+    { ...evidence, id: 'dpl_other' },
     { ...evidence, readyState: 'ERROR' },
     { ...evidence, project: { name: 'webchinhthuc', id: 'prj_8tLN2c3zlnzxtleF5zm5p96SFW2A' } },
     { ...evidence, project: { ...evidence.project, id: 'prj_wrong' } },
@@ -57,4 +60,12 @@ test('remote URL normalizes and evidence binds exact Preview URL, project and co
     assert.throws(() => remoteOptions({ ...env, BASE_URL: base }, evidence));
   }
   assert.throws(() => remoteOptions({ BASE_URL: env.BASE_URL }, evidence));
+});
+
+test('missing deployment scope fails closed', () => {
+  const { EXPECTED_DEPLOYMENT_ID: _deploymentId, ...unscoped } = env;
+  assert.throws(() => remoteOptions(unscoped, evidence));
+});
+test('null target is never Preview evidence', () => {
+  assert.throws(() => remoteOptions(env, { ...evidence, target: null }), /Preview/);
 });

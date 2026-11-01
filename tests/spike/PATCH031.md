@@ -19,6 +19,7 @@ Review provenance before using its results as evidence.
 Set these environment variables in the runner:
 
 - `BASE_URL`: immutable HTTPS deployment origin; an optional trailing slash is normalized.
+- `EXPECTED_DEPLOYMENT_ID`: exact deployment ID approved for this run; required and matched.
 - `EXPECTED_COMMIT_SHA`: full 40-character SHA independently verified for that deployment.
 - `DEPLOYMENT_EVIDENCE_FILE`: path to that saved Vercel API deployment object.
 - `PLAYWRIGHT_STORAGE_STATE`: optional path to a Playwright session exported after lawful,
@@ -26,7 +27,7 @@ Set these environment variables in the runner:
 - `QA_EVIDENCE_FILE`: optional path outside the repo for sanitized JSON results.
 
 Run `npm run test:vercel-routing`. No forms are submitted.
-After QA074, the test only accepts READY Preview metadata for project `le-son-website-qa`
+After QA074, the test only accepts READY metadata with explicit `target: "preview"` (null/absent/production fail closed) for project `le-son-website-qa`
 with ID `prj_wZg6o5vvbDe6UTT52vaqvGTNC4e3`, matching
 the immutable URL and expected SHA. It skips all local build-file assertions in remote mode.
 It records deployment ID/SHA, selected response headers, status and body SHA-256,
@@ -35,6 +36,12 @@ bypass protection, log in, push or deploy.
 
 SSO redirects/401/403/authentication pages stop with exit 2 and verdict BLOCKED;
 assertion failures exit 1. External main-document navigation is blocked as well.
+Missing, unreadable, malformed or inconsistent deployment evidence stops before any
+browser/network access with exit 2 and verdict `NOT VERIFIED`. This includes an
+absent/null/production target; no deployment is inferred to be Preview from its URL.
+`test-preview-evidence-gate.cjs` exercises the actual runner with networking and
+browser spawning disabled. Caller metadata remains a consistency check only;
+passing local regression tests does not verify any deployed Preview or provenance.
 A valid existing session is used by both HTTP preflight and browser navigation.
 Expired or missing access requires user authentication outside the test.
 

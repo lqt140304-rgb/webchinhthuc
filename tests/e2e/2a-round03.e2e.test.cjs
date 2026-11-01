@@ -5,6 +5,7 @@ const assert = require('node:assert/strict')
 const fs = require('node:fs')
 const path = require('node:path')
 const { chromium } = require('playwright')
+const { recordConsoleErrors } = require('./console-errors.cjs')
 
 const BASE = (process.env.BASE_URL || 'http://localhost:4173').replace(/\/$/, '')
 const APP_DIR = process.env.APP_DIR || null
@@ -31,8 +32,7 @@ async function open(urlPath, { width = 1280, height = 800, mobile = false } = {}
   const ctx = await browser.newContext({ viewport: { width, height }, isMobile: mobile, hasTouch: mobile })
   const page = await ctx.newPage()
   const tag = `${urlPath}@${width}${mobile ? 'm' : ''}`
-  page.on('console', (m) => m.type() === 'error' && consoleErrors.push(`${tag}: ${m.text()}`))
-  page.on('pageerror', (e) => consoleErrors.push(`${tag}: ${e.message}`))
+  recordConsoleErrors(page, consoleErrors, measurements, tag, BASE)
   await page.goto(BASE + urlPath, { waitUntil: 'networkidle' })
   return { ctx, page }
 }

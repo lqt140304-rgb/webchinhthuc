@@ -57,14 +57,19 @@ async function run() {
   try {
     let base;
     if (remote) {
-      assert(process.env.DEPLOYMENT_EVIDENCE_FILE, 'DEPLOYMENT_EVIDENCE_FILE required: saved deployment object from Vercel API');
-      const deployment = JSON.parse(fs.readFileSync(process.env.DEPLOYMENT_EVIDENCE_FILE, 'utf8'));
-      const options = remoteOptions(process.env, deployment);
-      base = options.base;
-      Object.assign(evidence, options, {
-        provenance: 'Caller-supplied Vercel API metadata; obtain freshly and verify independently before running',
-      });
-      console.log(`REMOTE deployment=${options.deploymentId} sha=${options.sha} origin=${base}`);
+      try {
+        assert(process.env.DEPLOYMENT_EVIDENCE_FILE, 'DEPLOYMENT_EVIDENCE_FILE required: saved deployment object from Vercel API');
+        const deployment = JSON.parse(fs.readFileSync(process.env.DEPLOYMENT_EVIDENCE_FILE, 'utf8'));
+        const options = remoteOptions(process.env, deployment);
+        base = options.base;
+        Object.assign(evidence, options, {
+          provenance: 'Caller-supplied Vercel API metadata; obtain freshly and verify independently before running',
+        });
+        console.log(`REMOTE deployment=${options.deploymentId} sha=${options.sha} origin=${base}`);
+      } catch (error) {
+        error.code = 'NOT_VERIFIED';
+        throw error;
+      }
     } else {
       await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
       base = `http://127.0.0.1:${server.address().port}`;
@@ -127,7 +132,8 @@ async function run() {
       : 'PASS: 19 local prerender files and SEO retained; 14 local model HTTP/browser checks (NOT edge)');
     evidence.verdict = 'PASS';
   } catch (error) {
-    evidence.verdict = error.code === 'AUTH_BLOCKED' ? 'BLOCKED' : 'FAIL';
+    evidence.verdict = error.code === 'NOT_VERIFIED' ? 'NOT VERIFIED'
+      : error.code === 'AUTH_BLOCKED' ? 'BLOCKED' : 'FAIL';
     throw error;
   } finally {
     if (process.env.QA_EVIDENCE_FILE) fs.writeFileSync(process.env.QA_EVIDENCE_FILE, JSON.stringify(evidence, null, 2));
@@ -139,6 +145,7 @@ async function run() {
 
 run().catch(error => {
   // Avoid printing raw responses, cookies, storage state or authenticated URLs.
-  console.error(error.code === 'AUTH_BLOCKED' ? error.message : `FAIL: ${error.message.split('\n')[0]}`);
-  process.exitCode = error.code === 'AUTH_BLOCKED' ? 2 : 1;
+  console.error(error.code === 'AUTH_BLOCKED' ? error.message
+    : `${error.code === 'NOT_VERIFIED' ? 'NOT VERIFIED' : 'FAIL'}: ${error.message.split('\n')[0]}`);
+  process.exitCode = ['AUTH_BLOCKED', 'NOT_VERIFIED'].includes(error.code) ? 2 : 1;
 });

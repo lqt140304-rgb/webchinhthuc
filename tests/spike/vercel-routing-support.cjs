@@ -13,19 +13,27 @@ function configuredHeaders(config, pathname) {
   return headers;
 }
 function remoteOptions(env, evidence) {
-  const url = new URL(env.BASE_URL);
-  assert(url.protocol === 'https:' && url.hostname.endsWith('.vercel.app') && !url.port
-    && !url.username && !url.password && !url.search && !url.hash && url.pathname === '/',
-  'BASE_URL must be an HTTPS Preview origin without credentials, path or query');
-  assert.match(env.EXPECTED_COMMIT_SHA || '', /^[a-f0-9]{40}$/i, 'Full EXPECTED_COMMIT_SHA required');
-  assert.equal(evidence.url, url.hostname, 'Deployment URL mismatch');
-  assert.equal(evidence.meta?.githubCommitSha, env.EXPECTED_COMMIT_SHA, 'Deployment SHA mismatch');
-  assert.equal(evidence.project?.name, 'le-son-website-qa', 'Deployment project mismatch');
-  assert.equal(evidence.project?.id, 'prj_wZg6o5vvbDe6UTT52vaqvGTNC4e3', 'Deployment project ID mismatch');
-  assert.equal(evidence.readyState, 'READY');
-  assert.equal(evidence.target, null, 'Only Preview deployments allowed');
-  assert.match(evidence.id, /^dpl_/);
-  return { base: url.origin, sha: evidence.meta.githubCommitSha, deploymentId: evidence.id };
+  try {
+    const url = new URL(env.BASE_URL);
+    assert(url.protocol === 'https:' && url.hostname.endsWith('.vercel.app') && !url.port
+      && !url.username && !url.password && !url.search && !url.hash && url.pathname === '/',
+    'BASE_URL must be an HTTPS Preview origin without credentials, path or query');
+    assert.match(env.EXPECTED_COMMIT_SHA || '', /^[a-f0-9]{40}$/i, 'Full EXPECTED_COMMIT_SHA required');
+    assert.equal(evidence.url, url.hostname, 'Deployment URL mismatch');
+    assert.equal(evidence.meta?.githubCommitSha, env.EXPECTED_COMMIT_SHA, 'Deployment SHA mismatch');
+    assert.equal(evidence.project?.name, 'le-son-website-qa', 'Deployment project mismatch');
+    assert.equal(evidence.project?.id, 'prj_wZg6o5vvbDe6UTT52vaqvGTNC4e3', 'Deployment project ID mismatch');
+    assert.equal(evidence.readyState, 'READY');
+    assert.equal(evidence.target, 'preview', 'Only explicit Preview deployments allowed');
+    assert.match(env.EXPECTED_DEPLOYMENT_ID || '', /^dpl_[A-Za-z0-9]+$/, 'Explicit EXPECTED_DEPLOYMENT_ID required');
+    assert.equal(evidence.id, env.EXPECTED_DEPLOYMENT_ID, 'Deployment ID scope mismatch');
+    assert.match(evidence.id, /^dpl_/);
+    return { base: url.origin, sha: evidence.meta.githubCommitSha, deploymentId: evidence.id };
+  } catch (error) {
+    // Invalid scope is missing verification, not a product assertion result.
+    error.code = 'NOT_VERIFIED';
+    throw error;
+  }
 }
 async function checkAccess(context, url) {
   const response = await context.request.get(url, { maxRedirects: 0 });
