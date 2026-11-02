@@ -1,3 +1,10 @@
+// ============================================================================
+// LÊ SƠN VETERINARY HOSPITAL — TRANSITIONAL SPA ROUTE DEFINITIONS
+// Lưu ý: File này được duy trì để đồng bộ tương thích ngược (backward compatibility)
+// cho kiến trúc SPA/client runtime. Định tuyến chuẩn React Router 7 nằm tại app/routes.ts
+// và các route module tương ứng tại app/routes/*.
+// ============================================================================
+
 import { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { RootLayout } from '@/components/layout/RootLayout'
@@ -15,6 +22,8 @@ const ServiceInpatientPage = lazy(() => import('@/pages/ServiceInpatientPage'))
 const ServiceSpaPage = lazy(() => import('@/pages/ServiceSpaPage'))
 const EmergencyPage = lazy(() => import('@/pages/EmergencyPage'))
 const ContactPage = lazy(() => import('@/pages/ContactPage'))
+const PricingPage = lazy(() => import('@/pages/PricingPage'))
+const ProductsPage = lazy(() => import('@/pages/ProductsPage'))
 
 const PageLoadingFallback = () => (
   <div
@@ -103,10 +112,9 @@ export const AppRoutes = () => {
         <Route
           path="/bang-gia"
           element={
-            <ComingSoonView
-              title="Bảng giá dịch vụ niêm yết"
-              subtitle="Biểu phí dịch vụ khám, xét nghiệm và điều trị đang được đối chiếu niêm yết chính thức."
-            />
+            <Suspense fallback={<PageLoadingFallback />}>
+              <PricingPage />
+            </Suspense>
           }
         />
 
@@ -154,10 +162,9 @@ export const AppRoutes = () => {
         <Route
           path="/san-pham"
           element={
-            <ComingSoonView
-              title="Sản phẩm dinh dưỡng & Phụ kiện y tế"
-              subtitle="Danh mục sản phẩm chính hãng chọn lọc đang được cập nhật tồn kho và mô tả công dụng."
-            />
+            <Suspense fallback={<PageLoadingFallback />}>
+              <ProductsPage />
+            </Suspense>
           }
         />
 

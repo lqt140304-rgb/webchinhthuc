@@ -14,6 +14,7 @@ import {
   HelpCircle,
   ShieldCheck,
   CheckCircle2,
+  Info,
 } from 'lucide-react'
 import { useRouteSeo } from '@/hooks/useRouteSeo'
 import { HOSPITAL_CONTACT } from '@/config/contact'
@@ -95,7 +96,7 @@ export const PricingPage: React.FC = () => {
               <div className="flex flex-wrap items-center gap-2 mb-4">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-[6px] bg-[var(--color-bg-secondary)] border border-[var(--color-border-subtle)] text-[var(--color-plum-primary)] text-xs font-bold uppercase tracking-wider">
                   <Tag className="w-3.5 h-3.5" />
-                  <span>Biểu Phí Tham Chiếu • Dữ Liệu Minh Họa</span>
+                  <span>Nội dung minh họa — đang cập nhật dữ liệu thực tế</span>
                 </span>
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-[6px] bg-amber-50 border border-amber-200/80 text-[var(--color-warm-orange-dark)] text-xs font-semibold">
                   <Clock className="w-3.5 h-3.5" />
@@ -108,7 +109,7 @@ export const PricingPage: React.FC = () => {
               </h1>
 
               <p className="text-sm sm:text-base lg:text-lg text-[var(--color-fg-muted)] leading-relaxed mb-6 font-sans">
-                Tại <strong>{HOSPITAL_CONTACT.address}</strong>, mọi chi phí thăm khám, xét nghiệm cận lâm sàng, điều trị và phẫu thuật đều được bác sĩ tư vấn dự toán cụ thể với chủ nuôi trước khi tiến hành. Khung bảng giá dưới đây minh họa các hạng mục dịch vụ phục vụ trải nghiệm giao diện trong khi chờ cập nhật biểu phí niêm yết chính thức.
+                Tại <strong>{HOSPITAL_CONTACT.address}</strong>, mọi chi phí thăm khám, xét nghiệm cận lâm sàng, điều trị và phẫu thuật đều được bác sĩ tư vấn dự toán cụ thể với chủ nuôi trước khi tiến hành. Khung bảng giá dưới đây là dữ liệu minh họa cấu trúc phục vụ trải nghiệm giao diện trong khi chờ cập nhật biểu phí niêm yết chính thức từ bệnh viện.
               </p>
 
               {/* Verified Operational Quick Strip */}
@@ -347,6 +348,17 @@ export const PricingPage: React.FC = () => {
                 )
               })}
             </div>
+          </div>
+
+          {/* Category Group Notice Strip (P3-1 Compliance) */}
+          <div className="p-3.5 mb-6 rounded-[8px] bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] text-xs text-[var(--color-fg-muted)] flex items-start gap-2.5 shadow-2xs">
+            <Info className="w-4 h-4 text-[var(--color-plum-primary)] shrink-0 mt-0.5" />
+            <span className="leading-relaxed">
+              {selectedCategory === 'all'
+                ? 'Bệnh viện Thú y Lê Sơn đã xác nhận cung cấp 4 nhóm dịch vụ y tế: X-quang, Siêu âm, Phẫu thuật và Xét nghiệm. Danh mục các gói kỹ thuật chi tiết dưới đây là nội dung minh họa cấu trúc — đang cập nhật dữ liệu thực tế.'
+                : MOCK_PRICING_CATEGORIES.find((c) => c.id === selectedCategory)?.groupNotice ??
+                  'Danh mục dịch vụ minh họa — đang cập nhật dữ liệu thực tế từ bệnh viện.'}
+            </span>
           </div>
 
           {/* Pricing Table / Accordion List */}

@@ -48,7 +48,9 @@ export const ProductsPage: React.FC = () => {
   const [openFaqId, setOpenFaqId] = useState<string | null>(MOCK_PRODUCT_FAQS[0]?.id ?? null)
 
   const modalRef = useRef<HTMLDivElement>(null)
+  const closeButtonRef = useRef<HTMLButtonElement>(null)
   const previousActiveElement = useRef<HTMLElement | null>(null)
+  const mainContentRef = useRef<HTMLDivElement>(null)
 
   // Featured products
   const featuredProducts = useMemo(() => {
@@ -111,85 +113,147 @@ export const ProductsPage: React.FC = () => {
 
   const handleCloseModal = useCallback(() => {
     setSelectedProduct(null)
-    if (previousActiveElement.current) {
-      previousActiveElement.current.focus()
-    }
+    // Return focus to previous active element
+    requestAnimationFrame(() => {
+      if (previousActiveElement.current && typeof previousActiveElement.current.focus === 'function') {
+        previousActiveElement.current.focus()
+      }
+    })
   }, [])
 
-  // Trap Escape key for modal
+  // Modal accessibility effect (initial focus, focus trap, body scroll lock, Escape key)
   useEffect(() => {
+    if (!selectedProduct) return
+
+    // 1. Lock body scroll
+    const originalOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+
+    // 2. Initial focus into modal (prioritize close button or first interactive element)
+    const focusTimer = setTimeout(() => {
+      if (closeButtonRef.current) {
+        closeButtonRef.current.focus()
+      } else if (modalRef.current) {
+        const focusable = modalRef.current.querySelectorAll<HTMLElement>(
+          'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )
+        if (focusable.length > 0) {
+          focusable[0].focus()
+        }
+      }
+    }, 30)
+
+    // 3. Keydown handler: Escape to close, Tab / Shift+Tab focus trap
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && selectedProduct) {
+      if (e.key === 'Escape') {
+        e.preventDefault()
         handleCloseModal()
+        return
+      }
+
+      if (e.key === 'Tab' && modalRef.current) {
+        const focusable = Array.from(
+          modalRef.current.querySelectorAll<HTMLElement>(
+            'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+          )
+        )
+        if (focusable.length === 0) return
+
+        const firstElement = focusable[0]
+        const lastElement = focusable[focusable.length - 1]
+
+        if (e.shiftKey) {
+          if (document.activeElement === firstElement || !modalRef.current.contains(document.activeElement)) {
+            e.preventDefault()
+            lastElement.focus()
+          }
+        } else {
+          if (document.activeElement === lastElement || !modalRef.current.contains(document.activeElement)) {
+            e.preventDefault()
+            firstElement.focus()
+          }
+        }
       }
     }
+
     window.addEventListener('keydown', handleKeyDown)
-    return () => window.removeEventListener('keydown', handleKeyDown)
+
+    return () => {
+      document.body.style.overflow = originalOverflow
+      clearTimeout(focusTimer)
+      window.removeEventListener('keydown', handleKeyDown)
+    }
   }, [selectedProduct, handleCloseModal])
 
   return (
     <div className="w-full bg-[var(--color-bg-primary)] text-[var(--color-fg-primary)]">
-      {/* 1. Editorial Hero Section */}
-      <section className="py-10 sm:py-16 md:py-20 border-b border-[var(--color-border-subtle)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
-            <EditorialBreadcrumb
-              currentPage="Sản phẩm chọn lọc"
-              parentGroup="Dịch vụ &amp; Chăm sóc"
-              parentLink="/dich-vu"
-            />
-            <Link
-              to="/dich-vu"
-              className="inline-flex items-center gap-2 px-3.5 py-2 rounded-[6px] border border-[var(--color-border-subtle)] bg-[var(--color-bg-card)] hover:bg-[var(--color-bg-secondary)] text-xs sm:text-sm font-medium text-[var(--color-plum-primary)] transition-colors min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-plum-primary)]"
-            >
-              <ArrowLeft className="w-4 h-4 shrink-0" />
-              <span>Quay lại Danh mục dịch vụ</span>
-            </Link>
-          </div>
+      {/* Background Page Content (inert & aria-hidden when modal is open) */}
+      <div
+        ref={mainContentRef}
+        aria-hidden={selectedProduct ? true : undefined}
+        inert={selectedProduct ? true : undefined}
+      >
+        {/* 1. Editorial Hero Section */}
+        <section className="py-10 sm:py-16 md:py-20 border-b border-[var(--color-border-subtle)]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
+              <EditorialBreadcrumb
+                currentPage="Sản phẩm chọn lọc"
+                parentGroup="Dịch vụ &amp; Chăm sóc"
+                parentLink="/dich-vu"
+              />
+              <Link
+                to="/dich-vu"
+                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-[6px] border border-[var(--color-border-subtle)] bg-[var(--color-bg-card)] hover:bg-[var(--color-bg-secondary)] text-xs sm:text-sm font-medium text-[var(--color-plum-primary)] transition-colors min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-plum-primary)]"
+              >
+                <ArrowLeft className="w-4 h-4 shrink-0" />
+                <span>Quay lại Danh mục dịch vụ</span>
+              </Link>
+            </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Left Narrative (7 cols) */}
-            <div className="lg:col-span-7">
-              <div className="flex flex-wrap items-center gap-2 mb-4">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-[6px] bg-purple-100/90 text-[var(--color-plum-primary)] text-xs font-bold uppercase tracking-wider">
-                  <Package className="w-3.5 h-3.5" />
-                  <span>Dinh Dưỡng &amp; Phụ Kiện Thú Y</span>
-                </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-[6px] bg-[var(--color-bg-secondary)] border border-[var(--color-border-subtle)] text-[var(--color-plum-deep)] text-xs font-medium">
-                  <Sparkles className="w-3.5 h-3.5 text-[var(--color-plum-primary)]" />
-                  <span>Chọn lọc an toàn cho thú cưng</span>
-                </span>
-              </div>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              {/* Left Narrative (7 cols) */}
+              <div className="lg:col-span-7">
+                <div className="flex flex-wrap items-center gap-2 mb-4">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-[6px] bg-purple-100/90 text-[var(--color-plum-primary)] text-xs font-bold uppercase tracking-wider">
+                    <Package className="w-3.5 h-3.5" />
+                    <span>Dinh Dưỡng &amp; Phụ Kiện Thú Y</span>
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-[6px] bg-[var(--color-bg-secondary)] border border-[var(--color-border-subtle)] text-[var(--color-plum-deep)] text-xs font-medium">
+                    <Sparkles className="w-3.5 h-3.5 text-[var(--color-plum-primary)]" />
+                    <span>Danh mục sản phẩm minh họa — chưa xác nhận hàng hóa đang kinh doanh</span>
+                  </span>
+                </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[var(--color-plum-deep)] tracking-tight leading-[1.15] mb-5">
-                Sản phẩm dinh dưỡng &amp; chăm sóc thú cưng tại Lê Sơn
-              </h1>
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[var(--color-plum-deep)] tracking-tight leading-[1.15] mb-5">
+                  Sản phẩm dinh dưỡng &amp; chăm sóc thú cưng tại Lê Sơn
+                </h1>
 
-              <p className="text-sm sm:text-base lg:text-lg text-[var(--color-fg-muted)] leading-relaxed mb-6 font-sans">
-                Song hành cùng hoạt động khám chữa bệnh chuyên khoa, {HOSPITAL_CONTACT.name} tại <strong>{HOSPITAL_CONTACT.address}</strong> giới thiệu các dòng sản phẩm dinh dưỡng phục hồi, sữa tắm dịu nhẹ, phụ kiện tiện ích và vi chất bổ sung được bác sĩ thú y tư vấn trực tiếp theo từng giai đoạn thể trạng của bé.
-              </p>
+                <p className="text-sm sm:text-base lg:text-lg text-[var(--color-fg-muted)] leading-relaxed mb-6 font-sans">
+                  Song hành cùng hoạt động khám chữa bệnh chuyên môn, {HOSPITAL_CONTACT.name} tại <strong>{HOSPITAL_CONTACT.address}</strong> giới thiệu cấu trúc danh mục sản phẩm minh họa (dinh dưỡng phục hồi, sữa tắm dịu nhẹ, phụ kiện tiện ích và vi chất bổ sung). Danh mục hàng hóa thực tế sẽ được cập nhật sau khi bệnh viện hoàn tất đối chiếu nguồn cung chính thức.
+                </p>
 
-              {/* Quick Store Info Strip */}
-              <div className="flex flex-wrap items-center gap-y-2 gap-x-6 text-xs sm:text-sm text-[var(--color-fg-muted)] mb-7 pb-6 border-b border-[var(--color-border-subtle)]">
-                <span className="inline-flex items-center gap-1.5 font-medium text-[var(--color-plum-deep)]">
-                  <MapPin className="w-4 h-4 text-[var(--color-plum-primary)]" />
-                  <span>Trưng bày tại quầy cơ sở: {HOSPITAL_CONTACT.shortAddress}</span>
-                </span>
-                <span className="inline-flex items-center gap-1.5 font-medium text-[var(--color-plum-deep)]">
-                  <Clock className="w-4 h-4 text-[var(--color-plum-primary)]" />
-                  <span>Giờ phục vụ: {HOSPITAL_CONTACT.workingHours}</span>
-                </span>
-              </div>
+                {/* Quick Store Info Strip */}
+                <div className="flex flex-wrap items-center gap-y-2 gap-x-6 text-xs sm:text-sm text-[var(--color-fg-muted)] mb-7 pb-6 border-b border-[var(--color-border-subtle)]">
+                  <span className="inline-flex items-center gap-1.5 font-medium text-[var(--color-plum-deep)]">
+                    <MapPin className="w-4 h-4 text-[var(--color-plum-primary)]" />
+                    <span>Địa chỉ phòng khám: {HOSPITAL_CONTACT.shortAddress}</span>
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 font-medium text-[var(--color-plum-deep)]">
+                    <Clock className="w-4 h-4 text-[var(--color-plum-primary)]" />
+                    <span>Giờ phục vụ: {HOSPITAL_CONTACT.workingHours}</span>
+                  </span>
+                </div>
 
-              {/* Hero Action CTAs */}
-              <div className="flex flex-wrap items-center gap-3">
-                <a
-                  href={HOSPITAL_CONTACT.hotlineTel}
-                  className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-[6px] bg-[var(--color-plum-primary)] hover:bg-[var(--color-plum-deep)] text-white font-semibold text-xs sm:text-sm transition-all shadow-xs active:scale-[0.98] min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-plum-primary)]"
-                >
-                  <Phone className="w-4 h-4" />
-                  <span>Tư vấn tình trạng hàng: {HOSPITAL_CONTACT.hotlineDisplay}</span>
-                </a>
+                {/* Hero Action CTAs */}
+                <div className="flex flex-wrap items-center gap-3">
+                  <a
+                    href={HOSPITAL_CONTACT.hotlineTel}
+                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-[6px] bg-[var(--color-plum-primary)] hover:bg-[var(--color-plum-deep)] text-white font-semibold text-xs sm:text-sm transition-all shadow-xs active:scale-[0.98] min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-plum-primary)]"
+                  >
+                    <Phone className="w-4 h-4" />
+                    <span>Tư vấn thông tin: {HOSPITAL_CONTACT.hotlineDisplay}</span>
+                  </a>
 
                 <Link
                   to="/dat-lich"
@@ -246,7 +310,7 @@ export const ProductsPage: React.FC = () => {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
             <div>
               <span className="inline-block px-2.5 py-1 rounded-[4px] bg-purple-100 text-[var(--color-plum-primary)] text-[11px] font-bold uppercase tracking-wider mb-2.5">
-                Bộ sưu tập gợi ý • Dữ liệu minh họa
+                Danh mục sản phẩm minh họa — chưa xác nhận hàng hóa đang kinh doanh
               </span>
               <h2
                 id="featured-products-heading"
@@ -324,7 +388,7 @@ export const ProductsPage: React.FC = () => {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
             <div>
               <span className="inline-block px-2.5 py-1 rounded-[4px] bg-purple-100 text-[var(--color-plum-primary)] text-[11px] font-bold uppercase tracking-wider mb-2.5">
-                Nội dung minh họa — đang cập nhật dữ liệu thực tế
+                Danh mục sản phẩm minh họa — chưa xác nhận hàng hóa đang kinh doanh
               </span>
               <h2
                 id="catalog-heading"
@@ -647,6 +711,7 @@ export const ProductsPage: React.FC = () => {
           </div>
         </div>
       </section>
+      </div>
 
       {/* 6. Product Detail Modal (Accessible Dialog) */}
       {selectedProduct && (
@@ -654,6 +719,11 @@ export const ProductsPage: React.FC = () => {
           role="dialog"
           aria-modal="true"
           aria-labelledby="product-modal-title"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) {
+              handleCloseModal()
+            }
+          }}
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[var(--color-bg-overlay)] backdrop-blur-xs animate-in fade-in duration-200"
         >
           <div
@@ -671,6 +741,7 @@ export const ProductsPage: React.FC = () => {
                 </span>
               </div>
               <button
+                ref={closeButtonRef}
                 type="button"
                 onClick={handleCloseModal}
                 aria-label="Đóng cửa sổ chi tiết sản phẩm"
@@ -731,7 +802,7 @@ export const ProductsPage: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
                 <div className="p-4 rounded-[8px] bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)]">
                   <strong className="text-[var(--color-plum-deep)] block mb-1.5 font-semibold">
-                    Hướng dẫn sử dụng tham khảo:
+                    Hướng dẫn minh họa (tham khảo ý kiến bác sĩ):
                   </strong>
                   <p className="text-[var(--color-fg-muted)] leading-relaxed">
                     {selectedProduct.usageGuide}
@@ -740,7 +811,7 @@ export const ProductsPage: React.FC = () => {
 
                 <div className="p-4 rounded-[8px] bg-amber-50/70 border border-amber-200/80">
                   <strong className="text-[var(--color-warm-orange-dark)] block mb-1.5 font-semibold">
-                    Lưu ý chuyên môn y khoa:
+                    Lưu ý tham khảo:
                   </strong>
                   <p className="text-slate-700 leading-relaxed">
                     {selectedProduct.consultationNote}
@@ -760,7 +831,7 @@ export const ProductsPage: React.FC = () => {
             {/* Modal Footer CTAs */}
             <div className="p-4 sm:p-5 border-t border-[var(--color-border-subtle)] bg-[var(--color-bg-secondary)]/30 flex flex-wrap items-center justify-between gap-3">
               <span className="text-xs text-[var(--color-fg-subtle)]">
-                Liên hệ trực tiếp để kiểm tra tình trạng hàng tại quầy
+                Nội dung minh họa — vui lòng liên hệ hotline để được tư vấn thông tin
               </span>
               <div className="flex flex-wrap items-center gap-2">
                 <button

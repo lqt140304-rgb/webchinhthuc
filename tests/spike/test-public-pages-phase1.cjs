@@ -112,6 +112,32 @@ assert(examHtml.includes('xét nghiệm') && examHtml.includes('siêu âm') && e
 assert(examHtml.includes('content="noindex, nofollow"'), 'Exam route robots meta missing');
 console.log('[PASS] Static prerender HTML verified for confirmed clinical services (X-quang, Siêu âm, Phẫu thuật, Xét nghiệm)');
 
+// Step 1B: Verify /bang-gia & /san-pham prerendered HTML and medical neutrality
+const pricingFilePath = path.join(clientDir, 'bang-gia', 'index.html');
+assert(fs.existsSync(pricingFilePath), 'Prerendered index.html missing for /bang-gia');
+const pricingHtml = fs.readFileSync(pricingFilePath, 'utf-8');
+for (const svc of ['X-quang', 'Siêu âm', 'Phẫu thuật', 'Xét nghiệm']) {
+  assert(pricingHtml.includes(svc), `Confirmed service "${svc}" missing in /bang-gia prerendered HTML`);
+}
+for (const forbidden of ['nhịn ăn', 'X-quang kỹ thuật số', 'đầu dò chuyên dụng', 'an toàn tuyệt đối']) {
+  assert(!pricingHtml.includes(forbidden), `Forbidden unverified/medical instruction "${forbidden}" found in /bang-gia prerender HTML`);
+}
+assert(pricingHtml.includes('content="noindex, nofollow"'), 'Pricing robots meta missing');
+console.log('[PASS] Static prerender HTML verified for /bang-gia (confirmed services present, medical advice purged, noindex verified)');
+
+const productsFilePath = path.join(clientDir, 'san-pham', 'index.html');
+assert(fs.existsSync(productsFilePath), 'Prerendered index.html missing for /san-pham');
+const productsHtml = fs.readFileSync(productsFilePath, 'utf-8');
+assert(
+  productsHtml.includes('Danh mục sản phẩm minh họa — chưa xác nhận hàng hóa đang kinh doanh'),
+  'Required mock disclaimer label missing in /san-pham prerendered HTML'
+);
+for (const forbidden of ['nhịn ăn', 'an toàn tuyệt đối', 'cách thời điểm dùng kháng sinh']) {
+  assert(!productsHtml.includes(forbidden), `Forbidden unverified phrase "${forbidden}" found in /san-pham prerender HTML`);
+}
+assert(productsHtml.includes('content="noindex, nofollow"'), 'Products robots meta missing');
+console.log('[PASS] Static prerender HTML verified for /san-pham (standardized mock label present, medical claims purged, noindex verified)');
+
 console.log('\n=== STEP 2: RUNNING PLAYWRIGHT DOM, HYDRATION & RESPONSIVENESS AUDIT ===');
 
 const server = http.createServer((req, res) => {
@@ -351,6 +377,138 @@ server.listen(PORT, async () => {
     assert(backBtnBox.width >= 43.5 && backBtnBox.height >= 43.5, `ComingSoon back button touch target too small: ${backBtnBox.width}x${backBtnBox.height}px`);
     console.log(`  [PASS] ComingSoon back button touch target: ${Math.round(backBtnBox.width)}x${Math.round(backBtnBox.height)}px (>= 44x44px)`);
     await comingSoonPage.close();
+
+    console.log('\n=== STEP 3: INTERACTIVE & ACCESSIBILITY TESTS FOR /bang-gia & /san-pham ===');
+
+    // 3A: Interactive tests for /bang-gia (Accordion, Search, Category Filter, Empty State)
+    console.log('\n--- Testing /bang-gia Interactive Ledger & Accessibility ---');
+    const pricingTestPage = await context.newPage();
+    await pricingTestPage.goto(`http://localhost:${PORT}/bang-gia`, { waitUntil: 'networkidle' });
+
+    // Test Accordion toggle
+    const firstAccordionBtn = pricingTestPage.locator('article button[aria-controls]').first();
+    const controlledPanelId = await firstAccordionBtn.getAttribute('aria-controls');
+    assert(controlledPanelId, 'Pricing accordion button missing aria-controls');
+    const panelLocator = pricingTestPage.locator(`#${controlledPanelId}`);
+
+    // Initial state: collapsed
+    assert.strictEqual(await firstAccordionBtn.getAttribute('aria-expanded'), 'false', 'Initial accordion should be collapsed');
+    assert(await panelLocator.isHidden(), 'Accordion panel should be hidden initially');
+
+    // Click to expand
+    await firstAccordionBtn.click();
+    await pricingTestPage.waitForTimeout(150);
+    assert.strictEqual(await firstAccordionBtn.getAttribute('aria-expanded'), 'true', 'Accordion aria-expanded should be true after click');
+    assert(await panelLocator.isVisible(), 'Accordion panel should be visible after click');
+    assert.strictEqual(await panelLocator.getAttribute('role'), 'region', 'Accordion panel must have role="region"');
+
+    // Click again to collapse
+    await firstAccordionBtn.click();
+    await pricingTestPage.waitForTimeout(150);
+    assert.strictEqual(await firstAccordionBtn.getAttribute('aria-expanded'), 'false', 'Accordion aria-expanded should be false after second click');
+    console.log('  [PASS] Accordion expand/collapse & ARIA role="region" verified');
+
+    // Test Category filter
+    const clsTab = pricingTestPage.locator('button[role="tab"]:has-text("X-quang, Siêu âm & Xét nghiệm")');
+    await clsTab.click();
+    await pricingTestPage.waitForTimeout(150);
+    assert.strictEqual(await clsTab.getAttribute('aria-selected'), 'true', 'Category tab aria-selected mismatch');
+    const groupNotice = await pricingTestPage.locator('text=Bệnh viện Thú y Lê Sơn có cung cấp dịch vụ X-quang, Siêu âm và Xét nghiệm').count();
+    assert(groupNotice >= 1, 'Confirmed services group notice missing when category selected');
+    console.log('  [PASS] Category filter & confirmed service group notice verified');
+
+    // Test Search & Empty State
+    const searchInput = pricingTestPage.locator('#service-search-input');
+    await searchInput.fill('không-thể-tìm-thấy-dịch-vụ-này-xyz');
+    await pricingTestPage.waitForTimeout(150);
+    const emptyHeading = pricingTestPage.locator('text=Không tìm thấy dịch vụ phù hợp');
+    assert(await emptyHeading.isVisible(), 'Empty state heading missing for unmatched search');
+    const resetSearchBtn = pricingTestPage.locator('button:has-text("Xem toàn bộ bảng giá")');
+    await resetSearchBtn.click();
+    await pricingTestPage.waitForTimeout(150);
+    assert.strictEqual(await searchInput.inputValue(), '', 'Search input should be cleared after clicking reset');
+    console.log('  [PASS] Search & empty state reset verified');
+    await pricingTestPage.close();
+
+    // 3B: Interactive & Accessibility tests for /san-pham (Modal Focus Trap, Escape, Return Focus, Background Inert)
+    console.log('\n--- Testing /san-pham Product Modal Accessibility (P2-1) ---');
+    const productsTestPage = await context.newPage();
+    await productsTestPage.goto(`http://localhost:${PORT}/san-pham`, { waitUntil: 'networkidle' });
+
+    // Find first modal trigger button ("Xem thông tin" or "Chi tiết")
+    const openModalBtn = productsTestPage.locator('button:has-text("Xem thông tin"), button:has-text("Chi tiết")').first();
+    await openModalBtn.scrollIntoViewIfNeeded();
+    await openModalBtn.click();
+    await productsTestPage.waitForTimeout(200);
+
+    // Verify dialog presence and ARIA attributes
+    const dialogLocator = productsTestPage.locator('div[role="dialog"]');
+    assert((await dialogLocator.count()) === 1, 'Modal dialog not found in DOM');
+    assert.strictEqual(await dialogLocator.getAttribute('aria-modal'), 'true', 'Modal dialog missing aria-modal="true"');
+    assert.strictEqual(await dialogLocator.getAttribute('aria-labelledby'), 'product-modal-title', 'Modal missing aria-labelledby');
+
+    // Verify background inert and body overflow
+    const isBodyOverflowHidden = await productsTestPage.evaluate(() => document.body.style.overflow === 'hidden');
+    assert(isBodyOverflowHidden, 'Body overflow must be hidden while modal is open');
+
+    const isBackgroundInert = await productsTestPage.evaluate(() => {
+      const bg = document.querySelector('div[aria-hidden="true"]');
+      return bg !== null && bg.hasAttribute('inert');
+    });
+    assert(isBackgroundInert, 'Background container must have aria-hidden="true" and inert attribute');
+    console.log('  [PASS] Modal ARIA (role=dialog, aria-modal=true), body scroll lock, and background inert verified');
+
+    // Verify initial focus is on close button
+    const initialFocusedLabel = await productsTestPage.evaluate(() => (document.activeElement ? document.activeElement.getAttribute('aria-label') : null));
+    assert.strictEqual(initialFocusedLabel, 'Đóng cửa sổ chi tiết sản phẩm', 'Initial focus should be on close button');
+    console.log('  [PASS] Initial focus landed on modal close button');
+
+    // Test Focus Trap: Tab through all focusable elements inside modal
+    for (let i = 0; i < 5; i++) {
+      await productsTestPage.keyboard.press('Tab');
+    }
+    const anyFocusOutside = await productsTestPage.evaluate(() => {
+      const modal = document.querySelector('div[role="dialog"]');
+      return modal ? !modal.contains(document.activeElement) : true;
+    });
+    assert(!anyFocusOutside, 'Focus escaped modal during Tab navigation');
+    console.log('  [PASS] Tab focus trap cycles cleanly within modal dialog');
+
+    // Test Shift+Tab reverse cycle
+    await productsTestPage.keyboard.press('Shift+Tab');
+    const isStillInside = await productsTestPage.evaluate(() => {
+      const modal = document.querySelector('div[role="dialog"]');
+      return modal ? modal.contains(document.activeElement) : false;
+    });
+    assert(isStillInside, 'Focus escaped modal during Shift+Tab navigation');
+    console.log('  [PASS] Shift+Tab reverse focus trap verified');
+
+    // Test Escape key closes modal and returns focus
+    await productsTestPage.keyboard.press('Escape');
+    await productsTestPage.waitForTimeout(200);
+    assert((await dialogLocator.count()) === 0, 'Modal dialog should be closed after Escape key');
+
+    const isBodyOverflowRestored = await productsTestPage.evaluate(() => document.body.style.overflow !== 'hidden');
+    assert(isBodyOverflowRestored, 'Body overflow should be restored after closing modal');
+
+    const isFocusReturned = await productsTestPage.evaluate(() => {
+      const active = document.activeElement;
+      return active ? (active.textContent || '').includes('Xem thông tin') || (active.textContent || '').includes('Chi tiết') : false;
+    });
+    assert(isFocusReturned, 'Focus must return to the trigger button that opened the modal');
+    console.log('  [PASS] Escape key closes modal, restores body overflow, and returns focus to opener button');
+
+    // Test Backdrop click to close
+    const reOpenBtn = productsTestPage.locator('button:has-text("Xem thông tin"), button:has-text("Chi tiết")').first();
+    await reOpenBtn.click();
+    await productsTestPage.waitForTimeout(200);
+    assert((await productsTestPage.locator('div[role="dialog"]').count()) === 1, 'Modal not reopened');
+    await productsTestPage.mouse.click(10, 10);
+    await productsTestPage.waitForTimeout(200);
+    assert((await productsTestPage.locator('div[role="dialog"]').count()) === 0, 'Modal should close when clicking backdrop overlay');
+    console.log('  [PASS] Backdrop click closes modal dialog');
+
+    await productsTestPage.close();
 
     console.log('\n=== ALL PHASE 1 PUBLIC PAGES TESTS PASSED SUCCESSFULLY! ===');
   } catch (err) {
