@@ -105,6 +105,36 @@ export const ProductsPage: React.FC = () => {
     return counts
   }, [])
 
+  // ARIA Tabs roving tabindex & keyboard navigation (P3-2)
+  const categoryIdList = useMemo(
+    () => ['all', ...MOCK_PRODUCT_CATEGORIES.map((c) => c.id)],
+    []
+  )
+  const categoryTabRefs = useRef<(HTMLButtonElement | null)[]>([])
+
+  const handleCategoryTabKeyDown = (e: React.KeyboardEvent, currentIndex: number) => {
+    let targetIndex = currentIndex
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+      e.preventDefault()
+      targetIndex = (currentIndex + 1) % categoryIdList.length
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      e.preventDefault()
+      targetIndex = (currentIndex - 1 + categoryIdList.length) % categoryIdList.length
+    } else if (e.key === 'Home') {
+      e.preventDefault()
+      targetIndex = 0
+    } else if (e.key === 'End') {
+      e.preventDefault()
+      targetIndex = categoryIdList.length - 1
+    } else {
+      return
+    }
+
+    const nextCatId = categoryIdList[targetIndex]
+    setSelectedCategory(nextCatId)
+    categoryTabRefs.current[targetIndex]?.focus()
+  }
+
   // Handle open modal with focus management
   const handleOpenModal = useCallback((product: MockProductItem) => {
     previousActiveElement.current = document.activeElement as HTMLElement
@@ -121,7 +151,7 @@ export const ProductsPage: React.FC = () => {
     })
   }, [])
 
-  // Modal accessibility effect (initial focus, focus trap, body scroll lock, Escape key)
+  // Modal accessibility effect (initial focus, focus trap, body scroll lock, Escape key, background inert)
   useEffect(() => {
     if (!selectedProduct) return
 
@@ -129,7 +159,18 @@ export const ProductsPage: React.FC = () => {
     const originalOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
 
-    // 2. Initial focus into modal (prioritize close button or first interactive element)
+    // 2. Set inert on external background elements (header, footer, skip link) - P3-3
+    const externalElements = [
+      document.querySelector('header'),
+      document.querySelector('footer'),
+      document.querySelector('a[href="#main-content"]'),
+    ].filter(Boolean) as HTMLElement[]
+
+    externalElements.forEach((el) => {
+      el.setAttribute('inert', '')
+    })
+
+    // 3. Initial focus into modal (prioritize close button or first interactive element)
     const focusTimer = setTimeout(() => {
       if (closeButtonRef.current) {
         closeButtonRef.current.focus()
@@ -143,7 +184,7 @@ export const ProductsPage: React.FC = () => {
       }
     }, 30)
 
-    // 3. Keydown handler: Escape to close, Tab / Shift+Tab focus trap
+    // 4. Keydown handler: Escape to close, Tab / Shift+Tab focus trap
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         e.preventDefault()
@@ -181,6 +222,9 @@ export const ProductsPage: React.FC = () => {
     return () => {
       document.body.style.overflow = originalOverflow
       clearTimeout(focusTimer)
+      externalElements.forEach((el) => {
+        el.removeAttribute('inert')
+      })
       window.removeEventListener('keydown', handleKeyDown)
     }
   }, [selectedProduct, handleCloseModal])
@@ -468,13 +512,19 @@ export const ProductsPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Category Filter Tabs */}
+            {/* Category Filter Tabs (P3-2 Roving tabindex & Arrow keys) */}
             <div className="flex flex-wrap items-center gap-2 mt-4 pt-4 border-t border-[var(--color-border-subtle)]" role="tablist" aria-label="Nhóm sản phẩm">
               <button
+                ref={(el) => {
+                  categoryTabRefs.current[0] = el
+                }}
+                id="product-tab-all"
                 type="button"
                 role="tab"
+                tabIndex={selectedCategory === 'all' ? 0 : -1}
                 aria-selected={selectedCategory === 'all'}
                 onClick={() => setSelectedCategory('all')}
+                onKeyDown={(e) => handleCategoryTabKeyDown(e, 0)}
                 className={`px-3.5 py-2 rounded-[6px] text-xs font-semibold transition-all min-h-[44px] flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-plum-primary)] ${
                   selectedCategory === 'all'
                     ? 'bg-[var(--color-plum-primary)] text-white shadow-2xs'
@@ -487,15 +537,22 @@ export const ProductsPage: React.FC = () => {
                 </span>
               </button>
 
-              {MOCK_PRODUCT_CATEGORIES.map((cat) => {
+              {MOCK_PRODUCT_CATEGORIES.map((cat, idx) => {
                 const isSelected = selectedCategory === cat.id
+                const tabIndexPosition = idx + 1
                 return (
                   <button
                     key={cat.id}
+                    ref={(el) => {
+                      categoryTabRefs.current[tabIndexPosition] = el
+                    }}
+                    id={`product-tab-${cat.id}`}
                     type="button"
                     role="tab"
+                    tabIndex={isSelected ? 0 : -1}
                     aria-selected={isSelected}
                     onClick={() => setSelectedCategory(cat.id)}
+                    onKeyDown={(e) => handleCategoryTabKeyDown(e, tabIndexPosition)}
                     className={`px-3.5 py-2 rounded-[6px] text-xs font-semibold transition-all min-h-[44px] flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-plum-primary)] ${
                       isSelected
                         ? 'bg-[var(--color-plum-primary)] text-white shadow-2xs'

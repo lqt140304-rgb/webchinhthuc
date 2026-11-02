@@ -119,11 +119,17 @@ const pricingHtml = fs.readFileSync(pricingFilePath, 'utf-8');
 for (const svc of ['X-quang', 'Siêu âm', 'Phẫu thuật', 'Xét nghiệm']) {
   assert(pricingHtml.includes(svc), `Confirmed service "${svc}" missing in /bang-gia prerendered HTML`);
 }
-for (const forbidden of ['nhịn ăn', 'X-quang kỹ thuật số', 'đầu dò chuyên dụng', 'an toàn tuyệt đối']) {
-  assert(!pricingHtml.includes(forbidden), `Forbidden unverified/medical instruction "${forbidden}" found in /bang-gia prerender HTML`);
+for (const forbidden of [
+  'nhịn ăn',
+  'X-quang kỹ thuật số',
+  'đầu dò chuyên dụng',
+  'an toàn tuyệt đối',
+  'Đội ngũ bác sĩ trực 24/24 tiếp nhận',
+]) {
+  assert(!pricingHtml.includes(forbidden), `Forbidden unverified/operational claim "${forbidden}" found in /bang-gia prerender HTML`);
 }
 assert(pricingHtml.includes('content="noindex, nofollow"'), 'Pricing robots meta missing');
-console.log('[PASS] Static prerender HTML verified for /bang-gia (confirmed services present, medical advice purged, noindex verified)');
+console.log('[PASS] Static prerender HTML verified for /bang-gia (confirmed services present, medical/operational claims purged, noindex verified)');
 
 const productsFilePath = path.join(clientDir, 'san-pham', 'index.html');
 assert(fs.existsSync(productsFilePath), 'Prerendered index.html missing for /san-pham');
@@ -132,11 +138,58 @@ assert(
   productsHtml.includes('Danh mục sản phẩm minh họa — chưa xác nhận hàng hóa đang kinh doanh'),
   'Required mock disclaimer label missing in /san-pham prerendered HTML'
 );
-for (const forbidden of ['nhịn ăn', 'an toàn tuyệt đối', 'cách thời điểm dùng kháng sinh']) {
-  assert(!productsHtml.includes(forbidden), `Forbidden unverified phrase "${forbidden}" found in /san-pham prerender HTML`);
+for (const forbidden of [
+  'nhịn ăn',
+  'an toàn tuyệt đối',
+  'cách thời điểm dùng kháng sinh',
+  'tăm bông',
+  'vật nhọn',
+  'giảm mảng bám',
+  'giảm khó tiêu',
+]) {
+  assert(!productsHtml.includes(forbidden), `Forbidden unverified/practical instruction phrase "${forbidden}" found in /san-pham prerender HTML`);
 }
 assert(productsHtml.includes('content="noindex, nofollow"'), 'Products robots meta missing');
-console.log('[PASS] Static prerender HTML verified for /san-pham (standardized mock label present, medical claims purged, noindex verified)');
+console.log('[PASS] Static prerender HTML verified for /san-pham (standardized mock label present, practical/efficacy claims purged, noindex verified)');
+
+// Step 1C: Automated Mock Data Structure & Content Audit (P3-4, P3-5, P3-6)
+console.log('\n=== STEP 1C: AUTOMATED MOCK DATA STRUCTURE & CONTENT AUDIT ===');
+const mockPricingFile = path.resolve(__dirname, '..', '..', 'src', 'data', 'mockPricingContent.ts');
+assert(fs.existsSync(mockPricingFile), `mockPricingContent.ts missing at ${mockPricingFile}`);
+const mockPricingCode = fs.readFileSync(mockPricingFile, 'utf-8');
+
+// Ensure executionTime never specifies arbitrary minute/hour quantities
+const executionMinuteMatches = mockPricingCode.match(/executionTime:\s*['"`][^'"`]*\d+\s*(?:–|-)?\s*\d*\s*(?:phút|giờ)[^'"`]*['"`]/gi);
+assert(!executionMinuteMatches, `Unconfirmed minute/hour execution time found in mockPricingContent.ts: ${executionMinuteMatches}`);
+
+// Ensure no operational doctor-on-duty claims in mockPricingContent
+assert(!mockPricingCode.includes('bác sĩ trực 24/24'), 'Unverified claim "bác sĩ trực 24/24" found in mockPricingContent.ts');
+assert(!mockPricingCode.includes('bác sĩ trực trao đổi'), 'Unverified claim "bác sĩ trực trao đổi" found in mockPricingContent.ts');
+
+const pricingPageFile = path.resolve(__dirname, '..', '..', 'src', 'pages', 'PricingPage.tsx');
+assert(fs.existsSync(pricingPageFile), `PricingPage.tsx missing at ${pricingPageFile}`);
+const pricingPageCode = fs.readFileSync(pricingPageFile, 'utf-8');
+assert(!pricingPageCode.includes('Đội ngũ bác sĩ trực 24/24 tiếp nhận'), 'Unverified claim "Đội ngũ bác sĩ trực 24/24 tiếp nhận" found in PricingPage.tsx');
+assert(pricingPageCode.includes('Bệnh viện tiếp nhận cấp cứu 24/24. Vui lòng liên hệ hotline trước khi đến.'), 'Neutral emergency copy missing in PricingPage.tsx');
+console.log('[PASS] Mock Pricing data & operational claims verified (no arbitrary minutes/hours, neutral emergency text)');
+
+const mockProductsFile = path.resolve(__dirname, '..', '..', 'src', 'data', 'mockProductsContent.ts');
+assert(fs.existsSync(mockProductsFile), `mockProductsContent.ts missing at ${mockProductsFile}`);
+const mockProductsCode = fs.readFileSync(mockProductsFile, 'utf-8');
+
+const forbiddenProductTerms = [
+  'tăm bông',
+  'vật nhọn',
+  'giảm mảng bám',
+  'giảm khó tiêu',
+  'liều lượng',
+  'chống chỉ định',
+];
+for (const term of forbiddenProductTerms) {
+  assert(!mockProductsCode.toLowerCase().includes(term.toLowerCase()), `Forbidden practical/efficacy term "${term}" found in mockProductsContent.ts`);
+}
+assert(mockProductsCode.includes('Danh mục sản phẩm minh họa — chưa xác nhận hàng hóa đang kinh doanh'), 'Standardized mock disclaimer missing in mockProductsContent.ts');
+console.log('[PASS] Mock Products data structure audit passed (cotton swab/sharp objects, unverified efficacy claims purged, neutral catalog retained)');
 
 console.log('\n=== STEP 2: RUNNING PLAYWRIGHT DOM, HYDRATION & RESPONSIVENESS AUDIT ===');
 
@@ -417,6 +470,46 @@ server.listen(PORT, async () => {
     assert(groupNotice >= 1, 'Confirmed services group notice missing when category selected');
     console.log('  [PASS] Category filter & confirmed service group notice verified');
 
+    // Test Category Tabs ARIA Keyboard Navigation & Roving Tabindex (P3-2)
+    const pricingTabAll = pricingTestPage.locator('#pricing-tab-all');
+    assert.strictEqual(await pricingTabAll.getAttribute('role'), 'tab', 'Tab missing role="tab"');
+
+    // Focus first tab, press ArrowRight
+    await pricingTabAll.focus();
+    await pricingTestPage.keyboard.press('ArrowRight');
+    await pricingTestPage.waitForTimeout(100);
+    const activeTabAfterRight = await pricingTestPage.evaluate(() => {
+      const active = document.activeElement;
+      return {
+        id: active ? active.id : null,
+        tabindex: active ? active.getAttribute('tabindex') : null,
+        ariaSelected: active ? active.getAttribute('aria-selected') : null,
+      };
+    });
+    assert.strictEqual(activeTabAfterRight.id, 'pricing-tab-kham-dieu-tri', 'ArrowRight should move focus to next tab');
+    assert.strictEqual(activeTabAfterRight.tabindex, '0', 'Active tab must have tabindex="0"');
+    assert.strictEqual(activeTabAfterRight.ariaSelected, 'true', 'Active tab must have aria-selected="true"');
+    assert.strictEqual(await pricingTabAll.getAttribute('tabindex'), '-1', 'Unselected tab must have tabindex="-1"');
+
+    // ArrowLeft moves back to first tab
+    await pricingTestPage.keyboard.press('ArrowLeft');
+    await pricingTestPage.waitForTimeout(100);
+    const activeTabAfterLeft = await pricingTestPage.evaluate(() => (document.activeElement ? document.activeElement.id : null));
+    assert.strictEqual(activeTabAfterLeft, 'pricing-tab-all', 'ArrowLeft should return focus to first tab');
+
+    // End key moves to last tab
+    await pricingTestPage.keyboard.press('End');
+    await pricingTestPage.waitForTimeout(100);
+    const activeTabAfterEnd = await pricingTestPage.evaluate(() => (document.activeElement ? document.activeElement.id : null));
+    assert.strictEqual(activeTabAfterEnd, 'pricing-tab-dich-vu-khac', 'End key should move focus to last tab');
+
+    // Home key moves back to first tab
+    await pricingTestPage.keyboard.press('Home');
+    await pricingTestPage.waitForTimeout(100);
+    const activeTabAfterHome = await pricingTestPage.evaluate(() => (document.activeElement ? document.activeElement.id : null));
+    assert.strictEqual(activeTabAfterHome, 'pricing-tab-all', 'Home key should move focus to first tab');
+    console.log('  [PASS] ARIA Tabs roving tabindex & keyboard navigation (ArrowRight, ArrowLeft, Home, End) verified on /bang-gia');
+
     // Test Search & Empty State
     const searchInput = pricingTestPage.locator('#service-search-input');
     await searchInput.fill('không-thể-tìm-thấy-dịch-vụ-này-xyz');
@@ -431,13 +524,42 @@ server.listen(PORT, async () => {
     await pricingTestPage.close();
 
     // 3B: Interactive & Accessibility tests for /san-pham (Modal Focus Trap, Escape, Return Focus, Background Inert)
-    console.log('\n--- Testing /san-pham Product Modal Accessibility (P2-1) ---');
+    console.log('\n--- Testing /san-pham Product Modal Accessibility (P2-1, P3-1, P3-2, P3-3) ---');
     const productsTestPage = await context.newPage();
     await productsTestPage.goto(`http://localhost:${PORT}/san-pham`, { waitUntil: 'networkidle' });
+
+    // Test Category Tabs ARIA Keyboard Navigation & Roving Tabindex on /san-pham (P3-2)
+    const productTabAll = productsTestPage.locator('#product-tab-all');
+    assert.strictEqual(await productTabAll.getAttribute('role'), 'tab', 'Tab missing role="tab" on /san-pham');
+    assert.strictEqual(await productTabAll.getAttribute('tabindex'), '0', 'Selected tab must have tabindex="0"');
+
+    await productTabAll.focus();
+    await productsTestPage.keyboard.press('ArrowRight');
+    await productsTestPage.waitForTimeout(100);
+    const prodActiveTabAfterRight = await productsTestPage.evaluate(() => {
+      const active = document.activeElement;
+      return {
+        id: active ? active.id : null,
+        tabindex: active ? active.getAttribute('tabindex') : null,
+        ariaSelected: active ? active.getAttribute('aria-selected') : null,
+      };
+    });
+    assert.strictEqual(prodActiveTabAfterRight.id, 'product-tab-dinh-duong', 'ArrowRight should move focus to next tab on /san-pham');
+    assert.strictEqual(prodActiveTabAfterRight.tabindex, '0', 'Active tab must have tabindex="0"');
+    assert.strictEqual(prodActiveTabAfterRight.ariaSelected, 'true', 'Active tab must have aria-selected="true"');
+
+    await productsTestPage.keyboard.press('Home');
+    await productsTestPage.waitForTimeout(100);
+    const prodActiveTabAfterHome = await productsTestPage.evaluate(() => (document.activeElement ? document.activeElement.id : null));
+    assert.strictEqual(prodActiveTabAfterHome, 'product-tab-all', 'Home key should return focus to first tab on /san-pham');
+    console.log('  [PASS] ARIA Tabs roving tabindex & keyboard navigation verified on /san-pham');
 
     // Find first modal trigger button ("Xem thông tin" or "Chi tiết")
     const openModalBtn = productsTestPage.locator('button:has-text("Xem thông tin"), button:has-text("Chi tiết")').first();
     await openModalBtn.scrollIntoViewIfNeeded();
+    const openerHandle = await openModalBtn.elementHandle();
+    assert(openerHandle, 'Opener button element handle must exist');
+
     await openModalBtn.click();
     await productsTestPage.waitForTimeout(200);
 
@@ -447,16 +569,31 @@ server.listen(PORT, async () => {
     assert.strictEqual(await dialogLocator.getAttribute('aria-modal'), 'true', 'Modal dialog missing aria-modal="true"');
     assert.strictEqual(await dialogLocator.getAttribute('aria-labelledby'), 'product-modal-title', 'Modal missing aria-labelledby');
 
-    // Verify background inert and body overflow
+    // Verify background inert and body overflow (P3-3)
     const isBodyOverflowHidden = await productsTestPage.evaluate(() => document.body.style.overflow === 'hidden');
     assert(isBodyOverflowHidden, 'Body overflow must be hidden while modal is open');
 
-    const isBackgroundInert = await productsTestPage.evaluate(() => {
-      const bg = document.querySelector('div[aria-hidden="true"]');
-      return bg !== null && bg.hasAttribute('inert');
+    const inertAudit = await productsTestPage.evaluate(() => {
+      const header = document.querySelector('header');
+      const footer = document.querySelector('footer');
+      const pageContent = document.querySelector('div[aria-hidden="true"]');
+      const main = document.querySelector('main');
+      const body = document.body;
+
+      return {
+        headerHasInert: header ? header.hasAttribute('inert') : false,
+        footerHasInert: footer ? footer.hasAttribute('inert') : false,
+        pageContentHasInert: pageContent ? pageContent.hasAttribute('inert') : false,
+        mainHasAriaHidden: main ? main.hasAttribute('aria-hidden') : false,
+        bodyHasAriaHidden: body.hasAttribute('aria-hidden'),
+      };
     });
-    assert(isBackgroundInert, 'Background container must have aria-hidden="true" and inert attribute');
-    console.log('  [PASS] Modal ARIA (role=dialog, aria-modal=true), body scroll lock, and background inert verified');
+    assert(inertAudit.headerHasInert, 'Site <header> must have inert attribute while modal is open');
+    assert(inertAudit.footerHasInert, 'Site <footer> must have inert attribute while modal is open');
+    assert(inertAudit.pageContentHasInert, 'Background container must have inert attribute while modal is open');
+    assert(!inertAudit.mainHasAriaHidden, '<main> element must NEVER have aria-hidden (contains dialog)');
+    assert(!inertAudit.bodyHasAriaHidden, '<body> element must NEVER have aria-hidden (contains dialog)');
+    console.log('  [PASS] Modal background isolation: header, footer, page content marked inert; no aria-hidden on dialog ancestors (P3-3)');
 
     // Verify initial focus is on close button
     const initialFocusedLabel = await productsTestPage.evaluate(() => (document.activeElement ? document.activeElement.getAttribute('aria-label') : null));
@@ -483,7 +620,7 @@ server.listen(PORT, async () => {
     assert(isStillInside, 'Focus escaped modal during Shift+Tab navigation');
     console.log('  [PASS] Shift+Tab reverse focus trap verified');
 
-    // Test Escape key closes modal and returns focus
+    // Test 1: Escape key closes modal and STRICTLY restores focus (document.activeElement === opener) - P3-1
     await productsTestPage.keyboard.press('Escape');
     await productsTestPage.waitForTimeout(200);
     assert((await dialogLocator.count()) === 0, 'Modal dialog should be closed after Escape key');
@@ -491,14 +628,42 @@ server.listen(PORT, async () => {
     const isBodyOverflowRestored = await productsTestPage.evaluate(() => document.body.style.overflow !== 'hidden');
     assert(isBodyOverflowRestored, 'Body overflow should be restored after closing modal');
 
-    const isFocusReturned = await productsTestPage.evaluate(() => {
-      const active = document.activeElement;
-      return active ? (active.textContent || '').includes('Xem thông tin') || (active.textContent || '').includes('Chi tiết') : false;
+    // Verify background elements inert removed
+    const inertCleanupAudit = await productsTestPage.evaluate(() => {
+      const header = document.querySelector('header');
+      const footer = document.querySelector('footer');
+      return {
+        headerHasInert: header ? header.hasAttribute('inert') : false,
+        footerHasInert: footer ? footer.hasAttribute('inert') : false,
+      };
     });
-    assert(isFocusReturned, 'Focus must return to the trigger button that opened the modal');
-    console.log('  [PASS] Escape key closes modal, restores body overflow, and returns focus to opener button');
+    assert(!inertCleanupAudit.headerHasInert, 'Header inert attribute must be removed after closing modal');
+    assert(!inertCleanupAudit.footerHasInert, 'Footer inert attribute must be removed after closing modal');
 
-    // Test Backdrop click to close
+    // Strict focus restoration check for Escape: document.activeElement === opener
+    const isFocusStrictlyRestoredAfterEsc = await productsTestPage.evaluate((opener) => {
+      return document.activeElement === opener;
+    }, openerHandle);
+    assert(isFocusStrictlyRestoredAfterEsc, 'Focus must strictly restore to opener button (document.activeElement === opener) after closing with Escape');
+    console.log('  [PASS] Escape key closes modal, cleans up inert, and strictly restores focus (document.activeElement === opener)');
+
+    // Test 2: Close button closes modal and STRICTLY restores focus (document.activeElement === opener) - P3-1
+    await openModalBtn.click();
+    await productsTestPage.waitForTimeout(200);
+    assert((await productsTestPage.locator('div[role="dialog"]').count()) === 1, 'Modal not reopened');
+
+    const closeBtn = productsTestPage.locator('button[aria-label="Đóng cửa sổ chi tiết sản phẩm"]');
+    await closeBtn.click();
+    await productsTestPage.waitForTimeout(200);
+    assert((await productsTestPage.locator('div[role="dialog"]').count()) === 0, 'Modal not closed after clicking close button');
+
+    const isFocusStrictlyRestoredAfterCloseBtn = await productsTestPage.evaluate((opener) => {
+      return document.activeElement === opener;
+    }, openerHandle);
+    assert(isFocusStrictlyRestoredAfterCloseBtn, 'Focus must strictly restore to opener button (document.activeElement === opener) after clicking Close button');
+    console.log('  [PASS] Close button closes modal and strictly restores focus (document.activeElement === opener)');
+
+    // Test 3: Backdrop click to close
     const reOpenBtn = productsTestPage.locator('button:has-text("Xem thông tin"), button:has-text("Chi tiết")').first();
     await reOpenBtn.click();
     await productsTestPage.waitForTimeout(200);

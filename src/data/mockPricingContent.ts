@@ -99,7 +99,7 @@ export const MOCK_PRICING_SERVICES: readonly MockPricingServiceItem[] = [
     shortDesc: 'Kiểm tra thể trạng chung, nhịp tim phổi, niêm mạc mắt miệng và tư vấn chế độ chăm sóc ban đầu.',
     priceStatus: 'Liên hệ để biết giá',
     applicableFor: 'Chó & mèo mọi thể trạng',
-    executionTime: 'Khoảng 20 – 30 phút',
+    executionTime: 'Liên hệ để được tư vấn thời gian thực hiện',
     notes: 'Bác sĩ trao đổi trực tiếp với chủ nuôi về thói quen sinh hoạt và lịch sử thăm khám của bé.',
   },
   {
@@ -110,7 +110,7 @@ export const MOCK_PRICING_SERVICES: readonly MockPricingServiceItem[] = [
     shortDesc: 'Đánh giá tiến triển hồi phục sau đợt điều trị hoặc kiểm tra phản ứng của thú cưng.',
     priceStatus: 'Liên hệ để biết giá',
     applicableFor: 'Thú cưng đang trong kế hoạch theo dõi',
-    executionTime: 'Khoảng 15 – 25 phút',
+    executionTime: 'Liên hệ để được tư vấn thời gian thực hiện',
     notes: 'Gia đình nên mang theo sổ khám hoặc hồ sơ cũ để bác sĩ đối chiếu thông tin lâm sàng.',
   },
   {
@@ -121,7 +121,7 @@ export const MOCK_PRICING_SERVICES: readonly MockPricingServiceItem[] = [
     shortDesc: 'Kiểm tra tổn thương da lông, vùng tai và các biểu hiện khó chịu kéo dài ở thú cưng.',
     priceStatus: 'Liên hệ để biết giá',
     applicableFor: 'Thú cưng có biểu hiện viêm da, rụng lông hoặc ngứa tai',
-    executionTime: 'Khoảng 30 – 45 phút',
+    executionTime: 'Liên hệ để được tư vấn thời gian thực hiện',
     notes: 'Vui lòng trao đổi trực tiếp với bác sĩ thú y để được tư vấn phù hợp trước khi thăm khám.',
   },
 
@@ -134,7 +134,7 @@ export const MOCK_PRICING_SERVICES: readonly MockPricingServiceItem[] = [
     shortDesc: 'Khảo sát hình thái xương khớp, lồng ngực hoặc ổ bụng theo vùng chỉ định thăm khám.',
     priceStatus: 'Liên hệ để biết giá',
     applicableFor: 'Theo chỉ định thăm khám trực tiếp của bác sĩ',
-    executionTime: 'Khoảng 15 – 20 phút',
+    executionTime: 'Liên hệ để được tư vấn thời gian thực hiện',
     notes: 'Bác sĩ và kỹ thuật viên hỗ trợ cố định tư thế nhẹ nhàng, bảo đảm an toàn cho thú cưng.',
   },
   {
@@ -145,7 +145,7 @@ export const MOCK_PRICING_SERVICES: readonly MockPricingServiceItem[] = [
     shortDesc: 'Ghi nhận hình ảnh đa góc độ vùng ngực hoặc bụng phục vụ đánh giá chuyên môn.',
     priceStatus: 'Liên hệ để biết giá',
     applicableFor: 'Theo chỉ định chẩn đoán hình ảnh của bác sĩ',
-    executionTime: 'Khoảng 20 – 30 phút',
+    executionTime: 'Liên hệ để được tư vấn thời gian thực hiện',
     notes: 'Bác sĩ giải thích trực tiếp kết quả hình ảnh cho chủ nuôi sau khi hoàn thành chụp phim.',
   },
   {
@@ -156,7 +156,7 @@ export const MOCK_PRICING_SERVICES: readonly MockPricingServiceItem[] = [
     shortDesc: 'Khảo sát hình thái các cơ quan vùng bụng theo chỉ định thăm khám chuyên môn.',
     priceStatus: 'Liên hệ để biết giá',
     applicableFor: 'Chó & mèo cần kiểm tra tạng phủ ổ bụng',
-    executionTime: 'Khoảng 20 – 30 phút',
+    executionTime: 'Liên hệ để được tư vấn thời gian thực hiện',
     notes: 'Vui lòng trao đổi trực tiếp với bác sĩ thú y để được hướng dẫn chuẩn bị phù hợp trước khi siêu âm.',
   },
   {
@@ -167,7 +167,7 @@ export const MOCK_PRICING_SERVICES: readonly MockPricingServiceItem[] = [
     shortDesc: 'Đánh giá các chỉ số tế bào máu nhằm hỗ trợ phát hiện sớm tình trạng viêm nhiễm hoặc bất thường.',
     priceStatus: 'Liên hệ để biết giá',
     applicableFor: 'Thăm khám định kỳ hoặc chuẩn bị trước can thiệp ngoại khoa',
-    executionTime: 'Khoảng 20 – 30 phút',
+    executionTime: 'Liên hệ để được tư vấn thời gian thực hiện',
     notes: 'Lấy mẫu máu an toàn theo quy trình chuyên môn, kết quả được bác sĩ giải thích trực tiếp.',
   },
   {
@@ -178,7 +178,7 @@ export const MOCK_PRICING_SERVICES: readonly MockPricingServiceItem[] = [
     shortDesc: 'Kiểm tra các chỉ số chức năng cơ quan phục vụ theo dõi sức khỏe và đánh giá chuyên môn.',
     priceStatus: 'Liên hệ để biết giá',
     applicableFor: 'Thú cưng thăm khám chuyên sâu hoặc theo chỉ định bác sĩ',
-    executionTime: 'Khoảng 30 – 45 phút',
+    executionTime: 'Liên hệ để được tư vấn thời gian thực hiện',
     notes: 'Vui lòng trao đổi trực tiếp với bác sĩ thú y để được hướng dẫn chuẩn bị trước khi xét nghiệm.',
   },
   {
@@ -189,7 +189,7 @@ export const MOCK_PRICING_SERVICES: readonly MockPricingServiceItem[] = [
     shortDesc: 'Hỗ trợ phát hiện nhanh kháng nguyên một số mầm bệnh thường gặp ở chó mèo.',
     priceStatus: 'Liên hệ để biết giá',
     applicableFor: 'Thú cưng có biểu hiện bất thường hoặc theo chỉ định bác sĩ',
-    executionTime: 'Khoảng 15 – 20 phút',
+    executionTime: 'Liên hệ để được tư vấn thời gian thực hiện',
     notes: 'Thực hiện theo chỉ định của bác sĩ khi cần hỗ trợ đánh giá ban đầu.',
   },
 
@@ -202,7 +202,7 @@ export const MOCK_PRICING_SERVICES: readonly MockPricingServiceItem[] = [
     shortDesc: 'Thủ thuật ngoại khoa triệt sản hỗ trợ quản lý sức khỏe và hành vi của thú cưng.',
     priceStatus: 'Liên hệ để biết giá',
     applicableFor: 'Mèo đực đủ điều kiện sức khỏe qua thăm khám',
-    executionTime: 'Khoảng 30 – 45 phút',
+    executionTime: 'Liên hệ để được tư vấn thời gian thực hiện',
     notes: 'Vui lòng trao đổi trực tiếp với bác sĩ thú y để được tư vấn và chuẩn bị phù hợp trước phẫu thuật.',
   },
   {
@@ -213,7 +213,7 @@ export const MOCK_PRICING_SERVICES: readonly MockPricingServiceItem[] = [
     shortDesc: 'Can thiệp ngoại khoa triệt sản mèo cái thực hiện bởi bác sĩ có chuyên môn.',
     priceStatus: 'Liên hệ để biết giá',
     applicableFor: 'Mèo cái đủ điều kiện sức khỏe qua thăm khám',
-    executionTime: 'Khoảng 45 – 60 phút',
+    executionTime: 'Liên hệ để được tư vấn thời gian thực hiện',
     notes: 'Vui lòng trao đổi trực tiếp với bác sĩ thú y để được tư vấn chăm sóc hậu phẫu phù hợp.',
   },
   {
@@ -224,7 +224,7 @@ export const MOCK_PRICING_SERVICES: readonly MockPricingServiceItem[] = [
     shortDesc: 'Can thiệp ngoại khoa triệt sản cho chó với quy trình theo dõi sát sao từ đội ngũ y tế.',
     priceStatus: 'Liên hệ để biết giá',
     applicableFor: 'Chó đủ điều kiện sức khỏe qua thăm khám',
-    executionTime: 'Khoảng 60 – 90 phút',
+    executionTime: 'Liên hệ để được tư vấn thời gian thực hiện',
     notes: 'Vui lòng trao đổi trực tiếp với bác sĩ thú y để được tư vấn kiểm tra tiền phẫu phù hợp.',
   },
   {
@@ -235,7 +235,7 @@ export const MOCK_PRICING_SERVICES: readonly MockPricingServiceItem[] = [
     shortDesc: 'Vệ sinh, làm sạch và khâu tái tạo tổn thương phần mềm do chấn thương hoặc va chạm.',
     priceStatus: 'Liên hệ để biết giá',
     applicableFor: 'Tổn thương da và mô mềm theo đánh giá lâm sàng',
-    executionTime: 'Tùy mức độ tổn thương thực tế',
+    executionTime: 'Liên hệ để được tư vấn thời gian thực hiện',
     notes: 'Trường hợp cấp cứu được tiếp nhận ưu tiên theo quy trình chuyên môn.',
   },
 
@@ -248,7 +248,7 @@ export const MOCK_PRICING_SERVICES: readonly MockPricingServiceItem[] = [
     shortDesc: 'Bố trí ô lưu trú yên tĩnh, theo dõi hồi tỉnh sau can thiệp và chăm sóc sinh hoạt.',
     priceStatus: 'Liên hệ để biết giá',
     applicableFor: 'Thú cưng vừa hoàn thành can thiệp hoặc cần theo dõi',
-    executionTime: 'Tính theo chu kỳ lưu viện thực tế',
+    executionTime: 'Liên hệ để được tư vấn thời gian thực hiện',
     notes: 'Bao gồm vệ sinh ô lưu trú, cấp nước sạch và bữa ăn phù hợp thể trạng của thú cưng.',
   },
   {
@@ -259,7 +259,7 @@ export const MOCK_PRICING_SERVICES: readonly MockPricingServiceItem[] = [
     shortDesc: 'Tiếp nhận thú cưng lưu lại cơ sở khi chủ nuôi có việc bận, duy trì chăm sóc sinh hoạt.',
     priceStatus: 'Liên hệ để biết giá',
     applicableFor: 'Chó & mèo có sức khỏe ổn định',
-    executionTime: 'Theo thỏa thuận thời gian gửi của gia đình',
+    executionTime: 'Liên hệ để được tư vấn thời gian thực hiện',
     notes: 'Chủ nuôi trao đổi thói quen sinh hoạt của bé cùng nhân viên tiếp đón tại quầy cơ sở.',
   },
 
@@ -272,7 +272,7 @@ export const MOCK_PRICING_SERVICES: readonly MockPricingServiceItem[] = [
     shortDesc: 'Tắm sạch dịu nhẹ với sản phẩm chuyên dụng, sấy khô và chải lông tơi xốp.',
     priceStatus: 'Liên hệ để biết giá',
     applicableFor: 'Phân loại theo thể trọng và độ dài lông của bé',
-    executionTime: 'Khoảng 45 – 75 phút',
+    executionTime: 'Liên hệ để được tư vấn thời gian thực hiện',
     notes: 'Nên đặt hẹn trước qua hotline để nhân sự grooming sắp xếp khung giờ phục vụ chu đáo.',
   },
   {
@@ -283,7 +283,7 @@ export const MOCK_PRICING_SERVICES: readonly MockPricingServiceItem[] = [
     shortDesc: 'Làm sạch vành tai ngoài, bấm gọn đầu móng và tỉa gọn lông đệm chân.',
     priceStatus: 'Liên hệ để biết giá',
     applicableFor: 'Chó & mèo cần vệ sinh định kỳ',
-    executionTime: 'Khoảng 20 – 30 phút',
+    executionTime: 'Liên hệ để được tư vấn thời gian thực hiện',
     notes: 'Thao tác ân cần, giúp các bé cảm thấy thoải mái và an tâm trong suốt quá trình chăm sóc.',
   },
   {
@@ -294,7 +294,7 @@ export const MOCK_PRICING_SERVICES: readonly MockPricingServiceItem[] = [
     shortDesc: 'Tỉa gọn gàng toàn thân hoặc tạo kiểu phom dáng phù hợp sinh hoạt gia đình.',
     priceStatus: 'Liên hệ để biết giá',
     applicableFor: 'Chó mèo lông dài theo nhu cầu của chủ nuôi',
-    executionTime: 'Khoảng 90 – 120 phút',
+    executionTime: 'Liên hệ để được tư vấn thời gian thực hiện',
     notes: 'Trao đổi mong muốn về kiểu dáng lông cùng chuyên viên trước khi bắt đầu cắt tỉa.',
   },
 
@@ -307,7 +307,7 @@ export const MOCK_PRICING_SERVICES: readonly MockPricingServiceItem[] = [
     shortDesc: 'Khám sàng lọc thể trạng trước tiêm và tư vấn lịch tiêm phòng phù hợp.',
     priceStatus: 'Liên hệ để biết giá',
     applicableFor: 'Thú cưng đủ điều kiện sức khỏe qua thăm khám',
-    executionTime: 'Khoảng 15 – 25 phút',
+    executionTime: 'Liên hệ để được tư vấn thời gian thực hiện',
     notes: 'Vui lòng trao đổi trực tiếp với bác sĩ thú y để được tư vấn phác đồ và hướng dẫn theo dõi phù hợp.',
   },
   {
@@ -318,7 +318,7 @@ export const MOCK_PRICING_SERVICES: readonly MockPricingServiceItem[] = [
     shortDesc: 'Cân trọng lượng và tư vấn giải pháp phòng ngừa nội ngoại ký sinh trùng an toàn.',
     priceStatus: 'Liên hệ để biết giá',
     applicableFor: 'Chó & mèo theo nhu cầu phòng ngừa định kỳ',
-    executionTime: 'Khoảng 10 – 15 phút',
+    executionTime: 'Liên hệ để được tư vấn thời gian thực hiện',
     notes: 'Vui lòng trao đổi trực tiếp với bác sĩ thú y để được tư vấn sản phẩm và cách sử dụng phù hợp.',
   },
   {
@@ -329,7 +329,7 @@ export const MOCK_PRICING_SERVICES: readonly MockPricingServiceItem[] = [
     shortDesc: 'Ghi nhận lịch tiêm chủng, cân nặng và các mốc theo dõi phát triển của thú cưng.',
     priceStatus: 'Chưa cập nhật',
     applicableFor: 'Thú cưng mới tiếp nhận hoặc cần mở sổ theo dõi mới',
-    executionTime: 'Khoảng 10 – 15 phút',
+    executionTime: 'Liên hệ để được tư vấn thời gian thực hiện',
     notes: 'Hỗ trợ chủ nuôi dễ dàng ghi nhớ và theo dõi các mốc chăm sóc định kỳ cho bé.',
   },
 ]
@@ -357,6 +357,6 @@ export const MOCK_PRICING_FAQS: readonly {
     id: 'pricing-faq-3',
     isMock: true,
     question: 'Trường hợp cấp cứu tiếp nhận như thế nào?',
-    answer: `Bệnh viện Thú y Lê Sơn duy trì tiếp nhận cấp cứu khẩn cấp 24/24 qua hotline ${HOSPITAL_CONTACT.hotlineDisplay}. Mọi thông tin về chi phí xử lý cấp cứu ban đầu sẽ được bác sĩ trực trao đổi minh bạch với chủ nuôi ngay khi tiếp nhận bé tại phòng khám.`,
+    answer: `Bệnh viện Thú y Lê Sơn duy trì tiếp nhận cấp cứu khẩn cấp 24/24 qua hotline ${HOSPITAL_CONTACT.hotlineDisplay}. Mọi thông tin về chi phí xử lý cấp cứu ban đầu sẽ được trao đổi minh bạch với chủ nuôi ngay khi tiếp nhận bé tại cơ sở.`,
   },
 ]

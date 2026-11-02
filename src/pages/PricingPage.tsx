@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import {
   Tag,
@@ -70,6 +70,36 @@ export const PricingPage: React.FC = () => {
     }
     return counts
   }, [])
+
+  // ARIA Tabs keyboard navigation & roving tabindex (P3-2)
+  const tabCategoryList = useMemo(
+    () => ['all', ...MOCK_PRICING_CATEGORIES.map((c) => c.id)],
+    []
+  )
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([])
+
+  const handleTabKeyDown = (e: React.KeyboardEvent, currentIndex: number) => {
+    let targetIndex = currentIndex
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+      e.preventDefault()
+      targetIndex = (currentIndex + 1) % tabCategoryList.length
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      e.preventDefault()
+      targetIndex = (currentIndex - 1 + tabCategoryList.length) % tabCategoryList.length
+    } else if (e.key === 'Home') {
+      e.preventDefault()
+      targetIndex = 0
+    } else if (e.key === 'End') {
+      e.preventDefault()
+      targetIndex = tabCategoryList.length - 1
+    } else {
+      return
+    }
+
+    const nextCategoryId = tabCategoryList[targetIndex]
+    setSelectedCategory(nextCategoryId)
+    tabRefs.current[targetIndex]?.focus()
+  }
 
   return (
     <div className="w-full bg-[var(--color-bg-primary)] text-[var(--color-fg-primary)]">
@@ -209,7 +239,7 @@ export const PricingPage: React.FC = () => {
                   Trường hợp cấp cứu khẩn cấp:
                 </span>
                 <p className="leading-relaxed mb-2.5">
-                  Ưu tiên cứu chữa thể trạng thú cưng lên hàng đầu. Đội ngũ bác sĩ trực 24/24 tiếp nhận xử lý ngay khi đưa bé đến cơ sở.
+                  Bệnh viện tiếp nhận cấp cứu 24/24. Vui lòng liên hệ hotline trước khi đến.
                 </p>
                 <a
                   href={HOSPITAL_CONTACT.hotlineTel}
@@ -306,13 +336,19 @@ export const PricingPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Category Filter Tabs */}
+            {/* Category Filter Tabs (P3-2 Roving tabindex & Arrow keys) */}
             <div className="flex flex-wrap items-center gap-2 mt-4 pt-4 border-t border-[var(--color-border-subtle)]" role="tablist" aria-label="Nhóm dịch vụ">
               <button
+                ref={(el) => {
+                  tabRefs.current[0] = el
+                }}
+                id="pricing-tab-all"
                 type="button"
                 role="tab"
+                tabIndex={selectedCategory === 'all' ? 0 : -1}
                 aria-selected={selectedCategory === 'all'}
                 onClick={() => setSelectedCategory('all')}
+                onKeyDown={(e) => handleTabKeyDown(e, 0)}
                 className={`px-3.5 py-2 rounded-[6px] text-xs font-semibold transition-all min-h-[44px] flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-plum-primary)] ${
                   selectedCategory === 'all'
                     ? 'bg-[var(--color-plum-primary)] text-white shadow-2xs'
@@ -325,15 +361,22 @@ export const PricingPage: React.FC = () => {
                 </span>
               </button>
 
-              {MOCK_PRICING_CATEGORIES.map((cat) => {
+              {MOCK_PRICING_CATEGORIES.map((cat, idx) => {
                 const isSelected = selectedCategory === cat.id
+                const tabIndexPosition = idx + 1
                 return (
                   <button
                     key={cat.id}
+                    ref={(el) => {
+                      tabRefs.current[tabIndexPosition] = el
+                    }}
+                    id={`pricing-tab-${cat.id}`}
                     type="button"
                     role="tab"
+                    tabIndex={isSelected ? 0 : -1}
                     aria-selected={isSelected}
                     onClick={() => setSelectedCategory(cat.id)}
+                    onKeyDown={(e) => handleTabKeyDown(e, tabIndexPosition)}
                     className={`px-3.5 py-2 rounded-[6px] text-xs font-semibold transition-all min-h-[44px] flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-plum-primary)] ${
                       isSelected
                         ? 'bg-[var(--color-plum-primary)] text-white shadow-2xs'
@@ -471,7 +514,7 @@ export const PricingPage: React.FC = () => {
 
                         <div className="p-3.5 rounded-[6px] bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)]">
                           <span className="font-bold text-[var(--color-plum-deep)] block mb-1">
-                            Thời gian thực hiện dự kiến:
+                            Thời gian thực hiện:
                           </span>
                           <span className="text-[var(--color-fg-muted)] leading-relaxed">
                             {service.executionTime}
