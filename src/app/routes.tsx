@@ -24,6 +24,10 @@ const EmergencyPage = lazy(() => import('@/pages/EmergencyPage'))
 const ContactPage = lazy(() => import('@/pages/ContactPage'))
 const PricingPage = lazy(() => import('@/pages/PricingPage'))
 const ProductsPage = lazy(() => import('@/pages/ProductsPage'))
+const StoriesPage = lazy(() => import('@/pages/StoriesPage'))
+const StoryDetailPage = lazy(() => import('@/pages/StoryDetailPage'))
+const PetCornerPage = lazy(() => import('@/pages/PetCornerPage'))
+const ArticleDetailPage = lazy(() => import('@/pages/ArticleDetailPage'))
 
 const PageLoadingFallback = () => (
   <div
@@ -122,19 +126,17 @@ export const AppRoutes = () => {
         <Route
           path="/cau-chuyen"
           element={
-            <ComingSoonView
-              title="Hành trình điều trị tiêu biểu"
-              subtitle="Các câu chuyện phục hồi thực tế của các bé cưng đang được xin ý kiến đồng thuận từ chủ nuôi."
-            />
+            <Suspense fallback={<PageLoadingFallback />}>
+              <StoriesPage />
+            </Suspense>
           }
         />
         <Route
           path="/cau-chuyen/:slug"
           element={
-            <ComingSoonView
-              title="Chi tiết câu chuyện điều trị"
-              subtitle="Nội dung ca bệnh đang được chuẩn bị theo chuẩn y khoa không công khai y lệnh bảo mật."
-            />
+            <Suspense fallback={<PageLoadingFallback />}>
+              <StoryDetailPage />
+            </Suspense>
           }
         />
 
@@ -142,19 +144,17 @@ export const AppRoutes = () => {
         <Route
           path="/goc-thu-cung"
           element={
-            <ComingSoonView
-              title="Góc thú cưng & Cẩm nang kiến thức"
-              subtitle="Kho kiến thức y khoa, dinh dưỡng và phòng bệnh từ bác sĩ thú y đang được biên tập."
-            />
+            <Suspense fallback={<PageLoadingFallback />}>
+              <PetCornerPage />
+            </Suspense>
           }
         />
         <Route
           path="/bai-viet/:slug"
           element={
-            <ComingSoonView
-              title="Chi tiết bài viết cẩm nang"
-              subtitle="Bài viết đang được rà soát nội dung trước khi xuất bản."
-            />
+            <Suspense fallback={<PageLoadingFallback />}>
+              <ArticleDetailPage />
+            </Suspense>
           }
         />
 

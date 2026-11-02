@@ -60,6 +60,18 @@ const targetRoutes = [
     expectedH1: 'Sản phẩm dinh dưỡng & chăm sóc thú cưng tại Lê Sơn',
     titleFragment: 'Sản phẩm & Dinh dưỡng thú cưng',
   },
+  {
+    path: '/cau-chuyen',
+    filePath: path.join(clientDir, 'cau-chuyen', 'index.html'),
+    expectedH1: 'Hành trình điều trị tiêu biểu',
+    titleFragment: 'Hành trình điều trị tiêu biểu',
+  },
+  {
+    path: '/goc-thu-cung',
+    filePath: path.join(clientDir, 'goc-thu-cung', 'index.html'),
+    expectedH1: 'Góc thú cưng & Cẩm nang kiến thức',
+    titleFragment: 'Góc thú cưng & Cẩm nang kiến thức',
+  },
 ];
 
 console.log('=== STEP 1: STATIC PRERENDERED HTML AUDIT ===');
@@ -420,11 +432,11 @@ server.listen(PORT, async () => {
       await page.close();
     }
 
-    // Verify ComingSoonView "Quay lại Trang chủ" button touch target >= 44x44px on remaining ComingSoon route (/cau-chuyen)
-    console.log('\n--- Testing ComingSoonView Touch Targets (/cau-chuyen) ---');
+    // Verify ComingSoonView "Quay lại Trang chủ" button touch target >= 44x44px on remaining ComingSoon route (/dang-nhap)
+    console.log('\n--- Testing ComingSoonView Touch Targets (/dang-nhap) ---');
     const comingSoonPage = await context.newPage();
     await comingSoonPage.setViewportSize({ width: 390, height: 844 });
-    await comingSoonPage.goto(`http://localhost:${PORT}/cau-chuyen`, { waitUntil: 'networkidle' });
+    await comingSoonPage.goto(`http://localhost:${PORT}/dang-nhap`, { waitUntil: 'networkidle' });
     const backBtnBox = await comingSoonPage.locator('a:has-text("Quay lại Trang chủ")').boundingBox();
     assert(backBtnBox, 'Back to home button not found on ComingSoonView');
     assert(backBtnBox.width >= 43.5 && backBtnBox.height >= 43.5, `ComingSoon back button touch target too small: ${backBtnBox.width}x${backBtnBox.height}px`);
@@ -674,6 +686,147 @@ server.listen(PORT, async () => {
     console.log('  [PASS] Backdrop click closes modal dialog');
 
     await productsTestPage.close();
+
+    // 3C: Interactive & Accessibility tests for /cau-chuyen, /cau-chuyen/:slug, /goc-thu-cung, /bai-viet/:slug (Batch 3B)
+    console.log('\n=== STEP 3C: BATCH 3B INTERACTIVE & ACCESSIBILITY TESTS ===');
+
+    // --- /cau-chuyen (Stories Listing) ---
+    console.log('\n--- Testing /cau-chuyen Stories Listing, ARIA Tabs & Search ---');
+    const storiesTestPage = await context.newPage();
+    await storiesTestPage.goto(`http://localhost:${PORT}/cau-chuyen`, { waitUntil: 'networkidle' });
+
+    // Category Tabs ARIA Keyboard Navigation & Roving Tabindex
+    const storyTabAll = storiesTestPage.locator('#story-tab-all');
+    assert.strictEqual(await storyTabAll.getAttribute('role'), 'tab', 'Tab missing role="tab" on /cau-chuyen');
+    assert.strictEqual(await storyTabAll.getAttribute('tabindex'), '0', 'Selected tab must have tabindex="0"');
+    assert.strictEqual(await storyTabAll.getAttribute('aria-selected'), 'true', 'Selected tab must have aria-selected="true"');
+
+    await storyTabAll.focus();
+    await storiesTestPage.keyboard.press('ArrowRight');
+    await storiesTestPage.waitForTimeout(100);
+    const storyActiveTabAfterRight = await storiesTestPage.evaluate(() => {
+      const active = document.activeElement;
+      return {
+        id: active ? active.id : null,
+        tabindex: active ? active.getAttribute('tabindex') : null,
+        ariaSelected: active ? active.getAttribute('aria-selected') : null,
+      };
+    });
+    assert.strictEqual(storyActiveTabAfterRight.id, 'story-tab-phuc-hoi', 'ArrowRight should move focus to next tab on /cau-chuyen');
+    assert.strictEqual(storyActiveTabAfterRight.tabindex, '0', 'Active tab must have tabindex="0"');
+    assert.strictEqual(storyActiveTabAfterRight.ariaSelected, 'true', 'Active tab must have aria-selected="true"');
+
+    await storiesTestPage.keyboard.press('End');
+    await storiesTestPage.waitForTimeout(100);
+    const storyActiveTabAfterEnd = await storiesTestPage.evaluate(() => (document.activeElement ? document.activeElement.id : null));
+    assert.strictEqual(storyActiveTabAfterEnd, 'story-tab-kham-dinh-ky', 'End key should move focus to last tab on /cau-chuyen');
+
+    await storiesTestPage.keyboard.press('Home');
+    await storiesTestPage.waitForTimeout(100);
+    const storyActiveTabAfterHome = await storiesTestPage.evaluate(() => (document.activeElement ? document.activeElement.id : null));
+    assert.strictEqual(storyActiveTabAfterHome, 'story-tab-all', 'Home key should return focus to first tab on /cau-chuyen');
+    console.log('  [PASS] /cau-chuyen ARIA Tabs roving tabindex & keyboard navigation verified');
+
+    // Search and Empty State
+    const storySearchInput = storiesTestPage.locator('#story-search-input');
+    await storySearchInput.fill('xyz-khong-tim-thay-cau-chuyen-nao');
+    await storiesTestPage.waitForTimeout(150);
+    const storyEmptyHeading = storiesTestPage.locator('text=Không tìm thấy câu chuyện phù hợp');
+    assert(await storyEmptyHeading.isVisible(), 'Empty state heading missing for unmatched search on /cau-chuyen');
+    const resetStoryBtn = storiesTestPage.locator('button:has-text("Xem tất cả câu chuyện")');
+    await resetStoryBtn.click();
+    await storiesTestPage.waitForTimeout(150);
+    assert.strictEqual(await storySearchInput.inputValue(), '', 'Search input should be cleared after reset');
+    console.log('  [PASS] /cau-chuyen Search & empty state reset verified');
+
+    await storiesTestPage.close();
+
+    // --- /cau-chuyen/:slug (Story Detail Valid & Invalid) ---
+    console.log('\n--- Testing /cau-chuyen/:slug Detail & 404 Fallback ---');
+    const storyDetailPage = await context.newPage();
+    await storyDetailPage.goto(`http://localhost:${PORT}/cau-chuyen/ca-dieu-tri-01`, { waitUntil: 'networkidle' });
+    const storyDetailH1 = await storyDetailPage.locator('h1').textContent();
+    assert(storyDetailH1 && storyDetailH1.includes('Chi tiết câu chuyện điều trị'), 'Story detail H1 missing eyebrow label');
+    assert(storyDetailH1 && storyDetailH1.includes('Hành trình theo dõi và phục hồi thể trạng của bé Milo'), 'Story detail title mismatch');
+    const storyMockDisclaimer = await storyDetailPage.locator('text=Câu chuyện minh họa — không phải hồ sơ điều trị thực tế').count();
+    assert(storyMockDisclaimer >= 1, 'Mock disclaimer missing on story detail page');
+    console.log('  [PASS] /cau-chuyen/ca-dieu-tri-01 content, H1 eyebrow & mock disclaimer verified');
+
+    // Invalid story slug -> 404
+    await storyDetailPage.goto(`http://localhost:${PORT}/cau-chuyen/slug-khong-ton-tai-xyz`, { waitUntil: 'networkidle' });
+    const invalidStoryH1 = await storyDetailPage.locator('h1').textContent();
+    assert(invalidStoryH1 && invalidStoryH1.includes('Không tìm thấy trang yêu cầu'), 'Invalid story slug must render 404 NotFoundPage');
+    console.log('  [PASS] /cau-chuyen/slug-khong-ton-tai-xyz renders 404 NotFoundPage');
+    await storyDetailPage.close();
+
+    // --- /goc-thu-cung (Pet Corner Listing) ---
+    console.log('\n--- Testing /goc-thu-cung Pet Corner Listing, ARIA Tabs & Search ---');
+    const petTestPage = await context.newPage();
+    await petTestPage.goto(`http://localhost:${PORT}/goc-thu-cung`, { waitUntil: 'networkidle' });
+
+    // Category Tabs ARIA Keyboard Navigation & Roving Tabindex
+    const petTabAll = petTestPage.locator('#article-tab-all');
+    assert.strictEqual(await petTabAll.getAttribute('role'), 'tab', 'Tab missing role="tab" on /goc-thu-cung');
+    assert.strictEqual(await petTabAll.getAttribute('tabindex'), '0', 'Selected tab must have tabindex="0"');
+    assert.strictEqual(await petTabAll.getAttribute('aria-selected'), 'true', 'Selected tab must have aria-selected="true"');
+
+    await petTabAll.focus();
+    await petTestPage.keyboard.press('ArrowRight');
+    await petTestPage.waitForTimeout(100);
+    const petActiveTabAfterRight = await petTestPage.evaluate(() => {
+      const active = document.activeElement;
+      return {
+        id: active ? active.id : null,
+        tabindex: active ? active.getAttribute('tabindex') : null,
+        ariaSelected: active ? active.getAttribute('aria-selected') : null,
+      };
+    });
+    assert.strictEqual(petActiveTabAfterRight.id, 'article-tab-dinh-duong', 'ArrowRight should move focus to next tab on /goc-thu-cung');
+    assert.strictEqual(petActiveTabAfterRight.tabindex, '0', 'Active tab must have tabindex="0"');
+    assert.strictEqual(petActiveTabAfterRight.ariaSelected, 'true', 'Active tab must have aria-selected="true"');
+
+    await petTestPage.keyboard.press('End');
+    await petTestPage.waitForTimeout(100);
+    const petActiveTabAfterEnd = await petTestPage.evaluate(() => (document.activeElement ? document.activeElement.id : null));
+    assert.strictEqual(petActiveTabAfterEnd, 'article-tab-chuan-bi-kham', 'End key should move focus to last tab on /goc-thu-cung');
+
+    await petTestPage.keyboard.press('Home');
+    await petTestPage.waitForTimeout(100);
+    const petActiveTabAfterHome = await petTestPage.evaluate(() => (document.activeElement ? document.activeElement.id : null));
+    assert.strictEqual(petActiveTabAfterHome, 'article-tab-all', 'Home key should return focus to first tab on /goc-thu-cung');
+    console.log('  [PASS] /goc-thu-cung ARIA Tabs roving tabindex & keyboard navigation verified');
+
+    // Search and Empty State
+    const petSearchInput = petTestPage.locator('#article-search-input');
+    await petSearchInput.fill('xyz-khong-tim-thay-bai-viet-nao');
+    await petTestPage.waitForTimeout(150);
+    const petEmptyHeading = petTestPage.locator('text=Không tìm thấy bài viết phù hợp');
+    assert(await petEmptyHeading.isVisible(), 'Empty state heading missing for unmatched search on /goc-thu-cung');
+    const resetPetBtn = petTestPage.locator('button:has-text("Xem tất cả bài viết")');
+    await resetPetBtn.click();
+    await petTestPage.waitForTimeout(150);
+    assert.strictEqual(await petSearchInput.inputValue(), '', 'Search input should be cleared after reset');
+    console.log('  [PASS] /goc-thu-cung Search & empty state reset verified');
+
+    await petTestPage.close();
+
+    // --- /bai-viet/:slug (Article Detail Valid & Invalid) ---
+    console.log('\n--- Testing /bai-viet/:slug Detail & 404 Fallback ---');
+    const articleDetailPage = await context.newPage();
+    await articleDetailPage.goto(`http://localhost:${PORT}/bai-viet/dinh-duong-an-toan-cho-thu-cung`, { waitUntil: 'networkidle' });
+    const articleDetailH1 = await articleDetailPage.locator('h1').textContent();
+    assert(articleDetailH1 && articleDetailH1.includes('Chi tiết bài viết cẩm nang'), 'Article detail H1 missing eyebrow label');
+    assert(articleDetailH1 && articleDetailH1.includes('Xây dựng khẩu phần dinh dưỡng an toàn cho thú cưng theo từng lứa tuổi'), 'Article detail title mismatch');
+    const articleMockDisclaimer = await articleDetailPage.locator('text=Nội dung minh họa cẩm nang kiến thức — không thay thế chỉ định trực tiếp từ Bác sĩ Thú y').count();
+    assert(articleMockDisclaimer >= 1, 'Mock disclaimer missing on article detail page');
+    console.log('  [PASS] /bai-viet/dinh-duong-an-toan-cho-thu-cung content, H1 eyebrow & mock disclaimer verified');
+
+    // Invalid article slug -> 404
+    await articleDetailPage.goto(`http://localhost:${PORT}/bai-viet/slug-khong-ton-tai-xyz`, { waitUntil: 'networkidle' });
+    const invalidArticleH1 = await articleDetailPage.locator('h1').textContent();
+    assert(invalidArticleH1 && invalidArticleH1.includes('Không tìm thấy trang yêu cầu'), 'Invalid article slug must render 404 NotFoundPage');
+    console.log('  [PASS] /bai-viet/slug-khong-ton-tai-xyz renders 404 NotFoundPage');
+    await articleDetailPage.close();
 
     console.log('\n=== ALL PHASE 1 PUBLIC PAGES TESTS PASSED SUCCESSFULLY! ===');
   } catch (err) {

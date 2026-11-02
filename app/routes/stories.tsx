@@ -1,5 +1,5 @@
 import type { Route } from './+types/stories'
-import { ComingSoonView } from '@/components/layout/ComingSoonView'
+import { StoriesPage } from '@/pages/StoriesPage'
 
 export function meta(): Route.MetaDescriptors {
   return [
@@ -7,24 +7,19 @@ export function meta(): Route.MetaDescriptors {
     {
       name: 'description',
       content:
-        'Các câu chuyện phục hồi thực tế của các bé cưng đang được xin ý kiến đồng thuận từ chủ nuôi.',
+        'Hành trình phục hồi và điều trị thực tế tại Bệnh viện Thú y Lê Sơn (101 Khuất Duy Tiến). Xem các câu chuyện tiêu biểu minh họa.',
     },
     { name: 'robots', content: 'noindex, nofollow' },
     { property: 'og:title', content: 'Hành trình điều trị tiêu biểu — Bệnh viện Thú y Lê Sơn' },
     {
       property: 'og:description',
       content:
-        'Các câu chuyện phục hồi thực tế của các bé cưng đang được xin ý kiến đồng thuận từ chủ nuôi.',
+        'Hành trình phục hồi và điều trị thực tế tại Bệnh viện Thú y Lê Sơn (101 Khuất Duy Tiến). Xem các câu chuyện tiêu biểu minh họa.',
     },
     { property: 'og:type', content: 'website' },
   ]
 }
 
 export default function StoriesRoute() {
-  return (
-    <ComingSoonView
-      title="Hành trình điều trị tiêu biểu"
-      subtitle="Các câu chuyện phục hồi thực tế của các bé cưng đang được xin ý kiến đồng thuận từ chủ nuôi."
-    />
-  )
+  return <StoriesPage />
 }

@@ -1,5 +1,5 @@
 import type { Route } from './+types/pet-corner'
-import { ComingSoonView } from '@/components/layout/ComingSoonView'
+import { PetCornerPage } from '@/pages/PetCornerPage'
 
 export function meta(): Route.MetaDescriptors {
   return [
@@ -7,24 +7,19 @@ export function meta(): Route.MetaDescriptors {
     {
       name: 'description',
       content:
-        'Kho kiến thức y khoa, dinh dưỡng và phòng bệnh từ bác sĩ thú y đang được biên tập.',
+        'Cẩm nang kiến thức thú cưng, dinh dưỡng và lưu ý y khoa từ Bệnh viện Thú y Lê Sơn (101 Khuất Duy Tiến).',
     },
     { name: 'robots', content: 'noindex, nofollow' },
     { property: 'og:title', content: 'Góc thú cưng & Cẩm nang kiến thức — Bệnh viện Thú y Lê Sơn' },
     {
       property: 'og:description',
       content:
-        'Kho kiến thức y khoa, dinh dưỡng và phòng bệnh từ bác sĩ thú y đang được biên tập.',
+        'Cẩm nang kiến thức thú cưng, dinh dưỡng và lưu ý y khoa từ Bệnh viện Thú y Lê Sơn (101 Khuất Duy Tiến).',
     },
     { property: 'og:type', content: 'website' },
   ]
 }
 
 export default function PetCornerRoute() {
-  return (
-    <ComingSoonView
-      title="Góc thú cưng & Cẩm nang kiến thức"
-      subtitle="Kho kiến thức y khoa, dinh dưỡng và phòng bệnh từ bác sĩ thú y đang được biên tập."
-    />
-  )
+  return <PetCornerPage />
 }
