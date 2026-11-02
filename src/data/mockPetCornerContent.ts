@@ -116,22 +116,22 @@ export const MOCK_ARTICLES: readonly MockArticleItem[] = [
         heading: '2. Lựa chọn dạng thức ăn phù hợp với sinh hoạt gia đình',
         paragraphs: [
           'Hiện nay, thức ăn hạt khô hoàn chỉnh, pate đóng hộp và thức ăn tự nấu là những lựa chọn phổ biến trong sinh hoạt gia đình. Mỗi hình thức đều có ưu điểm riêng về độ tiện lợi, khả năng cung cấp độ ẩm hoặc nguồn nguyên liệu tươi.',
-          'Dù lựa chọn phương pháp nào, yếu tố an toàn thực phẩm, không nêm gia vị của người (như muối, đường, hành tỏi) luôn là nguyên tắc cốt lõi cần ghi nhớ để bảo vệ sức khỏe đường tiêu hóa của thú cưng.',
+          'Khi lựa chọn hoặc phối hợp các dạng thức ăn, gia đình nên tham khảo ý kiến bác sĩ thú y để có kế hoạch dinh dưỡng phù hợp với thể trạng của thú cưng, tránh tự ý thay đổi khẩu phần đột ngột.',
         ],
       },
       {
         id: 'nguon-nuoc-sach',
-        heading: '3. Tầm quan trọng của nguồn nước sạch mỗi ngày',
+        heading: '3. Tầm quan trọng của nguồn nước sạch',
         paragraphs: [
-          'Nước uống sạch đóng vai trò thiết yếu trong việc hỗ trợ bài tiết và duy trì chức năng thận cho thú cưng, đặc biệt là các bé mèo có thói quen ít uống nước. Khay nước nên được rửa sạch và thay mới mỗi ngày.',
-          'Đặt nhiều bát nước tại các góc yên tĩnh trong nhà hoặc sử dụng đài phun nước tuần hoàn có thể kích thích sự tò mò và khuyến khích bé uống đủ nước hơn.',
+          'Nước uống sạch đóng vai trò quan trọng trong việc hỗ trợ sinh hoạt hằng ngày và sức khỏe đường tiết niệu của thú cưng. Gia đình nên duy trì nguồn nước sạch sẽ, bố trí tại vị trí thuận tiện để bé dễ dàng tiếp cận.',
+          'Bố trí bát nước tại các góc yên tĩnh trong nhà hoặc sử dụng đài phun nước tuần hoàn có thể khuyến khích thú cưng uống nước đều đặn hơn.',
         ],
       },
       {
         id: 'khi-nao-can-gap-bac-si',
         heading: '4. Khi nào cần trao đổi trực tiếp cùng bác sĩ thú y?',
         paragraphs: [
-          'Nếu thú cưng có biểu hiện kén ăn kéo dài, uống nước nhiều bất thường hoặc có dấu hiệu mệt mỏi sau bữa ăn, chủ nuôi không nên tự ý đổi các loại thực phẩm bổ sung. Hãy liên hệ hotline hoặc đưa bé đến cơ sở thú y để được bác sĩ thăm khám lâm sàng chu đáo.',
+          'Khi nhận thấy thú cưng có bất kỳ thay đổi nào trong thói quen ăn uống hoặc biểu hiện thể trạng bất thường, gia đình nên liên hệ cơ sở thú y để được bác sĩ thăm khám và tư vấn trực tiếp, tránh tự ý sử dụng các loại thực phẩm bổ sung.',
         ],
       },
     ],
@@ -164,28 +164,28 @@ export const MOCK_ARTICLES: readonly MockArticleItem[] = [
         id: 'khu-vuc-nghi-ngoi',
         heading: '1. Giữ khu vực nghỉ ngơi khô thoáng và ấm áp',
         paragraphs: [
-          'Độ ẩm không khí tăng cao trong mùa mưa khiến đệm nằm của thú cưng dễ bị ẩm mốc nếu đặt sát sàn nhà. Gia đình nên kê đệm lên kệ hoặc thảm cách ẩm, giặt và phơi khô vỏ đệm định kỳ.',
-          'Không gian ngủ ấm cúng, tránh luồng gió lùa trực tiếp giúp thú cưng duy trì thân nhiệt ổn định, tạo cảm giác thư thái khi thời tiết chuyển mùa.',
+          'Thời tiết mùa mưa với độ ẩm cao là thời điểm gia đình cần quan tâm nhiều hơn đến không gian nghỉ ngơi của thú cưng. Giữ khu vực nằm khô ráo và thoáng khí giúp bé có không gian sinh hoạt thoải mái.',
+          'Không gian ngủ ấm cúng, tránh luồng gió lùa trực tiếp giúp thú cưng duy trì thể trạng ổn định khi thời tiết thay đổi.',
         ],
       },
       {
         id: 've-sinh-chan-long',
         heading: '2. Vệ sinh bàn chân và đệm lông sau khi ra ngoài',
         paragraphs: [
-          'Sau khi đi dạo ngoài trời mưa hoặc sàn ướt, nước bẩn đọng lại giữa các kẽ ngón chân có thể gây cảm giác ngứa ngáy khó chịu cho bé. Hãy dùng khăn bông mềm lau sạch các kẽ chân và thấm ráo lông vùng bụng.',
-          'Giữ cho bàn chân khô ráo trước khi cho thú cưng chạy nhảy trên thảm hoặc đệm ngủ trong nhà.',
+          'Sau khi thú cưng sinh hoạt ngoài trời mưa, việc quan sát và giữ cho bé khô ráo giúp hạn chế cảm giác ẩm ướt khó chịu.',
+          'Gia đình có thể tham khảo ý kiến bác sĩ thú y về các lưu ý chăm sóc và bảo vệ da lông phù hợp cho từng giống thú cưng trong điều kiện thời tiết ẩm.',
         ],
         tipBox: {
           title: 'Kinh nghiệm mùa mưa:',
           content:
-            'Chuẩn bị sẵn khăn khô cạnh lối vào để lau ráo lông và kiểm tra bàn chân nhẹ nhàng khi bé vừa từ bên ngoài vào nhà.',
+            'Gia đình nên tham vấn bác sĩ thú y về các phương pháp chăm sóc và vệ sinh lông da phù hợp với từng bé trong điều kiện thời tiết ẩm ướt.',
         },
       },
       {
         id: 'nhan-biet-bat-thuong',
         heading: '3. Nhận biết sớm các biểu hiện khó chịu ở da lông',
         paragraphs: [
-          'Thường xuyên kiểm tra các vùng da dưới cổ, nách và kẽ tai của bé. Nếu nhận thấy thú cưng liếm chân liên tục, da xuất hiện vệt đỏ hoặc có mùi lạ, gia đình nên đưa bé đến gặp bác sĩ thú y để được kiểm tra trực tiếp.',
+          'Việc quan sát thói quen sinh hoạt và bề mặt lông da giúp phát hiện sớm các dấu hiệu cần quan tâm. Khi nhận thấy thú cưng có biểu hiện khó chịu hoặc thay đổi trên da, gia đình nên đưa bé đến cơ sở thú y để được bác sĩ kiểm tra và hướng dẫn chăm sóc đúng cách.',
         ],
       },
     ],
@@ -218,16 +218,16 @@ export const MOCK_ARTICLES: readonly MockArticleItem[] = [
         id: 'so-theo-doi',
         heading: '1. Mang theo sổ theo dõi và tiền sử thăm khám',
         paragraphs: [
-          'Cuốn sổ tiêm phòng hoặc hình ảnh các đơn khám trước đây là tài liệu vô cùng giá trị đối với bác sĩ thú y. Nhờ đó, bác sĩ có thể nắm bắt lịch tiêm chủng, cân nặng qua các mốc thời gian và những lưu ý thể trạng riêng của bé.',
-          'Nếu thú cưng từng có phản ứng nhạy cảm với bất kỳ loại thức ăn hoặc thuốc nào, gia đình nên ghi chú rõ ràng ở trang đầu của sổ khám để bác sĩ nắm bắt.',
+          'Cuốn sổ tiêm phòng hoặc thông tin các lần thăm khám trước đây là tài liệu hữu ích đối với bác sĩ thú y. Nhờ đó, bác sĩ có thể nắm bắt lịch tiêm chủng và những lưu ý thể trạng riêng của bé.',
+          'Nếu thú cưng từng có tiền sử nhạy cảm với bất kỳ yếu tố nào, gia đình nên chủ động chia sẻ cùng bác sĩ ngay từ đầu buổi thăm khám.',
         ],
       },
       {
         id: 'ghi-nho-bieu-hien',
         heading: '2. Ghi nhận thói quen sinh hoạt và biểu hiện gần đây',
         paragraphs: [
-          'Những chi tiết như thói quen ăn uống, lượng nước tiêu thụ hằng ngày, tần suất đi vệ sinh và mức độ vận động đều cung cấp thông tin hữu ích cho bác sĩ đánh giá.',
-          'Nếu bé có các biểu hiện ngắn như ho nhẹ hoặc dáng đi khập khiễng thoáng qua, chủ nuôi có thể dùng điện thoại quay lại đoạn video ngắn lúc ở nhà để bác sĩ quan sát trực tiếp.',
+          'Những thông tin về thói quen sinh hoạt, lượng thức ăn nước uống hằng ngày và mức độ vận động đều là cơ sở tham khảo cho bác sĩ trong quá trình trao đổi.',
+          'Nếu nhận thấy các biểu hiện khác thường trong sinh hoạt tại nhà, chủ nuôi có thể ghi chú lại hoặc ghi hình để chia sẻ cùng bác sĩ trong buổi thăm khám.',
         ],
         tipBox: {
           title: 'Kinh nghiệm hữu ích:',
@@ -239,7 +239,7 @@ export const MOCK_ARTICLES: readonly MockArticleItem[] = [
         id: 'dung-cu-van-chuyen',
         heading: '3. Chuẩn bị túi vận chuyển hoặc dây dắt an toàn',
         paragraphs: [
-          'Môi trường phòng khám có nhiều âm thanh lạ và sự hiện diện của các bạn thú cưng khác. Sử dụng túi vận chuyển thoáng khí cho mèo hoặc dây dắt có yếm ngực cho chó giúp bảo đảm an toàn cho chính bé và mọi người xung quanh.',
+          'Môi trường phòng khám có nhiều âm thanh lạ và sự hiện diện của các bạn thú cưng khác. Sử dụng túi vận chuyển thoáng khí cho mèo hoặc dây dắt an toàn cho chó giúp bảo đảm sự thuận tiện cho bé và mọi người xung quanh.',
         ],
       },
     ],
@@ -272,22 +272,22 @@ export const MOCK_ARTICLES: readonly MockArticleItem[] = [
         id: 'nhiet-do-song',
         heading: '1. Điều chỉnh không gian sống tránh gió lùa',
         paragraphs: [
-          'Những đợt gió lạnh chuyển mùa thường khiến các bé cún nhỏ, mèo con hoặc thú cưng lớn tuổi bị lạnh. Gia đình nên dời chuồng hoặc đệm ngủ xa cửa sổ và nơi có gió lùa trực tiếp.',
-          'Đối với thú cưng lông ngắn, có thể lót thêm một tấm chăn nỉ mềm để bé tự cuộn mình ủ ấm khi ngủ.',
+          'Thời điểm giao mùa với sự thay đổi nhiệt độ có thể ảnh hưởng đến thói quen sinh hoạt của thú cưng. Gia đình nên bố trí nơi ngủ xa cửa sổ và nơi có gió lùa trực tiếp.',
+          'Duy trì không gian nghỉ ngơi ấm áp giúp thú cưng cảm thấy thoải mái và an tâm hơn trong sinh hoạt hằng ngày.',
         ],
       },
       {
         id: 'khau-phan-on-dinh',
         heading: '2. Duy trì khẩu phần ăn đều đặn, không đổi món đột ngột',
         paragraphs: [
-          'Thời tiết lạnh có thể khiến thú cưng có cảm giác muốn ăn nhiều hơn, tuy nhiên không nên tăng lượng thức ăn ồ ạt. Hãy duy trì lịch ăn cố định và trao đổi với bác sĩ nếu muốn bổ sung dinh dưỡng.',
+          'Khi thời tiết chuyển mùa, gia đình nên duy trì chế độ dinh dưỡng ổn định và trao đổi cùng bác sĩ thú y trước khi có bất kỳ điều chỉnh nào về khẩu phần ăn.',
         ],
       },
       {
         id: 'chu-dong-lien-he',
         heading: '3. Chủ động liên hệ cơ sở y tế khi có dấu hiệu li bì',
         paragraphs: [
-          'Hắt hơi nhiều, chảy nước mũi hoặc ngủ li bì không muốn vận động là những tín hiệu nhắc nhở gia đình cần trao đổi với bác sĩ thú y để được tư vấn chăm sóc phù hợp.',
+          'Khi nhận thấy thú cưng có biểu hiện mệt mỏi, giảm vận động hoặc thay đổi thể trạng, gia đình nên chủ động liên hệ cơ sở thú y để được bác sĩ thăm khám và tư vấn kịp thời.',
         ],
       },
     ],
@@ -320,23 +320,23 @@ export const MOCK_ARTICLES: readonly MockArticleItem[] = [
         id: 'dieu-kien-tiem',
         heading: '1. Điều kiện thể trạng cần thiết trước khi tiêm',
         paragraphs: [
-          'Vaccine chỉ phát huy hiệu quả bảo vệ tốt nhất khi hệ miễn dịch của thú cưng đang trong trạng thái khỏe mạnh. Trước khi tiêm, bác sĩ thú y sẽ kiểm tra thân nhiệt, nghe tim phổi và hỏi thăm về thói quen ăn uống, sinh hoạt gần đây của bé.',
-          'Nếu thú cưng đang mệt mỏi, bỏ ăn hoặc vừa chuyển về nhà mới, bác sĩ sẽ tư vấn dời lịch tiêm để bé có thời gian ổn định thể trạng.',
+          'Tiêm chủng là biện pháp phòng ngừa quan trọng cần được thực hiện dựa trên đánh giá trực tiếp từ bác sĩ thú y. Trong buổi hẹn, bác sĩ sẽ tiến hành thăm khám lâm sàng tổng quát để xác định thú cưng có đủ điều kiện sức khỏe cho việc tiêm phòng hay không.',
+          'Nếu nhận thấy thú cưng có dấu hiệu mệt mỏi hoặc thay đổi thể trạng, bác sĩ sẽ tư vấn kế hoạch tiêm phòng phù hợp nhất cho bé.',
         ],
       },
       {
         id: 'theo-doi-sau-tiem',
         heading: '2. Lắng nghe hướng dẫn theo dõi sau tiêm từ bác sĩ',
         paragraphs: [
-          'Sau khi tiêm vaccine, chủ nuôi nên tuân thủ thời gian theo dõi tại cơ sở theo hướng dẫn của bác sĩ. Khi về nhà, duy trì không gian nghỉ ngơi yên tĩnh, tránh các hoạt động gắng sức và liên hệ ngay với phòng khám nếu nhận thấy bất kỳ biểu hiện lạ nào.',
-          'Chủ nuôi nên hỏi ý kiến bác sĩ về chế độ vệ sinh và sinh hoạt phù hợp cho bé trong những ngày tiếp theo.',
+          'Sau khi tiêm, chủ nuôi lắng nghe kỹ các dặn dò chuyên môn và chế độ chăm sóc từ bác sĩ thú y phụ trách. Nếu có bất kỳ băn khoăn nào về tình trạng của bé, hãy liên hệ trực tiếp với cơ sở thú y để được hỗ trợ kịp thời.',
+          'Bác sĩ sẽ hướng dẫn gia đình các lưu ý theo dõi sinh hoạt phù hợp cho bé trong những ngày tiếp theo.',
         ],
       },
       {
         id: 'lich-nhac-lai',
         heading: '3. Duy trì lịch tiêm nhắc lại theo tư vấn chuyên môn',
         paragraphs: [
-          'Duy trì các mốc tiêm nhắc lại theo lịch hẹn giúp củng cố kháng thể bảo vệ bền vững cho thú cưng. Chủ nuôi có thể nhờ nhân viên phòng khám ghi rõ lịch hẹn tiếp theo vào sổ sức khỏe của bé.',
+          'Việc duy trì lịch tiêm phòng định kỳ được thực hiện dựa trên tư vấn của bác sĩ thú y phù hợp với từng độ tuổi và lối sống của thú cưng. Gia đình nên lưu giữ sổ theo dõi sức khỏe để tiện đối chiếu các lịch hẹn tiếp theo.',
         ],
       },
     ],
@@ -369,21 +369,21 @@ export const MOCK_ARTICLES: readonly MockArticleItem[] = [
         id: 'lua-chon-luoc',
         heading: '1. Lựa chọn lược chải phù hợp với chất lông',
         paragraphs: [
-          'Thú cưng lông dài cần các loại lược răng thưa bo tròn đầu để dễ dàng gỡ các nút rối mà không làm tổn thương bề mặt da. Với thú cưng lông ngắn, lược găng tay cao su mềm giúp thu gom lông rụng nhẹ nhàng.',
+          'Mỗi loại lông và thể trạng da của thú cưng đều có nhu cầu chăm sóc riêng biệt. Gia đình có thể tham khảo ý kiến chuyên môn từ bác sĩ thú y hoặc chuyên viên chăm sóc để lựa chọn dụng cụ chải lông phù hợp, an toàn cho thú cưng.',
         ],
       },
       {
         id: 'thao-tac-nhe-nhang',
         heading: '2. Thao tác chải êm ái, kiên nhẫn tạo sự tin tưởng',
         paragraphs: [
-          'Bắt đầu chải từ các vùng bé thích như lưng hoặc dưới cằm, sau đó mới di chuyển đến các vùng nhạy cảm hơn. Kết hợp vuốt ve khen ngợi để bé xem việc chải lông là khoảng thời gian thư giãn thoải mái.',
+          'Chăm sóc lông da nên được thực hiện với thao tác êm ái, nhẹ nhàng để tạo cảm giác an tâm cho bé. Duy trì không khí thoải mái giúp thú cưng làm quen và hợp tác trong quá trình vệ sinh hằng ngày.',
         ],
       },
       {
         id: 'phat-hien-som',
         heading: '3. Đưa thú cưng đi khám khi thấy biểu hiện bất thường trên da',
         paragraphs: [
-          'Trong quá trình chải lông, nếu quan sát thấy các vảy gàu dày, đốm đỏ hoặc bé phản ứng giật mình đau đớn, gia đình nên đặt lịch khám để bác sĩ thú y kiểm tra chi tiết.',
+          'Nếu nhận thấy các dấu hiệu bất thường trên da hoặc bé có phản ứng khó chịu trong quá trình vệ sinh, gia đình nên liên hệ cơ sở thú y để bác sĩ kiểm tra và đưa ra lời khuyên chuyên môn.',
         ],
       },
     ],

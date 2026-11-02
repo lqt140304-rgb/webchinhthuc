@@ -223,6 +223,12 @@ const forbiddenPetCornerTerms = [
   'tháng 09/2026',
   'tháng 08/2026',
   'tháng 07/2026',
+  'nêm gia vị',
+  'hành tỏi',
+  'thay mới mỗi ngày',
+  'chảy nước mũi',
+  'vảy gàu',
+  'nghe tim phổi',
 ];
 for (const term of forbiddenPetCornerTerms) {
   assert(!mockPetCornerCode.toLowerCase().includes(term.toLowerCase()), `Forbidden term "${term}" found in mockPetCornerContent.ts`);
@@ -247,11 +253,19 @@ const forbiddenStoryTerms = [
   'tháng 09/2026',
   'tháng 08/2026',
   'tháng 07/2026',
+  'đường thở',
+  'bù dịch',
+  'giữ ấm thân nhiệt',
+  'đeo loa',
+  'vết khâu',
+  'vết mổ',
+  'tuổi)',
 ];
 for (const term of forbiddenStoryTerms) {
   assert(!mockStoriesCode.toLowerCase().includes(term.toLowerCase()), `Forbidden term "${term}" found in mockStoriesContent.ts`);
 }
-console.log('[PASS] Batch 3B Mock Data Audit passed (unverified thresholds, medical diagnoses, specialist titles, and fake dates purged)');
+assert(mockStoriesCode.includes('Nhân vật minh họa'), 'Illustrative pet character label missing in mockStoriesContent.ts');
+console.log('[PASS] Batch 3B Mock Data Audit passed (unverified practical advice, symptoms, emergency/surgical regimens, and patient records purged)');
 
 console.log('\n=== STEP 2: RUNNING PLAYWRIGHT DOM, HYDRATION & RESPONSIVENESS AUDIT ===');
 
