@@ -241,7 +241,7 @@ export const StoriesPage: React.FC = () => {
                   <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-[var(--color-border-subtle)]">
                     <span className="text-xs text-[var(--color-fg-subtle)] flex items-center gap-1.5">
                       <Clock className="w-3.5 h-3.5" />
-                      <span>Ghi nhận: {featuredStory.date}</span>
+                      <span>Thông tin: {featuredStory.date}</span>
                     </span>
 
                     <Link

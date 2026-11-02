@@ -248,7 +248,7 @@ export const PetCornerPage: React.FC = () => {
                   <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-[var(--color-border-subtle)]">
                     <span className="text-xs text-[var(--color-fg-subtle)] flex items-center gap-1.5">
                       <Calendar className="w-3.5 h-3.5" />
-                      <span>Xuất bản: {featuredArticle.publishedDate}</span>
+                      <span>Thông tin: {featuredArticle.publishedDate}</span>
                     </span>
 
                     <Link
@@ -275,7 +275,7 @@ export const PetCornerPage: React.FC = () => {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
             <div>
               <span className="inline-block px-2.5 py-1 rounded-[4px] bg-purple-100 text-[var(--color-plum-primary)] text-[11px] font-bold uppercase tracking-wider mb-2.5">
-                Kho bài viết cẩm nang tham khảo
+                Kho bài viết cẩm nang minh họa
               </span>
               <h2
                 id="articles-catalog-heading"

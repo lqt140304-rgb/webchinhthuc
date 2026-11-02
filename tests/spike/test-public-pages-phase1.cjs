@@ -203,6 +203,56 @@ for (const term of forbiddenProductTerms) {
 assert(mockProductsCode.includes('Danh mục sản phẩm minh họa — chưa xác nhận hàng hóa đang kinh doanh'), 'Standardized mock disclaimer missing in mockProductsContent.ts');
 console.log('[PASS] Mock Products data structure audit passed (cotton swab/sharp objects, unverified efficacy claims purged, neutral catalog retained)');
 
+// --- Batch 3B Mock Data Content Audit ---
+const mockPetCornerFile = path.resolve(__dirname, '..', '..', 'src', 'data', 'mockPetCornerContent.ts');
+assert(fs.existsSync(mockPetCornerFile), `mockPetCornerContent.ts missing at ${mockPetCornerFile}`);
+const mockPetCornerCode = fs.readFileSync(mockPetCornerFile, 'utf-8');
+
+const forbiddenPetCornerTerms = [
+  '5 – 7 ngày',
+  '5-7 ngày',
+  '24 giờ',
+  '48 giờ',
+  '3 ngày',
+  '15 – 30 phút',
+  '15-30 phút',
+  'biên tập viên y khoa',
+  'chuyên viên dinh dưỡng',
+  'bác sĩ da liễu',
+  'tháng 10/2026',
+  'tháng 09/2026',
+  'tháng 08/2026',
+  'tháng 07/2026',
+];
+for (const term of forbiddenPetCornerTerms) {
+  assert(!mockPetCornerCode.toLowerCase().includes(term.toLowerCase()), `Forbidden term "${term}" found in mockPetCornerContent.ts`);
+}
+
+const mockStoriesFile = path.resolve(__dirname, '..', '..', 'src', 'data', 'mockStoriesContent.ts');
+assert(fs.existsSync(mockStoriesFile), `mockStoriesContent.ts missing at ${mockStoriesFile}`);
+const mockStoriesCode = fs.readFileSync(mockStoriesFile, 'utf-8');
+
+const forbiddenStoryTerms = [
+  'gãy xương kín',
+  'trật khớp bánh chè',
+  'xoắn dạ dày',
+  'suy gan thận',
+  'đông máu',
+  'trong 24 giờ qua',
+  'trong vòng 2 tuần',
+  'sau vài giờ',
+  'sau 7 ngày',
+  'bác sĩ ngoại khoa',
+  'tháng 10/2026',
+  'tháng 09/2026',
+  'tháng 08/2026',
+  'tháng 07/2026',
+];
+for (const term of forbiddenStoryTerms) {
+  assert(!mockStoriesCode.toLowerCase().includes(term.toLowerCase()), `Forbidden term "${term}" found in mockStoriesContent.ts`);
+}
+console.log('[PASS] Batch 3B Mock Data Audit passed (unverified thresholds, medical diagnoses, specialist titles, and fake dates purged)');
+
 console.log('\n=== STEP 2: RUNNING PLAYWRIGHT DOM, HYDRATION & RESPONSIVENESS AUDIT ===');
 
 const server = http.createServer((req, res) => {
@@ -220,6 +270,14 @@ const server = http.createServer((req, res) => {
   if (fs.existsSync(dirIndexPath) && fs.statSync(dirIndexPath).isFile()) {
     res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
     return res.end(fs.readFileSync(dirIndexPath));
+  }
+
+  // Dynamic SPA routes rewrite matching vercel.json
+  const isDynamicRoute = urlPath.startsWith('/cau-chuyen/') || urlPath.startsWith('/bai-viet/');
+  const fallbackPath = path.join(clientDir, '__spa-fallback.html');
+  if (isDynamicRoute && fs.existsSync(fallbackPath)) {
+    res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+    return res.end(fs.readFileSync(fallbackPath));
   }
 
   // 404 fallback
@@ -745,18 +803,36 @@ server.listen(PORT, async () => {
     console.log('\n--- Testing /cau-chuyen/:slug Detail & 404 Fallback ---');
     const storyDetailPage = await context.newPage();
     await storyDetailPage.goto(`http://localhost:${PORT}/cau-chuyen/ca-dieu-tri-01`, { waitUntil: 'networkidle' });
+    const storyDetailTitle = await storyDetailPage.title();
+    assert.strictEqual(
+      storyDetailTitle,
+      'Hành trình theo dõi và phục hồi thể trạng của bé Milo — Câu chuyện điều trị — Bệnh viện Thú y Lê Sơn',
+      `Story detail document title mismatch: got "${storyDetailTitle}"`
+    );
     const storyDetailH1 = await storyDetailPage.locator('h1').textContent();
     assert(storyDetailH1 && storyDetailH1.includes('Chi tiết câu chuyện điều trị'), 'Story detail H1 missing eyebrow label');
     assert(storyDetailH1 && storyDetailH1.includes('Hành trình theo dõi và phục hồi thể trạng của bé Milo'), 'Story detail title mismatch');
+    const storyH1Aria = await storyDetailPage.locator('h1').getAttribute('aria-label');
+    assert.strictEqual(
+      storyH1Aria,
+      'Chi tiết câu chuyện điều trị: Hành trình theo dõi và phục hồi thể trạng của bé Milo',
+      `Story detail H1 aria-label mismatch: got "${storyH1Aria}"`
+    );
+    const storyH1Text = await storyDetailPage.locator('h1').innerText();
+    assert(!storyH1Text.includes('điều trịHành'), 'H1 text must not join words between eyebrow and title');
     const storyMockDisclaimer = await storyDetailPage.locator('text=Câu chuyện minh họa — không phải hồ sơ điều trị thực tế').count();
     assert(storyMockDisclaimer >= 1, 'Mock disclaimer missing on story detail page');
-    console.log('  [PASS] /cau-chuyen/ca-dieu-tri-01 content, H1 eyebrow & mock disclaimer verified');
+    console.log('  [PASS] /cau-chuyen/ca-dieu-tri-01 title, H1 aria-label, text spacing & mock disclaimer verified');
 
     // Invalid story slug -> 404
     await storyDetailPage.goto(`http://localhost:${PORT}/cau-chuyen/slug-khong-ton-tai-xyz`, { waitUntil: 'networkidle' });
+    const invalidStoryTitle = await storyDetailPage.title();
+    assert(invalidStoryTitle.includes('Không tìm thấy trang'), 'Invalid story slug document title must reflect 404');
     const invalidStoryH1 = await storyDetailPage.locator('h1').textContent();
     assert(invalidStoryH1 && invalidStoryH1.includes('Không tìm thấy trang yêu cầu'), 'Invalid story slug must render 404 NotFoundPage');
-    console.log('  [PASS] /cau-chuyen/slug-khong-ton-tai-xyz renders 404 NotFoundPage');
+    const invalidStoryRobots = await storyDetailPage.locator('meta[name="robots"]').getAttribute('content');
+    assert.strictEqual(invalidStoryRobots, 'noindex, nofollow', 'Invalid story slug must have noindex, nofollow');
+    console.log('  [PASS] /cau-chuyen/slug-khong-ton-tai-xyz renders 404 NotFoundPage with noindex, nofollow');
     await storyDetailPage.close();
 
     // --- /goc-thu-cung (Pet Corner Listing) ---
@@ -814,18 +890,36 @@ server.listen(PORT, async () => {
     console.log('\n--- Testing /bai-viet/:slug Detail & 404 Fallback ---');
     const articleDetailPage = await context.newPage();
     await articleDetailPage.goto(`http://localhost:${PORT}/bai-viet/dinh-duong-an-toan-cho-thu-cung`, { waitUntil: 'networkidle' });
+    const articleDetailTitle = await articleDetailPage.title();
+    assert.strictEqual(
+      articleDetailTitle,
+      'Xây dựng khẩu phần dinh dưỡng an toàn cho thú cưng theo từng lứa tuổi — Cẩm nang thú cưng — Bệnh viện Thú y Lê Sơn',
+      `Article detail document title mismatch: got "${articleDetailTitle}"`
+    );
     const articleDetailH1 = await articleDetailPage.locator('h1').textContent();
     assert(articleDetailH1 && articleDetailH1.includes('Chi tiết bài viết cẩm nang'), 'Article detail H1 missing eyebrow label');
     assert(articleDetailH1 && articleDetailH1.includes('Xây dựng khẩu phần dinh dưỡng an toàn cho thú cưng theo từng lứa tuổi'), 'Article detail title mismatch');
+    const articleH1Aria = await articleDetailPage.locator('h1').getAttribute('aria-label');
+    assert.strictEqual(
+      articleH1Aria,
+      'Chi tiết bài viết cẩm nang: Xây dựng khẩu phần dinh dưỡng an toàn cho thú cưng theo từng lứa tuổi',
+      `Article detail H1 aria-label mismatch: got "${articleH1Aria}"`
+    );
+    const articleH1Text = await articleDetailPage.locator('h1').innerText();
+    assert(!articleH1Text.includes('cẩm nangXây'), 'H1 text must not join words between eyebrow and title');
     const articleMockDisclaimer = await articleDetailPage.locator('text=Nội dung minh họa cẩm nang kiến thức — không thay thế chỉ định trực tiếp từ Bác sĩ Thú y').count();
     assert(articleMockDisclaimer >= 1, 'Mock disclaimer missing on article detail page');
-    console.log('  [PASS] /bai-viet/dinh-duong-an-toan-cho-thu-cung content, H1 eyebrow & mock disclaimer verified');
+    console.log('  [PASS] /bai-viet/dinh-duong-an-toan-cho-thu-cung title, H1 aria-label, text spacing & mock disclaimer verified');
 
     // Invalid article slug -> 404
     await articleDetailPage.goto(`http://localhost:${PORT}/bai-viet/slug-khong-ton-tai-xyz`, { waitUntil: 'networkidle' });
+    const invalidArticleTitle = await articleDetailPage.title();
+    assert(invalidArticleTitle.includes('Không tìm thấy trang'), 'Invalid article slug document title must reflect 404');
     const invalidArticleH1 = await articleDetailPage.locator('h1').textContent();
     assert(invalidArticleH1 && invalidArticleH1.includes('Không tìm thấy trang yêu cầu'), 'Invalid article slug must render 404 NotFoundPage');
-    console.log('  [PASS] /bai-viet/slug-khong-ton-tai-xyz renders 404 NotFoundPage');
+    const invalidArticleRobots = await articleDetailPage.locator('meta[name="robots"]').getAttribute('content');
+    assert.strictEqual(invalidArticleRobots, 'noindex, nofollow', 'Invalid article slug must have noindex, nofollow');
+    console.log('  [PASS] /bai-viet/slug-khong-ton-tai-xyz renders 404 NotFoundPage with noindex, nofollow');
     await articleDetailPage.close();
 
     console.log('\n=== ALL PHASE 1 PUBLIC PAGES TESTS PASSED SUCCESSFULLY! ===');

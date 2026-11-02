@@ -32,7 +32,9 @@ export const StoryDetailPage: React.FC = () => {
   }, [story])
 
   useRouteSeo({
-    title: story ? `${story.title} — Bệnh viện Thú y Lê Sơn` : 'Không tìm thấy trang yêu cầu — Bệnh viện Thú y Lê Sơn',
+    title: story
+      ? `${story.title} — Câu chuyện điều trị — Bệnh viện Thú y Lê Sơn`
+      : '404 — Không tìm thấy trang | Bệnh viện Thú y Lê Sơn',
     description: story?.summary || 'Không tìm thấy câu chuyện điều trị yêu cầu.',
     isIndexable: false,
   })
@@ -74,14 +76,18 @@ export const StoryDetailPage: React.FC = () => {
             </span>
             <span className="text-xs text-[var(--color-fg-subtle)] flex items-center gap-1 ml-auto">
               <Calendar className="w-3.5 h-3.5" />
-              <span>Ghi nhận: {story.date}</span>
+              <span>Thông tin: {story.date}</span>
             </span>
           </div>
 
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[var(--color-plum-deep)] tracking-tight mb-4 leading-snug">
+          <h1
+            aria-label={`Chi tiết câu chuyện điều trị: ${story.title}`}
+            className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[var(--color-plum-deep)] tracking-tight mb-4 leading-snug"
+          >
             <span className="block text-xs tracking-wider text-[var(--color-plum-primary)] font-bold mb-2">
               Chi tiết câu chuyện điều trị
             </span>
+            {' '}
             <span>{story.title}</span>
           </h1>
 

@@ -32,7 +32,9 @@ export const ArticleDetailPage: React.FC = () => {
   }, [article])
 
   useRouteSeo({
-    title: article ? `${article.title} — Bệnh viện Thú y Lê Sơn` : 'Không tìm thấy trang yêu cầu — Bệnh viện Thú y Lê Sơn',
+    title: article
+      ? `${article.title} — Cẩm nang thú cưng — Bệnh viện Thú y Lê Sơn`
+      : '404 — Không tìm thấy trang | Bệnh viện Thú y Lê Sơn',
     description: article?.excerpt || 'Không tìm thấy bài viết cẩm nang yêu cầu.',
     isIndexable: false,
   })
@@ -81,16 +83,20 @@ export const ArticleDetailPage: React.FC = () => {
             </span>
           </div>
 
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[var(--color-plum-deep)] tracking-tight mb-4 leading-snug">
+          <h1
+            aria-label={`Chi tiết bài viết cẩm nang: ${article.title}`}
+            className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[var(--color-plum-deep)] tracking-tight mb-4 leading-snug"
+          >
             <span className="block text-xs tracking-wider text-[var(--color-plum-primary)] font-bold mb-2">
               Chi tiết bài viết cẩm nang
             </span>
+            {' '}
             <span>{article.title}</span>
           </h1>
 
           <div className="flex items-center gap-2 text-xs text-[var(--color-fg-muted)] mb-6">
             <User className="w-3.5 h-3.5 text-[var(--color-plum-primary)]" />
-            <span>Nguồn: {article.author}</span>
+            <span>Tài liệu: {article.author}</span>
           </div>
 
           <p className="text-sm sm:text-base text-[var(--color-fg-muted)] leading-relaxed mb-6 font-normal">
@@ -99,7 +105,7 @@ export const ArticleDetailPage: React.FC = () => {
 
           <EditorialPolicyBanner
             label="Chính sách dữ liệu cẩm nang bài viết"
-            title="Lưu ý tham khảo:"
+            title="Lưu ý minh họa:"
             className="rounded-[8px] mb-0"
           >
             {MOCK_PET_CORNER_EDITORIAL_NOTICE}
