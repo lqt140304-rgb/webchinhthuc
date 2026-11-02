@@ -48,6 +48,18 @@ const targetRoutes = [
     expectedH1: 'Liên hệ & Chỉ đường cơ sở',
     titleFragment: 'Liên hệ & Thông tin phòng khám',
   },
+  {
+    path: '/bang-gia',
+    filePath: path.join(clientDir, 'bang-gia', 'index.html'),
+    expectedH1: 'Bảng giá dịch vụ tại Bệnh viện Thú y Lê Sơn',
+    titleFragment: 'Bảng giá dịch vụ',
+  },
+  {
+    path: '/san-pham',
+    filePath: path.join(clientDir, 'san-pham', 'index.html'),
+    expectedH1: 'Sản phẩm dinh dưỡng & chăm sóc thú cưng tại Lê Sơn',
+    titleFragment: 'Sản phẩm & Dinh dưỡng thú cưng',
+  },
 ];
 
 console.log('=== STEP 1: STATIC PRERENDERED HTML AUDIT ===');
@@ -329,11 +341,11 @@ server.listen(PORT, async () => {
       await page.close();
     }
 
-    // Verify ComingSoonView "Quay lại Trang chủ" button touch target >= 44x44px on remaining ComingSoon route (/bang-gia)
-    console.log('\n--- Testing ComingSoonView Touch Targets (/bang-gia) ---');
+    // Verify ComingSoonView "Quay lại Trang chủ" button touch target >= 44x44px on remaining ComingSoon route (/cau-chuyen)
+    console.log('\n--- Testing ComingSoonView Touch Targets (/cau-chuyen) ---');
     const comingSoonPage = await context.newPage();
     await comingSoonPage.setViewportSize({ width: 390, height: 844 });
-    await comingSoonPage.goto(`http://localhost:${PORT}/bang-gia`, { waitUntil: 'networkidle' });
+    await comingSoonPage.goto(`http://localhost:${PORT}/cau-chuyen`, { waitUntil: 'networkidle' });
     const backBtnBox = await comingSoonPage.locator('a:has-text("Quay lại Trang chủ")').boundingBox();
     assert(backBtnBox, 'Back to home button not found on ComingSoonView');
     assert(backBtnBox.width >= 43.5 && backBtnBox.height >= 43.5, `ComingSoon back button touch target too small: ${backBtnBox.width}x${backBtnBox.height}px`);

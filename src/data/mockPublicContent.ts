@@ -642,3 +642,10 @@ export const MOCK_SPA_FAQS: readonly MockFaqItem[] = [
   },
 ]
 
+// ============================================================================
+// PHASE 3 / BATCH 3A — RE-EXPORTS FOR PRICING & PRODUCTS
+// ============================================================================
+export * from './mockPricingContent'
+export * from './mockProductsContent'
+
+
