@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Phone, Calendar, ArrowRight, ShieldCheck, MapPin } from 'lucide-react'
+import { Phone, Calendar, ArrowRight, MapPin, CheckCircle2, Sparkles } from 'lucide-react'
 import { HOSPITAL_CONTACT } from '@/config/contact'
 import styles from './HeroSection.module.css'
 
@@ -9,18 +9,34 @@ export const HeroSection: React.FC = () => {
     <section className={styles.heroContainer}>
       <div className={styles.heroBackgroundTint} aria-hidden="true" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-16 md:pt-20 md:pb-24 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16 md:pt-16 md:pb-24 relative z-10">
         {/* Top Part: Split layout (Headline on left, Description + CTAs on right) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end mb-14 md:mb-20">
           <div className="lg:col-span-7">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-bg-secondary)] border border-[var(--color-border-subtle)] text-[var(--color-plum-primary)] text-xs font-semibold uppercase tracking-wider mb-4 sm:mb-5">
-              <ShieldCheck className="w-3.5 h-3.5 text-[var(--color-warm-orange)]" />
-              <span>{HOSPITAL_CONTACT.tagline}</span>
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/80 border border-purple-200/70 shadow-xs text-xs font-semibold tracking-wider mb-4 sm:mb-6 text-[var(--color-plum-primary)] backdrop-blur-md">
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-status-beacon shrink-0" />
+              <span>{HOSPITAL_CONTACT.tagline} &bull; Tiếp nhận 24/24</span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-serif font-bold text-[var(--color-plum-deep)] tracking-tight leading-[1.14]">
-              “Khi bé không khỏe, bạn không phải lo một mình.”
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-serif font-bold text-[var(--color-plum-deep)] tracking-tight leading-[1.12]">
+              “Khi bé không khỏe,{' '}
+              <span className="italic font-normal text-[var(--color-plum-primary)]">
+                bạn không phải lo một mình.”
+              </span>
             </h1>
+
+            {/* Mini Trust markers strip */}
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 pt-5 text-xs font-medium text-[var(--color-fg-muted)]">
+              <span className="inline-flex items-center gap-1.5 text-emerald-800 bg-emerald-50/80 px-2.5 py-1 rounded-full border border-emerald-200/60">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" /> Bác sĩ trực 24/24
+              </span>
+              <span className="inline-flex items-center gap-1.5 text-purple-900 bg-purple-50/80 px-2.5 py-1 rounded-full border border-purple-200/60">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[var(--color-plum-primary)]" /> Chẩn đoán hình ảnh kỹ thuật số
+              </span>
+              <span className="inline-flex items-center gap-1.5 text-amber-900 bg-amber-50/80 px-2.5 py-1 rounded-full border border-amber-200/60">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[var(--color-warm-orange)]" /> Nội trú vô trùng riêng biệt
+              </span>
+            </div>
           </div>
 
           <div className="lg:col-span-5 space-y-6">
@@ -31,7 +47,7 @@ export const HeroSection: React.FC = () => {
             <div className="flex flex-wrap items-center gap-3 pt-1">
               <Link
                 to="/dat-lich"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[var(--color-plum-primary)] hover:bg-[var(--color-plum-deep)] text-white font-semibold text-sm transition-all shadow-[var(--shadow-card)] active:scale-[0.98]"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-[var(--color-plum-primary)] to-[var(--color-plum-deep)] hover:from-[var(--color-plum-deep)] hover:to-[#310D35] text-white font-semibold text-sm transition-all shadow-[var(--shadow-glow-plum)] hover:shadow-[0_16px_36px_-6px_rgba(90,30,94,0.45)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
               >
                 <Calendar className="w-4 h-4" />
                 <span>Đặt lịch khám</span>
@@ -40,7 +56,7 @@ export const HeroSection: React.FC = () => {
 
               <a
                 href={HOSPITAL_CONTACT.hotlineTel}
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[var(--color-warm-orange)] hover:bg-[var(--color-warm-orange-hover)] text-white font-semibold text-sm transition-all shadow-[var(--shadow-warm-orange)] active:scale-[0.98]"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-[var(--color-warm-orange)] to-[#A34507] hover:from-[#A34507] hover:to-[#873603] text-white font-semibold text-sm transition-all shadow-[var(--shadow-glow-orange)] hover:shadow-[0_16px_36px_-6px_rgba(194,86,12,0.5)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
               >
                 <Phone className="w-4 h-4" />
                 <span>Hotline: {HOSPITAL_CONTACT.hotlineDisplay}</span>
@@ -58,6 +74,7 @@ export const HeroSection: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
           {/* Frame 1: Pet care & gentle bonding (2B-04, 2B-08: LCP on mobile, eager load, responsive WebP) */}
           <div className={`${styles.frameLeft} h-[340px] sm:h-[420px] lg:h-[460px]`}>
+            <span className={styles.topPillTag}>01 &bull; Chăm Sóc</span>
             <img
               src="/images/hero-vet-care.webp"
               srcSet="/images/hero-vet-care-400w.webp 400w, /images/hero-vet-care-800w.webp 800w, /images/hero-vet-care.webp 1200w"
@@ -82,6 +99,12 @@ export const HeroSection: React.FC = () => {
 
           {/* Frame 2: High arch / cat wellness (2B-14, 2B-20: LCP on desktop, eager + high fetch priority, responsive WebP) */}
           <div className={`${styles.frameCenter} h-[380px] sm:h-[460px] lg:h-[500px] md:-mt-6`}>
+            <div className="absolute top-4 inset-x-4 flex justify-center z-10 pointer-events-none">
+              <div className="surface-glass px-3.5 py-1 rounded-full text-xs font-semibold text-[var(--color-plum-deep)] flex items-center gap-1.5 shadow-md">
+                <Sparkles className="w-3.5 h-3.5 text-amber-500 fill-amber-400" />
+                <span>Không gian dịu êm &bull; Chuẩn y khoa</span>
+              </div>
+            </div>
             <img
               src="/images/hero-happy-cat.webp"
               srcSet="/images/hero-happy-cat-400w.webp 400w, /images/hero-happy-cat-800w.webp 800w, /images/hero-happy-cat.webp 1200w"
@@ -106,6 +129,7 @@ export const HeroSection: React.FC = () => {
 
           {/* Frame 3: Cuddle / recovery connection (2B-14: eager load inside initial desktop viewport) */}
           <div className={`${styles.frameRight} h-[340px] sm:h-[420px] lg:h-[460px]`}>
+            <span className={styles.topPillTag}>03 &bull; Đồng Hành</span>
             <img
               src="/images/hero-clinic-cuddle.webp"
               srcSet="/images/hero-clinic-cuddle-400w.webp 400w, /images/hero-clinic-cuddle-800w.webp 800w, /images/hero-clinic-cuddle.webp 1200w"

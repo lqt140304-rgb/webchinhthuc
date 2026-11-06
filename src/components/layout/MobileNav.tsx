@@ -442,12 +442,12 @@ export const MobileBottomBar: React.FC = () => {
     <div
       role="region"
       aria-label="Thanh tác vụ nhanh khẩn cấp"
-      style={{ paddingBottom: 'max(0.625rem, env(safe-area-inset-bottom, 0px))' }}
-      className="lg:hidden fixed bottom-0 inset-x-0 z-30 bg-[var(--color-bg-card)]/95 backdrop-blur-md border-t border-[var(--color-border-subtle)] p-2.5 flex items-center gap-2 shadow-[var(--shadow-float)]"
+      style={{ paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom, 0px))' }}
+      className="lg:hidden fixed bottom-0 inset-x-0 z-30 bg-white/90 backdrop-blur-xl border-t border-[var(--color-border-subtle)]/80 px-3.5 py-2.5 flex items-center gap-2.5 shadow-[0_-8px_32px_rgba(66,18,71,0.08)]"
     >
       <a
         href={HOSPITAL_CONTACT.hotlineTel}
-        className="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-[var(--color-warm-orange)] text-white font-semibold text-xs shadow-[var(--shadow-warm-orange)] active:scale-[0.98] transition-transform"
+        className="flex-1 flex items-center justify-center gap-1.5 py-3 px-3 rounded-2xl bg-gradient-to-r from-[var(--color-warm-orange)] to-[#A34507] text-white font-semibold text-xs shadow-[var(--shadow-glow-orange)] active:scale-[0.97] transition-all"
       >
         <Phone className="w-3.5 h-3.5" />
         <span>Cấp cứu 24/24</span>
@@ -455,7 +455,7 @@ export const MobileBottomBar: React.FC = () => {
 
       <Link
         to="/dat-lich"
-        className="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-[var(--color-plum-primary)] text-white font-semibold text-xs shadow-xs active:scale-[0.98] transition-transform"
+        className="flex-1 flex items-center justify-center gap-1.5 py-3 px-3 rounded-2xl bg-gradient-to-r from-[var(--color-plum-primary)] to-[var(--color-plum-deep)] text-white font-semibold text-xs shadow-[var(--shadow-glow-plum)] active:scale-[0.97] transition-all"
       >
         <Calendar className="w-3.5 h-3.5" />
         <span>Đặt lịch khám</span>

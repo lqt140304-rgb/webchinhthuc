@@ -7,25 +7,25 @@
 }
 
 .storyCard {
-  background-color: var(--color-bg-card);
-  border-radius: 2.5rem;
+  background: linear-gradient(135deg, #FFFFFF 0%, #FCFAFD 100%);
+  border-radius: 2.75rem;
   overflow: hidden;
-  border: 1px solid var(--color-border-subtle);
-  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(90, 30, 94, 0.09);
+  box-shadow: 0 18px 48px -10px rgba(66, 18, 71, 0.09), 0 4px 14px -2px rgba(66, 18, 71, 0.03);
 }
 
 .imageFrame {
   position: relative;
-  min-height: 380px;
+  min-height: 420px;
   height: 100%;
   overflow: hidden;
 }
 
 .timelineStep {
   position: relative;
-  padding-left: 2rem;
-  padding-bottom: 1.5rem;
-  border-left: 2px solid rgba(90, 30, 94, 0.15);
+  padding-left: 2.25rem;
+  padding-bottom: 1.75rem;
+  border-left: 2px solid rgba(90, 30, 94, 0.16);
 }
 
 .timelineStep:last-child {
@@ -35,11 +35,12 @@
 
 .timelineDot {
   position: absolute;
-  left: -0.45rem;
-  top: 0.1rem;
-  width: 0.85rem;
-  height: 0.85rem;
+  left: -0.55rem;
+  top: 0.15rem;
+  width: 1rem;
+  height: 1rem;
   border-radius: 50%;
   background-color: var(--color-plum-primary);
   border: 2px solid white;
+  box-shadow: 0 0 0 3px rgba(90, 30, 94, 0.18);
 }

@@ -4,9 +4,9 @@
 }
 
 .headerBanner {
-  background: linear-gradient(135deg, var(--color-plum-deep) 0%, #350F39 60%, var(--color-plum-primary) 100%);
+  background: linear-gradient(135deg, #320E37 0%, #4D1652 50%, #200523 100%);
   color: var(--color-fg-inverse);
-  padding: 3.5rem 1rem 3.5rem;
+  padding: 4rem 1rem 4rem;
   position: relative;
   overflow: hidden;
 }
@@ -15,46 +15,47 @@
   position: absolute;
   inset: 0;
   opacity: 0.08;
-  background-image: radial-gradient(#fff 1px, transparent 1px);
-  background-size: 20px 20px;
+  background-image: radial-gradient(#fff 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
 }
 
 .noticeBanner {
   background-color: #FEF3C7;
   border: 1px solid #F59E0B;
-  border-radius: var(--ls-radius-xl, 1rem);
+  border-radius: var(--ls-radius-xl, 1.25rem);
   padding: 1rem 1.25rem;
   color: #78350F;
 }
 
 .formCard {
-  background-color: var(--color-bg-card);
-  border-radius: 2rem;
-  padding: 2.25rem;
-  box-shadow: var(--shadow-card);
-  border: 1px solid var(--color-border-subtle);
+  background: linear-gradient(180deg, #FFFFFF 0%, #FCFAFD 100%);
+  border-radius: 2.5rem;
+  padding: 2.75rem;
+  box-shadow: 0 16px 44px -8px rgba(66, 18, 71, 0.08);
+  border: 1px solid rgba(90, 30, 94, 0.09);
 }
 
 .sidebarCard {
-  background-color: var(--color-bg-secondary);
-  border-radius: 2rem;
-  padding: 2.25rem;
-  border: 1px solid var(--color-border-subtle);
+  background: linear-gradient(180deg, #FAF5FC 0%, #F5ECF8 100%);
+  border-radius: 2.5rem;
+  padding: 2.5rem;
+  border: 1px solid rgba(90, 30, 94, 0.08);
+  box-shadow: 0 10px 30px -6px rgba(66, 18, 71, 0.04);
 }
 
 .processStep {
   position: relative;
-  padding-left: 2rem;
+  padding-left: 2.25rem;
 }
 
 .processStep::before {
   content: '';
   position: absolute;
-  left: 0.5rem;
+  left: 0.55rem;
   top: 1.5rem;
   bottom: -0.75rem;
   width: 2px;
-  background-color: var(--color-border-medium);
+  background-color: rgba(90, 30, 94, 0.16);
 }
 
 .processStep:last-child::before {
@@ -65,8 +66,8 @@
   position: absolute;
   left: 0.15rem;
   top: 0.25rem;
-  width: 0.85rem;
-  height: 0.85rem;
+  width: 0.95rem;
+  height: 0.95rem;
   border-radius: 9999px;
   background-color: var(--color-plum-primary);
   border: 2px solid white;
@@ -86,10 +87,10 @@
 @media (max-width: 640px) {
   .formCard,
   .sidebarCard {
-    border-radius: 1.25rem;
-    padding: 1.25rem;
+    border-radius: 1.75rem;
+    padding: 1.5rem;
   }
   .headerBanner {
-    padding: 2.5rem 1rem;
+    padding: 2.75rem 1rem;
   }
 }

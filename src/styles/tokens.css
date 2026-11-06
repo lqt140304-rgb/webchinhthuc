@@ -125,21 +125,34 @@
      CUSTOM BORDER RADII (PREFIXED TO AVOID TAILWIND CONFLICT)
      ========================================================================== */
   --ls-radius-xs: 4px;
-  --ls-radius-sm: 6px;
-  --ls-radius-md: 10px;
-  --ls-radius-lg: 16px;
+  --ls-radius-sm: 8px;
+  --ls-radius-md: 12px;
+  --ls-radius-lg: 18px;
   --ls-radius-xl: 24px;
   --ls-radius-2xl: 32px;
+  --ls-radius-3xl: 42px;
   --ls-radius-full: 9999px;
 
   /* ==========================================================================
      ELEVATION & TINTED SHADOWS
      ========================================================================== */
   --shadow-subtle: 0 2px 8px -2px rgba(66, 18, 71, 0.05), 0 1px 4px -1px rgba(66, 18, 71, 0.03);
-  --shadow-card: 0 10px 30px -5px rgba(66, 18, 71, 0.07), 0 4px 10px -2px rgba(66, 18, 71, 0.03);
-  --shadow-card-hover: 0 18px 36px -6px rgba(66, 18, 71, 0.11), 0 6px 14px -2px rgba(66, 18, 71, 0.05);
-  --shadow-float: 0 24px 48px -12px rgba(66, 18, 71, 0.14);
-  --shadow-warm-orange: 0 10px 25px -5px rgba(194, 86, 12, 0.28);
+  --shadow-card: 0 12px 32px -6px rgba(66, 18, 71, 0.08), 0 4px 12px -2px rgba(66, 18, 71, 0.03);
+  --shadow-card-hover: 0 20px 44px -8px rgba(66, 18, 71, 0.14), 0 8px 18px -3px rgba(66, 18, 71, 0.05);
+  --shadow-float: 0 24px 48px -12px rgba(66, 18, 71, 0.16);
+  --shadow-warm-orange: 0 10px 25px -4px rgba(194, 86, 12, 0.32);
+  --shadow-glow-plum: 0 12px 30px -4px rgba(90, 30, 94, 0.28);
+  --shadow-glow-orange: 0 12px 30px -4px rgba(194, 86, 12, 0.38);
+
+  /* ==========================================================================
+     GLASSMORPHIC & TACTILE SURFACE TOKENS
+     ========================================================================== */
+  --glass-bg: rgba(255, 255, 255, 0.78);
+  --glass-border: rgba(255, 255, 255, 0.7);
+  --glass-border-subtle: rgba(90, 30, 94, 0.08);
+  --glass-inner-highlight: inset 0 1px 1px 0 rgba(255, 255, 255, 0.9);
+  --glass-dark-bg: rgba(56, 14, 61, 0.88);
+  --glass-dark-border: rgba(255, 255, 255, 0.14);
 
   /* ==========================================================================
      COMPONENT STATES & INTERACTION

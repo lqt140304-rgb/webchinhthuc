@@ -51,9 +51,10 @@ export const FeaturedServices: React.FC = () => {
         {/* Section Top Header with "Xem tất cả dịch vụ" Link */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 md:mb-16">
           <div className="max-w-2xl">
-            <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-plum-primary)] mb-2 block">
-              Dịch Vụ Tiêu Biểu
-            </span>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-100/80 border border-purple-200/60 text-[var(--color-plum-primary)] text-xs font-bold uppercase tracking-wider mb-3">
+              <Sparkles className="w-3.5 h-3.5 text-[var(--color-plum-orchid)]" />
+              <span>Tiêu Chuẩn Y Khoa Toàn Diện</span>
+            </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[var(--color-plum-deep)] tracking-tight leading-tight">
               Giải pháp y tế toàn diện cho bé cưng
             </h2>
@@ -65,7 +66,7 @@ export const FeaturedServices: React.FC = () => {
           <div className="shrink-0">
             <Link
               to="/dich-vu"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-[var(--color-border-medium)] hover:bg-[var(--color-bg-secondary)] text-[var(--color-plum-deep)] text-sm font-semibold transition-all group"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[var(--color-border-medium)] hover:bg-[var(--color-bg-secondary)] hover:border-[var(--color-plum-primary)] text-[var(--color-plum-deep)] text-sm font-semibold transition-all group shadow-2xs"
             >
               <span>Xem tất cả dịch vụ</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 text-[var(--color-plum-primary)]" />
@@ -90,14 +91,14 @@ export const FeaturedServices: React.FC = () => {
                     className={styles.serviceImage}
                   />
                   <span className={styles.badge}>{item.category}</span>
-                  <span className="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-md text-xs font-medium bg-black/75 text-white shadow-xs backdrop-blur-xs">
+                  <span className="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-black/70 text-white shadow-xs backdrop-blur-md">
                     Ảnh minh họa
                   </span>
                 </div>
 
                 <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
                   <div>
-                    <div className="w-10 h-10 rounded-xl bg-purple-50 text-[var(--color-plum-primary)] flex items-center justify-center mb-4">
+                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-100 to-purple-50 text-[var(--color-plum-primary)] border border-purple-200/60 flex items-center justify-center mb-4.5 shadow-2xs">
                       <Icon className="w-5 h-5" />
                     </div>
                     <h3 className="font-serif font-bold text-xl text-[var(--color-plum-deep)] mb-2.5">
@@ -122,10 +123,10 @@ export const FeaturedServices: React.FC = () => {
         </div>
 
         {/* Dedicated Emergency 24/24 Gateway Bar */}
-        <div className="rounded-2xl bg-gradient-to-r from-amber-50 via-orange-50 to-amber-50 border border-orange-200/80 p-6 sm:p-8 shadow-xs">
+        <div className="rounded-3xl bg-gradient-to-r from-amber-50 via-orange-50/70 to-amber-50 border border-amber-200/90 p-6 sm:p-8 shadow-sm">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="flex items-start sm:items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-[var(--color-warm-orange)] text-white flex items-center justify-center shrink-0 shadow-sm">
+              <div className="w-13 h-13 rounded-2xl bg-gradient-to-br from-[var(--color-warm-orange)] to-[#A34507] text-white flex items-center justify-center shrink-0 shadow-[var(--shadow-glow-orange)]">
                 <ShieldAlert className="w-6 h-6" />
               </div>
               <div>
@@ -133,7 +134,7 @@ export const FeaturedServices: React.FC = () => {
                   <h4 className="font-serif font-bold text-lg text-[var(--color-warm-orange-dark)]">
                     Cấp Cứu Thú Cưng Khẩn Cấp 24/24
                   </h4>
-                  <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[var(--color-warm-orange)] text-white">
+                  <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[var(--color-warm-orange)] text-white shadow-2xs">
                     24/24
                   </span>
                 </div>
@@ -146,14 +147,14 @@ export const FeaturedServices: React.FC = () => {
             <div className="flex items-center gap-3 shrink-0 w-full sm:w-auto">
               <a
                 href={HOSPITAL_CONTACT.hotlineTel}
-                className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[var(--color-warm-orange)] hover:bg-[var(--color-warm-orange-hover)] text-white font-semibold text-sm transition-all shadow-[var(--shadow-warm-orange)] active:scale-[0.98]"
+                className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-[var(--color-warm-orange)] to-[#A34507] hover:from-[#A34507] hover:to-[#873603] text-white font-semibold text-sm transition-all shadow-[var(--shadow-glow-orange)] hover:scale-105 active:scale-95"
               >
                 <Phone className="w-4 h-4" />
                 <span>Gọi Cấp cứu: {HOSPITAL_CONTACT.hotlineDisplay}</span>
               </a>
               <Link
                 to="/dich-vu/cap-cuu"
-                className="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl border border-orange-300 text-[var(--color-warm-orange-dark)] hover:bg-orange-100/50 font-semibold text-sm transition-colors"
+                className="inline-flex items-center justify-center gap-1.5 px-5 py-3.5 rounded-2xl border border-orange-300 bg-white/60 text-[var(--color-warm-orange-dark)] hover:bg-orange-100/70 font-semibold text-sm transition-colors shadow-2xs"
               >
                 <span>Quy trình</span>
               </Link>
