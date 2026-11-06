@@ -49,7 +49,7 @@ export const FeaturedServices: React.FC = () => {
     <section className="py-20 md:py-28 bg-[var(--color-bg-primary)]" id="dich-vu-tieu-bieu">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Top Header with "Xem tất cả dịch vụ" Link */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 md:mb-16">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 md:mb-16" data-reveal="up">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-100/80 border border-purple-200/60 text-[var(--color-plum-primary)] text-xs font-bold uppercase tracking-wider mb-3">
               <Sparkles className="w-3.5 h-3.5 text-[var(--color-plum-orchid)]" />
@@ -76,10 +76,15 @@ export const FeaturedServices: React.FC = () => {
 
         {/* 3 Image-led Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
-          {services.map((item) => {
+          {services.map((item, idx) => {
             const Icon = item.icon
             return (
-              <div key={item.id} className={styles.serviceCard}>
+              <div
+                key={item.id}
+                className={`${styles.serviceCard} group`}
+                data-reveal="scale"
+                data-reveal-delay={String(idx + 1)}
+              >
                 <div className={styles.imageContainer}>
                   <img
                     src={item.image}
@@ -98,7 +103,7 @@ export const FeaturedServices: React.FC = () => {
 
                 <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
                   <div>
-                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-100 to-purple-50 text-[var(--color-plum-primary)] border border-purple-200/60 flex items-center justify-center mb-4.5 shadow-2xs">
+                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-100 to-purple-50 text-[var(--color-plum-primary)] border border-purple-200/60 flex items-center justify-center mb-4.5 shadow-2xs transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
                       <Icon className="w-5 h-5" />
                     </div>
                     <h3 className="font-serif font-bold text-xl text-[var(--color-plum-deep)] mb-2.5">
@@ -111,10 +116,10 @@ export const FeaturedServices: React.FC = () => {
 
                   <Link
                     to={item.href}
-                    className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[var(--color-plum-primary)] hover:text-[var(--color-plum-deep)] transition-colors group"
+                    className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[var(--color-plum-primary)] hover:text-[var(--color-plum-deep)] transition-colors group/link"
                   >
                     <span>Chi tiết dịch vụ</span>
-                    <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-1" />
                   </Link>
                 </div>
               </div>
@@ -123,7 +128,7 @@ export const FeaturedServices: React.FC = () => {
         </div>
 
         {/* Dedicated Emergency 24/24 Gateway Bar */}
-        <div className="rounded-3xl bg-gradient-to-r from-amber-50 via-orange-50/70 to-amber-50 border border-amber-200/90 p-6 sm:p-8 shadow-sm">
+        <div className="rounded-3xl bg-gradient-to-r from-amber-50 via-orange-50/70 to-amber-50 border border-amber-200/90 p-6 sm:p-8 shadow-sm" data-reveal="up" data-reveal-delay="2">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="flex items-start sm:items-center gap-4">
               <div className="w-13 h-13 rounded-2xl bg-gradient-to-br from-[var(--color-warm-orange)] to-[#A34507] text-white flex items-center justify-center shrink-0 shadow-[var(--shadow-glow-orange)]">

@@ -48,7 +48,7 @@ export const EditorialKnowledge: React.FC = () => {
     <section className="py-20 md:py-28 bg-[var(--color-bg-primary)]" id="goc-kien-thuc">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 md:mb-16">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 md:mb-16" data-reveal="up">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-100/80 border border-purple-200/60 text-[var(--color-plum-primary)] text-xs font-bold uppercase tracking-wider mb-3">
               <BookOpen className="w-3.5 h-3.5 text-[var(--color-plum-orchid)]" />
@@ -75,7 +75,7 @@ export const EditorialKnowledge: React.FC = () => {
         </div>
 
         {/* Notice: Bản mẫu biên tập */}
-        <div className="mb-8 p-4 rounded-2xl bg-purple-50/70 border border-purple-200/80 flex items-center gap-3 text-xs text-[var(--color-plum-deep)] shadow-2xs backdrop-blur-md">
+        <div className="mb-8 p-4 rounded-2xl bg-purple-50/70 border border-purple-200/80 flex items-center gap-3 text-xs text-[var(--color-plum-deep)] shadow-2xs backdrop-blur-md" data-reveal="up" data-reveal-delay="1">
           <AlertCircle className="w-4 h-4 text-[var(--color-plum-primary)] shrink-0" />
           <span>
             <strong>Lưu ý biên tập:</strong> Các bài viết dưới đây là bản mẫu cấu trúc chuyên đề y khoa — Đang hoàn thiện thẩm định nội dung trước khi xuất bản chính thức.
@@ -84,8 +84,13 @@ export const EditorialKnowledge: React.FC = () => {
 
         {/* 3 Editorial Magazine Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {articles.map((art) => (
-            <article key={art.id} className={styles.articleCard}>
+          {articles.map((art, idx) => (
+            <article
+              key={art.id}
+              className={styles.articleCard}
+              data-reveal="scale"
+              data-reveal-delay={String(idx + 1)}
+            >
               <div className={styles.imageWrapper}>
                 <img
                   src={art.image}

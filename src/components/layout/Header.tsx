@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { ChevronDown, Calendar, Menu, ShieldAlert } from 'lucide-react'
+import { ChevronDown, Calendar, Menu, X, ShieldAlert } from 'lucide-react'
 import { isLinkActive, isGroupActive } from '@/utils/navigation'
 
 interface DropdownItem {
@@ -141,28 +141,28 @@ export const Header: React.FC<HeaderProps> = ({
   const isLienHeActive = isGroupActive(['/lien-he'], location.pathname)
 
   return (
-    <header className="sticky top-0 z-40 bg-[var(--color-bg-primary)]/90 backdrop-blur-xl border-b border-[var(--color-border-subtle)] shadow-[0_2px_16px_-4px_rgba(66,18,71,0.04)] transition-all">
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-18 sm:h-20 flex items-center justify-between gap-2 sm:gap-4">
+    <header className="sticky top-0 z-40 bg-[var(--color-bg-primary)]/88 backdrop-blur-xl border-b border-[var(--color-border-subtle)]/80 shadow-[0_2px_18px_-4px_rgba(66,18,71,0.05)] transition-all">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-14.5 sm:h-19 flex items-center justify-between gap-2 sm:gap-4">
         {/* BRAND LOGO (Không gắn aria-current theo chuẩn P1-3) */}
         <Link
           to="/"
-          className="flex items-center gap-2.5 sm:gap-3.5 shrink-0 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-plum-primary)] rounded-2xl p-1 -m-1"
+          className="flex items-center gap-2 sm:gap-3 shrink-0 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-plum-primary)] rounded-2xl p-1 -m-1"
           aria-label="Về Trang chủ Bệnh viện Thú y Lê Sơn"
         >
-          <div className="relative">
+          <div className="relative flex items-center justify-center">
             <img
               src="/images/logo.png"
               alt="Logo Bệnh viện Thú y Lê Sơn"
-              className="w-10 h-10 sm:w-11 sm:h-11 object-cover rounded-xl sm:rounded-2xl shadow-xs border border-purple-100 transition-transform duration-300 group-hover:scale-105"
+              className="w-10 h-10 sm:w-12 sm:h-12 object-contain drop-shadow-[0_2px_6px_rgba(66,18,71,0.14)] transition-transform duration-300 group-hover:scale-108"
             />
-            <span className="absolute -bottom-1 -right-1 w-3 h-3 rounded-full bg-emerald-500 border-2 border-white" title="Trực cấp cứu 24/24" />
+            <span className="absolute bottom-0 right-0 w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-emerald-500 border-2 border-white animate-status-beacon" title="Trực cấp cứu 24/24" />
           </div>
           <div className="flex flex-col">
             <span className="font-serif font-bold text-sm sm:text-base xl:text-lg tracking-tight text-[var(--color-plum-deep)] leading-tight group-hover:text-[var(--color-plum-primary)] transition-colors">
               LÊ SƠN
             </span>
-            <span className="hidden min-[420px]:inline text-[10px] sm:text-xs uppercase font-medium tracking-widest text-[var(--color-fg-muted)] whitespace-nowrap">
-              Bệnh viện Thú y &bull; 24/24
+            <span className="text-[9px] sm:text-xs uppercase font-medium tracking-widest text-[var(--color-fg-muted)] whitespace-nowrap">
+              Thú y &bull; 24/24
             </span>
           </div>
         </Link>
@@ -254,7 +254,7 @@ export const Header: React.FC<HeaderProps> = ({
                     onKeyDown={(e) => handleMenuKeyDown(e, group.id)}
                     className="absolute top-full left-0 w-76 pt-2.5 z-50 transition-all duration-200"
                   >
-                    <div className="bg-white/95 backdrop-blur-xl rounded-2xl border border-[var(--color-border-subtle)] shadow-[var(--shadow-card-hover)] p-2">
+                    <div className="bg-white/95 backdrop-blur-xl rounded-2xl border border-[var(--color-border-subtle)] shadow-[var(--shadow-card-hover)] p-2 animate-dropdown-spring">
                       {group.items.map((item) => {
                         const isItemCurrent = isLinkActive(item.href, location.pathname, location.search)
                         return (
@@ -331,7 +331,7 @@ export const Header: React.FC<HeaderProps> = ({
         </nav>
 
         {/* RIGHT ACTIONS */}
-        <div className="flex items-center gap-2 sm:gap-3.5 shrink-0">
+        <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
           {/* Account Links (Visible on Laptop 1024px+ & Desktop) */}
           <div className="hidden lg:flex items-center gap-1.5 text-xs text-[var(--color-fg-muted)] border-r border-[var(--color-border-subtle)] pr-3 xl:pr-4">
             <Link
@@ -355,25 +355,29 @@ export const Header: React.FC<HeaderProps> = ({
           <Link
             to="/dat-lich"
             aria-current={location.pathname === '/dat-lich' ? 'page' : undefined}
-            className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 py-2 sm:px-5 sm:py-2.5 xl:px-6 xl:py-2.5 min-h-[44px] rounded-full bg-gradient-to-r from-[var(--color-plum-primary)] to-[var(--color-plum-deep)] hover:from-[var(--color-plum-deep)] hover:to-[#310D35] text-white text-xs xl:text-sm font-semibold transition-all shadow-[var(--shadow-glow-plum)] hover:shadow-[0_14px_30px_-4px_rgba(90,30,94,0.45)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] whitespace-nowrap shrink-0"
+            className="btn-shine inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-5 sm:py-2.5 xl:px-6 xl:py-2.5 min-h-[38px] sm:min-h-[44px] rounded-full bg-gradient-to-r from-[var(--color-plum-primary)] to-[var(--color-plum-deep)] hover:from-[var(--color-plum-deep)] hover:to-[#310D35] text-white text-xs xl:text-sm font-semibold transition-all shadow-[var(--shadow-glow-plum)] hover:shadow-[0_14px_30px_-4px_rgba(90,30,94,0.45)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] whitespace-nowrap shrink-0"
           >
             <Calendar className="w-3.5 h-3.5 xl:w-4 xl:h-4 shrink-0" />
             <span className="hidden min-[420px]:inline">Đặt lịch khám</span>
             <span className="min-[420px]:hidden">Đặt lịch</span>
           </Link>
 
-          {/* Mobile Drawer Hamburger Button */}
+          {/* Compact Mobile Popover Menu Toggle Button */}
           <button
             type="button"
             ref={menuButtonRef}
             onClick={onOpenMobileMenu}
-            aria-label="Mở menu điều hướng trên thiết bị di động"
+            aria-label={isMobileMenuOpen ? 'Đóng menu điều hướng' : 'Mở menu điều hướng trên thiết bị di động'}
             aria-haspopup="dialog"
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-nav-dialog"
-            className="lg:hidden min-w-[44px] min-h-[44px] flex items-center justify-center rounded-2xl border border-[var(--color-border-subtle)] text-[var(--color-plum-deep)] bg-white/80 hover:bg-purple-50/50 transition-colors cursor-pointer shadow-2xs"
+            className={`lg:hidden w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center rounded-full border transition-all duration-300 cursor-pointer shadow-2xs ${
+              isMobileMenuOpen
+                ? 'bg-[var(--color-plum-primary)] text-white border-[var(--color-plum-primary)] rotate-90 shadow-[var(--shadow-glow-plum)]'
+                : 'bg-white/90 text-[var(--color-plum-deep)] border-[var(--color-border-subtle)] hover:bg-purple-50/60'
+            }`}
           >
-            <Menu className="w-5 h-5" />
+            {isMobileMenuOpen ? <X className="w-4.5 h-4.5" /> : <Menu className="w-4.5 h-4.5" />}
           </button>
         </div>
       </div>

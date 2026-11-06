@@ -8,9 +8,9 @@ export const HighlightStory: React.FC = () => {
     <section className={styles.storySection} id="cau-chuyen-noi-bat">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14 md:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-14 md:mb-16" data-reveal="up">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100/70 border border-purple-200 text-[var(--color-plum-primary)] text-xs font-semibold uppercase tracking-wider mb-3">
-            <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500" />
+            <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 animate-pulse" />
             <span>Hành Trình Hồi Phục</span>
           </div>
 
@@ -24,7 +24,7 @@ export const HighlightStory: React.FC = () => {
         </div>
 
         {/* 1 Highlight Story Card (Visual Storytelling) */}
-        <div className={styles.storyCard}>
+        <div className={styles.storyCard} data-reveal="scale">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
             {/* Left: Large Photo */}
             <div className="lg:col-span-5 relative">
@@ -76,7 +76,7 @@ export const HighlightStory: React.FC = () => {
 
                 {/* 3 Steps Timeline (No internal drug doses/orders) */}
                 <div className="space-y-4 mb-8">
-                  <div className={styles.timelineStep}>
+                  <div className={styles.timelineStep} data-reveal="right" data-reveal-delay="1">
                     <div className={styles.timelineDot} />
                     <p className="text-xs font-bold uppercase tracking-wider text-[var(--color-plum-primary)]">
                       Giai đoạn 1: Tiếp nhận cấp cứu & Cân bằng sinh tồn
@@ -86,7 +86,7 @@ export const HighlightStory: React.FC = () => {
                     </p>
                   </div>
 
-                  <div className={styles.timelineStep}>
+                  <div className={styles.timelineStep} data-reveal="right" data-reveal-delay="2">
                     <div className={styles.timelineDot} />
                     <p className="text-xs font-bold uppercase tracking-wider text-[var(--color-plum-primary)]">
                       Giai đoạn 2: Theo dõi nội trú & Cập nhật tình hình
@@ -96,7 +96,7 @@ export const HighlightStory: React.FC = () => {
                     </p>
                   </div>
 
-                  <div className={styles.timelineStep}>
+                  <div className={styles.timelineStep} data-reveal="right" data-reveal-delay="3">
                     <div className={styles.timelineDot} style={{ backgroundColor: 'var(--color-status-success-text)' }} />
                     <p className="text-xs font-bold uppercase tracking-wider text-emerald-700 flex items-center gap-1.5">
                       <CheckCircle2 className="w-3.5 h-3.5" />
@@ -112,7 +112,7 @@ export const HighlightStory: React.FC = () => {
               <div className="pt-4 border-t border-[var(--color-border-subtle)] flex flex-wrap items-center justify-between gap-4">
                 <Link
                   to="/cau-chuyen"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--color-plum-primary)] to-[var(--color-plum-deep)] hover:from-[var(--color-plum-deep)] hover:to-[#310D35] text-white text-xs sm:text-sm font-semibold transition-all shadow-[var(--shadow-glow-plum)] hover:scale-105 active:scale-95 group"
+                  className="btn-shine inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--color-plum-primary)] to-[var(--color-plum-deep)] hover:from-[var(--color-plum-deep)] hover:to-[#310D35] text-white text-xs sm:text-sm font-semibold transition-all shadow-[var(--shadow-glow-plum)] hover:scale-105 active:scale-95 group"
                 >
                   <span>Đọc toàn bộ câu chuyện</span>
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

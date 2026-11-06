@@ -14,7 +14,7 @@ export const Footer: React.FC = () => {
               <img
                 src="/images/logo.png"
                 alt="Logo Bệnh viện Thú y Lê Sơn"
-                className="w-12 h-12 object-cover rounded-2xl shadow-xs border border-white/20 transition-transform group-hover:scale-105"
+                className="w-13 h-13 object-contain drop-shadow-[0_2px_10px_rgba(255,255,255,0.2)] transition-transform duration-300 group-hover:scale-108"
               />
               <div className="flex flex-col">
                 <span className="font-serif font-bold text-lg tracking-tight text-white leading-tight">

@@ -3,11 +3,15 @@ import { Outlet, useLocation } from 'react-router-dom'
 import { Header } from './Header'
 import { Footer } from './Footer'
 import { MobileNav, MobileBottomBar } from './MobileNav'
+import { useScrollReveal } from '@/hooks/useScrollReveal'
 
 export const RootLayout: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const menuButtonRef = useRef<HTMLButtonElement>(null)
   const location = useLocation()
+
+  // Kích hoạt hệ thống animation khi cuộn trang
+  useScrollReveal()
 
   // Cuộn lên đầu trang & chuyển focus đến main-content khi đổi route
   useEffect(() => {
@@ -31,7 +35,7 @@ export const RootLayout: React.FC = () => {
 
       <Header
         isMobileMenuOpen={mobileMenuOpen}
-        onOpenMobileMenu={() => setMobileMenuOpen(true)}
+        onOpenMobileMenu={() => setMobileMenuOpen((prev) => !prev)}
         menuButtonRef={menuButtonRef}
       />
 

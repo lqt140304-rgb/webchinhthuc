@@ -9,7 +9,7 @@ export const WhyChooseUs: React.FC = () => {
     <section className={styles.sectionContainer} id="vi-sao-chon-le-son">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
         {/* Section Header */}
-        <div className="max-w-3xl mb-14 md:mb-16">
+        <div className="max-w-3xl mb-14 md:mb-16" data-reveal="up">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-100/80 border border-purple-200/60 text-[var(--color-plum-primary)] text-xs font-bold uppercase tracking-wider mb-3">
             <Sparkles className="w-3.5 h-3.5 text-[var(--color-plum-orchid)]" />
             <span>Triết Lý Y Khoa Tận Tâm</span>
@@ -25,11 +25,11 @@ export const WhyChooseUs: React.FC = () => {
         {/* Immersive Split Layout: Left Large Image, Right Asymmetric Bento */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           {/* Left: Large Immersive Photography with Warm Mood */}
-          <div className="lg:col-span-5 flex flex-col">
+          <div className="lg:col-span-5 flex flex-col" data-reveal="left">
             <div className={styles.imageWrapper}>
               <div className="absolute top-4 left-4 z-10">
-                <span className="surface-glass px-3.5 py-1.5 rounded-full text-xs font-bold text-[var(--color-plum-deep)] shadow-sm inline-flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                <span className="surface-glass animate-float-gentle px-3.5 py-1.5 rounded-full text-xs font-bold text-[var(--color-plum-deep)] shadow-sm inline-flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-status-beacon" />
                   Chuẩn mực chăm sóc y khoa
                 </span>
               </div>
@@ -56,9 +56,9 @@ export const WhyChooseUs: React.FC = () => {
           {/* Right: Asymmetric Bento Grid (3 Core Values + 1 Emergency Banner) */}
           <div className="lg:col-span-7 flex flex-col justify-between gap-5">
             {/* Value 1: Chuyên môn & Trách nhiệm */}
-            <div className={styles.bentoCard}>
+            <div className={`${styles.bentoCard} group`} data-reveal="right" data-reveal-delay="1">
               <div className="flex items-start gap-4">
-                <div className="w-13 h-13 rounded-2xl bg-gradient-to-br from-purple-100 to-purple-50 text-[var(--color-plum-primary)] border border-purple-200/60 flex items-center justify-center shrink-0 shadow-2xs">
+                <div className="w-13 h-13 rounded-2xl bg-gradient-to-br from-purple-100 to-purple-50 text-[var(--color-plum-primary)] border border-purple-200/60 flex items-center justify-center shrink-0 shadow-2xs transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
                   <Stethoscope className="w-6 h-6" />
                 </div>
                 <div className="flex-1">
@@ -78,9 +78,9 @@ export const WhyChooseUs: React.FC = () => {
             </div>
 
             {/* Value 2: Tận tâm, lắng nghe */}
-            <div className={styles.bentoCard}>
+            <div className={`${styles.bentoCard} group`} data-reveal="right" data-reveal-delay="2">
               <div className="flex items-start gap-4">
-                <div className="w-13 h-13 rounded-2xl bg-gradient-to-br from-orange-100 to-amber-50 text-[var(--color-warm-orange-dark)] border border-orange-200/60 flex items-center justify-center shrink-0 shadow-2xs">
+                <div className="w-13 h-13 rounded-2xl bg-gradient-to-br from-orange-100 to-amber-50 text-[var(--color-warm-orange-dark)] border border-orange-200/60 flex items-center justify-center shrink-0 shadow-2xs transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
                   <HeartHandshake className="w-6 h-6" />
                 </div>
                 <div className="flex-1">
@@ -100,9 +100,9 @@ export const WhyChooseUs: React.FC = () => {
             </div>
 
             {/* Value 3: Theo dõi & Chăm sóc minh bạch */}
-            <div className={styles.bentoCard}>
+            <div className={`${styles.bentoCard} group`} data-reveal="right" data-reveal-delay="3">
               <div className="flex items-start gap-4">
-                <div className="w-13 h-13 rounded-2xl bg-gradient-to-br from-emerald-100 to-emerald-50 text-emerald-700 border border-emerald-200/60 flex items-center justify-center shrink-0 shadow-2xs">
+                <div className="w-13 h-13 rounded-2xl bg-gradient-to-br from-emerald-100 to-emerald-50 text-emerald-700 border border-emerald-200/60 flex items-center justify-center shrink-0 shadow-2xs transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
                   <Eye className="w-6 h-6" />
                 </div>
                 <div className="flex-1">
@@ -122,7 +122,7 @@ export const WhyChooseUs: React.FC = () => {
             </div>
 
             {/* Emergency 24/24 Callout Bento */}
-            <div className={styles.emergencyBanner}>
+            <div className={styles.emergencyBanner} data-reveal="up" data-reveal-delay="4">
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div className="flex items-center gap-3.5">
                   <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[var(--color-warm-orange)] to-[#A34507] text-white flex items-center justify-center shrink-0 shadow-[var(--shadow-glow-orange)]">
