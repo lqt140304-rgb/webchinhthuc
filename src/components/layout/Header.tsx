@@ -355,7 +355,7 @@ export const Header: React.FC<HeaderProps> = ({
           <Link
             to="/dat-lich"
             aria-current={location.pathname === '/dat-lich' ? 'page' : undefined}
-            className="btn-shine inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-5 sm:py-2.5 xl:px-6 xl:py-2.5 min-h-[38px] sm:min-h-[44px] rounded-full bg-gradient-to-r from-[var(--color-plum-primary)] to-[var(--color-plum-deep)] hover:from-[var(--color-plum-deep)] hover:to-[#310D35] text-white text-xs xl:text-sm font-semibold transition-all shadow-[var(--shadow-glow-plum)] hover:shadow-[0_14px_30px_-4px_rgba(90,30,94,0.45)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] whitespace-nowrap shrink-0"
+            className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-5 sm:py-2.5 xl:px-6 xl:py-2.5 min-h-[38px] sm:min-h-[44px] rounded-full bg-gradient-to-r from-[var(--color-plum-primary)] to-[var(--color-plum-deep)] hover:from-[var(--color-plum-deep)] hover:to-[#310D35] text-white text-xs xl:text-sm font-semibold transition-all shadow-[var(--shadow-glow-plum)] hover:shadow-[0_14px_30px_-4px_rgba(90,30,94,0.45)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] whitespace-nowrap shrink-0"
           >
             <Calendar className="w-3.5 h-3.5 xl:w-4 xl:h-4 shrink-0" />
             <span className="hidden min-[420px]:inline">Đặt lịch khám</span>

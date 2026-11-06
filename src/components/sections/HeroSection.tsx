@@ -47,7 +47,7 @@ export const HeroSection: React.FC = () => {
             <div className="animate-hero-3 flex flex-wrap items-center gap-3 pt-1">
               <Link
                 to="/dat-lich"
-                className="btn-shine group inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-[var(--color-plum-primary)] to-[var(--color-plum-deep)] hover:from-[var(--color-plum-deep)] hover:to-[#310D35] text-white font-semibold text-sm transition-all shadow-[var(--shadow-glow-plum)] hover:shadow-[0_16px_36px_-6px_rgba(90,30,94,0.45)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
+                className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-[var(--color-plum-primary)] to-[var(--color-plum-deep)] hover:from-[var(--color-plum-deep)] hover:to-[#310D35] text-white font-semibold text-sm transition-all shadow-[var(--shadow-glow-plum)] hover:shadow-[0_16px_36px_-6px_rgba(90,30,94,0.45)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
               >
                 <Calendar className="w-4 h-4" />
                 <span>Đặt lịch khám</span>

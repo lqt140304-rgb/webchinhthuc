@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-11-06T20:31:49.478Z",
+  "totalPasses": 13,
+  "totalIssues": 0,
+  "passes": [
+    "Route [Trang chủ] (/): Kiểm tra xong trên cả 6 viewports.",
+    "Route [Về Lê Sơn] (/gioi-thieu): Kiểm tra xong trên cả 6 viewports.",
+    "Route [Đội ngũ bác sĩ] (/doi-ngu): Kiểm tra xong trên cả 6 viewports.",
+    "Route [Cơ sở vật chất] (/co-so-vat-chat): Kiểm tra xong trên cả 6 viewports.",
+    "Route [Đặt lịch khám] (/dat-lich): Kiểm tra xong trên cả 6 viewports.",
+    "Route [Danh mục dịch vụ (Coming soon)] (/dich-vu): Kiểm tra xong trên cả 6 viewports.",
+    "Route [Khám điều trị (Coming soon)] (/dich-vu/kham-dieu-tri): Kiểm tra xong trên cả 6 viewports.",
+    "Route [Trang 404] (/khong-ton-tai-404): Kiểm tra xong trên cả 6 viewports.",
+    "Mobile Nav: Mở dialog, kiểm tra tap target và đóng menu thành công.",
+    "Desktop Nav: Dropdowns hoạt động và cập nhật trạng thái chuẩn a11y.",
+    "Booking Form: Xác thực form rỗng hoạt động đúng (4 trường cảnh báo lỗi).",
+    "HighlightStory & Quotes: Không có hiện tượng cắt mép chữ nghiêng hoặc tràn khung.",
+    "Scroll Reveal: Tất cả phần tử trong tầm nhìn đều hiển thị rõ ràng, không bị kẹt opacity=0."
+  ],
+  "issues": []
+}

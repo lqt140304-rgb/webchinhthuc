@@ -143,7 +143,7 @@ export const BookingContactSection: React.FC = () => {
                   <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                     <Link
                       to="/dat-lich"
-                      className="btn-shine inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-2xl bg-gradient-to-r from-[var(--color-plum-primary)] to-[var(--color-plum-deep)] hover:from-[var(--color-plum-deep)] hover:to-[#310D35] text-white font-semibold text-sm transition-all shadow-[var(--shadow-glow-plum)] hover:scale-105 active:scale-95 group"
+                      className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-2xl bg-gradient-to-r from-[var(--color-plum-primary)] to-[var(--color-plum-deep)] hover:from-[var(--color-plum-deep)] hover:to-[#310D35] text-white font-semibold text-sm transition-all shadow-[var(--shadow-glow-plum)] hover:scale-105 active:scale-95 group"
                     >
                       <Calendar className="w-4 h-4" />
                       <span>Đặt lịch khám trực tuyến</span>
@@ -152,7 +152,7 @@ export const BookingContactSection: React.FC = () => {
 
                     <a
                       href={HOSPITAL_CONTACT.hotlineTel}
-                      className="btn-shine inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-[var(--color-warm-orange)] to-[#A34507] hover:from-[#A34507] hover:to-[#873603] text-white font-semibold text-sm transition-all shadow-[var(--shadow-glow-orange)] hover:scale-105 active:scale-95"
+                      className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-[var(--color-warm-orange)] to-[#A34507] hover:from-[#A34507] hover:to-[#873603] text-white font-semibold text-sm transition-all shadow-[var(--shadow-glow-orange)] hover:scale-105 active:scale-95"
                     >
                       <Phone className="w-4 h-4" />
                       <span>Hotline: {HOSPITAL_CONTACT.hotlineDisplay}</span>

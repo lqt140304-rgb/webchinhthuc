@@ -112,7 +112,7 @@ export const HighlightStory: React.FC = () => {
               <div className="pt-4 border-t border-[var(--color-border-subtle)] flex flex-wrap items-center justify-between gap-4">
                 <Link
                   to="/cau-chuyen"
-                  className="btn-shine inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--color-plum-primary)] to-[var(--color-plum-deep)] hover:from-[var(--color-plum-deep)] hover:to-[#310D35] text-white text-xs sm:text-sm font-semibold transition-all shadow-[var(--shadow-glow-plum)] hover:scale-105 active:scale-95 group"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--color-plum-primary)] to-[var(--color-plum-deep)] hover:from-[var(--color-plum-deep)] hover:to-[#310D35] text-white text-xs sm:text-sm font-semibold transition-all shadow-[var(--shadow-glow-plum)] hover:scale-105 active:scale-95 group"
                 >
                   <span>Đọc toàn bộ câu chuyện</span>
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
