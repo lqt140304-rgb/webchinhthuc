@@ -155,9 +155,10 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
             ref={closeButtonRef}
             onClick={onClose}
             aria-label="Đóng menu điều hướng"
-            className="w-7 h-7 flex items-center justify-center rounded-full text-[var(--color-fg-muted)] hover:text-[var(--color-plum-deep)] hover:bg-purple-100/70 transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-medium text-[var(--color-fg-muted)] hover:text-[var(--color-plum-deep)] hover:bg-purple-100/70 focus:outline-none focus-visible:ring-1 focus-visible:ring-purple-300 transition-colors cursor-pointer"
           >
-            <X className="w-4 h-4" />
+            <span>Đóng</span>
+            <X className="w-3 h-3" />
           </button>
         </div>
 

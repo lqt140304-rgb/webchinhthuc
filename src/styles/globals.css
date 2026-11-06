@@ -215,11 +215,16 @@
 
   /* Flowing Gradient Italic Accent */
   .text-shimmer-plum {
+    display: inline;
+    padding-right: 0.18em;
+    margin-right: -0.06em;
     background: linear-gradient(120deg, #5A1E5E 0%, #9D4EDD 45%, #C2560C 80%, #5A1E5E 100%);
     background-size: 220% auto;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
     animation: textGradientFlow 7s ease-in-out infinite;
   }
 

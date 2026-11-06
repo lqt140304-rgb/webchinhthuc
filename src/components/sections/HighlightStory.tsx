@@ -76,7 +76,7 @@ export const HighlightStory: React.FC = () => {
 
                 {/* 3 Steps Timeline (No internal drug doses/orders) */}
                 <div className="space-y-4 mb-8">
-                  <div className={styles.timelineStep} data-reveal="right" data-reveal-delay="1">
+                  <div className={styles.timelineStep}>
                     <div className={styles.timelineDot} />
                     <p className="text-xs font-bold uppercase tracking-wider text-[var(--color-plum-primary)]">
                       Giai đoạn 1: Tiếp nhận cấp cứu & Cân bằng sinh tồn
@@ -86,7 +86,7 @@ export const HighlightStory: React.FC = () => {
                     </p>
                   </div>
 
-                  <div className={styles.timelineStep} data-reveal="right" data-reveal-delay="2">
+                  <div className={styles.timelineStep}>
                     <div className={styles.timelineDot} />
                     <p className="text-xs font-bold uppercase tracking-wider text-[var(--color-plum-primary)]">
                       Giai đoạn 2: Theo dõi nội trú & Cập nhật tình hình
@@ -96,7 +96,7 @@ export const HighlightStory: React.FC = () => {
                     </p>
                   </div>
 
-                  <div className={styles.timelineStep} data-reveal="right" data-reveal-delay="3">
+                  <div className={styles.timelineStep}>
                     <div className={styles.timelineDot} style={{ backgroundColor: 'var(--color-status-success-text)' }} />
                     <p className="text-xs font-bold uppercase tracking-wider text-emerald-700 flex items-center gap-1.5">
                       <CheckCircle2 className="w-3.5 h-3.5" />

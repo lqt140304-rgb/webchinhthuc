@@ -141,7 +141,7 @@ export const Header: React.FC<HeaderProps> = ({
   const isLienHeActive = isGroupActive(['/lien-he'], location.pathname)
 
   return (
-    <header className="sticky top-0 z-40 bg-[var(--color-bg-primary)]/88 backdrop-blur-xl border-b border-[var(--color-border-subtle)]/80 shadow-[0_2px_18px_-4px_rgba(66,18,71,0.05)] transition-all">
+    <header className="sticky top-0 z-[60] bg-[var(--color-bg-primary)]/92 backdrop-blur-xl border-b border-[var(--color-border-subtle)]/80 shadow-[0_2px_18px_-4px_rgba(66,18,71,0.05)] transition-all">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-14.5 sm:h-19 flex items-center justify-between gap-2 sm:gap-4">
         {/* BRAND LOGO (Không gắn aria-current theo chuẩn P1-3) */}
         <Link
