@@ -1,9 +1,9 @@
 .articleCard {
-  background: linear-gradient(180deg, #FFFFFF 0%, #FCFAFD 100%);
-  border-radius: 2.25rem;
+  background-color: var(--color-bg-card);
+  border-radius: 1.25rem;
   overflow: hidden;
-  border: 1px solid rgba(90, 30, 94, 0.08);
-  box-shadow: 0 10px 30px -6px rgba(66, 18, 71, 0.06);
+  border: 1px solid var(--color-border-subtle);
+  box-shadow: var(--shadow-subtle);
   transition: transform var(--motion-duration-normal) var(--motion-ease-default),
               box-shadow var(--motion-duration-normal) var(--motion-ease-default),
               border-color var(--motion-duration-normal) var(--motion-ease-default);
@@ -12,15 +12,16 @@
 }
 
 .articleCard:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 22px 48px -10px rgba(66, 18, 71, 0.14);
-  border-color: rgba(90, 30, 94, 0.22);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--color-border-medium);
 }
 
 .imageWrapper {
   position: relative;
-  height: 230px;
+  height: 220px;
   overflow: hidden;
+  border-bottom: 1px solid var(--color-border-subtle);
 }
 
 .articleImage {
@@ -31,23 +32,22 @@
 }
 
 .articleCard:hover .articleImage {
-  transform: scale(1.06);
+  transform: scale(1.03);
 }
 
 .categoryBadge {
   position: absolute;
-  top: 1rem;
-  left: 1rem;
-  padding: 0.35rem 0.85rem;
-  border-radius: var(--ls-radius-full);
-  background-color: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  top: 0.875rem;
+  left: 0.875rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--color-plum-primary);
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(90, 30, 94, 0.12);
 }

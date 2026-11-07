@@ -4,43 +4,44 @@
 }
 
 .headerBanner {
-  background: linear-gradient(135deg, #320E37 0%, #4D1652 50%, #200523 100%);
+  background-color: var(--color-plum-deep);
   color: var(--color-fg-inverse);
-  padding: 4rem 1rem 4rem;
+  padding: 3.5rem 1rem;
   position: relative;
   overflow: hidden;
+  border-bottom: 1px solid var(--color-border-subtle);
 }
 
 .headerPattern {
   position: absolute;
   inset: 0;
-  opacity: 0.08;
-  background-image: radial-gradient(#fff 1.5px, transparent 1.5px);
+  opacity: 0.05;
+  background-image: radial-gradient(#fff 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
 .noticeBanner {
-  background-color: #FEF3C7;
-  border: 1px solid #F59E0B;
-  border-radius: var(--ls-radius-xl, 1.25rem);
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-medium);
+  border-radius: 0.875rem;
   padding: 1rem 1.25rem;
-  color: #78350F;
+  color: var(--color-plum-deep);
 }
 
 .formCard {
-  background: linear-gradient(180deg, #FFFFFF 0%, #FCFAFD 100%);
-  border-radius: 2.5rem;
-  padding: 2.75rem;
-  box-shadow: 0 16px 44px -8px rgba(66, 18, 71, 0.08);
-  border: 1px solid rgba(90, 30, 94, 0.09);
+  background-color: var(--color-bg-card);
+  border-radius: 1.25rem;
+  padding: 2.25rem;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-border-subtle);
 }
 
 .sidebarCard {
-  background: linear-gradient(180deg, #FAF5FC 0%, #F5ECF8 100%);
-  border-radius: 2.5rem;
-  padding: 2.5rem;
-  border: 1px solid rgba(90, 30, 94, 0.08);
-  box-shadow: 0 10px 30px -6px rgba(66, 18, 71, 0.04);
+  background-color: var(--color-bg-secondary);
+  border-radius: 1.25rem;
+  padding: 2rem;
+  border: 1px solid var(--color-border-subtle);
+  box-shadow: var(--shadow-subtle);
 }
 
 .processStep {

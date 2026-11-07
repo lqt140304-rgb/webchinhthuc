@@ -10,8 +10,8 @@ export const BookingContactSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
         {/* Section Header */}
         <div className="max-w-3xl mb-14 md:mb-16" data-reveal="up">
-          <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-plum-primary)] mb-2 block">
-            Đặt Lịch Khám & Liên Hệ
+          <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-plum-primary)] mb-2.5 block">
+            05 &mdash; Đặt Lịch Khám & Liên Hệ
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[var(--color-plum-deep)] tracking-tight leading-tight">
             Sẵn sàng đồng hành cùng bạn và bé cưng
@@ -46,7 +46,7 @@ export const BookingContactSection: React.FC = () => {
                           href={HOSPITAL_CONTACT.mapsUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 text-xs text-amber-300 hover:text-white underline underline-offset-4 font-semibold"
+                          className="inline-flex items-center gap-1.5 text-xs text-[var(--color-plum-orchid-light)] hover:text-white underline underline-offset-4 font-semibold"
                         >
                           <Navigation className="w-3.5 h-3.5" />
                           <span>Xem chỉ đường trên Google Maps</span>
@@ -83,7 +83,7 @@ export const BookingContactSection: React.FC = () => {
 
               {/* Bottom Alert Banner - B02: đã bỏ cam kết trực ngày lễ chưa xác minh */}
               <div className="mt-8 pt-6 border-t border-white/10 flex items-center gap-3">
-                <ShieldAlert className="w-6 h-6 text-[var(--color-warm-orange-light)] shrink-0" />
+                <ShieldAlert className="w-5 h-5 text-[var(--color-warm-orange-light)] shrink-0" />
                 <p className="text-xs text-slate-300 leading-snug">
                   Đội ngũ bác sĩ sẵn sàng tiếp nhận thú cưng khẩn cấp trong khung giờ trực cấp cứu 24/24.
                 </p>
@@ -96,7 +96,7 @@ export const BookingContactSection: React.FC = () => {
             <div className={styles.ctaCard}>
               <div className="space-y-6 flex-1 flex flex-col justify-between">
                 <div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 text-[var(--color-plum-primary)] text-xs font-semibold uppercase tracking-wider mb-3">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[var(--color-bg-secondary)] border border-[var(--color-border-subtle)] text-[var(--color-plum-primary)] text-xs font-semibold uppercase tracking-wider mb-3">
                     <Calendar className="w-3.5 h-3.5" />
                     <span>Đặt Lịch Khám Chu Đáo</span>
                   </div>
@@ -109,9 +109,9 @@ export const BookingContactSection: React.FC = () => {
                     Để giảm thiểu thời gian chờ đợi và giúp bác sĩ chuẩn bị chu đáo nhất hồ sơ thăm khám cho thú cưng, quý khách có thể chủ động đăng ký trước qua trang đặt lịch trực tuyến hoặc liên hệ trực tiếp hotline.
                   </p>
 
-                  <div className="space-y-3 pt-1 pb-4">
+                  <div className="space-y-3.5 pt-1 pb-4">
                     <div className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
+                      <div className="w-5 h-5 rounded-md bg-[var(--color-bg-secondary)] border border-[var(--color-border-subtle)] text-[var(--color-plum-primary)] flex items-center justify-center shrink-0 mt-0.5">
                         <CheckCircle2 className="w-3.5 h-3.5" />
                       </div>
                       <span className="text-xs sm:text-sm text-[var(--color-fg-primary)]">
@@ -120,7 +120,7 @@ export const BookingContactSection: React.FC = () => {
                     </div>
 
                     <div className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-purple-100 text-[var(--color-plum-primary)] flex items-center justify-center shrink-0 mt-0.5">
+                      <div className="w-5 h-5 rounded-md bg-[var(--color-bg-secondary)] border border-[var(--color-border-subtle)] text-[var(--color-plum-primary)] flex items-center justify-center shrink-0 mt-0.5">
                         <CheckCircle2 className="w-3.5 h-3.5" />
                       </div>
                       <span className="text-xs sm:text-sm text-[var(--color-fg-primary)]">
@@ -129,7 +129,7 @@ export const BookingContactSection: React.FC = () => {
                     </div>
 
                     <div className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-orange-100 text-[var(--color-warm-orange-dark)] flex items-center justify-center shrink-0 mt-0.5">
+                      <div className="w-5 h-5 rounded-md bg-[var(--color-bg-secondary)] border border-[var(--color-border-subtle)] text-[var(--color-plum-primary)] flex items-center justify-center shrink-0 mt-0.5">
                         <CheckCircle2 className="w-3.5 h-3.5" />
                       </div>
                       <span className="text-xs sm:text-sm text-[var(--color-fg-primary)]">
@@ -143,23 +143,23 @@ export const BookingContactSection: React.FC = () => {
                   <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                     <Link
                       to="/dat-lich"
-                      className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-2xl bg-gradient-to-r from-[var(--color-plum-primary)] to-[var(--color-plum-deep)] hover:from-[var(--color-plum-deep)] hover:to-[#310D35] text-white font-semibold text-sm transition-all shadow-[var(--shadow-glow-plum)] hover:scale-105 active:scale-95 group"
+                      className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-[var(--color-plum-primary)] hover:bg-[var(--color-plum-deep)] text-white font-semibold text-sm transition-colors shadow-xs group"
                     >
                       <Calendar className="w-4 h-4" />
                       <span>Đặt lịch khám trực tuyến</span>
-                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
                     </Link>
 
                     <a
                       href={HOSPITAL_CONTACT.hotlineTel}
-                      className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-[var(--color-warm-orange)] to-[#A34507] hover:from-[#A34507] hover:to-[#873603] text-white font-semibold text-sm transition-all shadow-[var(--shadow-glow-orange)] hover:scale-105 active:scale-95"
+                      className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[var(--color-warm-orange)] hover:bg-[var(--color-warm-orange-hover)] text-white font-semibold text-sm transition-colors shadow-xs"
                     >
                       <Phone className="w-4 h-4" />
                       <span>Hotline: {HOSPITAL_CONTACT.hotlineDisplay}</span>
                     </a>
                   </div>
 
-                  <p className="text-xs text-[var(--color-fg-subtle)] flex items-center gap-1.5 italic">
+                  <p className="text-xs text-[var(--color-fg-subtle)] flex items-center gap-1.5">
                     <ShieldAlert className="w-3.5 h-3.5 text-[var(--color-warm-orange-dark)] shrink-0" />
                     <span>Hỗ trợ cấp cứu 24/24 — Không cần đặt lịch trước trong trường hợp khẩn cấp.</span>
                   </p>

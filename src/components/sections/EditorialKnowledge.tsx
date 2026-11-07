@@ -50,10 +50,9 @@ export const EditorialKnowledge: React.FC = () => {
         {/* Top Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 md:mb-16" data-reveal="up">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-100/80 border border-purple-200/60 text-[var(--color-plum-primary)] text-xs font-bold uppercase tracking-wider mb-3">
-              <BookOpen className="w-3.5 h-3.5 text-[var(--color-plum-orchid)]" />
-              <span>Góc Thú Cưng & Cẩm Nang Y Khoa</span>
-            </div>
+            <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-plum-primary)] mb-2.5 block">
+              04 &mdash; Góc Thú Cưng & Cẩm Nang Y Khoa
+            </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[var(--color-plum-deep)] tracking-tight leading-tight">
               Kiến thức chăm sóc chuẩn xác từ chuyên gia
             </h2>
@@ -65,17 +64,17 @@ export const EditorialKnowledge: React.FC = () => {
           <div className="shrink-0">
             <Link
               to="/goc-thu-cung"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[var(--color-border-medium)] hover:bg-[var(--color-bg-secondary)] hover:border-[var(--color-plum-primary)] text-[var(--color-plum-deep)] text-sm font-semibold transition-all group shadow-2xs"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white border border-[var(--color-border-medium)] hover:bg-[var(--color-bg-secondary)] hover:border-[var(--color-plum-primary)] text-[var(--color-plum-deep)] text-sm font-semibold transition-colors group shadow-2xs"
             >
               <BookOpen className="w-4 h-4 text-[var(--color-plum-primary)]" />
               <span>Xem tất cả bài viết</span>
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>
         </div>
 
         {/* Notice: Bản mẫu biên tập */}
-        <div className="mb-8 p-4 rounded-2xl bg-purple-50/70 border border-purple-200/80 flex items-center gap-3 text-xs text-[var(--color-plum-deep)] shadow-2xs backdrop-blur-md" data-reveal="up" data-reveal-delay="1">
+        <div className="mb-8 p-4 rounded-xl bg-[var(--color-bg-secondary)] border border-[var(--color-border-subtle)] flex items-center gap-3 text-xs text-[var(--color-plum-deep)]" data-reveal="up" data-reveal-delay="1">
           <AlertCircle className="w-4 h-4 text-[var(--color-plum-primary)] shrink-0" />
           <span>
             <strong>Lưu ý biên tập:</strong> Các bài viết dưới đây là bản mẫu cấu trúc chuyên đề y khoa — Đang hoàn thiện thẩm định nội dung trước khi xuất bản chính thức.
@@ -83,7 +82,7 @@ export const EditorialKnowledge: React.FC = () => {
         </div>
 
         {/* 3 Editorial Magazine Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {articles.map((art, idx) => (
             <article
               key={art.id}
@@ -102,7 +101,7 @@ export const EditorialKnowledge: React.FC = () => {
                   className={styles.articleImage}
                 />
                 <span className={styles.categoryBadge}>{art.category}</span>
-                <span className="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-black/70 text-white shadow-xs backdrop-blur-md">
+                <span className="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-md text-[11px] font-medium bg-black/65 text-white backdrop-blur-xs">
                   Ảnh minh họa
                 </span>
               </div>
@@ -113,7 +112,7 @@ export const EditorialKnowledge: React.FC = () => {
                     <Clock className="w-3.5 h-3.5" />
                     <span>{art.readTime}</span>
                     <span>&bull;</span>
-                    <span className="italic">Chuyên đề tham khảo</span>
+                    <span>Chuyên đề tham khảo</span>
                   </div>
 
                   <h3 className="font-serif font-bold text-lg sm:text-xl text-[var(--color-plum-deep)] mb-3 leading-snug line-clamp-2">
@@ -127,10 +126,10 @@ export const EditorialKnowledge: React.FC = () => {
 
                 <Link
                   to={`/bai-viet/${art.slug}`}
-                  className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[var(--color-plum-primary)] hover:text-[var(--color-plum-deep)] transition-colors group pt-3 border-t border-[var(--color-border-subtle)]"
+                  className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[var(--color-plum-primary)] hover:text-[var(--color-plum-deep)] transition-colors group pt-4 border-t border-[var(--color-border-subtle)]"
                 >
                   <span>Xem chi tiết chuyên đề</span>
-                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
                 </Link>
               </div>
             </article>

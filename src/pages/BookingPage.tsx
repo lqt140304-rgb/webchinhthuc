@@ -7,7 +7,6 @@ import {
   ShieldAlert,
   AlertCircle,
   Send,
-  Sparkles,
   Info,
   Navigation,
   RotateCcw,
@@ -131,14 +130,13 @@ export const BookingPage: React.FC = () => {
           </nav>
 
           <div className="max-w-3xl">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-[var(--color-plum-orchid-light)] text-xs font-bold uppercase tracking-wider mb-3 border border-white/10">
-              <Sparkles className="w-3.5 h-3.5" />
+            <span className="inline-flex items-center gap-2 text-white/75 text-xs font-semibold uppercase tracking-[0.14em] mb-3">
               <span>Tiếp Nhận Thăm Khám Y Khoa</span>
             </span>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white tracking-tight leading-tight">
               Đăng ký lịch khám cho bé cưng
             </h1>
-            <p className="mt-3 text-sm sm:text-base text-purple-100/90 leading-relaxed max-w-2xl">
+            <p className="mt-3 text-sm sm:text-base text-white/85 leading-relaxed max-w-2xl">
               Đăng ký thông tin giúp đội ngũ {HOSPITAL_CONTACT.name} nắm trước nhu cầu thăm khám và hướng dẫn bạn chuẩn bị chu đáo nhất cho bé cưng.
             </p>
           </div>
@@ -250,19 +248,21 @@ export const BookingPage: React.FC = () => {
             </div>
 
             {/* Emergency Hotline Alert Box */}
-            <div className="rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 text-white p-6 shadow-sm">
+            <div className="rounded-[1.25rem] bg-white border border-[var(--color-border-medium)] p-6 shadow-[var(--shadow-card)]">
               <div className="flex items-start gap-3.5">
-                <ShieldAlert className="w-6 h-6 text-amber-200 shrink-0 mt-0.5" />
+                <div className="w-10 h-10 rounded-xl bg-[var(--color-warm-orange-soft)] border border-[var(--color-warm-orange)]/25 flex items-center justify-center shrink-0">
+                  <ShieldAlert className="w-5 h-5 text-[var(--color-warm-orange-dark)]" />
+                </div>
                 <div>
-                  <h3 className="font-serif font-bold text-base text-white">
+                  <h3 className="font-serif font-bold text-base text-[var(--color-plum-deep)]">
                     Trường Hợp Cấp Cứu Khẩn Cấp
                   </h3>
-                  <p className="text-xs text-amber-100 mt-1.5 leading-relaxed">
-                    Nếu bé có dấu hiệu nguy kịch (khó thở, co giật, xuất huyết, ngộ độc, tai nạn), <strong>xin không đợi phản hồi từ form</strong>. Hãy đưa bé ngay đến 101 Khuất Duy Tiến hoặc gọi cấp cứu:
+                  <p className="text-xs text-[var(--color-fg-muted)] mt-1.5 leading-relaxed">
+                    Nếu bé có dấu hiệu nguy kịch (khó thở, co giật, xuất huyết, ngộ độc, tai nạn), <strong className="text-[var(--color-fg-primary)]">xin không đợi phản hồi từ form</strong>. Hãy đưa bé ngay đến 101 Khuất Duy Tiến hoặc gọi cấp cứu:
                   </p>
                   <a
                     href={HOSPITAL_CONTACT.hotlineTel}
-                    className="mt-3 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white text-orange-700 hover:bg-amber-50 font-bold text-xs transition-colors shadow-xs"
+                    className="mt-3.5 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--color-warm-orange)] hover:bg-[var(--color-warm-orange-hover)] text-white font-semibold text-xs transition-colors"
                   >
                     <Phone className="w-3.5 h-3.5" />
                     <span>Gọi cấp cứu ngay: {HOSPITAL_CONTACT.hotlineDisplay}</span>
@@ -280,14 +280,14 @@ export const BookingPage: React.FC = () => {
                 <div
                   role="status"
                   aria-live="polite"
-                  className="p-6 sm:p-8 rounded-2xl bg-purple-50/70 border border-purple-200 text-center space-y-5"
+                  className="p-6 sm:p-8 rounded-xl bg-[var(--color-bg-secondary)] border border-[var(--color-border-medium)] text-center space-y-5"
                 >
-                  <div className="w-14 h-14 mx-auto rounded-2xl bg-[var(--color-plum-primary)] text-white flex items-center justify-center shadow-md">
-                    <Info className="w-7 h-7 text-amber-200" />
+                  <div className="w-12 h-12 mx-auto rounded-xl bg-[var(--color-plum-primary)] text-white flex items-center justify-center">
+                    <Info className="w-6 h-6 text-white" />
                   </div>
 
                   <div className="max-w-md mx-auto space-y-3">
-                    <span className="text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-purple-200 text-[var(--color-plum-deep)]">
+                    <span className="text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-md bg-white border border-[var(--color-border-subtle)] text-[var(--color-plum-primary)]">
                       Giao Diện Thử Nghiệm
                     </span>
                     <h2 className="font-serif font-bold text-xl sm:text-2xl text-[var(--color-plum-deep)] leading-snug">

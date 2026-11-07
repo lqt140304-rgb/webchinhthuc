@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Heart, ArrowRight, AlertCircle, CheckCircle2 } from 'lucide-react'
+import { ArrowRight, AlertCircle, CheckCircle2 } from 'lucide-react'
 import styles from './HighlightStory.module.css'
 
 export const HighlightStory: React.FC = () => {
@@ -8,11 +8,10 @@ export const HighlightStory: React.FC = () => {
     <section className={styles.storySection} id="cau-chuyen-noi-bat">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14 md:mb-16" data-reveal="up">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100/70 border border-purple-200 text-[var(--color-plum-primary)] text-xs font-semibold uppercase tracking-wider mb-3">
-            <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 animate-pulse" />
-            <span>Hành Trình Hồi Phục</span>
-          </div>
+        <div className="max-w-3xl mb-14 md:mb-16" data-reveal="up">
+          <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-plum-primary)] mb-2.5 block">
+            03 &mdash; Hồ Sơ Hồi Phục Lâm Sàng
+          </span>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[var(--color-plum-deep)] tracking-tight leading-tight">
             Khi tình yêu thương và y học cùng lên tiếng
@@ -27,7 +26,7 @@ export const HighlightStory: React.FC = () => {
         <div className={styles.storyCard} data-reveal="scale">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
             {/* Left: Large Photo */}
-            <div className="lg:col-span-5 relative">
+            <div className="lg:col-span-5 relative border-b lg:border-b-0 lg:border-r border-[var(--color-border-subtle)]">
               <div className={styles.imageFrame}>
                 <img
                   src="/images/story-recovery.webp"
@@ -35,12 +34,12 @@ export const HighlightStory: React.FC = () => {
                   width={1200}
                   height={800}
                   loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-103"
                 />
                 <div className="absolute top-4 left-4 z-10">
-                  <span className="surface-glass px-3.5 py-1.5 rounded-full text-[var(--color-plum-deep)] text-xs font-bold border border-white/70 shadow-sm inline-flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-rose-500" />
-                    Hành trình hồi phục
+                  <span className="px-3 py-1.5 rounded-lg bg-white/94 backdrop-blur-md text-[var(--color-plum-deep)] text-[11px] font-semibold uppercase tracking-wider border border-[var(--color-border-subtle)] inline-flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-emerald-600" />
+                    Hồ sơ ca bệnh mẫu
                   </span>
                 </div>
               </div>
@@ -50,13 +49,15 @@ export const HighlightStory: React.FC = () => {
             <div className="lg:col-span-7 p-7 sm:p-10 md:p-12 flex flex-col justify-between">
               <div>
                 {/* Clear Illustrated / Sample Tag (Strict Requirement) */}
-                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-50/90 border border-amber-200 text-amber-900 text-xs font-medium mb-5 shadow-2xs">
-                  <AlertCircle className="w-3.5 h-3.5 text-[var(--color-warm-orange-dark)] shrink-0" />
+                <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-[var(--color-bg-primary)] border border-[var(--color-border-subtle)] text-[var(--color-fg-secondary)] text-xs font-medium mb-6">
+                  <AlertCircle className="w-3.5 h-3.5 text-[var(--color-plum-primary)] shrink-0" />
                   <span>Nội dung minh họa quy trình điều trị — Chưa xuất bản ca bệnh thực tế khi chưa có xác nhận từ chủ nuôi</span>
                 </div>
 
                 <div className="flex flex-wrap items-center gap-2 text-xs text-[var(--color-fg-subtle)] mb-2.5 font-medium">
-                  <span className="px-2 py-0.5 rounded-md bg-purple-50 text-[var(--color-plum-primary)] font-semibold">Bé: Milo (Corgi, 2 tuổi)</span>
+                  <span className="px-2.5 py-0.5 rounded-md bg-[var(--color-bg-secondary)] text-[var(--color-plum-primary)] border border-[var(--color-border-subtle)] font-semibold">
+                    Bệnh nhân: Milo (Corgi, 2 tuổi)
+                  </span>
                   <span>&bull;</span>
                   <span>Chẩn đoán: Viêm dạ dày ruột cấp & Mất nước nặng</span>
                 </div>
@@ -70,7 +71,7 @@ export const HighlightStory: React.FC = () => {
                 </p>
 
                 {/* Pull Quote Highlight */}
-                <div className="p-3.5 rounded-2xl bg-purple-50/60 border border-purple-100/80 text-xs sm:text-sm text-[var(--color-plum-deep)] italic font-serif leading-relaxed mb-6">
+                <div className="pl-4 py-2 border-l-2 border-[var(--color-plum-primary)] bg-[var(--color-bg-primary)]/60 rounded-r-lg text-xs sm:text-sm text-[var(--color-plum-deep)] font-serif font-medium leading-relaxed mb-6">
                   “Mỗi ca bệnh hồi phục không chỉ là thành công y khoa, mà là sự trở về trọn vẹn của một thành viên gia đình.”
                 </div>
 
@@ -98,7 +99,7 @@ export const HighlightStory: React.FC = () => {
 
                   <div className={styles.timelineStep}>
                     <div className={styles.timelineDot} style={{ backgroundColor: 'var(--color-status-success-text)' }} />
-                    <p className="text-xs font-bold uppercase tracking-wider text-emerald-700 flex items-center gap-1.5">
+                    <p className="text-xs font-bold uppercase tracking-wider text-emerald-800 flex items-center gap-1.5">
                       <CheckCircle2 className="w-3.5 h-3.5" />
                       Giai đoạn 3: Phục hồi hoàn toàn & Xuất viện
                     </p>
@@ -109,16 +110,16 @@ export const HighlightStory: React.FC = () => {
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-[var(--color-border-subtle)] flex flex-wrap items-center justify-between gap-4">
+              <div className="pt-5 border-t border-[var(--color-border-subtle)] flex flex-wrap items-center justify-between gap-4">
                 <Link
                   to="/cau-chuyen"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--color-plum-primary)] to-[var(--color-plum-deep)] hover:from-[var(--color-plum-deep)] hover:to-[#310D35] text-white text-xs sm:text-sm font-semibold transition-all shadow-[var(--shadow-glow-plum)] hover:scale-105 active:scale-95 group"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--color-plum-primary)] hover:bg-[var(--color-plum-deep)] text-white text-xs sm:text-sm font-semibold transition-colors shadow-xs group"
                 >
                   <span>Đọc toàn bộ câu chuyện</span>
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
                 </Link>
 
-                <span className="text-xs text-[var(--color-fg-subtle)] italic">
+                <span className="text-xs text-[var(--color-fg-subtle)]">
                   * Hình ảnh & tóm tắt quá trình phục hồi lâm sàng
                 </span>
               </div>

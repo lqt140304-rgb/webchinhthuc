@@ -141,21 +141,21 @@ export const Header: React.FC<HeaderProps> = ({
   const isLienHeActive = isGroupActive(['/lien-he'], location.pathname)
 
   return (
-    <header className="sticky top-0 z-[60] bg-[var(--color-bg-primary)]/92 backdrop-blur-xl border-b border-[var(--color-border-subtle)]/80 shadow-[0_2px_18px_-4px_rgba(66,18,71,0.05)] transition-all">
+    <header className="sticky top-0 z-[60] bg-[var(--color-bg-primary)]/95 backdrop-blur-md border-b border-[var(--color-border-subtle)] transition-colors">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-14.5 sm:h-19 flex items-center justify-between gap-2 sm:gap-4">
         {/* BRAND LOGO (Không gắn aria-current theo chuẩn P1-3) */}
         <Link
           to="/"
-          className="flex items-center gap-2 sm:gap-3 shrink-0 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-plum-primary)] rounded-2xl p-1 -m-1"
+          className="flex items-center gap-2 sm:gap-3 shrink-0 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-plum-primary)] rounded-xl p-1 -m-1"
           aria-label="Về Trang chủ Bệnh viện Thú y Lê Sơn"
         >
           <div className="relative flex items-center justify-center">
             <img
               src="/images/logo.png"
               alt="Logo Bệnh viện Thú y Lê Sơn"
-              className="w-10 h-10 sm:w-12 sm:h-12 object-contain drop-shadow-[0_2px_6px_rgba(66,18,71,0.14)] transition-transform duration-300 group-hover:scale-108"
+              className="w-10 h-10 sm:w-11 sm:h-11 object-contain transition-transform duration-300 group-hover:scale-103"
             />
-            <span className="absolute bottom-0 right-0 w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-emerald-500 border-2 border-white animate-status-beacon" title="Trực cấp cứu 24/24" />
+            <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-600 border-2 border-white animate-status-beacon" title="Trực cấp cứu 24/24" />
           </div>
           <div className="flex flex-col">
             <span className="font-serif font-bold text-sm sm:text-base xl:text-lg tracking-tight text-[var(--color-plum-deep)] leading-tight group-hover:text-[var(--color-plum-primary)] transition-colors">
@@ -171,15 +171,15 @@ export const Header: React.FC<HeaderProps> = ({
         <nav
           ref={navRef}
           aria-label="Điều hướng chính"
-          className="hidden lg:flex items-center gap-1.5 xl:gap-2.5 2xl:gap-3 bg-white/60 p-1.5 rounded-full border border-[var(--color-border-subtle)]/70 shadow-xs backdrop-blur-md"
+          className="hidden lg:flex items-center gap-1 xl:gap-2 2xl:gap-2.5"
         >
           <Link
             to="/"
             aria-current={isHomeActive ? 'page' : undefined}
-            className={`text-xs xl:text-sm font-medium transition-all whitespace-nowrap px-3.5 py-1.5 rounded-full ${
+            className={`text-xs xl:text-sm font-medium transition-colors whitespace-nowrap px-3.5 py-2 rounded-lg ${
               isHomeActive
-                ? 'text-[var(--color-plum-primary)] font-semibold bg-purple-50/80 shadow-xs'
-                : 'text-[var(--color-fg-muted)] hover:text-[var(--color-plum-primary)] hover:bg-purple-50/40'
+                ? 'text-[var(--color-plum-primary)] font-semibold bg-[var(--color-bg-secondary)]'
+                : 'text-[var(--color-fg-muted)] hover:text-[var(--color-plum-primary)] hover:bg-[var(--color-bg-secondary)]/60'
             }`}
           >
             Trang chủ
@@ -229,10 +229,10 @@ export const Header: React.FC<HeaderProps> = ({
                     }
                   }}
                   onKeyDown={(e) => handleKeyDown(e, group.id)}
-                  className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs xl:text-sm font-medium transition-all whitespace-nowrap cursor-pointer rounded-full ${
+                  className={`inline-flex items-center gap-1.5 px-3.5 py-2 text-xs xl:text-sm font-medium transition-colors whitespace-nowrap cursor-pointer rounded-lg ${
                     isGroupCurrent || isOpen
-                      ? 'text-[var(--color-plum-primary)] font-semibold bg-purple-50/80 shadow-xs'
-                      : 'text-[var(--color-fg-muted)] hover:text-[var(--color-plum-primary)] hover:bg-purple-50/40'
+                      ? 'text-[var(--color-plum-primary)] font-semibold bg-[var(--color-bg-secondary)]'
+                      : 'text-[var(--color-fg-muted)] hover:text-[var(--color-plum-primary)] hover:bg-[var(--color-bg-secondary)]/60'
                   }`}
                 >
                   <span>{group.label}</span>
@@ -252,9 +252,9 @@ export const Header: React.FC<HeaderProps> = ({
                       menuRefs.current[group.id] = el
                     }}
                     onKeyDown={(e) => handleMenuKeyDown(e, group.id)}
-                    className="absolute top-full left-0 w-76 pt-2.5 z-50 transition-all duration-200"
+                    className="absolute top-full left-0 w-76 pt-2 z-50"
                   >
-                    <div className="bg-white/95 backdrop-blur-xl rounded-2xl border border-[var(--color-border-subtle)] shadow-[var(--shadow-card-hover)] p-2 animate-dropdown-spring">
+                    <div className="bg-white rounded-xl border border-[var(--color-border-subtle)] shadow-[var(--shadow-card-hover)] p-2 animate-dropdown-spring">
                       {group.items.map((item) => {
                         const isItemCurrent = isLinkActive(item.href, location.pathname, location.search)
                         return (
@@ -267,12 +267,12 @@ export const Header: React.FC<HeaderProps> = ({
                               openedByHoverRef.current[group.id] = false
                               setActiveDropdown(null)
                             }}
-                            className={`flex flex-col p-2.5 rounded-xl transition-all ${
+                            className={`flex flex-col p-2.5 rounded-lg transition-colors ${
                               item.isEmergency
-                                ? 'bg-amber-50/90 hover:bg-amber-100 text-[var(--color-warm-orange-dark)] border border-amber-200/60'
+                                ? 'bg-[var(--color-bg-primary)] hover:bg-[var(--color-bg-secondary)] text-[var(--color-warm-orange-dark)] border border-[var(--color-border-subtle)] mt-1'
                                 : isItemCurrent
-                                  ? 'bg-[var(--color-bg-secondary)] text-[var(--color-plum-primary)] font-semibold shadow-2xs'
-                                  : 'hover:bg-purple-50/60 text-[var(--color-fg-primary)]'
+                                  ? 'bg-[var(--color-bg-secondary)] text-[var(--color-plum-primary)] font-semibold'
+                                  : 'hover:bg-[var(--color-bg-secondary)]/70 text-[var(--color-fg-primary)]'
                             }`}
                           >
                             <div className="flex items-center justify-between">
@@ -285,7 +285,7 @@ export const Header: React.FC<HeaderProps> = ({
                                 {item.label}
                               </span>
                               {item.isEmergency && (
-                                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[var(--color-warm-orange-dark)] text-white shadow-xs">
+                                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-[var(--color-warm-orange-dark)] text-white">
                                   24/24
                                 </span>
                               )}
@@ -308,10 +308,10 @@ export const Header: React.FC<HeaderProps> = ({
           <Link
             to="/cau-chuyen"
             aria-current={isCauChuyenActive ? 'page' : undefined}
-            className={`text-xs xl:text-sm font-medium transition-all whitespace-nowrap px-3.5 py-1.5 rounded-full ${
+            className={`text-xs xl:text-sm font-medium transition-colors whitespace-nowrap px-3.5 py-2 rounded-lg ${
               isCauChuyenActive
-                ? 'text-[var(--color-plum-primary)] font-semibold bg-purple-50/80 shadow-xs'
-                : 'text-[var(--color-fg-muted)] hover:text-[var(--color-plum-primary)] hover:bg-purple-50/40'
+                ? 'text-[var(--color-plum-primary)] font-semibold bg-[var(--color-bg-secondary)]'
+                : 'text-[var(--color-fg-muted)] hover:text-[var(--color-plum-primary)] hover:bg-[var(--color-bg-secondary)]/60'
             }`}
           >
             Câu chuyện
@@ -320,10 +320,10 @@ export const Header: React.FC<HeaderProps> = ({
           <Link
             to="/lien-he"
             aria-current={isLienHeActive ? 'page' : undefined}
-            className={`text-xs xl:text-sm font-medium transition-all whitespace-nowrap px-3.5 py-1.5 rounded-full ${
+            className={`text-xs xl:text-sm font-medium transition-colors whitespace-nowrap px-3.5 py-2 rounded-lg ${
               isLienHeActive
-                ? 'text-[var(--color-plum-primary)] font-semibold bg-purple-50/80 shadow-xs'
-                : 'text-[var(--color-fg-muted)] hover:text-[var(--color-plum-primary)] hover:bg-purple-50/40'
+                ? 'text-[var(--color-plum-primary)] font-semibold bg-[var(--color-bg-secondary)]'
+                : 'text-[var(--color-fg-muted)] hover:text-[var(--color-plum-primary)] hover:bg-[var(--color-bg-secondary)]/60'
             }`}
           >
             Liên hệ
@@ -337,7 +337,7 @@ export const Header: React.FC<HeaderProps> = ({
             <Link
               to="/dang-nhap"
               aria-current={location.pathname === '/dang-nhap' ? 'page' : undefined}
-              className="px-2.5 py-1 rounded-lg hover:text-[var(--color-plum-primary)] hover:bg-purple-50/50 font-medium transition-all whitespace-nowrap"
+              className="px-2.5 py-1.5 rounded-lg hover:text-[var(--color-plum-primary)] hover:bg-[var(--color-bg-secondary)] font-medium transition-colors whitespace-nowrap"
             >
               Đăng nhập
             </Link>
@@ -345,7 +345,7 @@ export const Header: React.FC<HeaderProps> = ({
             <Link
               to="/dang-ky"
               aria-current={location.pathname === '/dang-ky' ? 'page' : undefined}
-              className="px-2.5 py-1 rounded-lg hover:text-[var(--color-plum-primary)] hover:bg-purple-50/50 font-medium transition-all whitespace-nowrap"
+              className="px-2.5 py-1.5 rounded-lg hover:text-[var(--color-plum-primary)] hover:bg-[var(--color-bg-secondary)] font-medium transition-colors whitespace-nowrap"
             >
               Đăng ký
             </Link>
@@ -355,14 +355,14 @@ export const Header: React.FC<HeaderProps> = ({
           <Link
             to="/dat-lich"
             aria-current={location.pathname === '/dat-lich' ? 'page' : undefined}
-            className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-5 sm:py-2.5 xl:px-6 xl:py-2.5 min-h-[38px] sm:min-h-[44px] rounded-full bg-gradient-to-r from-[var(--color-plum-primary)] to-[var(--color-plum-deep)] hover:from-[var(--color-plum-deep)] hover:to-[#310D35] text-white text-xs xl:text-sm font-semibold transition-all shadow-[var(--shadow-glow-plum)] hover:shadow-[0_14px_30px_-4px_rgba(90,30,94,0.45)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] whitespace-nowrap shrink-0"
+            className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-5 sm:py-2.5 xl:px-5.5 xl:py-2.5 min-h-[38px] sm:min-h-[44px] rounded-xl bg-[var(--color-plum-primary)] hover:bg-[var(--color-plum-deep)] text-white text-xs xl:text-sm font-semibold transition-colors shadow-xs whitespace-nowrap shrink-0"
           >
             <Calendar className="w-3.5 h-3.5 xl:w-4 xl:h-4 shrink-0" />
             <span className="hidden min-[420px]:inline">Đặt lịch khám</span>
             <span className="min-[420px]:hidden">Đặt lịch</span>
           </Link>
 
-          {/* Compact Mobile Popover Menu Toggle Button */}
+          {/* Mobile Menu Toggle Button */}
           <button
             type="button"
             ref={menuButtonRef}
@@ -371,10 +371,10 @@ export const Header: React.FC<HeaderProps> = ({
             aria-haspopup="dialog"
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-nav-dialog"
-            className={`lg:hidden w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center rounded-full border transition-all duration-300 cursor-pointer shadow-2xs ${
+            className={`lg:hidden w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center rounded-xl border transition-colors cursor-pointer ${
               isMobileMenuOpen
-                ? 'bg-[var(--color-plum-primary)] text-white border-[var(--color-plum-primary)] rotate-90 shadow-[var(--shadow-glow-plum)]'
-                : 'bg-white/90 text-[var(--color-plum-deep)] border-[var(--color-border-subtle)] hover:bg-purple-50/60'
+                ? 'bg-[var(--color-plum-primary)] text-white border-[var(--color-plum-primary)]'
+                : 'bg-white text-[var(--color-plum-deep)] border-[var(--color-border-subtle)] hover:bg-[var(--color-bg-secondary)]'
             }`}
           >
             {isMobileMenuOpen ? <X className="w-4.5 h-4.5" /> : <Menu className="w-4.5 h-4.5" />}

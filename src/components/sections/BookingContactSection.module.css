@@ -6,12 +6,12 @@
 }
 
 .infoCard {
-  background: linear-gradient(145deg, #320E37 0%, #4D1652 45%, #240627 100%);
-  border-radius: 2.5rem;
-  padding: 2.75rem 2.5rem;
+  background-color: var(--color-plum-deep);
+  border-radius: 1.25rem;
+  padding: 2.25rem;
   color: var(--color-fg-inverse);
-  box-shadow: 0 20px 50px -10px rgba(50, 14, 55, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -19,11 +19,11 @@
 }
 
 .ctaCard {
-  background: linear-gradient(145deg, #FFFFFF 0%, #FCFAFD 100%);
-  border-radius: 2.5rem;
-  padding: 2.75rem 2.5rem;
-  box-shadow: 0 16px 44px -8px rgba(66, 18, 71, 0.08);
-  border: 1px solid rgba(90, 30, 94, 0.09);
+  background-color: var(--color-bg-card);
+  border-radius: 1.25rem;
+  padding: 2.25rem;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-border-subtle);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -33,7 +33,7 @@
 @media (max-width: 640px) {
   .infoCard,
   .ctaCard {
-    border-radius: 1.75rem;
-    padding: 1.75rem;
+    border-radius: 1.25rem;
+    padding: 1.5rem;
   }
 }

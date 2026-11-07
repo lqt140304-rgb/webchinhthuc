@@ -132,18 +132,18 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
         aria-hidden="true"
       />
 
-      {/* Compact Floating Popover Card với dialog semantics */}
+      {/* Refined Clinical Mobile Navigation Card */}
       <div
         id="mobile-nav-dialog"
         ref={drawerRef}
         role="dialog"
         aria-modal="true"
         aria-label="Menu điều hướng trên thiết bị di động"
-        className="fixed top-15.5 sm:top-20 right-3 sm:right-6 w-[310px] sm:w-[340px] max-h-[calc(100vh-7.5rem)] bg-white/95 backdrop-blur-2xl rounded-3xl border border-purple-200/80 shadow-[0_24px_60px_-12px_rgba(66,18,71,0.28)] flex flex-col z-50 animate-popover-spring overflow-hidden"
+        className="fixed top-15.5 sm:top-20 right-3 sm:right-6 w-[310px] sm:w-[340px] max-h-[calc(100vh-7.5rem)] bg-white rounded-2xl border border-[var(--color-border-subtle)] shadow-[var(--shadow-float)] flex flex-col z-50 animate-popover-spring overflow-hidden"
       >
-        {/* Compact Card Top Bar */}
-        <div className="px-4 py-2 bg-purple-50/70 border-b border-purple-100/80 flex items-center justify-between">
-          <div className="flex items-center gap-2">
+        {/* Card Top Bar */}
+        <div className="px-4 py-2.5 bg-[var(--color-bg-primary)] border-b border-[var(--color-border-subtle)] flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
             <img
               src="/images/logo.png"
               alt="Logo Bệnh viện Thú y Lê Sơn"
@@ -153,9 +153,9 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
               <span className="font-serif font-bold text-xs text-[var(--color-plum-deep)] tracking-wide leading-tight">
                 BỆNH VIỆN LÊ SƠN
               </span>
-              <span className="text-[10px] text-emerald-600 font-medium flex items-center gap-1 leading-tight">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-status-beacon" />
-                Cấp cứu 24/24
+              <span className="text-[10px] text-[var(--color-fg-muted)] font-medium flex items-center gap-1.5 leading-tight">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-status-beacon" />
+                Trực cấp cứu 24/24
               </span>
             </div>
           </div>
@@ -165,14 +165,14 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
             ref={closeButtonRef}
             onClick={onClose}
             aria-label="Đóng menu điều hướng"
-            className="inline-flex items-center justify-center gap-1 px-3 py-2 min-h-[44px] min-w-[44px] rounded-xl text-xs font-semibold text-[var(--color-fg-muted)] hover:text-[var(--color-plum-deep)] hover:bg-purple-100/70 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-plum-primary)] transition-colors cursor-pointer"
+            className="inline-flex items-center justify-center gap-1 px-3 py-2 min-h-[44px] min-w-[44px] rounded-lg text-xs font-semibold text-[var(--color-fg-muted)] hover:text-[var(--color-plum-deep)] hover:bg-[var(--color-bg-secondary)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-plum-primary)] transition-colors cursor-pointer"
           >
             <span>Đóng</span>
             <X className="w-4 h-4" />
           </button>
         </div>
 
-        {/* Compact Nav Items */}
+        {/* Nav Items */}
         <div className="flex-1 overflow-y-auto p-3 space-y-1.5">
           <Link
             to="/"
@@ -180,20 +180,20 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
             aria-current={checkActive('/') ? 'page' : undefined}
             className={`flex items-center justify-between px-3.5 py-2.5 min-h-[44px] rounded-xl font-medium text-xs transition-colors ${
               checkActive('/')
-                ? 'bg-purple-50 text-[var(--color-plum-primary)] font-semibold'
-                : 'text-[var(--color-fg-primary)] hover:bg-purple-50/50'
+                ? 'bg-[var(--color-bg-secondary)] text-[var(--color-plum-primary)] font-semibold'
+                : 'text-[var(--color-fg-primary)] hover:bg-[var(--color-bg-secondary)]/60'
             }`}
           >
             Trang chủ
           </Link>
 
           {/* Group 1: Về Lê Sơn */}
-          <div className="rounded-xl overflow-hidden border border-purple-100/80 bg-white/70">
+          <div className="rounded-xl overflow-hidden border border-[var(--color-border-subtle)] bg-white">
             <button
               type="button"
               aria-expanded={openSection === 'about'}
               onClick={() => toggleSection('about')}
-              className={`w-full flex items-center justify-between px-3.5 py-2.5 min-h-[44px] text-xs font-medium hover:bg-purple-50/50 cursor-pointer transition-colors ${isAboutGroupActive ? 'text-[var(--color-plum-primary)] font-semibold' : 'text-[var(--color-fg-primary)]'}`}
+              className={`w-full flex items-center justify-between px-3.5 py-2.5 min-h-[44px] text-xs font-medium hover:bg-[var(--color-bg-secondary)]/50 cursor-pointer transition-colors ${isAboutGroupActive ? 'text-[var(--color-plum-primary)] font-semibold' : 'text-[var(--color-fg-primary)]'}`}
             >
               <span>Về Lê Sơn</span>
               <ChevronDown
@@ -203,7 +203,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
               />
             </button>
             {openSection === 'about' && (
-              <div className="bg-purple-50/40 px-2 py-1 space-y-1 border-t border-purple-100/60">
+              <div className="bg-[var(--color-bg-primary)] px-2 py-1 space-y-1 border-t border-[var(--color-border-subtle)]">
                 <Link
                   to="/gioi-thieu"
                   onClick={onClose}
@@ -233,12 +233,12 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
           </div>
 
           {/* Group 2: Dịch vụ */}
-          <div className="rounded-xl overflow-hidden border border-purple-100/80 bg-white/70">
+          <div className="rounded-xl overflow-hidden border border-[var(--color-border-subtle)] bg-white">
             <button
               type="button"
               aria-expanded={openSection === 'services'}
               onClick={() => toggleSection('services')}
-              className={`w-full flex items-center justify-between px-3.5 py-2.5 min-h-[44px] text-xs font-medium hover:bg-purple-50/50 cursor-pointer transition-colors ${isServicesGroupActive ? 'text-[var(--color-plum-primary)] font-semibold' : 'text-[var(--color-fg-primary)]'}`}
+              className={`w-full flex items-center justify-between px-3.5 py-2.5 min-h-[44px] text-xs font-medium hover:bg-[var(--color-bg-secondary)]/50 cursor-pointer transition-colors ${isServicesGroupActive ? 'text-[var(--color-plum-primary)] font-semibold' : 'text-[var(--color-fg-primary)]'}`}
             >
               <span>Dịch vụ y tế</span>
               <ChevronDown
@@ -248,7 +248,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
               />
             </button>
             {openSection === 'services' && (
-              <div className="bg-purple-50/40 px-2 py-1 space-y-1 border-t border-purple-100/60">
+              <div className="bg-[var(--color-bg-primary)] px-2 py-1 space-y-1 border-t border-[var(--color-border-subtle)]">
                 <Link
                   to="/dich-vu"
                   onClick={onClose}
@@ -285,13 +285,13 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
                   to="/dich-vu/cap-cuu"
                   onClick={onClose}
                   aria-current={checkActive('/dich-vu/cap-cuu') ? 'page' : undefined}
-                  className="flex items-center justify-between px-3 py-2.5 min-h-[40px] text-xs font-semibold text-[var(--color-warm-orange-dark)] bg-amber-50/90 rounded-lg"
+                  className="flex items-center justify-between px-3 py-2.5 min-h-[40px] text-xs font-semibold text-[var(--color-warm-orange-dark)] bg-white border border-[var(--color-border-subtle)] rounded-lg"
                 >
                   <span className="flex items-center gap-1.5">
                     <ShieldAlert className="w-3.5 h-3.5" />
                     Cấp cứu 24/24
                   </span>
-                  <span className="text-[10px] uppercase px-1.5 py-0.5 rounded-full bg-[var(--color-warm-orange-dark)] text-white font-bold">
+                  <span className="text-[10px] uppercase px-1.5 py-0.5 rounded-md bg-[var(--color-warm-orange-dark)] text-white font-bold">
                     24/24
                   </span>
                 </Link>
@@ -313,20 +313,20 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
             aria-current={isCauChuyenActive ? 'page' : undefined}
             className={`flex items-center justify-between px-3.5 py-2.5 min-h-[44px] rounded-xl font-medium text-xs transition-colors ${
               isCauChuyenActive
-                ? 'bg-purple-50 text-[var(--color-plum-primary)] font-semibold'
-                : 'text-[var(--color-fg-primary)] hover:bg-purple-50/50'
+                ? 'bg-[var(--color-bg-secondary)] text-[var(--color-plum-primary)] font-semibold'
+                : 'text-[var(--color-fg-primary)] hover:bg-[var(--color-bg-secondary)]/60'
             }`}
           >
             Câu chuyện điều trị
           </Link>
 
           {/* Group 3: Góc thú cưng */}
-          <div className="rounded-xl overflow-hidden border border-purple-100/80 bg-white/70">
+          <div className="rounded-xl overflow-hidden border border-[var(--color-border-subtle)] bg-white">
             <button
               type="button"
               aria-expanded={openSection === 'petCorner'}
               onClick={() => toggleSection('petCorner')}
-              className={`w-full flex items-center justify-between px-3.5 py-2.5 min-h-[44px] text-xs font-medium hover:bg-purple-50/50 cursor-pointer transition-colors ${isPetCornerGroupActive ? 'text-[var(--color-plum-primary)] font-semibold' : 'text-[var(--color-fg-primary)]'}`}
+              className={`w-full flex items-center justify-between px-3.5 py-2.5 min-h-[44px] text-xs font-medium hover:bg-[var(--color-bg-secondary)]/50 cursor-pointer transition-colors ${isPetCornerGroupActive ? 'text-[var(--color-plum-primary)] font-semibold' : 'text-[var(--color-fg-primary)]'}`}
             >
               <span>Góc thú cưng</span>
               <ChevronDown
@@ -336,7 +336,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
               />
             </button>
             {openSection === 'petCorner' && (
-              <div className="bg-purple-50/40 px-2 py-1 space-y-1 border-t border-purple-100/60">
+              <div className="bg-[var(--color-bg-primary)] px-2 py-1 space-y-1 border-t border-[var(--color-border-subtle)]">
                 <Link
                   to="/goc-thu-cung"
                   onClick={onClose}
@@ -372,8 +372,8 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
             aria-current={checkActive('/lien-he') ? 'page' : undefined}
             className={`flex items-center justify-between px-3.5 py-2.5 min-h-[44px] rounded-xl font-medium text-xs transition-colors ${
               checkActive('/lien-he')
-                ? 'bg-purple-50 text-[var(--color-plum-primary)] font-semibold'
-                : 'text-[var(--color-fg-primary)] hover:bg-purple-50/50'
+                ? 'bg-[var(--color-bg-secondary)] text-[var(--color-plum-primary)] font-semibold'
+                : 'text-[var(--color-fg-primary)] hover:bg-[var(--color-bg-secondary)]/60'
             }`}
           >
             <span className="flex items-center gap-1.5">
@@ -382,13 +382,13 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
             </span>
           </Link>
 
-          {/* Compact Account links */}
-          <div className="pt-2 border-t border-purple-100/80 grid grid-cols-2 gap-2">
+          {/* Account links */}
+          <div className="pt-2 border-t border-[var(--color-border-subtle)] grid grid-cols-2 gap-2">
             <Link
               to="/dang-nhap"
               onClick={onClose}
               aria-current={checkActive('/dang-nhap') ? 'page' : undefined}
-              className={`flex items-center justify-center gap-1.5 py-2.5 px-3 min-h-[44px] rounded-xl border text-xs font-semibold active:scale-[0.98] ${checkActive('/dang-nhap') ? 'border-[var(--color-plum-primary)] bg-purple-50 text-[var(--color-plum-primary)]' : 'border-purple-100 text-[var(--color-fg-primary)] hover:bg-purple-50/50'}`}
+              className={`flex items-center justify-center gap-1.5 py-2.5 px-3 min-h-[44px] rounded-xl border text-xs font-semibold ${checkActive('/dang-nhap') ? 'border-[var(--color-plum-primary)] bg-[var(--color-bg-secondary)] text-[var(--color-plum-primary)]' : 'border-[var(--color-border-subtle)] text-[var(--color-fg-primary)] hover:bg-[var(--color-bg-secondary)]'}`}
             >
               <LogIn className="w-3.5 h-3.5" />
               <span>Đăng nhập</span>
@@ -397,7 +397,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
               to="/dang-ky"
               onClick={onClose}
               aria-current={checkActive('/dang-ky') ? 'page' : undefined}
-              className={`flex items-center justify-center gap-1.5 py-2.5 px-3 min-h-[44px] rounded-xl border text-xs font-semibold active:scale-[0.98] ${checkActive('/dang-ky') ? 'border-[var(--color-plum-primary)] bg-purple-50 text-[var(--color-plum-primary)]' : 'border-purple-100 text-[var(--color-fg-primary)] hover:bg-purple-50/50'}`}
+              className={`flex items-center justify-center gap-1.5 py-2.5 px-3 min-h-[44px] rounded-xl border text-xs font-semibold ${checkActive('/dang-ky') ? 'border-[var(--color-plum-primary)] bg-[var(--color-bg-secondary)] text-[var(--color-plum-primary)]' : 'border-[var(--color-border-subtle)] text-[var(--color-fg-primary)] hover:bg-[var(--color-bg-secondary)]'}`}
             >
               <UserPlus className="w-3.5 h-3.5" />
               <span>Đăng ký</span>
@@ -405,12 +405,12 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
           </div>
         </div>
 
-        {/* Compact Card Bottom Quick Actions */}
-        <div className="p-3 bg-purple-50/60 border-t border-purple-100/80 space-y-2">
+        {/* Bottom Quick Actions */}
+        <div className="p-3 bg-[var(--color-bg-primary)] border-t border-[var(--color-border-subtle)] space-y-2">
           <div className="grid grid-cols-2 gap-2">
             <a
               href={HOSPITAL_CONTACT.hotlineTel}
-              className="flex items-center justify-center gap-1.5 py-3 px-2 min-h-[44px] rounded-xl bg-gradient-to-r from-[var(--color-warm-orange)] to-[#A34507] text-white font-semibold text-xs shadow-xs active:scale-[0.98]"
+              className="flex items-center justify-center gap-1.5 py-3 px-2 min-h-[44px] rounded-xl bg-[var(--color-warm-orange)] hover:bg-[var(--color-warm-orange-hover)] text-white font-semibold text-xs transition-colors shadow-2xs"
             >
               <Phone className="w-3.5 h-3.5 shrink-0" />
               <span>Cấp cứu 24/24</span>
@@ -419,7 +419,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, triggerRe
             <Link
               to="/dat-lich"
               onClick={onClose}
-              className="flex items-center justify-center gap-1.5 py-3 px-2 min-h-[44px] rounded-xl bg-gradient-to-r from-[var(--color-plum-primary)] to-[var(--color-plum-deep)] text-white font-semibold text-xs shadow-xs active:scale-[0.98]"
+              className="flex items-center justify-center gap-1.5 py-3 px-2 min-h-[44px] rounded-xl bg-[var(--color-plum-primary)] hover:bg-[var(--color-plum-deep)] text-white font-semibold text-xs transition-colors shadow-2xs"
             >
               <Calendar className="w-3.5 h-3.5 shrink-0" />
               <span>Đặt lịch hẹn</span>
@@ -447,11 +447,11 @@ export const MobileBottomBar: React.FC = () => {
       role="region"
       aria-label="Thanh tác vụ nhanh khẩn cấp"
       style={{ paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom, 0px))' }}
-      className="lg:hidden fixed bottom-0 inset-x-0 z-30 bg-white/90 backdrop-blur-xl border-t border-[var(--color-border-subtle)]/80 px-3.5 py-2.5 flex items-center gap-2.5 shadow-[0_-8px_32px_rgba(66,18,71,0.08)]"
+      className="lg:hidden fixed bottom-0 inset-x-0 z-30 bg-white/95 backdrop-blur-md border-t border-[var(--color-border-subtle)] px-3.5 py-2.5 flex items-center gap-2.5 shadow-sm"
     >
       <a
         href={HOSPITAL_CONTACT.hotlineTel}
-        className="flex-1 flex items-center justify-center gap-1.5 py-3 px-3 rounded-2xl bg-gradient-to-r from-[var(--color-warm-orange)] to-[#A34507] text-white font-semibold text-xs shadow-[var(--shadow-glow-orange)] active:scale-[0.97] transition-all"
+        className="flex-1 flex items-center justify-center gap-1.5 py-3 px-3 rounded-xl bg-[var(--color-warm-orange)] hover:bg-[var(--color-warm-orange-hover)] text-white font-semibold text-xs transition-colors"
       >
         <Phone className="w-3.5 h-3.5" />
         <span>Cấp cứu 24/24</span>
@@ -459,7 +459,7 @@ export const MobileBottomBar: React.FC = () => {
 
       <Link
         to="/dat-lich"
-        className="flex-1 flex items-center justify-center gap-1.5 py-3 px-3 rounded-2xl bg-gradient-to-r from-[var(--color-plum-primary)] to-[var(--color-plum-deep)] text-white font-semibold text-xs shadow-[var(--shadow-glow-plum)] active:scale-[0.97] transition-all"
+        className="flex-1 flex items-center justify-center gap-1.5 py-3 px-3 rounded-xl bg-[var(--color-plum-primary)] hover:bg-[var(--color-plum-deep)] text-white font-semibold text-xs transition-colors"
       >
         <Calendar className="w-3.5 h-3.5" />
         <span>Đặt lịch khám</span>

@@ -5,7 +5,7 @@ import { HOSPITAL_CONTACT } from '@/config/contact'
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-gradient-to-b from-[#320E37] via-[#280A2C] to-[#1C051F] text-slate-300 pt-16 pb-24 lg:pb-12 border-t border-[var(--color-border-subtle)] shadow-[0_-12px_40px_rgba(50,14,55,0.25)]">
+    <footer className="bg-[var(--color-plum-deep)] text-slate-300 pt-16 pb-24 lg:pb-12 border-t border-[var(--color-border-subtle)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand Info (2 cols on lg) */}
@@ -14,7 +14,7 @@ export const Footer: React.FC = () => {
               <img
                 src="/images/logo.png"
                 alt="Logo Bệnh viện Thú y Lê Sơn"
-                className="w-13 h-13 object-contain drop-shadow-[0_2px_10px_rgba(255,255,255,0.2)] transition-transform duration-300 group-hover:scale-108"
+                className="w-12 h-12 object-contain transition-transform duration-300 group-hover:scale-103"
               />
               <div className="flex flex-col">
                 <span className="font-serif font-bold text-lg tracking-tight text-white leading-tight">
@@ -30,15 +30,15 @@ export const Footer: React.FC = () => {
               Đơn vị y tế thú cưng chuyên nghiệp tại Hà Nội, cung cấp dịch vụ thăm khám lâm sàng, phẫu thuật ngoại khoa, chăm sóc nội trú 24/7 và cấp cứu 24/24 với tinh thần trách nhiệm.
             </p>
 
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-3.5 max-w-sm shadow-xs backdrop-blur-md">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--color-warm-orange)] to-[#A34507] text-white flex items-center justify-center shrink-0 shadow-[var(--shadow-glow-orange)]">
+            <div className="p-4 rounded-xl bg-white/5 border border-white/10 flex items-center gap-3.5 max-w-sm">
+              <div className="w-10 h-10 rounded-lg bg-[var(--color-warm-orange)] text-white flex items-center justify-center shrink-0">
                 <ShieldAlert className="w-5 h-5" />
               </div>
               <div>
                 <p className="text-xs font-semibold text-white">Đường dây nóng Cấp cứu 24/24</p>
                 <a
                   href={HOSPITAL_CONTACT.hotlineTel}
-                  className="text-base font-bold text-amber-300 hover:text-white transition-colors"
+                  className="text-base font-bold text-[var(--color-warm-orange-light)] hover:text-white transition-colors"
                 >
                   {HOSPITAL_CONTACT.hotlineDisplay}
                 </a>
