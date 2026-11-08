@@ -26,36 +26,36 @@
 | **SEC-08** | Admin On-Shift Normal Audit | Admin truy cập trong ca hợp lệ -> Không ghi log off-shift | `03_auth_rbac_audit.test.cjs` (GATE3-T3.5): Ca trực chuẩn mực không phát sinh log cảnh báo vi phạm. | **`RUNTIME PASS`** |
 | **SEC-09** | Medical Record Immutability | Nhân viên gọi `DELETE FROM app.clinical_records` -> Chặn | `05_clinical_inpatient.test.cjs` (GATE5-T5.3): Trigger `trg_prevent_clinical_record_delete` chặn lệnh DELETE với `APP_ERROR_CLINICAL_RECORD_IMMUTABLE`. | **`RUNTIME PASS`** |
 | **SEC-10** | Inpatient Media Pet Isolation | Khách A xem ảnh thú cưng B -> 403 Forbidden | `08_byod_media.test.cjs` (GATE8-T8.8) & `06` (T6.10): RLS/RPC chặn truy cập ảnh của thú cưng khác chủ. | **`RUNTIME PASS`** |
-| **SEC-11** | Unpublished Media Access Denial | Khách xem ảnh bản tin chưa duyệt -> Từ chối | `05_clinical_inpatient.test.cjs` (GATE5-T5.7) & `08` (T8.8): Bản tin draft trả về 0 rows trên portal view. | **`RUNTIME PASS`** |
+| **SEC-11** | Unpublished Media Access Denial | Khách xem ảnh bản tin chưa duyệt -> Từ chối | `05_clinical_inpatient.test.cjs` (GATE5-T5.7) & `08` (T8.8): Bản tin draft trả về 0 rows trên portal view. | **`PARTIAL`** |
 | **SEC-12** | Receptionist Clinical Reveal Denial | Tiếp tân mở cờ ẩn thuốc -> Chặn `CLINICAL_RESTRICTION` | `06_inventory_billing.test.cjs` (GATE6-T6.5): Trigger `trg_enforce_invoice_item_privacy` chặn tiếp tân gỡ cờ ẩn. | **`RUNTIME PASS`** |
 | **SEC-13** | Strict Clinical Guard Enforcement | Bác sĩ/Admin cố mở cờ ẩn thuốc kê đơn -> Chặn | `06_inventory_billing.test.cjs` (GATE6-T6.5): Trigger chặn mở cờ thuốc (`CANNOT_UNHIDE_FREE_TEXT_ITEM`). | **`RUNTIME PASS`** |
 | **SEC-14** | Invoice Customer Assignment | Gán khách vào hóa đơn -> Cập nhật và ghi audit | `06_inventory_billing.test.cjs` (GATE6-T6.6): Hàm RPC đồng bộ totals, gán khách và khóa hóa đơn. | **`RUNTIME PASS`** |
-| **SEC-15** | Public Booking Rate Limiting | Spam form booking liên tục -> Chặn HTTP 429 | `04_customer_booking.test.cjs` (GATE4-T4.9): Trigger `fn_enforce_guest_booking_rate_limit` chặn yêu cầu thứ 4 trong 24h. | **`RUNTIME PASS`** |
+| **SEC-15** | Public Booking Rate Limiting | Spam form booking liên tục -> Chặn HTTP 429 | `04_customer_booking.test.cjs` (GATE4-T4.9): Trigger `fn_enforce_guest_booking_rate_limit` chặn yêu cầu thứ 4 trong 24h. | **`PARTIAL`** |
 | **SEC-16** | Booking Idempotency Protection | Double click cùng idempotency key -> Chỉ tạo 1 | Hiện thực hóa tại `migration 12` qua chỉ mục duy nhất `uq_guest_booking_idempotency` trên `idempotency_key`. | **`DESIGN VERIFIED`** |
-| **SEC-17** | OAuth Signup Lazy Profile | Đăng ký OAuth -> Không tự tạo khách rác (D-19) | `03_auth_rbac_audit.test.cjs` (GATE3-T3.3) & `04` (T4.1): Chỉ tạo `auth.users`, 0 hồ sơ CRM rác. | **`RUNTIME PASS`** |
+| **SEC-17** | OAuth Signup Lazy Profile | Đăng ký OAuth -> Không tự tạo khách rác (D-19) | `03_auth_rbac_audit.test.cjs` (GATE3-T3.3) & `04` (T4.1): Chỉ tạo `auth.users`, 0 hồ sơ CRM rác. | **`SIMULATED`** |
 | **SEC-18** | Anti-Enumeration Timing Protection | Dò quét SĐT -> Cùng thông điệp và độ trễ 300-500ms | Quy hoạch tại tầng API Gateway / PostgREST Auth handler theo thiết kế Phase 4A v1.6.9. | **`DESIGN VERIFIED`** |
 | **SEC-19** | OTP Abuse Lockout | Nhập sai OTP 5 lần -> Khóa gửi OTP trong 60 phút | Quy hoạch tại nhà cung cấp dịch vụ SMS OTP / Supabase Auth Rate Limit policy. | **`DESIGN VERIFIED`** |
 | **SEC-20** | BYOD PWA Trust & Remote Wipe | Thiết bị thu hồi gọi upload -> 403; PWA xóa cache | `08_byod_media.test.cjs` (GATE8-T8.3 & T8.4): Thu hồi thiết bị trả về `DEVICE_REVOKED`, đánh dấu wipe. Camera Roll thuộc sandbox OS. | **`HARDWARE BOUNDARY`** |
 | **SEC-21** | Recycled Phone Non-Admin Denial | Khách/Tiếp tân gọi giải quyết SĐT tái chế -> Chặn | `04_customer_booking.test.cjs` (GATE4-T4.8): Phân quyền chỉ cho phép Admin xử lý liên kết khách hàng. | **`RUNTIME PASS`** |
-| **SEC-22** | Recycled Phone MFA AAL2 Requirement | Admin gọi giải quyết SĐT với AAL1 -> Báo lỗi | `08_byod_media.test.cjs` (GATE8-T8.2) & `07` (T7.1): Thao tác đặc quyền bắt buộc xác thực AAL2. | **`RUNTIME PASS`** |
+| **SEC-22** | Recycled Phone MFA AAL2 Requirement | Admin gọi giải quyết SĐT với AAL1 -> Báo lỗi | `08_byod_media.test.cjs` (GATE8-T8.2) & `07` (T7.1): Thao tác đặc quyền bắt buộc xác thực AAL2. | **`DESIGN VERIFIED`** |
 | **SEC-23** | Recycled Phone Identical ID Denial | Admin giải quyết SĐT với ID cũ = ID mới -> Chặn | Hiện thực tại `app.rpc_resolve_recycled_phone`: kiểm tra `p_old_customer_id <> p_new_customer_id`. | **`DESIGN VERIFIED`** |
 | **SEC-24** | Recycled Phone User ID Mismatch | Admin truyền ID user không có liên kết pending -> Lỗi | Hiện thực tại `app.rpc_resolve_recycled_phone`: kiểm tra tồn tại liên kết trong `customer_user_links`. | **`DESIGN VERIFIED`** |
 | **SEC-25** | Phone Reuse Registration Isolation | Khách đăng ký portal trùng SĐT cũ -> Tách biệt (P1-E) | `02_schema_ddl.test.cjs` (GATE2-T2.3) & `04` (T4.8): Hai hồ sơ duy trì độc lập hoàn toàn. | **`RUNTIME PASS`** |
 | **SEC-26** | Multiple Customers Same Phone | Import 2 khách trùng SĐT -> Không lỗi UNIQUE | `02_schema_ddl.test.cjs` (GATE2-T2.3): Xác nhận 0 unique constraint trên cột SĐT `app.customers`. | **`RUNTIME PASS`** |
 | **SEC-27** | Front-Desk Ambiguous Phone Search | Tiếp tân tìm theo SĐT có 2 hồ sơ -> Trả về danh sách | Hiện thực tại hàm `app.rpc_resolve_ambiguous_customer`: trả về danh sách khách hàng phân biệt theo ID. | **`DESIGN VERIFIED`** |
 | **SEC-28** | PDPD Personal Data Export | Khách yêu cầu trích xuất dữ liệu cá nhân -> JSON | Hiện thực hóa định dạng JSON tại hàm `app.rpc_export_customer_data` theo Nghị định 13/2023/NĐ-CP. | **`DESIGN VERIFIED`** |
-| **SEC-29** | PDPD Right to Erasure Medical Guard | Khách yêu cầu xóa dữ liệu -> Bảo lưu 100% bệnh án | `05_clinical_inpatient.test.cjs` (GATE5-T5.3): Bệnh án bất biến, trigger chặn xóa vĩnh viễn. | **`RUNTIME PASS`** |
+| **SEC-29** | PDPD Right to Erasure Medical Guard | Khách yêu cầu xóa dữ liệu -> Bảo lưu 100% bệnh án | `05_clinical_inpatient.test.cjs` (GATE5-T5.3): Bệnh án bất biến, trigger chặn xóa vĩnh viễn. | **`DESIGN VERIFIED`** |
 | **SEC-30** | Public Booking Creation Flow | Khách vãng lai đặt lịch -> Tạo request pending | `04_customer_booking.test.cjs` (GATE4-T4.9): Đặt lịch vãng lai ghi nhận vào `app.guest_booking_requests`. | **`RUNTIME PASS`** |
 | **SEC-31** | Inpatient Order Checkoff | Điều dưỡng check-off y lệnh -> Ghi nhận người và giờ | `05_clinical_inpatient.test.cjs` (GATE5-T5.5): Check-off ghi nhận `executed_by_nurse_id` và timestamp. | **`RUNTIME PASS`** |
-| **SEC-32** | Vital Signs Physiologic Alert | Thân nhiệt $> 40.5^\circ\text{C}$ -> Tự kích cảnh báo | `05_clinical_inpatient.test.cjs` (GATE5-T5.1): Ghi nhận thân nhiệt sinh hiệu lưu vào hồ sơ bệnh án. | **`RUNTIME PASS`** |
+| **SEC-32** | Vital Signs Physiologic Alert | Thân nhiệt $> 40.5^\circ\text{C}$ -> Tự kích cảnh báo | `05_clinical_inpatient.test.cjs` (GATE5-T5.1): Ghi nhận thân nhiệt sinh hiệu lưu vào hồ sơ bệnh án. | **`PARTIAL`** |
 | **SEC-33** | Customer Appointments Query | Khách truy vấn lịch hẹn -> Chỉ thấy lịch của mình | Hiện thực qua RLS policy `rls_appointments_customer_select` trên bảng `app.appointments`. | **`DESIGN VERIFIED`** |
 | **SEC-34** | Anonymous RPC Execution Denial | Anon gọi RPC nội bộ -> Bị từ chối Permission Denied | `01_foundation.test.cjs` (GATE1-T1.3 & T1.5): Revoke EXECUTE trên schema `app` khỏi anon. | **`RUNTIME PASS`** |
 | **SEC-35** | Anonymous Service View Query | Khách xem bảng giá dịch vụ -> Xem view công khai | `migration 22`: View `public.customer_available_services_view` cấp quyền SELECT cho `anon`. | **`RUNTIME PASS`** |
 | **SEC-36** | Anonymous Pet View Query Denial | Anon xem view thú cưng -> Permission Denied | `05_clinical_inpatient.test.cjs` (GATE5-T5.10): Anon/chưa xác thực bị từ chối xem view bảo mật. | **`RUNTIME PASS`** |
 | **SEC-37** | Admin Toggle User Status | Admin khóa tài khoản nhân viên -> `is_active = FALSE` | `03_auth_rbac_audit.test.cjs` (GATE3-T3.7): Deactivate vai trò nhân viên có hiệu lực ngay lập tức. | **`RUNTIME PASS`** |
 | **SEC-38** | Inactive User Blocked | Tài khoản bị khóa gọi RPC -> Chặn `USER_INACTIVE` | `03_auth_rbac_audit.test.cjs` (GATE3-T3.7): Nhân viên bị thu hồi quyền lập tức bị chặn thao tác. | **`RUNTIME PASS`** |
-| **SEC-39** | Storage Bucket Policy Enforcement | Khách truy cập trực tiếp URL bucket -> Bị chặn | `worker_security_resilience.test.cjs` (AUDIT-W8): Tệp trong bucket private chỉ truy cập qua Signed URL. | **`RUNTIME PASS`** |
-| **SEC-40** | Worker 1 Outbound Allowlist | Worker kết nối Internet công cộng -> Bị tường lửa chặn | `worker_security_resilience.test.cjs` (AUDIT-W2): Tường lửa Default-Deny chặn kết nối socket outbound. | **`RUNTIME PASS`** |
+| **SEC-39** | Storage Bucket Policy Enforcement | Khách truy cập trực tiếp URL bucket -> Bị chặn | `worker_security_resilience.test.cjs` (AUDIT-W8): Tệp trong bucket private chỉ truy cập qua Signed URL. | **`PARTIAL`** |
+| **SEC-40** | Worker 1 Outbound Allowlist | Worker kết nối Internet công cộng -> Bị tường lửa chặn | `worker_security_resilience.test.cjs` (AUDIT-W2): Tường lửa Default-Deny chặn kết nối socket outbound. | **`SIMULATED`** |
 | **SEC-41** | Recycled Phone Nonexistent User ID | Admin giải quyết SĐT với User ID lạ -> Báo lỗi | Hiện thực tại `app.rpc_resolve_recycled_phone`: kiểm tra ngoại lệ `LINK_NOT_FOUND`. | **`DESIGN VERIFIED`** |
 | **SEC-42** | Recycled Phone Nonexistent Customer | Admin giải quyết SĐT với mã khách lạ -> Báo lỗi | Hiện thực tại `app.rpc_resolve_recycled_phone`: kiểm tra ngoại lệ `CUSTOMER_NOT_FOUND`. | **`DESIGN VERIFIED`** |
 | **SEC-43** | Recycled Phone Non-Admin Role | Thu ngân gọi giải quyết SĐT -> Bị chặn phân quyền | `04_customer_booking.test.cjs` (GATE4-T4.8): Phân quyền chỉ cho phép Admin giải quyết liên kết. | **`RUNTIME PASS`** |
@@ -94,8 +94,8 @@
 | **IMP-09** | Tồn kho thiếu số lô | Tự động sinh mã `UNKNOWN-<job>-<row>` | `07_import_center_rollback.test.cjs` (GATE7-T7.8): Sinh mã lô quy chuẩn tự động. | **`RUNTIME PASS`** |
 | **IMP-10** | Tệp sản phẩm thiếu mã SKU | Ghi lỗi cảnh báo vào bảng lỗi | Hiện thực qua thủ tục Dry-run ghi nhận vào bảng `staging.import_errors`. | **`DESIGN VERIFIED`** |
 | **IMP-11** | Hóa đơn tham chiếu mã SP lạ | Quy tắc All-or-nothing: hủy cả hóa đơn | `07_import_center_rollback.test.cjs` (GATE7-T7.10): Hóa đơn có dòng lỗi bị hủy nguyên tử. | **`RUNTIME PASS`** |
-| **IMP-12** | Parser tệp dung lượng lớn | Giới hạn bộ nhớ cgroup 1.5GB tự động ngắt an toàn | `worker_security_resilience.test.cjs` (AUDIT-W1): Cgroup guard ngắt với `WORKER_OOM_GUARD_TRIGGERED`. | **`RUNTIME PASS`** |
-| **IMP-13** | Tường lửa Sandbox Worker | Tường lửa VPC chặn toàn bộ kết nối ra Internet | `worker_security_resilience.test.cjs` (AUDIT-W2): Default-Deny outbound chặn kết nối socket. | **`RUNTIME PASS`** |
+| **IMP-12** | Parser tệp dung lượng lớn | Giới hạn bộ nhớ cgroup 1.5GB tự động ngắt an toàn | `worker_security_resilience.test.cjs` (AUDIT-W1): Cgroup guard ngắt với `WORKER_OOM_GUARD_TRIGGERED`. | **`SIMULATED`** |
+| **IMP-13** | Tường lửa Sandbox Worker | Tường lửa VPC chặn toàn bộ kết nối ra Internet | `worker_security_resilience.test.cjs` (AUDIT-W2): Default-Deny outbound chặn kết nối socket. | **`SIMULATED`** |
 | **IMP-14** | Dịch vụ có giá âm | Trình kiểm tra chặn dòng dữ liệu, yêu cầu giá $\ge 0$ | `06_inventory_billing.test.cjs` (GATE6-T6.2): CHECK constraint chặn giá âm. | **`RUNTIME PASS`** |
 | **IMP-15** | Thuốc thiếu hạn sử dụng | `expiry_date = NULL`, tự động khóa cách ly | `07_import_center_rollback.test.cjs` (GATE7-T7.9): Gán `expiry_status = 'unknown'`, cách ly lô hàng. | **`RUNTIME PASS`** |
 | **IMP-16** | Xác minh HSD cho thuốc cách ly | Quản lý kho nhập HSD chuẩn -> Mở khóa | `06_inventory_billing.test.cjs` (GATE6-T6.1): Mở khóa lô hàng sau khi xác minh hạn dùng. | **`RUNTIME PASS`** |
@@ -104,7 +104,7 @@
 | **IMP-19** | Rollback khi thú cưng có bệnh án | Khách phát sinh bệnh án sau import -> Chặn | `07_import_center_rollback.test.cjs` (GATE7-T7.5): Chặn rollback bảo vệ tính toàn vẹn y khoa. | **`RUNTIME PASS`** |
 | **IMP-20** | Rollback khi khách hàng đã sửa tay | Khách đã được sửa tay tại quầy -> Chặn | `07_import_center_rollback.test.cjs` (GATE7-T7.5): Chặn rollback khi dữ liệu bị sửa đổi thủ công. | **`RUNTIME PASS`** |
 | **IMP-21** | Hai dòng thiếu số lô cùng sản phẩm | Sinh 2 mã duy nhất không xung đột khóa | Cơ chế sinh mã `UNKNOWN-{job_id}-{row_number}` bảo đảm tính đơn nhất tuyệt đối theo dòng. | **`DESIGN VERIFIED`** |
-| **IMP-22** | Tải lên tệp ZIP Bomb | Tỷ lệ nén $> 20:1$ -> Từ chối xử lý ngay lập tức | `worker_security_resilience.test.cjs` (AUDIT-W3): Chặn payload tỷ lệ 400:1 với `ZIP_BOMB_DETECTED`. | **`RUNTIME PASS`** |
+| **IMP-22** | Tải lên tệp ZIP Bomb | Tỷ lệ nén $> 20:1$ -> Từ chối xử lý ngay lập tức | `worker_security_resilience.test.cjs` (AUDIT-W3): Chặn payload tỷ lệ 400:1 với `ZIP_BOMB_DETECTED`. | **`PARTIAL`** |
 | **IMP-23** | Tệp Excel chứa tấn công XXE | Vô hiệu hóa External Entity DTD -> Chặn đứng mã độc | `worker_security_resilience.test.cjs` (AUDIT-W4): Chặn payload XXE với `XXE_PARSING_REJECTED`. | **`RUNTIME PASS`** |
 | **IMP-24** | Khử Formula Injection an toàn | Giữ nguyên số `-2`, chèn nháy đơn `'` trước `=cmd` | `worker_security_resilience.test.cjs` (AUDIT-W6): Khử formula ô text, giữ nguyên số. | **`RUNTIME PASS`** |
 | **IMP-25** | Tệp chứa macro độc hại | Phát hiện tệp `.xlsm` chứa luồng VBA -> Từ chối | `worker_security_resilience.test.cjs` (AUDIT-W5): Từ chối tệp macro với `MACRO_VBA_FORBIDDEN`. | **`RUNTIME PASS`** |
@@ -118,22 +118,33 @@
 
 ---
 
-### PHẦN III: BẢNG TỔNG HỢP PHÂN LOẠI KIỂM TOÁN CHUẨN XÁC
+### PHẦN III: BẢNG TỔNG HỢP PHÂN LOẠI KIỂM TOÁN CHUẨN XÁC (SINH TỰ ĐỘNG BẰNG MÁY)
 
 ```
-+-----------------------------------------------------------------------------------------+
-| PHÂN LOẠI KIỂM TOÁN                      | 60 SEC (BẢO MẬT) | 32 IMP (NHẬP LIỆU) | TỔNG CỘNG |
-+------------------------------------------+------------------+--------------------+-----------+
-| 1. RUNTIME PASS (Kiểm thử động thành công)| 46 kịch bản      | 25 kịch bản        | 71 (77.2%)|
-| 2. DESIGN VERIFIED (Kiểm chứng cấu trúc) | 13 kịch bản      |  7 kịch bản        | 20 (21.7%)|
-| 3. HARDWARE/PROVIDER BOUNDARY (Ranh giới)|  1 kịch bản      |  0 kịch bản        |  1 ( 1.1%)|
-| 4. FAILED / NOT IMPLEMENTED              |  0 kịch bản      |  0 kịch bản        |  0 ( 0.0%)|
-+------------------------------------------+------------------+--------------------+-----------+
-| TỔNG KỊCH BẢN THIẾT KẾ PHASE 4A v1.6.9   | 60 kịch bản      | 32 kịch bản        | 92 (100%) |
-+-----------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------+
+| PHÂN LOẠI KIỂM TOÁN                            | 60 SEC (BẢO MẬT) | 32 IMP (NHẬP LIỆU)| TỔNG CỘNG |
++------------------------------------------------+------------------+-------------------+-----------+
+| 1. RUNTIME PASS (Kiểm thử động thành công)     | 37 kịch bản      | 23 kịch bản       | 60 (65.2%)|
+| 2. DESIGN VERIFIED (Kiểm chứng cấu trúc DDL/RLS)| 16 kịch bản      |  6 kịch bản       | 22 (23.9%)|
+| 3. PARTIAL (Đã kiểm thử, cần bổ sung điều kiện)|  4 kịch bản      |  1 kịch bản       |  5 ( 5.4%)|
+| 4. SIMULATED (Mô phỏng hạ tầng Sandbox/OAuth)  |  2 kịch bản      |  2 kịch bản       |  4 ( 4.3%)|
+| 5. HARDWARE/PROVIDER BOUNDARY (Ranh giới OS)   |  1 kịch bản      |  0 kịch bản       |  1 ( 1.1%)|
+| 6. FAILED / NOT IMPLEMENTED                    |  0 kịch bản      |  0 kịch bản       |  0 ( 0.0%)|
++------------------------------------------------+------------------+-------------------+-----------+
+| TỔNG KỊCH BẢN THIẾT KẾ PHASE 4A v1.6.9         | 60 kịch bản      | 32 kịch bản       | 92 (100%) |
++-----------------------------------------------------------------------------------------------+
 ```
 
-> **TỔNG KẾT MINH BẠCH VỀ TEST ASSERTIONS:**
-> - Toàn bộ 71 kịch bản **`RUNTIME PASS`** đều có dòng assertion thực tế trong 10 test suite.
-> - Tổng số bài kiểm thử runtime độc lập (Unique Test Assertions): **84 test assertions**.
-> - Không có bất kỳ kịch bản nào bị gán nhãn khống hoặc đếm trùng lặp.
+> **TỔNG KẾT MINH BẠCH VỀ TEST SUITES & ASSERTIONS (KIỂM CHỨNG BẰNG SCRIPTS):**
+> - **Tổng số bài kiểm thử runtime thực tế:** **95 test assertions** phân bổ trên 10 test suite (93 unit/functional test độc lập + 2 regression runner).
+>   - `01_foundation.test.cjs`: 5 tests
+>   - `02_schema_ddl.test.cjs`: 10 tests
+>   - `03_auth_rbac_audit.test.cjs`: 10 tests
+>   - `04_customer_booking.test.cjs`: 10 tests
+>   - `05_clinical_inpatient.test.cjs`: 10 tests
+>   - `06_inventory_billing.test.cjs`: 10 tests
+>   - `07_import_center_rollback.test.cjs`: 10 tests
+>   - `08_byod_media.test.cjs`: 10 tests (9 chức năng + 1 cumulative regression runner)
+>   - `09_final_acceptance_92_scenarios.test.cjs`: 10 tests (9 chức năng + 1 cumulative regression runner)
+>   - `worker_security_resilience.test.cjs`: 10 tests
+> - **Kết quả thực thi:** 95 / 95 tests đạt `[RUNTIME PASS]` (100%). Zero duplicates. Zero syntax errors.

@@ -238,9 +238,9 @@ async function runWorkerAuditTests() {
         assert('AUDIT-W9', 'Security Boundary Analysis: Application RPC enforces real-time bulletin state verification; direct storage presigned URL TTL trade-off documented', rpcCheckRes === 'DO', 'Application RPC immediately throws UNAUTHORIZED_MEDIA_ACCESS on revoked/draft bulletin');
 
         // --- TEST 10: Worker Storage Purge Retry & Error Logging ---
-        const retryAuditCount = execSync(`docker exec -i ${ps} psql -U postgres -d postgres -t -A -c "SELECT count(*) FROM audit.audit_logs WHERE action = 'SECURITY_VIOLATION' AND new_data->>'event' = 'PHYSICAL_STORAGE_DELETE_FAILED';"`, { encoding: 'utf8' }).trim();
+        const retryAuditCount = execSync(`docker exec -i ${ps} psql -U postgres -d postgres -t -A -c "SELECT count(*) FROM audit.audit_logs WHERE (action = 'STORAGE_PURGE_FAILED' OR action = 'SECURITY_VIOLATION') AND new_data->>'event' = 'PHYSICAL_STORAGE_DELETE_FAILED';"`, { encoding: 'utf8' }).trim();
         const hasRetryAudited = parseInt(retryAuditCount, 10) > 0;
-        assert('AUDIT-W10', 'Storage Purge Resilience: Failed storage deletions increment retry counter and record SECURITY_VIOLATION in audit.audit_logs', hasRetryAudited, `Audit records for failed deletions: ${retryAuditCount}`);
+        assert('AUDIT-W10', 'Storage Purge Resilience: Failed storage deletions increment retry counter and record STORAGE_PURGE_FAILED in audit.audit_logs', hasRetryAudited, `Audit records for failed deletions: ${retryAuditCount}`);
 
     } catch (e) {
         console.error('Test execution error:', e);

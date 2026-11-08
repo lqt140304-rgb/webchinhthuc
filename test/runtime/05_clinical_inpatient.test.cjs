@@ -260,11 +260,24 @@ async function runTests() {
                         RAISE;
                     END IF;
                 END;
+
+                -- P1-5 & 4.2 Invariant: Direct TRUNCATE on clinical_records MUST be blocked by immutability trigger
+                BEGIN
+                    TRUNCATE app.clinical_records CASCADE;
+                    RAISE EXCEPTION 'FAIL: TRUNCATE on clinical record was allowed!';
+                EXCEPTION WHEN OTHERS THEN
+                    IF SQLERRM LIKE '%APP_ERROR_CLINICAL_RECORD_IMMUTABLE%' THEN
+                        -- Immutability truncate trigger successfully fired
+                        NULL;
+                    ELSE
+                        RAISE;
+                    END IF;
+                END;
             END $$;
             SELECT 'PASSED';
         `;
         const t53Res = psql(t53Query);
-        assert('GATE5-T5.3', 'SEC-09 & SEC-11: Clinical record is immutable — direct UPDATE blocked (RECORD_LOCKED) and direct DELETE blocked (APP_ERROR_CLINICAL_RECORD_IMMUTABLE)',
+        assert('GATE5-T5.3', 'SEC-09 & SEC-11: Clinical record is immutable — direct UPDATE blocked (RECORD_LOCKED), direct DELETE blocked (APP_ERROR_CLINICAL_RECORD_IMMUTABLE), and TRUNCATE blocked',
             t53Res.includes('PASSED'),
             `Lock and delete trigger verification: ${t53Res}`);
 

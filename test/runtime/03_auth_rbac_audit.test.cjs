@@ -164,68 +164,106 @@ async function runTests() {
             `RBAC check: ${sec02Result}`);
 
         // --- TEST 3.5: S-11 Fail-Closed Default & Off-Shift Admin Access Audit Logging ---
-        const s11Query = `
-            DO $$
-            DECLARE
-                v_admin_uid UUID := gen_random_uuid();
-                v_res_default BOOLEAN;
-                v_res_override BOOLEAN;
-                v_audit_count INT;
-                v_final_setting TEXT;
-            BEGIN
-                INSERT INTO auth.users (id, email, raw_user_meta_data) 
-                VALUES (v_admin_uid, 'admin_audit@leson.vn', '{"full_name": "Admin Audit Test"}'::jsonb);
+        let s11Passed = false;
+        let s11Evidence = '';
+        try {
+            const s11Query = `
+                BEGIN;
+                DO $$
+                DECLARE
+                    v_admin_uid UUID := gen_random_uuid();
+                    v_owner_uid UUID := gen_random_uuid();
+                    v_pet_id UUID := gen_random_uuid();
+                    v_res_default BOOLEAN;
+                    v_res_override BOOLEAN;
+                    v_audit_count INT;
+                    v_final_setting TEXT;
+                    v_err_rpc TEXT := '';
+                    v_rec_id UUID;
+                BEGIN
+                    INSERT INTO auth.users (id, email, raw_user_meta_data) 
+                    VALUES (v_admin_uid, 'admin_audit@leson.vn', '{"full_name": "Admin Audit Test"}'::jsonb);
 
-                INSERT INTO app.staff_role_assignments (user_id, role, assigned_by)
-                VALUES (v_admin_uid, 'admin', v_admin_uid);
+                    INSERT INTO app.staff_role_assignments (user_id, role, assigned_by)
+                    VALUES (v_admin_uid, 'admin', v_admin_uid);
 
-                -- PART A: S-11 Fail-Closed Default (setting_value = 'false')
-                -- Under default configuration, off-shift admin access MUST BE DENIED (returns FALSE)
-                v_res_default := app.check_active_shift(v_admin_uid, 'veterinarian');
-                IF v_res_default <> FALSE THEN
-                    RAISE EXCEPTION 'S-11 FAIL-CLOSED BREACH: Off-shift admin allowed under default setting (expected FALSE, got TRUE)';
-                END IF;
+                    -- Setup sample pet for operational RPC test
+                    INSERT INTO app.customers (id, full_name, phone_number) VALUES (v_owner_uid, 'Chủ nuôi Test S11', '0912345999');
+                    INSERT INTO app.pets (id, customer_id, pet_name, species, gender) VALUES (v_pet_id, v_owner_uid, 'Pet Test S11', 'dog', 'unknown');
 
-                -- PART B: S-11 Conditional Override & Immutable Audit Logging (Isolated sub-test)
-                -- Temporarily enable S-11 feature flag to verify override capability & audit log
-                UPDATE app.system_settings SET setting_value = 'true' WHERE setting_key = 'allow_admin_off_shift_override';
+                    -- PART A: S-11 Fail-Closed Default (setting_value = 'false')
+                    -- Under default configuration, off-shift admin access MUST BE DENIED:
+                    -- 1. app.check_active_shift returns FALSE
+                    v_res_default := app.check_active_shift(v_admin_uid, 'veterinarian');
+                    IF v_res_default <> FALSE THEN
+                        RAISE EXCEPTION 'S-11 FAIL-CLOSED BREACH: Off-shift admin allowed under default setting (expected FALSE, got TRUE)';
+                    END IF;
 
-                v_res_override := app.check_active_shift(v_admin_uid, 'veterinarian');
-                IF v_res_override <> TRUE THEN
-                    RAISE EXCEPTION 'S-11: Admin override failed to return TRUE when feature flag enabled';
-                END IF;
+                    -- 2. Real operational RPC (app.rpc_create_clinical_record) is BLOCKED with PERMISSION_DENIED
+                    PERFORM set_config('request.jwt.claim.sub', v_admin_uid::text, true);
+                    PERFORM set_config('request.jwt.claims', jsonb_build_object('sub', v_admin_uid::text, 'role', 'authenticated')::text, true);
 
-                SELECT count(*) INTO v_audit_count 
-                FROM audit.audit_logs 
-                WHERE record_id = v_admin_uid 
-                  AND table_name = 'shifts'
-                  AND action = 'SECURITY_VIOLATION'
-                  AND new_data->>'event' = 'OFF_SHIFT_ADMIN_ACCESS';
+                    BEGIN
+                        PERFORM app.rpc_create_clinical_record(v_pet_id, 'Triệu chứng ngoài ca trực', 'Ghi chú thử nghiệm S-11');
+                    EXCEPTION WHEN OTHERS THEN
+                        v_err_rpc := SQLERRM;
+                    END;
 
-                IF v_audit_count = 0 THEN
-                    RAISE EXCEPTION 'S-11 VIOLATION: Off-shift admin access failed to generate audit log!';
-                END IF;
+                    IF v_err_rpc NOT LIKE '%PERMISSION_DENIED%' THEN
+                        RAISE EXCEPTION 'S-11 FAIL-CLOSED RPC BREACH: Operational RPC rpc_create_clinical_record was NOT blocked (Error: %)', v_err_rpc;
+                    END IF;
 
-                -- PART C: Restore and verify S-11 to Fail-Closed default ('false' - PENDING OWNER APPROVAL)
-                UPDATE app.system_settings SET setting_value = 'false' WHERE setting_key = 'allow_admin_off_shift_override';
+                    -- PART B: S-11 Conditional Override & Immutable Audit Logging (Isolated sub-test)
+                    -- Temporarily enable S-11 feature flag to verify override capability & audit log
+                    UPDATE app.system_settings SET setting_value = 'true' WHERE setting_key = 'allow_admin_off_shift_override';
 
-                SELECT setting_value INTO v_final_setting FROM app.system_settings WHERE setting_key = 'allow_admin_off_shift_override';
-                IF v_final_setting <> 'false' THEN
-                    RAISE EXCEPTION 'S-11 INVARIANT VIOLATION: Failed to restore default fail-closed setting!';
-                END IF;
+                    v_res_override := app.check_active_shift(v_admin_uid, 'veterinarian');
+                    IF v_res_override <> TRUE THEN
+                        RAISE EXCEPTION 'S-11: Admin override failed to return TRUE when feature flag enabled';
+                    END IF;
 
-                -- Clean up
-                DELETE FROM audit.audit_logs WHERE record_id = v_admin_uid;
-                DELETE FROM app.staff_role_assignments WHERE user_id = v_admin_uid;
-                DELETE FROM app.users WHERE id = v_admin_uid;
-                DELETE FROM auth.users WHERE id = v_admin_uid;
-            END $$;
-            SELECT 'PASSED';
-        `;
-        const s11Result = psql(s11Query);
-        assert('GATE3-T3.5', 'S-11: Off-shift Admin verifies Fail-Closed default (FALSE) and conditional override with audit logging',
-            s11Result.includes('PASSED'),
-            `S-11 result: ${s11Result}`);
+                    -- Real operational RPC executes successfully under override
+                    v_rec_id := app.rpc_create_clinical_record(v_pet_id, 'Kê bệnh án khẩn cấp có override', 'Ghi chú override S-11');
+                    IF v_rec_id IS NULL THEN
+                        RAISE EXCEPTION 'S-11: Operational RPC failed to return record_id under override';
+                    END IF;
+
+                    SELECT count(*) INTO v_audit_count 
+                    FROM audit.audit_logs 
+                    WHERE record_id = v_admin_uid 
+                      AND table_name = 'shifts'
+                      AND action = 'SECURITY_VIOLATION'
+                      AND new_data->>'event' = 'OFF_SHIFT_ADMIN_ACCESS';
+
+                    IF v_audit_count = 0 THEN
+                        RAISE EXCEPTION 'S-11 VIOLATION: Off-shift admin access failed to generate audit log!';
+                    END IF;
+
+                    -- PART C: Restore and verify S-11 to Fail-Closed default ('false' - PENDING OWNER APPROVAL)
+                    UPDATE app.system_settings SET setting_value = 'false' WHERE setting_key = 'allow_admin_off_shift_override';
+
+                    SELECT setting_value INTO v_final_setting FROM app.system_settings WHERE setting_key = 'allow_admin_off_shift_override';
+                    IF v_final_setting <> 'false' THEN
+                        RAISE EXCEPTION 'S-11 INVARIANT VIOLATION: Failed to restore default fail-closed setting!';
+                    END IF;
+                END $$;
+                ROLLBACK;
+                SELECT 'PASSED';
+            `;
+            const s11Result = psql(s11Query);
+            s11Passed = s11Result.includes('PASSED');
+            s11Evidence = `S-11 verified: RPC blocked under default, succeeded under override with audit log. Result: ${s11Result}`;
+        } catch (err) {
+            s11Passed = false;
+            s11Evidence = `Error: ${err.message}`;
+        } finally {
+            // Unconditional restoration in finally block to ensure DB state safety
+            psql("UPDATE app.system_settings SET setting_value = 'false' WHERE setting_key = 'allow_admin_off_shift_override';");
+        }
+
+        assert('GATE3-T3.5', 'S-11: Off-shift Admin verifies Fail-Closed default (FALSE & RPC PERMISSION_DENIED), conditional override with audit logging, and guaranteed restoration in finally block',
+            s11Passed,
+            s11Evidence);
 
         // --- TEST 3.6: Actual JWT / Session Context RLS Execution (Cross-Customer Isolation & Schema Defense) ---
         const rlsJwtQuery = `

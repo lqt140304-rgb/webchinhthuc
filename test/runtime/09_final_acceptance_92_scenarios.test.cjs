@@ -171,14 +171,14 @@ async function runTests() {
             FROM audit.audit_logs 
             WHERE table_name = 'inpatient_daily_media' 
               AND record_id = '${mediaIdError}'::uuid 
-              AND action = 'SECURITY_VIOLATION';
+              AND action = 'STORAGE_PURGE_FAILED';
         `);
 
         // Clean up mock file
         if (fs.existsSync(errorAbsPath)) fs.unlinkSync(errorAbsPath);
 
         const p1RetrySuccess = retryState === '1|true|true' && parseInt(auditErrorLog, 10) > 0;
-        assert('GATE9-T9.2', 'P1 Remediation: Purge error handled gracefully; retry count incremented, error message logged, security violation audited', p1RetrySuccess, `Retry state: ${retryState}, Audit violations: ${auditErrorLog}`);
+        assert('GATE9-T9.2', 'P1 Remediation: Purge error handled gracefully; retry count incremented, error message logged, storage purge failure audited (STORAGE_PURGE_FAILED)', p1RetrySuccess, `Retry state: ${retryState}, Audit records: ${auditErrorLog}`);
 
         // =====================================================================
         // TEST 9.3: P1 Remediation — Complete BYOD Device Revocation & Boundary Limits

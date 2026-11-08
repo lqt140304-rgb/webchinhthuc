@@ -28,7 +28,8 @@ function psql(query) {
 const STORAGE_ROOT = path.join(__dirname, '..', 'storage_sandbox', 'inpatient-media');
 const STORAGE_API = process.env.SUPABASE_STORAGE_URL || 'http://127.0.0.1:54321/storage/v1';
 const BUCKET_NAME = 'inpatient-media-private';
-const SERVICE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImV4cCI6MTk4MzgxMjk5Nn0.EGIMBgx-YrflnHb_xCU-j99kQe-3q_xKkRkW1B4iO6k';
+// Read exclusively from environment variable to prevent secret leakage
+const SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
 
 async function runPurgeWorker(simulateErrorPath = null) {
     console.log('[PURGE WORKER] Starting 60-day physical storage purge cycle...');
