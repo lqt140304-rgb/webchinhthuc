@@ -163,13 +163,15 @@ async function runTests() {
             sec02Result.includes('PASSED'),
             `RBAC check: ${sec02Result}`);
 
-        // --- TEST 3.5: S-11 Off-Shift Admin Access Audit Logging ---
+        // --- TEST 3.5: S-11 Fail-Closed Default & Off-Shift Admin Access Audit Logging ---
         const s11Query = `
             DO $$
             DECLARE
                 v_admin_uid UUID := gen_random_uuid();
-                v_res BOOLEAN;
+                v_res_default BOOLEAN;
+                v_res_override BOOLEAN;
                 v_audit_count INT;
+                v_final_setting TEXT;
             BEGIN
                 INSERT INTO auth.users (id, email, raw_user_meta_data) 
                 VALUES (v_admin_uid, 'admin_audit@leson.vn', '{"full_name": "Admin Audit Test"}'::jsonb);
@@ -177,26 +179,40 @@ async function runTests() {
                 INSERT INTO app.staff_role_assignments (user_id, role, assigned_by)
                 VALUES (v_admin_uid, 'admin', v_admin_uid);
 
+                -- PART A: S-11 Fail-Closed Default (setting_value = 'false')
+                -- Under default configuration, off-shift admin access MUST BE DENIED (returns FALSE)
+                v_res_default := app.check_active_shift(v_admin_uid, 'veterinarian');
+                IF v_res_default <> FALSE THEN
+                    RAISE EXCEPTION 'S-11 FAIL-CLOSED BREACH: Off-shift admin allowed under default setting (expected FALSE, got TRUE)';
+                END IF;
+
+                -- PART B: S-11 Conditional Override & Immutable Audit Logging (Isolated sub-test)
                 -- Temporarily enable S-11 feature flag to verify override capability & audit log
                 UPDATE app.system_settings SET setting_value = 'true' WHERE setting_key = 'allow_admin_off_shift_override';
 
-                v_res := app.check_active_shift(v_admin_uid, 'veterinarian');
-                IF v_res <> TRUE THEN
-                    RAISE EXCEPTION 'S-11: Admin override failed to return TRUE';
+                v_res_override := app.check_active_shift(v_admin_uid, 'veterinarian');
+                IF v_res_override <> TRUE THEN
+                    RAISE EXCEPTION 'S-11: Admin override failed to return TRUE when feature flag enabled';
                 END IF;
 
                 SELECT count(*) INTO v_audit_count 
                 FROM audit.audit_logs 
                 WHERE record_id = v_admin_uid 
                   AND table_name = 'shifts'
-                  AND action = 'SECURITY_VIOLATION';
+                  AND action = 'SECURITY_VIOLATION'
+                  AND new_data->>'event' = 'OFF_SHIFT_ADMIN_ACCESS';
 
                 IF v_audit_count = 0 THEN
                     RAISE EXCEPTION 'S-11 VIOLATION: Off-shift admin access failed to generate audit log!';
                 END IF;
 
-                -- Restore S-11 to Fail-Closed default ('false' - PENDING OWNER APPROVAL)
+                -- PART C: Restore and verify S-11 to Fail-Closed default ('false' - PENDING OWNER APPROVAL)
                 UPDATE app.system_settings SET setting_value = 'false' WHERE setting_key = 'allow_admin_off_shift_override';
+
+                SELECT setting_value INTO v_final_setting FROM app.system_settings WHERE setting_key = 'allow_admin_off_shift_override';
+                IF v_final_setting <> 'false' THEN
+                    RAISE EXCEPTION 'S-11 INVARIANT VIOLATION: Failed to restore default fail-closed setting!';
+                END IF;
 
                 -- Clean up
                 DELETE FROM audit.audit_logs WHERE record_id = v_admin_uid;
@@ -207,9 +223,9 @@ async function runTests() {
             SELECT 'PASSED';
         `;
         const s11Result = psql(s11Query);
-        assert('GATE3-T3.5', 'S-11: Off-shift Admin access successfully records immutable audit log (Proposed Rule)',
+        assert('GATE3-T3.5', 'S-11: Off-shift Admin verifies Fail-Closed default (FALSE) and conditional override with audit logging',
             s11Result.includes('PASSED'),
-            `S-11 override result: ${s11Result}`);
+            `S-11 result: ${s11Result}`);
 
         // --- TEST 3.6: Actual JWT / Session Context RLS Execution (Cross-Customer Isolation & Schema Defense) ---
         const rlsJwtQuery = `

@@ -42,19 +42,14 @@ function assert(testId, description, condition, evidence) {
 const STORAGE_API = 'http://127.0.0.1:54321/storage/v1';
 const SERVICE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImV4cCI6MTk4MzgxMjk5Nn0.EGIM96RAZx35lJzdJsyH-qQwv8Hdp7fsn3W0YpN81IU';
 
+const pipeline = require('../../services/import_worker/src/ingest_pipeline.cjs');
+
 async function runWorkerAuditTests() {
     try {
         // --- TEST 1: IMP-12 — Worker Memory Cgroup & Allocation Guard ---
-        function simulateWorkerMemoryGuard(requestedBytes, maxAllowedBytes = 1.5 * 1024 * 1024 * 1024) {
-            if (requestedBytes > maxAllowedBytes) {
-                throw new Error('WORKER_OOM_GUARD_TRIGGERED: Dung lượng giải nén tệp vượt quá ngưỡng cgroup 1.5GB');
-            }
-            return true;
-        }
-
         let oomBlocked = false;
         try {
-            simulateWorkerMemoryGuard(2.1 * 1024 * 1024 * 1024); // 2.1 GB > 1.5 GB
+            pipeline.checkMemoryGuard(2.1 * 1024 * 1024 * 1024); // 2.1 GB > 1.5 GB
         } catch (e) {
             oomBlocked = e.message.includes('WORKER_OOM_GUARD_TRIGGERED');
         }
@@ -85,18 +80,10 @@ async function runWorkerAuditTests() {
         assert('AUDIT-W2', 'IMP-13 & SEC-40: Worker sandbox network isolation enforces Default-Deny on outbound public connections', isIsolated, 'Outbound socket connection blocked (ETIMEDOUT / ENETUNREACH)');
 
         // --- TEST 3: IMP-22 — Zip Bomb Decompression Ratio Guard (Max 20:1) ---
-        function checkZipBombDecompressionRatio(compressedSize, uncompressedSize, maxRatio = 20) {
-            const ratio = uncompressedSize / Math.max(1, compressedSize);
-            if (ratio > maxRatio) {
-                throw new Error(`ZIP_BOMB_DETECTED: Tỷ lệ giải nén ${ratio.toFixed(1)}:1 vượt ngưỡng an toàn ${maxRatio}:1`);
-            }
-            return ratio;
-        }
-
         let zipBombDetected = false;
         try {
             // Synthetic Zip Bomb: 50 KB compressed expanding to 20 MB (Ratio 400:1)
-            checkZipBombDecompressionRatio(50 * 1024, 20 * 1024 * 1024, 20);
+            pipeline.inspectZipBombRatio(50 * 1024, 20 * 1024 * 1024);
         } catch (e) {
             zipBombDetected = e.message.includes('ZIP_BOMB_DETECTED');
         }
@@ -121,48 +108,18 @@ async function runWorkerAuditTests() {
         assert('AUDIT-W4', 'IMP-23: OpenXML parser disables external entity resolution, blocking XXE attacks', xxeBlocked, 'Payload rejected with XXE_PARSING_REJECTED');
 
         // --- TEST 5: IMP-25 — Macro VBA Stream Rejection ---
-        function detectVbaMacros(fileBuffer, fileName) {
-            if (fileName.toLowerCase().endsWith('.xlsm')) {
-                throw new Error('MACRO_VBA_FORBIDDEN: Định dạng .xlsm chứa Macro VBA bị từ chối');
-            }
-            // Check for OLE VBA storage signatures in binary: "Attribut", "VBA", "_VBA_PROJECT"
-            if (fileBuffer.includes(Buffer.from('_VBA_PROJECT')) || fileBuffer.includes(Buffer.from('dir\0\0\0'))) {
-                throw new Error('MACRO_VBA_FORBIDDEN: Phát hiện luồng mã thực thi VBA bên trong tệp');
-            }
-            return true;
-        }
-
         const syntheticVbaBuffer = Buffer.concat([Buffer.from([0xD0, 0xCF, 0x11, 0xE0]), Buffer.from('_VBA_PROJECT_CUR')]);
         let vbaBlocked = false;
         try {
-            detectVbaMacros(syntheticVbaBuffer, 'sales.xlsx');
+            pipeline.scanVbaMacros(syntheticVbaBuffer);
         } catch (e) {
             vbaBlocked = e.message.includes('MACRO_VBA_FORBIDDEN');
         }
         assert('AUDIT-W5', 'IMP-25: Excel files containing embedded VBA macro streams are rejected before staging ingestion', vbaBlocked, 'Binary signature _VBA_PROJECT detected and rejected with MACRO_VBA_FORBIDDEN');
 
         // --- TEST 6: IMP-24 & IMP-30 — Formula Injection Sanitization Order ---
-        function sanitizeSpreadsheetRow(cells) {
-            return cells.map(cell => {
-                // 1. If phone number starting with +, preserve as string (do not cast to number)
-                if (typeof cell === 'string' && /^\+[0-9]{9,15}$/.test(cell.trim())) {
-                    return cell.trim();
-                }
-                // 2. If numeric, preserve (do not prepend quote to valid numbers, including negative values)
-                if (typeof cell === 'number' || (typeof cell === 'string' && !isNaN(cell) && cell.trim() !== '')) {
-                    const num = Number(cell);
-                    if (!isNaN(num)) return num;
-                }
-                // 3. If string starts with formula characters (=, +, -, @), escape with leading single quote
-                if (typeof cell === 'string' && /^[=+\-@]/.test(cell.trim())) {
-                    return "'" + cell.trim();
-                }
-                return cell;
-            });
-        }
-
         const rawRow = ['-5', '+84988123456', '=cmd|\' /C calc\'!A0', '@HYPERLINK("http://evil.com")', 'Regular text'];
-        const sanitized = sanitizeSpreadsheetRow(rawRow);
+        const sanitized = rawRow.map(c => pipeline.sanitizeCellValue(c));
         const formulaPass = sanitized[0] === -5 &&
                             sanitized[1] === '+84988123456' &&
                             sanitized[2] === '\'=cmd|\' /C calc\'!A0' &&
@@ -172,19 +129,20 @@ async function runWorkerAuditTests() {
         assert('AUDIT-W6', 'IMP-24 & IMP-30: Formula injection sanitization preserves numbers and phones while neutralizing formula triggers', formulaPass, `Sanitized Output: ${JSON.stringify(sanitized)}`);
 
         // --- TEST 7: IMP-26 — Magic Bytes vs Extension Mismatch Rejection ---
-        function validateOpenXmlMagicBytes(buf) {
-            // Valid .xlsx must have ZIP magic bytes: 50 4B 03 04
-            if (!buf || buf.length < 4) return false;
-            return buf[0] === 0x50 && buf[1] === 0x4B && buf[2] === 0x03 && buf[3] === 0x04;
-        }
-
         const fakeXlsxPdf = Buffer.from('%PDF-1.4 Fake Excel Document');
         const fakeXlsxExe = Buffer.from('MZ\x90\x00\x03\x00\x00\x00');
         const realZipMagic = Buffer.from([0x50, 0x4B, 0x03, 0x04, 0x14, 0x00]);
 
-        const magicPass = !validateOpenXmlMagicBytes(fakeXlsxPdf) && 
-                          !validateOpenXmlMagicBytes(fakeXlsxExe) && 
-                          validateOpenXmlMagicBytes(realZipMagic);
+        let pdfRejected = false;
+        try { pipeline.validateMagicBytes(fakeXlsxPdf); } catch (e) { pdfRejected = true; }
+
+        let exeRejected = false;
+        try { pipeline.validateMagicBytes(fakeXlsxExe); } catch (e) { exeRejected = true; }
+
+        let zipAccepted = false;
+        try { zipAccepted = pipeline.validateMagicBytes(realZipMagic); } catch (e) { zipAccepted = false; }
+
+        const magicPass = pdfRejected && exeRejected && zipAccepted;
 
         assert('AUDIT-W7', 'IMP-26: File type gateway inspects initial 4 magic bytes; rejects spoofed .xlsx files (PDF, EXE headers)', magicPass, 'PDF (%PDF) and EXE (MZ) spoofed .xlsx rejected; true ZIP (50 4B 03 04) accepted');
 

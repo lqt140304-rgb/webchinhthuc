@@ -1,0 +1,58 @@
+# ==============================================================================
+# COMPOSE: services/import_worker/docker-compose.worker.yml
+# Project: Bệnh viện Thú y Lê Sơn
+# Phase 4B: Isolated Worker Sandbox Deployment Specification
+# Invariants Enforced:
+#   - D-14: cgroup memory limit capped at 1.5GB (1536m)
+#   - S-6 / SEC-40: VPC Default-Deny Network Isolation (Internal only, no internet)
+#   - Read-only root filesystem with temporary tmpfs scratchpad
+# ==============================================================================
+
+version: '3.8'
+
+services:
+  import-worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: leson_import_worker_sandbox
+    restart: unless-stopped
+    
+    # 1. cgroup Resource Limits (D-14 Invariant)
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 1536M
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+    mem_limit: 1536m
+    memswap_limit: 1536m
+
+    # 2. Network Isolation (S-6 / SEC-40 Invariant)
+    # Default-Deny: Connected strictly to internal backend network; no public internet egress
+    networks:
+      backend_internal:
+        ipv4_address: 172.28.0.50
+
+    # 3. Security Hardening
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=512m
+
+    environment:
+      - NODE_ENV=production
+      - DB_HOST=supabase_db_webbvct
+      - DB_PORT=5432
+      - DB_USER=import_worker_role
+      - STORAGE_API_URL=http://supabase_kong:8000/storage/v1
+
+networks:
+  backend_internal:
+    internal: true # Disables outbound external Internet routing
+    ipam:
+      config:
+        - subnet: 172.28.0.0/24

@@ -247,13 +247,26 @@ async function runTests() {
                         RAISE;
                     END IF;
                 END;
+
+                -- P1-C Invariant & SEC-09: Direct DELETE on clinical_records MUST be blocked by immutability trigger
+                BEGIN
+                    DELETE FROM app.clinical_records WHERE id = v_rec_id;
+                    RAISE EXCEPTION 'FAIL: Direct DELETE on clinical record was allowed!';
+                EXCEPTION WHEN OTHERS THEN
+                    IF SQLERRM LIKE '%APP_ERROR_CLINICAL_RECORD_IMMUTABLE%' THEN
+                        -- Immutability trigger successfully fired
+                        NULL;
+                    ELSE
+                        RAISE;
+                    END IF;
+                END;
             END $$;
             SELECT 'PASSED';
         `;
         const t53Res = psql(t53Query);
-        assert('GATE5-T5.3', 'SEC-11: Direct modification of locked clinical record is blocked by trigger (RECORD_LOCKED_AMENDMENT_REQUIRED)',
+        assert('GATE5-T5.3', 'SEC-09 & SEC-11: Clinical record is immutable — direct UPDATE blocked (RECORD_LOCKED) and direct DELETE blocked (APP_ERROR_CLINICAL_RECORD_IMMUTABLE)',
             t53Res.includes('PASSED'),
-            `Lock trigger verification: ${t53Res}`);
+            `Lock and delete trigger verification: ${t53Res}`);
 
         // --- TEST 5.4: Clinical Amendment Creation (Addendum for Locked Record) ---
         const t54Query = `

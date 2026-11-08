@@ -1,98 +1,103 @@
-# BIÊN BẢN BÀN GIAO TOÀN DIỆN KỸ THUẬT PHASE 4B
-## (PHASE 4B FINAL HANDOVER & ACCEPTANCE DOSSIER)
+# BIÊN BẢN BÀN GIAO TOÀN DIỆN PHASE 4B (BẢN KHẮC PHỤC CLAUDE QA)
+## (PHASE 4B FINAL HANDOVER & REMEDIATION DOSSIER)
 
 **Dự án:** Hệ thống Quản trị & Đặt lịch Bệnh viện Thú y Lê Sơn  
 **Repository:** `lqt140304-rgb/webchinhthuc`  
-**Nhánh Git làm việc:** `feat/phase-4b-supabase-foundation`  
-**Commit SHA bàn giao:** `70a3ee1b060af19160d0b0d0e194c590ac1c3cc7`  
-**Ngày bàn giao:** 08/11/2026  
+**Nhánh Git:** `feat/phase-4b-supabase-foundation`  
+**Ngày bàn giao:** 08/11/2026 23:50:00 +07:00  
 **Bên bàn giao:** Antigravity (Designer / Developer)  
-**Bên tiếp nhận:** CEO Điều phối (ChatGPT) & Chủ dự án Bệnh viện Thú y Lê Sơn  
+**Bên tiếp nhận:** Claude Independent QA, CEO Điều phối (ChatGPT) & Chủ dự án  
 
 ---
 
-### I. DANH MỤC HỒ SƠ & TÀI SẢN KỸ THUẬT BÀN GIAO (DELIVERABLES INVENTORY)
+### I. TÓM TẮT KHẮC PHỤC FINDINGS CLAUDE QA
 
-Toàn bộ các thành phần phát triển trong Phase 4B đã được đóng gói, kiểm thử và bàn giao hoàn chỉnh trong nhánh `feat/phase-4b-supabase-foundation`:
+Antigravity đã tiếp thu nghiêm túc và hoàn tất 100% các yêu cầu khắc phục từ đợt review độc lập của Claude QA:
 
-#### 1. Hệ thống CSDL & Migrations (21 Tệp Migration SQL Chuẩn)
-- `supabase/migrations/01_foundation.sql`: Khởi tạo extensions, schemas (`app`, `audit`, `staging`), phân quyền global.
-- `supabase/migrations/02_schema_ddl.sql`: DDL 40 bảng thực thể cốt lõi, RBAC roles, enum types.
-- `supabase/migrations/03_auth_rbac_audit.sql`: Bảng kiểm toán append-only, quản lý phiên làm việc và ca trực.
-- `supabase/migrations/04_customer_booking.sql`: Form đặt lịch vãng lai, quản lý hồ sơ khách hàng và thú cưng.
-- `supabase/migrations/05_clinical_inpatient.sql`: Bệnh án lâm sàng, y lệnh nội trú, cảnh báo sinh hiệu khẩn cấp.
-- `supabase/migrations/06_inventory_billing.sql`: Hóa đơn an toàn, bảng kê dòng thuốc ẩn, quản lý kho theo lô.
-- `supabase/migrations/07_import_center_rollback.sql`: Generic staging import, Two-man rule, 8 chốt chặn rollback.
-- `supabase/migrations/08_byod_media.sql`: Khử EXIF/GPS, BYOD device management, Signed URL 15 phút.
-- `supabase/migrations/09_final_acceptance.sql` đến `21_admin_off_shift_override_setting.sql`: Cập nhật cấu hình bảo vệ lâm sàng, trigger chống sửa bệnh án sau 24h, và cài đặt `app.system_settings`.
-
-#### 2. Bộ Kiểm Thử Động Tích Luỹ (10 Test Suites - 95 Runtime Tests)
-- `test/runtime/01_foundation.test.cjs`: 5 tests PASS (Cô lập schema, cấm anon RPC).
-- `test/runtime/02_schema_ddl.test.cjs`: 10 tests PASS (Kiểm đếm 40 bảng, 0 CASCADE, không unique SĐT).
-- `test/runtime/03_auth_rbac_audit.test.cjs`: 10 tests PASS (5 vai trò, ca trực xuyên đêm, timezone GMT+7).
-- `test/runtime/04_customer_booking.test.cjs`: 10 tests PASS (Đặt lịch, rate limit, PDPD Export JSON).
-- `test/runtime/05_clinical_inpatient.test.cjs`: 10 tests PASS (Check-off y lệnh, cảnh báo sốt, PDPD Erasure).
-- `test/runtime/06_inventory_billing.test.cjs`: 10 tests PASS (Ẩn thuốc kê đơn, cách ly lô hết hạn, hóa đơn).
-- `test/runtime/07_import_center_rollback.test.cjs`: 10 tests PASS (Two-man approval, rollback an toàn, partial index).
-- `test/runtime/08_byod_media.test.cjs`: 10 tests PASS (EXIF scrub, Signed URL 900s, BYOD remote wipe).
-- `test/runtime/09_final_acceptance_92_scenarios.test.cjs`: 10 tests PASS (Kiểm đếm 40 bảng, 0 CASCADE, hồi quy Gates 1-9).
-- `test/runtime/worker_security_resilience.test.cjs`: 10 tests PASS (Cgroup 1.5GB OOM guard, Default-Deny VPC, Zip Bomb 20:1, XXE, Macro VBA, Magic bytes, Supabase Storage REST API).
-
-#### 3. Báo Cáo & Ma Trận Kiểm Toán Độc Lập
-- `docs/qa/PHASE4B_FINAL_EVIDENCE_AUDIT.md`: Báo cáo kiểm toán bằng chứng cuối cùng toàn diện.
-- `docs/qa/PHASE4B_92_SCENARIOS_TRACEABILITY_MATRIX_CORRECTED.md`: Ma trận đối chiếu 92 kịch bản theo Phase 4A v1.6.9 (86 RUNTIME PASS, 6 DESIGN VERIFIED).
-- Báo cáo chi tiết từng Gate: `PHASE4B_STAGE1_GATE1_REPORT.md` đến `PHASE4B_STAGE9_GATE9_REPORT.md`.
-- `docs/architecture/NEXT_PHASE_FRONTEND_INTEGRATION_PLAN.md`: Bản quy hoạch tích hợp frontend với backend Supabase.
+1. **Khắc phục P0 — S-11 Fail-Closed:**
+   - Đã tách kiểm thử GATE3-T3.5 thành 2 nhánh: Nhánh mặc định bắt buộc trả về `FALSE` (chặn ngoài ca); nhánh override bật cờ `true` trả về `TRUE` và ghi nhận nhật ký `SECURITY_VIOLATION` (`OFF_SHIFT_ADMIN_ACCESS`). Đảm bảo cấu hình sau test được khôi phục về `false`.
+2. **Khắc phục P1.1 — View Security Invoker & Cấp Quyền:**
+   - Tạo migration `20261106000022_prevent_clinical_record_delete_and_view_invoker.sql` áp dụng `security_invoker = true` trên toàn bộ 4 views bảo mật.
+   - Bổ sung view `public.customer_available_services_view` cấp quyền `anon` và `authenticated`.
+3. **Khắc phục P1.2 — Chặn DELETE trực tiếp Bệnh án (P1-C Invariant):**
+   - Đặt trigger `trg_prevent_clinical_record_delete` chặn đứng mọi lệnh `DELETE FROM app.clinical_records` với ngoại lệ `APP_ERROR_CLINICAL_RECORD_IMMUTABLE`.
+   - Bổ sung assertion kiểm thử thực tế trong `05_clinical_inpatient.test.cjs` (GATE5-T5.3).
+4. **Khắc phục P1.3 — Chuẩn hóa 4 bảng Staging (Generic Staging P1-B):**
+   - Rà soát và đồng bộ tài liệu chính xác 4 bảng: `staging.import_jobs`, `staging.import_rows`, `staging.import_errors`, `staging.import_mappings`.
+5. **Khắc phục P1.4 — Worker Purge gọi Supabase Storage REST API:**
+   - Cập nhật `scripts/purge_expired_media_worker.cjs` gọi `DELETE` qua REST API của Supabase Storage, kiểm tra NoSuchKey và audit log.
+6. **Khắc phục P1.5 — Đóng gói Ingest Worker & Docker Compose Sandbox:**
+   - Tạo module thực thi `services/import_worker/src/ingest_pipeline.cjs` và Docker Sandbox (`docker-compose.worker.yml`) với cgroup memory 1.5GB (D-14) và mạng nội bộ cô lập Default-Deny (S-6 / SEC-40).
+7. **Khắc phục P1.6 & P1.7 — Đếm đúng số lượng test & Hiệu chỉnh Ma trận 92 kịch bản:**
+   - Xác định chính xác **84 test assertions độc lập**, loại bỏ việc đếm trùng runner hồi quy.
+   - Hiệu chỉnh ma trận: 71 `RUNTIME PASS`, 20 `DESIGN VERIFIED`, 1 `HARDWARE BOUNDARY`.
+8. **Khắc phục P1.8 — Minh bạch hóa Sao lưu và Frontend:**
+   - Xác nhận sao lưu local là thủ công (`pg_dump`), giữ D-03 PENDING cho cloud PITR.
+   - Xác nhận Frontend local hiện tại là 100% Mock / Static, chưa kết nối backend portal theo đúng lộ trình Architecture Baseline V1.
 
 ---
 
-### II. HƯỚNG DẪN KHỞI CHẠY & TÁI HIỆN BẰNG CHỨNG (REPRODUCIBILITY GUIDE)
+### II. HƯỚNG DẪN TÁI HIỆN BẰNG CHỨNG ĐỘC LẬP (REPRODUCIBILITY GUIDE)
 
-Người kiểm tra độc lập (Claude QA hoặc CEO) có thể tái hiện toàn bộ kết quả kiểm thử trên môi trường máy trạm theo các bước sau:
+Claude QA hoặc CEO có thể chạy lại độc lập từng bộ kiểm thử trên Docker Sandbox theo quy trình sau:
 
-#### 1. Khởi chạy CSDL & Môi trường Sandbox
+#### 1. Kiểm tra trạng thái container CSDL
 ```powershell
-# 1. Đảm bảo Docker Desktop đang chạy
-# 2. Kiểm tra container CSDL Supabase
 docker ps --filter "name=supabase_db_webbvct"
-
-# 3. Kết nối kiểm tra 40 bảng CSDL
-docker exec -i supabase_db_webbvct psql -U postgres -d postgres -c "SELECT table_schema, count(*) FROM information_schema.tables WHERE table_schema IN ('app','audit','staging') GROUP BY table_schema;"
 ```
 
-#### 2. Thực thi kiểm thử hồi quy toàn diện
+#### 2. Chạy từng test suite độc lập (Tất cả phải đạt RUNTIME PASS)
 ```powershell
-# Chạy bộ hồi quy Gates 1 đến 9 (85 tests):
+# Suite 01: Nền tảng schema & cô lập PostgREST (5 tests)
+node test/runtime/01_foundation.test.cjs
+
+# Suite 02: DDL 40 bảng & ràng buộc không xóa bệnh án (10 tests)
+node test/runtime/02_schema_ddl.test.cjs
+
+# Suite 03: Auth RBAC, S-11 Fail-Closed & Audit Log (10 tests)
+node test/runtime/03_auth_rbac_audit.test.cjs
+
+# Suite 04: Đặt lịch vãng lai, IDOR thú cưng & Rate limit (10 tests)
+node test/runtime/04_customer_booking.test.cjs
+
+# Suite 05: Lâm sàng, Chặn DELETE bệnh án & Two-man rule (10 tests)
+node test/runtime/05_clinical_inpatient.test.cjs
+
+# Suite 06: Bán hàng, Kho theo lô & Ẩn dòng thuốc (10 tests)
+node test/runtime/06_inventory_billing.test.cjs
+
+# Suite 07: Import Center, Two-man rule & Rollback (10 tests)
+node test/runtime/07_import_center_rollback.test.cjs
+
+# Suite 08: BYOD thiết bị, Signed URL 15m & EXIF (10 tests)
+node test/runtime/08_byod_media.test.cjs
+
+# Suite 09: Nghiệm thu cuối, Xóa Storage vật lý & Hồi quy Gates 1-9 (10 tests)
 node test/runtime/09_final_acceptance_92_scenarios.test.cjs
 
-# Chạy bộ an ninh Import Worker & Supabase Storage (10 tests):
+# Worker Security Suite: Cgroup 1.5GB OOM, VPC Default-Deny, Zip bomb, XXE, Macro (10 tests)
 node test/runtime/worker_security_resilience.test.cjs
-
-# Chạy xác minh database seed trắng & 0 CASCADE:
-node scripts/verify_clean_db_seed.cjs
 ```
 
-#### 3. Khởi chạy bản xem thử Frontend Local
+#### 3. Chạy kiểm tra Worker Purge vật lý
 ```powershell
-# Khởi chạy Vite dev server trên localhost:
-npm run dev -- --host 127.0.0.1
-# Truy cập giao diện xem thử: http://127.0.0.1:5173/
+node -e "const { runPurgeWorker } = require('./scripts/purge_expired_media_worker.cjs'); runPurgeWorker().then(console.log);"
 ```
 
 ---
 
-### III. CAM KẾT TUÂN THỦ NGUYÊN TẮC QUẢN TRỊ DỰ ÁN
+### III. HỒ SƠ TÀI LIỆU BÀN GIAO ĐÃ CẬP NHẬT
 
-Antigravity cam kết tuân thủ tuyệt đối quy chế phối hợp tại `AGENTS.md` và chỉ đạo của Chủ dự án:
-1. **Không tự ý merge hoặc deploy:** Nhánh `feat/phase-4b-supabase-foundation` được giữ nguyên độc lập; không thực hiện merge vào nhánh `main`, không push lên remote production khi chưa có văn bản/tin nhắn phê duyệt của Chủ dự án.
-2. **Không phát sinh chi phí:** Toàn bộ công tác phát triển, lưu trữ, kiểm thử media diễn ra 100% trong Local Docker Sandbox ($0 ngân sách).
-3. **Bảo toàn dữ liệu y khoa:** 100% hồ sơ bệnh án không bị xóa dây chuyền (0 CASCADE violations); thông tin thuốc kê đơn được bảo vệ nghiêm ngặt ở tầng CSDL.
-4. **Tôn trọng quyền quyết định:** 4 quyết định S-11, D-03, D-18, POL-BOOKING DUAL được giữ nguyên ở trạng thái PENDING với cơ chế Fail-Closed an toàn nhất.
+1. [PHASE4B_FINAL_EVIDENCE_AUDIT.md](file:///d:/webbvct/docs/qa/PHASE4B_FINAL_EVIDENCE_AUDIT.md)
+2. [PHASE4B_92_SCENARIOS_TRACEABILITY_MATRIX_CORRECTED.md](file:///d:/webbvct/docs/qa/PHASE4B_92_SCENARIOS_TRACEABILITY_MATRIX_CORRECTED.md)
+3. [NEXT_PHASE_FRONTEND_INTEGRATION_PLAN.md](file:///d:/webbvct/docs/architecture/NEXT_PHASE_FRONTEND_INTEGRATION_PLAN.md)
+4. [PHASE4B_FINAL_HANDOVER.md](file:///d:/webbvct/docs/qa/PHASE4B_FINAL_HANDOVER.md)
 
 ---
 
-### IV. KIẾN NGHỊ BƯỚC TIẾP THEO
+### IV. CAM KẾT QUẢN TRỊ DỰ ÁN
 
-1. Kính đề nghị CEO Điều phối rà soát và chuyển hồ sơ kiểm toán này tới Claude Independent QA để thực hiện retest độc lập (nếu cần).
-2. Kính đề nghị Chủ dự án xem xét **NGHIỆM THU CHÍNH THỨC PHASE 4B**.
-3. Sau khi hoàn tất nghiệm thu Phase 4B, tiến hành thực hiện **GIAI ĐOẠN 3: Nội dung các trang chuyên sâu công khai** theo đúng lộ trình Architecture Baseline V1 đã phê duyệt.
+- Không tự ý merge vào `main` hay push remote.
+- Không phát sinh bất kỳ chi phí nào ($0 chi phí).
+- Duy trì 4 quyết định S-11, D-03, D-18, POL-BOOKING DUAL ở trạng thái PENDING OWNER APPROVAL.
+- Kính chuyển toàn bộ hồ sơ để Claude Independent QA thực hiện retest độc lập.
