@@ -42,7 +42,7 @@ function psql(query) {
     const ps = execSync('docker ps --filter "name=supabase_db" --format "{{.Names}}"', { encoding: 'utf8' }).trim();
     if (!ps) throw new Error('Database container not found.');
     const container = ps.split('\n')[0].trim();
-    return execSync(`docker exec -i ${container} psql -U postgres -d postgres -t -A`, { input: query, encoding: 'utf8' }).trim();
+    return execSync(`docker exec -i ${container} psql -U postgres -d postgres -v ON_ERROR_STOP=1 -t -A`, { input: query, encoding: 'utf8' }).trim();
 }
 
 async function runTests() {

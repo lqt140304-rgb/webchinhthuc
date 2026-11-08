@@ -43,7 +43,7 @@ function psql(query) {
     const ps = execSync('docker ps --filter "name=supabase_db" --format "{{.Names}}"', { encoding: 'utf8' }).trim();
     if (!ps) throw new Error('Database container not found.');
     const container = ps.split('\n')[0].trim();
-    return execSync(`docker exec -i ${container} psql -U postgres -d postgres -t -A`, { input: query, encoding: 'utf8' }).trim();
+    return execSync(`docker exec -i ${container} psql -U postgres -d postgres -v ON_ERROR_STOP=1 -t -A`, { input: query, encoding: 'utf8' }).trim();
 }
 
 async function runTests() {
@@ -177,6 +177,9 @@ async function runTests() {
                 INSERT INTO app.staff_role_assignments (user_id, role, assigned_by)
                 VALUES (v_admin_uid, 'admin', v_admin_uid);
 
+                -- Temporarily enable S-11 feature flag to verify override capability & audit log
+                UPDATE app.system_settings SET setting_value = 'true' WHERE setting_key = 'allow_admin_off_shift_override';
+
                 v_res := app.check_active_shift(v_admin_uid, 'veterinarian');
                 IF v_res <> TRUE THEN
                     RAISE EXCEPTION 'S-11: Admin override failed to return TRUE';
@@ -191,6 +194,9 @@ async function runTests() {
                 IF v_audit_count = 0 THEN
                     RAISE EXCEPTION 'S-11 VIOLATION: Off-shift admin access failed to generate audit log!';
                 END IF;
+
+                -- Restore S-11 to Fail-Closed default ('false' - PENDING OWNER APPROVAL)
+                UPDATE app.system_settings SET setting_value = 'false' WHERE setting_key = 'allow_admin_off_shift_override';
 
                 -- Clean up
                 DELETE FROM audit.audit_logs WHERE record_id = v_admin_uid;
