@@ -19,9 +19,16 @@ CREATE TABLE IF NOT EXISTS app.system_settings (
     updated_at TIMESTAMPTZ NOT NULL DEFAULT CLOCK_TIMESTAMP()
 );
 
--- Khóa quyền bảo vệ system_settings
+-- Khóa quyền bảo vệ system_settings & Kích hoạt RLS
 REVOKE ALL ON TABLE app.system_settings FROM PUBLIC, anon, authenticated;
 GRANT ALL ON TABLE app.system_settings TO postgres, service_role;
+ALTER TABLE app.system_settings ENABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS rls_system_settings_admin ON app.system_settings;
+CREATE POLICY rls_system_settings_admin ON app.system_settings
+    FOR ALL TO authenticated
+    USING (app.is_admin())
+    WITH CHECK (app.is_admin());
 
 -- Khởi tạo cờ S-11 ở trạng thái FAIL-CLOSED (mặc định 'false' - PENDING OWNER APPROVAL)
 INSERT INTO app.system_settings (setting_key, setting_value, description)

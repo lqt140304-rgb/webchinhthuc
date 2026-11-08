@@ -162,7 +162,7 @@ BEGIN
     END IF;
 
     -- Giả lập ký token thời hạn 900s (Production dùng Supabase Storage Sign API)
-    v_signed_token := encode(digest(p_media_id::text || auth.uid()::text || clock_timestamp()::text, 'sha256'), 'hex');
+    v_signed_token := encode(extensions.digest((p_media_id::text || auth.uid()::text || clock_timestamp()::text)::bytea, 'sha256'), 'hex');
 
     RETURN jsonb_build_object(
         'media_id', p_media_id,

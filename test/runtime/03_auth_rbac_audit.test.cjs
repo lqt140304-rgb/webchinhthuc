@@ -56,9 +56,9 @@ async function runTests() {
               AND rowsecurity = true;
         `;
         const rlsCount = parseInt(psql(rlsQuery), 10);
-        assert('GATE3-T3.1', 'Row Level Security (RLS) is active on 100% of the 39 tables (34 app + 4 staging + 1 audit)',
-            rlsCount === 39,
-            `Total tables with RLS active: ${rlsCount} / 39`);
+        assert('GATE3-T3.1', 'Row Level Security (RLS) is active on 100% of the 40 tables (35 app + 4 staging + 1 audit)',
+            rlsCount === 40,
+            `Total tables with RLS active: ${rlsCount} / 40`);
 
         // --- TEST 3.2: SEC-01 IDOR Prevention on rpc_ensure_app_user ---
         const sec01Query = `
