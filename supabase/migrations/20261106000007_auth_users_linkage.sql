@@ -31,37 +31,11 @@ BEGIN
         full_name = CASE WHEN app.users.full_name = 'Khách hàng mới' THEN EXCLUDED.full_name ELSE app.users.full_name END,
         updated_at = CLOCK_TIMESTAMP();
 
-    -- 2. D-19 Lazy Creation: Đối với người dùng đăng ký qua Email/Google OAuth (chưa có SĐT):
-    -- Hệ thống TUYỆT ĐỐI KHÔNG tạo bản ghi khách hàng rác hay liên kết rác.
-    -- Chỉ khi người dùng đăng ký trực tiếp bằng Số điện thoại (SMS OTP) mới tạo hồ sơ sơ bộ:
-    IF v_phone IS NOT NULL AND v_phone <> '' THEN
-        INSERT INTO app.customers (
-            full_name,
-            phone_number,
-            email,
-            is_active
-        )
-        VALUES (
-            COALESCE(NEW.raw_user_meta_data->>'full_name', 'Khách hàng mới'),
-            SUBSTRING(v_phone FROM 1 FOR 15),
-            NEW.email,
-            TRUE
-        )
-        RETURNING id INTO v_customer_id;
-
-        -- Tạo liên kết trạng thái chờ duyệt (pending)
-        INSERT INTO app.customer_user_links (
-            customer_id,
-            user_id,
-            link_status
-        )
-        VALUES (
-            v_customer_id,
-            NEW.id,
-            'pending'
-        );
-    END IF;
-
+    -- 2. D-19 Strict Lazy Creation (Quyết định D-19 của Chủ dự án):
+    -- Đăng ký tài khoản (dù bằng Email, Google OAuth hay SMS OTP) TUYỆT ĐỐI KHÔNG tự tạo bản ghi app.customers.
+    -- Tài khoản mới chỉ tồn tại ở tầng định danh app.users. Hồ sơ khách hàng CRM lâm sàng (app.customers)
+    -- chỉ được tạo "lười" (lazy) khi người dùng thực sự thực hiện đặt lịch hẹn (Gate 4), đăng ký thú cưng,
+    -- hoặc được tiếp tân đối soát tạo hồ sơ trực tiếp tại quầy tiếp đón.
     RETURN NEW;
 EXCEPTION WHEN OTHERS THEN
     -- T-6 & U-6 FIX: Bắt toàn bộ lỗi ngoại lệ để KHÔNG gián đoạn Auth, MASK PII
