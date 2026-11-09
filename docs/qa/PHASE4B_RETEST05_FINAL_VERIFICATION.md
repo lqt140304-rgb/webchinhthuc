@@ -4,7 +4,7 @@
 **Dự án:** Hệ thống Quản trị & Đặt lịch Bệnh viện Thú y Lê Sơn  
 **Repository:** `lqt140304-rgb/webchinhthuc`  
 **Nhánh Git:** `feat/phase-4b-supabase-foundation`  
-**Commit SHA Retest-05:** Sẽ được gắn nhãn sau commit này  
+**Commit SHA Retest-05:** `b9dc331ffbcf401c70c094b779e69f9f87b45eaa` (viết tắt: `b9dc331`)  
 **Base Commit trước sửa:** `f6b7c96`  
 **Thời điểm hoàn thành:** 2026-11-09  
 **Môi trường thực thi:** Supabase Local Docker Stack (PostgreSQL 17.11 / PostgREST 12 / Kong 54321 / Storage 5000 / GoTrue 9999)  
