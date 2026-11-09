@@ -1,9 +1,12 @@
 const { execSync } = require('child_process');
 const path = require('path');
 const fs = require('fs');
+const crypto = require('crypto');
 const { cleanDatabase } = require('./clean_database.cjs');
 
 const testDir = path.resolve(__dirname, '../test/runtime');
+const migrationsDir = path.resolve(__dirname, '../supabase/migrations');
+
 const suites = [
     '01_foundation.test.cjs',
     '02_schema_ddl.test.cjs',
@@ -25,7 +28,62 @@ function getCommitSha() {
     }
 }
 
-function shuffle(array, seed = Math.random()) {
+function computeFileHash(filePath) {
+    const fileBuffer = fs.readFileSync(filePath);
+    return crypto.createHash('sha256').update(fileBuffer).digest('hex');
+}
+
+function getEnvironmentVersions() {
+    const env = {
+        nodeVersion: process.version,
+        platform: process.platform,
+        arch: process.arch,
+        postgresVersion: 'UNKNOWN',
+        dockerContainers: []
+    };
+
+    try {
+        const ps = execSync('docker ps --filter "name=supabase_db" --format "{{.Names}}"', { encoding: 'utf8' }).trim();
+        if (ps) {
+            const container = ps.split('\n')[0].trim();
+            env.postgresVersion = execSync(`docker exec ${container} psql -U postgres -d postgres -t -A -c "SELECT version();"`, { encoding: 'utf8' }).trim();
+        }
+    } catch (e) {
+        env.postgresVersion = `Error reading postgres version: ${e.message}`;
+    }
+
+    try {
+        const dockerPs = execSync('docker ps --format "{{.Names}}\t{{.Image}}\t{{.Status}}"', { encoding: 'utf8' }).trim();
+        env.dockerContainers = dockerPs.split('\n').filter(Boolean).map(line => {
+            const [names, image, status] = line.split('\t');
+            return { names, image, status };
+        });
+    } catch (e) {
+        env.dockerContainers = [{ error: e.message }];
+    }
+
+    return env;
+}
+
+function getFileHashes() {
+    const migrationHashes = {};
+    const migrationFiles = fs.readdirSync(migrationsDir).filter(f => f.endsWith('.sql')).sort();
+    for (const file of migrationFiles) {
+        migrationHashes[file] = computeFileHash(path.join(migrationsDir, file));
+    }
+
+    const testHashes = {};
+    for (const file of suites) {
+        testHashes[file] = computeFileHash(path.join(testDir, file));
+    }
+
+    return {
+        migrations: migrationHashes,
+        testSuites: testHashes
+    };
+}
+
+function shuffle(array) {
     const arr = [...array];
     for (let i = arr.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -50,42 +108,85 @@ function runSuiteList(runName, suiteList) {
     const startTime = Date.now();
     for (const suite of suiteList) {
         const fullPath = path.join(testDir, suite);
-        try {
-            const output = execSync(`node ${fullPath}`, { encoding: 'utf8', stdio: 'pipe' });
-            const passMatches = output.match(/\[RUNTIME PASS\]/g) || [];
-            const failMatches = output.match(/\[RUNTIME FAIL\]/g) || [];
+        const suiteStart = Date.now();
+        let stdout = '';
+        let stderr = '';
+        let exitCode = 0;
+        let suitePassed = 0;
+        let suiteFailed = 0;
+        let errMessage = null;
 
-            console.log(`[PASS] ${suite.padEnd(45)}: ${passMatches.length} PASS, ${failMatches.length} FAIL`);
-            passedCount += passMatches.length;
-            failedCount += failMatches.length;
-            runLogs.push({ suite, passed: passMatches.length, failed: failMatches.length, error: null });
+        try {
+            stdout = execSync(`node ${fullPath}`, { encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe'] });
+            const passMatches = stdout.match(/\[RUNTIME PASS\]/g) || [];
+            const failMatches = stdout.match(/\[RUNTIME FAIL\]/g) || [];
+            suitePassed = passMatches.length;
+            suiteFailed = failMatches.length;
+
+            console.log(`[PASS] ${suite.padEnd(45)}: ${suitePassed} PASS, ${suiteFailed} FAIL (${((Date.now() - suiteStart) / 1000).toFixed(2)}s)`);
+            passedCount += suitePassed;
+            failedCount += suiteFailed;
         } catch (err) {
-            console.error(`[FAIL] ${suite.padEnd(45)}: EXCEPTION: ${err.message}`);
-            failedCount++;
-            runLogs.push({ suite, passed: 0, failed: 1, error: err.message });
+            exitCode = err.status || 1;
+            stdout = err.stdout ? err.stdout.toString() : '';
+            stderr = err.stderr ? err.stderr.toString() : '';
+            errMessage = err.message;
+
+            const passMatches = stdout.match(/\[RUNTIME PASS\]/g) || [];
+            const failMatches = stdout.match(/\[RUNTIME FAIL\]/g) || [];
+            suitePassed = passMatches.length;
+            suiteFailed = failMatches.length + 1; // Count failure
+
+            console.error(`[FAIL] ${suite.padEnd(45)}: EXCEPTION: ${err.message} (${((Date.now() - suiteStart) / 1000).toFixed(2)}s)`);
+            passedCount += suitePassed;
+            failedCount += suiteFailed;
         }
+
+        const duration = ((Date.now() - suiteStart) / 1000).toFixed(2);
+        runLogs.push({
+            suite,
+            passed: suitePassed,
+            failed: suiteFailed,
+            durationSeconds: parseFloat(duration),
+            exitCode,
+            stdout: stdout.trim(),
+            stderr: stderr.trim(),
+            error: errMessage
+        });
     }
-    const duration = ((Date.now() - startTime) / 1000).toFixed(2);
-    console.log(`RESULT: ${passedCount} PASS, ${failedCount} FAIL (Duration: ${duration}s)`);
+
+    const totalDuration = ((Date.now() - startTime) / 1000).toFixed(2);
+    console.log(`RESULT: ${passedCount} PASS, ${failedCount} FAIL (Duration: ${totalDuration}s)`);
 
     return {
         runName,
         order: suiteList,
         passedCount,
         failedCount,
-        durationSeconds: duration,
+        durationSeconds: parseFloat(totalDuration),
         exitCode: failedCount === 0 ? 0 : 1,
-        details: runLogs
+        suites: runLogs
     };
 }
 
 async function main() {
     console.log('##############################################################################');
-    console.log('# PHASE 4B: HERMETIC MULTI-ORDER CLEAN DATABASE VERIFICATION PROBE (V4-03)   #');
+    console.log('# PHASE 4B: HERMETIC MULTI-ORDER CLEAN DATABASE VERIFICATION PROBE (V6-02)   #');
     console.log('##############################################################################');
     const commitSha = getCommitSha();
+    const timestamp = new Date().toISOString();
     console.log(`Git Commit SHA: ${commitSha}`);
-    console.log(`Timestamp: ${new Date().toISOString()}`);
+    console.log(`Timestamp: ${timestamp}`);
+
+    console.log('\n--- Environment Information ---');
+    const environment = getEnvironmentVersions();
+    console.log(`Node.js: ${environment.nodeVersion}`);
+    console.log(`PostgreSQL: ${environment.postgresVersion}`);
+    console.log(`Docker Containers: ${environment.dockerContainers.length} active`);
+
+    console.log('\n--- Hashing Migrations and Test Suites ---');
+    const checksums = getFileHashes();
+    console.log(`Computed SHA-256 for ${Object.keys(checksums.migrations).length} migrations and ${Object.keys(checksums.testSuites).length} test suites.`);
 
     const allRuns = [];
 
@@ -109,30 +210,53 @@ async function main() {
     allRuns.push(run4);
 
     console.log('\n==============================================================================');
-    console.log('FINAL MULTI-ORDER VERIFICATION SUMMARY (V4-03 HERMETIC TEST AUDIT)');
+    console.log('FINAL MULTI-ORDER VERIFICATION SUMMARY (V6-02 HERMETIC TEST AUDIT)');
     console.log('==============================================================================');
 
     let allPassed = true;
+    let grandTotalPassed = 0;
+    let grandTotalFailed = 0;
+
     for (const r of allRuns) {
         console.log(`* ${r.runName}: ${r.passedCount}/95 PASS, ${r.failedCount} FAIL | Exit Code: ${r.exitCode} | Time: ${r.durationSeconds}s`);
+        grandTotalPassed += r.passedCount;
+        grandTotalFailed += r.failedCount;
         if (r.exitCode !== 0 || r.passedCount !== 95) {
             allPassed = false;
         }
     }
 
     console.log('------------------------------------------------------------------------------');
+    console.log(`GRAND TOTAL: ${grandTotalPassed}/${95 * 4} Assertions PASS, ${grandTotalFailed} FAIL across 4 pristine runs.`);
     if (allPassed) {
         console.log('VERDICT: 100% HERMETIC PASS ACROSS ALL 4 RUNS ON PRISTINE CLEAN DATABASE.');
         console.log('All test suites are fully self-contained and strictly order-independent.');
     } else {
         console.error('VERDICT: FAILED. Order-dependency or missing fixtures detected.');
-        process.exit(1);
     }
 
     // Save report json
     const reportPath = path.join(__dirname, '../docs/qa/HERMETIC_MULTI_ORDER_REPORT.json');
-    fs.writeFileSync(reportPath, JSON.stringify({ commitSha, timestamp: new Date().toISOString(), allRuns }, null, 2), 'utf8');
-    console.log(`Detailed verification report written to: ${reportPath}`);
+    const reportData = {
+        meta: {
+            title: 'Phase 4B Hermetic Multi-Order Clean Database Verification (V6-02)',
+            commitSha,
+            timestamp,
+            grandTotalAssertionsPassed: grandTotalPassed,
+            grandTotalAssertionsExpected: 95 * 4,
+            verdict: allPassed ? '100% PASS' : 'FAIL'
+        },
+        environment,
+        checksums,
+        runs: allRuns
+    };
+
+    fs.writeFileSync(reportPath, JSON.stringify(reportData, null, 2), 'utf8');
+    console.log(`Detailed verification report with raw logs written to: ${reportPath}`);
+
+    if (!allPassed) {
+        process.exit(1);
+    }
 }
 
 main().catch(err => {

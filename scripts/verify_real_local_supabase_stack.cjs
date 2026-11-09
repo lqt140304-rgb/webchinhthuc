@@ -9,12 +9,12 @@
 
 const { execSync } = require('child_process');
 const crypto = require('crypto');
-const { issueMediaSignedUrl } = require('../services/media_server/media_service.cjs');
 
 const BASE_URL = 'http://127.0.0.1:54321';
 const REST_URL = `${BASE_URL}/rest/v1`;
 const AUTH_URL = `${BASE_URL}/auth/v1`;
 const STORAGE_URL = `${BASE_URL}/storage/v1`;
+const FUNCTIONS_URL = `${BASE_URL}/functions/v1`;
 
 const JWT_SECRET = 'super-secret-jwt-token-with-at-least-32-characters-long';
 const ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRXP1A7WOeoJeXxjNni43kdQwgnWNReilDMblYTn_I0';
@@ -191,28 +191,19 @@ async function runStackVerification() {
         const alicePets = await alicePetsRes.json();
         const aliceOwnsPet = alicePetsRes.status === 200 && alicePets.some(p => p.id === '50000000-0000-0000-0000-000000000001' || p.pet_name.includes('Mimi'));
 
-        // Alice requests media authorization grant via RPC (no BYOD device required)
-        const aliceMediaRpc = await fetch(`${REST_URL}/rpc/rpc_request_media_signed_url`, {
+        // Alice requests media signed URL via Supabase Edge Function (D-16 / V6-01, no BYOD device required)
+        const aliceEdgeRes = await fetch(`${FUNCTIONS_URL}/media-signed-url`, {
             method: 'POST',
-            headers: { apikey: ANON_KEY, Authorization: `Bearer ${jwtAlice}`, 'Content-Type': 'application/json' },
-            body: JSON.stringify({ p_media_id: '70000000-0000-0000-0000-000000000001' })
+            headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${jwtAlice}` },
+            body: JSON.stringify({ media_id: '70000000-0000-0000-0000-000000000001' })
         });
-        const aliceMediaData = await aliceMediaRpc.json();
-        const aliceAuthorized = aliceMediaRpc.status === 200 && aliceMediaData.authorized === true && !!aliceMediaData.storage_path;
-
-        // Trusted Server Component issues official Signed URL via Supabase Storage API
-        const aliceSignedRes = await issueMediaSignedUrl({
-            supabaseUrl: BASE_URL,
-            serviceRoleKey: SERVICE_KEY,
-            userToken: jwtAlice,
-            mediaId: '70000000-0000-0000-0000-000000000001'
-        });
-        const aliceSignedUrl = aliceSignedRes.signed_url;
-        const alicePass = aliceOwnsPet && aliceAuthorized && !!aliceSignedUrl;
-        recordProbe('Role Customer Alice: Sees own pet, receives DB Authorization Grant & Server Signed URL without BYOD requirement', alicePass, `Pets: ${alicePets.length}, DB status: ${aliceMediaRpc.status}, Signed URL: ${aliceSignedUrl ? aliceSignedUrl.substring(0, 50) + '...' : 'none'}`);
+        const aliceEdgeData = await aliceEdgeRes.json();
+        const aliceSignedUrl = aliceEdgeData.signed_url;
+        const alicePass = aliceOwnsPet && aliceEdgeRes.status === 200 && aliceEdgeData.authorized === true && !!aliceSignedUrl;
+        recordProbe('Role Customer Alice (V6-01): Sees own pet, receives Supabase Edge Function Signed URL without BYOD requirement', alicePass, `Pets: ${alicePets.length}, Edge status: ${aliceEdgeRes.status}, Signed URL: ${aliceSignedUrl ? aliceSignedUrl.substring(0, 50) + '...' : 'none'}`);
 
         // --------------------------------------------------------------------------
-        // PROBE 3: Customer Bob - Cross-Customer Isolation (IDOR Rejection)
+        // PROBE 3: Customer Bob - Cross-Customer Isolation (IDOR Rejection on Edge Function)
         // --------------------------------------------------------------------------
         const bobPetsRes = await fetch(`${REST_URL}/customer_pets_view?select=id,pet_name`, {
             headers: { apikey: ANON_KEY, Authorization: `Bearer ${jwtBob}` }
@@ -220,64 +211,55 @@ async function runStackVerification() {
         const bobPets = await bobPetsRes.json();
         const bobIsolates = bobPetsRes.status === 200 && bobPets.every(p => p.pet_name !== 'Mimi Alice');
 
-        // Bob attempts to request Alice's media signed URL -> MUST FAIL with 400/403/42501 UNAUTHORIZED_MEDIA_ACCESS
-        const bobMediaRpc = await fetch(`${REST_URL}/rpc/rpc_request_media_signed_url`, {
+        // Bob attempts to request Alice's media via Edge Function -> MUST FAIL with HTTP 403 UNAUTHORIZED_MEDIA_ACCESS
+        const bobEdgeRes = await fetch(`${FUNCTIONS_URL}/media-signed-url`, {
             method: 'POST',
-            headers: { apikey: ANON_KEY, Authorization: `Bearer ${jwtBob}`, 'Content-Type': 'application/json' },
-            body: JSON.stringify({ p_media_id: '70000000-0000-0000-0000-000000000001' })
+            headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${jwtBob}` },
+            body: JSON.stringify({ media_id: '70000000-0000-0000-0000-000000000001' })
         });
-        const bobMediaJson = await bobMediaRpc.json();
-        const bobBlocked = bobMediaRpc.status >= 400 && JSON.stringify(bobMediaJson).includes('UNAUTHORIZED_MEDIA_ACCESS');
-        recordProbe('Role Customer Bob: Sees 0 Alice pets, strictly blocked from Alice media (UNAUTHORIZED_MEDIA_ACCESS)', bobIsolates && bobBlocked, `Bob pets: ${bobPets.length}, Cross-media status: ${bobMediaRpc.status} (code: ${bobMediaJson.code || '42501'})`);
+        const bobEdgeJson = await bobEdgeRes.json();
+        const bobBlocked = bobEdgeRes.status >= 400 && JSON.stringify(bobEdgeJson).includes('UNAUTHORIZED_MEDIA_ACCESS');
+        recordProbe('Role Customer Bob (V6-01 & V6-03): Sees 0 Alice pets, Edge Function strictly rejects with UNAUTHORIZED_MEDIA_ACCESS', bobIsolates && bobBlocked, `Bob pets: ${bobPets.length}, Cross-media status: ${bobEdgeRes.status} (code: ${bobEdgeJson.code || '42501'})`);
 
         // --------------------------------------------------------------------------
-        // PROBE 4: Staff Nurse Nancy - V4-01 BYOD Device Enforcement on View Path
+        // PROBE 4: Staff Nurse Nancy - V4-01 & V6-01 BYOD Device Enforcement on Edge Function
         // --------------------------------------------------------------------------
-        // 4A: Nancy calls without device fingerprint -> MUST REJECT (DEVICE_FINGERPRINT_REQUIRED)
-        const nurseNullFpRes = await fetch(`${REST_URL}/rpc/rpc_request_media_signed_url`, {
+        // 4A: Nancy calls Edge Function without device fingerprint -> MUST REJECT (DEVICE_FINGERPRINT_REQUIRED)
+        const nurseNullFpRes = await fetch(`${FUNCTIONS_URL}/media-signed-url`, {
             method: 'POST',
-            headers: { apikey: ANON_KEY, Authorization: `Bearer ${jwtNurse}`, 'Content-Type': 'application/json' },
-            body: JSON.stringify({ p_media_id: '70000000-0000-0000-0000-000000000001' })
+            headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${jwtNurse}` },
+            body: JSON.stringify({ media_id: '70000000-0000-0000-0000-000000000001' })
         });
         const nurseNullJson = await nurseNullFpRes.json();
         const nullFpBlocked = nurseNullFpRes.status >= 400 && JSON.stringify(nurseNullJson).includes('DEVICE_FINGERPRINT_REQUIRED');
 
-        // 4B: Nancy calls with untrusted device session -> MUST REJECT (DEVICE_NOT_TRUSTED)
-        const nurseUntrustedRes = await fetch(`${REST_URL}/rpc/rpc_request_media_signed_url`, {
+        // 4B: Nancy calls Edge Function with untrusted device session -> MUST REJECT (DEVICE_NOT_TRUSTED)
+        const nurseUntrustedRes = await fetch(`${FUNCTIONS_URL}/media-signed-url`, {
             method: 'POST',
-            headers: { apikey: ANON_KEY, Authorization: `Bearer ${jwtNurse}`, 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${jwtNurse}` },
             body: JSON.stringify({ 
-                p_media_id: '70000000-0000-0000-0000-000000000001',
-                p_device_fingerprint_hash: '1111111111111111111111111111111111111111111111111111111111111111'
+                media_id: '70000000-0000-0000-0000-000000000001',
+                device_fingerprint_hash: '1111111111111111111111111111111111111111111111111111111111111111'
             })
         });
         const nurseUntrustedJson = await nurseUntrustedRes.json();
         const untrustedBlocked = nurseUntrustedRes.status >= 400 && (JSON.stringify(nurseUntrustedJson).includes('DEVICE_NOT_TRUSTED') || JSON.stringify(nurseUntrustedJson).includes('DEVICE_REVOKED'));
 
-        // 4C: Nancy calls with approved BYOD device session -> MUST SUCCEED (200 OK)
-        const nurseApprovedRes = await fetch(`${REST_URL}/rpc/rpc_request_media_signed_url`, {
+        // 4C: Nancy calls Edge Function with approved BYOD device session -> MUST SUCCEED (200 OK)
+        const nurseApprovedRes = await fetch(`${FUNCTIONS_URL}/media-signed-url`, {
             method: 'POST',
-            headers: { apikey: ANON_KEY, Authorization: `Bearer ${jwtNurse}`, 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${jwtNurse}` },
             body: JSON.stringify({ 
-                p_media_id: '70000000-0000-0000-0000-000000000001',
-                p_device_fingerprint_hash: '2222222222222222222222222222222222222222222222222222222222222222'
+                media_id: '70000000-0000-0000-0000-000000000001',
+                device_fingerprint_hash: '2222222222222222222222222222222222222222222222222222222222222222'
             })
         });
         const nurseApprovedData = await nurseApprovedRes.json();
-        const approvedPass = nurseApprovedRes.status === 200 && nurseApprovedData.authorized === true && !!nurseApprovedData.storage_path;
+        const nurseSignedUrl = nurseApprovedData.signed_url;
+        const approvedPass = nurseApprovedRes.status === 200 && nurseApprovedData.authorized === true && !!nurseSignedUrl;
 
-        // Trusted Server Component issues official Signed URL for approved BYOD staff
-        const nurseSignedRes = await issueMediaSignedUrl({
-            supabaseUrl: BASE_URL,
-            serviceRoleKey: SERVICE_KEY,
-            userToken: jwtNurse,
-            mediaId: '70000000-0000-0000-0000-000000000001',
-            deviceFingerprintHash: '2222222222222222222222222222222222222222222222222222222222222222'
-        });
-        const nurseSignPass = nurseSignedRes.authorized && !!nurseSignedRes.signed_url;
-
-        const byodPass = nullFpBlocked && untrustedBlocked && approvedPass && nurseSignPass;
-        recordProbe('Role Staff Nurse (V4-01 & V5-01): NULL fingerprint blocked (42501), Untrusted device blocked (403), Approved BYOD succeeds (200) with Server Signed URL', byodPass, `Null FP: ${nurseNullFpRes.status}, Untrusted: ${nurseUntrustedRes.status}, Approved DB: ${nurseApprovedRes.status}, Server URL: ${nurseSignedRes.signed_url ? 'yes' : 'no'}`);
+        const byodPass = nullFpBlocked && untrustedBlocked && approvedPass;
+        recordProbe('Role Staff Nurse (V6-01 BYOD): NULL fingerprint blocked (42501), Untrusted device blocked (403), Approved BYOD succeeds (200)', byodPass, `Null FP: ${nurseNullFpRes.status}, Untrusted: ${nurseUntrustedRes.status}, Approved Edge: ${nurseApprovedRes.status}, Signed URL: ${nurseSignedUrl ? 'yes' : 'no'}`);
 
         // --------------------------------------------------------------------------
         // PROBE 5: Supabase Storage API Physical Fetch & Token Tampering Test
@@ -292,9 +274,25 @@ async function runStackVerification() {
         recordProbe('Supabase Storage API: Download via Signed URL (200 OK), Tampered Token rejected (400 InvalidJWT)', downloadOk && tamperedBlocked, `Valid fetch: ${fetchDownloadRes.status} (body: ${downloadBody}), Tampered fetch: ${fetchTampered.status}`);
 
         // --------------------------------------------------------------------------
-        // PROBE 6: Server Component Direct Storage API Signing (P3 Architecture)
+        // PROBE 6: Direct Storage Signing Bypass Blocking & Edge Function Path Traversal Guard (V6-03)
         // --------------------------------------------------------------------------
-        // Demonstrates standard trusted server component signing via Storage API endpoint
+        // 6A: Direct client attempt to sign via Storage API with user JWT or anon key -> MUST REJECT (HTTP 400/401/403)
+        const directSignRes = await fetch(`${STORAGE_URL}/object/sign/inpatient-media-private/inpatient/probe/alice_mimi.jpg`, {
+            method: 'POST',
+            headers: { apikey: ANON_KEY, Authorization: `Bearer ${jwtAlice}`, 'Content-Type': 'application/json' },
+            body: JSON.stringify({ expiresIn: 900 })
+        });
+        const directSignBlocked = directSignRes.status >= 400;
+
+        // 6B: Path Traversal attempt on Edge Function -> MUST REJECT (HTTP 400 Bad Request)
+        const traversalRes = await fetch(`${FUNCTIONS_URL}/media-signed-url`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${jwtAlice}` },
+            body: JSON.stringify({ media_id: '70000000-0000-0000-0000-000000000001/../../etc/passwd' })
+        });
+        const traversalBlocked = traversalRes.status === 400;
+
+        // 6C: Server-side signing with Service Role Key -> MUST SUCCEED (HTTP 200 OK)
         const serverSignRes = await fetch(`${STORAGE_URL}/object/sign/inpatient-media-private/inpatient/probe/alice_mimi.jpg`, {
             method: 'POST',
             headers: { apikey: SERVICE_KEY, Authorization: `Bearer ${SERVICE_KEY}`, 'Content-Type': 'application/json' },
@@ -302,7 +300,9 @@ async function runStackVerification() {
         });
         const serverSignData = await serverSignRes.json();
         const serverSignPass = serverSignRes.status === 200 && serverSignData.signedURL && serverSignData.signedURL.includes('/object/sign/');
-        recordProbe('Server Component Storage API Direct Signing: POST /storage/v1/object/sign (P3 Target Architecture)', serverSignPass, `Status: ${serverSignRes.status}, signedURL: ${serverSignData.signedURL ? serverSignData.signedURL.substring(0, 50) + '...' : 'none'}`);
+
+        const probe6Pass = directSignBlocked && traversalBlocked && serverSignPass;
+        recordProbe('V6-03 Security & Traversal Guards: Direct client signing blocked (403), Traversal blocked (400), Server signing verified (200)', probe6Pass, `Direct client: ${directSignRes.status}, Traversal: ${traversalRes.status}, Server sign: ${serverSignRes.status}`);
 
         // Clean up storage object
         await fetch(`${STORAGE_URL}/object/inpatient-media-private`, {
