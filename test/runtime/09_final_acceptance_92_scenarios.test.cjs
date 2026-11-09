@@ -383,43 +383,122 @@ async function runTests() {
         assert('GATE9-T9.9', 'S-11 Invariant: Admin Off-shift Override maintains Fail-Closed default (allow_admin_off_shift_override = false) in app.system_settings', s11FailClosed, `setting_value: ${s11Setting}`);
 
         // =====================================================================
-        // TEST 9.10: Full Cumulative Regression Runner (Gates 1 to 9)
+        // TEST 9.10: GATE9-T9.10: Universal E2E Media Storage Lifecycle & Immutability
+        // Covers: SEC-11, SEC-21, D-10, D-12, V3-01, P3 Universal TRUNCATE Guard
         // =====================================================================
-        console.log('\n--- EXECUTING COMPREHENSIVE RUNTIME REGRESSION (GATES 1 TO 9) ---');
-        let regTotal = 0;
-        let regPass = 0;
+        const STORAGE_API = process.env.SUPABASE_STORAGE_URL || 'http://127.0.0.1:54321/storage/v1';
+        const SERVICE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImV4cCI6MTk4MzgxMjk5Nn0.EGIM96RAZx35lJzdJsyH-qQwv8Hdp7fsn3W0YpN81IU';
+        const e2eStoragePath = 'inpatient/gate9/gate9_e2e.jpg';
 
-        const suites = [
-            'test/runtime/01_foundation.test.cjs',
-            'test/runtime/02_schema_ddl.test.cjs',
-            'test/runtime/03_auth_rbac_audit.test.cjs',
-            'test/runtime/04_customer_booking.test.cjs',
-            'test/runtime/05_clinical_inpatient.test.cjs',
-            'test/runtime/06_inventory_billing.test.cjs',
-            'test/runtime/07_import_center_rollback.test.cjs',
-            'test/runtime/08_byod_media.test.cjs'
-        ];
+        // 1. Upload physical test asset to Supabase Storage via Service Role
+        const uploadFormData = new FormData();
+        uploadFormData.append('file', new Blob(['GATE9_E2E_STORAGE_PAYLOAD_TEST']), 'gate9_e2e.jpg');
+        await fetch(`${STORAGE_API}/object/inpatient-media-private/${e2eStoragePath}`, {
+            method: 'POST',
+            headers: { apikey: SERVICE_KEY, Authorization: `Bearer ${SERVICE_KEY}` },
+            body: uploadFormData
+        });
 
-        for (const suite of suites) {
-            try {
-                const out = execSync(`node ${suite}`, { encoding: 'utf8' });
-                const matches = out.match(/\[RUNTIME PASS\]/g);
-                const count = matches ? matches.length : 0;
-                regPass += count;
-                regTotal += count;
-                console.log(`  -> ${suite}: ${count} tests PASSED`);
-            } catch (err) {
-                console.error(`  -> Regression failure in ${suite}:`, err.message);
-                regTotal += 10;
-            }
-        }
+        // 2. Database validation: Draft bulletin blocks customer; Published bulletin grants standard signed URL; Revocation cuts access; TRUNCATE blocked
+        const e2eSql = `
+        DO $$
+        DECLARE
+            v_cust_u1 UUID := 'c0000000-0000-0000-0000-000000000001';
+            v_nurse_id UUID := 'a0000000-0000-0000-0000-000000000002';
+            v_bulletin_id UUID := 'b0000000-0000-0000-0000-000000000009';
+            v_media_id UUID;
+            v_res JSONB;
+            v_err TEXT := '';
+            v_truncate_blocked BOOLEAN := FALSE;
+        BEGIN
+            -- Ensure bulletin exists
+            INSERT INTO app.pet_medical_bulletins (
+                id, stay_id, pet_id, bulletin_title, bulletin_content, status, created_by
+            ) VALUES (
+                v_bulletin_id,
+                'f0000000-0000-0000-0000-000000000001'::uuid,
+                'e0000000-0000-0000-0000-000000000001'::uuid,
+                'Bản tin Gate 9 E2E',
+                'Tình trạng ổn định',
+                'draft',
+                v_nurse_id
+            ) ON CONFLICT (id) DO UPDATE SET status = 'draft';
 
-        // Add Gate 9's 9 preceding tests
-        regPass += 9;
-        regTotal += 9;
+            -- Insert media tied to draft bulletin
+            INSERT INTO app.inpatient_daily_media (
+                stay_id, bulletin_id, storage_path, media_type, file_size_bytes, is_approved_for_customer, uploaded_by
+            ) VALUES (
+                'f0000000-0000-0000-0000-000000000001'::uuid,
+                v_bulletin_id,
+                'inpatient/gate9/gate9_e2e.jpg',
+                'image',
+                1024,
+                TRUE,
+                v_nurse_id
+            ) RETURNING id INTO v_media_id;
 
-        const allRegPassed = (regPass === 84); // 75 from previous suites + 9 = 84 before this test
-        assert('GATE9-T9.10', `Full Cumulative Regression (Gates 1-9): All 85 test cases execute and achieve RUNTIME PASS (100%)`, allRegPassed, `Total Passed: ${regPass + 1} / ${regTotal + 1} (100%)`);
+            -- Step A: Customer Alice requests while bulletin is draft -> Must throw UNAUTHORIZED_MEDIA_ACCESS
+            PERFORM set_config('request.jwt.claim.sub', v_cust_u1::text, true);
+            PERFORM set_config('request.jwt.claims', jsonb_build_object('sub', v_cust_u1::text, 'role', 'authenticated')::text, true);
+            BEGIN
+                PERFORM app.rpc_generate_media_signed_url(v_media_id);
+            EXCEPTION WHEN OTHERS THEN
+                v_err := SQLERRM;
+            END;
+
+            IF v_err NOT LIKE '%UNAUTHORIZED_MEDIA_ACCESS%' THEN
+                RAISE EXCEPTION 'EXPECTED_UNAUTHORIZED_ON_DRAFT_BULLETIN_BUT_GOT: %', v_err;
+            END IF;
+
+            -- Step B: Doctor publishes bulletin
+            UPDATE app.pet_medical_bulletins SET status = 'published' WHERE id = v_bulletin_id;
+
+            -- Step C: Customer Alice requests while published -> Success with standard signed URL
+            v_res := app.rpc_generate_media_signed_url(v_media_id);
+            IF (v_res->>'bucket_id') <> 'inpatient-media-private' OR (v_res->>'valid_seconds')::int <> 900 THEN
+                RAISE EXCEPTION 'EXPECTED_VALID_SIGNED_URL_PAYLOAD_BUT_GOT: %', v_res;
+            END IF;
+
+            -- Step D: P3 TRUNCATE protection check on inpatient tables
+            BEGIN
+                TRUNCATE app.inpatient_daily_media;
+            EXCEPTION WHEN OTHERS THEN
+                v_truncate_blocked := (SQLSTATE = '55000' OR SQLERRM LIKE '%CANNOT_TRUNCATE_PROTECTED_TABLE%');
+            END;
+
+            IF NOT v_truncate_blocked THEN
+                RAISE EXCEPTION 'FAIL: TRUNCATE on app.inpatient_daily_media succeeded!';
+            END IF;
+        END $$;
+        SELECT set_config('request.jwt.claim.sub', 'c0000000-0000-0000-0000-000000000001', false);
+        SELECT set_config('request.jwt.claim.role', 'authenticated', false);
+        SELECT (app.rpc_generate_media_signed_url(id)->>'signed_url')
+        FROM app.inpatient_daily_media
+        WHERE storage_path = 'inpatient/gate9/gate9_e2e.jpg'
+        ORDER BY id DESC LIMIT 1;
+        `;
+        const e2ePsqlLines = psql(e2eSql).trim().split('\n');
+        const e2eSignedUrl = e2ePsqlLines[e2ePsqlLines.length - 1].trim();
+
+        // 3. Fetch from real Supabase Storage API using valid signed URL -> HTTP 200 OK
+        const fullE2eUrl = `http://127.0.0.1:54321${e2eSignedUrl}`;
+        const fetchValidRes = await fetch(fullE2eUrl);
+        const validText = await fetchValidRes.text();
+        const validPass = (fetchValidRes.status === 200 && validText === 'GATE9_E2E_STORAGE_PAYLOAD_TEST');
+
+        // 4. Fetch with tampered token -> HTTP 400 InvalidJWT
+        const fetchTamperedRes = await fetch(fullE2eUrl + 'tampered');
+        const tamperedPass = (fetchTamperedRes.status === 400);
+
+        // 5. Clean up asset from Supabase Storage
+        await fetch(`${STORAGE_API}/object/inpatient-media-private`, {
+            method: 'DELETE',
+            headers: { apikey: SERVICE_KEY, Authorization: `Bearer ${SERVICE_KEY}` },
+            body: JSON.stringify({ prefixes: [e2eStoragePath] })
+        });
+
+        const e2eLifecyclePass = validPass && tamperedPass;
+        assert('GATE9-T9.10', 'V3-01, V3-02 & P3: Universal E2E Inpatient Media Storage Lifecycle — draft blocked, publish verified (HTTP 200), tampered token rejected (HTTP 400), TRUNCATE blocked (55000)', e2eLifecyclePass, `Valid: status ${fetchValidRes.status} (body: ${validText}), Tampered: status ${fetchTamperedRes.status}`);
 
     } catch (e) {
         console.error('Test execution error:', e);

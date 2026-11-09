@@ -740,7 +740,7 @@ async function runTests() {
                     PERFORM public.rpc_request_media_signed_url(v_media_x);
                     RAISE EXCEPTION 'FAIL: Customer A still accessed media after transfer!';
                 EXCEPTION WHEN OTHERS THEN
-                    IF SQLERRM LIKE '%PERMISSION_DENIED%' THEN
+                    IF SQLERRM LIKE '%PERMISSION_DENIED%' OR SQLERRM LIKE '%UNAUTHORIZED_MEDIA_ACCESS%' THEN
                         NULL; -- Expected access revocation
                     ELSE
                         RAISE;
@@ -761,7 +761,7 @@ async function runTests() {
                     PERFORM public.rpc_request_media_signed_url(v_media_x);
                     RAISE EXCEPTION 'FAIL: Media still accessible after bulletin revocation!';
                 EXCEPTION WHEN OTHERS THEN
-                    IF SQLERRM LIKE '%PERMISSION_DENIED%' THEN
+                    IF SQLERRM LIKE '%PERMISSION_DENIED%' OR SQLERRM LIKE '%UNAUTHORIZED_MEDIA_ACCESS%' THEN
                         NULL; -- Expected access revocation
                     ELSE
                         RAISE;

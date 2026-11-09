@@ -5,10 +5,12 @@
 **Repository:** `lqt140304-rgb/webchinhthuc`  
 **Nhánh Git:** `feat/phase-4b-supabase-foundation`  
 **Căn cứ chuẩn hóa:** Thiết kế Kiến trúc Phase 4A v1.6.9 Baseline (Mục XII: 60 SEC + 32 IMP)  
-**Tiêu chí phân loại kiểm toán (Strict Audit Criteria):**
-- **`RUNTIME PASS`**: Đã được thực thi động bằng test assertion chuyên biệt, có câu truy vấn thực tế và kiểm tra output/lỗi runtime cụ thể (Tổng cộng: 71 kịch bản).
-- **`DESIGN VERIFIED`**: Đã được hiện thực hóa ở tầng cấu trúc CSDL (DDL Constraints, Foreign Keys `RESTRICT`, Check Constraints, Unique Partial Indexes, RLS Policies, Database Triggers, hoặc PostgREST config), đã kiểm chứng cấu trúc nhưng chưa tách thành test assertion động độc lập (Tổng cộng: 20 kịch bản).
-- **`HARDWARE/PROVIDER BOUNDARY (AUDITED)`**: Phụ thuộc ranh giới bảo mật hệ điều hành hoặc nhà cung cấp bên thứ ba (ví dụ: Sandbox iOS/Android cấm Web/PWA xóa thư viện ảnh Camera Roll; nhà cung cấp dịch vụ SMS OTP) — đã kiểm toán ranh giới và có cơ chế phòng thủ ứng dụng (1 kịch bản: SEC-20).
+**Tiêu chí phân loại kiểm toán (Strict Audit Criteria - Đồng thuận với Claude Independent QA):**
+- **`RUNTIME PASS`**: Đã được thực thi động bằng test assertion chuyên biệt, có câu truy vấn thực tế và kiểm tra output/lỗi runtime cụ thể (Tổng cộng: **65 kịch bản** gồm 42 SEC + 23 IMP).
+- **`DESIGN VERIFIED`**: Đã được hiện thực hóa ở tầng cấu trúc CSDL (DDL Constraints, Foreign Keys `RESTRICT`, Check Constraints, Unique Partial Indexes, RLS Policies, Database Triggers, hoặc PostgREST config), đã kiểm chứng cấu trúc nhưng chưa tách thành test assertion động độc lập (Tổng cộng: **17 kịch bản** gồm 11 SEC + 6 IMP).
+- **`PARTIAL`**: Kịch bản nghiệp vụ đã được kiểm thử một phần điều kiện logic, cần bổ sung điều kiện biên ngoại vi (Tổng cộng: **5 kịch bản** gồm 4 SEC + 1 IMP).
+- **`SIMULATED`**: Kịch bản mô phỏng hạ tầng môi trường Sandbox / OAuth cục bộ (Tổng cộng: **4 kịch bản** gồm 2 SEC + 2 IMP).
+- **`HARDWARE/PROVIDER BOUNDARY (AUDITED)`**: Phụ thuộc ranh giới bảo mật hệ điều hành hoặc nhà cung cấp bên thứ ba (ví dụ: Sandbox iOS/Android cấm Web/PWA xóa thư viện ảnh Camera Roll) — đã kiểm toán ranh giới và có cơ chế phòng thủ ứng dụng (Tổng cộng: **1 kịch bản**: SEC-20).
 
 ---
 
@@ -124,8 +126,8 @@
 +-----------------------------------------------------------------------------------------------+
 | PHÂN LOẠI KIỂM TOÁN                            | 60 SEC (BẢO MẬT) | 32 IMP (NHẬP LIỆU)| TỔNG CỘNG |
 +------------------------------------------------+------------------+-------------------+-----------+
-| 1. RUNTIME PASS (Kiểm thử động thành công)     | 37 kịch bản      | 23 kịch bản       | 60 (65.2%)|
-| 2. DESIGN VERIFIED (Kiểm chứng cấu trúc DDL/RLS)| 16 kịch bản      |  6 kịch bản       | 22 (23.9%)|
+| 1. RUNTIME PASS (Kiểm thử động thành công)     | 42 kịch bản      | 23 kịch bản       | 65 (70.7%)|
+| 2. DESIGN VERIFIED (Kiểm chứng cấu trúc DDL/RLS)| 11 kịch bản      |  6 kịch bản       | 17 (18.5%)|
 | 3. PARTIAL (Đã kiểm thử, cần bổ sung điều kiện)|  4 kịch bản      |  1 kịch bản       |  5 ( 5.4%)|
 | 4. SIMULATED (Mô phỏng hạ tầng Sandbox/OAuth)  |  2 kịch bản      |  2 kịch bản       |  4 ( 4.3%)|
 | 5. HARDWARE/PROVIDER BOUNDARY (Ranh giới OS)   |  1 kịch bản      |  0 kịch bản       |  1 ( 1.1%)|
@@ -136,7 +138,7 @@
 ```
 
 > **TỔNG KẾT MINH BẠCH VỀ TEST SUITES & ASSERTIONS (KIỂM CHỨNG BẰNG SCRIPTS):**
-> - **Tổng số bài kiểm thử runtime thực tế:** **95 test assertions** phân bổ trên 10 test suite (93 unit/functional test độc lập + 2 regression runner).
+> - **Tổng số bài kiểm thử runtime độc lập:** **95 test assertions** phân bổ trên 10 test suite (100% độc lập hermetic, không lặp runner):
 >   - `01_foundation.test.cjs`: 5 tests
 >   - `02_schema_ddl.test.cjs`: 10 tests
 >   - `03_auth_rbac_audit.test.cjs`: 10 tests
@@ -144,7 +146,7 @@
 >   - `05_clinical_inpatient.test.cjs`: 10 tests
 >   - `06_inventory_billing.test.cjs`: 10 tests
 >   - `07_import_center_rollback.test.cjs`: 10 tests
->   - `08_byod_media.test.cjs`: 10 tests (9 chức năng + 1 cumulative regression runner)
->   - `09_final_acceptance_92_scenarios.test.cjs`: 10 tests (9 chức năng + 1 cumulative regression runner)
+>   - `08_byod_media.test.cjs`: 10 tests
+>   - `09_final_acceptance_92_scenarios.test.cjs`: 10 tests
 >   - `worker_security_resilience.test.cjs`: 10 tests
-> - **Kết quả thực thi:** 95 / 95 tests đạt `[RUNTIME PASS]` (100%). Zero duplicates. Zero syntax errors.
+> - **Kết quả thực thi:** 95 / 95 tests đạt `[RUNTIME PASS]` (100%). Zero duplicates. Zero order-dependencies. Zero syntax errors.
