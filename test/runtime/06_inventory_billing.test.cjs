@@ -72,7 +72,7 @@ async function runTests() {
                 INSERT INTO app.users (id, full_name, phone_number) VALUES (v_cashier, 'Thu ngân Lê Thị Năm', '0988000001') ON CONFLICT (id) DO UPDATE SET full_name = EXCLUDED.full_name;
                 INSERT INTO app.staff_role_assignments (user_id, role, assigned_by) VALUES (v_cashier, 'cashier', v_cashier) ON CONFLICT (user_id, role) DO NOTHING;
 
-                -- 2. Products (1 prescription drug, 1 general supply)
+                -- 2. Products (1 prescription drug, 1 general supply, 1 retail non-rx)
                 INSERT INTO app.products (id, sku, product_name, category, unit, unit_price, is_prescription_drug)
                 VALUES (v_prod_rx, 'RX-AMOX-500', 'Thuốc Kháng Sinh Đặc Trị Amoxicillin 500mg', 'pharmacy', 'Lọ', 150000, true)
                 ON CONFLICT (sku) DO NOTHING;
@@ -81,9 +81,29 @@ async function runTests() {
                 VALUES (v_prod_gen, 'GEN-SHAMP-01', 'Sữa Tắm Cho Mèo Lông Dài SOS', 'spa_supply', 'Chai', 120000, false)
                 ON CONFLICT (sku) DO NOTHING;
 
-                -- 3. Service
+                INSERT INTO app.products (id, sku, product_name, category, unit, unit_price, is_prescription_drug)
+                VALUES ('99999999-0000-0000-0000-000000000003', 'RET-COLLAR-01', 'Vòng Cổ Chuông Thú Cưng', 'retail', 'Cái', 80000, false)
+                ON CONFLICT (sku) DO NOTHING;
+
+                -- 3. Services (1 spa, 1 surgery, 1 vaccine, 1 lab, 1 medical)
                 INSERT INTO app.services (id, service_code, service_name, category, base_price)
                 VALUES (v_srv_spa, 'SRV-SPA-CAT', 'Dịch Vụ Tắm Spa Mèo Toàn Diện', 'spa', 200000)
+                ON CONFLICT (service_code) DO NOTHING;
+
+                INSERT INTO app.services (id, service_code, service_name, category, base_price)
+                VALUES ('aaaaaaaa-0000-0000-0000-000000000002', 'SRV-SURGERY-01', 'Phẫu Thuật Triệt Sản Chó Mèo', 'surgery', 850000)
+                ON CONFLICT (service_code) DO NOTHING;
+
+                INSERT INTO app.services (id, service_code, service_name, category, base_price)
+                VALUES ('aaaaaaaa-0000-0000-0000-000000000003', 'SRV-VACCINE-01', 'Tiêm Phòng Dại Rabisin', 'vaccine', 180000)
+                ON CONFLICT (service_code) DO NOTHING;
+
+                INSERT INTO app.services (id, service_code, service_name, category, base_price)
+                VALUES ('aaaaaaaa-0000-0000-0000-000000000004', 'SRV-LAB-01', 'Xét Nghiệm Sinh Hóa Máu 10 Chỉ Số', 'lab', 350000)
+                ON CONFLICT (service_code) DO NOTHING;
+
+                INSERT INTO app.services (id, service_code, service_name, category, base_price)
+                VALUES ('aaaaaaaa-0000-0000-0000-000000000005', 'SRV-MED-01', 'Khám Lâm Sàng Nội Khoa', 'medical', 150000)
                 ON CONFLICT (service_code) DO NOTHING;
             END $$;
             SELECT 'SETUP_COMPLETE';
@@ -266,77 +286,119 @@ async function runTests() {
             t63Res.includes('PASSED'),
             `Rollback integrity: ${t63Res}`);
 
-        // --- TEST 6.4: SEC-15 Free-Text & Prescription Auto-Hiding (V-5 Invariant) ---
+        // --- TEST 6.4: R2-01 P1 & SEC-15 & V-5: Clinical Invoice Privacy Auto-Inference & Customer View Filtering ---
         const t64Query = `
             DO $$
             DECLARE
+                v_user_a UUID := '33333333-0000-0000-0000-000000000001'; -- Customer A User
                 v_cust_a UUID := '44444444-0000-0000-0000-000000000001'; -- Customer A CRM
                 v_cashier UUID := '88888888-0000-0000-0000-000000000001';
                 v_prod_rx UUID := '99999999-0000-0000-0000-000000000001';
+                v_prod_ret UUID := '99999999-0000-0000-0000-000000000003';
                 v_srv_spa UUID := 'aaaaaaaa-0000-0000-0000-000000000001';
+                v_srv_surg UUID := 'aaaaaaaa-0000-0000-0000-000000000002';
+                v_srv_vac UUID := 'aaaaaaaa-0000-0000-0000-000000000003';
+                v_srv_lab UUID := 'aaaaaaaa-0000-0000-0000-000000000004';
+                v_srv_med UUID := 'aaaaaaaa-0000-0000-0000-000000000005';
                 v_inv_id UUID;
                 v_item_rx UUID;
                 v_item_free UUID;
+                v_item_surg UUID;
+                v_item_vac UUID;
+                v_item_lab UUID;
+                v_item_med UUID;
                 v_item_spa UUID;
-                v_is_hidden BOOLEAN;
+                v_item_ret UUID;
+                v_cust_view_cnt INT;
+                v_clinical_leak_cnt INT;
             BEGIN
                 PERFORM set_config('role', 'authenticated', true);
                 PERFORM set_config('request.jwt.claim.sub', v_cashier::text, true);
 
                 v_inv_id := public.rpc_create_invoice(v_cust_a);
 
-                -- 1. Add prescription drug item (is_prescription_drug = true)
+                -- Add all categories with p_is_hidden = false (Client cannot decide)
                 v_item_rx := public.rpc_add_invoice_item(v_inv_id, v_prod_rx, NULL, NULL, 1, 150000, false);
-
-                -- 2. Add free-text item (product_id is NULL and service_id is NULL)
                 v_item_free := public.rpc_add_invoice_item(v_inv_id, NULL, NULL, 'Truyền dịch cấp cứu & tiêm ven chống sốc', 1, 350000, false);
-
-                -- 3. Add regular spa service
+                v_item_surg := public.rpc_add_invoice_item(v_inv_id, NULL, v_srv_surg, NULL, 1, 850000, false);
+                v_item_vac := public.rpc_add_invoice_item(v_inv_id, NULL, v_srv_vac, NULL, 1, 180000, false);
+                v_item_lab := public.rpc_add_invoice_item(v_inv_id, NULL, v_srv_lab, NULL, 1, 350000, false);
+                v_item_med := public.rpc_add_invoice_item(v_inv_id, NULL, v_srv_med, NULL, 1, 150000, false);
                 v_item_spa := public.rpc_add_invoice_item(v_inv_id, NULL, v_srv_spa, NULL, 1, 200000, false);
+                v_item_ret := public.rpc_add_invoice_item(v_inv_id, v_prod_ret, NULL, NULL, 1, 80000, false);
 
-                -- Verify is_clinical_hidden flags
+                -- Verify in DB: All clinical services/drugs/free-text are auto-hidden (TRUE)
                 PERFORM set_config('role', 'postgres', true);
-                SELECT is_clinical_hidden INTO v_is_hidden FROM app.invoice_items WHERE id = v_item_rx;
-                IF v_is_hidden <> TRUE THEN
-                    RAISE EXCEPTION 'V-5 VIOLATION: Prescription drug item was not marked hidden!';
+                IF EXISTS (
+                    SELECT 1 FROM app.invoice_items 
+                    WHERE id IN (v_item_rx, v_item_free, v_item_surg, v_item_vac, v_item_lab, v_item_med)
+                      AND is_clinical_hidden = FALSE
+                ) THEN
+                    RAISE EXCEPTION 'R2-01 VIOLATION: Clinical/Rx/Free-text items were not automatically hidden!';
                 END IF;
 
-                SELECT is_clinical_hidden INTO v_is_hidden FROM app.invoice_items WHERE id = v_item_free;
-                IF v_is_hidden <> TRUE THEN
-                    RAISE EXCEPTION 'V-5 VIOLATION: Free text clinical item was not marked hidden!';
+                -- Spa & Retail non-Rx must remain visible (FALSE)
+                IF EXISTS (
+                    SELECT 1 FROM app.invoice_items 
+                    WHERE id IN (v_item_spa, v_item_ret)
+                      AND is_clinical_hidden = TRUE
+                ) THEN
+                    RAISE EXCEPTION 'R2-01 VIOLATION: Non-clinical retail/spa items were falsely marked hidden!';
                 END IF;
 
-                SELECT is_clinical_hidden INTO v_is_hidden FROM app.invoice_items WHERE id = v_item_spa;
-                IF v_is_hidden <> FALSE THEN
-                    RAISE EXCEPTION 'Regular spa service was falsely marked hidden!';
+                -- Customer View Verification (SEC-10, V-5, R2-01)
+                PERFORM set_config('role', 'authenticated', true);
+                PERFORM set_config('request.jwt.claim.sub', v_user_a::text, true);
+
+                SELECT count(*) INTO v_cust_view_cnt
+                FROM public.customer_invoice_items_view
+                WHERE invoice_id = v_inv_id;
+
+                IF v_cust_view_cnt <> 2 THEN
+                    RAISE EXCEPTION 'R2-01 LEAK: Customer saw % items instead of 2 (spa + retail)', v_cust_view_cnt;
+                END IF;
+
+                SELECT count(*) INTO v_clinical_leak_cnt
+                FROM public.customer_invoice_items_view
+                WHERE invoice_id = v_inv_id
+                  AND id IN (v_item_rx, v_item_free, v_item_surg, v_item_vac, v_item_lab, v_item_med);
+
+                IF v_clinical_leak_cnt <> 0 THEN
+                    RAISE EXCEPTION 'R2-01 CRITICAL LEAK: Customer view leaked % clinical lines!', v_clinical_leak_cnt;
                 END IF;
             END $$;
             SELECT 'PASSED';
         `;
         const t64Res = psql(t64Query);
-        assert('GATE6-T6.4', 'SEC-15 & V-5: Free-text items and prescription drugs automatically receive is_clinical_hidden = TRUE',
+        assert('GATE6-T6.4', 'R2-01 P1 & SEC-15: Auto-infer hidden state for surgery, vaccine, lab, medical, Rx drugs, free-text; exactly 0 clinical lines in customer view',
             t64Res.includes('PASSED'),
             `Auto-hide verification: ${t64Res}`);
 
-        // --- TEST 6.5: SEC-16 Block Attempt to Unhide Free-Text Item (CANNOT_UNHIDE_FREE_TEXT_ITEM) ---
+        // --- TEST 6.5: R2-01, R2-02, R2-06: Unhide Block, Audit Actions & Truncate Guard ---
         const t65Query = `
             DO $$
             DECLARE
                 v_cust_a UUID := '44444444-0000-0000-0000-000000000001';
                 v_cashier UUID := '88888888-0000-0000-0000-000000000001';
+                v_srv_surg UUID := 'aaaaaaaa-0000-0000-0000-000000000002';
+                v_prod_ret UUID := '99999999-0000-0000-0000-000000000003';
                 v_inv_id UUID;
-                v_item_free UUID;
+                v_item_surg UUID;
+                v_item_ret UUID;
+                v_batch_id UUID;
+                v_err TEXT := '';
             BEGIN
                 PERFORM set_config('role', 'authenticated', true);
                 PERFORM set_config('request.jwt.claim.sub', v_cashier::text, true);
 
                 v_inv_id := public.rpc_create_invoice(v_cust_a);
-                v_item_free := public.rpc_add_invoice_item(v_inv_id, NULL, NULL, 'Kháng sinh tự do kiểm thử', 1, 100000, true);
+                v_item_surg := public.rpc_add_invoice_item(v_inv_id, NULL, v_srv_surg, NULL, 1, 850000, false);
+                v_item_ret := public.rpc_add_invoice_item(v_inv_id, v_prod_ret, NULL, NULL, 1, 80000, false);
 
-                -- 1. Try unhiding via rpc_toggle_invoice_item_visibility -> must fail with CLINICAL_RESTRICTION_CANNOT_REVEAL
+                -- 1. Cashier attempts to unhide surgery via rpc_toggle_invoice_item_visibility -> must fail
                 BEGIN
-                    PERFORM public.rpc_toggle_invoice_item_visibility(v_item_free, false, 'Cố tình hiển thị');
-                    RAISE EXCEPTION 'FAIL: RPC permitted unhiding free text item!';
+                    PERFORM public.rpc_toggle_invoice_item_visibility(v_item_surg, false, 'Cố tình hiển thị');
+                    RAISE EXCEPTION 'FAIL: RPC permitted unhiding surgery item!';
                 EXCEPTION WHEN OTHERS THEN
                     IF SQLERRM LIKE '%CLINICAL_RESTRICTION_CANNOT_REVEAL%' THEN
                         NULL; -- Expected
@@ -345,16 +407,56 @@ async function runTests() {
                     END IF;
                 END;
 
-                -- 2. Try direct SQL UPDATE on invoice_items -> must be caught by trigger trg_enforce_invoice_item_privacy
+                -- 2. Direct SQL UPDATE on clinical item -> blocked by trigger trg_enforce_invoice_item_privacy
                 PERFORM set_config('role', 'postgres', true);
                 BEGIN
                     UPDATE app.invoice_items
                     SET is_clinical_hidden = FALSE
-                    WHERE id = v_item_free;
+                    WHERE id = v_item_surg;
                     RAISE EXCEPTION 'FAIL: Direct UPDATE unhide was permitted!';
                 EXCEPTION WHEN OTHERS THEN
-                    IF SQLERRM LIKE '%CANNOT_UNHIDE_FREE_TEXT_ITEM%' THEN
+                    IF SQLERRM LIKE '%CANNOT_UNHIDE_CLINICAL_ITEM%' OR SQLERRM LIKE '%CANNOT_UNHIDE_FREE_TEXT_ITEM%' THEN
                         NULL; -- Expected trigger block
+                    ELSE
+                        RAISE;
+                    END IF;
+                END;
+
+                -- 3. R2-02 Audit Action: Cashier toggles retail item to hidden -> logs TOGGLE_VISIBILITY without error
+                PERFORM set_config('role', 'authenticated', true);
+                PERFORM set_config('request.jwt.claim.sub', v_cashier::text, true);
+                PERFORM public.rpc_toggle_invoice_item_visibility(v_item_ret, true, 'Ẩn sản phẩm phụ kiện');
+
+                -- 4. R2-02 Audit Action: Quarantine batch -> logs QUARANTINE without error
+                v_batch_id := public.rpc_receive_inventory_batch(
+                    v_prod_ret,
+                    'BATCH-AUDIT-' || gen_random_uuid()::text,
+                    (CURRENT_DATE + INTERVAL '120 days')::DATE,
+                    10,
+                    50000,
+                    'valid'
+                );
+                PERFORM public.rpc_quarantine_batch(v_batch_id, 'Kiểm tra lỗi đóng gói');
+
+                -- 5. R2-06 Truncate Guards: Verify TRUNCATE on financial and audit tables is blocked
+                PERFORM set_config('role', 'postgres', true);
+                BEGIN
+                    TRUNCATE app.invoice_items;
+                    RAISE EXCEPTION 'FAIL: TRUNCATE app.invoice_items succeeded!';
+                EXCEPTION WHEN OTHERS THEN
+                    IF SQLERRM LIKE '%FINANCIAL_LEDGER_IMMUTABLE%' THEN
+                        NULL; -- Expected
+                    ELSE
+                        RAISE;
+                    END IF;
+                END;
+
+                BEGIN
+                    TRUNCATE audit.audit_logs;
+                    RAISE EXCEPTION 'FAIL: TRUNCATE audit.audit_logs succeeded!';
+                EXCEPTION WHEN OTHERS THEN
+                    IF SQLERRM LIKE '%AUDIT_LOG_IMMUTABLE%' THEN
+                        NULL; -- Expected
                     ELSE
                         RAISE;
                     END IF;
@@ -363,9 +465,9 @@ async function runTests() {
             SELECT 'PASSED';
         `;
         const t65Res = psql(t65Query);
-        assert('GATE6-T6.5', 'SEC-16: Updating is_clinical_hidden to FALSE on free-text item is strictly blocked by trigger (CANNOT_UNHIDE_FREE_TEXT_ITEM)',
+        assert('GATE6-T6.5', 'R2-01, R2-02, R2-06: Cashier blocked from unhiding clinical items, TOGGLE_VISIBILITY & QUARANTINE audit succeed, TRUNCATE blocked',
             t65Res.includes('PASSED'),
-            `Unhide block verified: ${t65Res}`);
+            `Unhide, audit & truncate verified: ${t65Res}`);
 
         // --- TEST 6.6: Invoice Auto-Sync & Payment Lock ---
         const t66Query = `

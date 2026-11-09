@@ -120,16 +120,42 @@ async function runTests() {
                 -- Alice dry runs
                 PERFORM public.rpc_import_execute_dry_run(v_job_id);
 
-                -- Alice attempts self-approval
+                -- 1. Alice with AAL1 attempts approval -> must fail with MFA_AAL2_REQUIRED (R2-03)
+                PERFORM set_config('request.jwt.claims', jsonb_build_object('sub', v_alice::text, 'role', 'authenticated', 'aal', 'aal1')::text, true);
+                BEGIN
+                    PERFORM public.rpc_import_approve_job(v_job_id);
+                    RAISE EXCEPTION 'AAL1_SHOULD_HAVE_FAILED';
+                EXCEPTION WHEN OTHERS THEN
+                    v_err_msg := SQLERRM;
+                END;
+                IF v_err_msg NOT LIKE '%MFA_AAL2_REQUIRED%' THEN
+                    RAISE EXCEPTION 'Expected MFA_AAL2_REQUIRED for AAL1 caller, got: %', v_err_msg;
+                END IF;
+
+                -- 2. Alice with AAL2 attempts self-approval -> must fail with TWO_MAN_RULE_VIOLATION (IMP-01)
+                PERFORM set_config('request.jwt.claims', jsonb_build_object('sub', v_alice::text, 'role', 'authenticated', 'aal', 'aal2')::text, true);
                 BEGIN
                     PERFORM public.rpc_import_approve_job(v_job_id);
                     RAISE EXCEPTION 'SELF_APPROVAL_SHOULD_HAVE_FAILED';
                 EXCEPTION WHEN OTHERS THEN
                     v_err_msg := SQLERRM;
                 END;
-
                 IF v_err_msg NOT LIKE '%TWO_MAN_RULE_VIOLATION%' THEN
                     RAISE EXCEPTION 'Expected TWO_MAN_RULE_VIOLATION error, but received: %', v_err_msg;
+                END IF;
+
+                -- 3. service_role or unauthenticated attempts to bypass Two-Man Rule -> must fail (R2-04)
+                PERFORM set_config('role', 'service_role', true);
+                PERFORM set_config('request.jwt.claim.sub', '', true);
+                PERFORM set_config('request.jwt.claims', jsonb_build_object('role', 'service_role')::text, true);
+                BEGIN
+                    PERFORM public.rpc_import_approve_job(v_job_id);
+                    RAISE EXCEPTION 'SERVICE_ROLE_BYPASS_SHOULD_HAVE_FAILED';
+                EXCEPTION WHEN OTHERS THEN
+                    v_err_msg := SQLERRM;
+                END;
+                IF v_err_msg NOT LIKE '%ROLE_UNAUTHORIZED%' AND v_err_msg NOT LIKE '%TWO_MAN_RULE_VIOLATION%' AND v_err_msg NOT LIKE '%permission denied%' THEN
+                    RAISE EXCEPTION 'Expected ROLE_UNAUTHORIZED or TWO_MAN_RULE_VIOLATION, got: %', v_err_msg;
                 END IF;
             END $$;
             SELECT 'PASSED';
@@ -178,6 +204,7 @@ async function runTests() {
 
                 -- 2. Off-shift Admin Charlie tries to approve -> SHIFT_NOT_ACTIVE
                 PERFORM set_config('request.jwt.claim.sub', v_charlie_off::text, true);
+                PERFORM set_config('request.jwt.claims', jsonb_build_object('sub', v_charlie_off::text, 'role', 'authenticated', 'aal', 'aal2')::text, true);
                 BEGIN
                     PERFORM public.rpc_import_approve_job(v_job_id);
                     RAISE EXCEPTION 'OFF_SHIFT_SHOULD_HAVE_FAILED';
@@ -220,6 +247,7 @@ async function runTests() {
 
                 -- Bob tries to approve before dry-run (status is 'uploaded', not 'awaiting_approval')
                 PERFORM set_config('request.jwt.claim.sub', v_bob::text, true);
+                PERFORM set_config('request.jwt.claims', jsonb_build_object('sub', v_bob::text, 'role', 'authenticated', 'aal', 'aal2')::text, true);
                 BEGIN
                     PERFORM public.rpc_import_approve_job(v_job_id);
                     RAISE EXCEPTION 'SHOULD_FAIL_INVALID_STATE';
@@ -237,6 +265,7 @@ async function runTests() {
 
                 -- Bob now approves successfully
                 PERFORM set_config('request.jwt.claim.sub', v_bob::text, true);
+                PERFORM set_config('request.jwt.claims', jsonb_build_object('sub', v_bob::text, 'role', 'authenticated', 'aal', 'aal2')::text, true);
                 PERFORM public.rpc_import_approve_job(v_job_id);
 
                 -- Reset to postgres to inspect staging.import_jobs
@@ -281,6 +310,7 @@ async function runTests() {
 
                 -- Bob approves and commits
                 PERFORM set_config('request.jwt.claim.sub', v_bob::text, true);
+                PERFORM set_config('request.jwt.claims', jsonb_build_object('sub', v_bob::text, 'role', 'authenticated', 'aal', 'aal2')::text, true);
                 PERFORM public.rpc_import_approve_job(v_job_id);
                 PERFORM public.rpc_import_commit_job(v_job_id);
 
@@ -300,6 +330,7 @@ async function runTests() {
                 -- Bob executes rollback
                 PERFORM set_config('role', 'authenticated', true);
                 PERFORM set_config('request.jwt.claim.sub', v_bob::text, true);
+                PERFORM set_config('request.jwt.claims', jsonb_build_object('sub', v_bob::text, 'role', 'authenticated', 'aal', 'aal2')::text, true);
                 PERFORM public.rpc_import_rollback_job(v_job_id);
 
                 -- Reset role to postgres to verify soft deletion
@@ -353,6 +384,7 @@ async function runTests() {
 
                 -- Bob approves & commits
                 PERFORM set_config('request.jwt.claim.sub', v_bob::text, true);
+                PERFORM set_config('request.jwt.claims', jsonb_build_object('sub', v_bob::text, 'role', 'authenticated', 'aal', 'aal2')::text, true);
                 PERFORM public.rpc_import_approve_job(v_job_id);
                 PERFORM public.rpc_import_commit_job(v_job_id);
 
@@ -367,6 +399,7 @@ async function runTests() {
 
                 -- Bob attempts to rollback the import job
                 PERFORM set_config('request.jwt.claim.sub', v_bob::text, true);
+                PERFORM set_config('request.jwt.claims', jsonb_build_object('sub', v_bob::text, 'role', 'authenticated', 'aal', 'aal2')::text, true);
                 BEGIN
                     PERFORM public.rpc_import_rollback_job(v_job_id);
                     RAISE EXCEPTION 'ROLLBACK_SHOULD_HAVE_BEEN_BLOCKED';
@@ -417,6 +450,7 @@ async function runTests() {
 
                 -- Bob approves & commits
                 PERFORM set_config('request.jwt.claim.sub', v_bob::text, true);
+                PERFORM set_config('request.jwt.claims', jsonb_build_object('sub', v_bob::text, 'role', 'authenticated', 'aal', 'aal2')::text, true);
                 PERFORM public.rpc_import_approve_job(v_job_id);
                 PERFORM public.rpc_import_commit_job(v_job_id);
 
@@ -432,6 +466,7 @@ async function runTests() {
                 -- Bob executes rollback
                 PERFORM set_config('role', 'authenticated', true);
                 PERFORM set_config('request.jwt.claim.sub', v_bob::text, true);
+                PERFORM set_config('request.jwt.claims', jsonb_build_object('sub', v_bob::text, 'role', 'authenticated', 'aal', 'aal2')::text, true);
                 PERFORM public.rpc_import_rollback_job(v_job_id);
 
                 -- Reset to postgres to verify points reversal
@@ -472,6 +507,7 @@ async function runTests() {
                 PERFORM public.rpc_import_execute_dry_run(v_job_id);
 
                 PERFORM set_config('request.jwt.claim.sub', v_bob::text, true);
+                PERFORM set_config('request.jwt.claims', jsonb_build_object('sub', v_bob::text, 'role', 'authenticated', 'aal', 'aal2')::text, true);
                 PERFORM public.rpc_import_approve_job(v_job_id);
                 PERFORM public.rpc_import_commit_job(v_job_id);
 
@@ -533,6 +569,7 @@ async function runTests() {
 
                 -- Bob approves & commits
                 PERFORM set_config('request.jwt.claim.sub', v_bob::text, true);
+                PERFORM set_config('request.jwt.claims', jsonb_build_object('sub', v_bob::text, 'role', 'authenticated', 'aal', 'aal2')::text, true);
                 PERFORM public.rpc_import_approve_job(v_job_id);
                 PERFORM public.rpc_import_commit_job(v_job_id);
 
@@ -587,6 +624,7 @@ async function runTests() {
 
                 -- Bob approves & commits
                 PERFORM set_config('request.jwt.claim.sub', v_bob::text, true);
+                PERFORM set_config('request.jwt.claims', jsonb_build_object('sub', v_bob::text, 'role', 'authenticated', 'aal', 'aal2')::text, true);
                 PERFORM public.rpc_import_approve_job(v_job_id);
                 PERFORM public.rpc_import_commit_job(v_job_id);
 

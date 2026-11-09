@@ -359,14 +359,22 @@ async function runTests() {
             rateLimitResult.includes('PASSED'),
             `Rate limiter result: ${rateLimitResult}`);
 
-        // --- TEST 4.8: D-LINK Customer Link Request Workflow ---
+        // --- TEST 4.8: D-LINK & Recycled Phone Resolution (SEC-21..24, SEC-41..43, R2-03) ---
         const dlinkQuery = `
             DO $$
             DECLARE
                 v_uid UUID := gen_random_uuid();
                 v_cust_id UUID := gen_random_uuid();
                 v_req_id UUID;
+                v_admin_id UUID := '77777777-0000-0000-0000-000000000071';
+                v_recept_id UUID := '88888888-0000-0000-0000-000000000074';
+                v_old_cust UUID := gen_random_uuid();
+                v_new_cust UUID := gen_random_uuid();
+                v_new_user UUID := gen_random_uuid();
+                v_old_user UUID := gen_random_uuid();
+                v_err TEXT := '';
             BEGIN
+                -- 1. D-LINK request test
                 INSERT INTO auth.users (id, email) VALUES (v_uid, 'dlink_user@test.vn');
                 INSERT INTO app.customers (id, full_name, phone_number) VALUES (v_cust_id, 'Khách Cũ GPet', '0903111222');
 
@@ -376,23 +384,112 @@ async function runTests() {
                 v_req_id := public.rpc_request_customer_link(v_cust_id, 'Xin liên kết hồ sơ cún cưng cũ');
 
                 PERFORM set_config('role', 'postgres', true);
-
                 IF NOT EXISTS (SELECT 1 FROM app.user_link_requests WHERE id = v_req_id AND status = 'pending') THEN
                     RAISE EXCEPTION 'D-LINK FAIL: Link request not found with pending status!';
                 END IF;
 
+                -- 2. Recycled Phone Setup (SEC-21 through SEC-43)
+                INSERT INTO auth.users (id, email) VALUES (v_old_user, 'old_user@test.vn'), (v_new_user, 'new_user@test.vn');
+                INSERT INTO app.customers (id, full_name, phone_number) VALUES 
+                    (v_old_cust, 'Chủ Thuê Bao Cũ', '0909999888'),
+                    (v_new_cust, 'Chủ Mới Thuê Bao Tái Cấp', '0909999888');
+
+                INSERT INTO app.customer_user_links (customer_id, user_id, link_status) VALUES
+                    (v_old_cust, v_old_user, 'approved'),
+                    (v_new_cust, v_new_user, 'pending');
+
+                -- SEC-21 & SEC-43: Receptionist attempts to resolve recycled phone -> ROLE_UNAUTHORIZED
+                PERFORM set_config('role', 'authenticated', true);
+                PERFORM set_config('request.jwt.claim.sub', v_recept_id::text, true);
+                BEGIN
+                    PERFORM public.rpc_resolve_recycled_phone(v_old_cust, v_new_cust, v_new_user, 'Tiếp tân thử duyệt');
+                    RAISE EXCEPTION 'FAIL: Receptionist permitted to resolve recycled phone!';
+                EXCEPTION WHEN OTHERS THEN
+                    v_err := SQLERRM;
+                END;
+                IF v_err NOT LIKE '%ROLE_UNAUTHORIZED%' THEN
+                    RAISE EXCEPTION 'SEC-21 FAIL: Expected ROLE_UNAUTHORIZED, got: %', v_err;
+                END IF;
+
+                -- SEC-22: Admin with AAL1 attempts to resolve -> MFA_AAL2_REQUIRED
+                PERFORM set_config('request.jwt.claim.sub', v_admin_id::text, true);
+                PERFORM set_config('request.jwt.claims', jsonb_build_object('sub', v_admin_id::text, 'role', 'authenticated', 'aal', 'aal1')::text, true);
+                BEGIN
+                    PERFORM public.rpc_resolve_recycled_phone(v_old_cust, v_new_cust, v_new_user, 'Admin AAL1 thử');
+                    RAISE EXCEPTION 'FAIL: Admin with AAL1 permitted!';
+                EXCEPTION WHEN OTHERS THEN
+                    v_err := SQLERRM;
+                END;
+                IF v_err NOT LIKE '%MFA_AAL2_REQUIRED%' THEN
+                    RAISE EXCEPTION 'SEC-22 FAIL: Expected MFA_AAL2_REQUIRED, got: %', v_err;
+                END IF;
+
+                -- Switch Admin to AAL2
+                PERFORM set_config('request.jwt.claims', jsonb_build_object('sub', v_admin_id::text, 'role', 'authenticated', 'aal', 'aal2')::text, true);
+
+                -- SEC-23: Identical customer IDs -> INVALID_ARGUMENTS
+                BEGIN
+                    PERFORM public.rpc_resolve_recycled_phone(v_old_cust, v_old_cust, v_new_user, 'ID trùng nhau');
+                    RAISE EXCEPTION 'FAIL: Identical customer IDs permitted!';
+                EXCEPTION WHEN OTHERS THEN
+                    v_err := SQLERRM;
+                END;
+                IF v_err NOT LIKE '%INVALID_ARGUMENTS%' THEN
+                    RAISE EXCEPTION 'SEC-23 FAIL: Expected INVALID_ARGUMENTS, got: %', v_err;
+                END IF;
+
+                -- SEC-42: Nonexistent customer -> CUSTOMER_NOT_FOUND
+                BEGIN
+                    PERFORM public.rpc_resolve_recycled_phone(gen_random_uuid(), v_new_cust, v_new_user, 'Mã khách lạ');
+                    RAISE EXCEPTION 'FAIL: Nonexistent customer permitted!';
+                EXCEPTION WHEN OTHERS THEN
+                    v_err := SQLERRM;
+                END;
+                IF v_err NOT LIKE '%CUSTOMER_NOT_FOUND%' THEN
+                    RAISE EXCEPTION 'SEC-42 FAIL: Expected CUSTOMER_NOT_FOUND, got: %', v_err;
+                END IF;
+
+                -- SEC-24 & SEC-41: Non-pending or nonexistent link -> LINK_NOT_FOUND
+                BEGIN
+                    PERFORM public.rpc_resolve_recycled_phone(v_old_cust, v_new_cust, gen_random_uuid(), 'User không liên kết');
+                    RAISE EXCEPTION 'FAIL: Nonexistent link permitted!';
+                EXCEPTION WHEN OTHERS THEN
+                    v_err := SQLERRM;
+                END;
+                IF v_err NOT LIKE '%LINK_NOT_FOUND%' THEN
+                    RAISE EXCEPTION 'SEC-24 FAIL: Expected LINK_NOT_FOUND, got: %', v_err;
+                END IF;
+
+                -- Valid execution: Admin with AAL2 resolves recycled phone
+                PERFORM public.rpc_resolve_recycled_phone(v_old_cust, v_new_cust, v_new_user, 'Xác minh CCCD & SĐT tại quầy thành công');
+
+                -- Verification
+                PERFORM set_config('role', 'postgres', true);
+                IF NOT EXISTS (SELECT 1 FROM app.customer_user_links WHERE customer_id = v_old_cust AND link_status = 'unlinked') THEN
+                    RAISE EXCEPTION 'SEC-42 FAIL: Old customer link was not revoked!';
+                END IF;
+
+                IF NOT EXISTS (SELECT 1 FROM app.customer_user_links WHERE customer_id = v_new_cust AND user_id = v_new_user AND link_status = 'approved') THEN
+                    RAISE EXCEPTION 'SEC-42 FAIL: New customer link was not approved!';
+                END IF;
+
+                IF NOT EXISTS (SELECT 1 FROM audit.audit_logs WHERE action = 'RECYCLED_PHONE_RESOLVED' AND record_id = v_new_cust) THEN
+                    RAISE EXCEPTION 'SEC-41 FAIL: Audit log RECYCLED_PHONE_RESOLVED missing!';
+                END IF;
+
                 -- Clean up
                 DELETE FROM app.user_link_requests WHERE id = v_req_id;
-                DELETE FROM app.customers WHERE id = v_cust_id;
-                DELETE FROM app.users WHERE id = v_uid;
-                DELETE FROM auth.users WHERE id = v_uid;
+                DELETE FROM app.customer_user_links WHERE customer_id IN (v_old_cust, v_new_cust);
+                DELETE FROM app.customers WHERE id IN (v_cust_id, v_old_cust, v_new_cust);
+                DELETE FROM app.users WHERE id IN (v_uid, v_old_user, v_new_user);
+                DELETE FROM auth.users WHERE id IN (v_uid, v_old_user, v_new_user);
             END $$;
             SELECT 'PASSED';
         `;
         const dlinkResult = psql(dlinkQuery);
-        assert('GATE4-T4.8', 'D-LINK: Customer link request workflow generates pending request for Receptionist/Admin verification',
+        assert('GATE4-T4.8', 'D-LINK & Recycled Phone (SEC-21..24, SEC-41..43, R2-03): AAL2 requirement, non-admin denial, ID mismatch guard, de-link old customer & audit verified',
             dlinkResult.includes('PASSED'),
-            `D-LINK result: ${dlinkResult}`);
+            `D-LINK & Recycled phone result: ${dlinkResult}`);
 
         // --- TEST 4.9: Guest Booking Request Anti-Spam Rate Limiter ---
         const guestSpamQuery = `

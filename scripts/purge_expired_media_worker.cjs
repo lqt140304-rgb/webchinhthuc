@@ -84,7 +84,8 @@ async function runPurgeWorker(simulateErrorPath = null) {
                         'Authorization': `Bearer ${SERVICE_KEY}`,
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ prefixes: [item.storage_path] })
+                    body: JSON.stringify({ prefixes: [item.storage_path] }),
+                    signal: AbortSignal.timeout(2000)
                 });
             } catch (netErr) {
                 // If storage server not reachable or offline in local test, continue to disk purge
