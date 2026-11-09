@@ -20,6 +20,28 @@ const suites = [
     'worker_security_resilience.test.cjs'
 ];
 
+function checkWorkingTreeClean() {
+    try {
+        const gitStatus = execSync('git status --porcelain', { encoding: 'utf8' }).trim();
+        const dirtyFiles = gitStatus.split('\n')
+            .map(l => l.trim())
+            .filter(Boolean)
+            .filter(l => !l.endsWith('docs/qa/HERMETIC_MULTI_ORDER_REPORT.json'));
+        if (dirtyFiles.length > 0) {
+            console.error('==============================================================================');
+            console.error('FATAL: Working directory is dirty! (V7-01 / V7-04 Integrity Enforcement)');
+            console.error('All source code and test files must be committed before running verification.');
+            console.error('==============================================================================');
+            console.error('Dirty files detected:\n  ' + dirtyFiles.join('\n  '));
+            process.exit(1);
+        }
+    } catch (err) {
+        if (err.status === 1 && !err.stdout) {
+            throw err;
+        }
+    }
+}
+
 function getCommitSha() {
     try {
         return execSync('git rev-parse HEAD', { encoding: 'utf8' }).trim();
@@ -135,7 +157,7 @@ function runSuiteList(runName, suiteList) {
             const passMatches = stdout.match(/\[RUNTIME PASS\]/g) || [];
             const failMatches = stdout.match(/\[RUNTIME FAIL\]/g) || [];
             suitePassed = passMatches.length;
-            suiteFailed = failMatches.length + 1; // Count failure
+            suiteFailed = failMatches.length + 1;
 
             console.error(`[FAIL] ${suite.padEnd(45)}: EXCEPTION: ${err.message} (${((Date.now() - suiteStart) / 1000).toFixed(2)}s)`);
             passedCount += suitePassed;
@@ -171,8 +193,12 @@ function runSuiteList(runName, suiteList) {
 
 async function main() {
     console.log('##############################################################################');
-    console.log('# PHASE 4B: HERMETIC MULTI-ORDER CLEAN DATABASE VERIFICATION PROBE (V6-02)   #');
+    console.log('# PHASE 4B: HERMETIC MULTI-ORDER CLEAN DATABASE VERIFICATION PROBE (V7-01)   #');
     console.log('##############################################################################');
+
+    // V7-01: Strict check that working directory is clean
+    checkWorkingTreeClean();
+
     const commitSha = getCommitSha();
     const timestamp = new Date().toISOString();
     console.log(`Git Commit SHA: ${commitSha}`);
@@ -210,7 +236,7 @@ async function main() {
     allRuns.push(run4);
 
     console.log('\n==============================================================================');
-    console.log('FINAL MULTI-ORDER VERIFICATION SUMMARY (V6-02 HERMETIC TEST AUDIT)');
+    console.log('FINAL MULTI-ORDER VERIFICATION SUMMARY (V7-01 HERMETIC TEST AUDIT)');
     console.log('==============================================================================');
 
     let allPassed = true;
@@ -239,7 +265,7 @@ async function main() {
     const reportPath = path.join(__dirname, '../docs/qa/HERMETIC_MULTI_ORDER_REPORT.json');
     const reportData = {
         meta: {
-            title: 'Phase 4B Hermetic Multi-Order Clean Database Verification (V6-02)',
+            title: 'Phase 4B Hermetic Multi-Order Clean Database Verification (V7-01 / Retest-07)',
             commitSha,
             timestamp,
             grandTotalAssertionsPassed: grandTotalPassed,

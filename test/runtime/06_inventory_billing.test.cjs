@@ -775,7 +775,7 @@ async function runTests() {
                 RETURNING id INTO v_stay_x;
 
                 INSERT INTO app.inpatient_daily_media (id, stay_id, bulletin_id, storage_path, media_type, is_approved_for_customer, uploaded_by)
-                VALUES (v_media_x, v_stay_x, v_bulletin_x, 'media/rabbit_x.jpg', 'image', true, v_doc2);
+                VALUES (v_media_x, v_stay_x, v_bulletin_x, 'inpatient/rabbit/rabbit_x.jpg', 'image', true, v_doc2);
 
                 -- 3. Customer A can see Pet X and request Signed URL
                 PERFORM set_config('role', 'authenticated', true);

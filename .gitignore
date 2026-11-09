@@ -29,7 +29,35 @@ ev/
 e2e-evidence/
 lh-results/
 lh-summary.json
+test-results/
+work/
+test-e2e/
 
+# Scratch bundles, patches and review artifacts
+*.patch
+*.bundle
+*.zip
+LeSon-*
+*-MANIFEST.json
+README-CLAUDE.md
+deliverables/
+docs/ANTIGRAVITY_PUBLIC_PAGES_PHASE1_REPORT.md
+docs/BAO_CAO_TRINH_CEO_PHASE4A.md
+docs/GITHUB_BRANCH_WORKFLOW.md
+docs/MASTER_PROMPT.md
+docs/qa/claude-qa-phase4a-*.md
+scripts/apply_*.cjs
+scripts/check_*.cjs
+scripts/deep_qa_*.cjs
+scripts/find_*.cjs
+scripts/fix_*.cjs
+scripts/inspect_*.cjs
+scripts/line_by_line_*.cjs
+scripts/patch_*.cjs
+scripts/sync_*.cjs
+scripts/test_*.cjs
+scripts/update_*.cjs
+scripts/verify_v1_6_*.cjs
 
 .vercel
 .env*

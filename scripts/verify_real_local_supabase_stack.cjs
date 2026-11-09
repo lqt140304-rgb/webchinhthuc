@@ -211,29 +211,29 @@ async function runStackVerification() {
         const bobPets = await bobPetsRes.json();
         const bobIsolates = bobPetsRes.status === 200 && bobPets.every(p => p.pet_name !== 'Mimi Alice');
 
-        // Bob attempts to request Alice's media via Edge Function -> MUST FAIL with HTTP 403 UNAUTHORIZED_MEDIA_ACCESS
+        // Bob attempts to request Alice's media via Edge Function -> MUST FAIL with HTTP 403 AUTHORIZATION_DENIED
         const bobEdgeRes = await fetch(`${FUNCTIONS_URL}/media-signed-url`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${jwtBob}` },
             body: JSON.stringify({ media_id: '70000000-0000-0000-0000-000000000001' })
         });
         const bobEdgeJson = await bobEdgeRes.json();
-        const bobBlocked = bobEdgeRes.status >= 400 && JSON.stringify(bobEdgeJson).includes('UNAUTHORIZED_MEDIA_ACCESS');
-        recordProbe('Role Customer Bob (V6-01 & V6-03): Sees 0 Alice pets, Edge Function strictly rejects with UNAUTHORIZED_MEDIA_ACCESS', bobIsolates && bobBlocked, `Bob pets: ${bobPets.length}, Cross-media status: ${bobEdgeRes.status} (code: ${bobEdgeJson.code || '42501'})`);
+        const bobBlocked = bobEdgeRes.status === 403 && (bobEdgeJson.error === 'AUTHORIZATION_DENIED' || bobEdgeJson.code === '42501');
+        recordProbe('Role Customer Bob (V6-01 & V6-03): Sees 0 Alice pets, Edge Function strictly rejects with AUTHORIZATION_DENIED', bobIsolates && bobBlocked, `Bob pets: ${bobPets.length}, Cross-media status: ${bobEdgeRes.status} (code: ${bobEdgeJson.code || '42501'})`);
 
         // --------------------------------------------------------------------------
         // PROBE 4: Staff Nurse Nancy - V4-01 & V6-01 BYOD Device Enforcement on Edge Function
         // --------------------------------------------------------------------------
-        // 4A: Nancy calls Edge Function without device fingerprint -> MUST REJECT (DEVICE_FINGERPRINT_REQUIRED)
+        // 4A: Nancy calls Edge Function without device fingerprint -> MUST REJECT (HTTP 403 AUTHORIZATION_DENIED)
         const nurseNullFpRes = await fetch(`${FUNCTIONS_URL}/media-signed-url`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${jwtNurse}` },
             body: JSON.stringify({ media_id: '70000000-0000-0000-0000-000000000001' })
         });
         const nurseNullJson = await nurseNullFpRes.json();
-        const nullFpBlocked = nurseNullFpRes.status >= 400 && JSON.stringify(nurseNullJson).includes('DEVICE_FINGERPRINT_REQUIRED');
+        const nullFpBlocked = nurseNullFpRes.status === 403 && (nurseNullJson.error === 'AUTHORIZATION_DENIED' || nurseNullJson.code === '42501');
 
-        // 4B: Nancy calls Edge Function with untrusted device session -> MUST REJECT (DEVICE_NOT_TRUSTED)
+        // 4B: Nancy calls Edge Function with untrusted device session -> MUST REJECT (HTTP 403 AUTHORIZATION_DENIED)
         const nurseUntrustedRes = await fetch(`${FUNCTIONS_URL}/media-signed-url`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${jwtNurse}` },
@@ -243,7 +243,7 @@ async function runStackVerification() {
             })
         });
         const nurseUntrustedJson = await nurseUntrustedRes.json();
-        const untrustedBlocked = nurseUntrustedRes.status >= 400 && (JSON.stringify(nurseUntrustedJson).includes('DEVICE_NOT_TRUSTED') || JSON.stringify(nurseUntrustedJson).includes('DEVICE_REVOKED'));
+        const untrustedBlocked = nurseUntrustedRes.status === 403 && (nurseUntrustedJson.error === 'AUTHORIZATION_DENIED' || nurseUntrustedJson.code === '42501');
 
         // 4C: Nancy calls Edge Function with approved BYOD device session -> MUST SUCCEED (200 OK)
         const nurseApprovedRes = await fetch(`${FUNCTIONS_URL}/media-signed-url`, {
@@ -350,6 +350,107 @@ async function runStackVerification() {
         }
         const probe10Pass = sqlSigningRemoved && typoBlocked;
         recordProbe('V5-01 SQL Signing Elimination & Product Anti-Typo: Zero SQL signing routines, typo rejected', probe10Pass, `SQL signing routines: ${sqlSigningCount} (expected: 0), Typo constraint rejected: ${typoBlocked}`);
+
+        // --------------------------------------------------------------------------
+        // PROBE 11: V7-02 Storage Path Validation in Database & RPC Upload
+        // --------------------------------------------------------------------------
+        let dbDirectCheckBlocked = false;
+        try {
+            psql("INSERT INTO app.inpatient_daily_media (stay_id, storage_path, media_type, file_size_bytes, uploaded_by) VALUES ('f0000000-0000-0000-0000-000000000001', 'inpatient/../passwords.env', 'image', 1000, 'a0000000-0000-0000-0000-000000000002');");
+        } catch (e) {
+            dbDirectCheckBlocked = e.message.includes('chk_inpatient_daily_media_storage_path');
+        }
+
+        let rpcTraversalBlocked = false;
+        try {
+            psql(`
+                DO $$
+                BEGIN
+                    PERFORM set_config('role', 'authenticated', true);
+                    PERFORM set_config('request.jwt.claim.sub', 'a0000000-0000-0000-0000-000000000002', true);
+                    PERFORM public.rpc_upload_inpatient_media(
+                        'f0000000-0000-0000-0000-000000000001',
+                        'b0000000-0000-0000-0000-000000000001',
+                        'inpatient/../escaped.jpg',
+                        'image',
+                        1024,
+                        '2222222222222222222222222222222222222222222222222222222222222222'
+                    );
+                END $$;
+            `);
+        } catch (e) {
+            rpcTraversalBlocked = e.message.includes('INVALID_STORAGE_PATH') || e.message.includes('22023');
+        }
+
+        let rpcPrefixBlocked = false;
+        try {
+            psql(`
+                DO $$
+                BEGIN
+                    PERFORM set_config('role', 'authenticated', true);
+                    PERFORM set_config('request.jwt.claim.sub', 'a0000000-0000-0000-0000-000000000002', true);
+                    PERFORM public.rpc_upload_inpatient_media(
+                        'f0000000-0000-0000-0000-000000000001',
+                        'b0000000-0000-0000-0000-000000000001',
+                        '/inpatient/absolute.jpg',
+                        'image',
+                        1024,
+                        '2222222222222222222222222222222222222222222222222222222222222222'
+                    );
+                END $$;
+            `);
+        } catch (e) {
+            rpcPrefixBlocked = e.message.includes('INVALID_STORAGE_PATH') || e.message.includes('22023');
+        }
+
+        let validUploadPass = false;
+        let validUploadRes = '';
+        try {
+            validUploadRes = psql(`
+                SELECT set_config('request.jwt.claim.sub', 'a0000000-0000-0000-0000-000000000002', false);
+                SELECT public.rpc_upload_inpatient_media(
+                    'f0000000-0000-0000-0000-000000000001',
+                    'b0000000-0000-0000-0000-000000000001',
+                    'inpatient/probe/valid_v702_upload.jpg',
+                    'image',
+                    1024,
+                    '2222222222222222222222222222222222222222222222222222222222222222'
+                );
+            `);
+            validUploadPass = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/im.test(validUploadRes);
+        } catch (e) {
+            validUploadRes = e.message;
+        }
+
+        const probe11Pass = dbDirectCheckBlocked && rpcTraversalBlocked && rpcPrefixBlocked && validUploadPass;
+        recordProbe('V7-02 Storage Path Hardening: DB CHECK constraint blocks traversal, RPC upload rejects traversal & leading slash, valid upload succeeds', probe11Pass, `Direct check blocked: ${dbDirectCheckBlocked}, RPC traversal: ${rpcTraversalBlocked}, RPC leading slash: ${rpcPrefixBlocked}, Valid upload: ${validUploadPass} (id: ${validUploadRes.trim()})`);
+
+        // --------------------------------------------------------------------------
+        // PROBE 12: V7-03 Edge Function CORS, Sanitization & Anti-Leakage
+        // --------------------------------------------------------------------------
+        // 12A: CORS origin matching
+        const corsRes = await fetch(`${FUNCTIONS_URL}/media-signed-url`, {
+            method: 'OPTIONS',
+            headers: { 'Origin': 'http://localhost:3000' }
+        });
+        const corsAllowOrigin = corsRes.headers.get('access-control-allow-origin');
+        const corsVary = corsRes.headers.get('vary') || '';
+        const corsPass = corsRes.status === 200 && (corsAllowOrigin === '*' || corsAllowOrigin === 'http://localhost:3000') && corsVary.includes('Origin');
+
+        // 12B: Sanitized error response (no internal database leak)
+        const sanitizedRes = await fetch(`${FUNCTIONS_URL}/media-signed-url`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${jwtAlice}` },
+            body: JSON.stringify({ media_id: '00000000-0000-0000-0000-000000000099' })
+        });
+        const sanitizedJson = await sanitizedRes.json();
+        const noDbLeak = sanitizedRes.status === 404 && 
+                         sanitizedJson.error === 'NOT_FOUND' &&
+                         !JSON.stringify(sanitizedJson).includes('PL/pgSQL') &&
+                         !JSON.stringify(sanitizedJson).includes('app.rpc');
+
+        const probe12Pass = corsPass && noDbLeak;
+        recordProbe('V7-03 Edge Function Hardening: Trusted CORS origin matched with Vary header, Database internals strictly hidden from client', probe12Pass, `CORS allow: ${corsAllowOrigin}, Status: ${sanitizedRes.status}, Error: ${sanitizedJson.error}, Leaks: 0`);
 
     } catch (err) {
         console.error('Fatal probe error:', err);

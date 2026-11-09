@@ -1,0 +1,5 @@
+# Explicit JWT Configuration for Supabase Edge Functions (V7-03)
+# Setting verify_jwt = false delegates JWT parsing to function tier and PostgREST RPC,
+# where PostgreSQL cryptographically evaluates user identity (auth.uid()), active shifts, BYOD,
+# and customer data boundaries in the Tier 1 authorization gate.
+verify_jwt = false
