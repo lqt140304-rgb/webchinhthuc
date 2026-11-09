@@ -116,7 +116,7 @@ async function runTests() {
                 -- 4. Shift (All-day shift covering current time)
                 INSERT INTO app.shifts (id, shift_code, shift_name, start_time, end_time)
                 VALUES (v_shift, 'TEST_ALLDAY', 'Ca Kiểm Thử 24/7', '00:00:00'::TIME, '23:59:59'::TIME)
-                ON CONFLICT (shift_code) DO NOTHING;
+                ON CONFLICT (id) DO NOTHING;
 
                 -- Assign Doc1, Doc2, Nurse to today's shift
                 INSERT INTO app.shift_assignments (shift_id, user_id, work_date) VALUES (v_shift, v_doc1, v_today) ON CONFLICT (shift_id, user_id, work_date) DO NOTHING;

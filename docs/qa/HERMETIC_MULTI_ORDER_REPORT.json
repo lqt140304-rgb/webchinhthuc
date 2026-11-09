@@ -1,0 +1,330 @@
+{
+  "commitSha": "99bc0cdc7d87c4c338f69274241eb24640000d2c",
+  "timestamp": "2026-11-09T11:30:15.006Z",
+  "allRuns": [
+    {
+      "runName": "RUN 1: OFFICIAL ORDER (01 -> 10) ON CLEAN DB",
+      "order": [
+        "01_foundation.test.cjs",
+        "02_schema_ddl.test.cjs",
+        "03_auth_rbac_audit.test.cjs",
+        "04_customer_booking.test.cjs",
+        "05_clinical_inpatient.test.cjs",
+        "06_inventory_billing.test.cjs",
+        "07_import_center_rollback.test.cjs",
+        "08_byod_media.test.cjs",
+        "09_final_acceptance_92_scenarios.test.cjs",
+        "worker_security_resilience.test.cjs"
+      ],
+      "passedCount": 95,
+      "failedCount": 0,
+      "durationSeconds": "24.32",
+      "exitCode": 0,
+      "details": [
+        {
+          "suite": "01_foundation.test.cjs",
+          "passed": 5,
+          "failed": 0,
+          "error": null
+        },
+        {
+          "suite": "02_schema_ddl.test.cjs",
+          "passed": 10,
+          "failed": 0,
+          "error": null
+        },
+        {
+          "suite": "03_auth_rbac_audit.test.cjs",
+          "passed": 10,
+          "failed": 0,
+          "error": null
+        },
+        {
+          "suite": "04_customer_booking.test.cjs",
+          "passed": 10,
+          "failed": 0,
+          "error": null
+        },
+        {
+          "suite": "05_clinical_inpatient.test.cjs",
+          "passed": 10,
+          "failed": 0,
+          "error": null
+        },
+        {
+          "suite": "06_inventory_billing.test.cjs",
+          "passed": 10,
+          "failed": 0,
+          "error": null
+        },
+        {
+          "suite": "07_import_center_rollback.test.cjs",
+          "passed": 10,
+          "failed": 0,
+          "error": null
+        },
+        {
+          "suite": "08_byod_media.test.cjs",
+          "passed": 10,
+          "failed": 0,
+          "error": null
+        },
+        {
+          "suite": "09_final_acceptance_92_scenarios.test.cjs",
+          "passed": 10,
+          "failed": 0,
+          "error": null
+        },
+        {
+          "suite": "worker_security_resilience.test.cjs",
+          "passed": 10,
+          "failed": 0,
+          "error": null
+        }
+      ]
+    },
+    {
+      "runName": "RUN 2: RANDOM ORDER #1 ON CLEAN DB",
+      "order": [
+        "worker_security_resilience.test.cjs",
+        "08_byod_media.test.cjs",
+        "03_auth_rbac_audit.test.cjs",
+        "07_import_center_rollback.test.cjs",
+        "04_customer_booking.test.cjs",
+        "05_clinical_inpatient.test.cjs",
+        "01_foundation.test.cjs",
+        "06_inventory_billing.test.cjs",
+        "02_schema_ddl.test.cjs",
+        "09_final_acceptance_92_scenarios.test.cjs"
+      ],
+      "passedCount": 95,
+      "failedCount": 0,
+      "durationSeconds": "23.39",
+      "exitCode": 0,
+      "details": [
+        {
+          "suite": "worker_security_resilience.test.cjs",
+          "passed": 10,
+          "failed": 0,
+          "error": null
+        },
+        {
+          "suite": "08_byod_media.test.cjs",
+          "passed": 10,
+          "failed": 0,
+          "error": null
+        },
+        {
+          "suite": "03_auth_rbac_audit.test.cjs",
+          "passed": 10,
+          "failed": 0,
+          "error": null
+        },
+        {
+          "suite": "07_import_center_rollback.test.cjs",
+          "passed": 10,
+          "failed": 0,
+          "error": null
+        },
+        {
+          "suite": "04_customer_booking.test.cjs",
+          "passed": 10,
+          "failed": 0,
+          "error": null
+        },
+        {
+          "suite": "05_clinical_inpatient.test.cjs",
+          "passed": 10,
+          "failed": 0,
+          "error": null
+        },
+        {
+          "suite": "01_foundation.test.cjs",
+          "passed": 5,
+          "failed": 0,
+          "error": null
+        },
+        {
+          "suite": "06_inventory_billing.test.cjs",
+          "passed": 10,
+          "failed": 0,
+          "error": null
+        },
+        {
+          "suite": "02_schema_ddl.test.cjs",
+          "passed": 10,
+          "failed": 0,
+          "error": null
+        },
+        {
+          "suite": "09_final_acceptance_92_scenarios.test.cjs",
+          "passed": 10,
+          "failed": 0,
+          "error": null
+        }
+      ]
+    },
+    {
+      "runName": "RUN 3: RANDOM ORDER #2 ON CLEAN DB",
+      "order": [
+        "01_foundation.test.cjs",
+        "worker_security_resilience.test.cjs",
+        "09_final_acceptance_92_scenarios.test.cjs",
+        "08_byod_media.test.cjs",
+        "06_inventory_billing.test.cjs",
+        "07_import_center_rollback.test.cjs",
+        "05_clinical_inpatient.test.cjs",
+        "04_customer_booking.test.cjs",
+        "02_schema_ddl.test.cjs",
+        "03_auth_rbac_audit.test.cjs"
+      ],
+      "passedCount": 95,
+      "failedCount": 0,
+      "durationSeconds": "24.51",
+      "exitCode": 0,
+      "details": [
+        {
+          "suite": "01_foundation.test.cjs",
+          "passed": 5,
+          "failed": 0,
+          "error": null
+        },
+        {
+          "suite": "worker_security_resilience.test.cjs",
+          "passed": 10,
+          "failed": 0,
+          "error": null
+        },
+        {
+          "suite": "09_final_acceptance_92_scenarios.test.cjs",
+          "passed": 10,
+          "failed": 0,
+          "error": null
+        },
+        {
+          "suite": "08_byod_media.test.cjs",
+          "passed": 10,
+          "failed": 0,
+          "error": null
+        },
+        {
+          "suite": "06_inventory_billing.test.cjs",
+          "passed": 10,
+          "failed": 0,
+          "error": null
+        },
+        {
+          "suite": "07_import_center_rollback.test.cjs",
+          "passed": 10,
+          "failed": 0,
+          "error": null
+        },
+        {
+          "suite": "05_clinical_inpatient.test.cjs",
+          "passed": 10,
+          "failed": 0,
+          "error": null
+        },
+        {
+          "suite": "04_customer_booking.test.cjs",
+          "passed": 10,
+          "failed": 0,
+          "error": null
+        },
+        {
+          "suite": "02_schema_ddl.test.cjs",
+          "passed": 10,
+          "failed": 0,
+          "error": null
+        },
+        {
+          "suite": "03_auth_rbac_audit.test.cjs",
+          "passed": 10,
+          "failed": 0,
+          "error": null
+        }
+      ]
+    },
+    {
+      "runName": "RUN 4: RANDOM ORDER #3 ON CLEAN DB",
+      "order": [
+        "08_byod_media.test.cjs",
+        "04_customer_booking.test.cjs",
+        "03_auth_rbac_audit.test.cjs",
+        "02_schema_ddl.test.cjs",
+        "07_import_center_rollback.test.cjs",
+        "worker_security_resilience.test.cjs",
+        "01_foundation.test.cjs",
+        "09_final_acceptance_92_scenarios.test.cjs",
+        "06_inventory_billing.test.cjs",
+        "05_clinical_inpatient.test.cjs"
+      ],
+      "passedCount": 95,
+      "failedCount": 0,
+      "durationSeconds": "23.29",
+      "exitCode": 0,
+      "details": [
+        {
+          "suite": "08_byod_media.test.cjs",
+          "passed": 10,
+          "failed": 0,
+          "error": null
+        },
+        {
+          "suite": "04_customer_booking.test.cjs",
+          "passed": 10,
+          "failed": 0,
+          "error": null
+        },
+        {
+          "suite": "03_auth_rbac_audit.test.cjs",
+          "passed": 10,
+          "failed": 0,
+          "error": null
+        },
+        {
+          "suite": "02_schema_ddl.test.cjs",
+          "passed": 10,
+          "failed": 0,
+          "error": null
+        },
+        {
+          "suite": "07_import_center_rollback.test.cjs",
+          "passed": 10,
+          "failed": 0,
+          "error": null
+        },
+        {
+          "suite": "worker_security_resilience.test.cjs",
+          "passed": 10,
+          "failed": 0,
+          "error": null
+        },
+        {
+          "suite": "01_foundation.test.cjs",
+          "passed": 5,
+          "failed": 0,
+          "error": null
+        },
+        {
+          "suite": "09_final_acceptance_92_scenarios.test.cjs",
+          "passed": 10,
+          "failed": 0,
+          "error": null
+        },
+        {
+          "suite": "06_inventory_billing.test.cjs",
+          "passed": 10,
+          "failed": 0,
+          "error": null
+        },
+        {
+          "suite": "05_clinical_inpatient.test.cjs",
+          "passed": 10,
+          "failed": 0,
+          "error": null
+        }
+      ]
+    }
+  ]
+}

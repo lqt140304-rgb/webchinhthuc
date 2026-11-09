@@ -55,6 +55,7 @@ async function runTests() {
                 v_bob UUID := '77777777-0000-0000-0000-000000000072';
                 v_charlie_off UUID := '77777777-0000-0000-0000-000000000073';
                 v_receptionist UUID := '88888888-0000-0000-0000-000000000074';
+                v_cashier UUID := '88888888-0000-0000-0000-000000000001';
                 v_prod UUID := '99999999-0000-0000-0000-000000000005';
                 v_shift UUID := '66666666-0000-0000-0000-000000000001';
                 v_now_vn TIMESTAMP := (CLOCK_TIMESTAMP() AT TIME ZONE 'Asia/Ho_Chi_Minh');
@@ -65,26 +66,30 @@ async function runTests() {
                 INSERT INTO auth.users (id, email) VALUES (v_bob, 'bob7@lesonvet.vn') ON CONFLICT (id) DO NOTHING;
                 INSERT INTO auth.users (id, email) VALUES (v_charlie_off, 'charlie7@lesonvet.vn') ON CONFLICT (id) DO NOTHING;
                 INSERT INTO auth.users (id, email) VALUES (v_receptionist, 'rec7@lesonvet.vn') ON CONFLICT (id) DO NOTHING;
+                INSERT INTO auth.users (id, email) VALUES (v_cashier, 'cashier7@lesonvet.vn') ON CONFLICT (id) DO NOTHING;
 
                 INSERT INTO app.users (id, full_name, phone_number) VALUES (v_alice, 'Quản trị viên Alice', '0977000001') ON CONFLICT (id) DO UPDATE SET full_name = EXCLUDED.full_name;
                 INSERT INTO app.users (id, full_name, phone_number) VALUES (v_bob, 'Quản trị viên Bob', '0977000002') ON CONFLICT (id) DO UPDATE SET full_name = EXCLUDED.full_name;
                 INSERT INTO app.users (id, full_name, phone_number) VALUES (v_charlie_off, 'Quản trị viên Charlie Ngoài Ca', '0977000003') ON CONFLICT (id) DO UPDATE SET full_name = EXCLUDED.full_name;
                 INSERT INTO app.users (id, full_name, phone_number) VALUES (v_receptionist, 'Tiếp tân Mai Hoa', '0988000002') ON CONFLICT (id) DO UPDATE SET full_name = EXCLUDED.full_name;
+                INSERT INTO app.users (id, full_name, phone_number) VALUES (v_cashier, 'Thu ngân Lê Thị Năm', '0988000001') ON CONFLICT (id) DO UPDATE SET full_name = EXCLUDED.full_name;
 
                 -- 2. Staff Roles
                 INSERT INTO app.staff_role_assignments (user_id, role, assigned_by) VALUES (v_alice, 'admin', v_alice) ON CONFLICT (user_id, role) DO NOTHING;
                 INSERT INTO app.staff_role_assignments (user_id, role, assigned_by) VALUES (v_bob, 'admin', v_alice) ON CONFLICT (user_id, role) DO NOTHING;
                 INSERT INTO app.staff_role_assignments (user_id, role, assigned_by) VALUES (v_charlie_off, 'admin', v_alice) ON CONFLICT (user_id, role) DO NOTHING;
                 INSERT INTO app.staff_role_assignments (user_id, role, assigned_by) VALUES (v_receptionist, 'receptionist', v_alice) ON CONFLICT (user_id, role) DO NOTHING;
+                INSERT INTO app.staff_role_assignments (user_id, role, assigned_by) VALUES (v_cashier, 'cashier', v_alice) ON CONFLICT (user_id, role) DO NOTHING;
 
                 -- 3. Shifts (Alice and Bob have active shifts today; Charlie does NOT have active shift)
                 INSERT INTO app.shifts (id, shift_code, shift_name, start_time, end_time)
                 VALUES (v_shift, 'TEST_ALLDAY', 'Ca Kiểm Thử 24/7', '00:00:00'::TIME, '23:59:59'::TIME)
-                ON CONFLICT (shift_code) DO NOTHING;
+                ON CONFLICT (id) DO NOTHING;
 
                 INSERT INTO app.shift_assignments (shift_id, user_id, work_date, is_active) VALUES (v_shift, v_alice, v_today, true) ON CONFLICT DO NOTHING;
                 INSERT INTO app.shift_assignments (shift_id, user_id, work_date, is_active) VALUES (v_shift, v_bob, v_today, true) ON CONFLICT DO NOTHING;
                 INSERT INTO app.shift_assignments (shift_id, user_id, work_date, is_active) VALUES (v_shift, v_receptionist, v_today, true) ON CONFLICT DO NOTHING;
+                INSERT INTO app.shift_assignments (shift_id, user_id, work_date, is_active) VALUES (v_shift, v_cashier, v_today, true) ON CONFLICT DO NOTHING;
 
                 -- 4. Test Product for Inventory Batches
                 INSERT INTO app.products (id, sku, product_name, category, unit, unit_price, is_prescription_drug)
@@ -174,6 +179,7 @@ async function runTests() {
                 v_alice UUID := '77777777-0000-0000-0000-000000000071';
                 v_charlie_off UUID := '77777777-0000-0000-0000-000000000073';
                 v_receptionist UUID := '88888888-0000-0000-0000-000000000074';
+                v_cashier UUID := '88888888-0000-0000-0000-000000000001';
                 v_job_id UUID;
                 v_err_rec TEXT := '';
                 v_err_off TEXT := '';

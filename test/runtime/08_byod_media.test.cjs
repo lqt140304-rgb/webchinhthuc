@@ -102,7 +102,7 @@ async function runTests() {
             -- 4. Shifts
             INSERT INTO app.shifts (id, shift_code, shift_name, start_time, end_time)
             VALUES (v_shift_tmpl, 'SHIFT_GATE8', 'Ca Trực Gate 8 BYOD', '00:00:00'::TIME, '23:59:59'::TIME)
-            ON CONFLICT (shift_code) DO NOTHING;
+            ON CONFLICT (id) DO NOTHING;
 
             SELECT id INTO v_shift_tmpl FROM app.shifts WHERE shift_code = 'SHIFT_GATE8';
 
@@ -480,10 +480,52 @@ async function runTests() {
                 RAISE EXCEPTION 'EXPECTED_UNAUTHORIZED_UNAPPROVED_BUT_GOT: %', v_err;
             END IF;
 
-            -- 2. Vet approves media for customer
+            -- 2. Vet approves media for customer, BUT media is not yet attached to a bulletin
             UPDATE app.inpatient_daily_media SET is_approved_for_customer = TRUE WHERE id = v_media_id;
 
-            -- 3. Customer Bob (different customer) attempts access -> Must reject
+            -- V4-01 Item 6: Customer access must STILL be blocked when bulletin_id IS NULL
+            v_err := '';
+            BEGIN
+                PERFORM app.rpc_generate_media_signed_url(v_media_id);
+            EXCEPTION WHEN OTHERS THEN
+                v_err := SQLERRM;
+            END;
+            IF v_err NOT LIKE '%UNAUTHORIZED_MEDIA_ACCESS%' THEN
+                RAISE EXCEPTION 'EXPECTED_UNAUTHORIZED_NO_BULLETIN_BUT_GOT: %', v_err;
+            END IF;
+
+            -- 3. Attach media to a draft bulletin -> Still blocked
+            INSERT INTO app.pet_medical_bulletins (id, stay_id, pet_id, bulletin_title, bulletin_content, status, created_by)
+            VALUES ('b0000000-0000-0000-0000-000000000088'::uuid, 'f0000000-0000-0000-0000-000000000001'::uuid, 'e0000000-0000-0000-0000-000000000001'::uuid, 'Bản tin nháp', 'Nội dung', 'draft', 'a0000000-0000-0000-0000-000000000002'::uuid)
+            ON CONFLICT (id) DO UPDATE SET status = 'draft';
+
+            UPDATE app.inpatient_daily_media SET bulletin_id = 'b0000000-0000-0000-0000-000000000088'::uuid WHERE id = v_media_id;
+
+            v_err := '';
+            BEGIN
+                PERFORM app.rpc_generate_media_signed_url(v_media_id);
+            EXCEPTION WHEN OTHERS THEN
+                v_err := SQLERRM;
+            END;
+            IF v_err NOT LIKE '%UNAUTHORIZED_MEDIA_ACCESS%' THEN
+                RAISE EXCEPTION 'EXPECTED_UNAUTHORIZED_DRAFT_BULLETIN_BUT_GOT: %', v_err;
+            END IF;
+
+            -- 4. Publish bulletin -> Now Customer Alice (rightful owner) can view without requiring BYOD device!
+            UPDATE app.pet_medical_bulletins SET status = 'published' WHERE id = 'b0000000-0000-0000-0000-000000000088'::uuid;
+
+            v_res := app.rpc_generate_media_signed_url(v_media_id);
+            IF v_res IS NULL OR (v_res->>'signed_url') IS NULL THEN
+                RAISE EXCEPTION 'ALICE_SIGNED_URL_FAILED';
+            END IF;
+
+            -- Verify public wrapper also works seamlessly for customer
+            v_res := public.rpc_request_media_signed_url(v_media_id);
+            IF v_res IS NULL OR (v_res->>'signed_url') IS NULL THEN
+                RAISE EXCEPTION 'ALICE_PUBLIC_WRAPPER_SIGNED_URL_FAILED';
+            END IF;
+
+            -- 5. Customer Bob (different customer) attempts access -> Must reject
             PERFORM set_config('request.jwt.claim.sub', v_cust_u2::text, true);
             v_err := '';
             BEGIN
@@ -493,13 +535,6 @@ async function runTests() {
             END;
             IF v_err NOT LIKE '%UNAUTHORIZED_MEDIA_ACCESS%' THEN
                 RAISE EXCEPTION 'EXPECTED_UNAUTHORIZED_DIFFERENT_CUSTOMER_BUT_GOT: %', v_err;
-            END IF;
-
-            -- 4. Customer Alice (rightful owner) accesses approved media -> Success
-            PERFORM set_config('request.jwt.claim.sub', v_cust_u1::text, true);
-            v_res := app.rpc_generate_media_signed_url(v_media_id);
-            IF v_res IS NULL OR (v_res->>'signed_url') IS NULL THEN
-                RAISE EXCEPTION 'ALICE_SIGNED_URL_FAILED';
             END IF;
         END $$;
         `;
@@ -587,7 +622,7 @@ async function runTests() {
         );
         SELECT set_config('request.jwt.claim.sub', 'a0000000-0000-0000-0000-000000000002', false);
         SELECT set_config('request.jwt.claim.role', 'authenticated', false);
-        SELECT (app.rpc_generate_media_signed_url(id)->>'signed_url')
+        SELECT (app.rpc_generate_media_signed_url(id, '2222222222222222222222222222222222222222222222222222222222222222')->>'signed_url')
         FROM app.inpatient_daily_media
         WHERE storage_path = 'inpatient/stay1/gate8_native_test.jpg'
         ORDER BY id DESC LIMIT 1;

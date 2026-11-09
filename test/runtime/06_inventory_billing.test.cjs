@@ -67,10 +67,39 @@ async function runTests() {
                 v_prod_gen UUID := '99999999-0000-0000-0000-000000000002';
                 v_srv_spa UUID := 'aaaaaaaa-0000-0000-0000-000000000001';
             BEGIN
-                -- 1. Create cashier user & staff role
+                -- 1. Create cashier user & staff role with active shift
                 INSERT INTO auth.users (id, email) VALUES (v_cashier, 'cashier1@lesonvet.vn') ON CONFLICT (id) DO NOTHING;
                 INSERT INTO app.users (id, full_name, phone_number) VALUES (v_cashier, 'Thu ngân Lê Thị Năm', '0988000001') ON CONFLICT (id) DO UPDATE SET full_name = EXCLUDED.full_name;
                 INSERT INTO app.staff_role_assignments (user_id, role, assigned_by) VALUES (v_cashier, 'cashier', v_cashier) ON CONFLICT (user_id, role) DO NOTHING;
+
+                INSERT INTO app.shifts (id, shift_code, shift_name, start_time, end_time)
+                VALUES ('66666666-0000-0000-0000-000000000001', 'SHIFT_TEST_247', 'Ca Kiểm Thử 24/7', '00:00:00'::TIME, '23:59:59'::TIME)
+                ON CONFLICT (id) DO NOTHING;
+
+                INSERT INTO app.shift_assignments (shift_id, user_id, work_date, is_active)
+                VALUES ('66666666-0000-0000-0000-000000000001', v_cashier, (CLOCK_TIMESTAMP() AT TIME ZONE 'Asia/Ho_Chi_Minh')::DATE, TRUE)
+                ON CONFLICT DO NOTHING;
+
+                -- Base Customer A & Customer B for billing tests
+                INSERT INTO auth.users (id, email) VALUES 
+                    ('33333333-0000-0000-0000-000000000001'::uuid, 'user_a_g6@test.vn'),
+                    ('33333333-0000-0000-0000-000000000002'::uuid, 'user_b_g6@test.vn')
+                ON CONFLICT (id) DO NOTHING;
+
+                INSERT INTO app.users (id, full_name, phone_number, is_active) VALUES 
+                    ('33333333-0000-0000-0000-000000000001'::uuid, 'Khách A Gate 6', '0933000001', TRUE),
+                    ('33333333-0000-0000-0000-000000000002'::uuid, 'Khách B Gate 6', '0933000002', TRUE)
+                ON CONFLICT (id) DO UPDATE SET is_active = TRUE;
+
+                INSERT INTO app.customers (id, full_name, phone_number, is_active, is_deleted) VALUES 
+                    ('44444444-0000-0000-0000-000000000001'::uuid, 'Khách A CRM', '0933000001', TRUE, FALSE),
+                    ('44444444-0000-0000-0000-000000000002'::uuid, 'Khách B CRM', '0933000002', TRUE, FALSE)
+                ON CONFLICT (id) DO UPDATE SET is_active = TRUE, is_deleted = FALSE;
+
+                INSERT INTO app.customer_user_links (customer_id, user_id, link_status) VALUES 
+                    ('44444444-0000-0000-0000-000000000001'::uuid, '33333333-0000-0000-0000-000000000001'::uuid, 'approved'),
+                    ('44444444-0000-0000-0000-000000000002'::uuid, '33333333-0000-0000-0000-000000000002'::uuid, 'approved')
+                ON CONFLICT (customer_id, user_id) DO UPDATE SET link_status = 'approved';
 
                 -- 2. Products (1 prescription drug, 1 general supply, 1 retail non-rx)
                 INSERT INTO app.products (id, sku, product_name, category, unit, unit_price, is_prescription_drug)
@@ -683,6 +712,41 @@ async function runTests() {
                 v_stay_x UUID;
                 v_count INT;
             BEGIN
+                -- 0. Ensure hermetic fixtures for Pet Transfer & Bulletin test
+                INSERT INTO auth.users (id, email) VALUES 
+                    (v_user_a, 'user_a_g6@test.vn'),
+                    (v_user_b, 'user_b_g6@test.vn'),
+                    ('11111111-0000-0000-0000-000000000001'::uuid, 'doc1_g6@lesonvet.vn'),
+                    (v_doc2, 'doc2_g6@lesonvet.vn')
+                ON CONFLICT (id) DO NOTHING;
+
+                INSERT INTO app.users (id, full_name, phone_number, is_active) VALUES 
+                    (v_user_a, 'Khách A Gate 6', '0933000001', TRUE),
+                    (v_user_b, 'Khách B Gate 6', '0933000002', TRUE),
+                    ('11111111-0000-0000-0000-000000000001'::uuid, 'Bác sĩ Một Gate 6', '0911000001', TRUE),
+                    (v_doc2, 'Bác sĩ Hai Gate 6', '0911000002', TRUE)
+                ON CONFLICT (id) DO UPDATE SET is_active = TRUE;
+
+                INSERT INTO app.customers (id, full_name, phone_number, is_active, is_deleted) VALUES 
+                    (v_crm_a, 'Khách A CRM', '0933000001', TRUE, FALSE),
+                    (v_crm_b, 'Khách B CRM', '0933000002', TRUE, FALSE)
+                ON CONFLICT (id) DO UPDATE SET is_active = TRUE, is_deleted = FALSE;
+
+                INSERT INTO app.customer_user_links (customer_id, user_id, link_status) VALUES 
+                    (v_crm_a, v_user_a, 'approved'),
+                    (v_crm_b, v_user_b, 'approved')
+                ON CONFLICT (customer_id, user_id) DO UPDATE SET link_status = 'approved';
+
+                INSERT INTO app.staff_role_assignments (user_id, role, assigned_by) VALUES 
+                    ('11111111-0000-0000-0000-000000000001'::uuid, 'veterinarian', '11111111-0000-0000-0000-000000000001'::uuid),
+                    (v_doc2, 'veterinarian', '11111111-0000-0000-0000-000000000001'::uuid)
+                ON CONFLICT (user_id, role) DO UPDATE SET is_active = TRUE;
+
+                INSERT INTO app.shift_assignments (shift_id, user_id, work_date, is_active) VALUES 
+                    ('66666666-0000-0000-0000-000000000001', '11111111-0000-0000-0000-000000000001'::uuid, (CLOCK_TIMESTAMP() AT TIME ZONE 'Asia/Ho_Chi_Minh')::DATE, TRUE),
+                    ('66666666-0000-0000-0000-000000000001', v_doc2, (CLOCK_TIMESTAMP() AT TIME ZONE 'Asia/Ho_Chi_Minh')::DATE, TRUE)
+                ON CONFLICT DO NOTHING;
+
                 -- 1. Create Pet X for Customer A
                 INSERT INTO app.pets (id, customer_id, pet_name, species, gender)
                 VALUES (v_pet_x, v_crm_a, 'Bé Thỏ X', 'rabbit', 'female');

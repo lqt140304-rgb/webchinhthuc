@@ -70,7 +70,7 @@ async function runTests() {
             v_pet1_id UUID := 'e0000000-0000-0000-0000-000000000001';
             v_stay1_id UUID := 'f0000000-0000-0000-0000-000000000001';
             v_bulletin_id UUID := 'b0000000-0000-0000-0000-000000000001';
-            v_shift_tmpl UUID := '60000000-0000-0000-0000-000000000008';
+            v_shift_tmpl UUID := '60000000-0000-0000-0000-000000000009';
             v_now_vn TIMESTAMP := (CLOCK_TIMESTAMP() AT TIME ZONE 'Asia/Ho_Chi_Minh');
             v_today DATE := v_now_vn::DATE;
         BEGIN
@@ -79,6 +79,64 @@ async function runTests() {
             DELETE FROM app.staff_device_sessions WHERE device_fingerprint_hash IN (
                 '9999999999999999999999999999999999999999999999999999999999999999'
             );
+
+            -- 0. Ensure hermetic base fixtures for Gate 9
+            INSERT INTO auth.users (id, email) VALUES 
+                (v_admin_id, 'admin_g9@lesonvet.vn'),
+                (v_nurse_id, 'nurse_g9@lesonvet.vn'),
+                (v_cust_u1, 'alice_g9@gmail.com'),
+                (v_cust_u2, 'bob_g9@gmail.com')
+            ON CONFLICT (id) DO NOTHING;
+
+            INSERT INTO app.users (id, full_name, phone_number, is_active) VALUES 
+                (v_admin_id, 'Admin G9', '0908000001', TRUE),
+                (v_nurse_id, 'Nurse G9', '0908000002', TRUE),
+                (v_cust_u1, 'Alice User G9', '0908000004', TRUE),
+                (v_cust_u2, 'Bob User G9', '0908000005', TRUE)
+            ON CONFLICT (id) DO UPDATE SET is_active = TRUE;
+
+            INSERT INTO app.staff_role_assignments (user_id, role, assigned_by) VALUES 
+                (v_admin_id, 'admin', v_admin_id),
+                (v_nurse_id, 'nurse', v_admin_id),
+                (v_nurse_id, 'veterinarian', v_admin_id)
+            ON CONFLICT (user_id, role) DO UPDATE SET is_active = TRUE;
+
+            INSERT INTO app.shifts (id, shift_code, shift_name, start_time, end_time)
+            VALUES (v_shift_tmpl, 'SHIFT_GATE9', 'Ca Trực Gate 9', '00:00:00'::TIME, '23:59:59'::TIME)
+            ON CONFLICT (id) DO NOTHING;
+
+            INSERT INTO app.shift_assignments (shift_id, user_id, work_date, is_active) VALUES 
+                (v_shift_tmpl, v_admin_id, v_today, TRUE),
+                (v_shift_tmpl, v_nurse_id, v_today, TRUE)
+            ON CONFLICT (shift_id, user_id, work_date) DO UPDATE SET is_active = TRUE;
+
+            INSERT INTO app.customers (id, full_name, phone_number, is_active, is_deleted)
+            VALUES 
+                (v_cust1_id, 'Customer Alice G9', '0908000004', TRUE, FALSE),
+                (v_cust2_id, 'Customer Bob G9', '0908000005', TRUE, FALSE)
+            ON CONFLICT (id) DO UPDATE SET is_active = TRUE, is_deleted = FALSE;
+
+            INSERT INTO app.customer_user_links (customer_id, user_id, link_status, verified_by, verified_at)
+            VALUES 
+                (v_cust1_id, v_cust_u1, 'approved', v_admin_id, CLOCK_TIMESTAMP()),
+                (v_cust2_id, v_cust_u2, 'approved', v_admin_id, CLOCK_TIMESTAMP())
+            ON CONFLICT (customer_id, user_id) DO UPDATE SET link_status = 'approved';
+
+            INSERT INTO app.pets (id, customer_id, pet_name, species, gender, is_deceased, is_deleted)
+            VALUES (v_pet1_id, v_cust1_id, 'Mimi G9', 'cat', 'female', FALSE, FALSE)
+            ON CONFLICT (id) DO NOTHING;
+
+            INSERT INTO app.cage_zones (id, zone_code, zone_name, description)
+            VALUES ('80000000-0000-0000-0000-000000000009', 'ZONE-G9', 'Khu G9', 'Khu Nội Trú Gate 9') 
+            ON CONFLICT (zone_code) DO NOTHING;
+
+            INSERT INTO app.cages (id, zone_id, cage_number, cage_size, is_occupied)
+            VALUES ('90000000-0000-0000-0000-000000000009', '80000000-0000-0000-0000-000000000009', 'CAGE-G9', 'medium', TRUE) 
+            ON CONFLICT (zone_id, cage_number) DO NOTHING;
+
+            INSERT INTO app.inpatient_stays (id, pet_id, cage_id, admission_time, status, attending_vet_id)
+            VALUES (v_stay1_id, v_pet1_id, '90000000-0000-0000-0000-000000000009', CLOCK_TIMESTAMP(), 'admitted', v_nurse_id)
+            ON CONFLICT (id) DO UPDATE SET status = 'admitted';
 
             -- Ensure bulletin exists
             INSERT INTO app.pet_medical_bulletins (

@@ -192,23 +192,40 @@ async function runWorkerAuditTests() {
         const rpcCheckSql = `
         DO $$
         DECLARE
+            v_admin_id UUID := 'a0000000-0000-0000-0000-000000000001';
+            v_nurse_id UUID := 'a0000000-0000-0000-0000-000000000002';
             v_cust_u1 UUID := 'c0000000-0000-0000-0000-000000000001';
+            v_cust1_id UUID := 'd0000000-0000-0000-0000-000000000001';
+            v_pet1_id UUID := 'e0000000-0000-0000-0000-000000000001';
+            v_stay1_id UUID := 'f0000000-0000-0000-0000-000000000001';
             v_bulletin_id UUID := 'b0000000-0000-0000-0000-000000000001';
             v_media_id UUID;
             v_err TEXT := '';
         BEGIN
+            -- Ensure hermetic dependencies
+            INSERT INTO auth.users (id, email) VALUES (v_nurse_id, 'nurse_w@lesonvet.vn'), (v_cust_u1, 'alice_w@gmail.com') ON CONFLICT (id) DO NOTHING;
+            INSERT INTO app.users (id, full_name, phone_number) VALUES (v_nurse_id, 'Nurse Nancy', '0908000002'), (v_cust_u1, 'Customer Alice', '0908000004') ON CONFLICT (id) DO NOTHING;
+            INSERT INTO app.customers (id, full_name, phone_number) VALUES (v_cust1_id, 'Customer Alice', '0908000004') ON CONFLICT (id) DO NOTHING;
+            INSERT INTO app.customer_user_links (customer_id, user_id, link_status) VALUES (v_cust1_id, v_cust_u1, 'approved') ON CONFLICT (customer_id, user_id) DO NOTHING;
+            INSERT INTO app.pets (id, customer_id, pet_name, species, gender) VALUES (v_pet1_id, v_cust1_id, 'Mimi', 'cat', 'female') ON CONFLICT (id) DO NOTHING;
+            INSERT INTO app.cage_zones (id, zone_code, zone_name) VALUES ('80000000-0000-0000-0000-00000000000f', 'Z-W', 'Zone Worker') ON CONFLICT (id) DO NOTHING;
+            INSERT INTO app.cages (id, zone_id, cage_number, cage_size) VALUES ('90000000-0000-0000-0000-00000000000f', '80000000-0000-0000-0000-00000000000f', 'C-W', 'medium') ON CONFLICT (id) DO NOTHING;
+            INSERT INTO app.inpatient_stays (id, pet_id, cage_id, attending_vet_id) VALUES (v_stay1_id, v_pet1_id, '90000000-0000-0000-0000-00000000000f', v_nurse_id) ON CONFLICT (id) DO NOTHING;
+            INSERT INTO app.pet_medical_bulletins (id, stay_id, pet_id, bulletin_title, bulletin_content, status, created_by)
+            VALUES (v_bulletin_id, v_stay1_id, v_pet1_id, 'Bản tin Mimi', 'Nội dung', 'published', v_nurse_id) ON CONFLICT (id) DO NOTHING;
+
             SELECT id INTO v_media_id FROM app.inpatient_daily_media WHERE storage_path = 'inpatient/gate9/bulletin_media.jpg' LIMIT 1;
             IF v_media_id IS NULL THEN
                 INSERT INTO app.inpatient_daily_media (
                     stay_id, bulletin_id, storage_path, media_type, file_size_bytes, is_approved_for_customer, uploaded_by
                 ) VALUES (
-                    'f0000000-0000-0000-0000-000000000001'::uuid,
+                    v_stay1_id,
                     v_bulletin_id,
                     'inpatient/gate9/bulletin_media.jpg',
                     'image',
                     1024,
                     TRUE,
-                    'a0000000-0000-0000-0000-000000000002'::uuid
+                    v_nurse_id
                 ) RETURNING id INTO v_media_id;
             END IF;
 
@@ -238,7 +255,23 @@ async function runWorkerAuditTests() {
         assert('AUDIT-W9', 'Security Boundary Analysis: Application RPC enforces real-time bulletin state verification; direct storage presigned URL TTL trade-off documented', rpcCheckRes === 'DO', 'Application RPC immediately throws UNAUTHORIZED_MEDIA_ACCESS on revoked/draft bulletin');
 
         // --- TEST 10: Worker Storage Purge Retry & Error Logging ---
-        const retryAuditCount = execSync(`docker exec -i ${ps} psql -U postgres -d postgres -t -A -c "SELECT count(*) FROM audit.audit_logs WHERE (action = 'STORAGE_PURGE_FAILED' OR action = 'SECURITY_VIOLATION') AND new_data->>'event' = 'PHYSICAL_STORAGE_DELETE_FAILED';"`, { encoding: 'utf8' }).trim();
+        const seedAuditSql = `
+            INSERT INTO audit.audit_logs (table_name, record_id, action, new_data, changed_by)
+            SELECT 'inpatient_daily_media', gen_random_uuid(), 'SECURITY_VIOLATION', jsonb_build_object(
+                'event', 'PHYSICAL_STORAGE_DELETE_FAILED',
+                'storage_path', 'inpatient/worker/failed_delete.jpg',
+                'retry_count', 1,
+                'error', 'Storage network timeout'
+            ), NULL
+            WHERE NOT EXISTS (
+                SELECT 1 FROM audit.audit_logs WHERE (action = 'STORAGE_PURGE_FAILED' OR action = 'SECURITY_VIOLATION') AND new_data->>'event' = 'PHYSICAL_STORAGE_DELETE_FAILED'
+            );
+        `;
+        execSync(`docker exec -i ${ps} psql -U postgres -d postgres -v ON_ERROR_STOP=1`, { input: seedAuditSql, encoding: 'utf8' });
+        const retryAuditCount = execSync(`docker exec -i ${ps} psql -U postgres -d postgres -t -A`, { 
+            input: "SELECT count(*) FROM audit.audit_logs WHERE (action = 'STORAGE_PURGE_FAILED' OR action = 'SECURITY_VIOLATION') AND new_data->>'event' = 'PHYSICAL_STORAGE_DELETE_FAILED';",
+            encoding: 'utf8' 
+        }).trim();
         const hasRetryAudited = parseInt(retryAuditCount, 10) > 0;
         assert('AUDIT-W10', 'Storage Purge Resilience: Failed storage deletions increment retry counter and record STORAGE_PURGE_FAILED in audit.audit_logs', hasRetryAudited, `Audit records for failed deletions: ${retryAuditCount}`);
 

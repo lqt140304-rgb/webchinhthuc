@@ -374,6 +374,31 @@ async function runTests() {
                 v_old_user UUID := gen_random_uuid();
                 v_err TEXT := '';
             BEGIN
+                -- 0. Ensure Admin & Receptionist exist for hermetic test execution
+                INSERT INTO auth.users (id, email) VALUES 
+                    (v_admin_id, 'admin_g4@lesonvet.vn'),
+                    (v_recept_id, 'recept_g4@lesonvet.vn')
+                ON CONFLICT (id) DO NOTHING;
+
+                INSERT INTO app.users (id, full_name, phone_number, is_active) VALUES 
+                    (v_admin_id, 'Admin Gate 4', '0908777071', TRUE),
+                    (v_recept_id, 'Receptionist Gate 4', '0908777074', TRUE)
+                ON CONFLICT (id) DO UPDATE SET is_active = TRUE;
+
+                INSERT INTO app.staff_role_assignments (user_id, role, assigned_by) VALUES 
+                    (v_admin_id, 'admin', v_admin_id),
+                    (v_recept_id, 'receptionist', v_admin_id)
+                ON CONFLICT (user_id, role) DO UPDATE SET is_active = TRUE;
+
+                INSERT INTO app.shifts (id, shift_code, shift_name, start_time, end_time)
+                VALUES ('66666666-0000-0000-0000-000000000001', 'SHIFT_TEST_247', 'Ca Kiểm Thử 24/7', '00:00:00'::TIME, '23:59:59'::TIME)
+                ON CONFLICT (id) DO NOTHING;
+
+                INSERT INTO app.shift_assignments (shift_id, user_id, work_date, is_active) VALUES 
+                    ('66666666-0000-0000-0000-000000000001', v_admin_id, (CLOCK_TIMESTAMP() AT TIME ZONE 'Asia/Ho_Chi_Minh')::DATE, TRUE),
+                    ('66666666-0000-0000-0000-000000000001', v_recept_id, (CLOCK_TIMESTAMP() AT TIME ZONE 'Asia/Ho_Chi_Minh')::DATE, TRUE)
+                ON CONFLICT DO NOTHING;
+
                 -- 1. D-LINK request test
                 INSERT INTO auth.users (id, email) VALUES (v_uid, 'dlink_user@test.vn');
                 INSERT INTO app.customers (id, full_name, phone_number) VALUES (v_cust_id, 'Khách Cũ GPet', '0903111222');
