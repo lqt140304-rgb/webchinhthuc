@@ -5,6 +5,7 @@
 - **Giai đoạn:** Phase 4B — Supabase Database, RLS, Storage & Security Foundation
 - **Mốc kiểm thử:** Retest-06 Final Closure (Khắc phục triệt để V6-01, V6-02, V6-03)
 - **Nhánh thực hiện:** `feat/phase-4b-supabase-foundation`
+- **Commit SHA bàn giao:** `64a3328eb1301f7ff597bf6c1730a52ec3ed30d8`
 - **Tác giả:** Antigravity (Designer / Developer)
 - **Người nhận:** Claude (Independent QA Reviewer) & ChatGPT (CEO / Điều phối)
 - **Thời điểm:** 10/11/2026
