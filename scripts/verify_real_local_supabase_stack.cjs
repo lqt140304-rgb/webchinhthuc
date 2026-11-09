@@ -9,6 +9,7 @@
 
 const { execSync } = require('child_process');
 const crypto = require('crypto');
+const { issueMediaSignedUrl } = require('../services/media_server/media_service.cjs');
 
 const BASE_URL = 'http://127.0.0.1:54321';
 const REST_URL = `${BASE_URL}/rest/v1`;
@@ -190,16 +191,25 @@ async function runStackVerification() {
         const alicePets = await alicePetsRes.json();
         const aliceOwnsPet = alicePetsRes.status === 200 && alicePets.some(p => p.id === '50000000-0000-0000-0000-000000000001' || p.pet_name.includes('Mimi'));
 
-        // Alice requests media signed URL (no BYOD device required)
+        // Alice requests media authorization grant via RPC (no BYOD device required)
         const aliceMediaRpc = await fetch(`${REST_URL}/rpc/rpc_request_media_signed_url`, {
             method: 'POST',
             headers: { apikey: ANON_KEY, Authorization: `Bearer ${jwtAlice}`, 'Content-Type': 'application/json' },
             body: JSON.stringify({ p_media_id: '70000000-0000-0000-0000-000000000001' })
         });
         const aliceMediaData = await aliceMediaRpc.json();
-        const aliceSignedUrl = aliceMediaData.signed_url;
-        const alicePass = aliceOwnsPet && aliceMediaRpc.status === 200 && !!aliceSignedUrl;
-        recordProbe('Role Customer Alice: Sees own pet, receives valid Signed URL via RPC without BYOD requirement', alicePass, `Pets: ${alicePets.length}, RPC status: ${aliceMediaRpc.status}, URL: ${aliceSignedUrl ? aliceSignedUrl.substring(0, 50) + '...' : 'none'}`);
+        const aliceAuthorized = aliceMediaRpc.status === 200 && aliceMediaData.authorized === true && !!aliceMediaData.storage_path;
+
+        // Trusted Server Component issues official Signed URL via Supabase Storage API
+        const aliceSignedRes = await issueMediaSignedUrl({
+            supabaseUrl: BASE_URL,
+            serviceRoleKey: SERVICE_KEY,
+            userToken: jwtAlice,
+            mediaId: '70000000-0000-0000-0000-000000000001'
+        });
+        const aliceSignedUrl = aliceSignedRes.signed_url;
+        const alicePass = aliceOwnsPet && aliceAuthorized && !!aliceSignedUrl;
+        recordProbe('Role Customer Alice: Sees own pet, receives DB Authorization Grant & Server Signed URL without BYOD requirement', alicePass, `Pets: ${alicePets.length}, DB status: ${aliceMediaRpc.status}, Signed URL: ${aliceSignedUrl ? aliceSignedUrl.substring(0, 50) + '...' : 'none'}`);
 
         // --------------------------------------------------------------------------
         // PROBE 3: Customer Bob - Cross-Customer Isolation (IDOR Rejection)
@@ -242,7 +252,7 @@ async function runStackVerification() {
             })
         });
         const nurseUntrustedJson = await nurseUntrustedRes.json();
-        const untrustedBlocked = nurseUntrustedRes.status >= 400 && JSON.stringify(nurseUntrustedJson).includes('DEVICE_NOT_TRUSTED');
+        const untrustedBlocked = nurseUntrustedRes.status >= 400 && (JSON.stringify(nurseUntrustedJson).includes('DEVICE_NOT_TRUSTED') || JSON.stringify(nurseUntrustedJson).includes('DEVICE_REVOKED'));
 
         // 4C: Nancy calls with approved BYOD device session -> MUST SUCCEED (200 OK)
         const nurseApprovedRes = await fetch(`${REST_URL}/rpc/rpc_request_media_signed_url`, {
@@ -254,11 +264,20 @@ async function runStackVerification() {
             })
         });
         const nurseApprovedData = await nurseApprovedRes.json();
-        const nurseSignedUrl = nurseApprovedData.signed_url;
-        const approvedPass = nurseApprovedRes.status === 200 && !!nurseSignedUrl;
+        const approvedPass = nurseApprovedRes.status === 200 && nurseApprovedData.authorized === true && !!nurseApprovedData.storage_path;
 
-        const byodPass = nullFpBlocked && untrustedBlocked && approvedPass;
-        recordProbe('Role Staff Nurse (V4-01): NULL fingerprint blocked (42501), Untrusted device blocked (403), Approved BYOD succeeds (200)', byodPass, `Null FP: ${nurseNullFpRes.status}, Untrusted: ${nurseUntrustedRes.status}, Approved: ${nurseApprovedRes.status}`);
+        // Trusted Server Component issues official Signed URL for approved BYOD staff
+        const nurseSignedRes = await issueMediaSignedUrl({
+            supabaseUrl: BASE_URL,
+            serviceRoleKey: SERVICE_KEY,
+            userToken: jwtNurse,
+            mediaId: '70000000-0000-0000-0000-000000000001',
+            deviceFingerprintHash: '2222222222222222222222222222222222222222222222222222222222222222'
+        });
+        const nurseSignPass = nurseSignedRes.authorized && !!nurseSignedRes.signed_url;
+
+        const byodPass = nullFpBlocked && untrustedBlocked && approvedPass && nurseSignPass;
+        recordProbe('Role Staff Nurse (V4-01 & V5-01): NULL fingerprint blocked (42501), Untrusted device blocked (403), Approved BYOD succeeds (200) with Server Signed URL', byodPass, `Null FP: ${nurseNullFpRes.status}, Untrusted: ${nurseUntrustedRes.status}, Approved DB: ${nurseApprovedRes.status}, Server URL: ${nurseSignedRes.signed_url ? 'yes' : 'no'}`);
 
         // --------------------------------------------------------------------------
         // PROBE 5: Supabase Storage API Physical Fetch & Token Tampering Test
@@ -318,15 +337,19 @@ async function runStackVerification() {
         recordProbe('Staging Schema Isolation (P3 / Retest-04 C.1): USAGE strictly revoked from authenticated; 0 staging wrappers', stagingPass, `authenticated USAGE: ${stagingUsage} (expected: f), staging routines: ${stagingRoutinesCount} (expected: 0)`);
 
         // --------------------------------------------------------------------------
-        // PROBE 10: Product Category Anti-Typo CHECK Constraint (P3-4)
+        // PROBE 10: V5-01 SQL Signing Elimination & Product Anti-Typo Guard
         // --------------------------------------------------------------------------
+        const sqlSigningCount = psql("SELECT count(*) FROM pg_proc p JOIN pg_namespace n ON n.oid = p.pronamespace WHERE n.nspname = 'app' AND p.proname IN ('sign_storage_download_token', 'rpc_verify_media_signed_url');");
+        const sqlSigningRemoved = parseInt(sqlSigningCount, 10) === 0;
+
         let typoBlocked = false;
         try {
             psql("INSERT INTO app.products (sku, product_name, category, unit, unit_price, is_prescription_drug, is_active) VALUES ('PROBE_SKU_TYPO', 'Typo Drug', 'pharmcy', 'box', 10000, true, true);");
         } catch (e) {
             typoBlocked = e.message.includes('products_category_check');
         }
-        recordProbe('Product Category Anti-Typo Constraint: Invalid category rejected by products_category_check', typoBlocked, 'Insertion of "pharmcy" rejected by constraint products_category_check');
+        const probe10Pass = sqlSigningRemoved && typoBlocked;
+        recordProbe('V5-01 SQL Signing Elimination & Product Anti-Typo: Zero SQL signing routines, typo rejected', probe10Pass, `SQL signing routines: ${sqlSigningCount} (expected: 0), Typo constraint rejected: ${typoBlocked}`);
 
     } catch (err) {
         console.error('Fatal probe error:', err);

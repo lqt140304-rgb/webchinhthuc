@@ -530,16 +530,27 @@ async function runTests() {
         END $$;
         SELECT set_config('request.jwt.claim.sub', 'c0000000-0000-0000-0000-000000000001', false);
         SELECT set_config('request.jwt.claim.role', 'authenticated', false);
-        SELECT (app.rpc_generate_media_signed_url(id)->>'signed_url')
+        SELECT (app.rpc_generate_media_signed_url(id)->>'storage_path')
         FROM app.inpatient_daily_media
         WHERE storage_path = 'inpatient/gate9/gate9_e2e.jpg'
         ORDER BY id DESC LIMIT 1;
         `;
         const e2ePsqlLines = psql(e2eSql).trim().split('\n');
-        const e2eSignedUrl = e2ePsqlLines[e2ePsqlLines.length - 1].trim();
+        const queriedPath = e2ePsqlLines[e2ePsqlLines.length - 1].trim();
 
-        // 3. Fetch from real Supabase Storage API using valid signed URL -> HTTP 200 OK
-        const fullE2eUrl = `http://127.0.0.1:54321${e2eSignedUrl}`;
+        // 3. Trusted Server Component requests official Signed URL from Supabase Storage API
+        const signApiRes = await fetch(`${STORAGE_API}/object/sign/inpatient-media-private/${queriedPath}`, {
+            method: 'POST',
+            headers: { apikey: SERVICE_KEY, Authorization: `Bearer ${SERVICE_KEY}`, 'Content-Type': 'application/json' },
+            body: JSON.stringify({ expiresIn: 900 })
+        });
+        const signApiData = await signApiRes.json();
+        const e2eRelativeSignedUrl = signApiData.signedURL.startsWith('/storage/v1') 
+            ? signApiData.signedURL 
+            : `/storage/v1${signApiData.signedURL}`;
+
+        // 4. Fetch from real Supabase Storage API using valid signed URL -> HTTP 200 OK
+        const fullE2eUrl = `http://127.0.0.1:54321${e2eRelativeSignedUrl}`;
         const fetchValidRes = await fetch(fullE2eUrl);
         const validText = await fetchValidRes.text();
         const validPass = (fetchValidRes.status === 200 && validText === 'GATE9_E2E_STORAGE_PAYLOAD_TEST');

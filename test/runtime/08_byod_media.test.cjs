@@ -428,22 +428,22 @@ async function runTests() {
             PERFORM set_config('request.jwt.claim.sub', v_nurse_id::text, true);
             PERFORM set_config('request.jwt.claim.role', 'authenticated', true);
 
-            -- Generate standard signed URL (valid 15m / 900s)
+            -- Generate standard authorization grant (valid 15m / 900s)
             v_res := app.rpc_generate_media_signed_url(v_media_id, v_fp2);
 
-            IF (v_res->>'bucket_id') <> 'inpatient-media-private' OR (v_res->>'valid_seconds')::int <> 900 THEN
-                RAISE EXCEPTION 'INVALID_SIGNED_URL_PAYLOAD: %', v_res;
+            IF (v_res->>'bucket_id') <> 'inpatient-media-private' OR (v_res->>'valid_seconds')::int <> 900 OR (v_res->>'authorized')::boolean <> TRUE THEN
+                RAISE EXCEPTION 'INVALID_AUTH_GRANT_PAYLOAD: %', v_res;
             END IF;
 
-            v_token := substring((v_res->>'signed_url') from '[?&]token=([^&]+)');
-            IF v_token IS NULL OR length(v_token) < 20 THEN
-                RAISE EXCEPTION 'MISSING_STANDARD_JWT_TOKEN: %', v_res;
+            -- V5-01 Security: Ensure internal SQL signing & HMAC verification functions are dropped
+            IF EXISTS (SELECT 1 FROM pg_proc p JOIN pg_namespace n ON p.pronamespace = n.oid WHERE n.nspname = 'app' AND p.proname IN ('sign_storage_download_token', 'rpc_verify_media_signed_url')) THEN
+                RAISE EXCEPTION 'SQL_INTERNAL_SIGNING_NOT_REMOVED';
             END IF;
 
-            -- V3-01 Security: Ensure anon cannot execute verification RPC (REVOKE anon verified)
+            -- V5-01: Anon cannot call media authorization RPC
             PERFORM set_config('role', 'anon', true);
             BEGIN
-                PERFORM app.rpc_verify_media_signed_url(v_media_id, 1794200000, 'sig');
+                PERFORM public.rpc_request_media_signed_url(v_media_id);
             EXCEPTION WHEN OTHERS THEN
                 v_anon_blocked := (SQLSTATE = '42501');
             END;
@@ -515,14 +515,14 @@ async function runTests() {
             UPDATE app.pet_medical_bulletins SET status = 'published' WHERE id = 'b0000000-0000-0000-0000-000000000088'::uuid;
 
             v_res := app.rpc_generate_media_signed_url(v_media_id);
-            IF v_res IS NULL OR (v_res->>'signed_url') IS NULL THEN
-                RAISE EXCEPTION 'ALICE_SIGNED_URL_FAILED';
+            IF v_res IS NULL OR (v_res->>'authorized')::boolean <> TRUE THEN
+                RAISE EXCEPTION 'ALICE_AUTH_GRANT_FAILED';
             END IF;
 
             -- Verify public wrapper also works seamlessly for customer
             v_res := public.rpc_request_media_signed_url(v_media_id);
-            IF v_res IS NULL OR (v_res->>'signed_url') IS NULL THEN
-                RAISE EXCEPTION 'ALICE_PUBLIC_WRAPPER_SIGNED_URL_FAILED';
+            IF v_res IS NULL OR (v_res->>'authorized')::boolean <> TRUE THEN
+                RAISE EXCEPTION 'ALICE_PUBLIC_WRAPPER_AUTH_GRANT_FAILED';
             END IF;
 
             -- 5. Customer Bob (different customer) attempts access -> Must reject
@@ -622,15 +622,26 @@ async function runTests() {
         );
         SELECT set_config('request.jwt.claim.sub', 'a0000000-0000-0000-0000-000000000002', false);
         SELECT set_config('request.jwt.claim.role', 'authenticated', false);
-        SELECT (app.rpc_generate_media_signed_url(id, '2222222222222222222222222222222222222222222222222222222222222222')->>'signed_url')
+        SELECT (app.rpc_generate_media_signed_url(id, '2222222222222222222222222222222222222222222222222222222222222222')->>'storage_path')
         FROM app.inpatient_daily_media
         WHERE storage_path = 'inpatient/stay1/gate8_native_test.jpg'
         ORDER BY id DESC LIMIT 1;
         `;
         const psqlLines = psql(signUrlSql).trim().split('\n');
-        const relativeSignedUrl = psqlLines[psqlLines.length - 1].trim();
+        const authStoragePath = psqlLines[psqlLines.length - 1].trim();
 
-        // 3. Fetch from real Supabase Storage API using valid signed URL -> HTTP 200 OK
+        // 3. Trusted Server Component requests official Signed URL from Supabase Storage API
+        const signApiRes = await fetch(`${STORAGE_API}/object/sign/inpatient-media-private/${authStoragePath}`, {
+            method: 'POST',
+            headers: { apikey: SERVICE_KEY, Authorization: `Bearer ${SERVICE_KEY}`, 'Content-Type': 'application/json' },
+            body: JSON.stringify({ expiresIn: 900 })
+        });
+        const signApiData = await signApiRes.json();
+        const relativeSignedUrl = signApiData.signedURL.startsWith('/storage/v1') 
+            ? signApiData.signedURL 
+            : `/storage/v1${signApiData.signedURL}`;
+
+        // 4. Fetch from real Supabase Storage API using valid signed URL -> HTTP 200 OK
         const fullValidUrl = `http://127.0.0.1:54321${relativeSignedUrl}`;
         const fetchValidRes = await fetch(fullValidUrl);
         const validText = await fetchValidRes.text();
